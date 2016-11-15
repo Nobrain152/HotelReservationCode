@@ -1,0 +1,16 @@
+package businesslogicservice.userblservice;
+
+import java.util.ArrayList;
+import vo.UserIDVO;
+import vo.WebInfoVO;
+
+
+public interface WebIndividualInformationManagementBLService{
+		
+		
+		public UserInfoVO IndividualBaseInfolnquiry(UserIDVO vo);
+		
+		
+		public boolean IndividualBaseInfoModification(UserIDVO vo1,WebInfoVO vo2);
+		
+}

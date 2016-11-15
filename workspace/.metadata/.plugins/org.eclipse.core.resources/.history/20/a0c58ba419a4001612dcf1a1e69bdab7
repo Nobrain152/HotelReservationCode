@@ -1,0 +1,15 @@
+package businesslogicservice.userblservice;
+
+import vo.UserIDVO;
+import vo.UserInfoVO;
+
+
+public interface WebIndividualInformationManagementBLService{
+		
+		
+		public UserInfoVO IndividualBaseInfolnquiry(UserIDVO vo);
+		
+		
+		public boolean IndividualBaseInfoModification(UserIDVO vo1,WebInfoVO vo2);
+		
+}

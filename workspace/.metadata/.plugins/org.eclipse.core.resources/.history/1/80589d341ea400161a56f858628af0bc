@@ -1,0 +1,26 @@
+package businesslogicserviceimpl.userblserviceimpl;
+
+import vo.UserIDVO;
+import vo.WebInfoVO;
+import dataservice.userdataservice.UserManagementDataServiceImp;
+
+public class WebIndividualInformationManagementBLServiceImpl implements WebIndividualInformationManagementBLService {
+
+	UserManagementDataServiceImpl user=new UserManagementDataServiceImpl();
+	UserIDVO v;
+	
+	public WebIndividualInformationManagementBLServiceImp(UserIDVO vo){
+		v=vo;
+	}
+	
+	
+	public WebInfoVO IndividualBaseInfolnquiry(UserIDVO vo){
+		return (WebInfoVO)user.GetUserBaseInfo(vo);
+	}
+			
+	
+	public boolean IndividualBaseInfoModification(UserIDVO vo1,WebInfoVO vo2){
+		return user.SetUserBaseInfo(vo1,vo2);
+	}
+			
+}

@@ -1,6 +1,7 @@
-package dataserviceimpl.orderdataserviceimpl;
+package data;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 import java.rmi.RemoteException;
 import java.util.ArrayList;
@@ -8,9 +9,10 @@ import java.util.ArrayList;
 import org.junit.Before;
 import org.junit.Test;
 
-import businesslogic.util.User;
-import businesslogic.util.OrderState;
+import data.orderdata.OrderOnWebDataServiceImpl;
 import po.OrderOnWebPO;
+import util.OrderState;
+import util.User;
 
 public class OrderOnWebDataServiceImplTest {
 
@@ -25,7 +27,7 @@ public class OrderOnWebDataServiceImplTest {
 	public void setUp(){
 		webDataServiceImpl = new OrderOnWebDataServiceImpl();
 		order1 = new OrderOnWebPO(new User("txin",100,"18805156300","151250132@smail.nju.edu.cn"),"42654645437",
-				OrderState.UNEXECUTED,105,"ª≥µÕÌµ„");
+				OrderState.UNEXECUTED,105,"ÁÅ´ËΩ¶ÊôöÁÇπ");
 		order2 = new OrderOnWebPO(new User("txin",100,"18805156300","151250132@smail.nju.edu.cn"),"42654645437",
 				OrderState.ABNORMAL,105, "");
 		order3 = new OrderOnWebPO(new User("txin",100,"18805156300","151250132@smail.nju.edu.cn"),"42654645437",

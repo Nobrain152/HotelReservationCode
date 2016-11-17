@@ -1,0 +1,90 @@
+package data.userdata;
+
+import java.util.ArrayList;
+
+import dataservice.userdataservice.UserManagementDataService;
+import po.HotelIDPO;
+import po.LoginInputPO;
+import po.StuffInfoPO;
+import po.UserIDPO;
+import po.UserInfoPO;
+
+public class UserManagementDataServiceImpl implements UserManagementDataService {
+
+	int number;
+	int point;
+	ArrayList<String> ID;
+	ArrayList<String> password;
+	ArrayList<UserInfoPO> info;
+	String id;
+	ArrayList<String> stuffhotel;
+	ArrayList<String> webstuff;
+	
+	public UserManagementDataServiceImpl(){
+		point=0;
+		ID=new ArrayList<>();
+		password=new ArrayList<>();
+		info=new ArrayList<>();
+		number=0;
+		stuffhotel=new ArrayList<>();
+		webstuff=new ArrayList<>();
+	}
+	
+	@Override
+	public String GetLoginInfo(LoginInputPO vo) {
+		id=vo.getUserid();
+		point=ID.indexOf(id);
+		return password.get(point);
+	}
+
+	@Override
+	public String AddUser(LoginInputVPO vo) {
+		point=password.size();
+		String pass=vo.getUserpassword();
+		password.add(pass);
+		id="";
+		for(int i=0;i<9-number/10;i++){
+			id=id+"0";
+		}
+		return id+number;
+	}
+
+	@Override
+	public UserInfoPO GetUserBaseInfo(UserIDPO vo) {
+		id=vo.getUserID();
+		point=ID.indexOf(id);
+		return info.get(point);
+	}
+
+	@Override
+	public boolean SetUserBaseInfo(UserIDPO vo1, UserInfoPO vo2) {
+		id=vo1.getUserID();
+		point=ID.indexOf(id);
+		info.set(point, vo2);
+		return true;
+	}
+
+	public boolean addHotelStuff(HotelIDPO vo1,UserIDPO vo3){
+		point=stuffhotel.indexOf(vo3.getUserID());
+		if(point!=-1){
+			return false;
+		}
+		else{
+			StuffInfoPO vo2=(StuffInfoPO)info.get(point);
+			vo2.setHotel(vo1);
+			info.set(point, vo2);
+			return true;
+			}
+	}
+	
+	public boolean addWebStuff(UserIDPO vo){
+		point=webstuff.indexOf(vo.getUserID());
+		if(point!=-1){
+			return false;
+		}
+		else{
+			webstuff.add(vo.getUserID());
+			return true;
+			}
+	}
+}

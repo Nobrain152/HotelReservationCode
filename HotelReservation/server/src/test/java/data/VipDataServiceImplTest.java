@@ -1,4 +1,4 @@
-package dataserviceimpl.vipdataserviceimpl;
+package data;
 
 import static org.junit.Assert.*;
 

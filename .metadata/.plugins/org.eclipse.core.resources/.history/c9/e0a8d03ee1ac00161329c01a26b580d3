@@ -1,0 +1,56 @@
+package bl.orderbl;
+
+import java.util.ArrayList;
+
+import util.OrderOnHotelMsg;
+import util.OrderState;
+import util.ResultMsg;
+import vo.OrderOnHotelVO;
+
+public class OrderOnHotelController {
+	
+	static ArrayList<OrderOnHotelVO> hotelList;
+	
+	public OrderOnHotelController() {
+		hotelList = new ArrayList<OrderOnHotelVO>();
+	}
+	
+	/**
+	 * 酒店工作人员查看酒店订单列表
+	 *
+	 * @param void
+	 * @return 酒店订单列表
+	 */
+	public ArrayList<OrderOnHotelVO> hotelOrderScan() {
+		return hotelList;
+	}
+	
+	/**
+	 * 酒店工作人员查看酒店订单详情
+	 *
+	 * @param orderVO 订单VO
+	 * @return 酒店订单详情
+	 */
+	public OrderOnHotelMsg hotelOrderDetail(OrderOnHotelVO order) {
+		return new OrderOnHotelMsg(order.getInitiator(),order.getOrderID(), order.getOrderState(), order.getPrice(), 
+				order.getCheckInTime(), order.getCheckOutTime(), order.getLatestExecutionTime(), 
+				order.getRoomType(), order.getRoomNumber(), order.getPeopleNumber(), order.getHasChild());
+	}
+	
+	/**
+	 * 酒店工作人员修改订单状态
+	 *
+	 * @param orderVO 订单VO
+	 * @return 系统提示消息
+	 */
+	public ResultMsg hotelOrderModify(OrderOnHotelVO order) {
+		if(order.getOrderState() == OrderState.UNEXECUTED) {
+			order.setOrderState(OrderState.EXECUTED);
+			return new ResultMsg(true, "执行成功！");
+		}else{
+			return new ResultMsg(false, "订单状态不可修改！");
+		}
+	}
+	
+
+}

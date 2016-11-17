@@ -1,6 +1,7 @@
-package dataserviceimpl.orderdataserviceimpl;
+package data;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 import java.rmi.RemoteException;
 import java.util.ArrayList;
@@ -8,10 +9,11 @@ import java.util.ArrayList;
 import org.junit.Before;
 import org.junit.Test;
 
-import businesslogic.util.User;
-import businesslogic.util.OrderState;
-import businesslogic.util.RoomType;
+import data.orderdata.OrderOnUserDataServiceImpl;
 import po.OrderOnUserPO;
+import util.OrderState;
+import util.RoomType;
+import util.User;
 
 public class OrderOnUserDataServiceImplTest {
 

@@ -1,9 +1,9 @@
-package businesslogicserviceimpl.userblserviceimpl;
+package user;
 
 
 import static org.junit.Assert.assertEquals;
 
-import businesslogicservice.userblservice.HotelStuff;
+import blservice.userblservice.HotelStuff;
 import vo.HotelIDVO;
 import vo.StuffInfoVO;
 

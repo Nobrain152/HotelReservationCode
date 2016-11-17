@@ -18,6 +18,18 @@
 		<item value="84" key="y"/>
 		<item value="450" key="height"/>
 	</section>
+	<section name="org.eclipse.m2e.core.ui.internal.dialogs.EditDependencyDialog">
+		<item value="480" key="width"/>
+		<item value="443" key="x"/>
+		<item value="84" key="y"/>
+		<item value="450" key="height"/>
+	</section>
+	<section name="org.eclipse.m2e.core.ui.internal.dialogs.MavenRepositorySearchDialog">
+		<item value="480" key="width"/>
+		<item value="443" key="x"/>
+		<item value="0" key="y"/>
+		<item value="590" key="height"/>
+	</section>
 	<section name="MavenProjectImportWizardPage">
 		<list key="rootDirectory">
 			<item value="D:\HotelReservationCode\HotelReservation"/>

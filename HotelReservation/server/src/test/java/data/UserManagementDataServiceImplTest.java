@@ -1,4 +1,4 @@
-package dataserviceimpl.userdataserviceimpl;
+package data;
 
 
 import static org.junit.Assert.assertEquals;
@@ -8,22 +8,23 @@ import java.rmi.RemoteException;
 import org.junit.Before;
 import org.junit.Test;
 
-import vo.HotelIDVO;
-import vo.LoginInputVO;
-import vo.UserIDVO;
-import vo.UserInfoVO;
+import data.userdata.UserManagementDataServiceImpl;
+import po.HotelIDPO;
+import po.LoginInputPO;
+import po.UserIDPO;
+import po.UserInfoPO;
 
 public class UserManagementDataServiceImplTest {
 
 	UserManagementDataServiceImpl impl;
-	LoginInputVO log;
-	UserIDVO vo;
+	LoginInputPO log;
+	UserIDPO po;
 	
 	@Before
 	public void setUp(){
 		impl=new UserManagementDataServiceImpl();
-		log=new LoginInputVO("123456789","123456789");
-		vo=new UserIDVO("123456798");
+		log=new LoginInputPO("123456789","123456789");
+		po=new UserIDPO("123456798");
 	}
 	
 	@Test
@@ -33,30 +34,30 @@ public class UserManagementDataServiceImplTest {
 	
 	@Test
 	public void testAddUser() throws RemoteException{
-		log=new LoginInputVO(" ","123456");
+		log=new LoginInputPO(" ","123456");
 		assertEquals(impl.AddUser(log),"000000000");
 	}
 	
 	
 	@Test
 	public void testGetUserBaseInfo() throws RemoteException{
-		assertEquals(impl.GetUserBaseInfo(vo),null);
+		assertEquals(impl.GetUserBaseInfo(po),null);
 	}
 
 	@Test
 	public void testSetUserBaseInfo() throws RemoteException{
-		UserInfoVO v=new UserInfoVO("123456798","Lily","12345678765");
-		assertEquals(impl.SetUserBaseInfo(vo, v),true);
+		UserInfoPO v=new UserInfoPO("123456798","Lily","12345678765");
+		assertEquals(impl.SetUserBaseInfo(po, v),true);
 	}
 	
 	@Test
 	public void testaddHotelStuff() throws RemoteException{
-		HotelIDVO o=new HotelIDVO("123456");
-		assertEquals(impl.addHotelStuff(o,vo),true);
+		HotelIDPO o=new HotelIDPO("123456");
+		assertEquals(impl.addHotelStuff(o,po),true);
 	}
 	
 	public void testaddWebStuff() throws RemoteException{
-		vo=new UserIDVO("123546789");
-		assertEquals(impl.addWebStuff(vo),true);
+		po=new UserIDPO("123546789");
+		assertEquals(impl.addWebStuff(po),true);
 	}
 }

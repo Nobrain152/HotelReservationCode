@@ -1,4 +1,4 @@
-package dataserviceimpl.hoteldataserviceimpl;
+package data;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
@@ -9,10 +9,10 @@ import java.util.ArrayList;
 import org.junit.Before;
 import org.junit.Test;
 
-import businesslogic.util.RoomState;
-import businesslogic.util.RoomType;
-import businesslogic.util.User;
+import data.hoteldata.RoomInfoDataServiceImpl;
 import po.RoomInfoPO;
+import util.RoomState;
+import util.RoomType;
 
 public class RoomInfoDataServiceImplTest {
 

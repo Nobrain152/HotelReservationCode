@@ -1,8 +1,7 @@
-package dataserviceimpl.userdataserviceimpl;
+package data;
 
 
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
 
 import java.rmi.RemoteException;
 import java.util.ArrayList;
@@ -10,18 +9,18 @@ import java.util.ArrayList;
 import org.junit.Before;
 import org.junit.Test;
 
-
-import vo.UserIDVO;
+import data.userdata.CustomerManagementDataServiceImpl;
+import po.UserIDPO;
 
 public class CustomerManagementDataServiceImplTest {
 
 	CustomerManagementDataServiceImpl impl;
-	UserIDVO id;
+	UserIDPO id;
 	
 	@Before
 	public void setUp(){
 		impl=new CustomerManagementDataServiceImpl();
-		id=new UserIDVO("123456789");
+		id=new UserIDPO("123456789");
 	}
 	
 	@Test

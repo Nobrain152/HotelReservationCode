@@ -1,4 +1,4 @@
-package dataserviceimpl.promotiondataserviceimpl;
+package data;
 
 import static org.junit.Assert.*;
 

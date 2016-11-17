@@ -1,2 +1,5 @@
 eclipse.preferences.version=1
-encoding/<project>=UTF-8
+encoding//src/main/java=GBK
+encoding//src/main/java/util/PromotionMsg.java=UTF-8
+encoding//src/test/java=GBK
+encoding/<project>=GBK

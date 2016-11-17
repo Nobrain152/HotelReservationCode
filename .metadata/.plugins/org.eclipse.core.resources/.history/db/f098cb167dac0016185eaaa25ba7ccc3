@@ -6,11 +6,8 @@
   <packaging>pom</packaging>
   <name>HotelReservation</name>
   <modules>
-  	
-  	
-  	
-  	<module>client</module>
-  	<module>common</module>
-  	<module>server</module>
+  	<module>../server</module>
+  	<module>../client</module>
+  	<module>../common</module>
   </modules>
 </project>

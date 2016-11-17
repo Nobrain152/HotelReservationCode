@@ -21,6 +21,7 @@
 	<section name="MavenProjectImportWizardPage">
 		<list key="rootDirectory">
 			<item value="D:\HotelReservationCode\HotelReservation"/>
+			<item value="D:\HotelReservationCode\ELMSParent"/>
 		</list>
 		<list key="projectNameTemplate">
 			<item value="[artifactId]"/>

@@ -6,11 +6,12 @@
   <packaging>pom</packaging>
   <name>HotelReservation</name>
   <modules>
-  	
-  	
-  	
   	<module>client</module>
   	<module>common</module>
   	<module>server</module>
   </modules>
+  <url>http://maven.apache.org</url>
+  <properties>
+  	<project.build.sourceEncoding>GBK</project.build.sourceEncoding>
+  </properties>
 </project>

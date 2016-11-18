@@ -11,7 +11,7 @@ public class OrderOnUserDataServiceImpl {
 	ArrayList<OrderOnUserPO> userPOs;
 	
 	public OrderOnUserDataServiceImpl(){
-		userPOs = new ArrayList<>();
+		userPOs = new ArrayList<OrderOnUserPO>();
 	}
 	
 	

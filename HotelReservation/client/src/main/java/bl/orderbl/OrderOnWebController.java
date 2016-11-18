@@ -21,7 +21,7 @@ public class OrderOnWebController {
 	 * @return 申诉列表
 	 */
 	public ArrayList<OrderOnWebVO> complaintListScan() {
-		ArrayList<OrderOnWebVO> orderOnWebs = new ArrayList<>();
+		ArrayList<OrderOnWebVO> orderOnWebs = new ArrayList<OrderOnWebVO>();
 		for(int i = 0;i < webList.size(); i++){
 			if(webList.get(i).getReason() != "")
 				orderOnWebs.add(webList.get(i));
@@ -53,7 +53,7 @@ public class OrderOnWebController {
 	 * @return 异常订单列表
 	 */
 	public ArrayList<OrderOnWebVO> abnormalOrderScan() {
-		ArrayList<OrderOnWebVO> orderOnWebs = new ArrayList<>();
+		ArrayList<OrderOnWebVO> orderOnWebs = new ArrayList<OrderOnWebVO>();
 		for(int i = 0;i < webList.size(); i++){
 			if(webList.get(i).getOrderState() == OrderState.ABNORMAL)
 				orderOnWebs.add(webList.get(i));

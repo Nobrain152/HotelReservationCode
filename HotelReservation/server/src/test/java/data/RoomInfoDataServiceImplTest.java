@@ -30,7 +30,7 @@ public class RoomInfoDataServiceImplTest {
 		room2=new RoomInfoPO(RoomState.UNUSABLE,RoomType.ROOM_STANDARD,10,1435);
 		room3=new RoomInfoPO(RoomState.USABLE,RoomType.ROOM_BIGBED,0,233);
 		room4=new RoomInfoPO(RoomState.USABLE,RoomType.ROOM_PRESIDENTIAL,2,159999);
-		list = new ArrayList<>();
+		list = new ArrayList<RoomInfoPO>();
 	}
 	
 	@Test

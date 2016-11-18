@@ -22,12 +22,12 @@ public class UserManagementDataServiceImpl implements UserManagementDataService 
 	
 	public UserManagementDataServiceImpl(){
 		point=0;
-		ID=new ArrayList<>();
-		password=new ArrayList<>();
-		info=new ArrayList<>();
+		ID=new ArrayList<String>();
+		password=new ArrayList<String>();
+		info=new ArrayList<UserInfoPO>();
 		number=0;
-		stuffhotel=new ArrayList<>();
-		webstuff=new ArrayList<>();
+		stuffhotel=new ArrayList<String>();
+		webstuff=new ArrayList<String>();
 	}
 	
 	@Override

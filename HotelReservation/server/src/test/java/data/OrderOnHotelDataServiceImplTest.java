@@ -39,7 +39,7 @@ public class OrderOnHotelDataServiceImplTest {
 		order4 = new OrderOnHotelPO(new User("txin",100,"18805156300","151250132@smail.nju.edu.cn"),"42654645437",
 				OrderState.EXECUTED,105, "2016-10-18 12:00","2016-10-19 12:00","2016-10-18 24:00",
 				RoomType.ROOM_STANDARD,1,1,false);
-		list = new ArrayList<>();
+		list = new ArrayList<OrderOnHotelPO>();
 	}
 	
 	@Test

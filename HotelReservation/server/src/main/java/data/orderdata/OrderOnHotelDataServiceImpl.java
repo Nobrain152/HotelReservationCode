@@ -11,7 +11,7 @@ public class OrderOnHotelDataServiceImpl {
 	ArrayList<OrderOnHotelPO> hotelPOs;
 	
 	public OrderOnHotelDataServiceImpl(){
-		hotelPOs = new ArrayList<>();
+		hotelPOs = new ArrayList<OrderOnHotelPO>();
 	}
 	
 	

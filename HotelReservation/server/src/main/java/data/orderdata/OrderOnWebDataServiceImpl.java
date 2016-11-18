@@ -11,7 +11,7 @@ public class OrderOnWebDataServiceImpl {
 	ArrayList<OrderOnWebPO> webPOs;
 	
 	public OrderOnWebDataServiceImpl(){
-		webPOs = new ArrayList<>();
+		webPOs = new ArrayList<OrderOnWebPO>();
 	}
 	
 	

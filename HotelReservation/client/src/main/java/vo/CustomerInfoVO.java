@@ -17,8 +17,8 @@ public class CustomerInfoVO extends UserInfoVO{
 		    super(userid, username, contact);
 			this.credit=credit;
 			isMember=false;
-			orderID=new ArrayList<>();
-			hotelID=new ArrayList<>();
+			orderID=new ArrayList<String>();
+			hotelID=new ArrayList<String>();
 		}
 		
 		public String getUserid(){

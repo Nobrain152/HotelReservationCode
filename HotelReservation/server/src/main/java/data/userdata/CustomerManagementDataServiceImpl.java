@@ -25,13 +25,13 @@ public class CustomerManagementDataServiceImpl implements CustomerManagementData
 	
 	public CustomerManagementDataServiceImpl(){
 		point=0;
-		ID=new ArrayList<>();
-		password=new ArrayList<>();
-		info=new ArrayList<>();
-		orderID=new ArrayList<>();
-		order=new ArrayList<>();
-		hotelID=new ArrayList<>();
-		hotel=new ArrayList<>();
+		ID=new ArrayList<String>();
+		password=new ArrayList<String>();
+		info=new ArrayList<UserInfoPO>();
+		orderID=new ArrayList<String>();
+		order=new ArrayList<OrderOnUserPO>();
+		hotelID=new ArrayList<String>();
+		hotel=new ArrayList<OrderOnUserPO>();
 	}
 	
 	@Override

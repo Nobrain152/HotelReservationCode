@@ -9,7 +9,7 @@ public class HotelEvaluateDataServiceImpl {
 	ArrayList<HotelEvaluatePO> POs;
 	
 	public HotelEvaluateDataServiceImpl(){
-		POs = new ArrayList<>();
+		POs = new ArrayList<HotelEvaluatePO>();
 	}
 	
 	/**

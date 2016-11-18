@@ -41,7 +41,7 @@ public class CustomerManagementDataServiceImplTest {
 
 	@Test
 	public void testGetCustomerHotel() throws RemoteException{
-		 ArrayList<String> n=new ArrayList<>();
+		 ArrayList<String> n=new ArrayList<String>();
 		 n.add("123456");
 		assertEquals(impl.GetCustomerHotel(id),n);
 	}

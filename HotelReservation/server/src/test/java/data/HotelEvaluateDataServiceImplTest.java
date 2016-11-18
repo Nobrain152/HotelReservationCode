@@ -25,7 +25,7 @@ public class HotelEvaluateDataServiceImplTest {
 		impl = new HotelEvaluateDataServiceImpl();
 		evaluation1=new HotelEvaluatePO("gyf","StarHotel",10,"execellent",true);
 		evaluation2=new HotelEvaluatePO("gyf","SunHotel",8,"very good",false);
-		list = new ArrayList<>();
+		list = new ArrayList<HotelEvaluatePO>();
 	}
 	
 	@Test

@@ -9,7 +9,7 @@ public class RoomInfoDataServiceImpl {
 	ArrayList<RoomInfoPO> roomPOs;
 	
 	public RoomInfoDataServiceImpl(){
-		roomPOs = new ArrayList<>();
+		roomPOs = new ArrayList<RoomInfoPO>();
 	}
 	
 	/**

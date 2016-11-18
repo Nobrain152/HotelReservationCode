@@ -31,7 +31,7 @@ public class HotelInfoDataServiceImplTest {
 		hotel3=new HotelInfoPO("MoonHotel","MoonRoad","MoonArea",-1,"It's a terrible hotel","nothing",
 				true);
 		
-		list = new ArrayList<>();
+		list = new ArrayList<HotelInfoPO>();
 	}
 	
 	@Test

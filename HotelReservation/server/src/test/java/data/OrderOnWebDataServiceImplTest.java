@@ -34,7 +34,7 @@ public class OrderOnWebDataServiceImplTest {
 				OrderState.CANCELLED,105, "");
 		order4 = new OrderOnWebPO(new User("txin",100,"18805156300","151250132@smail.nju.edu.cn"),"42654645437",
 				OrderState.EXECUTED,105, "");
-		list = new ArrayList<>();
+		list = new ArrayList<OrderOnWebPO>();
 	}
 	
 	@Test

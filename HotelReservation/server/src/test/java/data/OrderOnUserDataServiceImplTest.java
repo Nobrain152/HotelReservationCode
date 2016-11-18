@@ -35,7 +35,7 @@ public class OrderOnUserDataServiceImplTest {
 				OrderState.CANCELLED,105,"2016-10-17 24:00",RoomType.ROOM_STANDARD,1,1,false);
 		order4 = new OrderOnUserPO(new User("txin",100,"18805156300","151250132@smail.nju.edu.cn"),"42654645437",
 				OrderState.EXECUTED,105,"2016-10-18 24:00",RoomType.ROOM_STANDARD,1,1,false);
-		list = new ArrayList<>();
+		list = new ArrayList<OrderOnUserPO>();
 	}
 	
 	@Test

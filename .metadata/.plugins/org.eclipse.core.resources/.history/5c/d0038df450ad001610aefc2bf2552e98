@@ -38,7 +38,7 @@ public class UserManagementDataServiceImpl implements UserManagementDataService 
 	}
 
 	@Override
-	public String AddUser(LoginInputPO po) {
+	public String AddUser(LoginInputVPO po) {
 		point=password.size();
 		String pass=po.getUserpassword();
 		password.add(pass);

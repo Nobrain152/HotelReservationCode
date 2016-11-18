@@ -21,9 +21,8 @@ public class LoginInputController implements LoginInputBLService {
 	 * @return 登录结果
 	 */
     public boolean  LogIn(LoginInputVO vo){
-    	String pass=vo.getUserpassword();
-    	String real=data.GetLoginInfo(vo);
-    	return real.equals(pass);
+    	
+    	return true;
     	
     }
 	
@@ -49,6 +48,6 @@ public class LoginInputController implements LoginInputBLService {
 	 * @return 注册结果
 	 */
 	public String Register(LoginInputVO vo){
-		return data.AddUser(vo);
+		return null;
 	}
 }

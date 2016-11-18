@@ -17,22 +17,10 @@ public class CustomerInfoManagementController
 		implements CustomerIndividualInformationManagementBLService {
 	
 	UserInfoVO userInfoVO;
-	ArrayList<OrderOnUserVO> orderVOs;
-	ArrayList<HotelInfoVO> hotelInfoVOs;
-	ArrayList<String> orderID;
-	ArrayList<String> hotelID;
-	IntegralVO integralVO;
-	UserManagementDataServiceImpl usermanage;
-	CustomerManagementDataServiceImpl customermanage;
-	IntegralController integral;
+	
 	
 	public CustomerInfoManagementController(UserIDVO vo){
-		usermanage=new UserManagementDataServiceImpl();
-		customermanage=new CustomerManagementDataServiceImpl();
-		integral=new IntegralController();
-		userInfoVO=usermanage.GetUserBaseInfo(vo);
-		orderID=customermanage.GetCustomerOrders(vo);
-		hotelID=customermanage.GetCustomerHotel(vo);
+		
 		
 	}
 	
@@ -44,22 +32,22 @@ public class CustomerInfoManagementController
 			
 	
 	public boolean IndividualBaseInfoModification(UserIDVO vo1,CustomerInfoVO vo2){
-		return usermanage.SetUserBaseInfo(vo1,vo2);
+		return true;
 	}
 			
 	
 	public ArrayList<OrderOnUserVO> IndividualOrderInquiry(UserIDVO vo){
-		return orderVOs;
+		return null;
 	}
 			
 	
 	public ArrayList<HotelInfoVO> IndividualHotelInquiry(UserIDVO vo){
-		return hotelInfoVOs;
+		return null;
 	}
 			
 	
 	public IntegralVO IndividualCredictInquiry(UserIDVO vo){
-		return 	integralVO;
+		return 	null;
 	}
 			
 }

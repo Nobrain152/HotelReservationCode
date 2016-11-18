@@ -26,7 +26,7 @@ public class WebInfoManagementController implements WebIndividualInformationMana
 	 * @return 用户个人信息VO
 	 */
 	public UserInfoVO IndividualBaseInfolnquiry(UserIDVO vo){
-		return (UserInfoVO)user.GetUserBaseInfo(vo);
+		return null;
 	}
 			
 	/**
@@ -36,7 +36,7 @@ public class WebInfoManagementController implements WebIndividualInformationMana
 	 * @return 修改结果
 	 */
 	public boolean IndividualBaseInfoModification(UserIDVO vo1,UserInfoVO vo2){
-		return user.SetUserBaseInfo(vo1,vo2);
+		return true;
 	}
 			
 }

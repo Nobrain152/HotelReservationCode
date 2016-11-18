@@ -36,7 +36,7 @@ public class WebManagerHotelOperationController implements WebManagerHotelOperat
 	 * @param ÓÃ»§IDVO
 	 */
 	public boolean StuffAdd(HotelIDVO vo1,UserIDVO vo2){
-		return check.addHotelStuff(vo1,vo2);
+		return true;
 	}
 
 

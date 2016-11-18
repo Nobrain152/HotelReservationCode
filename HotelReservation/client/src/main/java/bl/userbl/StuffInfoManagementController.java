@@ -18,8 +18,7 @@ public class StuffInfoManagementController implements StuffIndividualInformation
 	UserManagementDataServiceImpl user;
 	
 	public StuffInfoManagementController(UserIDVO vo){
-		user=new UserManagementDataServiceImpl();
-		voi=user.GetUserBaseInfo(vo);
+		
 	}
 	
 	/**
@@ -39,7 +38,7 @@ public class StuffInfoManagementController implements StuffIndividualInformation
 	 * @return ÐÞ¸Ä½á¹û
 	 */
 	public boolean IndividualBaseInfoModification(UserIDVO vo1,StuffInfoVO vo2){
-		return user.SetUserBaseInfo(vo1,vo2);
+		return true;
 	}
 			
 }

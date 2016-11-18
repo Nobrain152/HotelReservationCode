@@ -1,41 +1,39 @@
 package po;
 
-import java.io.Serializable;
-
-public class StuffInfoPO implements Serializable{
-
-    
-	private static final long serialVersionUID = -7187002330817151504L;
+public class StuffInfoPO extends UserInfoPO{
 	
-	 private String userid;
+	private static final long serialVersionUID = -7187002330817151504L;
+    
+	private String userid;
 		
 	private String username;
 		
 	private String contact;
 		
-	private HotelIDPO hotelpo;
-		
-		
-	public StuffInfoPO(String userid,String username,String contact,HotelIDPO po){
-		    this.userid=userid;
-			this.username=username;
-			this.contact=contact;
-			this.hotelpo=po;
+	private HotelIDPO hotelPO;
+	
+	public StuffInfoPO(String userid,String username,String contact,HotelIDPO PO){
+	    super(userid, username, contact);
+		this.hotelPO=PO;
 	}
 		
 	public String getUserid(){
-		    return userid;
+	    return userid;
 	}
 		
 	public String getUsername(){
-		    return username;
+	    return username;
 	}
 		
 	public String getContact(){
-		    return contact;
+	    return contact;
 	}
-		
+	
 	public HotelIDPO getHotel(){
-			return hotelpo;
+		return hotelPO;
+	}	
+	
+	public void setHotel(HotelIDPO po){
+		hotelPO=po;
 	}
 }

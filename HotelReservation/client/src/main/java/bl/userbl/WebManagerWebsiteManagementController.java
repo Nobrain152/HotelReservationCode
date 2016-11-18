@@ -28,7 +28,7 @@ public class WebManagerWebsiteManagementController implements WebManagerWebsiteM
 	 * @return 用户个人信息VO
 	 */
 	public UserInfoVO UserInformationInquiry(UserIDVO vo){
-		return check.GetUserBaseInfo(vo);
+		return null;
 	}
 			
 	
@@ -39,7 +39,7 @@ public class WebManagerWebsiteManagementController implements WebManagerWebsiteM
 	 * @return 修改结果
 	 */
 	public boolean UserInformationModification(UserIDVO vo1,UserInfoVO vo2){
-		return check.SetUserBaseInfo(vo1,vo2);
+		return true;
 	}
 			
 	/**
@@ -47,7 +47,7 @@ public class WebManagerWebsiteManagementController implements WebManagerWebsiteM
 	 * @param 用户IDVO
 	 */
 	public boolean WebsiteStuffAdd(UserIDVO vo){
-		return check.addWebStuff(vo);
+		return true;
 	}
 
 	/**

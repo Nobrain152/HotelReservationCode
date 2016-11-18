@@ -10,6 +10,7 @@
   	<module>common</module>
   	<module>server</module>
   </modules>
+  
   <url>http://maven.apache.org</url>
   <properties>
   	<project.build.sourceEncoding>GBK</project.build.sourceEncoding>
@@ -21,4 +22,6 @@
   		<version>4.12</version>
   	</dependency>
   </dependencies>
+  
+  
 </project>

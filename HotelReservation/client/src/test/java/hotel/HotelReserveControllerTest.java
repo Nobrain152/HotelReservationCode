@@ -49,7 +49,7 @@ public class HotelReserveControllerTest {
 				OrderState.ABNORMAL,105, "2016-10-16 24:00",RoomType.ROOM_BUSINESS,1,1,false);
 		
 		
-		reMsg = new ResultMsg(true, "Ô¤ï¿½ï¿½ï¿½É¹ï¿½");
+		reMsg = new ResultMsg(true, "Ô¤¶¨³É¹¦");
 		
 	}
 	

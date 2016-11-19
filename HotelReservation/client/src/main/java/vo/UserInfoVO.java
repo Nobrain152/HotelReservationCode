@@ -1,5 +1,7 @@
 package vo;
 
+import po.UserInfoPO;
+
 public class UserInfoVO{
     
 	private String userid;
@@ -12,6 +14,12 @@ public class UserInfoVO{
 		    this.userid=userid;
 			this.username=username;
 			this.contact=contact;
+	}
+	
+	public UserInfoVO(UserInfoPO po){
+		this.userid=po.getUserid();
+		this.username=po.getUsername();
+		this.contact=po.getContact();
 	}
 	
 	public String getUserid(){

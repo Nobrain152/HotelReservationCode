@@ -31,7 +31,7 @@ public class HotelEvaluateControllerTest {
 				
 				
 		impl = new HotelEvaluateController();
-		reMsg1 = new ResultMsg(true, "评论成功");
+		reMsg1 = new ResultMsg(true, "完成评价");
 		reMsg2 = new ResultMsg(false, "评论失败");
 		evList = impl.evaluationList;
 		evList.add(evaluation1);

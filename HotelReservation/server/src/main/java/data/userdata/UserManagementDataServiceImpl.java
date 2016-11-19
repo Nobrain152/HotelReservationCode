@@ -2,12 +2,14 @@ package data.userdata;
 
 import java.util.ArrayList;
 
+
 import dataservice.userdataservice.UserManagementDataService;
 import po.HotelIDPO;
 import po.LoginInputPO;
 import po.StuffInfoPO;
 import po.UserIDPO;
 import po.UserInfoPO;
+import po.UserIDPO;
 
 public class UserManagementDataServiceImpl implements UserManagementDataService {
 
@@ -30,14 +32,12 @@ public class UserManagementDataServiceImpl implements UserManagementDataService 
 		webstuff=new ArrayList<String>();
 	}
 	
-	@Override
 	public String GetLoginInfo(LoginInputPO po) {
 		id=po.getUserid();
 		point=ID.indexOf(id);
 		return password.get(point);
 	}
 
-	@Override
 	public String AddUser(LoginInputPO po) {
 		point=password.size();
 		String pass=po.getUserpassword();
@@ -49,14 +49,12 @@ public class UserManagementDataServiceImpl implements UserManagementDataService 
 		return id+number;
 	}
 
-	@Override
-	public UserInfoPO GetUserBaseInfo(UserIDPO po) {
-		id=po.getUserID();
+	public UserInfoPO GetUserBaseInfo(UserIDPO vo) {
+		id=vo.getUserID();
 		point=ID.indexOf(id);
 		return info.get(point);
 	}
 
-	@Override
 	public boolean SetUserBaseInfo(UserIDPO po1, UserInfoPO po2) {
 		id=po1.getUserID();
 		point=ID.indexOf(id);
@@ -87,4 +85,5 @@ public class UserManagementDataServiceImpl implements UserManagementDataService 
 			return true;
 			}
 	}
-}
+
+}	

@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 import dataservice.userdataservice.CustomerManagementDataService;
 import po.CustomerInfoPO;
+import po.HotelInfoPO;
 import po.OrderOnUserPO;
 import po.UserIDPO;
 import po.UserInfoPO;
@@ -18,7 +19,7 @@ public class CustomerManagementDataServiceImpl implements CustomerManagementData
 	ArrayList<String> orderID;
 	ArrayList<OrderOnUserPO> order;
 	ArrayList<String> hotelID;
-	ArrayList<OrderOnUserPO> hotel;
+	ArrayList<HotelInfoPO> hotel;
 	String id;
 	CustomerInfoPO po2;
 	boolean result;
@@ -31,28 +32,26 @@ public class CustomerManagementDataServiceImpl implements CustomerManagementData
 		orderID=new ArrayList<String>();
 		order=new ArrayList<OrderOnUserPO>();
 		hotelID=new ArrayList<String>();
-		hotel=new ArrayList<OrderOnUserPO>();
+		hotel=new ArrayList<HotelInfoPO>();
 	}
 	
-	@Override
+	
 	public boolean AddMembers(UserIDPO po) {
 		id=po.getUserID();
 		point=ID.indexOf(id);
-		po2=(CustomerInfoPO)info.get(point);
-		result=po2.setMember();
+		po2=(CustomerInfoPO) info.get(point);
+		result=po2.setMember(true);
 		info.set(point, po2);
 		return result;
 	}
 
-	@Override
 	public ArrayList<String> GetCustomerOrders(UserIDPO po) {
 		id=po.getUserID();
 		point=ID.indexOf(id);
 		po2=(CustomerInfoPO)info.get(point);
-		return po2.getorder();
+		return po2.getOrder();
 	}
 
-	@Override
 	public boolean addCustomerOrders(UserIDPO po, String i) {
 		id=po.getUserID();
 		point=ID.indexOf(id);
@@ -62,15 +61,13 @@ public class CustomerManagementDataServiceImpl implements CustomerManagementData
 		return result;
 	}
 
-	@Override
 	public ArrayList<String> GetCustomerHotel(UserIDPO po) {
 		id=po.getUserID();
 		point=ID.indexOf(id);
 		po2=(CustomerInfoPO)info.get(point);
-		return po2.gethotel();
+		return po2.getHotel();
 	}
 
-	@Override
 	public boolean addCustomerHotel(UserIDPO po, String idh) {
 		id=po.getUserID();
 		point=ID.indexOf(id);

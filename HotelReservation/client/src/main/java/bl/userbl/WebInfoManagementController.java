@@ -2,6 +2,8 @@ package bl.userbl;
 
 import blservice.userblservice.WebIndividualInformationManagementBLService;
 import data.userdata.UserManagementDataServiceImpl;
+import po.UserIDPO;
+import po.UserInfoPO;
 import vo.UserIDVO;
 import vo.UserInfoVO;
 
@@ -15,6 +17,7 @@ public class WebInfoManagementController implements WebIndividualInformationMana
 
 	UserManagementDataServiceImpl user=new UserManagementDataServiceImpl();
 	UserIDVO v;
+	UserIDPO po;
 	
 	public WebInfoManagementController(UserIDVO vo){
 		v=vo;
@@ -26,7 +29,9 @@ public class WebInfoManagementController implements WebIndividualInformationMana
 	 * @return 用户个人信息VO
 	 */
 	public UserInfoVO IndividualBaseInfolnquiry(UserIDVO vo){
-		return null;
+		po=new UserIDPO(vo.getUserID());
+		UserInfoPO p=user.GetUserBaseInfo(po);
+		return new UserInfoVO(p.getUserid(),p.getUsername(),p.getContact());
 	}
 			
 	/**
@@ -36,7 +41,9 @@ public class WebInfoManagementController implements WebIndividualInformationMana
 	 * @return 修改结果
 	 */
 	public boolean IndividualBaseInfoModification(UserIDVO vo1,UserInfoVO vo2){
-		return true;
+		po=new UserIDPO(vo1.getUserID());
+		UserInfoPO p=new UserInfoPO(vo2.getUserid(),vo2.getUsername(),vo2.getContact());
+		return user.SetUserBaseInfo(po,p);
 	}
 			
 }

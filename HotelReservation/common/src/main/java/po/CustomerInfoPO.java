@@ -1,83 +1,83 @@
 package po;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class CustomerInfoPO extends UserInfoPO{
+public class CustomerInfoPO extends UserInfoPO implements Serializable{
+    
 	
 	private static final long serialVersionUID = -7187002330817151504L;
 	
+	private String userid;
+	
+	private String username;
+	
+	private String contact;
+	
+	private boolean isMember;
+	
 	private int credit;
-	String userid;
-	String username;
-	String contact;
-	boolean isMember;
-	ArrayList<String> orderID;
-	ArrayList<String> hotelID;
 	
+	private ArrayList<String> order;
 	
+	private ArrayList<String> hotel;
+		
 	public CustomerInfoPO(String userid,String username,String contact,int credit){
-	    super(userid, username, contact);
-		this.credit=credit;
-		isMember=false;
-		orderID=new ArrayList<String>();
-		hotelID=new ArrayList<String>();
+		    super(userid,username,contact);
+		    this.userid=userid;
+			this.username=username;
+			this.contact=contact;
+			this.credit=credit;
+			isMember=false;
+			order=new ArrayList<String>();
+			hotel=new ArrayList<String>();
 	}
+	
 	
 	public String getUserid(){
-	    return userid;
+		   return userid;
 	}
-	
+		
 	public String getUsername(){
-	    return username;
+		   return username;
 	}
-	
+		
 	public String getContact(){
-	    return contact;
+		   return contact;
 	}
-	
+		
 	public int getCredit(){
-	    return credit;
+		   return credit;
 	}
 	
-	public boolean isMember(){
-		return isMember;
-	}
-	
-	public boolean setMember(){
-		if(isMember){
-			return false;
+	public boolean setMember(boolean choose){
+		if(choose!=isMember){
+			isMember=choose;
 		}
-		else{
-			isMember=true;
+		return choose!=isMember;
+	}
+	
+	public ArrayList<String> getOrder(){
+		return order;
+	}
+	
+	public boolean addOrder(String order){
+		if(!this.order.contains(order)){
+			this.order.add(order);
 			return true;
-		}
+	    }
+		return false;
 	}
 	
-	public ArrayList<String> getorder(){
-		return orderID;
+	public ArrayList<String> getHotel(){
+		return hotel;
 	}
 	
-	public boolean addOrder(String id){
-		if(orderID.indexOf(id)!=-1){
-			return false;
-		}
-		else{
-			orderID.add(id);
+	public boolean addHotel(String hotel){
+		if(!this.hotel.contains(hotel)){
+			this.hotel.add(hotel);
 			return true;
-		}
-	}
-	
-	public ArrayList<String> gethotel(){
-		return hotelID;
-	}
-	
-	public boolean addHotel(String id){
-		if(hotelID.indexOf(id)!=-1){
-			return false;
-		}
-		else{
-			hotelID.add(id);
-			return true;
-		}
+	    }
+		return false;
 	}
 }

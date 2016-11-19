@@ -4,6 +4,8 @@ import java.util.ArrayList;
 
 import blservice.userblservice.WebManagerWebsiteManagementBLService;
 import data.userdata.UserManagementDataServiceImpl;
+import po.UserIDPO;
+import po.UserInfoPO;
 import vo.UserIDVO;
 import vo.UserInfoVO;
 
@@ -17,6 +19,7 @@ import vo.UserInfoVO;
 public class WebManagerWebsiteManagementController implements WebManagerWebsiteManagementBLService {
 
 	UserManagementDataServiceImpl check;
+	UserIDPO po;
 	
 	public WebManagerWebsiteManagementController(){
 		check=new 	UserManagementDataServiceImpl();
@@ -28,7 +31,9 @@ public class WebManagerWebsiteManagementController implements WebManagerWebsiteM
 	 * @return 用户个人信息VO
 	 */
 	public UserInfoVO UserInformationInquiry(UserIDVO vo){
-		return null;
+		po=new UserIDPO(vo.getUserID());
+		UserInfoPO p=check.GetUserBaseInfo(po);
+		return new UserInfoVO(p.getUserid(),p.getUsername(),p.getContact());
 	}
 			
 	
@@ -39,7 +44,9 @@ public class WebManagerWebsiteManagementController implements WebManagerWebsiteM
 	 * @return 修改结果
 	 */
 	public boolean UserInformationModification(UserIDVO vo1,UserInfoVO vo2){
-		return true;
+		po=new UserIDPO(vo1.getUserID());
+		UserInfoPO po1=new UserInfoPO(vo2.getUserid(),vo2.getUsername(),vo2.getContact());
+		return check.SetUserBaseInfo(po,po1);
 	}
 			
 	/**
@@ -47,7 +54,8 @@ public class WebManagerWebsiteManagementController implements WebManagerWebsiteM
 	 * @param 用户IDVO
 	 */
 	public boolean WebsiteStuffAdd(UserIDVO vo){
-		return true;
+		po=new UserIDPO(vo.getUserID());
+		return check.addWebStuff(po);
 	}
 
 	/**

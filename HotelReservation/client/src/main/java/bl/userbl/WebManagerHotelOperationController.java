@@ -4,6 +4,8 @@ import java.util.ArrayList;
 
 import blservice.userblservice.WebManagerHotelOperationBlService;
 import data.userdata.UserManagementDataServiceImpl;
+import po.HotelIDPO;
+import po.UserIDPO;
 import vo.HotelIDVO;
 import vo.HotelInfoVO;
 import vo.UserIDVO;
@@ -17,6 +19,8 @@ import vo.UserIDVO;
 public class WebManagerHotelOperationController implements WebManagerHotelOperationBlService {
 
 	UserManagementDataServiceImpl check;
+	HotelIDPO po;
+	UserIDPO po1;
 	
 	public WebManagerHotelOperationController(){
 		check=new UserManagementDataServiceImpl();
@@ -36,7 +40,9 @@ public class WebManagerHotelOperationController implements WebManagerHotelOperat
 	 * @param ÓÃ»§IDVO
 	 */
 	public boolean StuffAdd(HotelIDVO vo1,UserIDVO vo2){
-		return true;
+		po=new HotelIDPO(vo1.getHotelID());
+		po1=new UserIDPO(vo2.getUserID());
+		return check.addHotelStuff(po,po1);
 	}
 
 
@@ -48,6 +54,5 @@ public class WebManagerHotelOperationController implements WebManagerHotelOperat
 		// TODO Auto-generated method stub
 		return null;
 	}
-
 
 }

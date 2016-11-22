@@ -2387,3 +2387,101 @@
 2016-11-20 00:20:31,818 [Worker-16] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\HotelReservationCode\HotelReservation\client\src\main\resources
 2016-11-20 00:20:31,819 [Worker-16] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'GBK' encoding to copy filtered resources.
 2016-11-20 00:20:31,819 [Worker-16] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\HotelReservationCode\HotelReservation\client\src\test\resources
+2016-11-20 00:26:50,907 [Worker-0] INFO  c.g.t.t.d.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
+2016-11-20 00:27:07,882 [Worker-5] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'GBK' encoding to copy filtered resources.
+2016-11-20 00:27:07,883 [Worker-5] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\HotelReservationCode\HotelReservation\client\src\main\resources
+2016-11-20 00:27:07,885 [Worker-5] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'GBK' encoding to copy filtered resources.
+2016-11-20 00:27:07,885 [Worker-5] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\HotelReservationCode\HotelReservation\client\src\test\resources
+2016-11-20 00:27:27,568 [Worker-7] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'GBK' encoding to copy filtered resources.
+2016-11-20 00:27:27,569 [Worker-7] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\HotelReservationCode\HotelReservation\client\src\main\resources
+2016-11-20 00:27:27,570 [Worker-7] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'GBK' encoding to copy filtered resources.
+2016-11-20 00:27:27,570 [Worker-7] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\HotelReservationCode\HotelReservation\client\src\test\resources
+2016-11-21 19:03:18,436 [Worker-3] INFO  c.g.t.t.d.PublishedGradleVersions - Gradle version information cache is out-of-date. Trying to update.
+2016-11-21 19:03:32,151 [Worker-3] INFO  c.g.t.t.d.PublishedGradleVersions - Updating Gradle version information cache failed. Using outdated cache.
+2016-11-21 19:04:19,850 [Worker-6] INFO  o.e.m.i.launch.MavenLaunchDelegate - D:\HotelReservationCode\HotelReservation
+2016-11-21 19:04:19,854 [Worker-6] INFO  o.e.m.i.launch.MavenLaunchDelegate -  mvn -B install
+2016-11-21 19:05:13,709 [Worker-9] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'GBK' encoding to copy filtered resources.
+2016-11-21 19:05:13,710 [Worker-9] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\HotelReservationCode\HotelReservation\common\src\main\resources
+2016-11-21 19:05:13,712 [Worker-9] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'GBK' encoding to copy filtered resources.
+2016-11-21 19:05:13,712 [Worker-9] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\HotelReservationCode\HotelReservation\common\src\test\resources
+2016-11-21 19:05:13,750 [Worker-9] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'GBK' encoding to copy filtered resources.
+2016-11-21 19:05:13,750 [Worker-9] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\HotelReservationCode\HotelReservation\server\src\main\resources
+2016-11-21 19:05:13,752 [Worker-9] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'GBK' encoding to copy filtered resources.
+2016-11-21 19:05:13,752 [Worker-9] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\HotelReservationCode\HotelReservation\server\src\test\resources
+2016-11-22 19:04:39,490 [Worker-0] INFO  c.g.t.t.d.PublishedGradleVersions - Gradle version information cache is out-of-date. Trying to update.
+2016-11-22 19:24:59,569 [Worker-17] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'GBK' encoding to copy filtered resources.
+2016-11-22 19:24:59,570 [Worker-17] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\HotelReservationCode\HotelReservation\client\src\main\resources
+2016-11-22 19:24:59,573 [Worker-17] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'GBK' encoding to copy filtered resources.
+2016-11-22 19:24:59,574 [Worker-17] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\HotelReservationCode\HotelReservation\client\src\test\resources
+2016-11-22 19:25:44,981 [Worker-5] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'GBK' encoding to copy filtered resources.
+2016-11-22 19:25:44,983 [Worker-5] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\HotelReservationCode\HotelReservation\client\src\main\resources
+2016-11-22 19:25:44,984 [Worker-5] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'GBK' encoding to copy filtered resources.
+2016-11-22 19:25:44,985 [Worker-5] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\HotelReservationCode\HotelReservation\client\src\test\resources
+2016-11-22 19:25:56,919 [Worker-17] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'GBK' encoding to copy filtered resources.
+2016-11-22 19:25:56,919 [Worker-17] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\HotelReservationCode\HotelReservation\client\src\main\resources
+2016-11-22 19:25:56,921 [Worker-17] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'GBK' encoding to copy filtered resources.
+2016-11-22 19:25:56,922 [Worker-17] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\HotelReservationCode\HotelReservation\client\src\test\resources
+2016-11-22 19:26:10,648 [Worker-19] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'GBK' encoding to copy filtered resources.
+2016-11-22 19:26:10,648 [Worker-19] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\HotelReservationCode\HotelReservation\client\src\main\resources
+2016-11-22 19:26:10,650 [Worker-19] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'GBK' encoding to copy filtered resources.
+2016-11-22 19:26:10,650 [Worker-19] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\HotelReservationCode\HotelReservation\client\src\test\resources
+2016-11-22 19:26:42,569 [Worker-17] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'GBK' encoding to copy filtered resources.
+2016-11-22 19:26:42,569 [Worker-17] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\HotelReservationCode\HotelReservation\client\src\main\resources
+2016-11-22 19:26:42,571 [Worker-17] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'GBK' encoding to copy filtered resources.
+2016-11-22 19:26:42,571 [Worker-17] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\HotelReservationCode\HotelReservation\client\src\test\resources
+2016-11-22 19:27:01,634 [Worker-5] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'GBK' encoding to copy filtered resources.
+2016-11-22 19:27:01,634 [Worker-5] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\HotelReservationCode\HotelReservation\client\src\main\resources
+2016-11-22 19:27:01,637 [Worker-5] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'GBK' encoding to copy filtered resources.
+2016-11-22 19:27:01,637 [Worker-5] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\HotelReservationCode\HotelReservation\client\src\test\resources
+2016-11-22 19:27:12,124 [Worker-17] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'GBK' encoding to copy filtered resources.
+2016-11-22 19:27:12,124 [Worker-17] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\HotelReservationCode\HotelReservation\client\src\main\resources
+2016-11-22 19:27:12,126 [Worker-17] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'GBK' encoding to copy filtered resources.
+2016-11-22 19:27:12,126 [Worker-17] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\HotelReservationCode\HotelReservation\client\src\test\resources
+2016-11-22 19:31:26,455 [Worker-21] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'GBK' encoding to copy filtered resources.
+2016-11-22 19:31:26,456 [Worker-21] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\HotelReservationCode\HotelReservation\client\src\main\resources
+2016-11-22 19:31:26,461 [Worker-21] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'GBK' encoding to copy filtered resources.
+2016-11-22 19:31:26,461 [Worker-21] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\HotelReservationCode\HotelReservation\client\src\test\resources
+2016-11-22 19:34:25,379 [Worker-23] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'GBK' encoding to copy filtered resources.
+2016-11-22 19:34:25,380 [Worker-23] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\HotelReservationCode\HotelReservation\client\src\main\resources
+2016-11-22 19:34:25,383 [Worker-23] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'GBK' encoding to copy filtered resources.
+2016-11-22 19:34:25,384 [Worker-23] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\HotelReservationCode\HotelReservation\client\src\test\resources
+2016-11-22 19:50:11,351 [Worker-22] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'GBK' encoding to copy filtered resources.
+2016-11-22 19:50:11,352 [Worker-22] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\HotelReservationCode\HotelReservation\common\src\main\resources
+2016-11-22 19:50:11,353 [Worker-22] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'GBK' encoding to copy filtered resources.
+2016-11-22 19:50:11,354 [Worker-22] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\HotelReservationCode\HotelReservation\common\src\test\resources
+2016-11-22 19:51:31,292 [Worker-30] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'GBK' encoding to copy filtered resources.
+2016-11-22 19:51:31,293 [Worker-30] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\HotelReservationCode\HotelReservation\common\src\main\resources
+2016-11-22 19:51:31,294 [Worker-30] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'GBK' encoding to copy filtered resources.
+2016-11-22 19:51:31,295 [Worker-30] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\HotelReservationCode\HotelReservation\common\src\test\resources
+2016-11-22 19:57:14,457 [Worker-26] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'GBK' encoding to copy filtered resources.
+2016-11-22 19:57:14,457 [Worker-26] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\HotelReservationCode\HotelReservation\common\src\main\resources
+2016-11-22 19:57:14,459 [Worker-26] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'GBK' encoding to copy filtered resources.
+2016-11-22 19:57:14,459 [Worker-26] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\HotelReservationCode\HotelReservation\common\src\test\resources
+2016-11-22 19:57:42,877 [Worker-35] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'GBK' encoding to copy filtered resources.
+2016-11-22 19:57:42,879 [Worker-35] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\HotelReservationCode\HotelReservation\client\src\main\resources
+2016-11-22 19:57:42,882 [Worker-35] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'GBK' encoding to copy filtered resources.
+2016-11-22 19:57:42,882 [Worker-35] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\HotelReservationCode\HotelReservation\client\src\test\resources
+2016-11-22 19:58:20,360 [Worker-35] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'GBK' encoding to copy filtered resources.
+2016-11-22 19:58:20,361 [Worker-35] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\HotelReservationCode\HotelReservation\client\src\main\resources
+2016-11-22 19:58:20,362 [Worker-35] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'GBK' encoding to copy filtered resources.
+2016-11-22 19:58:20,363 [Worker-35] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\HotelReservationCode\HotelReservation\client\src\test\resources
+2016-11-22 19:59:06,286 [Worker-35] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'GBK' encoding to copy filtered resources.
+2016-11-22 19:59:06,287 [Worker-35] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\HotelReservationCode\HotelReservation\client\src\main\resources
+2016-11-22 19:59:06,291 [Worker-35] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'GBK' encoding to copy filtered resources.
+2016-11-22 19:59:06,292 [Worker-35] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\HotelReservationCode\HotelReservation\client\src\test\resources
+2016-11-22 20:00:28,809 [Worker-32] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'GBK' encoding to copy filtered resources.
+2016-11-22 20:00:28,810 [Worker-32] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\HotelReservationCode\HotelReservation\client\src\main\resources
+2016-11-22 20:00:28,815 [Worker-32] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'GBK' encoding to copy filtered resources.
+2016-11-22 20:00:28,816 [Worker-32] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\HotelReservationCode\HotelReservation\client\src\test\resources
+2016-11-22 20:03:07,900 [Worker-32] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'GBK' encoding to copy filtered resources.
+2016-11-22 20:03:07,901 [Worker-32] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\HotelReservationCode\HotelReservation\client\src\main\resources
+2016-11-22 20:03:07,907 [Worker-32] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'GBK' encoding to copy filtered resources.
+2016-11-22 20:03:07,908 [Worker-32] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\HotelReservationCode\HotelReservation\client\src\test\resources
+2016-11-22 20:03:47,722 [Worker-26] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'GBK' encoding to copy filtered resources.
+2016-11-22 20:03:47,722 [Worker-26] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\HotelReservationCode\HotelReservation\client\src\main\resources
+2016-11-22 20:03:47,723 [Worker-26] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'GBK' encoding to copy filtered resources.
+2016-11-22 20:03:47,724 [Worker-26] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\HotelReservationCode\HotelReservation\client\src\test\resources
+2016-11-22 20:04:35,227 [Worker-26] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'GBK' encoding to copy filtered resources.
+2016-11-22 20:04:35,227 [Worker-26] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\HotelReservationCode\HotelReservation\client\src\main\resources
+2016-11-22 20:04:35,228 [Worker-26] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'GBK' encoding to copy filtered resources.
+2016-11-22 20:04:35,229 [Worker-26] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\HotelReservationCode\HotelReservation\client\src\test\resources

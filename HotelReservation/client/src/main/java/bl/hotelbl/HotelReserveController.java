@@ -1,27 +1,53 @@
 package bl.hotelbl;
 
+import java.rmi.RemoteException;
+
+import blservice.hotelblservice.HotelReserveBLService;
+import dataservice.hoteldataservice.HotelEvaluateDataService;
+import dataservice.hoteldataservice.HotelInfoDataService;
+import net.RMIManage;
+import util.DataServiceType;
 import util.OrderOnUserMsg;
 import util.ResultMsg;
 import vo.HotelInfoVO;
 import vo.OrderOnUserVO;
 
-public class HotelReserveController {
+public class HotelReserveController implements HotelReserveBLService{
+	private HotelReserve hotelReserve;
+	private HotelInfoDataService hotelInfoData;
+	
+	public HotelReserveController() {
+		hotelInfoData = (HotelInfoDataService) RMIManage
+				.getDataService(DataServiceType.HotelInfoDataService);
+		hotelReserve = new HotelReserve(hotelInfoData);
+	}
 
 	/**
 	 * 预定酒店
 	 *
 	 */
+	@Override
 	public ResultMsg reserveHotel(HotelInfoVO reserveHotelVO){
-		return new ResultMsg(true,"预定成功");
+		try {
+			return hotelReserve.reserveHotel(reserveHotelVO);
+		} catch (RemoteException  e) {
+			e.printStackTrace();
+		}
+		return null;
 	}
 	
 	/**
 	 * 创建用户订单
 	 * 
 	 */
+	@Override
     public OrderOnUserMsg createUserOrder(OrderOnUserVO order){
-    	return new OrderOnUserMsg(order.getInitiator(),order.getOrderID(), order.getOrderState(), order.getPrice(), order.getLatestExecutionTime(), 
-				order.getRoomType(), order.getRoomNumber(), order.getPeopleNumber(), order.getHasChild());
+		try {
+			return hotelReserve.createUserOrder(order);
+		} catch (RemoteException  e) {
+			e.printStackTrace();
+		}
+		return null;
     }
 	
 

@@ -1,15 +1,25 @@
 package bl.hotelbl;
 
+import java.rmi.RemoteException;
 import java.util.ArrayList;
 
+import blservice.hotelblservice.HotelInfoCheckBLService;
+import dataservice.hoteldataservice.HotelInfoDataService;
+import net.RMIManage;
+import util.DataServiceType;
 import util.HotelMsg;
 import vo.HotelInfoVO;
 
-public class HotelInfoCheckController {
+public class HotelInfoCheckController implements HotelInfoCheckBLService{
 	public ArrayList<HotelInfoVO> hotelList;
+	private HotelInfoCheck hotelInfoCheck;
+	private HotelInfoDataService hotelInfoData;
 	
 	public HotelInfoCheckController() {
 		hotelList = new ArrayList<HotelInfoVO>();
+		hotelInfoData = (HotelInfoDataService) RMIManage
+				.getDataService(DataServiceType.HotelInfoDataService);
+		hotelInfoCheck = new HotelInfoCheck(hotelInfoData);
 	}
 	
 	
@@ -17,10 +27,14 @@ public class HotelInfoCheckController {
 	 * œ‘ ææ∆µÍ–≈œ¢
 	 * 
 	 */
+	@Override
     public HotelMsg checkHotelInfo(HotelInfoVO hotelInfoVO){
-    	return new HotelMsg(hotelInfoVO.getName(),hotelInfoVO.getAddress(),
-    			hotelInfoVO.getArea(),hotelInfoVO.getLevel(),hotelInfoVO.getIntroduction(),
-    			hotelInfoVO.getFacility(),hotelInfoVO.isReserved());
+    	try {
+			return hotelInfoCheck.checkHotelInfo(hotelInfoVO);
+		} catch (RemoteException  e) {
+			e.printStackTrace();
+		}
+		return null;
     }
       
 }

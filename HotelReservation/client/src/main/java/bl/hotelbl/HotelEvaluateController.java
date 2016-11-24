@@ -2,10 +2,13 @@ package bl.hotelbl;
 
 
 
+import java.rmi.RemoteException;
 import java.util.ArrayList;
 
 import blservice.hotelblservice.HotelEvaluateBLService;
 import dataservice.hoteldataservice.HotelEvaluateDataService;
+import net.RMIManage;
+import util.DataServiceType;
 import util.EvaluationMsg;
 import util.ResultMsg;
 import vo.HotelEvaluateVO;
@@ -13,10 +16,13 @@ import vo.HotelEvaluateVO;
 public class HotelEvaluateController implements HotelEvaluateBLService{
 	public ArrayList<HotelEvaluateVO> evaluationList;
 	private HotelEvaluate hotelEvaluate;
-	private HotelEvaluateDataService hotelEvaluateDataService;
+	private HotelEvaluateDataService hotelEvaluateData;
 	
 	public HotelEvaluateController() {
 		evaluationList = new ArrayList<HotelEvaluateVO>();
+		hotelEvaluateData = (HotelEvaluateDataService) RMIManage
+				.getDataService(DataServiceType.HotelEvaluateDataService);
+		hotelEvaluate = new HotelEvaluate(hotelEvaluateData);
 	}
 	
 	/**
@@ -25,8 +31,12 @@ public class HotelEvaluateController implements HotelEvaluateBLService{
 	 */
 	@Override
 	public EvaluationMsg inputEvaluate(HotelEvaluateVO evaluateInfoVO){
-		return new EvaluationMsg(evaluateInfoVO.getScore(),evaluateInfoVO.getComment(),
-				evaluateInfoVO.isReserved());
+		try {
+			return hotelEvaluate.inputEvaluate(evaluateInfoVO);
+		} catch (RemoteException  e) {
+			e.printStackTrace();
+		}
+		return null;
 	}
 	
 	
@@ -36,12 +46,12 @@ public class HotelEvaluateController implements HotelEvaluateBLService{
      */
 	@Override
    public ResultMsg checkOrder(HotelEvaluateVO evaluateInfoVO){
-	   if(evaluateInfoVO.isReserved()){
-		   return new ResultMsg(true,"完成评价");
-	   }
-	   else{
-		   return new ResultMsg(false,"评价出错");
-	   }
+		try {
+			return hotelEvaluate.checkOrder(evaluateInfoVO);
+		} catch (RemoteException  e) {
+			e.printStackTrace();
+		}
+		return null;
    }
    
    

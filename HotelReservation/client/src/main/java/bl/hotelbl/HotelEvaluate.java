@@ -9,8 +9,8 @@ import vo.HotelEvaluateVO;
 
 public class HotelEvaluate {
 	private HotelEvaluateDataService evaluateData;
-	private EvaluationMsg evaluation=null;
-	private ResultMsg result=null;
+	private EvaluationMsg evaluation;
+	private ResultMsg result;
 	
 	public HotelEvaluate(HotelEvaluateDataService evaluateDataService){
 		this.evaluateData=evaluateDataService;

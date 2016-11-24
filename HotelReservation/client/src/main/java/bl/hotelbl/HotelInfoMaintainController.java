@@ -1,35 +1,55 @@
 package bl.hotelbl;
 
+import java.rmi.RemoteException;
 import java.util.ArrayList;
 
+import blservice.hotelblservice.HotelInfoMaintainBLService;
+import dataservice.hoteldataservice.HotelInfoDataService;
+import net.RMIManage;
+import util.DataServiceType;
 import util.HotelMsg;
 import util.ResultMsg;
 import vo.HotelInfoVO;
 
-public class HotelInfoMaintainController {
+public class HotelInfoMaintainController implements HotelInfoMaintainBLService{
 	
 	public ArrayList<HotelInfoVO> hotelList;
+	private HotelInfoMaintain hotelInfoMaintain;
+	private HotelInfoDataService hotelInfoData;
 	
 	public HotelInfoMaintainController() {
 		hotelList = new ArrayList<HotelInfoVO>();
+		hotelInfoData = (HotelInfoDataService) RMIManage
+				.getDataService(DataServiceType.HotelInfoDataService);
+		hotelInfoMaintain = new HotelInfoMaintain(hotelInfoData);
 	}
 	
 	/**
 	 * 输入酒店信息
 	 *
 	 */
+	@Override
 	public HotelMsg inputHotelInfo(HotelInfoVO hotelInfoVO){
-		return new HotelMsg(hotelInfoVO.getName(),hotelInfoVO.getAddress(),
-    			hotelInfoVO.getArea(),hotelInfoVO.getLevel(),hotelInfoVO.getIntroduction(),
-    			hotelInfoVO.getFacility(),hotelInfoVO.isReserved());
+		try {
+			return hotelInfoMaintain.inputHotelInfo(hotelInfoVO);
+		} catch (RemoteException  e) {
+			e.printStackTrace();
+		}
+		return null;
 	}
 	
 	/**
 	 * 提交酒店信息
 	 * 
 	 */
+	@Override
     public ResultMsg submitInfo(HotelInfoVO hotelInfoVO){
-    	return new ResultMsg(true,"维护成功");
+		try {
+			return hotelInfoMaintain.submitInfo(hotelInfoVO);
+		} catch (RemoteException  e) {
+			e.printStackTrace();
+		}
+		return null;
     }
 
 }

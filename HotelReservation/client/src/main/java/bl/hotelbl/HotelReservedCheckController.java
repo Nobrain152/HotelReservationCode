@@ -1,22 +1,39 @@
 package bl.hotelbl;
 
+import java.rmi.RemoteException;
 import java.util.ArrayList;
 
+import blservice.hotelblservice.HotelReservedCheckBLService;
+import dataservice.hoteldataservice.HotelInfoDataService;
+import net.RMIManage;
+import util.DataServiceType;
 import vo.HotelInfoVO;
 
-public class HotelReservedCheckController {
+public class HotelReservedCheckController implements HotelReservedCheckBLService{
 	public ArrayList<HotelInfoVO> hotelList;
+	private HotelReservedCheck hotelReservedCheck;
+	private HotelInfoDataService hotelInfoData;
+	
 	
 	public HotelReservedCheckController() {
 		hotelList = new ArrayList<HotelInfoVO>();
+		hotelInfoData = (HotelInfoDataService) RMIManage
+				.getDataService(DataServiceType.HotelInfoDataService);
+		hotelReservedCheck = new HotelReservedCheck(hotelInfoData);
 	}
 	
 	/**
 	 * 显示已预订酒店列表
 	 * 
 	 */
+	@Override
     public ArrayList<HotelInfoVO> checkReserved(HotelInfoVO reservedHotelListVO){
-    	return hotelList; 
+		try {
+			return hotelReservedCheck.checkReserved(reservedHotelListVO);
+		} catch (RemoteException  e) {
+			e.printStackTrace();
+		}
+		return null;
     }
       
 }

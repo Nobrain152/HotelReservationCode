@@ -4,24 +4,25 @@ import java.rmi.RemoteException;
 import java.util.ArrayList;
 
 import po.HotelInfoPO;
+import util.ResultMsg;
 
 public interface HotelInfoDataService {
 	
 	/**
 	 * 增加
 	 */
-	public boolean insert(HotelInfoPO po) throws RemoteException;
+	public ResultMsg insert(HotelInfoPO po) throws RemoteException;
 	
 	
 	/**
 	 * 删除
 	 */
-	public boolean delete(HotelInfoPO po) throws RemoteException;
+	public ResultMsg delete(HotelInfoPO po) throws RemoteException;
 	
 	/**
 	 * 更新
 	 */
-	public boolean update(HotelInfoPO po) throws RemoteException;
+	public ResultMsg update(HotelInfoPO po) throws RemoteException;
 	
 	/**
 	 * 查找

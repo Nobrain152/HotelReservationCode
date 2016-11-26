@@ -11,15 +11,11 @@ public interface HotelEvaluateBLService {
 	 *
 	 */
 	public EvaluationMsg inputEvaluate(HotelEvaluateVO evaluateInfoVO);
-	
-	
+		
    /**
      * 检查是否在已执行订单中
      * 
      */
    public ResultMsg checkOrder(HotelEvaluateVO orderListVO);
-   
-   
- 
-      
+  
 }

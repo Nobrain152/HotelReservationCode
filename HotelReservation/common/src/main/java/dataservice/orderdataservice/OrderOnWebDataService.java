@@ -9,7 +9,6 @@ import java.rmi.RemoteException;
 import java.util.ArrayList;
 
 import po.OrderOnWebPO;
-import util.OrderState;
 import util.ResultMsg;
 
 public interface OrderOnWebDataService {
@@ -20,7 +19,7 @@ public interface OrderOnWebDataService {
 	 * @return
 	 * @throws RemoteException
 	 */
-	public boolean insert(OrderOnWebPO po) throws RemoteException;
+	public ResultMsg insert(OrderOnWebPO po) throws RemoteException;
 
 	/**
 	 * 在数据库中删除单一持久化对象
@@ -28,7 +27,7 @@ public interface OrderOnWebDataService {
 	 * @return
 	 * @throws RemoteException
 	 */
-	public boolean delete(OrderOnWebPO po) throws RemoteException;
+	public ResultMsg delete(OrderOnWebPO po) throws RemoteException;
 
 	/**
 	 * 在数据库中更新单一持久化对象

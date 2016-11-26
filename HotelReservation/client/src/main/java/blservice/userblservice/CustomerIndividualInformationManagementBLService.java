@@ -1,6 +1,8 @@
 package blservice.userblservice;
 
 import java.util.ArrayList;
+
+import util.ResultMsg;
 import vo.CustomerInfoVO;
 import vo.HotelInfoVO;
 import vo.OrderOnUserVO;
@@ -29,7 +31,7 @@ public interface CustomerIndividualInformationManagementBLService{
 	 * @param 客户个人信息VO
 	 * @return 修改成功与否
 	 */
-	public boolean IndividualBaseInfoModification(UserIDVO vo1,CustomerInfoVO vo2);
+	public ResultMsg IndividualBaseInfoModification(UserIDVO vo1,CustomerInfoVO vo2);
 		
 	/**
 	 * 查询个人订单

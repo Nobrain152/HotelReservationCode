@@ -2,8 +2,9 @@ package blservice.userblservice;
 
 import java.util.ArrayList;
 
-import bl.userbl.CustomerHotelOperationController;
-import bl.userbl.CustomerInfoManagementController;
+import bl.userbl.CustomerHotelOperation;
+import bl.userbl.CustomerInfoManagement;
+import util.ResultMsg;
 import vo.CustomerInfoVO;
 import vo.HotelInfoVO;
 import vo.IntegralVO;
@@ -13,19 +14,19 @@ import vo.UserIDVO;
 public class Customer  {
 
 	CustomerInfoVO infomation;
-	CustomerInfoManagementController in;
-	CustomerHotelOperationController hotel;
+	CustomerInfoManagement in;
+	CustomerHotelOperation hotel;
 	UserIDVO idvo;
 	
 	public Customer(String id){
 		idvo=new UserIDVO(id);
-		in=new CustomerInfoManagementController(idvo);
-		hotel=new CustomerHotelOperationController(id);
+		in=new CustomerInfoManagement(idvo);
+		hotel=new CustomerHotelOperation(id);
 		infomation=(CustomerInfoVO)in.IndividualBaseInfolnquiry(idvo);
 	}
 	
 	
-	public boolean BaseInfoModification(CustomerInfoVO vo2){
+	public ResultMsg BaseInfoModification(CustomerInfoVO vo2){
 		return in.IndividualBaseInfoModification(idvo,vo2);
 	}
 				

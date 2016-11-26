@@ -1,7 +1,6 @@
 package data;
 
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
 
 import java.rmi.RemoteException;
 import java.util.ArrayList;
@@ -12,6 +11,7 @@ import org.junit.Test;
 import data.orderdata.OrderOnUserDataServiceImpl;
 import po.OrderOnUserPO;
 import util.OrderState;
+import util.ResultMsg;
 import util.RoomType;
 import util.User;
 
@@ -40,29 +40,29 @@ public class OrderOnUserDataServiceImplTest {
 	
 	@Test
 	public void testInsert() throws RemoteException{
-		boolean b = userDataServiceImpl.insert(order1);
-		assertTrue(b);
+		ResultMsg b = userDataServiceImpl.insert(order1);
+		assertEquals(b, ResultMsg.SUCCESS);
 	}
 	
 	@Test
 	public void testDelete() throws RemoteException{
 		userDataServiceImpl.insert(order1);
-		boolean b = userDataServiceImpl.delete(order1);
-		assertTrue(b);
+		ResultMsg b = userDataServiceImpl.delete(order1);
+		assertEquals(b, ResultMsg.SUCCESS);
 	}
 	
 	@Test
 	public void testUpdate() throws RemoteException{
 		userDataServiceImpl.insert(order1);
-		boolean b = userDataServiceImpl.update(order1);
-		assertTrue(b);
+		ResultMsg b = userDataServiceImpl.update(order1);
+		assertEquals(b, ResultMsg.SUCCESS);
 	}
 	
 	@Test
-	public void testFind() throws RemoteException{
+	public void testFindByName() throws RemoteException{
 		userDataServiceImpl.insert(order1);
 		userDataServiceImpl.insert(order2);
-		ArrayList<OrderOnUserPO> arrayList = userDataServiceImpl.find(new User("txin",100,"18805156300","151250132@smail.nju.edu.cn"));
+		ArrayList<OrderOnUserPO> arrayList = userDataServiceImpl.findByName("txin");
 		list.add(order1);
 		list.add(order2);
 		assertEquals(list.get(0), arrayList.get(0));

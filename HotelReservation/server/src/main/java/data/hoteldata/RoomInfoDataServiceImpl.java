@@ -3,9 +3,11 @@ package data.hoteldata;
 import java.rmi.RemoteException;
 import java.util.ArrayList;
 
+import dataservice.hoteldataservice.RoomInfoDataService;
 import po.RoomInfoPO;
+import util.ResultMsg;
 
-public class RoomInfoDataServiceImpl {
+public class RoomInfoDataServiceImpl implements RoomInfoDataService{
 	ArrayList<RoomInfoPO> roomPOs;
 	
 	public RoomInfoDataServiceImpl(){
@@ -15,35 +17,33 @@ public class RoomInfoDataServiceImpl {
 	/**
 	 * 增加
 	 */
-	public boolean insert(RoomInfoPO po) throws RemoteException{
+	public ResultMsg insert(RoomInfoPO po) throws RemoteException{
 		if(roomPOs.add(po))
-			return true;
+			return ResultMsg.SUCCESS;
 		else
-			return false;
+			return ResultMsg.FAIL;
 	}
 	
 	
 	/**
 	 * 删除
 	 */
-	public boolean delete(RoomInfoPO po) throws RemoteException{
+	public ResultMsg delete(RoomInfoPO po) throws RemoteException{
 		if(roomPOs.remove(po))
-			return true;
+			return ResultMsg.SUCCESS;
 		else
-			return false;
+			return ResultMsg.FAIL;
 	}
 	
 	/**
 	 * 更新
 	 */
-	public boolean update(RoomInfoPO po) throws RemoteException{
+	public ResultMsg update(RoomInfoPO po) throws RemoteException{
 		for (RoomInfoPO op : roomPOs) {
-			
-				op = po;
-				return true;
-			
+			po = op;
+			return ResultMsg.SUCCESS;
 		}
-		return false;
+		return ResultMsg.FAIL;
 	}
 	
 	/**

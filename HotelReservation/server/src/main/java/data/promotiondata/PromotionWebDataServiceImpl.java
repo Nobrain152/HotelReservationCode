@@ -6,25 +6,26 @@ import java.util.ArrayList;
 import dataservice.promotiondataservice.PromotionWebDataService;
 import po.PromotionHotelPO;
 import util.PromotionHotelType;
+import util.ResultMsg;
 
 public class PromotionWebDataServiceImpl implements PromotionWebDataService{
 
 	@Override
-	public void insert(PromotionHotelPO Promotion) throws RemoteException {
+	public ResultMsg insert(PromotionHotelPO Promotion) throws RemoteException {
 		// TODO Auto-generated method stub
-		
+		return ResultMsg.FAIL;
 	}
 
 	@Override
-	public void delete(PromotionHotelPO Promotion) throws RemoteException {
+	public ResultMsg delete(PromotionHotelPO Promotion) throws RemoteException {
 		// TODO Auto-generated method stub
-		
+		return ResultMsg.FAIL;
 	}
 
 	@Override
-	public void update(PromotionHotelPO Promotion) throws RemoteException {
+	public ResultMsg update(PromotionHotelPO Promotion) throws RemoteException {
 		// TODO Auto-generated method stub
-		
+		return ResultMsg.FAIL;
 	}
 
 	@Override

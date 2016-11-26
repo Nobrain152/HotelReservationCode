@@ -5,6 +5,7 @@ import java.util.ArrayList;
 
 import po.PromotionHotelPO;
 import util.PromotionHotelType;
+import util.ResultMsg;
 
 /**
  * 酒店营销策略的数据层接口
@@ -13,11 +14,11 @@ import util.PromotionHotelType;
  */
 
 public interface PromotionHotelDataService {
-	public void insert(PromotionHotelPO Promotion) throws RemoteException;
+	public ResultMsg insert(PromotionHotelPO Promotion) throws RemoteException;
 	
-	public void delete(PromotionHotelPO Promotion) throws RemoteException;
+	public ResultMsg delete(PromotionHotelPO Promotion) throws RemoteException;
 	
-	public void update(PromotionHotelPO Promotion) throws RemoteException;
+	public ResultMsg update(PromotionHotelPO Promotion) throws RemoteException;
 	
 	public PromotionHotelPO findByName(String name) throws RemoteException;
 	

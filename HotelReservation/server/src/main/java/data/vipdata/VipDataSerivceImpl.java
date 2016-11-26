@@ -5,25 +5,26 @@ import java.util.ArrayList;
 
 import dataservice.vipdataservice.VipDataService;
 import po.VipPO;
+import util.ResultMsg;
 
 public class VipDataSerivceImpl implements VipDataService{
 
 	@Override
-	public void insert(VipPO vip) throws RemoteException {
+	public ResultMsg insert(VipPO vip) throws RemoteException {
 		// TODO Auto-generated method stub
-		
+		return ResultMsg.FAIL;
 	}
 
 	@Override
-	public void delete(VipPO vip) throws RemoteException {
+	public ResultMsg delete(VipPO vip) throws RemoteException {
 		// TODO Auto-generated method stub
-		
+		return ResultMsg.FAIL;
 	}
 
 	@Override
-	public void update(VipPO vip) throws RemoteException {
+	public ResultMsg update(VipPO vip) throws RemoteException {
 		// TODO Auto-generated method stub
-		
+		return ResultMsg.FAIL;
 	}
 
 	@Override

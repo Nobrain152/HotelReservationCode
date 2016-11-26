@@ -3,6 +3,7 @@ package dataservice.userdataservice;
 import po.LoginInputPO;
 import po.UserIDPO;
 import po.UserInfoPO;
+import util.ResultMsg;
 
 /**
  * 用户信息管理
@@ -11,7 +12,6 @@ import po.UserInfoPO;
  */
 public interface UserManagementDataService{
         
-		
 		/**
 		 * 获取密码
 		 * @param 登录信息PO
@@ -39,6 +39,6 @@ public interface UserManagementDataService{
 		 * @param 用户信息PO
 		 * @return 设置结果
 		 */
-		public boolean SetUserBaseInfo(UserIDPO po1,UserInfoPO po2);
+		public ResultMsg SetUserBaseInfo(UserIDPO po1,UserInfoPO po2);
 		
 }

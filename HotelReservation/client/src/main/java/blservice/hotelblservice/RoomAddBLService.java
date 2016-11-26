@@ -18,7 +18,4 @@ public interface RoomAddBLService {
 	 */
     public ResultMsg updateRoom(RoomInfoVO roomInfoVO);
    
-  
-
-      
 }

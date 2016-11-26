@@ -4,6 +4,7 @@ import java.rmi.RemoteException;
 import java.util.ArrayList;
 
 import po.VipPO;
+import util.ResultMsg;
 
 /**
  * vip数据层接口
@@ -12,11 +13,11 @@ import po.VipPO;
  */
 
 public interface VipDataService {
-	public void insert(VipPO vip) throws RemoteException;
+	public ResultMsg insert(VipPO vip) throws RemoteException;
 	
-	public void delete(VipPO vip) throws RemoteException;
+	public ResultMsg delete(VipPO vip) throws RemoteException;
 	
-	public void update(VipPO vip) throws RemoteException;
+	public ResultMsg update(VipPO vip) throws RemoteException;
 	
 	public VipPO findByLevel(int level) throws RemoteException;
 	

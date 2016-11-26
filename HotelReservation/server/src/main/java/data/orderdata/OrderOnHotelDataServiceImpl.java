@@ -3,10 +3,11 @@ package data.orderdata;
 import java.rmi.RemoteException;
 import java.util.ArrayList;
 
+import dataservice.orderdataservice.OrderOnHotelDataService;
 import po.OrderOnHotelPO;
-import util.User;
+import util.ResultMsg;
 
-public class OrderOnHotelDataServiceImpl {
+public class OrderOnHotelDataServiceImpl implements OrderOnHotelDataService{
 
 	ArrayList<OrderOnHotelPO> hotelPOs;
 	
@@ -14,50 +15,49 @@ public class OrderOnHotelDataServiceImpl {
 		hotelPOs = new ArrayList<OrderOnHotelPO>();
 	}
 	
-	
 	/**
 	 * 在数据库中插入单一持久化对象
 	 */
-	public boolean insert(OrderOnHotelPO po) throws RemoteException{
+	public ResultMsg insert(OrderOnHotelPO po) throws RemoteException{
 		if(hotelPOs.add(po))
-			return true;
+			return ResultMsg.SUCCESS;
 		else
-			return false;
+			return ResultMsg.FAIL;
 	}
 	
 	
 	/**
 	 * 在数据库中删除单一持久化对象
 	 */
-	public boolean delete(OrderOnHotelPO po) throws RemoteException{
+	public ResultMsg delete(OrderOnHotelPO po) throws RemoteException{
 		if(hotelPOs.remove(po))
-			return true;
+			return ResultMsg.SUCCESS;
 		else
-			return false;
+			return ResultMsg.FAIL;
 	}
 	
 	
 	/**
 	 * 在数据库中更新单一持久化对象
 	 */
-	public boolean update(OrderOnHotelPO po) throws RemoteException{
+	public ResultMsg update(OrderOnHotelPO po) throws RemoteException{
 		for (OrderOnHotelPO op : hotelPOs) {
 			if(op.getInitiator() == po.getInitiator()){
 				op = po;
-				return true;
+				return ResultMsg.SUCCESS;
 			}
 		}
-		return false;
+		return ResultMsg.FAIL;
 	}
 	
 	
 	/**
 	 * 按搜索信息进行查找返回相应的OrderOnHotelPO结果
 	 */
-	public ArrayList<OrderOnHotelPO> find(User initiator) throws RemoteException{
+	public ArrayList<OrderOnHotelPO> findByName(String name) throws RemoteException{
 		ArrayList<OrderOnHotelPO> arrayList = new ArrayList<OrderOnHotelPO>();
 		for (OrderOnHotelPO op : hotelPOs) {
-			if(op.getInitiator().getName().equals(initiator.getName())){
+			if(op.getInitiator().getName().equals(name)){
 				arrayList.add(op);
 			}
 		}
@@ -68,8 +68,21 @@ public class OrderOnHotelDataServiceImpl {
 	/**
 	 * 返回所有酒店订单PO
 	 */
-	public ArrayList<OrderOnHotelPO> show() throws RemoteException{
+	public ArrayList<OrderOnHotelPO> getTotalHotelOrderList() throws RemoteException{
 		return hotelPOs;
 	}
+
+
+	@Override
+	public OrderOnHotelPO findByID(String ID) throws RemoteException {
+		OrderOnHotelPO hotelPO = null;
+		for (OrderOnHotelPO op : hotelPOs) {
+			if(op.getOrderID().equals(ID)){
+				hotelPO = op;
+			}
+		}
+		return hotelPO;
+	}
+
 	
 }

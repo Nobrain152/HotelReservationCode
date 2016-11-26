@@ -19,7 +19,7 @@ public interface OrderOnHotelDataService {
 	 * @return
 	 * @throws RemoteException
 	 */
-	public boolean insert(OrderOnHotelPO po) throws RemoteException;
+	public ResultMsg insert(OrderOnHotelPO po) throws RemoteException;
 	
 	/**
 	 * 在数据库中删除单一持久化对象
@@ -27,7 +27,7 @@ public interface OrderOnHotelDataService {
 	 * @return
 	 * @throws RemoteException
 	 */
-	public boolean delete(OrderOnHotelPO po) throws RemoteException;
+	public ResultMsg delete(OrderOnHotelPO po) throws RemoteException;
 	
 	/**
 	 * 在数据库中更新单一持久化对象

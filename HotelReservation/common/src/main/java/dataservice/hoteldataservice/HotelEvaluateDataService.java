@@ -4,19 +4,20 @@ import java.rmi.RemoteException;
 import java.util.ArrayList;
 
 import po.HotelEvaluatePO;
+import util.ResultMsg;
 
 public interface HotelEvaluateDataService {
 	
 	/**
 	 * Ôö¼Ó
 	 */
-	public boolean insert(HotelEvaluatePO po) throws RemoteException;
+	public ResultMsg insert(HotelEvaluatePO po) throws RemoteException;
 	
 	
 	/**
 	 * É¾³ý
 	 */
-	public boolean delete(HotelEvaluatePO po) throws RemoteException;
+	public ResultMsg delete(HotelEvaluatePO po) throws RemoteException;
 	
 	
 	/**

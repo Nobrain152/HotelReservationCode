@@ -6,19 +6,19 @@ import static org.junit.Assert.assertEquals;
 import org.junit.Before;
 import org.junit.Test;
 
-import bl.userbl.WebManagerHotelOperationController;
+import bl.userbl.WebManagerHotelOperation;
 import vo.HotelIDVO;
 import vo.UserIDVO;
 
 public class WebManagerHotelOperationControllerTest {
 
-	WebManagerHotelOperationController impl;
+	WebManagerHotelOperation impl;
 	UserIDVO vo1;
 	HotelIDVO vo2;
 	
 	@Before
 	public void setUp() {
-		impl=new WebManagerHotelOperationController();
+		impl=new WebManagerHotelOperation();
 		vo1=new UserIDVO("123456789");
 		vo2=new HotelIDVO("123456");
 	}

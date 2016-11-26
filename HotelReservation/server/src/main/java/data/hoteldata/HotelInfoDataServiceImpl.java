@@ -3,9 +3,11 @@ package data.hoteldata;
 import java.rmi.RemoteException;
 import java.util.ArrayList;
 
+import dataservice.hoteldataservice.HotelInfoDataService;
 import po.HotelInfoPO;
+import util.ResultMsg;
 
-public class HotelInfoDataServiceImpl {
+public class HotelInfoDataServiceImpl implements HotelInfoDataService{
 	
 	ArrayList<HotelInfoPO> hotelPOs;
 	
@@ -16,33 +18,33 @@ public class HotelInfoDataServiceImpl {
 	/**
 	 * 增加
 	 */
-	public boolean insert(HotelInfoPO po) throws RemoteException{
+	public ResultMsg insert(HotelInfoPO po) throws RemoteException{
 		if(hotelPOs.add(po))
-			return true;
+			return ResultMsg.SUCCESS;
 		else
-			return false;
+			return ResultMsg.FAIL;
 	}
 	
 	
 	/**
 	 * 删除
 	 */
-	public boolean delete(HotelInfoPO po) throws RemoteException{
+	public ResultMsg delete(HotelInfoPO po) throws RemoteException{
 		if(hotelPOs.remove(po))
-			return true;
+			return ResultMsg.SUCCESS;
 		else
-			return false;
+			return ResultMsg.FAIL;
 	}
 	
 	/**
 	 * 更新
 	 */
-	public boolean update(HotelInfoPO po) throws RemoteException{
+	public ResultMsg update(HotelInfoPO po) throws RemoteException{
 			for (HotelInfoPO op : hotelPOs) {
-				op = po;
-				return true;
+				po = op;
+				return ResultMsg.SUCCESS;
 			}
-			return false;
+			return ResultMsg.FAIL;
 		
 	}
 	

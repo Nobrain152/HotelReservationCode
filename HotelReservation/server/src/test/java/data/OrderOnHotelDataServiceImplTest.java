@@ -1,7 +1,6 @@
 package data;
 
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
 
 import java.rmi.RemoteException;
 import java.util.ArrayList;
@@ -12,6 +11,7 @@ import org.junit.Test;
 import data.orderdata.OrderOnHotelDataServiceImpl;
 import po.OrderOnHotelPO;
 import util.OrderState;
+import util.ResultMsg;
 import util.RoomType;
 import util.User;
 
@@ -44,29 +44,29 @@ public class OrderOnHotelDataServiceImplTest {
 	
 	@Test
 	public void testInsert() throws RemoteException{
-		boolean b = hotelDataServiceImpl.insert(order1);
-		assertTrue(b);
+		ResultMsg b = hotelDataServiceImpl.insert(order1);
+		assertEquals(b, ResultMsg.SUCCESS);
 	}
 	
 	@Test
 	public void testDelete() throws RemoteException{
 		hotelDataServiceImpl.insert(order1);
-		boolean b = hotelDataServiceImpl.delete(order1);
-		assertTrue(b);
+		ResultMsg b = hotelDataServiceImpl.delete(order1);
+		assertEquals(b, ResultMsg.SUCCESS);
 	}
 	
 	@Test
 	public void testUpdate() throws RemoteException{
 		hotelDataServiceImpl.insert(order1);
-		boolean b = hotelDataServiceImpl.update(order1);
-		assertTrue(b);
+		ResultMsg b = hotelDataServiceImpl.update(order1);
+		assertEquals(b, ResultMsg.SUCCESS);
 	}
 	
 	@Test
-	public void testFind() throws RemoteException{
+	public void testFindByName() throws RemoteException{
 		hotelDataServiceImpl.insert(order1);
 		hotelDataServiceImpl.insert(order2);
-		ArrayList<OrderOnHotelPO> arrayList = hotelDataServiceImpl.find(new User("txin",100,"18805156300","151250132@smail.nju.edu.cn"));
+		ArrayList<OrderOnHotelPO> arrayList = hotelDataServiceImpl.findByName("txin");
 		list.add(order1);
 		list.add(order2);
 		assertEquals(list.get(0), arrayList.get(0));
@@ -74,7 +74,7 @@ public class OrderOnHotelDataServiceImplTest {
 	}
 
 	@Test
-	public void testShow() throws RemoteException{
+	public void testGetTotalHotelOrderList() throws RemoteException{
 		hotelDataServiceImpl.insert(order1);
 		hotelDataServiceImpl.insert(order2);
 		hotelDataServiceImpl.insert(order3);
@@ -83,7 +83,7 @@ public class OrderOnHotelDataServiceImplTest {
 		list.add(order2);
 		list.add(order3);
 		list.add(order4);
-		ArrayList<OrderOnHotelPO> arrayList = hotelDataServiceImpl.show();
+		ArrayList<OrderOnHotelPO> arrayList = hotelDataServiceImpl.getTotalHotelOrderList();
 		assertEquals(list, arrayList);
 	}
 }

@@ -8,6 +8,7 @@ import po.HotelInfoPO;
 import po.OrderOnUserPO;
 import po.UserIDPO;
 import po.UserInfoPO;
+import util.ResultMsg;
 
 public class CustomerManagementDataServiceImpl implements CustomerManagementDataService {
 
@@ -22,7 +23,7 @@ public class CustomerManagementDataServiceImpl implements CustomerManagementData
 	ArrayList<HotelInfoPO> hotel;
 	String id;
 	CustomerInfoPO po2;
-	boolean result;
+	ResultMsg result;
 	
 	public CustomerManagementDataServiceImpl(){
 		point=0;
@@ -36,11 +37,15 @@ public class CustomerManagementDataServiceImpl implements CustomerManagementData
 	}
 	
 	
-	public boolean AddMembers(UserIDPO po) {
+	public ResultMsg AddMembers(UserIDPO po) {
 		id=po.getUserID();
 		point=ID.indexOf(id);
 		po2=(CustomerInfoPO) info.get(point);
-		result=po2.setMember(true);
+		if(po2.setMember(true)){
+			result = ResultMsg.SUCCESS;
+		}else{
+			result = ResultMsg.FAIL;
+		}
 		info.set(point, po2);
 		return result;
 	}
@@ -52,11 +57,15 @@ public class CustomerManagementDataServiceImpl implements CustomerManagementData
 		return po2.getOrder();
 	}
 
-	public boolean addCustomerOrders(UserIDPO po, String i) {
+	public ResultMsg addCustomerOrders(UserIDPO po, String i) {
 		id=po.getUserID();
 		point=ID.indexOf(id);
 		po2=(CustomerInfoPO)info.get(point);
-		result=po2.addOrder(i);
+		if(po2.addOrder(i)){
+			result = ResultMsg.SUCCESS;
+		}else{
+			result = ResultMsg.FAIL;
+		}
 		info.set(point, po2);
 		return result;
 	}
@@ -68,11 +77,15 @@ public class CustomerManagementDataServiceImpl implements CustomerManagementData
 		return po2.getHotel();
 	}
 
-	public boolean addCustomerHotel(UserIDPO po, String idh) {
+	public ResultMsg addCustomerHotel(UserIDPO po, String idh) {
 		id=po.getUserID();
 		point=ID.indexOf(id);
 		po2=(CustomerInfoPO)info.get(point);
-		result=po2.addHotel(idh);
+		if(po2.addHotel(idh)){
+			result = ResultMsg.SUCCESS;
+		}else{
+			result = ResultMsg.FAIL;
+		}
 		info.set(point, po2);
 		return result;
 	}

@@ -18,7 +18,5 @@ public interface HotelSearchBLService {
 	 * 
 	 */
     public ArrayList<HotelInfoVO> showList(HotelInfoVO hotelListInfoVO);
-   
-
-      
+    
 }

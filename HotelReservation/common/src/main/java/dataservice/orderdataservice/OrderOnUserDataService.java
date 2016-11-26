@@ -19,7 +19,7 @@ public interface OrderOnUserDataService {
 	 * @return
 	 * @throws RemoteException
 	 */
-	public boolean insert(OrderOnUserPO po) throws RemoteException;
+	public ResultMsg insert(OrderOnUserPO po) throws RemoteException;
 
 	/**
 	 * 在数据库中删除单一持久化对象
@@ -27,7 +27,7 @@ public interface OrderOnUserDataService {
 	 * @return
 	 * @throws RemoteException
 	 */
-	public boolean delete(OrderOnUserPO po) throws RemoteException;
+	public ResultMsg delete(OrderOnUserPO po) throws RemoteException;
 
 	/**
 	 * 在数据库中更新单一持久化对象

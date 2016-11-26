@@ -1,7 +1,6 @@
 package data;
 
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
 
 import java.rmi.RemoteException;
 import java.util.ArrayList;
@@ -12,6 +11,7 @@ import org.junit.Test;
 import data.orderdata.OrderOnWebDataServiceImpl;
 import po.OrderOnWebPO;
 import util.OrderState;
+import util.ResultMsg;
 import util.User;
 
 public class OrderOnWebDataServiceImplTest {
@@ -39,29 +39,29 @@ public class OrderOnWebDataServiceImplTest {
 	
 	@Test
 	public void testInsert() throws RemoteException{
-		boolean b = webDataServiceImpl.insert(order1);
-		assertTrue(b);
+		ResultMsg b = webDataServiceImpl.insert(order1);
+		assertEquals(b, ResultMsg.SUCCESS);
 	}
 	
 	@Test
 	public void testDelete() throws RemoteException{
 		webDataServiceImpl.insert(order1);
-		boolean b = webDataServiceImpl.delete(order1);
-		assertTrue(b);
+		ResultMsg b = webDataServiceImpl.delete(order1);
+		assertEquals(b, ResultMsg.SUCCESS);
 	}
 	
 	@Test
 	public void testUpdate() throws RemoteException{
 		webDataServiceImpl.insert(order1);
-		boolean b = webDataServiceImpl.update(order1);
-		assertTrue(b);
+		ResultMsg b = webDataServiceImpl.update(order1);
+		assertEquals(b, ResultMsg.SUCCESS);
 	}
 	
 	@Test
-	public void testFind() throws RemoteException{
+	public void testFindByName() throws RemoteException{
 		webDataServiceImpl.insert(order1);
 		webDataServiceImpl.insert(order2);
-		ArrayList<OrderOnWebPO> arrayList = webDataServiceImpl.find(new User("txin",100,"18805156300","151250132@smail.nju.edu.cn"));
+		ArrayList<OrderOnWebPO> arrayList = webDataServiceImpl.findByName("txin");
 		list.add(order1);
 		list.add(order2);
 		assertEquals(list.get(0), arrayList.get(0));
@@ -69,16 +69,13 @@ public class OrderOnWebDataServiceImplTest {
 	}
 
 	@Test
-	public void testShow() throws RemoteException{
+	public void testGetAbnormalList() throws RemoteException{
 		webDataServiceImpl.insert(order1);
 		webDataServiceImpl.insert(order2);
 		webDataServiceImpl.insert(order3);
 		webDataServiceImpl.insert(order4);
-		list.add(order1);
 		list.add(order2);
-		list.add(order3);
-		list.add(order4);
-		ArrayList<OrderOnWebPO> arrayList = webDataServiceImpl.show();
+		ArrayList<OrderOnWebPO> arrayList = webDataServiceImpl.getAbnormalList();
 		assertEquals(list, arrayList);
 	}
 }

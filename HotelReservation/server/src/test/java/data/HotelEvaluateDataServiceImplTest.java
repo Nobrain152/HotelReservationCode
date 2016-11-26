@@ -1,7 +1,6 @@
 package data;
 
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
 
 import java.rmi.RemoteException;
 import java.util.ArrayList;
@@ -11,6 +10,7 @@ import org.junit.Test;
 
 import data.hoteldata.HotelEvaluateDataServiceImpl;
 import po.HotelEvaluatePO;
+import util.ResultMsg;
 
 public class HotelEvaluateDataServiceImplTest {
 	
@@ -30,15 +30,15 @@ public class HotelEvaluateDataServiceImplTest {
 	
 	@Test
 	public void testInsert() throws RemoteException{
-		boolean b = impl.insert(evaluation1);
-		assertTrue(b);
+		ResultMsg b = impl.insert(evaluation1);
+		assertEquals(b, ResultMsg.SUCCESS);
 	}
 	
 	@Test
 	public void testDelete() throws RemoteException{
 		impl.insert(evaluation1);
-		boolean b = impl.delete(evaluation1);
-		assertTrue(b);
+		ResultMsg b = impl.delete(evaluation1);
+		assertEquals(b,ResultMsg.SUCCESS);;
 	}
 	
 	

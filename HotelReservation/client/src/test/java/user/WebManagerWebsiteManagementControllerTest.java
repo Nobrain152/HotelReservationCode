@@ -6,20 +6,20 @@ import static org.junit.Assert.assertEquals;
 import org.junit.Before;
 import org.junit.Test;
 
-import bl.userbl.WebManagerWebsiteManagementController;
+import bl.userbl.WebManagerWebsiteManagement;
 import vo.UserIDVO;
 import vo.UserInfoVO;
 
 
 public class WebManagerWebsiteManagementControllerTest {
 
-	WebManagerWebsiteManagementController impl;
+	WebManagerWebsiteManagement impl;
 	UserIDVO id;
 	UserInfoVO info;
 	
 	@Before
 	public void setUp() {
-		impl=new WebManagerWebsiteManagementController();
+		impl=new WebManagerWebsiteManagement();
 		id=new UserIDVO("123456789");
 		info=new UserInfoVO("123456789","Lily","13124567893");
 	}

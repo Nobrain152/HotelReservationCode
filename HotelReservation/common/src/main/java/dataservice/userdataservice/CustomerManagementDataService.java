@@ -3,6 +3,7 @@ package dataservice.userdataservice;
 import java.util.ArrayList;
 
 import po.UserIDPO;
+import util.ResultMsg;
 
 /**
  * 客户信息数据管理
@@ -11,14 +12,12 @@ import po.UserIDPO;
  */
 public interface CustomerManagementDataService{
         
-		
-		
 		/**
 		 * 增加会员
 		 * @param 会员ID
 		 * @return 增加结果
 		 */
-		public boolean AddMembers(UserIDPO po);
+		public ResultMsg AddMembers(UserIDPO po);
 		
 		/**
 		 * 获取用户订单ID列表
@@ -33,7 +32,7 @@ public interface CustomerManagementDataService{
 		 * @param 订单VO
 		 * @return 更新结果
 		 */
-		public boolean addCustomerOrders(UserIDPO po,String i);
+		public ResultMsg addCustomerOrders(UserIDPO po,String i);
 		
 		/**
 		 * 获取用户预定过的酒店ID
@@ -48,7 +47,7 @@ public interface CustomerManagementDataService{
 		 * @param 酒店信息
 		 * @return 更新结果
 		 */
-		public boolean addCustomerHotel (UserIDPO po,String idh);
+		public ResultMsg addCustomerHotel (UserIDPO po,String idh);
 		
 		
 		

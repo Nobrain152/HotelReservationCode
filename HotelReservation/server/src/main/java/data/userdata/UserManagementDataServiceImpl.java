@@ -9,6 +9,7 @@ import po.LoginInputPO;
 import po.StuffInfoPO;
 import po.UserIDPO;
 import po.UserInfoPO;
+import util.ResultMsg;
 import po.UserIDPO;
 
 public class UserManagementDataServiceImpl implements UserManagementDataService {
@@ -55,11 +56,11 @@ public class UserManagementDataServiceImpl implements UserManagementDataService 
 		return info.get(point);
 	}
 
-	public boolean SetUserBaseInfo(UserIDPO po1, UserInfoPO po2) {
+	public ResultMsg SetUserBaseInfo(UserIDPO po1, UserInfoPO po2) {
 		id=po1.getUserID();
 		point=ID.indexOf(id);
 		info.set(point, po2);
-		return true;
+		return ResultMsg.SUCCESS;
 	}
 
 	public boolean addHotelStuff(HotelIDPO po1,UserIDPO po3){

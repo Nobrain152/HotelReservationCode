@@ -17,7 +17,5 @@ public interface HotelInfoMaintainBLService {
 	 * 
 	 */
     public ResultMsg submitInfo(HotelInfoVO hotelInfoVO);
-   
   
-      
 }

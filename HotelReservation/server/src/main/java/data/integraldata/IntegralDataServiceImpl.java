@@ -5,25 +5,26 @@ import java.util.ArrayList;
 
 import dataservice.integraldataservice.IntegralDataService;
 import po.IntegralPO;
+import util.ResultMsg;
 
 public class IntegralDataServiceImpl implements IntegralDataService{
 
 	@Override
-	public boolean insert(IntegralPO integral) throws RemoteException {
+	public ResultMsg insert(IntegralPO integral) throws RemoteException {
 		// TODO Auto-generated method stub
-		return false;
+		return ResultMsg.FAIL;
 	}
 
 	@Override
-	public boolean delete(IntegralPO integral) throws RemoteException {
+	public ResultMsg delete(IntegralPO integral) throws RemoteException {
 		// TODO Auto-generated method stub
-		return false;
+		return ResultMsg.FAIL;
 	}
 
 	@Override
-	public boolean update(IntegralPO Integral) throws RemoteException {
+	public ResultMsg update(IntegralPO Integral) throws RemoteException {
 		// TODO Auto-generated method stub
-		return false;
+		return ResultMsg.FAIL;
 	}
 
 	@Override

@@ -1,5 +1,6 @@
 package blservice.userblservice;
 
+import util.ResultMsg;
 import vo.UserIDVO;
 import vo.UserInfoVO;
 
@@ -24,6 +25,6 @@ public interface WebIndividualInformationManagementBLService{
 	 * @param 用户信息VO
 	 * @return 修改结果
 	 */
-	public boolean IndividualBaseInfoModification(UserIDVO vo1,UserInfoVO vo2);
+	public ResultMsg IndividualBaseInfoModification(UserIDVO vo1,UserInfoVO vo2);
 		
 }

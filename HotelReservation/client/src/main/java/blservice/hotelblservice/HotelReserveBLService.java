@@ -19,6 +19,4 @@ public interface HotelReserveBLService {
 	 */
     public OrderOnUserMsg createUserOrder(OrderOnUserVO orderInfoVO);
    
-
-      
 }

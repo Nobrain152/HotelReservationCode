@@ -8,7 +8,7 @@ import util.PromotionMsg;
  *
  */
 
-public interface PromotionHoelChangeBLService {
+public interface PromotionHotelChangeBLService {
 	public PromotionMsg changeBirthCut(String ratio);
 	
 	public PromotionMsg changeOverCut(String ratio);

@@ -14,6 +14,10 @@ public class OrderOnWeb {
 	
 	private OrderOnWebDataService webDataService;
 	
+	public OrderOnWeb(OrderOnWebDataService webDataService) {
+		this.webDataService = webDataService;
+	}
+	
 	/**
 	 * 网站营销人员查看申诉列表
 	 *
@@ -50,14 +54,12 @@ public class OrderOnWeb {
 		ResultMsg resultMsg;
 		if(order.getPass()){
 			order.setOrderState(OrderState.UNEXECUTED);
-			resultMsg = webDataService.update(order);
 			//TODO order.getInitiator().add(order.getPrice());
-			return resultMsg;
 		}else{
 			order.setOrderState(OrderState.CANCELLED);
-			resultMsg = webDataService.update(order);
-			return resultMsg;
 		}
+		resultMsg = webDataService.update(order);
+		return resultMsg;
 	}
 	
 	/**
@@ -88,7 +90,7 @@ public class OrderOnWeb {
 	/**
 	 * 网站营销人员查看异常订单详情
 	 *
-	 * @param orderVO 订单VO
+	 * @param String 订单ID
 	 * @return 个人订单详情
 	 * @throws RemoteException 
 	 */

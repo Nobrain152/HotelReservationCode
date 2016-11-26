@@ -29,6 +29,13 @@ public interface HotelInfoDataService {
 	 */
 	public ArrayList<HotelInfoPO> find(HotelInfoPO po) throws RemoteException;
 
+	/**
+	 * 根据订单ID查找
+	 * @param ID
+	 * @return
+	 * @throws RemoteException
+	 */
+	public HotelInfoPO findByID(String ID) throws RemoteException;
 	
 	/**
 	 * 显示

@@ -1,44 +1,67 @@
 package bl.orderbl;
 
+import java.rmi.RemoteException;
 import java.util.ArrayList;
 
 import blservice.orderblservice.OrderOnUserBLService;
+import dataservice.orderdataservice.OrderOnUserDataService;
+import net.RMIManage;
+import util.DataServiceType;
 import util.ResultMsg;
 import vo.OrderOnUserVO;
 
 public class OrderOnUserController implements OrderOnUserBLService{
 
-	/* (non-Javadoc)
-	 * @see blservice.orderblservice.OrderOnUserBLService#personalOrderScan()
-	 */
+	private OrderOnUser orderOnUser;
+	private OrderOnUserDataService userDataService;
+	
+	public OrderOnUserController() {
+		userDataService = (OrderOnUserDataService)RMIManage.
+				getDataService(DataServiceType.OrderOnUserDataService);
+		orderOnUser = new OrderOnUser(userDataService);
+	}
+	
+	@Override
 	public ArrayList<OrderOnUserVO> personalOrderScan() {
-		// TODO Auto-generated method stub
+		try {
+			return orderOnUser.personalOrderScan();
+		} catch (RemoteException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		return null;
 	}
 
-	/* (non-Javadoc)
-	 * @see blservice.orderblservice.OrderOnUserBLService#personalOrderCancel(vo.OrderOnUserVO)
-	 */
+	@Override
 	public ResultMsg personalOrderCancel(OrderOnUserVO orderVO) {
-		// TODO Auto-generated method stub
+		try {
+			return orderOnUser.personalOrderCancel(orderVO);
+		} catch (RemoteException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		return null;
 	}
 
-	/* (non-Javadoc)
-	 * @see blservice.orderblservice.OrderOnUserBLService#personalOrderDetail(vo.OrderOnUserVO)
-	 */
+	@Override
 	public OrderOnUserVO personalOrderDetail(String ID) {
-		// TODO Auto-generated method stub
+		try {
+			return orderOnUser.personalOrderDetail(ID);
+		} catch (RemoteException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		return null;
 	}
 
-	/* (non-Javadoc)
-	 * @see blservice.orderblservice.OrderOnUserBLService#createOrder(vo.OrderOnUserVO)
-	 */
 	@Override
 	public void createOrder(OrderOnUserVO orderVO) {
-		// TODO Auto-generated method stub
-		
+		try {
+			orderOnUser.createOrder(orderVO);
+		} catch (RemoteException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 
 }

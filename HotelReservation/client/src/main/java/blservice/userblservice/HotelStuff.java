@@ -3,7 +3,6 @@ package blservice.userblservice;
 import bl.userbl.HotelStuffHotelOperation;
 import bl.userbl.StuffInfoManagement;
 import util.ResultMsg;
-import vo.HotelIDVO;
 import vo.StuffInfoVO;
 import vo.UserIDVO;
 
@@ -39,8 +38,7 @@ public class HotelStuff {
 	}
 	
 	public String getHotelid(){
-		HotelIDVO v = vo.getHotel();
-		return v.getHotelID();
+		return vo.getHotel();
 	}
 	
 	public ResultMsg BaseInfoModification(StuffInfoVO vo1){

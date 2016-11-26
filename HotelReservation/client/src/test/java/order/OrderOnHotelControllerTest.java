@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import org.junit.Before;
 import org.junit.Test;
 
-import bl.orderbl.OrderOnHotel;
+import bl.orderbl.OrderOnHotelController;
 import util.OrderState;
 import util.ResultMsg;
 import util.RoomType;
@@ -17,7 +17,7 @@ import vo.OrderOnHotelVO;
 
 public class OrderOnHotelControllerTest {
 
-	private OrderOnHotel hotelBLServiceImpl;
+	private OrderOnHotelController hotelBLServiceImpl;
 	ArrayList<OrderOnHotelVO> hotelList;
 	OrderOnHotelVO order1;
 	OrderOnHotelVO order2;
@@ -41,7 +41,7 @@ public class OrderOnHotelControllerTest {
 		order4 = new OrderOnHotelVO(new User("txin",100,"18805156300","151250132@smail.nju.edu.cn"),"42654645437",
 				OrderState.EXECUTED,105, "2016-10-18 12:00","2016-10-19 12:00","2016-10-18 24:00",
 				RoomType.ROOM_STANDARD,1,1,false);
-		hotelBLServiceImpl = new OrderOnHotel();
+		hotelBLServiceImpl = new OrderOnHotelController();
 		//r1 = new ResultMsg(true, "Ö´ÐÐ³É¹¦£¡");
 		r1 = ResultMsg.SUCCESS;
 		hotelList = new ArrayList<>();

@@ -1,42 +1,66 @@
 package bl.orderbl;
 
+import java.rmi.RemoteException;
 import java.util.ArrayList;
 
 import blservice.orderblservice.OrderOnWebBLService;
+import dataservice.orderdataservice.OrderOnWebDataService;
+import net.RMIManage;
+import util.DataServiceType;
 import util.ResultMsg;
 import vo.OrderOnWebVO;
 
 public class OrderOnWebController implements OrderOnWebBLService{
 
-	/* (non-Javadoc)
-	 * @see blservice.orderblservice.OrderOnWebBLService#complaintListScan()
-	 */
+	private OrderOnWeb orderOnWeb;
+	private OrderOnWebDataService orderOnWebDataService;
+	
+	public OrderOnWebController() {
+		orderOnWebDataService = (OrderOnWebDataService)RMIManage.
+				getDataService(DataServiceType.OrderOnWebDataService);
+		orderOnWeb = new OrderOnWeb(orderOnWebDataService);
+	}
+	@Override
 	public ArrayList<OrderOnWebVO> complaintListScan() {
-		// TODO Auto-generated method stub
+		try {
+			return orderOnWeb.complaintListScan();
+		} catch (RemoteException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		return null;
 	}
 
-	/* (non-Javadoc)
-	 * @see blservice.orderblservice.OrderOnWebBLService#complaintHandle(vo.OrderOnWebVO)
-	 */
+	@Override
 	public ResultMsg complaintHandle(OrderOnWebVO orderVO) {
-		// TODO Auto-generated method stub
+		try {
+			return orderOnWeb.complaintHandle(orderVO);
+		} catch (RemoteException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		return null;
 	}
 
-	/* (non-Javadoc)
-	 * @see blservice.orderblservice.OrderOnWebBLService#abnormalOrderScan()
-	 */
+	@Override
 	public ArrayList<OrderOnWebVO> abnormalOrderScan() {
-		// TODO Auto-generated method stub
+		try {
+			return orderOnWeb.abnormalOrderScan();
+		} catch (RemoteException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		return null;
 	}
 
-	/* (non-Javadoc)
-	 * @see blservice.orderblservice.OrderOnWebBLService#abnormalOrderDetail(vo.OrderOnWebVO)
-	 */
+	@Override
 	public OrderOnWebVO abnormalOrderDetail(String ID) {
-		// TODO Auto-generated method stub
+		try {
+			return orderOnWeb.abnormalOrderDetail(ID);
+		} catch (RemoteException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		return null;
 	}
 

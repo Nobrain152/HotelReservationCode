@@ -3,31 +3,34 @@ package vo;
 import util.RoomState;
 import util.RoomType;
 
-public class RoomInfoVO{
+/**
+ * 房间信息
+ * @author lenovo
+ *
+ */
+public class RoomInfoVO {
 
 	/**
-	 * 锟酵凤拷状态
+	 * 房间状态
 	 */
 	private RoomState state;
 
 	/**
-	 * 锟酵凤拷锟斤拷锟斤拷
+	 * 房间类型
 	 */
 	private RoomType type;
 	
 	/**
-	 * 锟斤拷锟斤拷
+	 * 房间数量
 	 */
 	private int number;
 	
-	
 	/**
-	 * 锟桔革拷
+	 * 价格
 	 */
 	private int price;
 
 	public RoomInfoVO(RoomState state, RoomType type, int number, int price ) {
-		super();
 		this.state = state;
 		this.type = type;
 		this.number= number;

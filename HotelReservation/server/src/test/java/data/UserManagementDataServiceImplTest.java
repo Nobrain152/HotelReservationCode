@@ -10,20 +10,20 @@ import org.junit.Test;
 
 import data.userdata.UserManagementDataServiceImpl;
 import po.HotelIDPO;
-import po.LoginInputPO;
+import po.LoginInPO;
 import po.UserIDPO;
 import po.UserInfoPO;
 
 public class UserManagementDataServiceImplTest {
 
 	UserManagementDataServiceImpl impl;
-	LoginInputPO log;
+	LoginInPO log;
 	UserIDPO po;
 	
 	@Before
 	public void setUp(){
 		impl=new UserManagementDataServiceImpl();
-		log=new LoginInputPO("123456789","123456789");
+		log=new LoginInPO("123456789","123456789");
 		po=new UserIDPO("123456798");
 	}
 	
@@ -34,7 +34,7 @@ public class UserManagementDataServiceImplTest {
 	
 	@Test
 	public void testAddUser() throws RemoteException{
-		log=new LoginInputPO(" ","123456");
+		log=new LoginInPO(" ","123456");
 		assertEquals(impl.AddUser(log),"000000000");
 	}
 	

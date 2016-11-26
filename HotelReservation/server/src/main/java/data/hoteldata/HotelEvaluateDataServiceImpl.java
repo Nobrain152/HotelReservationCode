@@ -57,7 +57,10 @@ public class HotelEvaluateDataServiceImpl implements HotelEvaluateDataService{
 		return POs;
 	}
 
-
-
+	@Override
+	public HotelEvaluatePO findByID(String ID) throws RemoteException {
+		// TODO Auto-generated method stub
+		return null;
+	}
 
 }	

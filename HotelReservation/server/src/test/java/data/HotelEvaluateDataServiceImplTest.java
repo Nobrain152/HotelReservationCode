@@ -23,8 +23,8 @@ public class HotelEvaluateDataServiceImplTest {
 	@Before
 	public void setUp(){
 		impl = new HotelEvaluateDataServiceImpl();
-		evaluation1=new HotelEvaluatePO("gyf","StarHotel",10,"execellent",true);
-		evaluation2=new HotelEvaluatePO("gyf","SunHotel",8,"very good",false);
+		evaluation1=new HotelEvaluatePO("gyf","StarHotel",10,"execellent",true,"6515164236536");
+		evaluation2=new HotelEvaluatePO("gyf","SunHotel",8,"very good",false,"5463464354");
 		list = new ArrayList<HotelEvaluatePO>();
 	}
 	

@@ -21,8 +21,7 @@ public class HotelInfoCheckController implements HotelInfoCheckBLService{
 				.getDataService(DataServiceType.HotelInfoDataService);
 		hotelInfoCheck = new HotelInfoCheck(hotelInfoData);
 	}
-	
-	
+
 	/**
 	 * œ‘ ææ∆µÍ–≈œ¢
 	 * 

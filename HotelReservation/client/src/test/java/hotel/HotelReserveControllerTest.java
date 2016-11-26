@@ -33,9 +33,9 @@ public class HotelReserveControllerTest {
 		impl = new HotelReserveController();
 		
 		hotel1=new HotelInfoVO("StarHotel","StarRoad","StarArea",5,"It's a wonderful hotel","cafe, garden and so on",
-				true);
+				true,"587");
 		hotel2=new HotelInfoVO("SunHotel","SunRoad","SunArea",4,"It's a nice hotel","cafe",
-				false);
+				false,"7868");
 		
 		order1 = new OrderOnUserVO(new User("GYF",100,"15150158583","151250047@smail.nju.edu.cn"),"42654645438",
 				OrderState.UNEXECUTED,105, "2016-10-15 24:00",RoomType.ROOM_STANDARD,1,1,true);

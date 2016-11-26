@@ -1,5 +1,6 @@
 package vo;
 
+import util.CustomerType;
 import util.PromotionWebType;
 
 
@@ -11,11 +12,21 @@ import util.PromotionWebType;
  */
 
 public class PromotionWebVO {
+	
+	/**
+	 * 酒店ID
+	 */
+	String hotelID;
+	
 	/**
 	 * 促销策略类型
 	 */
-	PromotionWebType WebType;
+	PromotionWebType hotelType;
 	
+	/**
+	 * 客户类型
+	 */
+	CustomerType customType;
 	
 	/**
 	 * 促销策略起止时间
@@ -27,16 +38,26 @@ public class PromotionWebVO {
 	 */
 	double ratio;
 	
-	public PromotionWebVO(PromotionWebType WebType,String timeBegin,String timeOver,double ratio) {
-		// TODO Auto-generated constructor stub
-		this.WebType = WebType;
+	public PromotionWebVO(String hotelID, PromotionWebType hotelType,CustomerType customType,
+			String timeBegin,String timeOver,double ratio) {
+		this.hotelID = hotelID;
+		this.hotelType = hotelType;
+		this.hotelType = hotelType;
 		this.timeBegin = timeBegin;
 		this.timeOver = timeOver;
 		this.ratio = ratio;
 	}
 	
+	public String getHotelID() {
+		return hotelID;
+	}
+	
 	public PromotionWebType getType(){
-		return WebType;
+		return hotelType;
+	}
+	
+	public CustomerType getMemberType() {
+		return customType;
 	}
 	
 	public String getTimeBegin() {

@@ -1,8 +1,12 @@
 package vo;
 
 
-public class HotelEvaluateVO{
-
+/**
+ * 酒店评价
+ * @author lenovo
+ *
+ */
+public class HotelEvaluateVO {
 
 	/**
 	 * 用户名
@@ -29,14 +33,18 @@ public class HotelEvaluateVO{
 	 */
 	private boolean reserve;
 	
-	
+	/**
+	 * 订单ID
+	 */
+	private String orderID;
 
-	public HotelEvaluateVO(String username,String hotelname, int score, String comment, boolean reserve) {
+	public HotelEvaluateVO(String username,String hotelname, int score, String comment, boolean reserve, String orderID) {
 		this.username=username;
 		this.hotelname=hotelname;
 		this.score = score;
 		this.comment = comment;
 		this.reserve=reserve;
+		this.orderID = orderID;
 	}
 	
 	public String getUserName(){
@@ -55,8 +63,12 @@ public class HotelEvaluateVO{
 		return comment;
 	}
 
-	public boolean isReserved(){
+	public boolean getIsReserved(){
 		return reserve;
+	}
+	
+	public String getOrderID() {
+		return orderID;
 	}
 	
 }	

@@ -8,13 +8,12 @@ import org.junit.Test;
 
 import blservice.userblservice.HotelStuff;
 import util.ResultMsg;
-import vo.HotelIDVO;
 import vo.StuffInfoVO;
 
 public class HotelStuffTest {
 	StuffInfoVO vo;
 	private HotelStuff stuff;
-	HotelIDVO id=new HotelIDVO("1234567");
+	String id="1234567";
 	
 	@Before
 	public void setup(){

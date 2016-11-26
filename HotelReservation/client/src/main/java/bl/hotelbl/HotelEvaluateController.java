@@ -14,47 +14,37 @@ import util.ResultMsg;
 import vo.HotelEvaluateVO;
 
 public class HotelEvaluateController implements HotelEvaluateBLService{
-	public ArrayList<HotelEvaluateVO> evaluationList;
+
 	private HotelEvaluate hotelEvaluate;
 	private HotelEvaluateDataService hotelEvaluateData;
+	public ArrayList<HotelEvaluateVO> evaluationList;
 	
 	public HotelEvaluateController() {
-		evaluationList = new ArrayList<HotelEvaluateVO>();
 		hotelEvaluateData = (HotelEvaluateDataService) RMIManage
 				.getDataService(DataServiceType.HotelEvaluateDataService);
 		hotelEvaluate = new HotelEvaluate(hotelEvaluateData);
 	}
-	
-	/**
-	 * 输入评价
-	 *
-	 */
+
 	@Override
 	public EvaluationMsg inputEvaluate(HotelEvaluateVO evaluateInfoVO){
 		try {
 			return hotelEvaluate.inputEvaluate(evaluateInfoVO);
-		} catch (RemoteException  e) {
+		} catch (RemoteException e) {
+			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		return null;
 	}
-	
-	
-   /**
-     * 检查是否在已执行订单中
-     * 
-     */
+
 	@Override
-   public ResultMsg checkOrder(HotelEvaluateVO evaluateInfoVO){
+	public ResultMsg checkOrder(HotelEvaluateVO evaluateInfoVO){
 		try {
 			return hotelEvaluate.checkOrder(evaluateInfoVO);
 		} catch (RemoteException  e) {
+			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		return null;
-   }
-   
-   
-  
+	}
 	
 }

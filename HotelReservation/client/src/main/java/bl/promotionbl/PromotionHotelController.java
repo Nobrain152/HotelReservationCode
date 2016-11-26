@@ -2,62 +2,63 @@ package bl.promotionbl;
 
 import java.util.ArrayList;
 
-import blservice.promotionservice.PromotionHoelBLService;
+import blservice.promotionservice.PromotionHotelBLService;
 import po.PromotionHotelPO;
 import util.PromotionMsg;
+import vo.PromotionHotelVO;
 
-public class PromotionHotelController implements PromotionHoelBLService{
+public class PromotionHotelController implements PromotionHotelBLService{
 
 	@Override
-	public PromotionMsg changeBirthCut(int level,String ratio) {
+	public PromotionMsg changeBirthCut(int level,double ratio) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public PromotionMsg changeOverCut(int number,String ratio) {
+	public PromotionMsg changeOverCut(int number,double ratio) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public PromotionMsg changeHotelCustomCut(String timeBegin, String timeOver, String ratio) {
+	public PromotionMsg changeHotelCustomCut(String timeBegin, String timeOver, double ratio) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public PromotionMsg changeJoin(String businessName, String ratio) {
+	public PromotionMsg changeJoin(String businessName, double ratio) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public ArrayList<PromotionHotelPO> getHotelPromotion(int type) {
+	public ArrayList<PromotionHotelVO> getHotelPromotion(int type) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public PromotionMsg addBirthCut(int level, String ratio) {
+	public PromotionMsg addBirthCut(int level, double radio) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public PromotionMsg addOverCut(int number, String ratio) {
+	public PromotionMsg addOverCut(int number, double ratio) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public PromotionMsg addJoin(String businessName, String ratio) {
+	public PromotionMsg addJoin(String businessName, double ratio) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public PromotionMsg addHotelCustomCut(String timeBegin, String timeOver, String ratio) {
+	public PromotionMsg addHotelCustomCut(String timeBegin, String timeOver, double ratio) {
 		// TODO Auto-generated method stub
 		return null;
 	}

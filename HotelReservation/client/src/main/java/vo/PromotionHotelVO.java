@@ -1,7 +1,7 @@
 package vo;
 
+import util.CustomerType;
 import util.PromotionHotelType;
-
 
 /**
  * 酒店促销策略VO
@@ -11,11 +11,21 @@ import util.PromotionHotelType;
  */
 
 public class PromotionHotelVO {
+	
+	/**
+	 * 酒店ID
+	 */
+	String hotelID;
+	
 	/**
 	 * 促销策略类型
 	 */
 	PromotionHotelType hotelType;
 	
+	/**
+	 * 客户类型
+	 */
+	CustomerType customType;
 	
 	/**
 	 * 促销策略起止时间
@@ -27,16 +37,26 @@ public class PromotionHotelVO {
 	 */
 	double ratio;
 	
-	public PromotionHotelVO(PromotionHotelType hotelType,String timeBegin,String timeOver,double ratio) {
-		// TODO Auto-generated constructor stub
+	public PromotionHotelVO(String hotelID, PromotionHotelType hotelType,CustomerType customType,
+			String timeBegin,String timeOver,double ratio) {
+		this.hotelID = hotelID;
+		this.hotelType = hotelType;
 		this.hotelType = hotelType;
 		this.timeBegin = timeBegin;
 		this.timeOver = timeOver;
 		this.ratio = ratio;
 	}
 	
+	public String getHotelID() {
+		return hotelID;
+	}
+	
 	public PromotionHotelType getType(){
 		return hotelType;
+	}
+	
+	public CustomerType getMemberType() {
+		return customType;
 	}
 	
 	public String getTimeBegin() {

@@ -2,12 +2,18 @@ package po;
 
 import java.io.Serializable;
 
+/**
+ * 酒店评价
+ * @author lenovo
+ *
+ */
 public class HotelEvaluatePO implements Serializable{
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 
-
-	private static final long serialVersionUID = -7187002330817151504L;
-	
 	/**
 	 * 用户名
 	 */
@@ -33,14 +39,18 @@ public class HotelEvaluatePO implements Serializable{
 	 */
 	private boolean reserve;
 	
-	
+	/**
+	 * 订单ID
+	 */
+	private String orderID;
 
-	public HotelEvaluatePO(String username,String hotelname, int score, String comment, boolean reserve) {
+	public HotelEvaluatePO(String username,String hotelname, int score, String comment, boolean reserve, String orderID) {
 		this.username=username;
 		this.hotelname=hotelname;
 		this.score = score;
 		this.comment = comment;
 		this.reserve=reserve;
+		this.orderID = orderID;
 	}
 	
 	public String getUserName(){
@@ -59,8 +69,12 @@ public class HotelEvaluatePO implements Serializable{
 		return comment;
 	}
 
-	public boolean isReserved(){
+	public boolean getIsReserved(){
 		return reserve;
 	}
-
+	
+	public String getOrderID() {
+		return orderID;
+	}
+	
 }	

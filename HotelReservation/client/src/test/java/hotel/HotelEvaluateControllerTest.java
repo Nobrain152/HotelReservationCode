@@ -26,8 +26,8 @@ public class HotelEvaluateControllerTest {
 	
 	@Before
 	public void setUp() {
-		evaluation1=new HotelEvaluateVO("gyf","StarHotel",10,"execellent",true);
-		evaluation2=new HotelEvaluateVO("gyf","SunHotel",8,"very good",false);
+		evaluation1=new HotelEvaluateVO("gyf","StarHotel",10,"execellent",true,"41531623636");
+		evaluation2=new HotelEvaluateVO("gyf","SunHotel",8,"very good",false,"4325236526");
 				
 				
 		impl = new HotelEvaluateController();
@@ -41,7 +41,7 @@ public class HotelEvaluateControllerTest {
 		
 		
 		evMsg = new EvaluationMsg(evaluation1.getScore(),
-				evaluation1.getComment(),evaluation1.isReserved());
+				evaluation1.getComment(),evaluation1.getIsReserved());
 	}
 	
 	@Test

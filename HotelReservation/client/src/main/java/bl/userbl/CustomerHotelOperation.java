@@ -8,7 +8,6 @@ import bl.hotelbl.HotelSearchController;
 import bl.orderbl.OrderOnUserController;
 import blservice.userblservice.CustomerHotelOperationBlService;
 import vo.HotelEvaluateVO;
-import vo.HotelIDVO;
 import vo.HotelInfoVO;
 import vo.OrderOnUserVO;
 import vo.VipVO;
@@ -20,7 +19,7 @@ import vo.VipVO;
  * @author 曹畅
  *
  */
-public class CustomerHotelOperation implements CustomerHotelOperationBlService {
+public class CustomerHotelOperation {
 	String userID;
 	HotelSearchController hotel;
 	HotelInfoVO cond;
@@ -54,7 +53,7 @@ public class CustomerHotelOperation implements CustomerHotelOperationBlService {
 	 * @param 订单VO
 	 *
 	 */
-	public void OederCreat(HotelIDVO vo1,OrderOnUserVO vo2){
+	public void OederCreat(HotelInfoVO vo1,OrderOnUserVO vo2){
 	    order.createOrder(vo2);
 		
 	}
@@ -74,9 +73,8 @@ public class CustomerHotelOperation implements CustomerHotelOperationBlService {
 	 * @param 酒店IDVO
 	 * @param 会员信息VO
 	 */
-	public void MemberRegisterApply(HotelIDVO vo1,VipVO vo2){
+	public void MemberRegisterApply(HotelInfoVO vo1,VipVO vo2){
 		
 	}
-
 
 }

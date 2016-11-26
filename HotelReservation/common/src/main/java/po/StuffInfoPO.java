@@ -2,46 +2,34 @@ package po;
 
 import java.io.Serializable;
 
+import po.ContactPO;
+import po.UserInfoPO;
 
+/**
+ * 酒店管理人员，网站管理人员，网站营销人员的信息
+ * @author lenovo
+ *
+ */
 public class StuffInfoPO extends UserInfoPO implements Serializable{
-
-    
-	private static final long serialVersionUID = -7187002330817151504L;
 	
-	 private String userid;
-		
-	private String username;
-		
-	private String contact;
-		
-	private HotelIDPO hotelpo;
-		
-		
-	public StuffInfoPO(String userid,String username,String contact,String hotel){
-		    super(userid,username,contact);
-		    this.userid=userid;
-			this.username=username;
-			this.contact=contact;
-			this.hotelpo=new HotelIDPO(hotel);
-	}
-		
-	public String getUserid(){
-		    return userid;
-	}
-		
-	public String getUsername(){
-		    return username;
-	}
-		
-	public String getContact(){
-		    return contact;
-	}
-		
-	public HotelIDPO getHotel(){
-			return hotelpo;
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	
+	// TODO
+	private String hotelVO;
+	
+	public StuffInfoPO(String userid,String username,ContactPO contact,String VO){
+	    super(userid, username, contact);
+		this.hotelVO = VO;
 	}
 	
-	public void setHotel(HotelIDPO p){
-		hotelpo=p;
+	public String getHotel(){
+		return hotelVO;
+	}	
+	
+	public void setHotel(String vo){
+		hotelVO = vo;
 	}
 }

@@ -7,7 +7,7 @@ import bl.hotelbl.RoomAddController;
 import bl.orderbl.OrderOnHotelController;
 import blservice.userblservice.HotelStuffHotelOperationBlService;
 import util.ResultMsg;
-import vo.HotelIDVO;
+import vo.HotelInfoVO;
 import vo.HotelInfoVO;
 import vo.OrderOnHotelVO;
 import vo.PromotionHotelVO;
@@ -40,7 +40,7 @@ public class HotelStuffHotelOperation implements HotelStuffHotelOperationBlServi
 	 * @param 酒店IDVO
 	 * @return 酒店信息VO
 	 */
-	public HotelInfoVO HotelInformationInquiry(HotelIDVO vo){
+	public HotelInfoVO HotelInformationInquiry(HotelInfoVO vo){
 		return null;
 	}
 			
@@ -61,7 +61,7 @@ public class HotelStuffHotelOperation implements HotelStuffHotelOperationBlServi
 	 * @param 酒店促销策略VO
 	 * @return 修改结果
 	 */
-	public boolean HotelStrategeManage(HotelIDVO vo1,PromotionHotelVO vo){
+	public boolean HotelStrategeManage(HotelInfoVO vo1,PromotionHotelVO vo){
 		return false;
 	}
 			
@@ -79,7 +79,7 @@ public class HotelStuffHotelOperation implements HotelStuffHotelOperationBlServi
 	 * @param 酒店IDVO
 	 * @return 订单VO列表
 	 */
-	public ArrayList<OrderOnHotelVO> OrderScan(HotelIDVO vo){
+	public ArrayList<OrderOnHotelVO> OrderScan(HotelInfoVO vo){
 		return order.hotelOrderScan();
 	}
 
@@ -88,7 +88,7 @@ public class HotelStuffHotelOperation implements HotelStuffHotelOperationBlServi
 	 * @param 酒店IDVO
 	 * @return 酒店促销策略列表
 	 */
-	public ArrayList<PromotionHotelVO> HotelPromotionInquire(HotelIDVO vo) {
+	public ArrayList<PromotionHotelVO> HotelPromotionInquire(HotelInfoVO vo) {
 		return null;
 	}
 

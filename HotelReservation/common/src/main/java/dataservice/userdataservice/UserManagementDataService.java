@@ -1,6 +1,6 @@
 package dataservice.userdataservice;
 
-import po.LoginInputPO;
+import po.LoginInPO;
 import po.UserIDPO;
 import po.UserInfoPO;
 import util.ResultMsg;
@@ -17,14 +17,14 @@ public interface UserManagementDataService{
 		 * @param 登录信息PO
 		 * @return 密码
 		 */
-		public String GetLoginInfo(LoginInputPO po);
+		public String GetLoginInfo(LoginInPO po);
 		
 		/**
 		 * 注册
 		 * @param 登录信息PO
 		 * @return 账号
 		 */
-		public String AddUser(LoginInputPO po);
+		public String AddUser(LoginInPO po);
 		
 		/**
 		 * h获取用户基本信息

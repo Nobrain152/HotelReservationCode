@@ -3,6 +3,7 @@ package bl.hotelbl;
 import java.rmi.RemoteException;
 
 import dataservice.hoteldataservice.HotelInfoDataService;
+import po.HotelInfoPO;
 import util.HotelMsg;
 import util.ResultMsg;
 import vo.HotelInfoVO;
@@ -10,24 +11,21 @@ import vo.HotelInfoVO;
 public class HotelInfoMaintain {
 	private HotelInfoDataService hotelInfoData;
 	private HotelMsg hotel;
-	private ResultMsg result;
 	
 	public HotelInfoMaintain(HotelInfoDataService hotelInfoData){
 		this.hotelInfoData=hotelInfoData;
 	}
 
-	
 	public HotelMsg inputHotelInfo(HotelInfoVO hotelInfoVO)  throws RemoteException{
-		hotel=new HotelMsg(hotelInfoVO.getName(),hotelInfoVO.getAddress(),
-    			hotelInfoVO.getArea(),hotelInfoVO.getLevel(),hotelInfoVO.getIntroduction(),
-    			hotelInfoVO.getFacility(),hotelInfoVO.isReserved());
+		HotelInfoPO hotelInfoPO = hotelInfoData.findByID(hotelInfoVO.getHotelID());
+		hotel = new HotelMsg(hotelInfoPO.getName(),hotelInfoPO.getAddress(),
+    			hotelInfoPO.getArea(),hotelInfoPO.getLevel(),hotelInfoPO.getIntroduction(),
+    			hotelInfoPO.getFacility(),hotelInfoPO.getIsReserved());
 		return hotel;
 	}
 	
 	
     public ResultMsg submitInfo(HotelInfoVO hotelInfoVO)  throws RemoteException{
-    	//result = new ResultMsg(true,"Î¬»¤³É¹¦");
-    	result = ResultMsg.SUCCESS;
-    	return result;
+    	return ResultMsg.SUCCESS;
     }
 }

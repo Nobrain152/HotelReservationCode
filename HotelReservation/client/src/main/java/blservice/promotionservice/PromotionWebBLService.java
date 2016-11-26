@@ -2,8 +2,8 @@ package blservice.promotionservice;
 
 import java.util.ArrayList;
 
-import po.PromotionWebPO;
 import util.PromotionMsg;
+import vo.PromotionWebVO;
 
 /**
  * 网站促销策略接口
@@ -14,18 +14,18 @@ import util.PromotionMsg;
 
 public interface PromotionWebBLService {
 	//修改促销策略
-	public PromotionMsg changeLevelCut(int level,String ratio);
+	public PromotionMsg changeLevelCut(int level,double ratio);
 	
-	public PromotionMsg changeCircleCut(String location,String ratio);
+	public PromotionMsg changeCircleCut(String location,double ratio);
 	
-	public PromotionMsg changeWebCustomCut(String timeBegin,String timeOver, String ratio);
+	public PromotionMsg changeWebCustomCut(String timeBegin,String timeOver, double ratio);
 	
 	//增加促销策略
-	public PromotionMsg addLevelCut(int level,String ratio);
+	public PromotionMsg addLevelCut(int level,double ratio);
 	
-	public PromotionMsg addCircleCut(String location,String ratio);
+	public PromotionMsg addCircleCut(String location,double ratio);
 	
-	public PromotionMsg addWebCustomCut(String timeBegin,String timeOver, String ratio);
+	public PromotionMsg addWebCustomCut(String timeBegin,String timeOver, double ratio);
 	
 	/**
 	 * @param type
@@ -34,5 +34,5 @@ public interface PromotionWebBLService {
 	 * 2:表示自定义促销策略
 	 * @return 相应促销策略列表
 	 */
-	public ArrayList<PromotionWebPO> getWebPromotion(int type);
+	public ArrayList<PromotionWebVO> getWebPromotion(int type);
 }

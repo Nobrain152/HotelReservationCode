@@ -4,6 +4,11 @@ import java.util.ArrayList;
 
 import util.VipType;
 
+/**
+ * 会员信息
+ * @author lenovo
+ *
+ */
 public class VipVO {
 	
 	/**
@@ -12,7 +17,7 @@ public class VipVO {
 	String name;
 	
 	/**
-	 * vip种类
+	 * 会员种类
 	 */
 	VipType type;
 	
@@ -26,10 +31,7 @@ public class VipVO {
 	 */
 	int level;
 	
-	
-	
 	public VipVO(String name,ArrayList<int[][]> levelList,int level,VipType type) {
-		// TODO Auto-generated constructor stub
 		this.levelList = levelList;
 		this.level = level;
 		this.name = name;

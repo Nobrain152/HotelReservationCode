@@ -2,19 +2,25 @@ package po;
 
 import java.io.Serializable;
 
+/**
+ * 酒店信息
+ * @author lenovo
+ *
+ */
 public class HotelInfoPO implements Serializable{
 
-
-
-	private static final long serialVersionUID = -7187002330817151504L;
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 
 	/**
-	 * 名称
+	 * 酒店名称
 	 */
 	private String name;
 
 	/**
-	 * 地址
+	 * 酒店地址
 	 */
 	private String address;
 	
@@ -22,7 +28,6 @@ public class HotelInfoPO implements Serializable{
 	 * 所属商圈
 	 */
 	private String area;
-	
 	
 	/**
 	 * 星级
@@ -38,17 +43,18 @@ public class HotelInfoPO implements Serializable{
 	 * 服务设施
 	 */
 	private String facility;
-	
+
 	/**
 	 * 是否订过
 	 */
 	private boolean reserve;
 	
+	/**
+	 * 酒店ID
+	 */
+	private String hotelID;
 	
-	
-
-	public HotelInfoPO(String name, String address, String area, int level, String introduction, String facility, boolean reserve) {
-		super();
+	public HotelInfoPO(String name, String address, String area, int level, String introduction, String facility, boolean reserve ,String hotelID) {
 		this.name = name;
 		this.address = address;
 		this.area= area;
@@ -56,6 +62,7 @@ public class HotelInfoPO implements Serializable{
 		this.introduction=introduction;
 		this.facility=facility;
 		this.reserve=reserve;
+		this.hotelID = hotelID;
 	}
 
 	public String getName() {
@@ -82,9 +89,12 @@ public class HotelInfoPO implements Serializable{
 		return facility;
 	}
 	
-	public boolean isReserved(){
+	public boolean getIsReserved(){
 		return reserve;
 	}
 
-	
+	public String getHotelID() {
+		return hotelID;
+	}
+
 }	

@@ -7,16 +7,16 @@ import org.junit.Before;
 import org.junit.Test;
 
 import bl.userbl.LoginInput;
-import vo.LoginInputVO;
+import vo.LoginInVO;
 
 public class LoginInputControllerTest {
 
-	LoginInputVO vo;
+	LoginInVO vo;
 	LoginInput im;
 		
 	@Before
 	public void setUp() {
-		vo=new LoginInputVO("Tom","123456789");
+		vo=new LoginInVO("Tom","123456789");
 		im=new LoginInput();
 	}
 

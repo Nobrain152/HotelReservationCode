@@ -47,7 +47,7 @@ public class StuffInfoManagement implements StuffIndividualInformationManagement
 	 */
 	public ResultMsg IndividualBaseInfoModification(UserIDVO vo1,StuffInfoVO vo2){
 		po=new UserIDPO(vo1.getUserID());
-		StuffInfoPO po2=new StuffInfoPO(vo2.getUserid(),vo2.getUsername(),vo2.getContact(),vo2.getHotel().getHotelID());
+		StuffInfoPO po2=new StuffInfoPO(vo2.getUserid(),vo2.getUsername(),vo2.getContact(),vo2.getHotel());
 		return user.SetUserBaseInfo(po,po2);
 	}
 			

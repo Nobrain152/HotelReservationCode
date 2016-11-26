@@ -2,7 +2,6 @@ package blservice.userblservice;
 
 import java.util.ArrayList;
 
-import vo.HotelIDVO;
 import vo.HotelInfoVO;
 import vo.UserIDVO;
 
@@ -33,6 +32,6 @@ public interface WebManagerHotelOperationBlService{
 	 * @param æ∆µÍIDVO
 	 * @param ”√ªßIDVO
 	 */
-	public boolean StuffAdd(HotelIDVO vo1,UserIDVO vo2);
+	public boolean StuffAdd(HotelInfoVO vo1,UserIDVO vo2);
 		
 }

@@ -14,13 +14,13 @@ public class WebManagerHotelOperationControllerTest {
 
 	WebManagerHotelOperation impl;
 	UserIDVO vo1;
-	HotelIDVO vo2;
+	String vo2;
 	
 	@Before
 	public void setUp() {
 		impl=new WebManagerHotelOperation();
 		vo1=new UserIDVO("123456789");
-		vo2=new HotelIDVO("123456");
+		vo2="123456";
 	}
 
 	@Test

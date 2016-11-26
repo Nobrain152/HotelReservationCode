@@ -4,9 +4,7 @@ import java.util.ArrayList;
 
 import blservice.userblservice.WebManagerHotelOperationBlService;
 import data.userdata.UserManagementDataServiceImpl;
-import po.HotelIDPO;
 import po.UserIDPO;
-import vo.HotelIDVO;
 import vo.HotelInfoVO;
 import vo.UserIDVO;
 
@@ -19,7 +17,7 @@ import vo.UserIDVO;
 public class WebManagerHotelOperation implements WebManagerHotelOperationBlService {
 
 	UserManagementDataServiceImpl check;
-	HotelIDPO po;
+	String po;
 	UserIDPO po1;
 	
 	public WebManagerHotelOperation(){
@@ -39,8 +37,8 @@ public class WebManagerHotelOperation implements WebManagerHotelOperationBlServi
 	 * @param æ∆µÍIDVO
 	 * @param ”√ªßIDVO
 	 */
-	public boolean StuffAdd(HotelIDVO vo1,UserIDVO vo2){
-		po=new HotelIDPO(vo1.getHotelID());
+	public boolean StuffAdd(HotelInfoVO vo1,UserIDVO vo2){
+		po = vo1.getHotelID();
 		po1=new UserIDPO(vo2.getUserID());
 		return check.addHotelStuff(po,po1);
 	}

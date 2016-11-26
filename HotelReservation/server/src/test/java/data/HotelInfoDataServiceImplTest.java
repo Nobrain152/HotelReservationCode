@@ -25,11 +25,11 @@ public class HotelInfoDataServiceImplTest {
 	public void setUp(){
 		impl = new HotelInfoDataServiceImpl();
 		hotel1=new HotelInfoPO("StarHotel","StarRoad","StarArea",5,"It's a wonderful hotel","cafe, garden and so on",
-				true);
+				true,"1343");
 		hotel2=new HotelInfoPO("SunHotel","SunRoad","SunArea",4,"It's a nice hotel","cafe",
-				false);
+				false,"2352");
 		hotel3=new HotelInfoPO("MoonHotel","MoonRoad","MoonArea",-1,"It's a terrible hotel","nothing",
-				true);
+				true,"4353");
 		
 		list = new ArrayList<HotelInfoPO>();
 	}
@@ -59,7 +59,7 @@ public class HotelInfoDataServiceImplTest {
 		impl.insert(hotel1);
 		impl.insert(hotel2);
 		ArrayList<HotelInfoPO> arrayList = impl.find(new HotelInfoPO("SunHotel","SunRoad","SunArea",4,"It's a nice hotel","cafe",
-				false));
+				false,"754"));
 		list.add(hotel1);
 		list.add(hotel2);
 		assertEquals(list.get(0), arrayList.get(0));

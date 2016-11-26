@@ -1,3 +1,4 @@
+
 package bl.orderbl;
 
 import java.rmi.RemoteException;
@@ -13,6 +14,10 @@ import vo.OrderOnUserVO;
 public class OrderOnUser {
 	
 	private OrderOnUserDataService userDataService;
+	
+	public OrderOnUser(OrderOnUserDataService userDataService) {
+		this.userDataService = userDataService;
+	}
 	
 	/**
 	 * 客户查看个人订单信息
@@ -56,7 +61,6 @@ public class OrderOnUser {
 	 * @throws RemoteException 
 	 */
 	public ResultMsg personalOrderCancel(OrderOnUserVO orderVO) throws RemoteException {
-		
 		OrderOnUserPO orderOnUserPO = userDataService.findByID(orderVO.getOrderID());
 		ResultMsg resultMsg;
 		if(orderOnUserPO.getOrderState() == OrderState.UNEXECUTED) {
@@ -72,7 +76,7 @@ public class OrderOnUser {
 	/**
 	 * 客户查看个人订单详情
 	 *
-	 * @param orderVO 订单VO
+	 * @param String 订单ID
 	 * @return 个人订单详情
 	 * @throws RemoteException 
 	 */

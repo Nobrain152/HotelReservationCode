@@ -10,6 +10,12 @@ import util.User;
  *
  */
 public abstract class OrderVO {
+	
+	/**
+	 * 酒店ID
+	 */
+	public String hotelID;
+	
 	/**
 	 * 订单发起人
 	 */
@@ -45,6 +51,10 @@ public abstract class OrderVO {
 	public String getOrderID(){
 		return orderID;
 	}
+	
+	public String getHotelID(){
+		return hotelID;
+	}
 
     public void setInitiator(User initiator) {
         this.initiator = initiator;
@@ -60,5 +70,9 @@ public abstract class OrderVO {
 	
 	public void setOrderID(String orderID){
 		this.orderID = orderID;
+	}
+	
+	public void setHotelID(String hotelID){
+		this.hotelID = hotelID;
 	}
 }

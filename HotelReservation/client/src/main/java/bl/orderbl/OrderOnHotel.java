@@ -14,6 +14,10 @@ public class OrderOnHotel {
 	
 	private OrderOnHotelDataService hotelDataService;
 	
+	public OrderOnHotel(OrderOnHotelDataService hotelDataService) {
+		this.hotelDataService = hotelDataService;
+	}
+	
 	/**
 	 * 酒店工作人员查看酒店订单列表
 	 *
@@ -42,7 +46,7 @@ public class OrderOnHotel {
 	/**
 	 * 酒店工作人员查看酒店订单详情
 	 *
-	 * @param OrderOnHotelVO 订单VO
+	 * @param String 订单ID
 	 * @return 酒店订单详情
 	 * @throws RemoteException 
 	 */
@@ -65,14 +69,12 @@ public class OrderOnHotel {
 	 */
 	public ResultMsg hotelOrderModify(OrderOnHotelVO orderVO) throws RemoteException {
 		OrderOnHotelPO hotelPO = hotelDataService.findByID(orderVO.getOrderID());
-		ResultMsg resultMsg;
+		ResultMsg resultMsg = ResultMsg.FAIL;
 		if(hotelPO.getOrderState() == OrderState.UNEXECUTED) {
 			hotelPO.setOrderState(OrderState.EXECUTED);
 			resultMsg = hotelDataService.update(hotelPO);
-			return resultMsg;
-		}else{
-			return ResultMsg.FAIL;
 		}
+		return resultMsg;
 	}
 
 }

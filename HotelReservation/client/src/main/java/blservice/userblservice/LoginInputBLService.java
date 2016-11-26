@@ -1,6 +1,6 @@
 package blservice.userblservice;
 
-import vo.LoginInputVO;
+import vo.LoginInVO;
 
 
 /**
@@ -16,7 +16,7 @@ public interface LoginInputBLService{
 	 * @param 登录输入信息VO
 	 * @return 登录结果
 	 */
-    public boolean  LogIn(LoginInputVO vo);
+    public boolean  LogIn(LoginInVO vo);
 		
 	/**
 	 * 登出	
@@ -30,5 +30,5 @@ public interface LoginInputBLService{
 	 * @param 登录输入信息VO
 	 * @return 注册结果
 	 */
-	public String Register(LoginInputVO vo);
+	public String Register(LoginInVO vo);
 }

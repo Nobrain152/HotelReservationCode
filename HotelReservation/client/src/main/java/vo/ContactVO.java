@@ -1,13 +1,6 @@
-package util;
+package vo;
 
-
-/**
- * 联系信息
- * 
- * @author txin
- *
- */
-public class ConnectionMsg{
+public class ContactVO {
 	
 	/**
 	 * 手机号码
@@ -19,7 +12,7 @@ public class ConnectionMsg{
 	 */
 	public String emailAddress;
 	
-	public ConnectionMsg(String phoneNumber,String emailAddress) {
+	public ContactVO(String phoneNumber,String emailAddress) {
 		this.phoneNumber = phoneNumber;
 		this.emailAddress = emailAddress;
 	}
@@ -30,6 +23,14 @@ public class ConnectionMsg{
 	
 	public String getEmailAddress() {
 		return emailAddress;
+	}
+	
+	public void setPhoneNumber(String phoneNumber) {
+		this.phoneNumber = phoneNumber;
+	}
+	
+	public void setEmailAddress(String emailAddress) {
+		this.emailAddress = emailAddress;
 	}
 
 }

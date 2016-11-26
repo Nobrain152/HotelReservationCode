@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import org.junit.Before;
 import org.junit.Test;
 
-import bl.orderbl.OrderOnUser;
+import bl.orderbl.OrderOnUserController;
 import util.OrderState;
 import util.ResultMsg;
 import util.RoomType;
@@ -18,7 +18,7 @@ import vo.OrderOnUserVO;
 
 public class OrderOnUserControllerTest {
 
-	private OrderOnUser userBLServiceImpl;
+	private OrderOnUserController userBLServiceImpl;
 	OrderOnUserVO order1;
 	OrderOnUserVO order2;
 	OrderOnUserVO order3;
@@ -38,7 +38,7 @@ public class OrderOnUserControllerTest {
 				OrderState.CANCELLED,105, "2016-10-17 24:00",RoomType.ROOM_STANDARD,1,1,false);
 		order4 = new OrderOnUserVO(new User("txin",100,"18805156300","151250132@smail.nju.edu.cn"),"42654645437",
 				OrderState.EXECUTED,105, "2016-10-15 24:00",RoomType.ROOM_STANDARD,1,1,false);
-		userBLServiceImpl = new OrderOnUser();
+		userBLServiceImpl = new OrderOnUserController();
 		userBLServiceImpl.createOrder(order1);
 		userBLServiceImpl.createOrder(order2);
 		userBLServiceImpl.createOrder(order3);

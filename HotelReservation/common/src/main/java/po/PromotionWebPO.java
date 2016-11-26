@@ -2,75 +2,79 @@ package po;
 
 import java.io.Serializable;
 
+import util.CustomerType;
 import util.PromotionWebType;
 
+
 /**
- * 表示酒店营销策略的PO
+ * 网站促销策略VO
+ * 
  * @author kevin
  *
  */
 
-public class PromotionWebPO implements Serializable {
-	private static final long serialVersionUID = 5894748451667870139L;
+public class PromotionWebPO implements Serializable{
 	
-	public PromotionWebPO(String hotel,PromotionWebType type,String customType,String timeBegin,String timeOver,String ratio) {
-		// TODO Auto-generated constructor stub
-		super();
-		this.type = type;
-		this.customType = customType;
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
+	/**
+	 * 酒店ID
+	 */
+	String hotelID;
+	
+	/**
+	 * 促销策略类型
+	 */
+	PromotionWebType hotelType;
+	
+	/**
+	 * 客户类型
+	 */
+	CustomerType customType;
+	
+	/**
+	 * 促销策略起止时间
+	 */
+	String timeBegin,timeOver;
+	
+	/**
+	 * 促销策略打折比例
+	 */
+	double ratio;
+	
+	public PromotionWebPO(String hotelID, PromotionWebType hotelType,CustomerType customType,
+			String timeBegin,String timeOver,double ratio) {
+		this.hotelID = hotelID;
+		this.hotelType = hotelType;
+		this.hotelType = hotelType;
 		this.timeBegin = timeBegin;
 		this.timeOver = timeOver;
 		this.ratio = ratio;
 	}
 	
-	/**
-	 * 酒店名称
-	 */
-	String hotel;
-	
-	/**
-	 * 促销策略类型
-	 */
-	PromotionWebType type ;
-	
-	/**
-	 * 促销策略适用人群类型
-	 */
-	String customType = null;
-	
-	/**
-	 * 促销策略开始时间
-	 */
-	String timeBegin = null;
-	
-	/**
-	 * 促销策略结束时间
-	 */
-	String timeOver = null;
-	
-	/**
-	 * 促销策略打折比例
-	 */
-	String ratio = null;
-	
-	public PromotionWebType getType() {
-		return type;
+	public String getHotelID() {
+		return hotelID;
 	}
 	
-	public String getCustomType() {
+	public PromotionWebType getType(){
+		return hotelType;
+	}
+	
+	public CustomerType getMemberType() {
 		return customType;
 	}
 	
 	public String getTimeBegin() {
-		return timeBegin;
-	}
-	
-	public String getTimeOver() {
-		return timeOver;
-	}
-	
-	public String getRatio() {
+        return timeBegin;
+    }
+
+    public String getTimeOver() {
+        return timeOver;
+    }
+    public double getRatio() {
 		return ratio;
 	}
-	
 }

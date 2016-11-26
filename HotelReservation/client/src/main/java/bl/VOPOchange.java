@@ -100,7 +100,7 @@ public class VOPOchange {
 					e.printStackTrace();
 				}
 				ArrayList<Object> volist = new ArrayList<Object>(polist.size());
-				for(int j =0 ; j< polist.size(); j++){
+				for(int j = 0 ; j< polist.size(); j++){
 					volist.add(votmp.cast(POtoVO(polist.get(j))));
 				}
 				

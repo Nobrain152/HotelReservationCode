@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import org.junit.Before;
 import org.junit.Test;
 
-import bl.orderbl.OrderOnWeb;
+import bl.orderbl.OrderOnWebController;
 import util.OrderState;
 import util.ResultMsg;
 import util.User;
@@ -16,7 +16,7 @@ import vo.OrderOnWebVO;
 
 public class OrderOnWebControllerTest {
 
-	OrderOnWeb webBLServiceImpl;
+	OrderOnWebController webBLServiceImpl;
 	ArrayList<OrderOnWebVO> webList;
 	OrderOnWebVO web1;
 	ResultMsg r1;
@@ -24,7 +24,7 @@ public class OrderOnWebControllerTest {
 	
 	@Before
 	public void setUp(){
-		webBLServiceImpl = new OrderOnWeb();
+		webBLServiceImpl = new OrderOnWebController();
 		webList = new ArrayList<>();
 		web1 = new OrderOnWebVO(new User("txin",100,"18805156300","151250132@smail.nju.edu.cn"),"42654645437",
 				OrderState.ABNORMAL,105,"»ð³µÍíµã");

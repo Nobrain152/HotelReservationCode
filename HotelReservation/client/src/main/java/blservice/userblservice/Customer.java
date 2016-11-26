@@ -5,44 +5,45 @@ import java.util.ArrayList;
 import bl.userbl.CustomerHotelOperation;
 import bl.userbl.CustomerInfoManagement;
 import util.ResultMsg;
+import vo.ContactVO;
 import vo.CustomerInfoVO;
 import vo.HotelInfoVO;
-import vo.IntegralVO;
+import vo.CreditVO;
 import vo.OrderOnUserVO;
-import vo.UserIDVO;
+import vo.UserInfoVO;
 
-public class Customer  {
+public class Customer {
 
 	CustomerInfoVO infomation;
 	CustomerInfoManagement in;
 	CustomerHotelOperation hotel;
-	UserIDVO idvo;
+	String userID;
 	
 	public Customer(String id){
-		idvo=new UserIDVO(id);
-		in=new CustomerInfoManagement(idvo);
+		this.userID = id;
+		in = new CustomerInfoManagement(userID);
 		hotel=new CustomerHotelOperation(id);
-		infomation=(CustomerInfoVO)in.IndividualBaseInfolnquiry(idvo);
+		infomation=(CustomerInfoVO)in.IndividualBaseInfolnquiry(userID);
 	}
 	
 	
 	public ResultMsg BaseInfoModification(CustomerInfoVO vo2){
-		return in.IndividualBaseInfoModification(idvo,vo2);
+		return in.IndividualBaseInfoModification(userID,vo2);
 	}
 				
 	
 	public ArrayList<OrderOnUserVO> OrderInquiry(){
-		return in.IndividualOrderInquiry(idvo);
+		return in.IndividualOrderInquiry(userID);
 	}
 				
    
 	public ArrayList<HotelInfoVO> HotelInquiry(){
-		return in.IndividualHotelInquiry(idvo);
+		return in.IndividualHotelInquiry(userID);
 	}
 				
 	
-	public IntegralVO IndividualCredictInquiry(){
-		return in.IndividualCredictInquiry(idvo);
+	public CreditVO IndividualCredictInquiry(){
+		return in.IndividualCredictInquiry(userID);
 	}
 	
 	public String getid(){
@@ -53,7 +54,7 @@ public class Customer  {
 		return infomation.getUsername();
 	}
 	
-	public String getcontact(){
+	public ContactVO getContact(){
 	    return infomation.getContact();
 	}
 }

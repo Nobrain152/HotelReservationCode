@@ -1,36 +1,55 @@
 package vo;
 
-import po.UserInfoPO;
+/**
+ * 所有用户信息的父类
+ * 
+ * @author lenovo
+ *
+ */
+public class UserInfoVO {
 
-public class UserInfoVO{
-    
-	private String userid;
-	
+	/**
+	 * 用户ID
+	 */
+	private String userID;
+
+	/**
+	 * 用户姓名
+	 */
 	private String username;
-	
-	private String contact;
-	
-	public UserInfoVO(String userid,String username,String contact){
-		    this.userid=userid;
-			this.username=username;
-			this.contact=contact;
+
+	/**
+	 * 联系方式
+	 */
+	private ContactVO contact;
+
+	public UserInfoVO(String userID, String username, ContactVO contact) {
+		this.userID = userID;
+		this.username = username;
+		this.contact = contact;
+	}
+
+	public String getUserID() {
+		return userID;
+	}
+
+	public String getUsername() {
+		return username;
+	}
+
+	public ContactVO getContact() {
+		return contact;
 	}
 	
-	public UserInfoVO(UserInfoPO po){
-		this.userid=po.getUserid();
-		this.username=po.getUsername();
-		this.contact=po.getContact();
+	public void setUserid(String userID) {
+		this.userID = userID;
 	}
 	
-	public String getUserid(){
-		return userid;
+	public void setUsername(String username) {
+		this.username = username;
 	}
-		
-	public String getUsername(){
-	    return username;
-	}
-		
-	public String getContact(){
-	    return contact;
+	
+	public void setContact(ContactVO contactVO) {
+		this.contact = contactVO;
 	}
 }

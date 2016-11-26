@@ -28,11 +28,11 @@ public class HotelInfoMaintainControllerTest {
 	@Before
 	public void setUp() {
 		hotel1=new HotelInfoVO("StarHotel","StarRoad","StarArea",5,"It's a wonderful hotel","cafe, garden and so on",
-				true);
+				true,"565547657");
 		hotel2=new HotelInfoVO("SunHotel","SunRoad","SunArea",4,"It's a nice hotel","cafe",
-				false);
+				false,"567858756");
 		hotel3=new HotelInfoVO("MoonHotel","MoonRoad","MoonArea",-1,"It's a terrible hotel","nothing",
-				true);
+				true,"56875875456");
 				
 				
 		impl = new HotelInfoMaintainController();
@@ -44,7 +44,7 @@ public class HotelInfoMaintainControllerTest {
 		
 		
 		hotelMsg = new HotelMsg(hotel1.getName(),hotel1.getAddress(),hotel1.getArea(),hotel1.getLevel(),
-				hotel1.getIntroduction(),hotel1.getFacility(),hotel1.isReserved());
+				hotel1.getIntroduction(),hotel1.getFacility(),hotel1.getIsReserved());
 		//reMsg=new ResultMsg(true,"Î¬»¤³É¹¦");
 		reMsg = ResultMsg.SUCCESS;
 	}

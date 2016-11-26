@@ -2,7 +2,7 @@ package bl.userbl;
 
 import java.util.ArrayList;
 
-import bl.integralbl.IntegralController;
+import bl.creditbl.Credit;
 import bl.orderbl.OrderOnWebController;
 import bl.promotionbl.PromotionWebController;
 import blservice.userblservice.WebStuffWebsiteManagementBLService;
@@ -21,12 +21,12 @@ public class WebStuffWebsiteManagement implements WebStuffWebsiteManagementBLSer
 
 	PromotionWebController pro;
 	OrderOnWebController order;
-	IntegralController inte;
+	Credit inte;
 	
 	public  WebStuffWebsiteManagement(){
 		pro=new PromotionWebController();
 		order=new OrderOnWebController();
-		inte=new IntegralController();
+		inte=new Credit();
 	}
 	
 	/**

@@ -2,8 +2,8 @@ package bl.userbl;
 
 import blservice.userblservice.LoginInputBLService;
 import data.userdata.UserManagementDataServiceImpl;
-import po.LoginInputPO;
-import vo.LoginInputVO;
+import po.LoginInPO;
+import vo.LoginInVO;
 
 
 /**
@@ -14,7 +14,7 @@ import vo.LoginInputVO;
 public class LoginInput implements LoginInputBLService {
 
 	UserManagementDataServiceImpl data=new UserManagementDataServiceImpl();
-	LoginInputPO po;
+	LoginInPO po;
 	
 	
 	/**
@@ -22,9 +22,9 @@ public class LoginInput implements LoginInputBLService {
 	 * @param 登录输入信息VO
 	 * @return 登录结果
 	 */
-    public boolean  LogIn(LoginInputVO vo){
+    public boolean  LogIn(LoginInVO vo){
     	String pass=vo.getUserpassword();
-    	po=new LoginInputPO(vo.getUserid(),vo.getUserpassword());
+    	po=new LoginInPO(vo.getUserid(),vo.getUserpassword());
     	String real=data.GetLoginInfo(po);
     	return real.equals(pass);
     	
@@ -51,8 +51,8 @@ public class LoginInput implements LoginInputBLService {
 	 * @param 登录输入信息VO
 	 * @return 注册结果
 	 */
-	public String Register(LoginInputVO vo){
-		po=new LoginInputPO(vo.getUserid(),vo.getUserpassword());
+	public String Register(LoginInVO vo){
+		po=new LoginInPO(vo.getUserid(),vo.getUserpassword());
 		return data.AddUser(po);
 	}
 }

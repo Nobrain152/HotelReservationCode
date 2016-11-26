@@ -69,6 +69,12 @@ public class HotelInfoDataServiceImpl implements HotelInfoDataService{
 		return hotelPOs;
 	}
 
+	@Override
+	public HotelInfoPO findByID(String ID) throws RemoteException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 
 
 

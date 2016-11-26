@@ -1,39 +1,26 @@
 package vo;
 
-import vo.HotelIDVO;
 
+/**
+ * 酒店管理人员，网站管理人员，网站营销人员的信息
+ * @author lenovo
+ *
+ */
 public class StuffInfoVO extends UserInfoVO{
-    
-	private String userid;
-		
-	private String username;
-		
-	private String contact;
-		
-	private HotelIDVO hotelVO;
 	
-	public StuffInfoVO(String userid,String username,String contact,HotelIDVO VO){
+	// TODO
+	private String hotelVO;
+	
+	public StuffInfoVO(String userid,String username,ContactVO contact,String VO){
 	    super(userid, username, contact);
-		this.hotelVO=VO;
-	}
-		
-	public String getUserid(){
-	    return userid;
-	}
-		
-	public String getUsername(){
-	    return username;
-	}
-		
-	public String getContact(){
-	    return contact;
+		this.hotelVO = VO;
 	}
 	
-	public HotelIDVO getHotel(){
+	public String getHotel(){
 		return hotelVO;
 	}	
 	
-	public void setHotel(HotelIDVO vo){
-		hotelVO=vo;
+	public void setHotel(String vo){
+		hotelVO = vo;
 	}
 }

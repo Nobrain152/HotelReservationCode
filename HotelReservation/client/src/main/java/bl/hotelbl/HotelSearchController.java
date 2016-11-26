@@ -11,6 +11,11 @@ import util.DataServiceType;
 import util.HotelMsg;
 import vo.HotelInfoVO;
 
+/**
+ * 
+ * @author gyf
+ * 
+ */
 public class HotelSearchController implements HotelSearchBLService{
 	public ArrayList<HotelInfoVO> hotelList;
 	private HotelSearch hotelSearch;
@@ -23,10 +28,7 @@ public class HotelSearchController implements HotelSearchBLService{
 		hotelSearch = new HotelSearch(hotelInfoData);
 	}
 	
-	/**
-	 * 选择酒店条件
-	 *
-	 */
+	
 	@Override
 	public HotelMsg selectCondition(HotelInfoVO hotelInfoVO){
 		try {
@@ -37,10 +39,7 @@ public class HotelSearchController implements HotelSearchBLService{
 		return null;
 	}
 	
-	/**
-	 * 显示酒店列表
-	 * 
-	 */
+	
 	@Override
     public ArrayList<HotelInfoVO> showList(HotelInfoVO hotelListInfoVO){
     	try {

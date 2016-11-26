@@ -8,6 +8,11 @@ import util.HotelMsg;
 import util.ResultMsg;
 import vo.HotelInfoVO;
 
+/**
+ * 维护酒店基本信息
+ * @author gyf
+ *
+ */
 public class HotelInfoMaintain {
 	private HotelInfoDataService hotelInfoData;
 	private HotelMsg hotel;
@@ -16,6 +21,12 @@ public class HotelInfoMaintain {
 		this.hotelInfoData=hotelInfoData;
 	}
 
+	/**
+	 * 输入酒店基本信息
+	 * @param hotelInfoVO
+	 * @return
+	 * @throws RemoteException
+	 */
 	public HotelMsg inputHotelInfo(HotelInfoVO hotelInfoVO)  throws RemoteException{
 		HotelInfoPO hotelInfoPO = hotelInfoData.findByID(hotelInfoVO.getHotelID());
 		hotel = new HotelMsg(hotelInfoPO.getName(),hotelInfoPO.getAddress(),
@@ -24,8 +35,13 @@ public class HotelInfoMaintain {
 		return hotel;
 	}
 	
-	
-    public ResultMsg submitInfo(HotelInfoVO hotelInfoVO)  throws RemoteException{
+	/**
+	 * 检查信息是否符合标准
+	 * @param hotelInfoVO
+	 * @return
+	 * @throws RemoteException
+	 */
+    public ResultMsg checkInfo(HotelInfoVO hotelInfoVO)  throws RemoteException{
     	return ResultMsg.SUCCESS;
     }
 }

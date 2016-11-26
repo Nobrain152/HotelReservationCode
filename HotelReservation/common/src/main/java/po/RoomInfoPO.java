@@ -7,14 +7,12 @@ import util.RoomType;
 
 /**
  * 房间信息
- * @author lenovo
+ * @author gyf
  *
  */
 public class RoomInfoPO implements Serializable{
 
-	/**
-	 * 
-	 */
+	
 	private static final long serialVersionUID = 1L;
 
 	/**

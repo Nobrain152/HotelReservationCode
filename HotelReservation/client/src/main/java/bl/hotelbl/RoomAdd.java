@@ -9,6 +9,11 @@ import util.RoomMsg;
 import util.RoomState;
 import vo.RoomInfoVO;
 
+/**
+ * 添加客房
+ * @author gyf
+ *
+ */
 public class RoomAdd {
 	private RoomInfoDataService roomData;
 	private RoomMsg room;
@@ -18,7 +23,12 @@ public class RoomAdd {
 		this.roomData=roomDataService;
 	}
 	
-	
+	/**
+	 * 添加客房
+	 * @param roomInfoVO
+	 * @return
+	 * @throws RemoteException
+	 */
 	public RoomMsg addRoom(RoomInfoVO roomInfoVO) throws RemoteException{
 		room= new RoomMsg(roomInfoVO.getState(),roomInfoVO.getType(),roomInfoVO.getNumber(),
 				roomInfoVO.getPrice());
@@ -27,7 +37,9 @@ public class RoomAdd {
 	
 	/**
 	 * 更新客房信息
-	 * 
+	 * @param roomInfoVO
+	 * @return
+	 * @throws RemoteException
 	 */
     public ResultMsg updateRoom(RoomInfoVO roomInfoVO) throws RemoteException{
     	if(roomInfoVO.getState()==RoomState.USABLE){

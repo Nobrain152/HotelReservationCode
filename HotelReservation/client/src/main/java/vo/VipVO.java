@@ -6,7 +6,7 @@ import util.VipType;
 
 /**
  * 会员信息
- * @author lenovo
+ * @author gyf
  *
  */
 public class VipVO {

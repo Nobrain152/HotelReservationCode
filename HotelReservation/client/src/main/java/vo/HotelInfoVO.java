@@ -2,7 +2,7 @@ package vo;
 
 /**
  * æ∆µÍ–≈œ¢
- * @author lenovo
+ * @author gyf
  *
  */
 public class HotelInfoVO {

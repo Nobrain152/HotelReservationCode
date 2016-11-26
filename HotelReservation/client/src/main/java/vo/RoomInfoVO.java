@@ -5,7 +5,7 @@ import util.RoomType;
 
 /**
  * 房间信息
- * @author lenovo
+ * @author gyf
  *
  */
 public class RoomInfoVO {

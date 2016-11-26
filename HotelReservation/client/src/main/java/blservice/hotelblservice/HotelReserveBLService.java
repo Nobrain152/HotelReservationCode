@@ -4,6 +4,7 @@ import util.ResultMsg;
 import vo.HotelInfoVO;
 import vo.OrderOnUserVO;
 
+
 public interface HotelReserveBLService {
 	
 	/**

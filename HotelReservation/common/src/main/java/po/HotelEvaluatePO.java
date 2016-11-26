@@ -4,14 +4,12 @@ import java.io.Serializable;
 
 /**
  * æ∆µÍ∆¿º€
- * @author lenovo
+ * @author gyf
  *
  */
 public class HotelEvaluatePO implements Serializable{
 
-	/**
-	 * 
-	 */
+	
 	private static final long serialVersionUID = 1L;
 
 	/**

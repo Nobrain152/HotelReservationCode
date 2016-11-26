@@ -3,7 +3,7 @@ package vo;
 
 /**
  * æ∆µÍ∆¿º€
- * @author lenovo
+ * @author gyf
  *
  */
 public class HotelEvaluateVO {

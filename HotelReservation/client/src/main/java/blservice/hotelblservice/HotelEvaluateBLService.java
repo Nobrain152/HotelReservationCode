@@ -4,18 +4,25 @@ import util.EvaluationMsg;
 import util.ResultMsg;
 import vo.HotelEvaluateVO;
 
+/**
+ * 评价酒店的接口
+ * @author gyf
+ *
+ */
 public interface HotelEvaluateBLService {
 	
 	/**
-	 * 输入评价
-	 *
+	 * 添加评论
+	 * @param evaluateInfoVO
+	 * @return
 	 */
 	public EvaluationMsg inputEvaluate(HotelEvaluateVO evaluateInfoVO);
 		
    /**
-     * 检查是否在已执行订单中
-     * 
-     */
+    * 检查是否在已预订
+    * @param orderListVO
+    * @return
+    */
    public ResultMsg checkOrder(HotelEvaluateVO orderListVO);
   
 }

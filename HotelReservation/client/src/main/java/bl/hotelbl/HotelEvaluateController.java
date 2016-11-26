@@ -13,6 +13,11 @@ import util.EvaluationMsg;
 import util.ResultMsg;
 import vo.HotelEvaluateVO;
 
+/**
+ * 
+ * @author gyf
+ *
+ */
 public class HotelEvaluateController implements HotelEvaluateBLService{
 
 	private HotelEvaluate hotelEvaluate;

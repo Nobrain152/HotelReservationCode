@@ -62,8 +62,8 @@ public class HotelInfoMaintainControllerTest {
     }
 	
 	@Test
-	public void testsubmitInfo(){
-		ResultMsg msg = impl.submitInfo(hotel1); 
+	public void testcheckInfo(){
+		ResultMsg msg = impl.checkInfo(hotel1); 
 		//assertEquals(msg.getMessage(), reMsg.getMessage());
 		assertEquals(msg, reMsg);
     }

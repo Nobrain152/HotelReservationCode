@@ -9,6 +9,11 @@ import net.RMIManage;
 import util.DataServiceType;
 import vo.HotelInfoVO;
 
+/**
+ * 
+ * @author gyf
+ *
+ */
 public class HotelReservedCheckController implements HotelReservedCheckBLService{
 	public ArrayList<HotelInfoVO> hotelList;
 	private HotelReservedCheck hotelReservedCheck;
@@ -22,10 +27,7 @@ public class HotelReservedCheckController implements HotelReservedCheckBLService
 		hotelReservedCheck = new HotelReservedCheck(hotelInfoData);
 	}
 	
-	/**
-	 * 显示已预订酒店列表
-	 * 
-	 */
+	
 	@Override
     public ArrayList<HotelInfoVO> checkReserved(HotelInfoVO reservedHotelListVO){
 		try {

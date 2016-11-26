@@ -10,6 +10,11 @@ import util.DataServiceType;
 import util.HotelMsg;
 import vo.HotelInfoVO;
 
+/**
+ * 
+ * @author gyf
+ *
+ */
 public class HotelInfoCheckController implements HotelInfoCheckBLService{
 	public ArrayList<HotelInfoVO> hotelList;
 	private HotelInfoCheck hotelInfoCheck;
@@ -22,10 +27,7 @@ public class HotelInfoCheckController implements HotelInfoCheckBLService{
 		hotelInfoCheck = new HotelInfoCheck(hotelInfoData);
 	}
 
-	/**
-	 * œ‘ ææ∆µÍ–≈œ¢
-	 * 
-	 */
+	
 	@Override
     public HotelMsg checkHotelInfo(HotelInfoVO hotelInfoVO){
     	try {

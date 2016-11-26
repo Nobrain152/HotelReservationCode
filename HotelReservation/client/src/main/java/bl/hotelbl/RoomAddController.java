@@ -12,6 +12,11 @@ import util.RoomMsg;
 import util.RoomState;
 import vo.RoomInfoVO;
 
+/**
+ * 
+ * @author gyf
+ *
+ */
 public class RoomAddController implements RoomAddBLService{
 	public ArrayList<RoomInfoVO> roomList;
 	private RoomAdd roomAdd;
@@ -24,10 +29,7 @@ public class RoomAddController implements RoomAddBLService{
 		roomAdd = new RoomAdd(roomInfoData);
 	}
 	
-	/**
-	 * 添加可用客房
-	 *
-	 */
+	
 	@Override
 	public RoomMsg addRoom(RoomInfoVO roomInfoVO){
 		try {
@@ -37,11 +39,7 @@ public class RoomAddController implements RoomAddBLService{
 		}
 		return null;
 	}
-	
-	/**
-	 * 更新客房信息
-	 * 
-	 */
+
 	@Override
     public ResultMsg updateRoom(RoomInfoVO roomInfoVO){
 		try {

@@ -11,6 +11,11 @@ import util.HotelMsg;
 import util.ResultMsg;
 import vo.HotelInfoVO;
 
+/**
+ * 
+ * @author gyf
+ *
+ */
 public class HotelInfoMaintainController implements HotelInfoMaintainBLService{
 	
 	public ArrayList<HotelInfoVO> hotelList;
@@ -24,10 +29,7 @@ public class HotelInfoMaintainController implements HotelInfoMaintainBLService{
 		hotelInfoMaintain = new HotelInfoMaintain(hotelInfoData);
 	}
 	
-	/**
-	 * 输入酒店信息
-	 *
-	 */
+	
 	@Override
 	public HotelMsg inputHotelInfo(HotelInfoVO hotelInfoVO){
 		try {
@@ -38,14 +40,11 @@ public class HotelInfoMaintainController implements HotelInfoMaintainBLService{
 		return null;
 	}
 	
-	/**
-	 * 提交酒店信息
-	 * 
-	 */
+	
 	@Override
-    public ResultMsg submitInfo(HotelInfoVO hotelInfoVO){
+    public ResultMsg checkInfo(HotelInfoVO hotelInfoVO){
 		try {
-			return hotelInfoMaintain.submitInfo(hotelInfoVO);
+			return hotelInfoMaintain.checkInfo(hotelInfoVO);
 		} catch (RemoteException  e) {
 			e.printStackTrace();
 		}

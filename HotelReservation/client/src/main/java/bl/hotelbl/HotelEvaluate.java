@@ -8,6 +8,11 @@ import util.EvaluationMsg;
 import util.ResultMsg;
 import vo.HotelEvaluateVO;
 
+/**
+ * ÆÀ¼Û¾Æµê
+ * @author gyf
+ *
+ */
 public class HotelEvaluate {
 	
 	private HotelEvaluateDataService evaluateData;

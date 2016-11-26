@@ -59,17 +59,14 @@ public class OrderOnUser {
 	public ResultMsg personalOrderCancel(OrderOnUserVO orderVO) throws RemoteException {
 		
 		OrderOnUserPO orderOnUserPO = userDataService.findByID(orderVO.getOrderID());
-		
-		switch(orderOnUserPO.getOrderState()) {
-			case UNEXECUTED:
-				orderOnUserPO.setOrderState(OrderState.CANCELLED);
-				return new ResultMsg(true, "撤销成功!");
-			case CANCELLED:
-				return new ResultMsg(false, "请勿重复操作！");
-			case EXECUTED:
-				return new ResultMsg(false, "该订单已经执行，不可撤销！");
-			default:
-				return new ResultMsg(false, "异常订单，不可撤销！");
+		ResultMsg resultMsg;
+		if(orderOnUserPO.getOrderState() == OrderState.UNEXECUTED) {
+			orderOnUserPO.setOrderState(OrderState.CANCELLED);
+			resultMsg = userDataService.update(orderOnUserPO);
+			return resultMsg;
+		}else{
+			resultMsg = ResultMsg.FAIL;
+			return resultMsg;
 		}
 	}
 	

@@ -9,6 +9,7 @@ import java.rmi.RemoteException;
 import java.util.ArrayList;
 
 import po.OrderOnUserPO;
+import util.ResultMsg;
 
 public interface OrderOnUserDataService {
 
@@ -34,7 +35,7 @@ public interface OrderOnUserDataService {
 	 * @return
 	 * @throws RemoteException
 	 */
-	public boolean update(OrderOnUserPO po) throws RemoteException;
+	public ResultMsg update(OrderOnUserPO po) throws RemoteException;
 
 	/**
 	 * 按名字进行查找返回相应的OrderOnUserPO结果

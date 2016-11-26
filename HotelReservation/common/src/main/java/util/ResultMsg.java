@@ -1,38 +1,34 @@
 package util;
 
 /**
- * 输入订单等的返回信息
- * 
+ * 操作的结果信息
  * @author txin
  *
  */
-public class ResultMsg {
-	/**
-	 * 是否通过该阶段的检查
-	 */
-	private boolean pass;
+public enum ResultMsg {
 	
 	/**
-	 * 返回的信息
+	 * 成功
 	 */
-	private String message;
+	SUCCESS,
+	/**
+	 * 失败
+	 */
+	FAIL,
+	/**
+	 * 中断
+	 */
+	PAUSE,
 	
-	public ResultMsg(boolean pass, String message) {
-		super();
-		this.pass = pass;
-		this.message = message;
-	}
+	hasExist,
 	
-	@Override
-	public String toString(){
-		return message;
-	}
+	/**
+	 * 数据不存在
+	 */
+	NOT_EXIST,
 	
-    public boolean isPass() {
-        return pass;
-    }
+	SQL_ERROR,
+	
+	MONEY_NOT_ENOUGH;
 
-    public String getMessage() {
-        return message;
-    }
 }

@@ -49,14 +49,15 @@ public class HotelReserveControllerTest {
 				OrderState.ABNORMAL,105, "2016-10-16 24:00",RoomType.ROOM_BUSINESS,1,1,false);
 		
 		
-		reMsg = new ResultMsg(true, "预定成功");
-		
+		//reMsg = new ResultMsg(true, "预定成功");
+		reMsg = ResultMsg.SUCCESS;
 	}
 	
 	@Test
 	public void testreserveHotel(){
 		ResultMsg msg = impl.reserveHotel(hotel1); 
-		assertEquals(msg.getMessage(), reMsg.getMessage());
+		//assertEquals(msg.getMessage(), reMsg.getMessage());
+		assertEquals(msg, reMsg);
 	}
 	
 	@Test

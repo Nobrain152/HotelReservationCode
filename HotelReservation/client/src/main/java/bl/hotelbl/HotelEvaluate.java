@@ -33,10 +33,10 @@ public class HotelEvaluate {
      */
    public ResultMsg checkOrder(HotelEvaluateVO evaluateInfoVO) throws RemoteException{
 	   if(evaluateInfoVO.isReserved()){
-		   result= new ResultMsg(true,"完成评价");
+		   result = ResultMsg.SUCCESS;
 	   }
 	   else{
-		   result= new ResultMsg(false,"评价出错");
+		   result= ResultMsg.FAIL;
 	   }
 	   return result;
    }

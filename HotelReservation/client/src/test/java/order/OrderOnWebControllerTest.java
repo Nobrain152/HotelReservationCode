@@ -30,7 +30,8 @@ public class OrderOnWebControllerTest {
 		web1 = new OrderOnWebVO(new User("txin",100,"18805156300","151250132@smail.nju.edu.cn"),"42654645437",
 				OrderState.ABNORMAL,105,"火车晚点");
 		webList.add(web1);
-		r1 = new ResultMsg(true, "处理成功！");
+		//r1 = new ResultMsg(true, "处理成功！");
+		r1 = ResultMsg.SUCCESS;
 		msg1 = new OrderOnWebMsg(web1.getInitiator(),web1.getOrderID(),web1.getOrderState(),
 				web1.getPrice(),web1.getReason());;
 	}
@@ -42,10 +43,10 @@ public class OrderOnWebControllerTest {
 	}
 	
 	@Test
-	public void testComplaintHandle(){
+	public void testComplaintHandle() throws RemoteException{
 		ResultMsg msg1 = webBLServiceImpl.complaintHandle(web1);
-		assertEquals(msg1.getMessage(), r1.getMessage());
-		assertEquals(msg1.isPass(), r1.isPass());
+		assertEquals(msg1, r1);
+		assertEquals(msg1, r1);
 	}
 	
 	@Test

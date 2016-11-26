@@ -10,6 +10,7 @@ import java.util.ArrayList;
 
 import po.OrderOnWebPO;
 import util.OrderState;
+import util.ResultMsg;
 
 public interface OrderOnWebDataService {
 
@@ -35,7 +36,7 @@ public interface OrderOnWebDataService {
 	 * @return
 	 * @throws RemoteException
 	 */
-	public boolean update(OrderOnWebPO po) throws RemoteException;
+	public ResultMsg update(OrderOnWebPO po) throws RemoteException;
 
 	/**
 	 * 按名字进行查找返回相应的OrderOnWebPO结果

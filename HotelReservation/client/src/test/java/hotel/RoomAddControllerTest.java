@@ -47,8 +47,10 @@ public class RoomAddControllerTest {
 		
 		
 		roomMsg = new RoomMsg(RoomState.USABLE,RoomType.ROOM_STANDARD,5,1599);
-		reMsg1=new ResultMsg(true,"添加成功");
-		reMsg2=new ResultMsg(false,"添加失败");
+		//reMsg1=new ResultMsg(true,"添加成功");
+		//reMsg2=new ResultMsg(false,"添加失败");
+		reMsg1 = ResultMsg.SUCCESS;
+		reMsg2 = ResultMsg.FAIL;
 	}
 
 	@Test
@@ -63,8 +65,10 @@ public class RoomAddControllerTest {
 	@Test
 	public void testupdateRoom(){
 		ResultMsg msg1 = impl.updateRoom(room1); 
-		assertEquals(msg1.getMessage(), reMsg1.getMessage());
+		//assertEquals(msg1.getMessage(), reMsg1.getMessage());
+		assertEquals(msg1, reMsg1);
 		ResultMsg msg2 = impl.updateRoom(room2); 
-		assertEquals(msg2.getMessage(), reMsg2.getMessage());
+		//assertEquals(msg2.getMessage(), reMsg2.getMessage());
+		assertEquals(msg2, reMsg2);
     }
 }

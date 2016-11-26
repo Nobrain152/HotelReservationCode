@@ -26,7 +26,8 @@ public class HotelInfoMaintain {
 	
 	
     public ResultMsg submitInfo(HotelInfoVO hotelInfoVO)  throws RemoteException{
-    	result=new ResultMsg(true,"维护成功");
+    	//result = new ResultMsg(true,"维护成功");
+    	result = ResultMsg.SUCCESS;
     	return result;
     }
 }

@@ -7,7 +7,7 @@ package util;
  * @author txin
  *
  */
-public class ConnectionMsg extends ResultMsg{
+public class ConnectionMsg{
 	
 	/**
 	 * ÊÖ»úºÅÂë
@@ -20,7 +20,6 @@ public class ConnectionMsg extends ResultMsg{
 	public String emailAddress;
 	
 	public ConnectionMsg(String phoneNumber,String emailAddress) {
-		super(false, null);
 		this.phoneNumber = phoneNumber;
 		this.emailAddress = emailAddress;
 	}

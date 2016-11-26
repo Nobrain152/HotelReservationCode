@@ -43,7 +43,8 @@ public class OrderOnHotelControllerTest {
 				OrderState.EXECUTED,105, "2016-10-18 12:00","2016-10-19 12:00","2016-10-18 24:00",
 				RoomType.ROOM_STANDARD,1,1,false);
 		hotelBLServiceImpl = new OrderOnHotel();
-		r1 = new ResultMsg(true, "执行成功！");
+		//r1 = new ResultMsg(true, "执行成功！");
+		r1 = ResultMsg.SUCCESS;
 		hotelList = new ArrayList<>();
 		hotelList.add(order1);
 		hotelList.add(order2);
@@ -81,6 +82,7 @@ public class OrderOnHotelControllerTest {
 	@Test
 	public void testHotelOrderModify() throws RemoteException{
 		ResultMsg msg1 = hotelBLServiceImpl.hotelOrderModify(order1);
-		assertEquals(msg1.getMessage(), r1.getMessage());
+		//assertEquals(msg1.getMessage(), r1.getMessage());
+		assertEquals(msg1, r1);
 	}
 }

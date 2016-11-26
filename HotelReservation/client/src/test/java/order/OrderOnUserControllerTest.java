@@ -44,10 +44,14 @@ public class OrderOnUserControllerTest {
 		userBLServiceImpl.createOrder(order2);
 		userBLServiceImpl.createOrder(order3);
 		userBLServiceImpl.createOrder(order4);
-		r11 = new ResultMsg(true, "撤销成功!");
-		r22 = new ResultMsg(false, "异常订单，不可撤销！");
-		r33 = new ResultMsg(false, "请勿重复操作！");
-		r44 = new ResultMsg(false, "该订单已经执行，不可撤销！");
+		//r11 = new ResultMsg(true, "撤销成功!");
+		//r22 = new ResultMsg(false, "异常订单，不可撤销！");
+		//r33 = new ResultMsg(false, "请勿重复操作！");
+		//r44 = new ResultMsg(false, "该订单已经执行，不可撤销！");
+		r11 = ResultMsg.SUCCESS;
+		r22 = ResultMsg.FAIL;
+		r33 = ResultMsg.FAIL;
+		r44 = ResultMsg.FAIL;
 	}
 	
 	@Test
@@ -65,14 +69,14 @@ public class OrderOnUserControllerTest {
 		ResultMsg r2 = userBLServiceImpl.personalOrderCancel(order2);
 		ResultMsg r3 = userBLServiceImpl.personalOrderCancel(order3);
 		ResultMsg r4 = userBLServiceImpl.personalOrderCancel(order4);
-		assertSame(r11.getMessage(), r1.getMessage());
-		assertSame(r22.getMessage(), r2.getMessage());
-		assertSame(r33.getMessage(), r3.getMessage());
-		assertSame(r44.getMessage(), r4.getMessage());
-		assertSame(r11.isPass(), r1.isPass());
-		assertSame(r22.isPass(), r2.isPass());
-		assertSame(r33.isPass(), r3.isPass());
-		assertSame(r44.isPass(), r4.isPass());
+		assertSame(r11, r1);
+		assertSame(r22, r2);
+		assertSame(r33, r3);
+		assertSame(r44, r4);
+		assertSame(r11, r1);
+		assertSame(r22, r2);
+		assertSame(r33, r3);
+		assertSame(r44, r4);
 	}
 	
 	@Test

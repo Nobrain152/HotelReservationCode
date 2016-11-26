@@ -31,10 +31,12 @@ public class RoomAdd {
 	 */
     public ResultMsg updateRoom(RoomInfoVO roomInfoVO) throws RemoteException{
     	if(roomInfoVO.getState()==RoomState.USABLE){
-    		result= new ResultMsg(true,"添加成功");
+    		//result= new ResultMsg(true,"添加成功");
+    		result = ResultMsg.SUCCESS;
     	}
     	else{
-    		result= new ResultMsg(false,"添加失败");
+    		//result= new ResultMsg(false,"添加失败");
+    		result = ResultMsg.FAIL;
     	}
     	return result;
     }

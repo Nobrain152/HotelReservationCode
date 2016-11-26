@@ -9,6 +9,7 @@ import java.rmi.RemoteException;
 import java.util.ArrayList;
 
 import po.OrderOnHotelPO;
+import util.ResultMsg;
 
 public interface OrderOnHotelDataService {
 
@@ -34,7 +35,7 @@ public interface OrderOnHotelDataService {
 	 * @return
 	 * @throws RemoteException
 	 */
-	public boolean update(OrderOnHotelPO po) throws RemoteException;
+	public ResultMsg update(OrderOnHotelPO po) throws RemoteException;
 	
 	/**
 	 * 按名字进行查找返回相应的OrderOnHotelPO结果

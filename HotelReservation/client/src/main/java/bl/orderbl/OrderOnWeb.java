@@ -3,6 +3,8 @@ package bl.orderbl;
 import java.rmi.RemoteException;
 import java.util.ArrayList;
 
+import javax.naming.spi.DirStateFactory.Result;
+
 import bl.VOPOchange;
 import dataservice.orderdataservice.OrderOnWebDataService;
 import po.OrderOnWebPO;
@@ -44,16 +46,20 @@ public class OrderOnWeb {
 	 *
 	 * @param orderVO 订单VO
 	 * @return 系统提示消息
+	 * @throws RemoteException 
 	 */
-	public ResultMsg complaintHandle(OrderOnWebVO orderVO){
+	public ResultMsg complaintHandle(OrderOnWebVO orderVO) throws RemoteException{
 		OrderOnWebPO order = (OrderOnWebPO)VOPOchange.VOtoPO(orderVO);
+		ResultMsg resultMsg;
 		if(order.getPass()){
 			order.setOrderState(OrderState.UNEXECUTED);
-			//TODO order.getInitiator().setCredit(order.getPrice());
-			return new ResultMsg(true, "处理成功！");
+			resultMsg = webDataService.update(order);
+			//TODO order.getInitiator().add(order.getPrice());
+			return resultMsg;
 		}else{
 			order.setOrderState(OrderState.CANCELLED);
-			return new ResultMsg(false, "撤销该订单!");
+			resultMsg = webDataService.update(order);
+			return resultMsg;
 		}
 	}
 	

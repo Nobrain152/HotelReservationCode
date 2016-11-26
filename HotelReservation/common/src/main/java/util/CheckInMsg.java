@@ -6,7 +6,7 @@ package util;
  * @author txin
  *
  */
-public class CheckInMsg extends ResultMsg{
+public class CheckInMsg{
 	
 	/**
 	 * 入住时间
@@ -45,7 +45,6 @@ public class CheckInMsg extends ResultMsg{
 	
 	public CheckInMsg(String checkInTime,String checkOutTime,
 		String latestExecutionTime,RoomType roomType,int roomNumber,int peopleNumber,boolean hasChild) {
-		super(true, null);
 		this.checkInTime = checkInTime;
 		this.checkOutTime = checkOutTime;
 		this.latestExecutionTime = latestExecutionTime;

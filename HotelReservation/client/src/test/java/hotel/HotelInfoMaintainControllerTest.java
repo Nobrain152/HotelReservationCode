@@ -45,7 +45,8 @@ public class HotelInfoMaintainControllerTest {
 		
 		hotelMsg = new HotelMsg(hotel1.getName(),hotel1.getAddress(),hotel1.getArea(),hotel1.getLevel(),
 				hotel1.getIntroduction(),hotel1.getFacility(),hotel1.isReserved());
-		reMsg=new ResultMsg(true,"维护成功");
+		//reMsg=new ResultMsg(true,"维护成功");
+		reMsg = ResultMsg.SUCCESS;
 	}
 	
 	@Test
@@ -63,7 +64,8 @@ public class HotelInfoMaintainControllerTest {
 	@Test
 	public void testsubmitInfo(){
 		ResultMsg msg = impl.submitInfo(hotel1); 
-		assertEquals(msg.getMessage(), reMsg.getMessage());
+		//assertEquals(msg.getMessage(), reMsg.getMessage());
+		assertEquals(msg, reMsg);
     }
 
 

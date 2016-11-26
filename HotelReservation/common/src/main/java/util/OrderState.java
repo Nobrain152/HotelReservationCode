@@ -1,8 +1,25 @@
 package util;
 
+/**
+ * 订单状态
+ * @author txin
+ *
+ */
 public enum OrderState {
-	EXECUTED, // 已执行
-	UNEXECUTED, // 未执行
-	ABNORMAL, // 异常
-	CANCELLED // 已撤销
+	/**
+	 * 已执行
+	 */
+	EXECUTED,
+	/**
+	 * 未执行
+	 */
+	UNEXECUTED,
+	/**
+	 * 异常
+	 */
+	ABNORMAL,
+	/**
+	 * 已撤销
+	 */
+	CANCELLED
 }

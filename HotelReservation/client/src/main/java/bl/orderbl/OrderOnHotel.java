@@ -68,11 +68,13 @@ public class OrderOnHotel {
 	 */
 	public ResultMsg hotelOrderModify(OrderOnHotelVO orderVO) throws RemoteException {
 		OrderOnHotelPO hotelPO = hotelDataService.findByID(orderVO.getOrderID());
+		ResultMsg resultMsg;
 		if(hotelPO.getOrderState() == OrderState.UNEXECUTED) {
 			hotelPO.setOrderState(OrderState.EXECUTED);
-			return new ResultMsg(true, "执行成功！");
+			resultMsg = hotelDataService.update(hotelPO);
+			return resultMsg;
 		}else{
-			return new ResultMsg(false, "订单状态不可修改！");
+			return ResultMsg.FAIL;
 		}
 	}
 

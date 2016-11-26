@@ -20,7 +20,8 @@ public class HotelReserve {
 	
 	
 	public ResultMsg reserveHotel(HotelInfoVO reserveHotelVO) throws RemoteException{
-		return new ResultMsg(true,"预定成功");
+		//return new ResultMsg(true,"预定成功");
+		return ResultMsg.SUCCESS;
 	}
 	
 	

@@ -3,12 +3,13 @@ package order;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertSame;
 
+import java.rmi.RemoteException;
 import java.util.ArrayList;
 
 import org.junit.Before;
 import org.junit.Test;
 
-import bl.orderbl.OrderOnUserController;
+import bl.orderbl.OrderOnUser;
 import util.OrderOnUserMsg;
 import util.OrderState;
 import util.ResultMsg;
@@ -18,7 +19,7 @@ import vo.OrderOnUserVO;
 
 public class OrderOnUserControllerTest {
 
-	private OrderOnUserController userBLServiceImpl;
+	private OrderOnUser userBLServiceImpl;
 	OrderOnUserVO order1;
 	OrderOnUserVO order2;
 	OrderOnUserVO order3;
@@ -29,7 +30,7 @@ public class OrderOnUserControllerTest {
 	ResultMsg r44;
 	
 	@Before
-	public void setUp() {
+	public void setUp() throws RemoteException {
 		order1 = new OrderOnUserVO(new User("txin",100,"18805156300","151250132@smail.nju.edu.cn"),"42654645437",
 				OrderState.UNEXECUTED,105, "2016-10-15 24:00",RoomType.ROOM_STANDARD,1,1,false);
 		order2 = new OrderOnUserVO(new User("txin",100,"18805156300","151250132@smail.nju.edu.cn"),"42654645437",
@@ -38,7 +39,7 @@ public class OrderOnUserControllerTest {
 				OrderState.CANCELLED,105, "2016-10-17 24:00",RoomType.ROOM_STANDARD,1,1,false);
 		order4 = new OrderOnUserVO(new User("txin",100,"18805156300","151250132@smail.nju.edu.cn"),"42654645437",
 				OrderState.EXECUTED,105, "2016-10-15 24:00",RoomType.ROOM_STANDARD,1,1,false);
-		userBLServiceImpl = new OrderOnUserController();
+		userBLServiceImpl = new OrderOnUser();
 		userBLServiceImpl.createOrder(order1);
 		userBLServiceImpl.createOrder(order2);
 		userBLServiceImpl.createOrder(order3);
@@ -50,7 +51,7 @@ public class OrderOnUserControllerTest {
 	}
 	
 	@Test
-	public void testPersonalOrderScan(){
+	public void testPersonalOrderScan() throws RemoteException{
 		ArrayList<OrderOnUserVO> userList = userBLServiceImpl.personalOrderScan();
 		assertEquals(order1,userList.get(0));
 		assertEquals(order2,userList.get(1));
@@ -59,7 +60,7 @@ public class OrderOnUserControllerTest {
 	}
 	
 	@Test
-	public void testPersonalOrderCancel(){
+	public void testPersonalOrderCancel() throws RemoteException{
 		ResultMsg r1 = userBLServiceImpl.personalOrderCancel(order1);
 		ResultMsg r2 = userBLServiceImpl.personalOrderCancel(order2);
 		ResultMsg r3 = userBLServiceImpl.personalOrderCancel(order3);
@@ -75,7 +76,7 @@ public class OrderOnUserControllerTest {
 	}
 	
 	@Test
-	public void testPersonalOrderDetail(){
+	public void testPersonalOrderDetail() throws RemoteException{
 		OrderOnUserMsg msg1 = userBLServiceImpl.personalOrderDetail(order1);
 		assertEquals(order1.getInitiator(), msg1.getInitiator());
 		assertEquals(order1.getOrderState(), msg1.getOrderState());

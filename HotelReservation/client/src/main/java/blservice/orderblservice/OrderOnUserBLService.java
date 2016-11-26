@@ -1,5 +1,6 @@
 package blservice.orderblservice;
 
+import java.rmi.RemoteException;
 import java.util.ArrayList;
 
 import util.OrderMsg;
@@ -23,6 +24,15 @@ public interface OrderOnUserBLService {
 	public ArrayList<OrderOnUserVO> personalOrderScan();
 	
 	/**
+	 * 客户创建订单
+	 *
+	 * @param 个人订单
+	 * @return void
+	 * @throws RemoteException 
+	 */
+	public void createOrder(OrderOnUserVO orderVO);
+	
+	/**
 	 * 客户撤销个人订单
 	 *
 	 * @param orderVO 订单VO
@@ -33,7 +43,7 @@ public interface OrderOnUserBLService {
 	/**
 	 * 客户查看个人订单详情
 	 *
-	 * @param void
+	 * @param OrderOnUserVO 订单VO
 	 * @return 个人订单详情
 	 */
 	public OrderMsg personalOrderDetail(OrderOnUserVO orderVO);

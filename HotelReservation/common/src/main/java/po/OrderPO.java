@@ -50,7 +50,7 @@ public abstract class OrderPO implements Serializable{
 		return price;
 	}
 	
-	public String orderID(){
+	public String getOrderID(){
 		return orderID;
 	}
 

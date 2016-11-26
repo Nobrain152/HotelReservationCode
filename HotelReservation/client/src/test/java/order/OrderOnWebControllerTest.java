@@ -2,12 +2,13 @@ package order;
 
 import static org.junit.Assert.assertEquals;
 
+import java.rmi.RemoteException;
 import java.util.ArrayList;
 
 import org.junit.Before;
 import org.junit.Test;
 
-import bl.orderbl.OrderOnWebController;
+import bl.orderbl.OrderOnWeb;
 import util.OrderOnWebMsg;
 import util.OrderState;
 import util.ResultMsg;
@@ -16,7 +17,7 @@ import vo.OrderOnWebVO;
 
 public class OrderOnWebControllerTest {
 
-	OrderOnWebController webBLServiceImpl;
+	OrderOnWeb webBLServiceImpl;
 	ArrayList<OrderOnWebVO> webList;
 	OrderOnWebVO web1;
 	ResultMsg r1;
@@ -24,8 +25,8 @@ public class OrderOnWebControllerTest {
 	
 	@Before
 	public void setUp(){
-		webBLServiceImpl = new OrderOnWebController();
-		webList = OrderOnWebController.webList;
+		webBLServiceImpl = new OrderOnWeb();
+		webList = new ArrayList<>();
 		web1 = new OrderOnWebVO(new User("txin",100,"18805156300","151250132@smail.nju.edu.cn"),"42654645437",
 				OrderState.ABNORMAL,105,"»ð³µÍíµã");
 		webList.add(web1);
@@ -35,7 +36,7 @@ public class OrderOnWebControllerTest {
 	}
 	
 	@Test
-	public void testComplaintListScan(){
+	public void testComplaintListScan() throws RemoteException{
 		ArrayList<OrderOnWebVO> webs = webBLServiceImpl.complaintListScan();
 		assertEquals(webs, webList);
 	}
@@ -48,13 +49,13 @@ public class OrderOnWebControllerTest {
 	}
 	
 	@Test
-	public void testAbnormalOrderScan(){
+	public void testAbnormalOrderScan() throws RemoteException{
 		ArrayList<OrderOnWebVO> webs = webBLServiceImpl.abnormalOrderScan();
 		assertEquals(webs, webList);
 	}
 	
 	@Test
-	public void testAbnormalOrderDetail(){
+	public void testAbnormalOrderDetail() throws RemoteException{
 		OrderOnWebMsg m1 = webBLServiceImpl.abnormalOrderDetail(web1);
 		assertEquals(m1.getInitiator(), msg1.getInitiator());
 		assertEquals(m1.getOrderState(), msg1.getOrderState());

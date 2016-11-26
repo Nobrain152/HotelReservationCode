@@ -2,64 +2,44 @@ package bl.orderbl;
 
 import java.util.ArrayList;
 
-import util.OrderOnUserMsg;
-import util.OrderState;
+import blservice.orderblservice.OrderOnUserBLService;
+import util.OrderMsg;
 import util.ResultMsg;
 import vo.OrderOnUserVO;
 
-public class OrderOnUserController {
-	
-	ArrayList<OrderOnUserVO> userList;
-	
-	public OrderOnUserController() {
-		userList = new ArrayList<OrderOnUserVO>();
-	}
-	/**
-	 * 客户查看个人订单信息
-	 *
-	 * @param void
-	 * @return 个人订单列表
+public class OrderOnUserController implements OrderOnUserBLService{
+
+	/* (non-Javadoc)
+	 * @see blservice.orderblservice.OrderOnUserBLService#personalOrderScan()
 	 */
 	public ArrayList<OrderOnUserVO> personalOrderScan() {
-		return userList;
+		// TODO Auto-generated method stub
+		return null;
 	}
-	
-	/**
-	 * 客户创建订单
-	 *
-	 * @param 个人订单
-	 * @return void
+
+	/* (non-Javadoc)
+	 * @see blservice.orderblservice.OrderOnUserBLService#personalOrderCancel(vo.OrderOnUserVO)
 	 */
-	public void createOrder(OrderOnUserVO order) {
-		userList.add(order);
+	public ResultMsg personalOrderCancel(OrderOnUserVO orderVO) {
+		// TODO Auto-generated method stub
+		return null;
 	}
-	
-	/**
-	 * 客户撤销个人订单
-	 *
-	 * @param order 订单
-	 * @return 系统提示消息
+
+	/* (non-Javadoc)
+	 * @see blservice.orderblservice.OrderOnUserBLService#personalOrderDetail(vo.OrderOnUserVO)
 	 */
-	public ResultMsg personalOrderCancel(OrderOnUserVO order) {
-		if(order.getOrderState() == OrderState.UNEXECUTED)
-			return new ResultMsg(true, "撤销成功!");
-		else if(order.getOrderState() == OrderState.CANCELLED)
-			return new ResultMsg(false, "请勿重复操作！");
-		else if(order.getOrderState() == OrderState.EXECUTED)
-			return new ResultMsg(false, "该订单已经执行，不可撤销！");
-		else
-			return new ResultMsg(false, "异常订单，不可撤销！");
+	public OrderMsg personalOrderDetail(OrderOnUserVO orderVO) {
+		// TODO Auto-generated method stub
+		return null;
 	}
-	
-	/**
-	 * 客户查看个人订单详情
-	 *
-	 * @param void
-	 * @return 个人订单详情
+
+	/* (non-Javadoc)
+	 * @see blservice.orderblservice.OrderOnUserBLService#createOrder(vo.OrderOnUserVO)
 	 */
-	public OrderOnUserMsg personalOrderDetail(OrderOnUserVO order) {
-		return new OrderOnUserMsg(order.getInitiator(), order.getOrderID(),order.getOrderState(), order.getPrice(), order.getLatestExecutionTime(), 
-				order.getRoomType(), order.getRoomNumber(), order.getPeopleNumber(), order.getHasChild());
+	@Override
+	public void createOrder(OrderOnUserVO orderVO) {
+		// TODO Auto-generated method stub
+		
 	}
 
 }

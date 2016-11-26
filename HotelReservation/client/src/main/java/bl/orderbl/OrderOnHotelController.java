@@ -1,56 +1,55 @@
 package bl.orderbl;
 
+import java.rmi.RemoteException;
 import java.util.ArrayList;
 
-import util.OrderOnHotelMsg;
-import util.OrderState;
+import blservice.orderblservice.OrderOnHotelBLService;
+import util.OrderMsg;
 import util.ResultMsg;
 import vo.OrderOnHotelVO;
 
-public class OrderOnHotelController {
+public class OrderOnHotelController implements OrderOnHotelBLService{
+
+	OrderOnHotel hotelOrder;
 	
-	public static ArrayList<OrderOnHotelVO> hotelList;
-	
-	public OrderOnHotelController() {
-		hotelList = new ArrayList<OrderOnHotelVO>();
-	}
-	
-	/**
-	 * 酒店工作人员查看酒店订单列表
-	 *
-	 * @param void
-	 * @return 酒店订单列表
+	/* (non-Javadoc)
+	 * @see blservice.orderblservice.OrderOnHotelBLService#hotelOrderScan()
 	 */
 	public ArrayList<OrderOnHotelVO> hotelOrderScan() {
-		return hotelList;
-	}
-	
-	/**
-	 * 酒店工作人员查看酒店订单详情
-	 *
-	 * @param orderVO 订单VO
-	 * @return 酒店订单详情
-	 */
-	public OrderOnHotelMsg hotelOrderDetail(OrderOnHotelVO order) {
-		return new OrderOnHotelMsg(order.getInitiator(),order.getOrderID(), order.getOrderState(), order.getPrice(), 
-				order.getCheckInTime(), order.getCheckOutTime(), order.getLatestExecutionTime(), 
-				order.getRoomType(), order.getRoomNumber(), order.getPeopleNumber(), order.getHasChild());
-	}
-	
-	/**
-	 * 酒店工作人员修改订单状态
-	 *
-	 * @param orderVO 订单VO
-	 * @return 系统提示消息
-	 */
-	public ResultMsg hotelOrderModify(OrderOnHotelVO order) {
-		if(order.getOrderState() == OrderState.UNEXECUTED) {
-			order.setOrderState(OrderState.EXECUTED);
-			return new ResultMsg(true, "执行成功！");
-		}else{
-			return new ResultMsg(false, "订单状态不可修改！");
+		try {
+			return hotelOrder.hotelOrderScan();
+		} catch (RemoteException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
+		return null;
 	}
-	
+
+	/* (non-Javadoc)
+	 * @see blservice.orderblservice.OrderOnHotelBLService#hotelOrderDetail(java.lang.String)
+	 */
+	public OrderMsg hotelOrderDetail(OrderOnHotelVO orderOnHotelVO) {
+		try {
+			return hotelOrder.hotelOrderDetail(orderOnHotelVO);
+		} catch (RemoteException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return null;
+	}
+
+	/* (non-Javadoc)
+	 * @see blservice.orderblservice.OrderOnHotelBLService#hotelOrderModify(vo.OrderOnHotelVO)
+	 */
+	public ResultMsg hotelOrderModify(OrderOnHotelVO orderVO) {
+		try {
+			return hotelOrder.hotelOrderModify(orderVO);
+		} catch (RemoteException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		// TODO Auto-generated method stub
+		return null;
+	}
 
 }

@@ -25,10 +25,10 @@ public interface OrderOnHotelBLService {
 	/**
 	 * 酒店工作人员查看酒店订单详情
 	 *
-	 * @param orderVO 订单VO
+	 * @param OrderOnHotelVO 订单VO
 	 * @return 酒店订单详情
 	 */
-	public OrderMsg hotelOrderDetail(OrderOnHotelVO orderVO);
+	public OrderMsg hotelOrderDetail(OrderOnHotelVO orderOnHotelVO);
 	
 	/**
 	 * 酒店工作人员修改订单状态

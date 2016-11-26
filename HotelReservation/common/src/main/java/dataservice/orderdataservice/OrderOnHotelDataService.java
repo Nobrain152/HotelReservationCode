@@ -9,28 +9,53 @@ import java.rmi.RemoteException;
 import java.util.ArrayList;
 
 import po.OrderOnHotelPO;
-import util.User;
-
 
 public interface OrderOnHotelDataService {
+
 	/**
 	 * 在数据库中插入单一持久化对象
+	 * @param po
+	 * @return
+	 * @throws RemoteException
 	 */
 	public boolean insert(OrderOnHotelPO po) throws RemoteException;
+	
 	/**
 	 * 在数据库中删除单一持久化对象
+	 * @param po
+	 * @return
+	 * @throws RemoteException
 	 */
 	public boolean delete(OrderOnHotelPO po) throws RemoteException;
+	
 	/**
 	 * 在数据库中更新单一持久化对象
+	 * @param po
+	 * @return
+	 * @throws RemoteException
 	 */
 	public boolean update(OrderOnHotelPO po) throws RemoteException;
+	
 	/**
-	 * 按搜索信息进行查找返回相应的OrderOnHotelPO结果
+	 * 按名字进行查找返回相应的OrderOnHotelPO结果
+	 * @param name
+	 * @return
+	 * @throws RemoteException
 	 */
-	public ArrayList<OrderOnHotelPO> find(User initiator) throws RemoteException;
+	public ArrayList<OrderOnHotelPO> findByName(String name) throws RemoteException;
+
+	/**
+	 * 按订单ID进行查找返回相应的OrderOnHotelPO结果
+	 * @param ID
+	 * @return
+	 * @throws RemoteException
+	 */
+	public OrderOnHotelPO findByID(String ID) throws RemoteException;
+
 	/**
 	 * 返回所有酒店订单PO
+	 * @return
+	 * @throws RemoteException
 	 */
-	public ArrayList<OrderOnHotelPO> show() throws RemoteException;
+	public ArrayList<OrderOnHotelPO> getTotalHotelOrderList() throws RemoteException;
 }

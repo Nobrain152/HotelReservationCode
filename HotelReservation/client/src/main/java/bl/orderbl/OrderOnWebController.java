@@ -2,74 +2,43 @@ package bl.orderbl;
 
 import java.util.ArrayList;
 
-import util.OrderOnWebMsg;
-import util.OrderState;
+import blservice.orderblservice.OrderOnWebBLService;
+import util.OrderMsg;
 import util.ResultMsg;
 import vo.OrderOnWebVO;
 
-public class OrderOnWebController {
-	
-	public static ArrayList<OrderOnWebVO> webList;
-	
-	public OrderOnWebController() {
-		webList = new ArrayList<OrderOnWebVO>();
-	}
-	/**
-	 * 网站营销人员查看申诉列表
-	 *
-	 * @param void
-	 * @return 申诉列表
+public class OrderOnWebController implements OrderOnWebBLService{
+
+	/* (non-Javadoc)
+	 * @see blservice.orderblservice.OrderOnWebBLService#complaintListScan()
 	 */
 	public ArrayList<OrderOnWebVO> complaintListScan() {
-		ArrayList<OrderOnWebVO> orderOnWebs = new ArrayList<OrderOnWebVO>();
-		for(int i = 0;i < webList.size(); i++){
-			if(webList.get(i).getReason() != "")
-				orderOnWebs.add(webList.get(i));
-		}
-		return orderOnWebs;
+		// TODO Auto-generated method stub
+		return null;
 	}
-	
-	/**
-	 * 网站营销人员处理申诉
-	 *
-	 * @param orderVO 订单VO
-	 * @return 系统提示消息
+
+	/* (non-Javadoc)
+	 * @see blservice.orderblservice.OrderOnWebBLService#complaintHandle(vo.OrderOnWebVO)
 	 */
-	public ResultMsg complaintHandle(OrderOnWebVO order){
-		if(order.getReason().equals("火车晚点")){
-			order.setOrderState(OrderState.UNEXECUTED);
-			order.getInitiator().setCredit(order.getPrice());
-			return new ResultMsg(true, "处理成功！");
-		}else{
-			order.setOrderState(OrderState.CANCELLED);
-			return new ResultMsg(false, "不予处理");
-		}
+	public ResultMsg complaintHandle(OrderOnWebVO orderVO) {
+		// TODO Auto-generated method stub
+		return null;
 	}
-	
-	/**
-	 * 网站营销人员查看异常订单列表
-	 *
-	 * @param void
-	 * @return 异常订单列表
+
+	/* (non-Javadoc)
+	 * @see blservice.orderblservice.OrderOnWebBLService#abnormalOrderScan()
 	 */
 	public ArrayList<OrderOnWebVO> abnormalOrderScan() {
-		ArrayList<OrderOnWebVO> orderOnWebs = new ArrayList<OrderOnWebVO>();
-		for(int i = 0;i < webList.size(); i++){
-			if(webList.get(i).getOrderState() == OrderState.ABNORMAL)
-				orderOnWebs.add(webList.get(i));
-		}
-		return orderOnWebs;
+		// TODO Auto-generated method stub
+		return null;
 	}
-	
-	/**
-	 * 网站营销人员查看异常订单详情
-	 *
-	 * @param orderVO 订单VO
-	 * @return 个人订单详情
+
+	/* (non-Javadoc)
+	 * @see blservice.orderblservice.OrderOnWebBLService#abnormalOrderDetail(vo.OrderOnWebVO)
 	 */
-	public OrderOnWebMsg abnormalOrderDetail(OrderOnWebVO order){
-		return new OrderOnWebMsg(order.getInitiator(),order.getOrderID(),order.getOrderState(),order.getPrice(),order.getReason());
+	public OrderMsg abnormalOrderDetail(OrderOnWebVO orderVO) {
+		// TODO Auto-generated method stub
+		return null;
 	}
-	
 
 }

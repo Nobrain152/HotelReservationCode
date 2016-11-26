@@ -3,12 +3,9 @@ package bl.orderbl;
 import java.rmi.RemoteException;
 import java.util.ArrayList;
 
-import javax.naming.spi.DirStateFactory.Result;
-
 import bl.VOPOchange;
 import dataservice.orderdataservice.OrderOnWebDataService;
 import po.OrderOnWebPO;
-import util.OrderOnWebMsg;
 import util.OrderState;
 import util.ResultMsg;
 import vo.OrderOnWebVO;
@@ -95,14 +92,13 @@ public class OrderOnWeb {
 	 * @return 个人订单详情
 	 * @throws RemoteException 
 	 */
-	public OrderOnWebMsg abnormalOrderDetail(OrderOnWebVO orderVO) throws RemoteException{
+	public OrderOnWebVO abnormalOrderDetail(String ID) throws RemoteException{
 		ArrayList<OrderOnWebPO> webPOs;
 		webPOs = webDataService.getAbnormalList();
 		
 		for(OrderOnWebPO webPO : webPOs) {
-			if(webPO.getOrderID().equals(orderVO.getOrderID()))
-				return new OrderOnWebMsg(webPO.getInitiator(),webPO.getOrderID(),
-						webPO.getOrderState(),webPO.getPrice(),webPO.getReason());
+			if(webPO.getOrderID().equals(ID))
+				return (OrderOnWebVO)VOPOchange.POtoVO(webPO);
 		}
 		return null;
 	}

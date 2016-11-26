@@ -4,7 +4,6 @@ import java.rmi.RemoteException;
 import java.util.ArrayList;
 
 import blservice.orderblservice.OrderOnHotelBLService;
-import util.OrderMsg;
 import util.ResultMsg;
 import vo.OrderOnHotelVO;
 
@@ -28,9 +27,9 @@ public class OrderOnHotelController implements OrderOnHotelBLService{
 	/* (non-Javadoc)
 	 * @see blservice.orderblservice.OrderOnHotelBLService#hotelOrderDetail(java.lang.String)
 	 */
-	public OrderMsg hotelOrderDetail(OrderOnHotelVO orderOnHotelVO) {
+	public OrderOnHotelVO hotelOrderDetail(String ID) {
 		try {
-			return hotelOrder.hotelOrderDetail(orderOnHotelVO);
+			return hotelOrder.hotelOrderDetail(ID);
 		} catch (RemoteException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

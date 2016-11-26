@@ -2,7 +2,6 @@ package blservice.orderblservice;
 
 import java.util.ArrayList;
 
-import util.OrderMsg;
 import util.ResultMsg;
 import vo.OrderOnWebVO;
 
@@ -44,6 +43,6 @@ public interface OrderOnWebBLService {
 	 * @param orderVO 订单VO
 	 * @return 个人订单详情
 	 */
-	public OrderMsg abnormalOrderDetail(OrderOnWebVO orderVO);
+	public OrderOnWebVO abnormalOrderDetail(String ID);
 	
 }

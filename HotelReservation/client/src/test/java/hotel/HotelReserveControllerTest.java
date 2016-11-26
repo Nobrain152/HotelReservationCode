@@ -6,7 +6,6 @@ import org.junit.Before;
 import org.junit.Test;
 
 import bl.hotelbl.HotelReserveController;
-import util.OrderOnUserMsg;
 import util.OrderState;
 import util.ResultMsg;
 import util.RoomType;
@@ -23,8 +22,8 @@ public class HotelReserveControllerTest {
 	OrderOnUserVO order1;
 	OrderOnUserVO order2;
 	
-	OrderOnUserMsg orderMsg1;
-	OrderOnUserMsg orderMsg2;
+	OrderOnUserVO orderMsg1;
+	OrderOnUserVO orderMsg2;
 	
 	ResultMsg reMsg;
 	
@@ -43,9 +42,9 @@ public class HotelReserveControllerTest {
 		order2 = new OrderOnUserVO(new User("GYF",100,"15150158583","151250047@smail.nju.edu.cn"),"42654645438",
 				OrderState.ABNORMAL,105, "2016-10-16 24:00",RoomType.ROOM_BUSINESS,1,1,false);
 		
-		orderMsg1=new OrderOnUserMsg(new User("GYF",100,"15150158583","151250047@smail.nju.edu.cn"),"42654645438",
+		orderMsg1=new OrderOnUserVO(new User("GYF",100,"15150158583","151250047@smail.nju.edu.cn"),"42654645438",
 				OrderState.UNEXECUTED,105, "2016-10-15 24:00",RoomType.ROOM_STANDARD,1,1,true);
-		orderMsg2 = new OrderOnUserMsg(new User("GYF",100,"15150158583","151250047@smail.nju.edu.cn"),"42654645438",
+		orderMsg2 = new OrderOnUserVO(new User("GYF",100,"15150158583","151250047@smail.nju.edu.cn"),"42654645438",
 				OrderState.ABNORMAL,105, "2016-10-16 24:00",RoomType.ROOM_BUSINESS,1,1,false);
 		
 		
@@ -62,15 +61,8 @@ public class HotelReserveControllerTest {
 	
 	@Test
 	public void testcreateUserOrder(){
-		OrderOnUserMsg msg1 = impl.createUserOrder(order1);
-		assertEquals(order1.getInitiator(), msg1.getInitiator());
-		assertEquals(order1.getOrderState(), msg1.getOrderState());
-		assertEquals(order1.getPrice(), msg1.getPrice());
-		assertEquals(order1.getLatestExecutionTime(), msg1.getLatestExecutionTime());
-		assertEquals(order1.getRoomType(), msg1.getRoomType());
-		assertEquals(order1.getRoomNumber(), msg1.getRoomNumber());
-		assertEquals(order1.getPeopleNumber(), msg1.getPeopleNumber());
-		assertEquals(order1.getHasChild(), msg1.getHasChild());
+		ResultMsg msg1 = impl.createUserOrder(order1);
+		assertEquals(msg1, ResultMsg.SUCCESS);
     }
 
 }

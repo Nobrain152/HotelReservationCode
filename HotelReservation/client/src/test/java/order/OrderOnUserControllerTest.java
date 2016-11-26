@@ -10,7 +10,6 @@ import org.junit.Before;
 import org.junit.Test;
 
 import bl.orderbl.OrderOnUser;
-import util.OrderOnUserMsg;
 import util.OrderState;
 import util.ResultMsg;
 import util.RoomType;
@@ -81,15 +80,8 @@ public class OrderOnUserControllerTest {
 	
 	@Test
 	public void testPersonalOrderDetail() throws RemoteException{
-		OrderOnUserMsg msg1 = userBLServiceImpl.personalOrderDetail(order1);
-		assertEquals(order1.getInitiator(), msg1.getInitiator());
-		assertEquals(order1.getOrderState(), msg1.getOrderState());
-		assertEquals(order1.getPrice(), msg1.getPrice());
-		assertEquals(order1.getLatestExecutionTime(), msg1.getLatestExecutionTime());
-		assertEquals(order1.getRoomType(), msg1.getRoomType());
-		assertEquals(order1.getRoomNumber(), msg1.getRoomNumber());
-		assertEquals(order1.getPeopleNumber(), msg1.getPeopleNumber());
-		assertEquals(order1.getHasChild(), msg1.getHasChild());
+		OrderOnUserVO msg1 = userBLServiceImpl.personalOrderDetail("42654645437");
+		assertEquals(msg1, order1);
 	}
 	
 }

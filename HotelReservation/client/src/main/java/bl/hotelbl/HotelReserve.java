@@ -4,7 +4,6 @@ import java.rmi.RemoteException;
 
 import dataservice.hoteldataservice.HotelInfoDataService;
 import util.EvaluationMsg;
-import util.OrderOnUserMsg;
 import util.ResultMsg;
 import vo.HotelInfoVO;
 import vo.OrderOnUserVO;
@@ -25,9 +24,8 @@ public class HotelReserve {
 	}
 	
 	
-    public OrderOnUserMsg createUserOrder(OrderOnUserVO order) throws RemoteException{
-    	return new OrderOnUserMsg(order.getInitiator(),order.getOrderID(), order.getOrderState(), order.getPrice(), order.getLatestExecutionTime(), 
-				order.getRoomType(), order.getRoomNumber(), order.getPeopleNumber(), order.getHasChild());
+    public ResultMsg createUserOrder(OrderOnUserVO order) throws RemoteException{
+    	return ResultMsg.SUCCESS;
     }
 
 }

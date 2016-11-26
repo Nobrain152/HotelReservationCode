@@ -3,7 +3,6 @@ package bl.orderbl;
 import java.util.ArrayList;
 
 import blservice.orderblservice.OrderOnUserBLService;
-import util.OrderMsg;
 import util.ResultMsg;
 import vo.OrderOnUserVO;
 
@@ -28,7 +27,7 @@ public class OrderOnUserController implements OrderOnUserBLService{
 	/* (non-Javadoc)
 	 * @see blservice.orderblservice.OrderOnUserBLService#personalOrderDetail(vo.OrderOnUserVO)
 	 */
-	public OrderMsg personalOrderDetail(OrderOnUserVO orderVO) {
+	public OrderOnUserVO personalOrderDetail(String ID) {
 		// TODO Auto-generated method stub
 		return null;
 	}

@@ -3,7 +3,6 @@ package bl.orderbl;
 import java.util.ArrayList;
 
 import blservice.orderblservice.OrderOnWebBLService;
-import util.OrderMsg;
 import util.ResultMsg;
 import vo.OrderOnWebVO;
 
@@ -36,7 +35,7 @@ public class OrderOnWebController implements OrderOnWebBLService{
 	/* (non-Javadoc)
 	 * @see blservice.orderblservice.OrderOnWebBLService#abnormalOrderDetail(vo.OrderOnWebVO)
 	 */
-	public OrderMsg abnormalOrderDetail(OrderOnWebVO orderVO) {
+	public OrderOnWebVO abnormalOrderDetail(String ID) {
 		// TODO Auto-generated method stub
 		return null;
 	}

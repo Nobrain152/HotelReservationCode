@@ -3,11 +3,9 @@ package bl.hotelbl;
 import java.rmi.RemoteException;
 
 import blservice.hotelblservice.HotelReserveBLService;
-import dataservice.hoteldataservice.HotelEvaluateDataService;
 import dataservice.hoteldataservice.HotelInfoDataService;
 import net.RMIManage;
 import util.DataServiceType;
-import util.OrderOnUserMsg;
 import util.ResultMsg;
 import vo.HotelInfoVO;
 import vo.OrderOnUserVO;
@@ -41,7 +39,7 @@ public class HotelReserveController implements HotelReserveBLService{
 	 * 
 	 */
 	@Override
-    public OrderOnUserMsg createUserOrder(OrderOnUserVO order){
+    public ResultMsg createUserOrder(OrderOnUserVO order){
 		try {
 			return hotelReserve.createUserOrder(order);
 		} catch (RemoteException  e) {

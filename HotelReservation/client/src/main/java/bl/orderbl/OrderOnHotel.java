@@ -6,7 +6,6 @@ import java.util.ArrayList;
 import bl.VOPOchange;
 import dataservice.orderdataservice.OrderOnHotelDataService;
 import po.OrderOnHotelPO;
-import util.OrderOnHotelMsg;
 import util.OrderState;
 import util.ResultMsg;
 import vo.OrderOnHotelVO;
@@ -47,14 +46,12 @@ public class OrderOnHotel {
 	 * @return æ∆µÍ∂©µ•œÍ«È
 	 * @throws RemoteException 
 	 */
-	public OrderOnHotelMsg hotelOrderDetail(OrderOnHotelVO hotelOrderVO) throws RemoteException {
+	public OrderOnHotelVO hotelOrderDetail(String ID) throws RemoteException {
 		ArrayList<OrderOnHotelPO> hotelPOs;
 		hotelPOs = (ArrayList<OrderOnHotelPO>) hotelDataService.getTotalHotelOrderList();
 		for(OrderOnHotelPO hotelPO : hotelPOs) {
-			if(hotelPO.getOrderID().equals(hotelOrderVO.getOrderID()))
-				return new OrderOnHotelMsg(hotelPO.getInitiator(),hotelPO.getOrderID(), hotelPO.getOrderState(), hotelPO.getPrice(), 
-						hotelPO.getCheckInTime(), hotelPO.getCheckOutTime(), hotelPO.getLatestExecutionTime(), 
-						hotelPO.getRoomType(), hotelPO.getRoomNumber(), hotelPO.getPeopleNumber(), hotelPO.getHasChild());
+			if(hotelPO.getOrderID().equals(ID))
+				return (OrderOnHotelVO)VOPOchange.POtoVO(hotelPO);
 		}
 		return null;
 	}

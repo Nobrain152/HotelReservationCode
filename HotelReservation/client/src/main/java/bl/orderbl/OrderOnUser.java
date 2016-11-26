@@ -6,7 +6,6 @@ import java.util.ArrayList;
 import bl.VOPOchange;
 import dataservice.orderdataservice.OrderOnUserDataService;
 import po.OrderOnUserPO;
-import util.OrderOnUserMsg;
 import util.OrderState;
 import util.ResultMsg;
 import vo.OrderOnUserVO;
@@ -77,10 +76,13 @@ public class OrderOnUser {
 	 * @return 个人订单详情
 	 * @throws RemoteException 
 	 */
-	public OrderOnUserMsg personalOrderDetail(OrderOnUserVO orderVO) throws RemoteException {
-		OrderOnUserPO order = userDataService.findByID(orderVO.getOrderID());
-		return new OrderOnUserMsg(order.getInitiator(), order.getOrderID(),order.getOrderState(), order.getPrice(), order.getLatestExecutionTime(), 
-				order.getRoomType(), order.getRoomNumber(), order.getPeopleNumber(), order.getHasChild());
+	public OrderOnUserVO personalOrderDetail(String ID) throws RemoteException {
+		ArrayList<OrderOnUserPO> userPOs = userDataService.show();
+		for(OrderOnUserPO userPO : userPOs) {
+			if(userPO.getOrderID().equals(ID))
+				return (OrderOnUserVO)VOPOchange.POtoVO(userPO);
+		}
+		return null;
 	}
 
 }

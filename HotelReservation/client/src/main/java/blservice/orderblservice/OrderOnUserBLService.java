@@ -3,7 +3,6 @@ package blservice.orderblservice;
 import java.rmi.RemoteException;
 import java.util.ArrayList;
 
-import util.OrderMsg;
 import util.ResultMsg;
 import vo.OrderOnUserVO;
 
@@ -46,6 +45,6 @@ public interface OrderOnUserBLService {
 	 * @param OrderOnUserVO 订单VO
 	 * @return 个人订单详情
 	 */
-	public OrderMsg personalOrderDetail(OrderOnUserVO orderVO);
+	public OrderOnUserVO personalOrderDetail(String ID);
 	
 }

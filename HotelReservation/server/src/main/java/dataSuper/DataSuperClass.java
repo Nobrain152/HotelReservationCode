@@ -1,5 +1,6 @@
 package dataSuper;
 
+import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -15,6 +16,11 @@ import java.util.Map;
  */
 
 public class DataSuperClass extends UnicastRemoteObject{
+	protected DataSuperClass() throws RemoteException {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
 	/**
 	 * 
 	 */

@@ -2,7 +2,6 @@ package blservice.orderblservice;
 
 import java.util.ArrayList;
 
-import util.OrderMsg;
 import util.ResultMsg;
 import vo.OrderOnHotelVO;
 
@@ -28,7 +27,7 @@ public interface OrderOnHotelBLService {
 	 * @param OrderOnHotelVO 订单VO
 	 * @return 酒店订单详情
 	 */
-	public OrderMsg hotelOrderDetail(OrderOnHotelVO orderOnHotelVO);
+	public OrderOnHotelVO hotelOrderDetail(String ID);
 	
 	/**
 	 * 酒店工作人员修改订单状态

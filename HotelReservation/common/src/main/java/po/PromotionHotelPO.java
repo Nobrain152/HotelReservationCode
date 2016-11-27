@@ -1,9 +1,8 @@
 package po;
 
 import java.io.Serializable;
-
-import util.CustomerType;
 import util.PromotionHotelType;
+import util.VipType;
 
 /**
  * 酒店促销策略VO
@@ -32,7 +31,7 @@ public class PromotionHotelPO implements Serializable{
 	/**
 	 * 客户类型
 	 */
-	CustomerType customType;
+	VipType customType;
 	
 	/**
 	 * 促销策略起止时间
@@ -44,7 +43,7 @@ public class PromotionHotelPO implements Serializable{
 	 */
 	double ratio;
 	
-	public PromotionHotelPO(String hotelID, PromotionHotelType hotelType,CustomerType customType,
+	public PromotionHotelPO(String hotelID, PromotionHotelType hotelType,VipType customType,
 			String timeBegin,String timeOver,double ratio) {
 		this.hotelID = hotelID;
 		this.hotelType = hotelType;
@@ -62,7 +61,7 @@ public class PromotionHotelPO implements Serializable{
 		return hotelType;
 	}
 	
-	public CustomerType getMemberType() {
+	public VipType getMemberType() {
 		return customType;
 	}
 	

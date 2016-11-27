@@ -1,9 +1,8 @@
 package po;
 
 import java.io.Serializable;
-
-import util.CustomerType;
 import util.PromotionWebType;
+import util.VipType;
 
 
 /**
@@ -33,7 +32,7 @@ public class PromotionWebPO implements Serializable{
 	/**
 	 * 客户类型
 	 */
-	CustomerType customType;
+	VipType customType;
 	
 	/**
 	 * 促销策略起止时间
@@ -45,7 +44,7 @@ public class PromotionWebPO implements Serializable{
 	 */
 	double ratio;
 	
-	public PromotionWebPO(String hotelID, PromotionWebType hotelType,CustomerType customType,
+	public PromotionWebPO(String hotelID, PromotionWebType hotelType,VipType customType,
 			String timeBegin,String timeOver,double ratio) {
 		this.hotelID = hotelID;
 		this.hotelType = hotelType;
@@ -63,7 +62,7 @@ public class PromotionWebPO implements Serializable{
 		return hotelType;
 	}
 	
-	public CustomerType getMemberType() {
+	public VipType getMemberType() {
 		return customType;
 	}
 	

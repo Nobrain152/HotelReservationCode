@@ -23,22 +23,34 @@ public class Credit {
 
 	public ResultMsg addCredit(CustomerInfoVO client, int value) throws RemoteException {
 		CreditPO creditPO = creditDataService.findByID(client.getUserID());
-		creditPO.setCredit(creditPO.getcredit() + value);
-		resultMsg = creditDataService.insert(creditPO);
+		if(creditPO == null){
+			resultMsg = ResultMsg.NOT_EXIST;
+		}else{
+			creditPO.setCredit(creditPO.getcredit() + value);
+			resultMsg = creditDataService.insert(creditPO);
+		}
 		return resultMsg;
 	}
 	
 	public ResultMsg subCredit(CustomerInfoVO client, int value) throws RemoteException {
 		CreditPO creditPO = creditDataService.findByID(client.getUserID());
-		creditPO.setCredit(creditPO.getcredit() - value);
-		resultMsg = creditDataService.insert(creditPO);
+		if(creditPO == null){
+			resultMsg = ResultMsg.NOT_EXIST;
+		}else{
+			creditPO.setCredit(creditPO.getcredit() - value);
+			resultMsg = creditDataService.insert(creditPO);
+		}
 		return resultMsg;
 	}
 
 	public ResultMsg changeCredit(CustomerInfoVO client, int value) throws RemoteException {
 		CreditPO creditPO = creditDataService.findByID(client.getUserID());
-		creditPO.setCredit(value);
-		resultMsg = creditDataService.insert(creditPO);
+		if(creditPO == null){
+			resultMsg = ResultMsg.NOT_EXIST;
+		}else{
+			creditPO.setCredit(value);
+			resultMsg = creditDataService.insert(creditPO);
+		}
 		return resultMsg;
 	}
 }

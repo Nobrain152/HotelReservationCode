@@ -42,7 +42,7 @@ public class HotelEvaluateDataServiceImpl implements HotelEvaluateDataService{
 	public ArrayList<HotelEvaluatePO> find(String searchInfo) throws RemoteException{
 		ArrayList<HotelEvaluatePO> arrayList = new ArrayList<HotelEvaluatePO>();
 		for (HotelEvaluatePO p : POs) {
-			if(p.getHotelName().equals(searchInfo)){
+			if(p.getHotelID().equals(searchInfo)){
 				arrayList.add(p);
 			}
 		}

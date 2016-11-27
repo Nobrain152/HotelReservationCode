@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import org.junit.Before;
 import org.junit.Test;
 
-import bl.vipbl.VipController;
+import bl.vipbl.Vip;
 import util.VipType;
 import vo.VipVO;
 
@@ -23,7 +23,7 @@ public class VipControllerTest {
 	public void testchangeLevelNeed() {
 		level = 1;
 		integral = 100;
-		VipController vip = new VipController();
+		Vip vip = new Vip();
 		vip.changeLevelNeed(level, integral);
 		assertEquals(vip.searchLevelNeed(),new VipVO("null", new ArrayList<int[][]>(), level, VipType.COMMON_VIP));
 	}

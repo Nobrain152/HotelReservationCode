@@ -2,13 +2,11 @@ package blservice.userblservice;
 
 import java.util.ArrayList;
 
-import util.ResultMsg;
+import vo.CreditVO;
 import vo.CustomerInfoVO;
 import vo.HotelInfoVO;
-import vo.OrderOnUserVO;
-import vo.UserIDVO;
+import vo.OrderVO;
 import vo.UserInfoVO;
-import vo.IntegralVO;
 
 
 /**
@@ -23,7 +21,7 @@ public interface CustomerIndividualInformationManagementBLService{
 	 * @param 用户IDVO
 	 * @return 用户基本信息VO
 	 */
-	public UserInfoVO IndividualBaseInfolnquiry(UserIDVO vo);
+	public UserInfoVO IndividualBaseInfolnquiry(String userid);
 		
 	/**
 	 * 修改个人基本信息
@@ -31,28 +29,28 @@ public interface CustomerIndividualInformationManagementBLService{
 	 * @param 客户个人信息VO
 	 * @return 修改成功与否
 	 */
-	public ResultMsg IndividualBaseInfoModification(UserIDVO vo1,CustomerInfoVO vo2);
+	public boolean IndividualBaseInfoModification(String userid,CustomerInfoVO vo2);
 		
 	/**
 	 * 查询个人订单
 	 * @param 用户IDVO
 	 * @return 订单VO列表
 	 */
-	public ArrayList<OrderOnUserVO> IndividualOrderInquiry(UserIDVO vo);
+	public ArrayList<OrderVO> IndividualOrderInquiry(String userid);
 		
 	/**
 	 * 查询预定过的酒店	
 	 * @param 用户IDVO
 	 * @return 酒店信息列表
 	 */
-	public ArrayList<HotelInfoVO> IndividualHotelInquiry(UserIDVO vo);
+	public ArrayList<HotelInfoVO> IndividualHotelInquiry(String userid);
 		
 	/**
 	 * 查询个人信用信息	
 	 * @param 用户IDVO
 	 * @return 信用VO
 	 */
-	public IntegralVO IndividualCredictInquiry(UserIDVO vo);
+	public CreditVO IndividualCredictInquiry(String userid);
 		
 			
 }

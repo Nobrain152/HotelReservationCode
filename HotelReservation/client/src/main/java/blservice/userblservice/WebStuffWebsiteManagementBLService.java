@@ -2,10 +2,9 @@ package blservice.userblservice;
 
 import java.util.ArrayList;
 
-import vo.IntegralVO;
-import vo.OrderOnWebVO;
+import vo.CreditVO;
+import vo.OrderVO;
 import vo.PromotionWebVO;
-import vo.UserIDVO;
 
 
 
@@ -34,14 +33,14 @@ public interface WebStuffWebsiteManagementBLService{
 	 * 查看异常订单
 	 * @return 订单VO列表
 	 */
-	public ArrayList<OrderOnWebVO> AbnormalOrderScan();
+	public ArrayList<OrderVO> AbnormalOrderScan();
 	
 	/**
 	 * 查看用户信用值信息
 	 * @param 用户IDVO
 	 * @return 用户信用信息VO
 	 */
-	public IntegralVO userCreditInquire(UserIDVO vo);
+	public CreditVO userCreditInquire(String userid);
 	
 	/**
 	 * 修改用户信用值
@@ -49,7 +48,7 @@ public interface WebStuffWebsiteManagementBLService{
 	 * @param 增加值
 	 * @return 修改后的用户信用值VO
 	 */
-	public IntegralVO UserCreditModification(UserIDVO vo,int n);
+	public CreditVO UserCreditModification(String userid,int n);
 		
 		
 }

@@ -6,37 +6,34 @@ import static org.junit.Assert.assertEquals;
 import org.junit.Before;
 import org.junit.Test;
 
-import bl.userbl.WebManagerWebsiteManagement;
-import vo.UserIDVO;
+import bl.userbl.WebManagerWebsiteManagementController;
 import vo.UserInfoVO;
 
 
 public class WebManagerWebsiteManagementControllerTest {
 
-	WebManagerWebsiteManagement impl;
-	UserIDVO id;
+	WebManagerWebsiteManagementController impl;
 	UserInfoVO info;
 	
 	@Before
 	public void setUp() {
-		impl=new WebManagerWebsiteManagement();
-		id=new UserIDVO("123456789");
+		impl=new WebManagerWebsiteManagementController();
 		info=new UserInfoVO("123456789","Lily","13124567893");
 	}
 
 	@Test
 	public void testinquiry() {
-		assertEquals(impl.UserInformationInquiry(id),info);
+		assertEquals(impl.UserInformationInquiry("1234567"),info);
 	}
 	
 	@Test
 	public void testmodify(){
-		assertEquals(impl.UserInformationModification(id, info),true);
+		assertEquals(impl.UserInformationModification("1234567", info),true);
 	}
 	
 	@Test
 	public void testaddStuff(){
-	    assertEquals(impl.WebsiteStuffAdd(id),true);
+	    assertEquals(impl.WebsiteStuffAdd("1234567"),true);
 	}
 	
 	@Test

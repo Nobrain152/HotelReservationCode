@@ -8,7 +8,7 @@ import net.RMIManage;
 import util.DataServiceType;
 import util.ResultMsg;
 import vo.HotelInfoVO;
-import vo.OrderOnUserVO;
+import vo.OrderVO;
 
 public class HotelReserveController implements HotelReserveBLService{
 	private HotelReserve hotelReserve;
@@ -39,7 +39,7 @@ public class HotelReserveController implements HotelReserveBLService{
 	 * 
 	 */
 	@Override
-    public ResultMsg createUserOrder(OrderOnUserVO order){
+    public ResultMsg createUserOrder(OrderVO order){
 		try {
 			return hotelReserve.createUserOrder(order);
 		} catch (RemoteException  e) {

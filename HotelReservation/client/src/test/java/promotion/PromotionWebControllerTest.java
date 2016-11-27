@@ -7,14 +7,14 @@ import java.util.ArrayList;
 import org.junit.Before;
 import org.junit.Test;
 
-import bl.promotionbl.PromotionWebController;
+import bl.promotionbl.PromotionWeb;
 import vo.PromotionWebVO;
 import util.CustomerType;
 import util.PromotionWebType;
 
 public class PromotionWebControllerTest {
 
-	PromotionWebController web;
+	PromotionWeb web;
 	PromotionWebVO web1,web2,web3;
 	
 	

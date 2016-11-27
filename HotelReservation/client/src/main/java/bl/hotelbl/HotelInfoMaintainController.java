@@ -1,3 +1,4 @@
+
 package bl.hotelbl;
 
 import java.rmi.RemoteException;
@@ -7,7 +8,6 @@ import blservice.hotelblservice.HotelInfoMaintainBLService;
 import dataservice.hoteldataservice.HotelInfoDataService;
 import net.RMIManage;
 import util.DataServiceType;
-import util.HotelMsg;
 import util.ResultMsg;
 import vo.HotelInfoVO;
 
@@ -31,7 +31,7 @@ public class HotelInfoMaintainController implements HotelInfoMaintainBLService{
 	
 	
 	@Override
-	public HotelMsg inputHotelInfo(HotelInfoVO hotelInfoVO){
+	public ResultMsg inputHotelInfo(HotelInfoVO hotelInfoVO){
 		try {
 			return hotelInfoMaintain.inputHotelInfo(hotelInfoVO);
 		} catch (RemoteException  e) {
@@ -50,5 +50,11 @@ public class HotelInfoMaintainController implements HotelInfoMaintainBLService{
 		}
 		return null;
     }
+
+
+	public ResultMsg submitInfo(HotelInfoVO vo1) {
+		// TODO Auto-generated method stub
+		return null;
+	}
 
 }

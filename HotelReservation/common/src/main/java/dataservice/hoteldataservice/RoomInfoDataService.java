@@ -12,8 +12,7 @@ public interface RoomInfoDataService {
 	 * Ôö¼Ó
 	 */
 	public ResultMsg insert(RoomInfoPO po) throws RemoteException;
-	
-	
+		
 	/**
 	 * É¾³ý
 	 */

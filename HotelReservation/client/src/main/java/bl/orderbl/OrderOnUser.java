@@ -5,39 +5,40 @@ import java.rmi.RemoteException;
 import java.util.ArrayList;
 
 import bl.VOPOchange;
-import dataservice.orderdataservice.OrderOnUserDataService;
-import po.OrderOnUserPO;
+import dataservice.orderdataservice.OrderDataService;
+import po.CustomerInfoPO;
+import po.OrderPO;
 import util.OrderState;
 import util.ResultMsg;
-import vo.OrderOnUserVO;
+import vo.OrderVO;
 
 public class OrderOnUser {
 	
-	private OrderOnUserDataService userDataService;
+	private OrderDataService userDataService;
 	
-	public OrderOnUser(OrderOnUserDataService userDataService) {
+	public OrderOnUser(OrderDataService userDataService) {
 		this.userDataService = userDataService;
 	}
 	
 	/**
 	 * 客户查看个人订单信息
 	 *
-	 * @param void
+	 * @param ID
 	 * @return 个人订单列表
 	 * @throws RemoteException 
 	 */
-	public ArrayList<OrderOnUserVO> personalOrderScan() throws RemoteException {
-		ArrayList<OrderOnUserVO> userVOs = new ArrayList<>();
-		ArrayList<OrderOnUserPO> userPOs;
+	public ArrayList<OrderVO> personalOrderScan(String ID) throws RemoteException {
+		ArrayList<OrderVO> userVOs = new ArrayList<>();
+		ArrayList<OrderPO> userPOs;
 		
-		userPOs = userDataService.show();
+		userPOs = userDataService.findByUserID(ID);
 		if(userPOs == null || userPOs.isEmpty()) {
 			return null;
 		}
 		
 		userVOs = new ArrayList<>(userPOs.size());
-		for(OrderOnUserPO userPO : userPOs) {
-			userVOs.add((OrderOnUserVO)VOPOchange.POtoVO(userPO));
+		for(OrderPO userPO : userPOs) {
+			userVOs.add((OrderVO)VOPOchange.POtoVO(userPO));
 		}
 		return userVOs;
 	}
@@ -49,8 +50,16 @@ public class OrderOnUser {
 	 * @return void
 	 * @throws RemoteException 
 	 */
-	public void createOrder(OrderOnUserVO orderVO) throws RemoteException {
-		userDataService.insert((OrderOnUserPO)VOPOchange.VOtoPO(orderVO));
+	public ResultMsg createOrder(OrderVO orderVO) throws RemoteException {
+		OrderPO orderPO = userDataService.findByOrderID(orderVO.getOrderID());
+		CustomerInfoPO customerInfoPO = orderPO.getInitiator();
+		if(customerInfoPO.getCredit() > 0){
+			userDataService.insert((OrderPO)VOPOchange.VOtoPO(orderVO));
+			return ResultMsg.SUCCESS;
+		}else{
+			return ResultMsg.FAIL;
+		}
+		
 	}
 	
 	/**
@@ -60,8 +69,8 @@ public class OrderOnUser {
 	 * @return 系统提示消息
 	 * @throws RemoteException 
 	 */
-	public ResultMsg personalOrderCancel(OrderOnUserVO orderVO) throws RemoteException {
-		OrderOnUserPO orderOnUserPO = userDataService.findByID(orderVO.getOrderID());
+	public ResultMsg personalOrderCancel(OrderVO orderVO) throws RemoteException {
+		OrderPO orderOnUserPO = userDataService.findByOrderID(orderVO.getOrderID());
 		ResultMsg resultMsg;
 		if(orderOnUserPO.getOrderState() == OrderState.UNEXECUTED) {
 			orderOnUserPO.setOrderState(OrderState.CANCELLED);
@@ -80,13 +89,9 @@ public class OrderOnUser {
 	 * @return 个人订单详情
 	 * @throws RemoteException 
 	 */
-	public OrderOnUserVO personalOrderDetail(String ID) throws RemoteException {
-		ArrayList<OrderOnUserPO> userPOs = userDataService.show();
-		for(OrderOnUserPO userPO : userPOs) {
-			if(userPO.getOrderID().equals(ID))
-				return (OrderOnUserVO)VOPOchange.POtoVO(userPO);
-		}
-		return null;
+	public OrderVO personalOrderDetail(String ID) throws RemoteException {
+		OrderPO userPO = userDataService.findByOrderID(ID);
+		return (OrderVO)VOPOchange.POtoVO(userPO);
 	}
 
 }

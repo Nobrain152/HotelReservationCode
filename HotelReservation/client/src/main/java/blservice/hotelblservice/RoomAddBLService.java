@@ -1,7 +1,6 @@
 package blservice.hotelblservice;
 
 import util.ResultMsg;
-import util.RoomMsg;
 import vo.RoomInfoVO;
 
 /**
@@ -16,7 +15,7 @@ public interface RoomAddBLService {
 	 * @param roomInfoVO
 	 * @return
 	 */
-	public RoomMsg addRoom(RoomInfoVO roomInfoVO);
+	public ResultMsg addRoom(RoomInfoVO roomInfoVO);
 	
 	/**
 	 * 更新客房信息

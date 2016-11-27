@@ -4,18 +4,23 @@ import java.rmi.RemoteException;
 import java.util.ArrayList;
 
 import bl.VOPOchange;
-import dataservice.orderdataservice.OrderOnWebDataService;
-import po.OrderOnWebPO;
+import dataservice.creditdataservice.CreditDataService;
+import dataservice.orderdataservice.OrderDataService;
+import po.CreditPO;
+import po.OrderPO;
 import util.OrderState;
 import util.ResultMsg;
-import vo.OrderOnWebVO;
+import vo.OrderVO;
 
 public class OrderOnWeb {
 	
-	private OrderOnWebDataService webDataService;
+	private OrderDataService webDataService;
+	private CreditDataService creditDataService;
 	
-	public OrderOnWeb(OrderOnWebDataService webDataService) {
+	public OrderOnWeb(OrderDataService webDataService,
+			CreditDataService creditDataService) {
 		this.webDataService = webDataService;
+		this.creditDataService = creditDataService;
 	}
 	
 	/**
@@ -25,18 +30,19 @@ public class OrderOnWeb {
 	 * @return 申诉列表
 	 * @throws RemoteException 
 	 */
-	public ArrayList<OrderOnWebVO> complaintListScan() throws RemoteException {
-		ArrayList<OrderOnWebVO> webVOs;
-		ArrayList<OrderOnWebPO> webPOs;
-		webPOs = webDataService.getComplaintList();
+	public ArrayList<OrderVO> complaintListScan() throws RemoteException {
+		ArrayList<OrderVO> webVOs;
+		ArrayList<OrderPO> webPOs;
+		webPOs = webDataService.showList();
 		
 		if(webPOs == null || webPOs.isEmpty()) {
 			return null;
 		}
 		
-		webVOs = new ArrayList<>(webPOs.size());
-		for(OrderOnWebPO webPO : webPOs){
-			webVOs.add((OrderOnWebVO)VOPOchange.POtoVO(webPO));
+		webVOs = new ArrayList<>();
+		for(OrderPO webPO : webPOs){
+			if(webPO.getReason() != null)
+				webVOs.add((OrderVO)VOPOchange.POtoVO(webPO));
 		}
 		
 		return webVOs;
@@ -49,14 +55,14 @@ public class OrderOnWeb {
 	 * @return 系统提示消息
 	 * @throws RemoteException 
 	 */
-	public ResultMsg complaintHandle(OrderOnWebVO orderVO) throws RemoteException{
-		OrderOnWebPO order = (OrderOnWebPO)VOPOchange.VOtoPO(orderVO);
+	public ResultMsg complaintHandle(OrderVO orderVO) throws RemoteException{
+		OrderPO order = (OrderPO)VOPOchange.VOtoPO(orderVO);
 		ResultMsg resultMsg;
 		if(order.getPass()){
-			order.setOrderState(OrderState.UNEXECUTED);
-			//TODO order.getInitiator().add(order.getPrice());
-		}else{
 			order.setOrderState(OrderState.CANCELLED);
+			CreditPO creditPO = creditDataService.findByID(order.getInitiator().getUserID());
+			creditPO.setCredit(order.getInitiator().getCredit()
+					+ order.getPrice());
 		}
 		resultMsg = webDataService.update(order);
 		return resultMsg;
@@ -69,19 +75,20 @@ public class OrderOnWeb {
 	 * @return 异常订单列表
 	 * @throws RemoteException 
 	 */
-	public ArrayList<OrderOnWebVO> abnormalOrderScan() throws RemoteException {
-		ArrayList<OrderOnWebVO> webVOs;
-		ArrayList<OrderOnWebPO> webPOs;
+	public ArrayList<OrderVO> abnormalOrderScan() throws RemoteException {
+		ArrayList<OrderVO> webVOs;
+		ArrayList<OrderPO> webPOs;
 		
-		webPOs = webDataService.getAbnormalList();
+		webPOs = webDataService.showList();
 		
 		if(webPOs == null || webPOs.isEmpty()) {
 			return null;
 		}
 		
-		webVOs = new ArrayList<>(webPOs.size());
-		for(OrderOnWebPO webPO : webPOs){
-			webVOs.add((OrderOnWebVO)VOPOchange.POtoVO(webPO));
+		webVOs = new ArrayList<>();
+		for(OrderPO webPO : webPOs){
+			if(webPO.getOrderState() == OrderState.ABNORMAL)
+				webVOs.add((OrderVO)VOPOchange.POtoVO(webPO));
 		}
 		
 		return webVOs;
@@ -94,13 +101,13 @@ public class OrderOnWeb {
 	 * @return 个人订单详情
 	 * @throws RemoteException 
 	 */
-	public OrderOnWebVO abnormalOrderDetail(String ID) throws RemoteException{
-		ArrayList<OrderOnWebPO> webPOs;
-		webPOs = webDataService.getAbnormalList();
+	public OrderVO abnormalOrderDetail(String ID) throws RemoteException{
+		ArrayList<OrderPO> webPOs;
+		webPOs = webDataService.showList();
 		
-		for(OrderOnWebPO webPO : webPOs) {
+		for(OrderPO webPO : webPOs) {
 			if(webPO.getOrderID().equals(ID))
-				return (OrderOnWebVO)VOPOchange.POtoVO(webPO);
+				return (OrderVO)VOPOchange.POtoVO(webPO);
 		}
 		return null;
 	}

@@ -9,17 +9,17 @@ package vo;
 public class HotelEvaluateVO {
 
 	/**
-	 * 用户名
+	 * 用户ID
 	 */
-	private String username;
+	private String userID;
 	
 	/**
-	 * 酒店名
+	 * 酒店ID
 	 */
-	private String hotelname;
+	private String hotelID;
 
 	/**
-	 * 评分
+	 * 评分1-10
 	 */
 	private int score;
 
@@ -38,21 +38,21 @@ public class HotelEvaluateVO {
 	 */
 	private String orderID;
 
-	public HotelEvaluateVO(String username,String hotelname, int score, String comment, boolean reserve, String orderID) {
-		this.username=username;
-		this.hotelname=hotelname;
+	public HotelEvaluateVO(String userID,String hotelID, int score, String comment, boolean reserve, String orderID) {
+		this.userID=userID;
+		this.hotelID=hotelID;
 		this.score = score;
 		this.comment = comment;
 		this.reserve=reserve;
 		this.orderID = orderID;
 	}
 	
-	public String getUserName(){
-		return username;
+	public String getUserID(){
+		return userID;
 	}
 	
-	public String getHotelName(){
-		return hotelname;
+	public String getHotelID(){
+		return hotelID;
 	}
 
 	public int getScore() {

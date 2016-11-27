@@ -3,15 +3,15 @@ package user;
 
 import org.junit.Before;
 
-import bl.userbl.WebStuffWebsiteManagement;
+import bl.userbl.WebStuffWebsiteManagementController;
 
 public class WebStuffWebsiteManagementControllerTest {
 
-	WebStuffWebsiteManagement impl;
+	WebStuffWebsiteManagementController impl;
 	
 	@Before
 	public void setUp() {
-		impl=new WebStuffWebsiteManagement();
+		impl=new WebStuffWebsiteManagementController();
 	}
 
 	

@@ -1,6 +1,6 @@
 package blservice.hotelblservice;
 
-import util.HotelMsg;
+import util.ResultMsg;
 import vo.HotelInfoVO;
 
 /**
@@ -15,6 +15,6 @@ public interface HotelInfoCheckBLService {
 	 * @param hotelInfoVO
 	 * @return
 	 */
-    public HotelMsg checkHotelInfo(HotelInfoVO hotelInfoVO);
+    public ResultMsg checkHotelInfo(HotelInfoVO hotelInfoVO);
   
 }

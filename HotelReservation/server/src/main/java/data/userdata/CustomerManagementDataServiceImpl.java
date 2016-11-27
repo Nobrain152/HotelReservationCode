@@ -8,7 +8,6 @@ import po.HotelInfoPO;
 import po.OrderOnUserPO;
 import po.UserIDPO;
 import po.UserInfoPO;
-import util.ResultMsg;
 
 public class CustomerManagementDataServiceImpl implements CustomerManagementDataService {
 
@@ -23,7 +22,7 @@ public class CustomerManagementDataServiceImpl implements CustomerManagementData
 	ArrayList<HotelInfoPO> hotel;
 	String id;
 	CustomerInfoPO po2;
-	ResultMsg result;
+	boolean result;
 	
 	public CustomerManagementDataServiceImpl(){
 		point=0;
@@ -37,55 +36,38 @@ public class CustomerManagementDataServiceImpl implements CustomerManagementData
 	}
 	
 	
-	public ResultMsg AddMembers(UserIDPO po) {
-		id=po.getUserID();
-		point=ID.indexOf(id);
+	public boolean AddMembers(String userid) {
+		point=ID.indexOf(userid);
 		po2=(CustomerInfoPO) info.get(point);
-		if(po2.setMember(true)){
-			result = ResultMsg.SUCCESS;
-		}else{
-			result = ResultMsg.FAIL;
-		}
+		result=po2.setMember(true);
 		info.set(point, po2);
 		return result;
 	}
 
-	public ArrayList<String> GetCustomerOrders(UserIDPO po) {
-		id=po.getUserID();
-		point=ID.indexOf(id);
+	public ArrayList<String> GetCustomerOrders(String userid) {
+		point=ID.indexOf(userid);
 		po2=(CustomerInfoPO)info.get(point);
 		return po2.getOrder();
 	}
 
-	public ResultMsg addCustomerOrders(UserIDPO po, String i) {
-		id=po.getUserID();
-		point=ID.indexOf(id);
+	public boolean addCustomerOrders(String userid, String i) {
+		point=ID.indexOf(userid);
 		po2=(CustomerInfoPO)info.get(point);
-		if(po2.addOrder(i)){
-			result = ResultMsg.SUCCESS;
-		}else{
-			result = ResultMsg.FAIL;
-		}
+		result=po2.addOrder(i);
 		info.set(point, po2);
 		return result;
 	}
 
-	public ArrayList<String> GetCustomerHotel(UserIDPO po) {
-		id=po.getUserID();
-		point=ID.indexOf(id);
+	public ArrayList<String> GetCustomerHotel(String userid) {
+		point=ID.indexOf(userid);
 		po2=(CustomerInfoPO)info.get(point);
 		return po2.getHotel();
 	}
 
-	public ResultMsg addCustomerHotel(UserIDPO po, String idh) {
-		id=po.getUserID();
-		point=ID.indexOf(id);
+	public boolean addCustomerHotel(String userid, String idh) {
+		point=ID.indexOf(userid);
 		po2=(CustomerInfoPO)info.get(point);
-		if(po2.addHotel(idh)){
-			result = ResultMsg.SUCCESS;
-		}else{
-			result = ResultMsg.FAIL;
-		}
+		result=po2.addHotel(idh);
 		info.set(point, po2);
 		return result;
 	}

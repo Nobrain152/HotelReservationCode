@@ -1,6 +1,5 @@
 package blservice.hotelblservice;
 
-import util.EvaluationMsg;
 import util.ResultMsg;
 import vo.HotelEvaluateVO;
 
@@ -16,7 +15,7 @@ public interface HotelEvaluateBLService {
 	 * @param evaluateInfoVO
 	 * @return
 	 */
-	public EvaluationMsg inputEvaluate(HotelEvaluateVO evaluateInfoVO);
+	public ResultMsg inputEvaluate(HotelEvaluateVO evaluateInfoVO);
 		
    /**
     * 检查是否在已预订

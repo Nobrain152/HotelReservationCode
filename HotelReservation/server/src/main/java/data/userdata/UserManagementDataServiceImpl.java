@@ -4,23 +4,23 @@ import java.util.ArrayList;
 
 
 import dataservice.userdataservice.UserManagementDataService;
-import po.LoginInPO;
+import po.HotelIDPO;
+import po.LoginInputPO;
 import po.StuffInfoPO;
 import po.UserIDPO;
 import po.UserInfoPO;
-import util.ResultMsg;
 import po.UserIDPO;
 
 public class UserManagementDataServiceImpl implements UserManagementDataService {
 
-	int number;
-	int point;
-	ArrayList<String> ID;
-	ArrayList<String> password;
-	ArrayList<UserInfoPO> info;
-	String id;
-	ArrayList<String> stuffhotel;
-	ArrayList<String> webstuff;
+	private int number;
+	private int point;
+	private ArrayList<String> ID;
+	private ArrayList<String> password;
+	private ArrayList<UserInfoPO> info;
+	private String id;
+	private ArrayList<String> stuffhotel;
+	private ArrayList<String> webstuff;
 	
 	public UserManagementDataServiceImpl(){
 		point=0;
@@ -32,13 +32,13 @@ public class UserManagementDataServiceImpl implements UserManagementDataService 
 		webstuff=new ArrayList<String>();
 	}
 	
-	public String GetLoginInfo(LoginInPO po) {
+	public String GetLoginInfo(LoginInputPO po) {
 		id=po.getUserid();
 		point=ID.indexOf(id);
 		return password.get(point);
 	}
 
-	public String AddUser(LoginInPO po) {
+	public String AddUser(LoginInputPO po) {
 		point=password.size();
 		String pass=po.getUserpassword();
 		password.add(pass);
@@ -49,39 +49,37 @@ public class UserManagementDataServiceImpl implements UserManagementDataService 
 		return id+number;
 	}
 
-	public UserInfoPO GetUserBaseInfo(UserIDPO vo) {
-		id=vo.getUserID();
-		point=ID.indexOf(id);
+	public UserInfoPO GetUserBaseInfo(String userid) {
+		point=ID.indexOf(userid);
 		return info.get(point);
 	}
 
-	public ResultMsg SetUserBaseInfo(UserIDPO po1, UserInfoPO po2) {
-		id=po1.getUserID();
-		point=ID.indexOf(id);
+	public boolean SetUserBaseInfo(String userid, UserInfoPO po2) {
+		point=ID.indexOf(userid);
 		info.set(point, po2);
-		return ResultMsg.SUCCESS;
+		return true;
 	}
 
-	public boolean addHotelStuff(String po1,UserIDPO po3){
-		point=stuffhotel.indexOf(po3.getUserID());
+	public boolean addHotelStuff(String hotelid,String userid){
+		point=stuffhotel.indexOf(userid);
 		if(point!=-1){
 			return false;
 		}
 		else{
 			StuffInfoPO po2=(StuffInfoPO)info.get(point);
-			po2.setHotel(po1);
+			po2.setHotel(hotelid);
 			info.set(point, po2);
 			return true;
 			}
 	}
 	
-	public boolean addWebStuff(UserIDPO po){
-		point=webstuff.indexOf(po.getUserID());
+	public boolean addWebStuff(String userid){
+		point=webstuff.indexOf(userid);
 		if(point!=-1){
 			return false;
 		}
 		else{
-			webstuff.add(po.getUserID());
+			webstuff.add(userid);
 			return true;
 			}
 	}

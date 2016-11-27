@@ -13,14 +13,14 @@ public class HotelEvaluatePO implements Serializable{
 	private static final long serialVersionUID = 1L;
 
 	/**
-	 * 用户名
+	 * 用户ID
 	 */
-	private String username;
+	private String userID;
 	
 	/**
-	 * 酒店名
+	 * 酒店ID
 	 */
-	private String hotelname;
+	private String hotelID;
 
 	/**
 	 * 评分
@@ -42,21 +42,21 @@ public class HotelEvaluatePO implements Serializable{
 	 */
 	private String orderID;
 
-	public HotelEvaluatePO(String username,String hotelname, int score, String comment, boolean reserve, String orderID) {
-		this.username=username;
-		this.hotelname=hotelname;
+	public HotelEvaluatePO(String userID,String hotelID, int score, String comment, boolean reserve, String orderID) {
+		this.userID = userID;
+		this.hotelID = hotelID;
 		this.score = score;
 		this.comment = comment;
-		this.reserve=reserve;
+		this.reserve = reserve;
 		this.orderID = orderID;
 	}
 	
-	public String getUserName(){
-		return username;
+	public String getUserID(){
+		return userID;
 	}
 	
-	public String getHotelName(){
-		return hotelname;
+	public String getHotelID(){
+		return hotelID;
 	}
 
 	public int getScore() {

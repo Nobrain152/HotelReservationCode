@@ -7,7 +7,7 @@ import blservice.hotelblservice.HotelInfoCheckBLService;
 import dataservice.hoteldataservice.HotelInfoDataService;
 import net.RMIManage;
 import util.DataServiceType;
-import util.HotelMsg;
+import util.ResultMsg;
 import vo.HotelInfoVO;
 
 /**
@@ -29,7 +29,7 @@ public class HotelInfoCheckController implements HotelInfoCheckBLService{
 
 	
 	@Override
-    public HotelMsg checkHotelInfo(HotelInfoVO hotelInfoVO){
+    public ResultMsg checkHotelInfo(HotelInfoVO hotelInfoVO){
     	try {
 			return hotelInfoCheck.checkHotelInfo(hotelInfoVO);
 		} catch (RemoteException  e) {

@@ -7,15 +7,14 @@ import po.CreditPO;
 import util.ResultMsg;
 
 
-
 public interface CreditDataService {
-	public ResultMsg insert(CreditPO integral) throws RemoteException;
 	
-	public ResultMsg delete(CreditPO integral) throws RemoteException;
+	public ResultMsg insert(CreditPO creditPO) throws RemoteException;
 	
-	public ResultMsg update(CreditPO Integral) throws RemoteException;
+	public ArrayList<CreditPO> findByName(String name) throws RemoteException;
 	
-	public CreditPO findByName(String name) throws RemoteException;
+	public CreditPO findByID(String name) throws RemoteException;
 	
 	public ArrayList<CreditPO> show() throws RemoteException;
+	
 }

@@ -4,40 +4,40 @@ import java.rmi.RemoteException;
 import java.util.ArrayList;
 
 import bl.VOPOchange;
-import dataservice.orderdataservice.OrderOnHotelDataService;
-import po.OrderOnHotelPO;
+import dataservice.orderdataservice.OrderDataService;
+import po.OrderPO;
 import util.OrderState;
 import util.ResultMsg;
-import vo.OrderOnHotelVO;
+import vo.OrderVO;
 
 public class OrderOnHotel {
 	
-	private OrderOnHotelDataService hotelDataService;
+	private OrderDataService hotelDataService;
 	
-	public OrderOnHotel(OrderOnHotelDataService hotelDataService) {
+	public OrderOnHotel(OrderDataService hotelDataService) {
 		this.hotelDataService = hotelDataService;
 	}
 	
 	/**
 	 * 酒店工作人员查看酒店订单列表
 	 *
-	 * @param void
+	 * @param ID
 	 * @return 酒店订单列表
 	 * @throws RemoteException 
 	 */
-	public ArrayList<OrderOnHotelVO> hotelOrderScan() throws RemoteException {
+	public ArrayList<OrderVO> hotelOrderScan(String ID) throws RemoteException {
 		
-		ArrayList<OrderOnHotelVO> hotelVOs = new ArrayList<>();
-		ArrayList<OrderOnHotelPO> hotelPOs;
+		ArrayList<OrderVO> hotelVOs = new ArrayList<>();
+		ArrayList<OrderPO> hotelPOs;
 		
-		hotelPOs = hotelDataService.getTotalHotelOrderList();
+		hotelPOs = hotelDataService.findByHotelID(ID);
 		if(hotelPOs == null || hotelPOs.isEmpty()) {
 			return null;
 		}
 		
 		hotelVOs = new ArrayList<>(hotelPOs.size());
-		for(OrderOnHotelPO hotelPO : hotelPOs) {
-			hotelVOs.add((OrderOnHotelVO)VOPOchange.POtoVO(hotelPO));
+		for(OrderPO hotelPO : hotelPOs) {
+			hotelVOs.add((OrderVO)VOPOchange.POtoVO(hotelPO));
 		}
 		
 		return hotelVOs;
@@ -50,14 +50,9 @@ public class OrderOnHotel {
 	 * @return 酒店订单详情
 	 * @throws RemoteException 
 	 */
-	public OrderOnHotelVO hotelOrderDetail(String ID) throws RemoteException {
-		ArrayList<OrderOnHotelPO> hotelPOs;
-		hotelPOs = (ArrayList<OrderOnHotelPO>) hotelDataService.getTotalHotelOrderList();
-		for(OrderOnHotelPO hotelPO : hotelPOs) {
-			if(hotelPO.getOrderID().equals(ID))
-				return (OrderOnHotelVO)VOPOchange.POtoVO(hotelPO);
-		}
-		return null;
+	public OrderVO hotelOrderDetail(String ID) throws RemoteException {
+		OrderPO hotelPO = hotelDataService.findByOrderID(ID);
+		return (OrderVO)VOPOchange.POtoVO(hotelPO);
 	}
 	
 	/**
@@ -67,8 +62,8 @@ public class OrderOnHotel {
 	 * @return 系统提示消息
 	 * @throws RemoteException 
 	 */
-	public ResultMsg hotelOrderModify(OrderOnHotelVO orderVO) throws RemoteException {
-		OrderOnHotelPO hotelPO = hotelDataService.findByID(orderVO.getOrderID());
+	public ResultMsg hotelOrderModify(OrderVO orderVO) throws RemoteException {
+		OrderPO hotelPO = hotelDataService.findByOrderID(orderVO.getOrderID());
 		ResultMsg resultMsg = ResultMsg.FAIL;
 		if(hotelPO.getOrderState() == OrderState.UNEXECUTED) {
 			hotelPO.setOrderState(OrderState.EXECUTED);

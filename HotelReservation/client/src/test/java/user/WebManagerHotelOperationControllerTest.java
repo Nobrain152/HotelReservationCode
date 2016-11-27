@@ -6,21 +6,16 @@ import static org.junit.Assert.assertEquals;
 import org.junit.Before;
 import org.junit.Test;
 
-import bl.userbl.WebManagerHotelOperation;
-import vo.HotelIDVO;
-import vo.UserIDVO;
+import bl.userbl.WebManagerHotelOperationController;
 
 public class WebManagerHotelOperationControllerTest {
 
-	WebManagerHotelOperation impl;
-	UserIDVO vo1;
-	String vo2;
+	WebManagerHotelOperationController impl;
 	
 	@Before
 	public void setUp() {
-		impl=new WebManagerHotelOperation();
-		vo1=new UserIDVO("123456789");
-		vo2="123456";
+		impl=new WebManagerHotelOperationController();
+	
 	}
 
 	@Test
@@ -30,7 +25,7 @@ public class WebManagerHotelOperationControllerTest {
 	
 	@Test
 	public void testStuffAdd(){
-		assertEquals(impl.StuffAdd(vo2, vo1),true);
+		assertEquals(impl.StuffAdd("1234567", "1234567"),true);
 	}
 	
 	@Test

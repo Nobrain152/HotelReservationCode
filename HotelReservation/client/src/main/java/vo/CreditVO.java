@@ -1,7 +1,5 @@
 package vo;
 
-import java.util.ArrayList;
-
 /**
  * 信用值VO
  * 
@@ -21,16 +19,9 @@ public class CreditVO {
 	 */
 	int credit;
 	
-	/**
-	 * 信用值列表
-	 * 格式 XXXX/XX/XX/+/number
-	 */
-	ArrayList<String> creditList;
-	
-	public CreditVO(String userID, int credit,ArrayList<String> creditList) {
+	public CreditVO(String userID, int credit) {
 		this.userID = userID;
 		this.credit = credit;
-		this.creditList = creditList;
 	}
 	
 	public String getUserID() {
@@ -41,7 +32,4 @@ public class CreditVO {
 		return credit;
 	}
 	
-	public ArrayList<String> getCreditList() {
-		return creditList;
-	}
 }

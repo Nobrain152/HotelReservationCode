@@ -9,7 +9,6 @@ import blservice.hotelblservice.HotelEvaluateBLService;
 import dataservice.hoteldataservice.HotelEvaluateDataService;
 import net.RMIManage;
 import util.DataServiceType;
-import util.EvaluationMsg;
 import util.ResultMsg;
 import vo.HotelEvaluateVO;
 
@@ -31,7 +30,7 @@ public class HotelEvaluateController implements HotelEvaluateBLService{
 	}
 
 	@Override
-	public EvaluationMsg inputEvaluate(HotelEvaluateVO evaluateInfoVO){
+	public ResultMsg inputEvaluate(HotelEvaluateVO evaluateInfoVO){
 		try {
 			return hotelEvaluate.inputEvaluate(evaluateInfoVO);
 		} catch (RemoteException e) {

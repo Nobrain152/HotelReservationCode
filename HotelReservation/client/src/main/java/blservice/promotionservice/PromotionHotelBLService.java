@@ -2,7 +2,7 @@ package blservice.promotionservice;
 
 import java.util.ArrayList;
 
-import util.PromotionMsg;
+import util.ResultMsg;
 import vo.PromotionHotelVO;
 
 /**
@@ -12,22 +12,33 @@ import vo.PromotionHotelVO;
  */
 
 public interface PromotionHotelBLService {
-	//修改促销策略，返回是否修改成功的信息
-	public PromotionMsg changeBirthCut(int level,double ratio);
+	/**
+	 * 修改促销策略，返回是否修改成功的信息
+	 * @param level
+	 * @param ratio
+	 * @return
+	 */
+	public ResultMsg changeBirthCut(int level,double ratio);
 	
-	public PromotionMsg changeOverCut(int number,double ratio);
+	public ResultMsg changeOverCut(int number,double ratio);
 	
-	public PromotionMsg changeJoin(String businessName,double ratio) ;
+	public ResultMsg changeJoin(String businessName,double ratio) ;
 	
-	public PromotionMsg changeHotelCustomCut (String timeBegin,String timeOver, double ratio);
-	//增加促销策略
-	public PromotionMsg addBirthCut(int level,double ratio);
+	public ResultMsg changeHotelCustomCut (String timeBegin,String timeOver, double ratio);
+
+	/**
+	 * 增加促销策略
+	 * @param level
+	 * @param ratio
+	 * @return
+	 */
+	public ResultMsg addBirthCut(int level,double ratio);
 	
-	public PromotionMsg addOverCut(int number,double ratio);
+	public ResultMsg addOverCut(int number,double ratio);
 	
-	public PromotionMsg addJoin(String businessName,double ratio) ;
+	public ResultMsg addJoin(String businessName,double ratio) ;
 	
-	public PromotionMsg addHotelCustomCut (String timeBegin,String timeOver, double ratio);
+	public ResultMsg addHotelCustomCut (String timeBegin,String timeOver, double ratio);
 	
 	/**
 	 * @param type

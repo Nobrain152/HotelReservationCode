@@ -2,8 +2,6 @@ package blservice.userblservice;
 
 import java.util.ArrayList;
 
-import util.ResultMsg;
-import vo.UserIDVO;
 import vo.UserInfoVO;
 
 
@@ -23,7 +21,7 @@ public interface WebManagerWebsiteManagementBLService{
 	 * @param 用户IDVO
 	 * @return 用户个人信息VO
 	 */
-	public UserInfoVO UserInformationInquiry(UserIDVO vo);
+	public UserInfoVO UserInformationInquiry(String userid);
 		
 	/**
 	 * 修改用户信息
@@ -31,7 +29,7 @@ public interface WebManagerWebsiteManagementBLService{
 	 * @param 用户个人信息VO
 	 * @return 修改结果
 	 */
-	public ResultMsg UserInformationModification(UserIDVO vo1,UserInfoVO vo2);
+	public boolean UserInformationModification(String userid,UserInfoVO vo2);
 	
 	/**
 	 * 查看网站营销人员列表
@@ -44,6 +42,6 @@ public interface WebManagerWebsiteManagementBLService{
 	 * 添加网站营销人员
 	 * @param 用户IDVO
 	 */
-	public boolean WebsiteStuffAdd(UserIDVO vo);
+	public boolean WebsiteStuffAdd(String userid);
 		
 }

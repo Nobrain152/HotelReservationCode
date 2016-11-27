@@ -4,27 +4,27 @@ import java.rmi.RemoteException;
 import java.util.ArrayList;
 
 import blservice.orderblservice.OrderOnHotelBLService;
-import dataservice.orderdataservice.OrderOnHotelDataService;
+import dataservice.orderdataservice.OrderDataService;
 import net.RMIManage;
 import util.DataServiceType;
 import util.ResultMsg;
-import vo.OrderOnHotelVO;
+import vo.OrderVO;
 
 public class OrderOnHotelController implements OrderOnHotelBLService{
 
 	private OrderOnHotel hotelOrder;
-	private OrderOnHotelDataService hotelDataService;
+	private OrderDataService hotelDataService;
 	
 	public OrderOnHotelController() {
-		hotelDataService = (OrderOnHotelDataService)RMIManage.
-				getDataService(DataServiceType.OrderOnHotelDataService);
+		hotelDataService = (OrderDataService)RMIManage.
+				getDataService(DataServiceType.OrderDataService);
 		hotelOrder = new OrderOnHotel(hotelDataService);
 	}
 	
 	@Override
-	public ArrayList<OrderOnHotelVO> hotelOrderScan() {
+	public ArrayList<OrderVO> hotelOrderScan(String ID) {
 		try {
-			return hotelOrder.hotelOrderScan();
+			return hotelOrder.hotelOrderScan(ID);
 		} catch (RemoteException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -33,7 +33,7 @@ public class OrderOnHotelController implements OrderOnHotelBLService{
 	}
 
 	@Override
-	public OrderOnHotelVO hotelOrderDetail(String ID) {
+	public OrderVO hotelOrderDetail(String ID) {
 		try {
 			return hotelOrder.hotelOrderDetail(ID);
 		} catch (RemoteException e) {
@@ -44,7 +44,7 @@ public class OrderOnHotelController implements OrderOnHotelBLService{
 	}
 
 	@Override
-	public ResultMsg hotelOrderModify(OrderOnHotelVO orderVO) {
+	public ResultMsg hotelOrderModify(OrderVO orderVO) {
 		try {
 			return hotelOrder.hotelOrderModify(orderVO);
 		} catch (RemoteException e) {

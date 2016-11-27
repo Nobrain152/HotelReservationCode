@@ -31,7 +31,7 @@ public class RoomAddController implements RoomAddBLService{
 	
 	
 	@Override
-	public RoomMsg addRoom(RoomInfoVO roomInfoVO){
+	public ResultMsg addRoom(RoomInfoVO roomInfoVO){
 		try {
 			return roomAdd.addRoom(roomInfoVO);
 		} catch (RemoteException  e) {

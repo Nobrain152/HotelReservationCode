@@ -1,6 +1,5 @@
 package po;
 
-import java.util.ArrayList;
 
 import java.io.Serializable;
 
@@ -29,16 +28,9 @@ public class CreditPO implements Serializable {
 	 */
 	int credit;
 	
-	/**
-	 * 信用值列表
-	 * 格式 XXXX/XX/XX/+/number
-	 */
-	ArrayList<String> creditList;
-	
-	public CreditPO(String userID, int credit,ArrayList<String> creditList) {
+	public CreditPO(String userID, int credit) {
 		this.userID = userID;
 		this.credit = credit;
-		this.creditList = creditList;
 	}
 	
 	public String getUserID() {
@@ -49,8 +41,8 @@ public class CreditPO implements Serializable {
 		return credit;
 	}
 	
-	public ArrayList<String> getCreditList() {
-		return creditList;
+	public void setCredit(int credit) {
+		this.credit = credit;
 	}
 	
 }

@@ -4,27 +4,27 @@ import java.rmi.RemoteException;
 import java.util.ArrayList;
 
 import blservice.orderblservice.OrderOnUserBLService;
-import dataservice.orderdataservice.OrderOnUserDataService;
+import dataservice.orderdataservice.OrderDataService;
 import net.RMIManage;
 import util.DataServiceType;
 import util.ResultMsg;
-import vo.OrderOnUserVO;
+import vo.OrderVO;
 
 public class OrderOnUserController implements OrderOnUserBLService{
 
 	private OrderOnUser orderOnUser;
-	private OrderOnUserDataService userDataService;
+	private OrderDataService userDataService;
 	
 	public OrderOnUserController() {
-		userDataService = (OrderOnUserDataService)RMIManage.
-				getDataService(DataServiceType.OrderOnUserDataService);
+		userDataService = (OrderDataService)RMIManage.
+				getDataService(DataServiceType.OrderDataService);
 		orderOnUser = new OrderOnUser(userDataService);
 	}
 	
 	@Override
-	public ArrayList<OrderOnUserVO> personalOrderScan() {
+	public ArrayList<OrderVO> personalOrderScan(String ID) {
 		try {
-			return orderOnUser.personalOrderScan();
+			return orderOnUser.personalOrderScan(ID);
 		} catch (RemoteException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -33,7 +33,7 @@ public class OrderOnUserController implements OrderOnUserBLService{
 	}
 
 	@Override
-	public ResultMsg personalOrderCancel(OrderOnUserVO orderVO) {
+	public ResultMsg personalOrderCancel(OrderVO orderVO) {
 		try {
 			return orderOnUser.personalOrderCancel(orderVO);
 		} catch (RemoteException e) {
@@ -44,7 +44,7 @@ public class OrderOnUserController implements OrderOnUserBLService{
 	}
 
 	@Override
-	public OrderOnUserVO personalOrderDetail(String ID) {
+	public OrderVO personalOrderDetail(String ID) {
 		try {
 			return orderOnUser.personalOrderDetail(ID);
 		} catch (RemoteException e) {
@@ -55,7 +55,7 @@ public class OrderOnUserController implements OrderOnUserBLService{
 	}
 
 	@Override
-	public void createOrder(OrderOnUserVO orderVO) {
+	public void createOrder(OrderVO orderVO) {
 		try {
 			orderOnUser.createOrder(orderVO);
 		} catch (RemoteException e) {

@@ -1,6 +1,5 @@
 package blservice.hotelblservice;
 
-import util.HotelMsg;
 import util.ResultMsg;
 import vo.HotelInfoVO;
 
@@ -16,7 +15,7 @@ public interface HotelInfoMaintainBLService {
 	 * @param hotelInfoVO
 	 * @return
 	 */
-	public HotelMsg inputHotelInfo(HotelInfoVO hotelInfoVO);
+	public ResultMsg inputHotelInfo(HotelInfoVO hotelInfoVO);
 	
 	/**
 	 * 检查信息是否符合条件

@@ -1,9 +1,8 @@
 package dataservice.userdataservice;
 
-import po.LoginInPO;
+import po.LoginInputPO;
 import po.UserIDPO;
 import po.UserInfoPO;
-import util.ResultMsg;
 
 /**
  * 用户信息管理
@@ -12,26 +11,27 @@ import util.ResultMsg;
  */
 public interface UserManagementDataService{
         
+		
 		/**
 		 * 获取密码
 		 * @param 登录信息PO
 		 * @return 密码
 		 */
-		public String GetLoginInfo(LoginInPO po);
+		public String GetLoginInfo(LoginInputPO po);
 		
 		/**
 		 * 注册
 		 * @param 登录信息PO
 		 * @return 账号
 		 */
-		public String AddUser(LoginInPO po);
+		public String AddUser(LoginInputPO po);
 		
 		/**
 		 * h获取用户基本信息
 		 * @param 用户IDPO
 		 * @return 用户基本信息
 		 */
-		public UserInfoPO GetUserBaseInfo(UserIDPO po);
+		public UserInfoPO GetUserBaseInfo(String userid);
 		
 		/**
 		 * 设置用户基本信息
@@ -39,6 +39,6 @@ public interface UserManagementDataService{
 		 * @param 用户信息PO
 		 * @return 设置结果
 		 */
-		public ResultMsg SetUserBaseInfo(UserIDPO po1,UserInfoPO po2);
+		public boolean SetUserBaseInfo(String userid,UserInfoPO po2);
 		
 }

@@ -2,9 +2,9 @@ package bl.hotelbl;
 
 import java.rmi.RemoteException;
 
+import bl.VOPOchange;
 import dataservice.hoteldataservice.HotelEvaluateDataService;
 import po.HotelEvaluatePO;
-import util.EvaluationMsg;
 import util.ResultMsg;
 import vo.HotelEvaluateVO;
 
@@ -16,6 +16,7 @@ import vo.HotelEvaluateVO;
 public class HotelEvaluate {
 	
 	private HotelEvaluateDataService evaluateData;
+	ResultMsg result;
 	
 	public HotelEvaluate(HotelEvaluateDataService evaluateDataService){
 		this.evaluateData = evaluateDataService;
@@ -27,11 +28,10 @@ public class HotelEvaluate {
 	 * @return
 	 * @throws RemoteException
 	 */
-	public EvaluationMsg inputEvaluate(HotelEvaluateVO evaluateInfoVO) throws RemoteException{
-		HotelEvaluatePO evaluatePO = evaluateData.findByID(evaluateInfoVO.getOrderID());
-		EvaluationMsg evaluation = new EvaluationMsg(evaluatePO.getScore(),evaluatePO.getComment(),
-				evaluatePO.getIsReserved());
-		return evaluation;
+	public ResultMsg inputEvaluate(HotelEvaluateVO evaluateInfoVO) throws RemoteException{
+		HotelEvaluatePO evaluatePO = (HotelEvaluatePO)VOPOchange.VOtoPO(evaluateInfoVO);
+		result = evaluateData.insert(evaluatePO);
+		return result;
 	}
 
 	/**
@@ -42,13 +42,10 @@ public class HotelEvaluate {
 	 */
 	public ResultMsg checkOrder(HotelEvaluateVO evaluateInfoVO) throws RemoteException{
 		HotelEvaluatePO evaluatePO = evaluateData.findByID(evaluateInfoVO.getOrderID());
-		ResultMsg result;
-		if(evaluatePO.getIsReserved()){
+		if(evaluatePO.getIsReserved())
 			result = ResultMsg.SUCCESS;
-		}
-		else{
+		else
 			result= ResultMsg.FAIL;
-		}
 		return result;
 	}
    

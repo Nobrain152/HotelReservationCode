@@ -2,38 +2,35 @@ package user;
 
 import static org.junit.Assert.assertEquals;
 
-import org.junit.Before;
-import org.junit.Test;
-
-import blservice.userblservice.Customer;
-import util.ResultMsg;
+import bl.userbl.Customer;
 import vo.CustomerInfoVO;
+import vo.UserInfoVO;
 
 public class CustomerTest {
-	CustomerInfoVO vo;
+	private CustomerInfoVO vo;
 	private Customer cu;
 	
-	@Before
 	public void setup(){
 		vo=new CustomerInfoVO("1234567","Jerry","13067893451",100);
 		cu=new Customer("1234567");
+		
 	}
 	
-	@Test
-	public void testInquiry(){
-		assertEquals(cu.getid(),"1234567");
-		assertEquals(cu.getname(),"Jerry");
-		assertEquals(cu.getcontact(),"13067893451");
+	public void testinquiry(){
+		UserInfoVO po=cu.IndividualBaseInfolnquiry("1234567");
+		assertEquals(po.getUserid(),"1234567");
+		assertEquals(po.getUsername(),"Jerry");
+		assertEquals(po.getContact(),"13067893451");
 	}
 	
-	@Test
-	public void testModify(){
+	public void testmodify(){
 		CustomerInfoVO vo1=new CustomerInfoVO("1234567","Tom","13067893451",100);
-		ResultMsg cantest=cu.BaseInfoModification(vo1);
-		if(cantest == ResultMsg.SUCCESS){
-			assertEquals(cu.getid(),"1234567");
-			assertEquals(cu.getname(),"Tom");
-			assertEquals(cu.getcontact(),"13067893451");
+		boolean cantest=cu.IndividualBaseInfoModification("1234567",vo1);
+		UserInfoVO po=cu.IndividualBaseInfolnquiry("1234567");
+		if(cantest){
+			assertEquals(po.getUserid(),"1234567");
+			assertEquals(po.getUsername(),"Tom");
+			assertEquals(po.getContact(),"13067893451");
 			
 		}
 	}

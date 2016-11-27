@@ -7,14 +7,14 @@ import java.util.ArrayList;
 import org.junit.Before;
 import org.junit.Test;
 
-import bl.promotionbl.PromotionHotelController;
+import bl.promotionbl.PromotionHotel;
 import vo.PromotionHotelVO;
 import util.CustomerType;
 import util.PromotionHotelType;
 
 public class PromotionHotelControllerTest {
 	
-	PromotionHotelController hotel;
+	PromotionHotel hotel;
 	PromotionHotelVO hotel1,hotel2,hotel3;
 	
 	

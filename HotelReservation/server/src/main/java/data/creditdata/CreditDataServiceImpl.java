@@ -10,25 +10,19 @@ import util.ResultMsg;
 public class CreditDataServiceImpl implements CreditDataService{
 
 	@Override
-	public ResultMsg insert(CreditPO integral) throws RemoteException {
+	public ResultMsg insert(CreditPO creditPO) throws RemoteException {
 		// TODO Auto-generated method stub
-		return ResultMsg.FAIL;
+		return null;
 	}
 
 	@Override
-	public ResultMsg delete(CreditPO integral) throws RemoteException {
+	public ArrayList<CreditPO> findByName(String name) throws RemoteException {
 		// TODO Auto-generated method stub
-		return ResultMsg.FAIL;
+		return null;
 	}
 
 	@Override
-	public ResultMsg update(CreditPO Integral) throws RemoteException {
-		// TODO Auto-generated method stub
-		return ResultMsg.FAIL;
-	}
-
-	@Override
-	public CreditPO findByName(String name) throws RemoteException {
+	public CreditPO findByID(String name) throws RemoteException {
 		// TODO Auto-generated method stub
 		return null;
 	}

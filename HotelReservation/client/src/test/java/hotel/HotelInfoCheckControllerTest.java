@@ -9,6 +9,7 @@ import org.junit.Test;
 
 import bl.hotelbl.HotelInfoCheckController;
 import util.HotelMsg;
+import util.ResultMsg;
 import vo.HotelInfoVO;
 
 public class HotelInfoCheckControllerTest {
@@ -47,14 +48,9 @@ public class HotelInfoCheckControllerTest {
 	
 	@Test
 	public void testcheckHotelInfo(){
-		HotelMsg msg1 = impl.checkHotelInfo(hotel1);
-		assertEquals(msg1.getName(), hotelMsg.getName());
-		assertEquals(msg1.getAddress(), hotelMsg.getAddress());
-		assertEquals(msg1.getArea(), hotelMsg.getArea());
-		assertEquals(msg1.getLevel(), hotelMsg.getLevel());
-		assertEquals(msg1.getIntroduction(), hotelMsg.getIntroduction());
-		assertEquals(msg1.getFacility(), hotelMsg.getFacility());
-		assertEquals(msg1.isReserved(), hotelMsg.isReserved());
+		ResultMsg msg1 = impl.checkHotelInfo(hotel1);
+		assertEquals(msg1, hotelMsg.getName());
+		
     }
 
 }

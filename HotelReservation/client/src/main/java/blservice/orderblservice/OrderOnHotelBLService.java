@@ -3,7 +3,7 @@ package blservice.orderblservice;
 import java.util.ArrayList;
 
 import util.ResultMsg;
-import vo.OrderOnHotelVO;
+import vo.OrderVO;
 
 /**
  * 酒店工作人员查看酒店订单列表及详情，修改订单状态
@@ -16,18 +16,18 @@ public interface OrderOnHotelBLService {
 	/**
 	 * 酒店工作人员查看酒店订单列表
 	 *
-	 * @param void
+	 * @param ID
 	 * @return 酒店订单列表
 	 */
-	public ArrayList<OrderOnHotelVO> hotelOrderScan();
+	public ArrayList<OrderVO> hotelOrderScan(String ID);
 	
 	/**
 	 * 酒店工作人员查看酒店订单详情
 	 *
-	 * @param OrderOnHotelVO 订单VO
+	 * @param OrderVO 订单VO
 	 * @return 酒店订单详情
 	 */
-	public OrderOnHotelVO hotelOrderDetail(String ID);
+	public OrderVO hotelOrderDetail(String ID);
 	
 	/**
 	 * 酒店工作人员修改订单状态
@@ -35,6 +35,6 @@ public interface OrderOnHotelBLService {
 	 * @param orderVO 订单VO
 	 * @return 系统提示消息
 	 */
-	public ResultMsg hotelOrderModify(OrderOnHotelVO orderVO);
+	public ResultMsg hotelOrderModify(OrderVO orderVO);
 	
 }

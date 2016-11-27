@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 import vo.HotelEvaluateVO;
 import vo.HotelInfoVO;
-import vo.OrderOnUserVO;
+import vo.OrderVO;
 import vo.VipVO;
 
 /**
@@ -29,7 +29,7 @@ public interface CustomerHotelOperationBlService{
 	 * @param 订单VO
 	 *
 	 */
-	public void OederCreat(HotelInfoVO vo1,OrderOnUserVO vo2);
+	public void OederCreat(String hotelID,OrderVO vo2);
 		
 	/**
 	 * 评价酒店	
@@ -43,7 +43,7 @@ public interface CustomerHotelOperationBlService{
 	 * @param 酒店IDVO
 	 * @param 会员信息VO
 	 */
-	public void MemberRegisterApply(HotelInfoVO vo1,VipVO vo2);
+	public void MemberRegisterApply(String hotelID,VipVO vo2);
 		
 			
 }

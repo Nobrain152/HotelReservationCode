@@ -29,7 +29,7 @@ public class HotelReservedCheckController implements HotelReservedCheckBLService
 	
 	
 	@Override
-    public ArrayList<HotelInfoVO> checkReserved(HotelInfoVO reservedHotelListVO){
+    public ArrayList<HotelInfoVO> showReservedList(HotelInfoVO reservedHotelListVO){
 		try {
 			return hotelReservedCheck.checkReserved(reservedHotelListVO);
 		} catch (RemoteException  e) {

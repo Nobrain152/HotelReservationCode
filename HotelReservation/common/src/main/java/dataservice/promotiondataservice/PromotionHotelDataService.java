@@ -14,11 +14,11 @@ import util.ResultMsg;
  */
 
 public interface PromotionHotelDataService {
-	public ResultMsg insert(PromotionHotelPO Promotion) throws RemoteException;
+	public ResultMsg insert(PromotionHotelPO promotion) throws RemoteException;
 	
-	public ResultMsg delete(PromotionHotelPO Promotion) throws RemoteException;
+	public ResultMsg delete(PromotionHotelPO promotion) throws RemoteException;
 	
-	public ResultMsg update(PromotionHotelPO Promotion) throws RemoteException;
+	public ResultMsg update(PromotionHotelPO promotion) throws RemoteException;
 	
 	public PromotionHotelPO findByName(String name) throws RemoteException;
 	

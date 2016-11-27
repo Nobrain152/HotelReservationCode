@@ -20,10 +20,7 @@ public class HotelInfoMaintainControllerTest {
 	HotelInfoVO hotel2;
 	HotelInfoVO hotel3;
 	
-	HotelMsg hotelMsg;
 	ResultMsg reMsg;
-	
-	
 	
 	@Before
 	public void setUp() {
@@ -42,23 +39,13 @@ public class HotelInfoMaintainControllerTest {
 		hotelList.add(hotel2);
 		hotelList.add(hotel3);
 		
-		
-		hotelMsg = new HotelMsg(hotel1.getName(),hotel1.getAddress(),hotel1.getArea(),hotel1.getLevel(),
-				hotel1.getIntroduction(),hotel1.getFacility(),hotel1.getIsReserved());
-		//reMsg=new ResultMsg(true,"Î¬»¤³É¹¦");
 		reMsg = ResultMsg.SUCCESS;
 	}
 	
 	@Test
 	public void testinputHotelInfo(){
-		HotelMsg msg1 = impl.inputHotelInfo(hotel1);
-		assertEquals(msg1.getName(), hotelMsg.getName());
-		assertEquals(msg1.getAddress(), hotelMsg.getAddress());
-		assertEquals(msg1.getArea(), hotelMsg.getArea());
-		assertEquals(msg1.getLevel(), hotelMsg.getLevel());
-		assertEquals(msg1.getIntroduction(), hotelMsg.getIntroduction());
-		assertEquals(msg1.getFacility(), hotelMsg.getFacility());
-		assertEquals(msg1.isReserved(), hotelMsg.isReserved());
+		ResultMsg msg1 = impl.inputHotelInfo(hotel1);
+		assertEquals(msg1, reMsg);
     }
 	
 	@Test

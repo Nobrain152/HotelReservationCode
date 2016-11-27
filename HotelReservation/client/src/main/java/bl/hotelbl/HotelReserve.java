@@ -6,7 +6,7 @@ import dataservice.hoteldataservice.HotelInfoDataService;
 import util.EvaluationMsg;
 import util.ResultMsg;
 import vo.HotelInfoVO;
-import vo.OrderOnUserVO;
+import vo.OrderVO;
 
 public class HotelReserve {
 	private HotelInfoDataService hotelInfoData;
@@ -19,12 +19,12 @@ public class HotelReserve {
 	
 	
 	public ResultMsg reserveHotel(HotelInfoVO reserveHotelVO) throws RemoteException{
-		//return new ResultMsg(true,"Ô¤¶¨³É¹¦");
+		
 		return ResultMsg.SUCCESS;
 	}
 	
 	
-    public ResultMsg createUserOrder(OrderOnUserVO order) throws RemoteException{
+    public ResultMsg createUserOrder(OrderVO order) throws RemoteException{
     	return ResultMsg.SUCCESS;
     }
 

@@ -13,6 +13,7 @@ import util.ResultMsg;
  */
 
 public interface VipDataService {
+	
 	public ResultMsg insert(VipPO vip) throws RemoteException;
 	
 	public ResultMsg delete(VipPO vip) throws RemoteException;

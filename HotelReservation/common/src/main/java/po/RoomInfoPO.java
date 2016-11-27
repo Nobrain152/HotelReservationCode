@@ -19,6 +19,11 @@ public class RoomInfoPO implements Serializable{
 	 * 房间状态
 	 */
 	private RoomState state;
+	
+	/**
+	 * 房间号
+	 */
+	private String roomID;
 
 	/**
 	 * 房间类型
@@ -26,19 +31,14 @@ public class RoomInfoPO implements Serializable{
 	private RoomType type;
 	
 	/**
-	 * 房间数量
-	 */
-	private int number;
-	
-	/**
 	 * 价格
 	 */
 	private int price;
 
-	public RoomInfoPO(RoomState state, RoomType type, int number, int price ) {
+	public RoomInfoPO(RoomState state, RoomType type, String roomID, int price ) {
 		this.state = state;
 		this.type = type;
-		this.number= number;
+		this.roomID= roomID;
 		this.price= price;
 	}
 
@@ -50,8 +50,8 @@ public class RoomInfoPO implements Serializable{
 		return type;
 	}
 	
-	public int getNumber() {
-		return number;
+	public String getNumber() {
+		return roomID;
 	}
 	
 	public int getPrice() {

@@ -16,6 +16,6 @@ public interface HotelReservedCheckBLService {
 	 * @param reservedHotelListVO
 	 * @return
 	 */
-    public ArrayList<HotelInfoVO> checkReserved(HotelInfoVO reservedHotelListVO);
+    public ArrayList<HotelInfoVO> showReservedList(HotelInfoVO reservedHotelListVO);
    
 }

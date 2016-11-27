@@ -8,7 +8,6 @@ import org.junit.Before;
 import org.junit.Test;
 
 import bl.hotelbl.HotelEvaluateController;
-import util.EvaluationMsg;
 import util.ResultMsg;
 import vo.HotelEvaluateVO;
 
@@ -19,7 +18,7 @@ public class HotelEvaluateControllerTest {
 	HotelEvaluateVO evaluation1;
 	HotelEvaluateVO evaluation2;
 	
-	EvaluationMsg evMsg;
+	ResultMsg evMsg;
 	ResultMsg reMsg1;
 	ResultMsg reMsg2;
 	
@@ -31,35 +30,25 @@ public class HotelEvaluateControllerTest {
 				
 				
 		impl = new HotelEvaluateController();
-		//reMsg1 = new ResultMsg(true, "完成评价");
 		reMsg1 = ResultMsg.SUCCESS;
-		//reMsg2 = new ResultMsg(false, "评论失败");
 		reMsg2 = ResultMsg.FAIL;
 		evList = impl.evaluationList;
 		evList.add(evaluation1);
 		evList.add(evaluation2);
-		
-		
-		evMsg = new EvaluationMsg(evaluation1.getScore(),
-				evaluation1.getComment(),evaluation1.getIsReserved());
+		evMsg = ResultMsg.SUCCESS;
 	}
 	
 	@Test
 	public void testinputEvaluate(){
-		EvaluationMsg msg1 = impl.inputEvaluate(evaluation1);
-		assertEquals(msg1.getScore(), evMsg.getScore());
-		assertEquals(msg1.getComment(), evMsg.getComment());
-		assertEquals(msg1.isReserved(), evMsg.isReserved());
-		
+		ResultMsg msg1 = impl.inputEvaluate(evaluation1);
+		assertEquals(msg1, evMsg);
 	}
 	
 	@Test
 	public void testcheckOrder(){
 		ResultMsg msg1 = impl.checkOrder(evaluation1); 
-		//assertEquals(msg1.getMessage(), reMsg1.getMessage());
 		assertEquals(msg1, reMsg1);
 		ResultMsg msg2 = impl.checkOrder(evaluation2); 
-		//assertEquals(msg2.getMessage(), reMsg2.getMessage());
 		assertEquals(msg2, reMsg2);
 	}
 

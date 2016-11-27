@@ -1,10 +1,11 @@
+
 package bl.hotelbl;
 
 import java.rmi.RemoteException;
 
 import dataservice.hoteldataservice.HotelInfoDataService;
 import po.HotelInfoPO;
-import util.HotelMsg;
+import util.ResultMsg;
 import vo.HotelInfoVO;
 
 /**
@@ -15,7 +16,7 @@ import vo.HotelInfoVO;
 public class HotelInfoCheck {
 	
 	private HotelInfoDataService hotelData;
-	private HotelMsg hotel;
+	private ResultMsg resultMsg;
 	
 	public HotelInfoCheck(HotelInfoDataService hotelDataService){
 		this.hotelData = hotelDataService;
@@ -27,11 +28,12 @@ public class HotelInfoCheck {
 	 * @return
 	 * @throws RemoteException
 	 */
-	public HotelMsg checkHotelInfo(HotelInfoVO hotelInfoVO) throws RemoteException{
+	public ResultMsg checkHotelInfo(HotelInfoVO hotelInfoVO) throws RemoteException{
 		HotelInfoPO hotelInfoPO = hotelData.findByID(hotelInfoVO.getHotelID());
-    	hotel = new HotelMsg(hotelInfoPO.getName(),hotelInfoPO.getAddress(),
-    			hotelInfoPO.getArea(),hotelInfoPO.getLevel(),hotelInfoPO.getIntroduction(),
-    			hotelInfoPO.getFacility(),hotelInfoPO.getIsReserved());
-    	return hotel;
+		if(hotelInfoPO != null)
+			resultMsg = ResultMsg.SUCCESS;
+		else
+			resultMsg = ResultMsg.FAIL;
+    	return resultMsg;
     }
 }

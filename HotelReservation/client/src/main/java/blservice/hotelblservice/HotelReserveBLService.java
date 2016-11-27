@@ -1,8 +1,9 @@
+
 package blservice.hotelblservice;
 
 import util.ResultMsg;
 import vo.HotelInfoVO;
-import vo.OrderOnUserVO;
+import vo.OrderVO;
 
 
 public interface HotelReserveBLService {
@@ -17,6 +18,6 @@ public interface HotelReserveBLService {
 	 * 创建用户订单
 	 * 
 	 */
-    public ResultMsg createUserOrder(OrderOnUserVO orderInfoVO);
+    public ResultMsg createUserOrder(OrderVO orderInfoVO);
    
 }

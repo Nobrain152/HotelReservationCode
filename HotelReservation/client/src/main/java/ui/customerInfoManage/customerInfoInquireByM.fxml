@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.image.*?>
 <?import javafx.scene.effect.*?>
 <?import javafx.geometry.*?>
 <?import javafx.scene.web.*?>
@@ -40,43 +41,15 @@
       </Pane>
       <Pane layoutY="62.0" prefHeight="332.0" prefWidth="617.0">
          <children>
-            <Text layoutX="154.0" layoutY="51.0" strokeType="OUTSIDE" strokeWidth="0.0" text="*地址">
+            <Button layoutX="276.0" layoutY="193.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="67.0" text="查询">
+               <font>
+                  <Font size="14.0" />
+               </font></Button>
+            <TextField layoutX="185.0" layoutY="94.0" prefHeight="50.0" prefWidth="248.0" promptText="请输入用户ID">
                <font>
                   <Font size="14.0" />
                </font>
-            </Text>
-            <Text layoutX="157.0" layoutY="91.0" strokeType="OUTSIDE" strokeWidth="0.0" text="*所属商圈">
-               <font>
-                  <Font size="14.0" />
-               </font>
-            </Text>
-            <Text layoutX="157.0" layoutY="174.0" strokeType="OUTSIDE" strokeWidth="0.0" text="价格">
-               <font>
-                  <Font size="14.0" />
-               </font>
-            </Text>
-            <Text layoutX="157.0" layoutY="214.0" strokeType="OUTSIDE" strokeWidth="0.0" text="星级">
-               <font>
-                  <Font size="14.0" />
-               </font>
-            </Text>
-            <Text layoutX="157.0" layoutY="257.0" strokeType="OUTSIDE" strokeWidth="0.0" text="评分区间">
-               <font>
-                  <Font size="14.0" />
-               </font>
-            </Text>
-            <TextField layoutX="293.0" layoutY="35.0" prefHeight="23.0" prefWidth="187.0" />
-            <TextField layoutX="293.0" layoutY="74.0" prefHeight="23.0" prefWidth="187.0" />
-            <ChoiceBox layoutX="293.0" layoutY="157.0" prefHeight="23.0" prefWidth="187.0" />
-            <ChoiceBox layoutX="293.0" layoutY="197.0" prefHeight="23.0" prefWidth="187.0" />
-            <ChoiceBox layoutX="293.0" layoutY="240.0" prefHeight="23.0" prefWidth="187.0" />
-            <Button layoutX="416.0" layoutY="289.0" mnemonicParsing="false" prefHeight="29.0" prefWidth="61.0" text="搜索" />
-            <Text layoutX="157.0" layoutY="133.0" strokeType="OUTSIDE" strokeWidth="0.0" text="名称">
-               <font>
-                  <Font size="14.0" />
-               </font>
-            </Text>
-            <TextField layoutX="293.0" layoutY="116.0" prefHeight="23.0" prefWidth="187.0" />
+            </TextField>
          </children>
       </Pane>
    </children>

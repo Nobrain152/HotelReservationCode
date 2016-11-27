@@ -9,38 +9,50 @@ import org.junit.Before;
 import org.junit.Test;
 
 import bl.orderbl.OrderOnHotelController;
+import po.ContactPO;
+import po.CustomerInfoPO;
+import po.OrderPO;
 import util.OrderState;
 import util.ResultMsg;
 import util.RoomType;
-import util.User;
-import vo.OrderOnHotelVO;
+import vo.ContactVO;
+import vo.CustomerInfoVO;
+import vo.OrderVO;
 
 public class OrderOnHotelControllerTest {
 
 	private OrderOnHotelController hotelBLServiceImpl;
-	ArrayList<OrderOnHotelVO> hotelList;
-	OrderOnHotelVO order1;
-	OrderOnHotelVO order2;
-	OrderOnHotelVO order3;
-	OrderOnHotelVO order4;
-	OrderOnHotelVO r11;
+	ArrayList<OrderVO> hotelList;
+	OrderVO order1;
+	OrderVO order2;
+	OrderVO order3;
+	OrderVO order4;
+	OrderVO r11;
 	ResultMsg r1;
 	
 	
 	@Before
 	public void setUp() throws RemoteException {
-		order1 = new OrderOnHotelVO(new User("txin",100,"18805156300","151250132@smail.nju.edu.cn"),"42654645437",
-				OrderState.UNEXECUTED,105,"2016-10-15 12:00","2016-10-16 12:00", "2016-10-15 24:00",
-				RoomType.ROOM_STANDARD,1,1,false);
-		order2 = new OrderOnHotelVO(new User("txin",100,"18805156300","151250132@smail.nju.edu.cn"),"42654645437",
-				OrderState.ABNORMAL,105, "2016-10-16 12:00","2016-10-17 12:00","2016-10-16 24:00",
-				RoomType.ROOM_STANDARD,1,1,false);
-		order3 = new OrderOnHotelVO(new User("txin",100,"18805156300","151250132@smail.nju.edu.cn"),"42654645437",
-				OrderState.CANCELLED,105, "2016-10-17 12:00","2016-10-18 12:00","2016-10-17 24:00",
-				RoomType.ROOM_STANDARD,1,1,false);
-		order4 = new OrderOnHotelVO(new User("txin",100,"18805156300","151250132@smail.nju.edu.cn"),"42654645437",
-				OrderState.EXECUTED,105, "2016-10-18 12:00","2016-10-19 12:00","2016-10-18 24:00",
-				RoomType.ROOM_STANDARD,1,1,false);
+		order1 = new OrderVO(new CustomerInfoVO("123", "txin", 
+				new ContactVO("18805156300", null), 100), 
+				OrderState.UNEXECUTED, 100, "01", "513", false, 
+				"2016-10-16 24:00", "2016-10-16 12:00", "2016-10-17 12:00", 
+				1, 1, RoomType.ROOM_STANDARD);
+		order2 = new OrderVO(new CustomerInfoVO("123", "txin", 
+				new ContactVO("18805156300", null), 100), 
+				OrderState.UNEXECUTED, 100, "01", "513", false, 
+				"2016-10-16 24:00", "2016-10-16 12:00", "2016-10-17 12:00", 
+				1, 1, RoomType.ROOM_STANDARD);
+		order3 = new OrderVO(new CustomerInfoVO("123", "txin", 
+				new ContactVO("18805156300", null), 100), 
+				OrderState.UNEXECUTED, 100, "01", "513", false, 
+				"2016-10-16 24:00", "2016-10-16 12:00", "2016-10-17 12:00", 
+				1, 1, RoomType.ROOM_STANDARD);
+		order4 = new OrderVO(new CustomerInfoVO("123", "txin", 
+				new ContactVO("18805156300", null), 100), 
+				OrderState.UNEXECUTED, 100, "01", "513", false, 
+				"2016-10-16 24:00", "2016-10-16 12:00", "2016-10-17 12:00", 
+				1, 1, RoomType.ROOM_STANDARD);
 		hotelBLServiceImpl = new OrderOnHotelController();
 		//r1 = new ResultMsg(true, "Ö´ÐÐ³É¹¦£¡");
 		r1 = ResultMsg.SUCCESS;
@@ -50,20 +62,22 @@ public class OrderOnHotelControllerTest {
 		hotelList.add(order3);
 		hotelList.add(order4);
 		
-		r11 = new OrderOnHotelVO(order1.getInitiator(), order1.getOrderID(),order1.getOrderState(), order1.getPrice(), 
-				order1.getCheckInTime(), order1.getCheckOutTime(), order1.getLatestExecutionTime(), 
-				order1.getRoomType(), order1.getRoomNumber(), order1.getPeopleNumber(), order1.getHasChild());
+		r11 = new OrderVO(new CustomerInfoVO("123", "txin", 
+				new ContactVO("18805156300", null), 100), 
+				OrderState.UNEXECUTED, 100, "01", "513", false, 
+				"2016-10-16 24:00", "2016-10-16 12:00", "2016-10-17 12:00", 
+				1, 1, RoomType.ROOM_STANDARD);
 	}
 
 	@Test
 	public void testHotelOrderScan() throws RemoteException {
-		ArrayList<OrderOnHotelVO> hotels = hotelBLServiceImpl.hotelOrderScan();
+		ArrayList<OrderVO> hotels = hotelBLServiceImpl.hotelOrderScan(order1.getHotelID());
 		assertEquals(hotels, hotelList);
 	}
 	
 	@Test
 	public void testHotelOrderDetail() throws RemoteException{
-		OrderOnHotelVO msg1 = hotelBLServiceImpl.hotelOrderDetail("42654645437");
+		OrderVO msg1 = hotelBLServiceImpl.hotelOrderDetail("42654645437");
 		assertEquals(msg1, order1);
 	}
 	

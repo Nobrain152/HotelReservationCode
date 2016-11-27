@@ -1,13 +1,13 @@
 package bl.userbl;
 
 import data.userdata.UserManagementDataServiceImpl;
-import po.LoginInputPO;
-import vo.LoginInputVO;
+import po.LoginInPO;
+import vo.LoginInVO;
 
 public class User {
 	
 	private UserManagementDataServiceImpl data=new UserManagementDataServiceImpl();
-	private LoginInputPO po;
+	private LoginInPO po;
 	
 	
 	/**
@@ -15,9 +15,9 @@ public class User {
 	 * @param 登录输入信息VO
 	 * @return 登录结果
 	 */
-    public boolean  LogIn(LoginInputVO vo){
-    	String pass=vo.getUserpassword();
-    	po=new LoginInputPO(vo.getUserid(),vo.getUserpassword());
+    public boolean  LogIn(LoginInVO vo){
+    	String pass=vo.getPassword();
+    	po=new LoginInPO(vo.getUsername(),vo.getPassword());
     	String real=data.GetLoginInfo(po);
     	return real.equals(pass);
     	
@@ -44,8 +44,8 @@ public class User {
 	 * @param 登录输入信息VO
 	 * @return 注册结果
 	 */
-	public String Register(LoginInputVO vo){
-		po=new LoginInputPO(vo.getUserid(),vo.getUserpassword());
+	public String Register(LoginInVO vo){
+		po=new LoginInPO(vo.getUsername(),vo.getPassword());
 		return data.AddUser(po);
 	}
 }

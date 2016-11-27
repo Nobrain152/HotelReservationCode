@@ -13,16 +13,17 @@ import bl.orderbl.OrderOnUserController;
 import util.OrderState;
 import util.ResultMsg;
 import util.RoomType;
-import util.User;
-import vo.OrderOnUserVO;
+import vo.ContactVO;
+import vo.CustomerInfoVO;
+import vo.OrderVO;
 
 public class OrderOnUserControllerTest {
 
 	private OrderOnUserController userBLServiceImpl;
-	OrderOnUserVO order1;
-	OrderOnUserVO order2;
-	OrderOnUserVO order3;
-	OrderOnUserVO order4;
+	OrderVO order1;
+	OrderVO order2;
+	OrderVO order3;
+	OrderVO order4;
 	ResultMsg r11;
 	ResultMsg r22;
 	ResultMsg r33;
@@ -30,14 +31,26 @@ public class OrderOnUserControllerTest {
 	
 	@Before
 	public void setUp() throws RemoteException {
-		order1 = new OrderOnUserVO(new User("txin",100,"18805156300","151250132@smail.nju.edu.cn"),"42654645437",
-				OrderState.UNEXECUTED,105, "2016-10-15 24:00",RoomType.ROOM_STANDARD,1,1,false);
-		order2 = new OrderOnUserVO(new User("txin",100,"18805156300","151250132@smail.nju.edu.cn"),"42654645437",
-				OrderState.ABNORMAL,105, "2016-10-16 24:00",RoomType.ROOM_STANDARD,1,1,false);
-		order3 = new OrderOnUserVO(new User("txin",100,"18805156300","151250132@smail.nju.edu.cn"),"42654645437",
-				OrderState.CANCELLED,105, "2016-10-17 24:00",RoomType.ROOM_STANDARD,1,1,false);
-		order4 = new OrderOnUserVO(new User("txin",100,"18805156300","151250132@smail.nju.edu.cn"),"42654645437",
-				OrderState.EXECUTED,105, "2016-10-15 24:00",RoomType.ROOM_STANDARD,1,1,false);
+		order1 = new OrderVO(new CustomerInfoVO("123", "txin", 
+				new ContactVO("18805156300", null), 100), 
+				OrderState.UNEXECUTED, 100, "01", "513", false, 
+				"2016-10-16 24:00", "2016-10-16 12:00", "2016-10-17 12:00", 
+				1, 1, RoomType.ROOM_STANDARD);
+		order2 = new OrderVO(new CustomerInfoVO("123", "txin", 
+				new ContactVO("18805156300", null), 100), 
+				OrderState.UNEXECUTED, 100, "01", "513", false, 
+				"2016-10-16 24:00", "2016-10-16 12:00", "2016-10-17 12:00", 
+				1, 1, RoomType.ROOM_STANDARD);
+		order3 = new OrderVO(new CustomerInfoVO("123", "txin", 
+				new ContactVO("18805156300", null), 100), 
+				OrderState.UNEXECUTED, 100, "01", "513", false, 
+				"2016-10-16 24:00", "2016-10-16 12:00", "2016-10-17 12:00", 
+				1, 1, RoomType.ROOM_STANDARD);
+		order4 = new OrderVO(new CustomerInfoVO("123", "txin", 
+				new ContactVO("18805156300", null), 100), 
+				OrderState.UNEXECUTED, 100, "01", "513", false, 
+				"2016-10-16 24:00", "2016-10-16 12:00", "2016-10-17 12:00", 
+				1, 1, RoomType.ROOM_STANDARD);
 		userBLServiceImpl = new OrderOnUserController();
 		userBLServiceImpl.createOrder(order1);
 		userBLServiceImpl.createOrder(order2);
@@ -55,7 +68,7 @@ public class OrderOnUserControllerTest {
 	
 	@Test
 	public void testPersonalOrderScan() throws RemoteException{
-		ArrayList<OrderOnUserVO> userList = userBLServiceImpl.personalOrderScan();
+		ArrayList<OrderVO> userList = userBLServiceImpl.personalOrderScan(null);
 		assertEquals(order1,userList.get(0));
 		assertEquals(order2,userList.get(1));
 		assertEquals(order3,userList.get(2));
@@ -80,7 +93,7 @@ public class OrderOnUserControllerTest {
 	
 	@Test
 	public void testPersonalOrderDetail() throws RemoteException{
-		OrderOnUserVO msg1 = userBLServiceImpl.personalOrderDetail("42654645437");
+		OrderVO msg1 = userBLServiceImpl.personalOrderDetail("42654645437");
 		assertEquals(msg1, order1);
 	}
 	

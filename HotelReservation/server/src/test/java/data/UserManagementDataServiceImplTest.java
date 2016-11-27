@@ -9,22 +9,21 @@ import org.junit.Before;
 import org.junit.Test;
 
 import data.userdata.UserManagementDataServiceImpl;
-import po.HotelIDPO;
+import po.ContactPO;
 import po.LoginInPO;
-import po.UserIDPO;
 import po.UserInfoPO;
 
 public class UserManagementDataServiceImplTest {
 
 	UserManagementDataServiceImpl impl;
 	LoginInPO log;
-	UserIDPO po;
+	String po;
 	
 	@Before
 	public void setUp(){
 		impl=new UserManagementDataServiceImpl();
 		log=new LoginInPO("123456789","123456789");
-		po=new UserIDPO("123456798");
+		po="123456798";
 	}
 	
 	@Test
@@ -46,18 +45,18 @@ public class UserManagementDataServiceImplTest {
 
 	@Test
 	public void testSetUserBaseInfo() throws RemoteException{
-		UserInfoPO v=new UserInfoPO("123456798","Lily","12345678765");
+		UserInfoPO v=new UserInfoPO("123456798","Lily",new ContactPO("12345678765",null));
 		assertEquals(impl.SetUserBaseInfo(po, v),true);
 	}
 	
 	@Test
 	public void testaddHotelStuff() throws RemoteException{
-		HotelIDPO o=new HotelIDPO("123456");
+		String o="123456";
 		assertEquals(impl.addHotelStuff(o,po),true);
 	}
 	
 	public void testaddWebStuff() throws RemoteException{
-		po=new UserIDPO("123546789");
+		po="123546789";
 		assertEquals(impl.addWebStuff(po),true);
 	}
 }

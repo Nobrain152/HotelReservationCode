@@ -10,7 +10,7 @@ import vo.LoginInVO;
  */
 public class LoginInputController implements LoginInputBLService {
 
-	private User user=new User();
+	private User user = new User();
 	
 	
 	/**
@@ -38,7 +38,7 @@ public class LoginInputController implements LoginInputBLService {
 	 * @param 登录输入信息VO
 	 * @return 注册结果
 	 */
-	public String Register(LoginInputVO vo){
+	public String Register(LoginInVO vo){
 		return user.Register(vo);
 	}
 }

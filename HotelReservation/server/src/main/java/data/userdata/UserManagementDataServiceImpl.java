@@ -4,12 +4,9 @@ import java.util.ArrayList;
 
 
 import dataservice.userdataservice.UserManagementDataService;
-import po.HotelIDPO;
-import po.LoginInputPO;
+import po.LoginInPO;
 import po.StuffInfoPO;
-import po.UserIDPO;
 import po.UserInfoPO;
-import po.UserIDPO;
 
 public class UserManagementDataServiceImpl implements UserManagementDataService {
 
@@ -32,15 +29,15 @@ public class UserManagementDataServiceImpl implements UserManagementDataService 
 		webstuff=new ArrayList<String>();
 	}
 	
-	public String GetLoginInfo(LoginInputPO po) {
-		id=po.getUserid();
+	public String GetLoginInfo(LoginInPO po) {
+		id=po.getUsername();
 		point=ID.indexOf(id);
 		return password.get(point);
 	}
 
-	public String AddUser(LoginInputPO po) {
+	public String AddUser(LoginInPO po) {
 		point=password.size();
-		String pass=po.getUserpassword();
+		String pass=po.getPassword();
 		password.add(pass);
 		id="";
 		for(int i=0;i<9-number/10;i++){

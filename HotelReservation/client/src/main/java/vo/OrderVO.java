@@ -9,7 +9,7 @@ import util.RoomType;
  * @author txin
  *
  */
-public abstract class OrderVO {
+public class OrderVO {
 	
 	/**
 	 * 订单发起人
@@ -101,44 +101,44 @@ public abstract class OrderVO {
 	
 	/**
 	 * 申诉用的VO
-	 * @param po
+	 * @param vo
 	 * @param reason
 	 */
-	public OrderVO(OrderVO po, String reason){
-		this.initiator = po.getInitiator();
-		this.orderState = po.getOrderState();
-		this.price = po.getPrice();
-		this.orderID = po.getOrderID();
-		this.hotelID = po.getHotelID();
-		this.hasChild = po.getHasChild();
-		this.latestExecutionTime = po.getLatestExecutionTime();
-		this.checkInTime = po.getCheckInTime();
-		this.checkOutTime = po.getCheckOutTime();
-		this.roomNumber = po.getRoomNumber();
-		this.peopleNumber = po.getPeopleNumber();
-		this.roomType = po.getRoomType();
+	public OrderVO(OrderVO vo, String reason){
+		this.initiator = vo.getInitiator();
+		this.orderState = vo.getOrderState();
+		this.price = vo.getPrice();
+		this.orderID = vo.getOrderID();
+		this.hotelID = vo.getHotelID();
+		this.hasChild = vo.getHasChild();
+		this.latestExecutionTime = vo.getLatestExecutionTime();
+		this.checkInTime = vo.getCheckInTime();
+		this.checkOutTime = vo.getCheckOutTime();
+		this.roomNumber = vo.getRoomNumber();
+		this.peopleNumber = vo.getPeopleNumber();
+		this.roomType = vo.getRoomType();
 		this.reason = reason;		
 	}
 	
 	/**
 	 * 处理完申诉返回的VO
-	 * @param po
+	 * @param vo
 	 * @param pass
 	 */
-	public OrderVO(OrderVO po, boolean pass){
-		this.initiator = po.getInitiator();
-		this.orderState = po.getOrderState();
-		this.price = po.getPrice();
-		this.orderID = po.getOrderID();
-		this.hotelID = po.getHotelID();
-		this.hasChild = po.getHasChild();
-		this.latestExecutionTime = po.getLatestExecutionTime();
-		this.checkInTime = po.getCheckInTime();
-		this.checkOutTime = po.getCheckOutTime();
-		this.roomNumber = po.getRoomNumber();
-		this.peopleNumber = po.getPeopleNumber();
-		this.roomType = po.getRoomType();
-		this.reason = po.getReason();
+	public OrderVO(OrderVO vo, boolean pass){
+		this.initiator = vo.getInitiator();
+		this.orderState = vo.getOrderState();
+		this.price = vo.getPrice();
+		this.orderID = vo.getOrderID();
+		this.hotelID = vo.getHotelID();
+		this.hasChild = vo.getHasChild();
+		this.latestExecutionTime = vo.getLatestExecutionTime();
+		this.checkInTime = vo.getCheckInTime();
+		this.checkOutTime = vo.getCheckOutTime();
+		this.roomNumber = vo.getRoomNumber();
+		this.peopleNumber = vo.getPeopleNumber();
+		this.roomType = vo.getRoomType();
+		this.reason = vo.getReason();
 		this.pass = pass;
 	}
 

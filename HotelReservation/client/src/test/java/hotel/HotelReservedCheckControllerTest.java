@@ -39,7 +39,7 @@ public class HotelReservedCheckControllerTest {
 	}
 	@Test
 	public void testcheckReserved(){
-		ArrayList<HotelInfoVO> list=impl.checkReserved(hotel1);
+		ArrayList<HotelInfoVO> list=impl.showReservedList(hotel1);
 		assertEquals(list, hotelList);
 	}
 }

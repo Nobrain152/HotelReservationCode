@@ -7,6 +7,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import bl.userbl.WebInfoManagementController;
+import vo.ContactVO;
 import vo.UserInfoVO;
 
 public class WebInfoManagementControllerTest {
@@ -25,7 +26,7 @@ public class WebInfoManagementControllerTest {
 	
 	@Test
 	public void testmodify(){
-		UserInfoVO v=new UserInfoVO("123456789","LILY","15160897654");
+		UserInfoVO v=new UserInfoVO("123456789","LILY",new ContactVO("15160897654",null));
 		assertEquals(impl.IndividualBaseInfoModification("1234567", v),v);
 	}
 	

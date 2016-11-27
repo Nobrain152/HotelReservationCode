@@ -31,10 +31,10 @@ public class RoomAddControllerTest {
 	
 	@Before
 	public void setUp() {
-		room1=new RoomInfoVO(RoomState.USABLE,RoomType.ROOM_STANDARD,5,1599);
-		room2=new RoomInfoVO(RoomState.UNUSABLE,RoomType.ROOM_STANDARD,10,1435);
-		room3=new RoomInfoVO(RoomState.USABLE,RoomType.ROOM_BIGBED,0,233);
-		room4=new RoomInfoVO(RoomState.USABLE,RoomType.ROOM_PRESIDENTIAL,2,159999);
+		room1=new RoomInfoVO(RoomState.USABLE,RoomType.ROOM_STANDARD,"5",1599);
+		room2=new RoomInfoVO(RoomState.UNUSABLE,RoomType.ROOM_STANDARD,"10",1435);
+		room3=new RoomInfoVO(RoomState.USABLE,RoomType.ROOM_BIGBED,"02",233);
+		room4=new RoomInfoVO(RoomState.USABLE,RoomType.ROOM_PRESIDENTIAL,"22",159999);
 				
 				
 		impl = new RoomAddController();
@@ -55,11 +55,9 @@ public class RoomAddControllerTest {
 
 	@Test
 	public  void  testaddRoom(){
-		RoomMsg msg1 = impl.addRoom(room1);
-		assertEquals(msg1.getState(), roomMsg.getState());
-		assertEquals(msg1.getType(), roomMsg.getType());
-		assertEquals(msg1.getNumber(), roomMsg.getNumber());
-		assertEquals(msg1.getPrice(), roomMsg.getPrice());
+		ResultMsg msg1 = impl.addRoom(room1);
+		assertEquals(msg1, roomMsg);
+		
 	}
 	
 	@Test

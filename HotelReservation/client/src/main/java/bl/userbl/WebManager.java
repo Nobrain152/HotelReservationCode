@@ -2,8 +2,11 @@ package bl.userbl;
 
 import java.util.ArrayList;
 
+import bl.VOPOchange;
 import data.userdata.UserManagementDataServiceImpl;
+import po.ContactPO;
 import po.UserInfoPO;
+import vo.ContactVO;
 import vo.HotelInfoVO;
 import vo.UserInfoVO;
 
@@ -17,7 +20,7 @@ public class WebManager extends User {
 	 */
 	public UserInfoVO IndividualBaseInfolnquiry(String userid){
 		UserInfoPO po= user.GetUserBaseInfo(userid);
-		UserInfoVO vo=new UserInfoVO(po.getUserid(),po.getUsername(),po.getContact());
+		UserInfoVO vo=new UserInfoVO(po.getUserID(),po.getUsername(),(ContactVO)VOPOchange.POtoVO(po.getContact()));
 		return vo;
 	}
 			
@@ -28,7 +31,7 @@ public class WebManager extends User {
 	 * @return 修改结果
 	 */
 	public boolean IndividualBaseInfoModification(String userid,UserInfoVO vo2){
-		UserInfoPO po= new UserInfoPO(vo2.getUserid(),vo2.getUsername(),vo2.getContact());
+		UserInfoPO po= new UserInfoPO(vo2.getUserID(),vo2.getUsername(),(ContactPO)VOPOchange.VOtoPO(vo2.getContact()));
 		return user.SetUserBaseInfo(userid, po);
 	}
 		
@@ -66,7 +69,7 @@ public class WebManager extends User {
 	 */
 	public UserInfoVO UserInformationInquiry(String userid){
 		UserInfoPO po=user.GetUserBaseInfo(userid);
-		UserInfoVO vo=new UserInfoVO(po.getUserid(),po.getUsername(),po.getContact());
+		UserInfoVO vo=new UserInfoVO(po.getUserID(),po.getUsername(),(ContactVO)VOPOchange.POtoVO(po.getContact()));
 		return vo;
 	}
 			
@@ -78,7 +81,7 @@ public class WebManager extends User {
 	 * @return 修改结果
 	 */
 	public boolean UserInformationModification(String userid,UserInfoVO vo2){
-		UserInfoPO po1=new UserInfoPO(vo2.getUserid(),vo2.getUsername(),vo2.getContact());
+		UserInfoPO po1=new UserInfoPO(vo2.getUserID(),vo2.getUsername(),(ContactPO)VOPOchange.VOtoPO(vo2.getContact()));
 		return user.SetUserBaseInfo(userid,po1);
 	}
 			

@@ -11,33 +11,41 @@ import org.junit.Test;
 import bl.orderbl.OrderOnWebController;
 import util.OrderState;
 import util.ResultMsg;
-import util.User;
-import vo.OrderOnWebVO;
+import util.RoomType;
+import vo.ContactVO;
+import vo.CustomerInfoVO;
+import vo.OrderVO;
 
 public class OrderOnWebControllerTest {
 
 	OrderOnWebController webBLServiceImpl;
-	ArrayList<OrderOnWebVO> webList;
-	OrderOnWebVO web1;
+	ArrayList<OrderVO> webList;
+	OrderVO web1;
 	ResultMsg r1;
-	OrderOnWebVO msg1;
+	OrderVO msg1;
 	
 	@Before
 	public void setUp(){
 		webBLServiceImpl = new OrderOnWebController();
 		webList = new ArrayList<>();
-		web1 = new OrderOnWebVO(new User("txin",100,"18805156300","151250132@smail.nju.edu.cn"),"42654645437",
-				OrderState.ABNORMAL,105,"火车晚点");
+		web1 = new OrderVO(new CustomerInfoVO("123", "txin", 
+				new ContactVO("18805156300", null), 100), 
+				OrderState.UNEXECUTED, 100, "01", "513", false, 
+				"2016-10-16 24:00", "2016-10-16 12:00", "2016-10-17 12:00", 
+				1, 1, RoomType.ROOM_STANDARD);
 		webList.add(web1);
 		//r1 = new ResultMsg(true, "处理成功！");
 		r1 = ResultMsg.SUCCESS;
-		msg1 = new OrderOnWebVO(web1.getInitiator(),web1.getOrderID(),web1.getOrderState(),
-				web1.getPrice(),web1.getReason());;
+		msg1 = new OrderVO(new CustomerInfoVO("123", "txin", 
+				new ContactVO("18805156300", null), 100), 
+				OrderState.UNEXECUTED, 100, "01", "513", false, 
+				"2016-10-16 24:00", "2016-10-16 12:00", "2016-10-17 12:00", 
+				1, 1, RoomType.ROOM_STANDARD);
 	}
 	
 	@Test
 	public void testComplaintListScan() throws RemoteException{
-		ArrayList<OrderOnWebVO> webs = webBLServiceImpl.complaintListScan();
+		ArrayList<OrderVO> webs = webBLServiceImpl.complaintListScan();
 		assertEquals(webs, webList);
 	}
 	
@@ -50,13 +58,13 @@ public class OrderOnWebControllerTest {
 	
 	@Test
 	public void testAbnormalOrderScan() throws RemoteException{
-		ArrayList<OrderOnWebVO> webs = webBLServiceImpl.abnormalOrderScan();
+		ArrayList<OrderVO> webs = webBLServiceImpl.abnormalOrderScan();
 		assertEquals(webs, webList);
 	}
 	
 	@Test
 	public void testAbnormalOrderDetail() throws RemoteException{
-		OrderOnWebVO m1 = webBLServiceImpl.abnormalOrderDetail("42654645437");
+		OrderVO m1 = webBLServiceImpl.abnormalOrderDetail("42654645437");
 		assertEquals(m1, web1);
 	}
 

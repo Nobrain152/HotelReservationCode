@@ -26,10 +26,10 @@ public class RoomInfoDataServiceImplTest {
 	@Before
 	public void setUp(){
 		impl = new RoomInfoDataServiceImpl();
-		room1=new RoomInfoPO(RoomState.USABLE,RoomType.ROOM_STANDARD,5,1599);
-		room2=new RoomInfoPO(RoomState.UNUSABLE,RoomType.ROOM_STANDARD,10,1435);
-		room3=new RoomInfoPO(RoomState.USABLE,RoomType.ROOM_BIGBED,0,233);
-		room4=new RoomInfoPO(RoomState.USABLE,RoomType.ROOM_PRESIDENTIAL,2,159999);
+		room1=new RoomInfoPO(RoomState.USABLE,RoomType.ROOM_STANDARD,"231",1599);
+		room2=new RoomInfoPO(RoomState.UNUSABLE,RoomType.ROOM_STANDARD,"453",1435);
+		room3=new RoomInfoPO(RoomState.USABLE,RoomType.ROOM_BIGBED,"455",233);
+		room4=new RoomInfoPO(RoomState.USABLE,RoomType.ROOM_PRESIDENTIAL,"435",159999);
 		list = new ArrayList<RoomInfoPO>();
 	}
 	
@@ -57,7 +57,7 @@ public class RoomInfoDataServiceImplTest {
 	public void testFind() throws RemoteException{
 		impl.insert(room1);
 		impl.insert(room2);
-		ArrayList<RoomInfoPO> arrayList = impl.find(new RoomInfoPO(RoomState.USABLE,RoomType.ROOM_PRESIDENTIAL,2,159999));
+		ArrayList<RoomInfoPO> arrayList = impl.find(new RoomInfoPO(RoomState.USABLE,RoomType.ROOM_PRESIDENTIAL,"322",159999));
 		list.add(room1);
 		list.add(room2);
 		assertEquals(list.get(0), arrayList.get(0));

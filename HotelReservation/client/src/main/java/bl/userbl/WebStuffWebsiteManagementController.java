@@ -4,8 +4,8 @@ import java.rmi.RemoteException;
 import java.util.ArrayList;
 
 import blservice.userblservice.WebStuffWebsiteManagementBLService;
-import vo.IntegralVO;
-import vo.OrderOnWebVO;
+import vo.CreditVO;
+import vo.OrderVO;
 import vo.PromotionWebVO;
 
 
@@ -34,7 +34,7 @@ public class WebStuffWebsiteManagementController implements WebStuffWebsiteManag
 	 * 查看异常订单
 	 * @return 订单VO列表
 	 */
-	public ArrayList<OrderOnWebVO> AbnormalOrderScan(){
+	public ArrayList<OrderVO> AbnormalOrderScan(){
 		return stuff.AbnormalOrderScan();
 	}
 			
@@ -44,7 +44,7 @@ public class WebStuffWebsiteManagementController implements WebStuffWebsiteManag
 	 * @param 增加值
 	 * @return 修改后的用户信用值VO
 	 */
-	public IntegralVO UserCreditModification(String userid,int n){
+	public CreditVO UserCreditModification(String userid,int n){
 		return stuff.UserCreditModification(userid, n);
 	}
 
@@ -62,7 +62,7 @@ public class WebStuffWebsiteManagementController implements WebStuffWebsiteManag
 	 * @param 用户IDVO
 	 * @return 用户信用信息VO
 	 */
-	public IntegralVO userCreditInquire(String userid) {
+	public CreditVO userCreditInquire(String userid) {
 		return stuff.userCreditInquire(userid);
 	}
 }

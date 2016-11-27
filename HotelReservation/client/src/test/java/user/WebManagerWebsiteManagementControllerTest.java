@@ -7,6 +7,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import bl.userbl.WebManagerWebsiteManagementController;
+import vo.ContactVO;
 import vo.UserInfoVO;
 
 
@@ -18,7 +19,7 @@ public class WebManagerWebsiteManagementControllerTest {
 	@Before
 	public void setUp() {
 		impl=new WebManagerWebsiteManagementController();
-		info=new UserInfoVO("123456789","Lily","13124567893");
+		info=new UserInfoVO("123456789","Lily",new ContactVO("13124567893",null));
 	}
 
 	@Test

@@ -5,8 +5,7 @@ import java.util.ArrayList;
 import dataservice.userdataservice.CustomerManagementDataService;
 import po.CustomerInfoPO;
 import po.HotelInfoPO;
-import po.OrderOnUserPO;
-import po.UserIDPO;
+import po.OrderPO;
 import po.UserInfoPO;
 
 public class CustomerManagementDataServiceImpl implements CustomerManagementDataService {
@@ -17,7 +16,7 @@ public class CustomerManagementDataServiceImpl implements CustomerManagementData
 	ArrayList<String> password;
 	ArrayList<UserInfoPO> info;
 	ArrayList<String> orderID;
-	ArrayList<OrderOnUserPO> order;
+	ArrayList<OrderPO> order;
 	ArrayList<String> hotelID;
 	ArrayList<HotelInfoPO> hotel;
 	String id;
@@ -30,7 +29,7 @@ public class CustomerManagementDataServiceImpl implements CustomerManagementData
 		password=new ArrayList<String>();
 		info=new ArrayList<UserInfoPO>();
 		orderID=new ArrayList<String>();
-		order=new ArrayList<OrderOnUserPO>();
+		order=new ArrayList<OrderPO>();
 		hotelID=new ArrayList<String>();
 		hotel=new ArrayList<HotelInfoPO>();
 	}
@@ -39,7 +38,7 @@ public class CustomerManagementDataServiceImpl implements CustomerManagementData
 	public boolean AddMembers(String userid) {
 		point=ID.indexOf(userid);
 		po2=(CustomerInfoPO) info.get(point);
-		result=po2.setMember(true);
+		po2.setIsMember(true);
 		info.set(point, po2);
 		return result;
 	}
@@ -47,13 +46,13 @@ public class CustomerManagementDataServiceImpl implements CustomerManagementData
 	public ArrayList<String> GetCustomerOrders(String userid) {
 		point=ID.indexOf(userid);
 		po2=(CustomerInfoPO)info.get(point);
-		return po2.getOrder();
+		return po2.getOrderIDList();
 	}
 
 	public boolean addCustomerOrders(String userid, String i) {
 		point=ID.indexOf(userid);
 		po2=(CustomerInfoPO)info.get(point);
-		result=po2.addOrder(i);
+		po2.addOrderID(i);
 		info.set(point, po2);
 		return result;
 	}
@@ -61,13 +60,13 @@ public class CustomerManagementDataServiceImpl implements CustomerManagementData
 	public ArrayList<String> GetCustomerHotel(String userid) {
 		point=ID.indexOf(userid);
 		po2=(CustomerInfoPO)info.get(point);
-		return po2.getHotel();
+		return po2.getHotelIDList();
 	}
 
 	public boolean addCustomerHotel(String userid, String idh) {
 		point=ID.indexOf(userid);
 		po2=(CustomerInfoPO)info.get(point);
-		result=po2.addHotel(idh);
+		po2.addHotelID(idh);
 		info.set(point, po2);
 		return result;
 	}

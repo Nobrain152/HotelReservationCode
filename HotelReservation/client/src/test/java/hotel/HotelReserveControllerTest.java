@@ -6,12 +6,15 @@ import org.junit.Before;
 import org.junit.Test;
 
 import bl.hotelbl.HotelReserveController;
+import po.ContactPO;
+import po.CustomerInfoPO;
 import util.OrderState;
 import util.ResultMsg;
 import util.RoomType;
-import util.User;
+import vo.ContactVO;
+import vo.CustomerInfoVO;
 import vo.HotelInfoVO;
-import vo.OrderOnUserVO;
+import vo.OrderVO;
 
 public class HotelReserveControllerTest {
 	HotelReserveController impl;
@@ -19,11 +22,11 @@ public class HotelReserveControllerTest {
 	HotelInfoVO hotel1;
 	HotelInfoVO hotel2;
 	
-	OrderOnUserVO order1;
-	OrderOnUserVO order2;
+	OrderVO order1;
+	OrderVO order2;
 	
-	OrderOnUserVO orderMsg1;
-	OrderOnUserVO orderMsg2;
+	OrderVO orderMsg1;
+	OrderVO orderMsg2;
 	
 	ResultMsg reMsg;
 	
@@ -37,15 +40,26 @@ public class HotelReserveControllerTest {
 		hotel2=new HotelInfoVO("SunHotel","SunRoad","SunArea",4,"It's a nice hotel","cafe",
 				false,"7868");
 		
-		order1 = new OrderOnUserVO(new User("GYF",100,"15150158583","151250047@smail.nju.edu.cn"),"42654645438",
-				OrderState.UNEXECUTED,105, "2016-10-15 24:00",RoomType.ROOM_STANDARD,1,1,true);
-		order2 = new OrderOnUserVO(new User("GYF",100,"15150158583","151250047@smail.nju.edu.cn"),"42654645438",
-				OrderState.ABNORMAL,105, "2016-10-16 24:00",RoomType.ROOM_BUSINESS,1,1,false);
-		
-		orderMsg1=new OrderOnUserVO(new User("GYF",100,"15150158583","151250047@smail.nju.edu.cn"),"42654645438",
-				OrderState.UNEXECUTED,105, "2016-10-15 24:00",RoomType.ROOM_STANDARD,1,1,true);
-		orderMsg2 = new OrderOnUserVO(new User("GYF",100,"15150158583","151250047@smail.nju.edu.cn"),"42654645438",
-				OrderState.ABNORMAL,105, "2016-10-16 24:00",RoomType.ROOM_BUSINESS,1,1,false);
+		order1 = new OrderVO(new CustomerInfoVO("123", "txin", 
+				new ContactVO("18805156300", null), 100), 
+				OrderState.UNEXECUTED, 100, "01", "513", false, 
+				"2016-10-16 24:00", "2016-10-16 12:00", "2016-10-17 12:00", 
+				1, 1, RoomType.ROOM_STANDARD);
+		order2 = new OrderVO(new CustomerInfoVO("123", "txin", 
+				new ContactVO("18805156300", null), 100), 
+				OrderState.UNEXECUTED, 100, "01", "513", false, 
+				"2016-10-16 24:00", "2016-10-16 12:00", "2016-10-17 12:00", 
+				1, 1, RoomType.ROOM_STANDARD);
+		orderMsg1=new OrderVO(new CustomerInfoVO("123", "txin", 
+				new ContactVO("18805156300", null), 100), 
+				OrderState.UNEXECUTED, 100, "01", "513", false, 
+				"2016-10-16 24:00", "2016-10-16 12:00", "2016-10-17 12:00", 
+				1, 1, RoomType.ROOM_STANDARD);
+		orderMsg2 = new OrderVO(new CustomerInfoVO("123", "txin", 
+				new ContactVO("18805156300", null), 100), 
+				OrderState.UNEXECUTED, 100, "01", "513", false, 
+				"2016-10-16 24:00", "2016-10-16 12:00", "2016-10-17 12:00", 
+				1, 1, RoomType.ROOM_STANDARD);
 		
 		
 		//reMsg = new ResultMsg(true, "Ô¤¶¨³É¹¦");

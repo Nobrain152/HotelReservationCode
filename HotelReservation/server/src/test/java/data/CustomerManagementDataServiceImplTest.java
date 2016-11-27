@@ -10,17 +10,16 @@ import org.junit.Before;
 import org.junit.Test;
 
 import data.userdata.CustomerManagementDataServiceImpl;
-import po.UserIDPO;
 
 public class CustomerManagementDataServiceImplTest {
 
 	CustomerManagementDataServiceImpl impl;
-	UserIDPO id;
+	String id;
 	
 	@Before
 	public void setUp(){
 		impl=new CustomerManagementDataServiceImpl();
-		id=new UserIDPO("123456789");
+		id="123456789";
 	}
 	
 	@Test

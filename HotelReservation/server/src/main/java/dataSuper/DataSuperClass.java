@@ -57,5 +57,9 @@ public class DataSuperClass extends UnicastRemoteObject{
 	
 	private static final Map<String, ArrayList<String>> SQLmap = new HashMap<String, ArrayList<String>>(50);
 	
+	static{
+		SQLmap.put("Customer", helper.bulidSQL("Customer", 7, "userid","username","contact","isMember","credit","order","hotel"));
+		//SQLmap.put("HotelCondition",helper.bulidSQL("HotelCondition", 10, "address","businessDistrict","hotelName","roomtype","upLevel",""));
+	}
 	
 }

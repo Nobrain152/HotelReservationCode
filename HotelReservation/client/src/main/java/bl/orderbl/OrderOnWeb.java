@@ -39,7 +39,7 @@ public class OrderOnWeb {
 			return null;
 		}
 		
-		webVOs = new ArrayList<>();
+		webVOs = new ArrayList<OrderVO>();
 		for(OrderPO webPO : webPOs){
 			if(webPO.getReason() != null)
 				webVOs.add((OrderVO)VOPOchange.POtoVO(webPO));
@@ -85,7 +85,7 @@ public class OrderOnWeb {
 			return null;
 		}
 		
-		webVOs = new ArrayList<>();
+		webVOs = new ArrayList<OrderVO>();
 		for(OrderPO webPO : webPOs){
 			if(webPO.getOrderState() == OrderState.ABNORMAL)
 				webVOs.add((OrderVO)VOPOchange.POtoVO(webPO));

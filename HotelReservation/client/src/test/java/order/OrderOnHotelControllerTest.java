@@ -56,7 +56,7 @@ public class OrderOnHotelControllerTest {
 		hotelBLServiceImpl = new OrderOnHotelController();
 		//r1 = new ResultMsg(true, "Ö´ÐÐ³É¹¦£¡");
 		r1 = ResultMsg.SUCCESS;
-		hotelList = new ArrayList<>();
+		hotelList = new ArrayList<OrderVO>();
 		hotelList.add(order1);
 		hotelList.add(order2);
 		hotelList.add(order3);

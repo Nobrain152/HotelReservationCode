@@ -27,7 +27,7 @@ public class OrderOnHotel {
 	 */
 	public ArrayList<OrderVO> hotelOrderScan(String ID) throws RemoteException {
 		
-		ArrayList<OrderVO> hotelVOs = new ArrayList<>();
+		ArrayList<OrderVO> hotelVOs = new ArrayList<OrderVO>();
 		ArrayList<OrderPO> hotelPOs;
 		
 		hotelPOs = hotelDataService.findByHotelID(ID);
@@ -35,7 +35,7 @@ public class OrderOnHotel {
 			return null;
 		}
 		
-		hotelVOs = new ArrayList<>(hotelPOs.size());
+		hotelVOs = new ArrayList<OrderVO>(hotelPOs.size());
 		for(OrderPO hotelPO : hotelPOs) {
 			hotelVOs.add((OrderVO)VOPOchange.POtoVO(hotelPO));
 		}

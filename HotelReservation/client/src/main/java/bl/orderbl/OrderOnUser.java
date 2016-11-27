@@ -28,7 +28,7 @@ public class OrderOnUser {
 	 * @throws RemoteException 
 	 */
 	public ArrayList<OrderVO> personalOrderScan(String ID) throws RemoteException {
-		ArrayList<OrderVO> userVOs = new ArrayList<>();
+		ArrayList<OrderVO> userVOs = new ArrayList<OrderVO>();
 		ArrayList<OrderPO> userPOs;
 		
 		userPOs = userDataService.findByUserID(ID);
@@ -36,7 +36,7 @@ public class OrderOnUser {
 			return null;
 		}
 		
-		userVOs = new ArrayList<>(userPOs.size());
+		userVOs = new ArrayList<OrderVO>(userPOs.size());
 		for(OrderPO userPO : userPOs) {
 			userVOs.add((OrderVO)VOPOchange.POtoVO(userPO));
 		}

@@ -27,7 +27,7 @@ public class OrderOnWebControllerTest {
 	@Before
 	public void setUp(){
 		webBLServiceImpl = new OrderOnWebController();
-		webList = new ArrayList<>();
+		webList = new ArrayList<OrderVO>();
 		web1 = new OrderVO(new CustomerInfoVO("123", "txin", 
 				new ContactVO("18805156300", null), 100), 
 				OrderState.UNEXECUTED, 100, "01", "513", false, 

@@ -1,7 +1,7 @@
 package vo;
 
-import util.CustomerType;
 import util.PromotionWebType;
+import util.VipType;
 
 
 /**
@@ -26,7 +26,7 @@ public class PromotionWebVO {
 	/**
 	 * 客户类型
 	 */
-	CustomerType customType;
+	VipType customType;
 	
 	/**
 	 * 促销策略起止时间
@@ -38,7 +38,7 @@ public class PromotionWebVO {
 	 */
 	double ratio;
 	
-	public PromotionWebVO(String hotelID, PromotionWebType hotelType,CustomerType customType,
+	public PromotionWebVO(String hotelID, PromotionWebType hotelType,VipType customType,
 			String timeBegin,String timeOver,double ratio) {
 		this.hotelID = hotelID;
 		this.hotelType = hotelType;
@@ -56,7 +56,7 @@ public class PromotionWebVO {
 		return hotelType;
 	}
 	
-	public CustomerType getMemberType() {
+	public VipType getMemberType() {
 		return customType;
 	}
 	

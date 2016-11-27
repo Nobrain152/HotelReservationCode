@@ -11,6 +11,7 @@ import bl.promotionbl.PromotionHotel;
 import vo.PromotionHotelVO;
 import util.CustomerType;
 import util.PromotionHotelType;
+import util.VipType;
 
 public class PromotionHotelControllerTest {
 	
@@ -20,9 +21,9 @@ public class PromotionHotelControllerTest {
 	
 	@Before
 	public void setUp() throws Exception {
-		hotel1 = new PromotionHotelVO("七天",PromotionHotelType.BIRTH_PROMOTION,CustomerType.VIP, null, null, 0.8);
-		hotel2 = new PromotionHotelVO("七天",PromotionHotelType.OVERTHREE_PROMOTION,CustomerType.VIP, null, null, 0.7);
-		hotel3 = new PromotionHotelVO("七天",PromotionHotelType.HOTEL_CUSTOM_PROMOTION,CustomerType.VIP,"2016/11/05", "2016/11/11", 0.5);
+		hotel1 = new PromotionHotelVO("七天",PromotionHotelType.BIRTH_PROMOTION,VipType.COMMON_VIP, null, null, 0.8);
+		hotel2 = new PromotionHotelVO("七天",PromotionHotelType.OVERTHREE_PROMOTION,VipType.COMMON_VIP, null, null, 0.7);
+		hotel3 = new PromotionHotelVO("七天",PromotionHotelType.HOTEL_CUSTOM_PROMOTION,VipType.COMMON_VIP,"2016/11/05", "2016/11/11", 0.5);
 		//hotel要添加增加方法
 		hotel.addBirthCut(1, hotel1.getRatio());
 		hotel.addOverCut(3, hotel2.getRatio());

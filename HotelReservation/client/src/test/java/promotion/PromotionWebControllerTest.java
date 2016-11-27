@@ -11,6 +11,7 @@ import bl.promotionbl.PromotionWeb;
 import vo.PromotionWebVO;
 import util.CustomerType;
 import util.PromotionWebType;
+import util.VipType;
 
 public class PromotionWebControllerTest {
 
@@ -20,9 +21,9 @@ public class PromotionWebControllerTest {
 	
 	@Before
 	public void setUp() throws Exception {
-		web1 = new PromotionWebVO("七天",PromotionWebType.VIP_LEVEL_PROMOTION,CustomerType.VIP, null, null, 0.8);
-		web2 = new PromotionWebVO("七天",PromotionWebType.VIP_CIRCLE_PROMOTION,CustomerType.VIP, null, null, 0.7);
-		web3 = new PromotionWebVO("七天",PromotionWebType.WEB_CUSTOM_PROMOTION,CustomerType.VIP,"2016/11/05", "2016/11/11", 0.5);
+		web1 = new PromotionWebVO("七天",PromotionWebType.VIP_LEVEL_PROMOTION,VipType.COMMON_VIP, null, null, 0.8);
+		web2 = new PromotionWebVO("七天",PromotionWebType.VIP_CIRCLE_PROMOTION,VipType.COMMON_VIP, null, null, 0.7);
+		web3 = new PromotionWebVO("七天",PromotionWebType.WEB_CUSTOM_PROMOTION,VipType.COMMON_VIP,"2016/11/05", "2016/11/11", 0.5);
 		//web要添加增加方法
 		web.addLevelCut(1, web1.getRatio());
 		web.addCircleCut("xianlin", web2.getRatio());

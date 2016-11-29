@@ -2,6 +2,7 @@ package blservice.promotionservice;
 
 import java.util.ArrayList;
 
+import util.PromotionHotelType;
 import util.ResultMsg;
 import vo.PromotionHotelVO;
 
@@ -48,5 +49,5 @@ public interface PromotionHotelBLService {
 	 * 3:表示自定义促销策略
 	 * @return 相应促销策略列表
 	 */
-	public ArrayList<PromotionHotelVO> getHotelPromotion(int type);
+	public ArrayList<PromotionHotelVO> getHotelPromotion(PromotionHotelType type);
 }

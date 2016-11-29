@@ -3,6 +3,7 @@ package bl.promotionbl;
 import java.rmi.RemoteException;
 import java.util.ArrayList;
 
+import bl.VOPOchange;
 import dataservice.promotiondataservice.PromotionHotelDataService;
 import po.PromotionHotelPO;
 import util.PromotionHotelType;
@@ -17,7 +18,7 @@ import vo.PromotionHotelVO;
 public class PromotionHotel {
 	
 	PromotionHotelDataService promotionHotelDataService;
-	ResultMsg resultMsg;
+	ResultMsg resultMsg = ResultMsg.FAIL;
 	
 	public PromotionHotel(PromotionHotelDataService promotionHotelDataService) {
 		this.promotionHotelDataService = promotionHotelDataService;
@@ -31,9 +32,15 @@ public class PromotionHotel {
 	 * @throws RemoteException 
 	 */
 	public ResultMsg changeBirthCut(int level,double ratio) throws RemoteException {
-		PromotionHotelPO promotion = null;
-		// TODO Auto-generated method stub
-		return null;
+		PromotionHotelType type = PromotionHotelType.BIRTH_PROMOTION;
+		ArrayList<PromotionHotelPO> promotion = promotionHotelDataService.findByType(type);
+		for(PromotionHotelPO po : promotion) {
+			if(po.getLevel() == level) {
+				po.setRatio(ratio);
+				resultMsg = promotionHotelDataService.update(po);
+			}
+		}
+		return resultMsg;
 	}
 
 	/**
@@ -70,9 +77,21 @@ public class PromotionHotel {
 		return null;
 	}
 
-	public ArrayList<PromotionHotelVO> getHotelPromotion(int type) {
-		// TODO Auto-generated method stub
-		return null;
+	/**
+	 * 获取该酒店的某个策略
+	 * @param type
+	 * @return
+	 * @throws RemoteException
+	 */
+	public ArrayList<PromotionHotelVO> getHotelPromotion(PromotionHotelType type) throws RemoteException {
+		ArrayList<PromotionHotelPO> list = promotionHotelDataService.findByType(type);
+		ArrayList<PromotionHotelVO> voList = new ArrayList<>();
+		PromotionHotelVO vo;
+		for(PromotionHotelPO po : list) {
+			vo = (PromotionHotelVO)VOPOchange.POtoVO(po);
+			voList.add(vo);
+		}
+		return voList;
 	}
 
 	/**
@@ -80,10 +99,19 @@ public class PromotionHotel {
 	 * @param level
 	 * @param radio
 	 * @return
+	 * @throws RemoteException 
 	 */
-	public ResultMsg addBirthCut(int level, double radio) {
-		// TODO Auto-generated method stub
-		return null;
+	public ResultMsg addBirthCut(int level, double ratio) throws RemoteException {
+		PromotionHotelType type = PromotionHotelType.BIRTH_PROMOTION;
+		ArrayList<PromotionHotelPO> promotion = promotionHotelDataService.findByType(type);
+		for(PromotionHotelPO po : promotion) {
+			if(po.getLevel() == level) {
+				return resultMsg;
+			}
+		}
+		PromotionHotelPO po = new PromotionHotelPO(type, level, ratio);
+		resultMsg = promotionHotelDataService.insert(po);
+		return resultMsg;
 	}
 
 	public ResultMsg addOverCut(int number, double ratio) {

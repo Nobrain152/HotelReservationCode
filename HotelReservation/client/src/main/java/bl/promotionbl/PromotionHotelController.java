@@ -6,6 +6,7 @@ import blservice.promotionservice.PromotionHotelBLService;
 import dataservice.promotiondataservice.PromotionHotelDataService;
 import net.RMIManage;
 import util.DataServiceType;
+import util.PromotionHotelType;
 import util.ResultMsg;
 import vo.PromotionHotelVO;
 
@@ -19,7 +20,7 @@ public class PromotionHotelController implements PromotionHotelBLService{
 				.getDataService(DataServiceType.PromotionHotelDataService);
 		promotionHotel = new PromotionHotel(hotelDataService);
 	}
-	
+
 	@Override
 	public ResultMsg changeBirthCut(int level, double ratio) {
 		// TODO Auto-generated method stub
@@ -69,9 +70,10 @@ public class PromotionHotelController implements PromotionHotelBLService{
 	}
 
 	@Override
-	public ArrayList<PromotionHotelVO> getHotelPromotion(int type) {
+	public ArrayList<PromotionHotelVO> getHotelPromotion(PromotionHotelType type) {
 		// TODO Auto-generated method stub
 		return null;
 	}
+	
 
 }

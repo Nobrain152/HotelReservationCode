@@ -2,6 +2,7 @@ package promotion;
 
 import static org.junit.Assert.assertEquals;
 
+import java.rmi.RemoteException;
 import java.util.ArrayList;
 
 import org.junit.Before;
@@ -31,18 +32,18 @@ public class PromotionHotelControllerTest {
 	}
 
 	@Test
-	public void testgetHotelPromotion() {
-		ArrayList<PromotionHotelVO> hotelProList1 = hotel.getHotelPromotion(0);
+	public void testgetHotelPromotion() throws RemoteException {
+		ArrayList<PromotionHotelVO> hotelProList1 = hotel.getHotelPromotion(PromotionHotelType.BIRTH_PROMOTION);
 		ArrayList<PromotionHotelVO> hotelProAnsList1 = new ArrayList<PromotionHotelVO>();
 		hotelProAnsList1.add(hotel1);
 		assertEquals(hotelProList1,hotelProAnsList1);
 		
-		ArrayList<PromotionHotelVO> hotelProList2 = hotel.getHotelPromotion(1);
+		ArrayList<PromotionHotelVO> hotelProList2 = hotel.getHotelPromotion(PromotionHotelType.OVERTHREE_PROMOTION);
 		ArrayList<PromotionHotelVO> hotelProAnsList2 = new ArrayList<PromotionHotelVO>();
 		hotelProAnsList2.add(hotel2);
 		assertEquals(hotelProList2,hotelProAnsList2);
 		
-		ArrayList<PromotionHotelVO> hotelProList3 = hotel.getHotelPromotion(1);
+		ArrayList<PromotionHotelVO> hotelProList3 = hotel.getHotelPromotion(PromotionHotelType.HOTEL_CUSTOM_PROMOTION);
 		ArrayList<PromotionHotelVO> hotelProAnsList3 = new ArrayList<PromotionHotelVO>();
 		hotelProAnsList3.add(hotel3);
 		assertEquals(hotelProList3,hotelProAnsList3);

@@ -16,19 +16,25 @@ public class CreditDataServiceImpl implements CreditDataService{
 	}
 
 	@Override
-	public ArrayList<CreditPO> findByName(String name) throws RemoteException {
+	public ArrayList<CreditPO> getListByUserID(String userID) throws RemoteException {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public CreditPO findByID(String name) throws RemoteException {
+	public CreditPO findByUserID(String userID) throws RemoteException {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
 	public ArrayList<CreditPO> show() throws RemoteException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public CreditPO getListByOrderID(String orderID) throws RemoteException {
 		// TODO Auto-generated method stub
 		return null;
 	}

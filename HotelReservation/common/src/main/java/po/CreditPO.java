@@ -1,48 +1,55 @@
 package po;
 
-
 import java.io.Serializable;
 
-/**
- * 
- * 处理信用值相关PO
- * 
- * @author kevin
- *
- */
+import util.Action;
 
-public class CreditPO implements Serializable {
-
+public class CreditPO implements Serializable{
+	
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
 
 	/**
-	 * 用户ID
+	 * 时间
 	 */
-	String userID;
+	String time;
 	
 	/**
-	 * 用户信用值
+	 * 订单ID
 	 */
-	int credit;
+	String orderID;
 	
-	public CreditPO(String userID, int credit) {
-		this.userID = userID;
-		this.credit = credit;
+	/**
+	 * 执行动作
+	 */
+	Action action;
+	
+	/**
+	 * 信用值变化
+	 */
+	String creditChange;
+	
+	/**
+	 * 信用值结果
+	 */
+	int creditResult;
+	
+	public CreditPO(String time,String orderID,Action action,
+			String creditChange,int creditResult) {
+		this.time = time;
+		this.orderID = orderID;
+		this.action = action;
+		this.creditChange = creditChange;
+		this.creditResult = creditResult;
 	}
 	
-	public String getUserID() {
-		return userID;
+	public int getCreditResult() {
+		return creditResult;
 	}
 	
-	public int getcredit() {
-		return credit;
+	public void setCreditResult(int creditResult) {
+		this.creditResult = creditResult;
 	}
-	
-	public void setCredit(int credit) {
-		this.credit = credit;
-	}
-	
 }

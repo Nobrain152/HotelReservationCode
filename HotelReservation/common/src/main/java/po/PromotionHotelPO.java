@@ -36,7 +36,7 @@ public class PromotionHotelPO implements Serializable{
 	/**
 	 * 促销策略起止时间
 	 */
-	String timeBegin,timeOver;
+	String beginTime,endTime;
 	
 	/**
 	 * 促销策略打折比例
@@ -44,12 +44,12 @@ public class PromotionHotelPO implements Serializable{
 	double ratio;
 	
 	public PromotionHotelPO(String hotelID, PromotionHotelType hotelType,VipType customType,
-			String timeBegin,String timeOver,double ratio) {
+			String beginTime,String endTime,double ratio) {
 		this.hotelID = hotelID;
 		this.hotelType = hotelType;
 		this.hotelType = hotelType;
-		this.timeBegin = timeBegin;
-		this.timeOver = timeOver;
+		this.beginTime = beginTime;
+		this.endTime = endTime;
 		this.ratio = ratio;
 	}
 	
@@ -66,11 +66,11 @@ public class PromotionHotelPO implements Serializable{
 	}
 	
 	public String getTimeBegin() {
-        return timeBegin;
+        return beginTime;
     }
 
     public String getTimeOver() {
-        return timeOver;
+        return endTime;
     }
     public double getRatio() {
 		return ratio;

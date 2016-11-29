@@ -1,35 +1,49 @@
 package vo;
 
-/**
- * 信用值VO
- * 
- * @author kevin
- *
- */
+import util.Action;
 
 public class CreditVO {
+
+	/**
+	 * 时间
+	 */
+	String time;
 	
 	/**
-	 * 用户ID
+	 * 订单ID
 	 */
-	String userID;
+	String orderID;
 	
 	/**
-	 * 用户信用值
+	 * 执行动作
 	 */
-	int credit;
+	Action action;
 	
-	public CreditVO(String userID, int credit) {
-		this.userID = userID;
-		this.credit = credit;
+	/**
+	 * 信用值变化
+	 */
+	String creditChange;
+	
+	/**
+	 * 信用值结果
+	 */
+	int creditResult;
+	
+	public CreditVO(String time,String orderID,Action action,
+			String creditChange,int creditResult) {
+		this.time = time;
+		this.orderID = orderID;
+		this.action = action;
+		this.creditChange = creditChange;
+		this.creditResult = creditResult;
 	}
 	
-	public String getUserID() {
-		return userID;
+	public int getCreditResult() {
+		return creditResult;
 	}
 	
-	public int getcredit() {
-		return credit;
+	public void setCreditResult(int creditResult) {
+		this.creditResult = creditResult;
 	}
 	
 }

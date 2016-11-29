@@ -5,6 +5,7 @@ import java.util.ArrayList;
 
 import dataservice.promotiondataservice.PromotionHotelDataService;
 import po.PromotionHotelPO;
+import util.PromotionHotelType;
 import util.ResultMsg;
 import vo.PromotionHotelVO;
 
@@ -15,15 +16,15 @@ import vo.PromotionHotelVO;
  */
 public class PromotionHotel {
 	
-	PromotionHotelDataService hotelDataService;
+	PromotionHotelDataService promotionHotelDataService;
 	ResultMsg resultMsg;
 	
-	public PromotionHotel(PromotionHotelDataService hotelDataService) {
-		this.hotelDataService = hotelDataService;
+	public PromotionHotel(PromotionHotelDataService promotionHotelDataService) {
+		this.promotionHotelDataService = promotionHotelDataService;
 	}
 
 	/**
-	 * 修改促销策略，返回是否修改成功的信息
+	 * 修改生日特惠折扣
 	 * @param level
 	 * @param ratio
 	 * @return
@@ -31,21 +32,39 @@ public class PromotionHotel {
 	 */
 	public ResultMsg changeBirthCut(int level,double ratio) throws RemoteException {
 		PromotionHotelPO promotion = null;
-		resultMsg = hotelDataService.update(promotion);
 		// TODO Auto-generated method stub
 		return null;
 	}
 
+	/**
+	 * 三间及以上预订特惠
+	 * @param number
+	 * @param ratio
+	 * @return
+	 */
 	public ResultMsg changeOverCut(int number,double ratio) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
+	/**
+	 * 双11活动折扣（在特定的期间住宿有折扣）
+	 * @param timeBegin
+	 * @param timeOver
+	 * @param ratio
+	 * @return
+	 */
 	public ResultMsg changeHotelCustomCut(String timeBegin, String timeOver, double ratio) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
+	/**
+	 * 合作企业客户折扣
+	 * @param businessName
+	 * @param ratio
+	 * @return
+	 */
 	public ResultMsg changeJoin(String businessName, double ratio) {
 		// TODO Auto-generated method stub
 		return null;
@@ -56,6 +75,12 @@ public class PromotionHotel {
 		return null;
 	}
 
+	/**
+	 * 添加生日特惠折扣
+	 * @param level
+	 * @param radio
+	 * @return
+	 */
 	public ResultMsg addBirthCut(int level, double radio) {
 		// TODO Auto-generated method stub
 		return null;

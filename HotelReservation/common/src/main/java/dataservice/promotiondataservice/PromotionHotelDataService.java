@@ -14,6 +14,7 @@ import util.ResultMsg;
  */
 
 public interface PromotionHotelDataService {
+	
 	public ResultMsg insert(PromotionHotelPO promotion) throws RemoteException;
 	
 	public ResultMsg delete(PromotionHotelPO promotion) throws RemoteException;

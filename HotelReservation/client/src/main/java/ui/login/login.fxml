@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.NET.*?>
+<?import javafx.scene.image.*?>
 <?import javafx.scene.text.*?>
 <?import javafx.scene.effect.*?>
 <?import javafx.scene.shape.*?>
@@ -7,7 +9,6 @@
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.AnchorPane?>
-
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
    <children>
@@ -22,7 +23,17 @@
             <Font size="17.0" />
          </font>
       </Text>
-      <TextField layoutX="221.0" layoutY="214.0" text="账号" />
-      <TextField layoutX="220.0" layoutY="264.0" text="密码" />
+      <TextField layoutX="232.0" layoutY="215.0" promptText="账号" />
+      <ImageView fitHeight="29.0" fitWidth="29.0" layoutX="186.0" layoutY="212.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../../../image/login_user.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="29.0" fitWidth="29.0" layoutX="186.0" layoutY="262.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../../../image/login_password.jpg" />
+         </image>
+      </ImageView>
+      <PasswordField layoutX="232.0" layoutY="265.0" prefHeight="23.0" prefWidth="161.0" promptText="密码" />
    </children>
 </AnchorPane>

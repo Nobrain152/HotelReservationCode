@@ -47,19 +47,18 @@ public class HotelSearchControllerTest {
 	
 	@Test
 	public void testselectCondition(){
-		HotelMsg msg1 = impl.selectCondition(hotel1);
-		assertEquals(msg1.getName(), hotelMsg.getName());
-		assertEquals(msg1.getAddress(), hotelMsg.getAddress());
-		assertEquals(msg1.getArea(), hotelMsg.getArea());
-		assertEquals(msg1.getLevel(), hotelMsg.getLevel());
-		assertEquals(msg1.getIntroduction(), hotelMsg.getIntroduction());
-		assertEquals(msg1.getFacility(), hotelMsg.getFacility());
-		assertEquals(msg1.isReserved(), hotelMsg.isReserved());
+		ArrayList<HotelInfoVO> msg1 = impl.selectCondition(hotel1);
+		assertEquals(msg1.get(0).getName(), hotelMsg.getName());
+		assertEquals(msg1.get(0).getAddress(), hotelMsg.getAddress());
+		assertEquals(msg1.get(0).getArea(), hotelMsg.getArea());
+		assertEquals(msg1.get(0).getLevel(), hotelMsg.getLevel());
+		assertEquals(msg1.get(0).getIntroduction(), hotelMsg.getIntroduction());
+		assertEquals(msg1.get(0).getFacility(), hotelMsg.getFacility());
 	}
 	
 	@Test
 	public void showList(){
-		ArrayList<HotelInfoVO> hotels = impl.showList(hotel1);
+		ArrayList<HotelInfoVO> hotels =impl. selectCondition(hotel1);
 		assertEquals(hotels, hotelList);
     }
 

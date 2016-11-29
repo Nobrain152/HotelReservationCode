@@ -4,6 +4,9 @@ import java.rmi.RemoteException;
 import java.util.ArrayList;
 
 import blservice.userblservice.CustomerHotelOperationBlService;
+import dataservice.userdataservice.CustomerManagementDataService;
+import net.RMIManage;
+import util.DataServiceType;
 import vo.HotelEvaluateVO;
 import vo.HotelInfoVO;
 import vo.OrderVO;
@@ -19,9 +22,12 @@ import vo.VipVO;
 public class CustomerHotelOperationController implements CustomerHotelOperationBlService {
 	
 	private Customer customer;
+	private CustomerManagementDataService customerManagementDataService;
 	
-	public CustomerHotelOperationController(String userID){
-		customer=new Customer(userID);
+	public CustomerHotelOperationController(){
+		customerManagementDataService = (CustomerManagementDataService)RMIManage.
+				getDataService(DataServiceType.CustomerManagementDataService);
+		customer=new Customer(customerManagementDataService);
 	}
 
 	
@@ -31,7 +37,14 @@ public class CustomerHotelOperationController implements CustomerHotelOperationB
 	 * @return 酒店信息VO列表
 	 */
 	public ArrayList<HotelInfoVO> HotelSearch(HotelInfoVO vo){
-		return customer.HotelSearch(vo);
+		try {
+			return customer.HotelSearch(vo);
+		} catch (RemoteException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			return null;
+		}
+		
 	}		
 	
 	
@@ -42,7 +55,12 @@ public class CustomerHotelOperationController implements CustomerHotelOperationB
 	 *
 	 */
 	public void OederCreat(String hotelID,OrderVO vo2){
-	   customer.OederCreat(hotelID, vo2);
+	   try {
+		customer.OederCreat(hotelID, vo2);
+	} catch (RemoteException e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+	}
 		
 	}
 			
@@ -52,18 +70,31 @@ public class CustomerHotelOperationController implements CustomerHotelOperationB
 	 * @param 酒店评价VO
 	 */
 	public void HotelEvaluate(HotelEvaluateVO vo){
-		customer.HotelEvaluate(vo);
+		try {
+			customer.HotelEvaluate(vo);
+		} catch (RemoteException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 			
 	
 	/**
-	 * 申请会员
+	 * 申请酒店会员
 	 * @param 酒店IDVO
 	 * @param 会员信息VO
 	 */
-	public void MemberRegisterApply(String id,VipVO vo2){
-		customer.MemberRegisterApply(id, vo2);
+	public void HotelMemberRegisterApply(String hotelID,VipVO vo2){
+		
 	}
-
+	
+	
+	/**
+	 * 申请网站会员
+	 * @param 会员信息VO
+	 */
+	public void WebMemberRegisterApply(VipVO vo2){
+		
+	}
 
 }

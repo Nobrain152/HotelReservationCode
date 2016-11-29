@@ -8,7 +8,7 @@ import po.HotelInfoPO;
 import po.OrderPO;
 import po.UserInfoPO;
 
-public class CustomerManagementDataServiceImpl implements CustomerManagementDataService {
+public class CustomerManagementDataServiceImpl extends UserManagementDataServiceImpl implements CustomerManagementDataService {
 
 	
 	int point;

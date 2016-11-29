@@ -7,6 +7,7 @@ import vo.CustomerInfoVO;
 import vo.HotelInfoVO;
 import vo.OrderVO;
 import vo.UserInfoVO;
+import vo.VipVO;
 
 
 /**
@@ -51,6 +52,19 @@ public interface CustomerIndividualInformationManagementBLService{
 	 * @return 信用VO
 	 */
 	public CreditVO IndividualCredictInquiry(String userid);
-		
+	
+	/**
+	 * 申请酒店会员
+	 * @param 酒店IDVO
+	 * @param 会员信息VO
+	 */
+	public void HotelMemberRegisterApply(String hotelID,VipVO vo2);
+	
+	
+	/**
+	 * 申请网站会员
+	 * @param 会员信息VO
+	 */
+	public void WebMemberRegisterApply(VipVO vo2);	
 			
 }

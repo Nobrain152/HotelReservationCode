@@ -4,6 +4,8 @@ import java.rmi.RemoteException;
 import java.util.ArrayList;
 
 import blservice.userblservice.HotelStuffHotelOperationBlService;
+import dataservice.userdataservice.CustomerManagementDataService;
+import dataservice.userdataservice.UserManagementDataService;
 import util.ResultMsg;
 import vo.HotelInfoVO;
 import vo.OrderVO;
@@ -20,9 +22,11 @@ import vo.RoomInfoVO;
 public class HotelStuffHotelOperationController implements HotelStuffHotelOperationBlService {
 
 	private HotelStuff stuff;
+	private UserManagementDataService userManagementDataService;
+	
 	
 	public HotelStuffHotelOperationController(){
-		stuff=new HotelStuff();
+		stuff=new HotelStuff(userManagementDataService);
 	}
 	
 	

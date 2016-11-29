@@ -5,7 +5,6 @@ import java.util.ArrayList;
 import vo.HotelEvaluateVO;
 import vo.HotelInfoVO;
 import vo.OrderVO;
-import vo.VipVO;
 
 /**
  * 客户对酒店的操作
@@ -38,12 +37,7 @@ public interface CustomerHotelOperationBlService{
 	public void HotelEvaluate(HotelEvaluateVO vo);
 		
 	
-	/**
-	 * 申请会员
-	 * @param 酒店IDVO
-	 * @param 会员信息VO
-	 */
-	public void MemberRegisterApply(String hotelID,VipVO vo2);
+	
 		
 			
 }

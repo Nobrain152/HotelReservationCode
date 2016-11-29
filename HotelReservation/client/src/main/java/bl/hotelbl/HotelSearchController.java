@@ -4,16 +4,14 @@ import java.rmi.RemoteException;
 import java.util.ArrayList;
 
 import blservice.hotelblservice.HotelSearchBLService;
-import dataservice.hoteldataservice.HotelEvaluateDataService;
 import dataservice.hoteldataservice.HotelInfoDataService;
 import net.RMIManage;
 import util.DataServiceType;
-import util.HotelMsg;
 import vo.HotelInfoVO;
 
 /**
  * 
- * @author gyf
+ * @author ²Ü³©
  * 
  */
 public class HotelSearchController implements HotelSearchBLService{
@@ -30,7 +28,7 @@ public class HotelSearchController implements HotelSearchBLService{
 	
 	
 	@Override
-	public HotelMsg selectCondition(HotelInfoVO hotelInfoVO){
+	public ArrayList<HotelInfoVO> selectCondition(HotelInfoVO hotelInfoVO){
 		try {
 			return hotelSearch.selectCondition(hotelInfoVO);
 		} catch (RemoteException  e) {
@@ -40,13 +38,5 @@ public class HotelSearchController implements HotelSearchBLService{
 	}
 	
 	
-	@Override
-    public ArrayList<HotelInfoVO> showList(HotelInfoVO hotelListInfoVO){
-    	try {
-			return hotelSearch.showList(hotelListInfoVO);
-		} catch (RemoteException  e) {
-			e.printStackTrace();
-		}
-		return null;
-    }
+	
 }

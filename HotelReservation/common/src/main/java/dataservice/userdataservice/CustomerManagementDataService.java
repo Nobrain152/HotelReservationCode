@@ -9,7 +9,7 @@ import java.util.ArrayList;
  * @author ²Ü³©
  *
  */
-public interface CustomerManagementDataService{
+public interface CustomerManagementDataService extends UserManagementDataService{
         
 		
 		

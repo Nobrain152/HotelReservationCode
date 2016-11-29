@@ -4,11 +4,13 @@ import java.rmi.RemoteException;
 import java.util.ArrayList;
 
 import bl.VOPOchange;
+import bl.hotelbl.HotelInfoCheckController;
 import bl.hotelbl.HotelInfoMaintainController;
 import bl.hotelbl.RoomAddController;
 import bl.orderbl.OrderOnHotel;
 import data.userdata.UserManagementDataServiceImpl;
 import dataservice.orderdataservice.OrderDataService;
+import dataservice.userdataservice.UserManagementDataService;
 import po.ContactPO;
 import po.StuffInfoPO;
 import po.UserInfoPO;
@@ -22,19 +24,21 @@ import vo.StuffInfoVO;
 import vo.UserInfoVO;
 
 public class HotelStuff extends User {
-	private HotelInfoVO hotel;
 	private HotelInfoMaintainController mod;
+	private HotelInfoCheckController hotel;
 	private OrderOnHotel order;
 	private RoomAddController room;
 	private OrderDataService orderDataService;
+	private UserInfoVO voi;
+	private UserManagementDataServiceImpl user;
+	private UserManagementDataService userManagementDataService;
 	
-	UserInfoVO voi;
-	UserManagementDataServiceImpl user;
-	
-	public HotelStuff(){
+	public HotelStuff(UserManagementDataService user){
+		this.userManagementDataService=user;
 		mod=new HotelInfoMaintainController();
 		order=new OrderOnHotel(orderDataService);
 		room=new RoomAddController();
+		hotel=new HotelInfoCheckController();
 	}
 	
 	
@@ -49,7 +53,7 @@ public class HotelStuff extends User {
 	 * @return æ∆µÍ–≈œ¢VO
 	 */
 	public HotelInfoVO HotelInformationInquiry(String hotelid){
-		return null;
+		return hotel.checkHotelInfo(hotelid);
 	}
 			
 	/**

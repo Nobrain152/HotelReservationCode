@@ -1,11 +1,10 @@
 package blservice.hotelblservice;
 
-import util.ResultMsg;
 import vo.HotelInfoVO;
 
 /**
  * 查看酒店信息的接口
- * @author gyf
+ * @author 曹畅
  *
  */
 public interface HotelInfoCheckBLService {
@@ -15,6 +14,6 @@ public interface HotelInfoCheckBLService {
 	 * @param hotelInfoVO
 	 * @return
 	 */
-    public ResultMsg checkHotelInfo(HotelInfoVO hotelInfoVO);
+    public HotelInfoVO checkHotelInfo(String hotelid);
   
 }

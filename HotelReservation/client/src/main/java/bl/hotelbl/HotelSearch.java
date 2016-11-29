@@ -4,17 +4,15 @@ import java.rmi.RemoteException;
 import java.util.ArrayList;
 
 import dataservice.hoteldataservice.HotelInfoDataService;
-import util.HotelMsg;
 import vo.HotelInfoVO;
 
 /**
  * ËÑË÷¾Æµê
- * @author gyf
+ * @author ²Ü³©
  *
  */
 public class HotelSearch {
 	private HotelInfoDataService hotelData;
-	private HotelMsg evaluation;
 	public ArrayList<HotelInfoVO> hotelList;
 	
 	public HotelSearch(HotelInfoDataService hotelDataService){
@@ -28,20 +26,9 @@ public class HotelSearch {
 	 * @return
 	 * @throws RemoteException
 	 */
-	public HotelMsg selectCondition(HotelInfoVO hotelInfoVO) throws RemoteException{
-		evaluation =new HotelMsg(hotelInfoVO.getName(),hotelInfoVO.getAddress(),
-    			hotelInfoVO.getArea(),hotelInfoVO.getLevel(),hotelInfoVO.getIntroduction(),
-    			hotelInfoVO.getFacility(),hotelInfoVO.getIsReserved());
-		return evaluation;
+	public ArrayList<HotelInfoVO> selectCondition(HotelInfoVO hotelInfoVO) throws RemoteException{
+		
+		return hotelList;
 	}
 	
-	/**
-	 * ÏÔÊ¾¾ÆµêÁÐ±í
-	 * @param hotelListInfoVO
-	 * @return
-	 * @throws RemoteException
-	 */
-    public ArrayList<HotelInfoVO> showList(HotelInfoVO hotelListInfoVO) throws RemoteException{
-    	return hotelList;
-    }
 }

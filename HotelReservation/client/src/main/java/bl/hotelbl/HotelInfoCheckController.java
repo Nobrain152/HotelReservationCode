@@ -29,9 +29,9 @@ public class HotelInfoCheckController implements HotelInfoCheckBLService{
 
 	
 	@Override
-    public ResultMsg checkHotelInfo(HotelInfoVO hotelInfoVO){
+    public HotelInfoVO checkHotelInfo(String hotelid){
     	try {
-			return hotelInfoCheck.checkHotelInfo(hotelInfoVO);
+			return hotelInfoCheck.checkHotelInfo(hotelid);
 		} catch (RemoteException  e) {
 			e.printStackTrace();
 		}

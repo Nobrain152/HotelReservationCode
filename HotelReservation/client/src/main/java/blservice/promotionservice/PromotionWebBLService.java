@@ -2,7 +2,8 @@ package blservice.promotionservice;
 
 import java.util.ArrayList;
 
-import util.PromotionMsg;
+import util.PromotionWebType;
+import util.ResultMsg;
 import vo.PromotionWebVO;
 
 /**
@@ -14,18 +15,18 @@ import vo.PromotionWebVO;
 
 public interface PromotionWebBLService {
 	//修改促销策略
-	public PromotionMsg changeLevelCut(int level,double ratio);
+	public ResultMsg changeLevelCut(int level,double ratio,String hotelID);
 	
-	public PromotionMsg changeCircleCut(String location,double ratio);
+	public ResultMsg changeCircleCut(String location,double ratio,String hotelID);
 	
-	public PromotionMsg changeWebCustomCut(String timeBegin,String timeOver, double ratio);
+	public ResultMsg changeWebCustomCut(String timeBegin,String timeOver, double ratio,String hotelID);
 	
 	//增加促销策略
-	public PromotionMsg addLevelCut(int level,double ratio);
+	public ResultMsg addLevelCut(int level,double ratio,String hotelID);
 	
-	public PromotionMsg addCircleCut(String location,double ratio);
+	public ResultMsg addCircleCut(String location,double ratio,String hotelID);
 	
-	public PromotionMsg addWebCustomCut(String timeBegin,String timeOver, double ratio);
+	public ResultMsg addWebCustomCut(String timeBegin,String timeOver, double ratio,String hotelID);
 	
 	/**
 	 * @param type
@@ -34,5 +35,5 @@ public interface PromotionWebBLService {
 	 * 2:表示自定义促销策略
 	 * @return 相应促销策略列表
 	 */
-	public ArrayList<PromotionWebVO> getWebPromotion(int type);
+	public ArrayList<PromotionWebVO> getWebPromotion(PromotionWebType type,String hotelID);
 }

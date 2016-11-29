@@ -3,8 +3,8 @@ package dataservice.promotiondataservice;
 import java.rmi.RemoteException;
 import java.util.ArrayList;
 
-import po.PromotionHotelPO;
-import util.PromotionHotelType;
+import po.PromotionWebPO;
+import util.PromotionWebType;
 import util.ResultMsg;
 
 /**
@@ -14,16 +14,17 @@ import util.ResultMsg;
  */
 
 public interface PromotionWebDataService {
-	public ResultMsg insert(PromotionHotelPO Promotion) throws RemoteException;
 	
-	public ResultMsg delete(PromotionHotelPO Promotion) throws RemoteException;
+	public ResultMsg insert(PromotionWebPO Promotion) throws RemoteException;
 	
-	public ResultMsg update(PromotionHotelPO Promotion) throws RemoteException;
+	public ResultMsg delete(PromotionWebPO Promotion) throws RemoteException;
 	
-	public PromotionHotelPO findByName(String name) throws RemoteException;
+	public ResultMsg update(PromotionWebPO Promotion) throws RemoteException;
 	
-	public ArrayList<PromotionHotelPO> findByType(PromotionHotelType type) throws RemoteException;
+	public PromotionWebPO findByName(String name) throws RemoteException;
 	
-	public ArrayList<PromotionHotelPO> show() throws RemoteException;
+	public ArrayList<PromotionWebPO> findByType(PromotionWebType type,String hotelID) throws RemoteException;
+	
+	public ArrayList<PromotionWebPO> show() throws RemoteException;
 	
 }

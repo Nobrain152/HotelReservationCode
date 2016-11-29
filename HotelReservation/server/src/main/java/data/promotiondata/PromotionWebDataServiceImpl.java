@@ -5,45 +5,49 @@ import java.util.ArrayList;
 
 import dataservice.promotiondataservice.PromotionWebDataService;
 import po.PromotionHotelPO;
+import po.PromotionWebPO;
 import util.PromotionHotelType;
+import util.PromotionWebType;
 import util.ResultMsg;
 
 public class PromotionWebDataServiceImpl implements PromotionWebDataService{
 
 	@Override
-	public ResultMsg insert(PromotionHotelPO Promotion) throws RemoteException {
-		// TODO Auto-generated method stub
-		return ResultMsg.FAIL;
-	}
-
-	@Override
-	public ResultMsg delete(PromotionHotelPO Promotion) throws RemoteException {
-		// TODO Auto-generated method stub
-		return ResultMsg.FAIL;
-	}
-
-	@Override
-	public ResultMsg update(PromotionHotelPO Promotion) throws RemoteException {
-		// TODO Auto-generated method stub
-		return ResultMsg.FAIL;
-	}
-
-	@Override
-	public PromotionHotelPO findByName(String name) throws RemoteException {
+	public ResultMsg insert(PromotionWebPO Promotion) throws RemoteException {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public ArrayList<PromotionHotelPO> show() throws RemoteException {
+	public ResultMsg delete(PromotionWebPO Promotion) throws RemoteException {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public ArrayList<PromotionHotelPO> findByType(PromotionHotelType type) throws RemoteException {
+	public ResultMsg update(PromotionWebPO Promotion) throws RemoteException {
 		// TODO Auto-generated method stub
 		return null;
 	}
+
+	@Override
+	public PromotionWebPO findByName(String name) throws RemoteException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public ArrayList<PromotionWebPO> findByType(PromotionWebType type, String hotelID) throws RemoteException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public ArrayList<PromotionWebPO> show() throws RemoteException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+
 
 }

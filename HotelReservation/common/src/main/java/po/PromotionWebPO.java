@@ -37,7 +37,17 @@ public class PromotionWebPO implements Serializable{
 	/**
 	 * 促销策略起止时间
 	 */
-	String timeBegin,timeOver;
+	String beginTime,endTime;
+	
+	/**
+	 * 会员等级
+	 */
+	int level;
+	
+	/**
+	 * 位置
+	 */
+	String location;
 	
 	/**
 	 * 促销策略打折比例
@@ -45,13 +55,37 @@ public class PromotionWebPO implements Serializable{
 	double ratio;
 	
 	public PromotionWebPO(String hotelID, PromotionWebType hotelType,VipType customType,
-			String timeBegin,String timeOver,double ratio) {
+			String beginTime,String endTime,double ratio,int level,String location) {
 		this.hotelID = hotelID;
 		this.hotelType = hotelType;
 		this.hotelType = hotelType;
-		this.timeBegin = timeBegin;
-		this.timeOver = timeOver;
+		this.beginTime = beginTime;
+		this.endTime = endTime;
 		this.ratio = ratio;
+		this.level = level;
+		this.location = location;
+	}
+	
+	public PromotionWebPO(PromotionWebType promotionWebType,String hotelId,Integer level,double ratio) {
+		this.hotelType = promotionWebType;
+		this.hotelID = hotelId;
+		this.level = level;
+		this.ratio = ratio;
+	}
+	
+	public PromotionWebPO(PromotionWebType promotionWebType,String hotelID,String location,double ratio) {
+		this.hotelType = promotionWebType;
+		this.hotelID = hotelID;
+		this.location  = location;
+		this.ratio = ratio;
+	}
+	
+	public PromotionWebPO(PromotionWebType type,String hotelID,String beginTime,String endTime,double radio) {
+		this.hotelType = type;
+		this.hotelID = hotelID;
+		this.beginTime = beginTime;
+		this.endTime = endTime;
+		this.hotelID = hotelID;
 	}
 	
 	public String getHotelID() {
@@ -66,14 +100,27 @@ public class PromotionWebPO implements Serializable{
 		return customType;
 	}
 	
+	public String getLocation() {
+		return location;
+	}
+	
 	public String getTimeBegin() {
-        return timeBegin;
+        return beginTime;
     }
 
     public String getTimeOver() {
-        return timeOver;
+        return endTime;
     }
+    
+    public int getLevel() {
+    	return level;
+    }
+    
     public double getRatio() {
 		return ratio;
 	}
+    
+    public void setRatio(double ratio) {
+    	this.ratio = ratio;
+    }
 }

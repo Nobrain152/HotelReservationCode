@@ -19,13 +19,13 @@ public interface PromotionHotelBLService {
 	 * @param ratio
 	 * @return
 	 */
-	public ResultMsg changeBirthCut(int level,double ratio);
+	public ResultMsg changeBirthCut(int level,double ratio,String hotelID);
 	
-	public ResultMsg changeOverCut(int number,double ratio);
+	public ResultMsg changeOverCut(int number,double ratio,String hotelID);
 	
-	public ResultMsg changeJoin(String businessName,double ratio) ;
+	public ResultMsg changeJoin(String businessName,double ratio,String hotelID) ;
 	
-	public ResultMsg changeHotelCustomCut (String timeBegin,String timeOver, double ratio);
+	public ResultMsg changeHotelCustomCut (String timeBegin,String timeOver, double ratio,String hotelID);
 
 	/**
 	 * 增加促销策略
@@ -33,13 +33,13 @@ public interface PromotionHotelBLService {
 	 * @param ratio
 	 * @return
 	 */
-	public ResultMsg addBirthCut(int level,double ratio);
+	public ResultMsg addBirthCut(int level,double ratio,String hotelID);
 	
-	public ResultMsg addOverCut(int number,double ratio);
+	public ResultMsg addOverCut(int number,double ratio,String hotelID);
 	
-	public ResultMsg addJoin(String businessName,double ratio) ;
+	public ResultMsg addJoin(String businessName,double ratio,String hotelID) ;
 	
-	public ResultMsg addHotelCustomCut (String timeBegin,String timeOver, double ratio);
+	public ResultMsg addHotelCustomCut (String timeBegin,String timeOver, double ratio,String hotelID);
 	
 	/**
 	 * @param type
@@ -49,5 +49,5 @@ public interface PromotionHotelBLService {
 	 * 3:表示自定义促销策略
 	 * @return 相应促销策略列表
 	 */
-	public ArrayList<PromotionHotelVO> getHotelPromotion(PromotionHotelType type);
+	public ArrayList<PromotionHotelVO> getHotelPromotion(PromotionHotelType type,String hotelID);
 }

@@ -22,58 +22,58 @@ public class PromotionHotelController implements PromotionHotelBLService{
 	}
 
 	@Override
-	public ResultMsg changeBirthCut(int level, double ratio) {
+	public ResultMsg changeBirthCut(int level, double ratio, String hotelID) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public ResultMsg changeOverCut(int number, double ratio) {
+	public ResultMsg changeOverCut(int number, double ratio, String hotelID) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public ResultMsg changeJoin(String businessName, double ratio) {
+	public ResultMsg changeJoin(String businessName, double ratio, String hotelID) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public ResultMsg changeHotelCustomCut(String timeBegin, String timeOver, double ratio) {
+	public ResultMsg changeHotelCustomCut(String timeBegin, String timeOver, double ratio, String hotelID) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public ResultMsg addBirthCut(int level, double ratio) {
+	public ResultMsg addBirthCut(int level, double ratio, String hotelID) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public ResultMsg addOverCut(int number, double ratio) {
+	public ResultMsg addOverCut(int number, double ratio, String hotelID) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public ResultMsg addJoin(String businessName, double ratio) {
+	public ResultMsg addJoin(String businessName, double ratio, String hotelID) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public ResultMsg addHotelCustomCut(String timeBegin, String timeOver, double ratio) {
+	public ResultMsg addHotelCustomCut(String timeBegin, String timeOver, double ratio, String hotelID) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public ArrayList<PromotionHotelVO> getHotelPromotion(PromotionHotelType type) {
+	public ArrayList<PromotionHotelVO> getHotelPromotion(PromotionHotelType type, String hotelID) {
 		// TODO Auto-generated method stub
 		return null;
 	}
-	
+
 
 }

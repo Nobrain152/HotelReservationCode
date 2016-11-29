@@ -11,25 +11,31 @@ import util.ResultMsg;
 public class PromotionHotelDataServiceImpl implements PromotionHotelDataService{
 
 	@Override
-	public ResultMsg insert(PromotionHotelPO Promotion) throws RemoteException {
+	public ResultMsg insert(PromotionHotelPO promotion) throws RemoteException {
 		// TODO Auto-generated method stub
-		return ResultMsg.FAIL;
+		return null;
 	}
 
 	@Override
-	public ResultMsg delete(PromotionHotelPO Promotion) throws RemoteException {
+	public ResultMsg delete(PromotionHotelPO promotion) throws RemoteException {
 		// TODO Auto-generated method stub
-		return ResultMsg.FAIL;
+		return null;
 	}
 
 	@Override
-	public ResultMsg update(PromotionHotelPO Promotion) throws RemoteException {
+	public ResultMsg update(PromotionHotelPO promotion) throws RemoteException {
 		// TODO Auto-generated method stub
-		return ResultMsg.FAIL;
+		return null;
 	}
 
 	@Override
 	public PromotionHotelPO findByName(String name) throws RemoteException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public ArrayList<PromotionHotelPO> findByType(PromotionHotelType type, String hotelID) throws RemoteException {
 		// TODO Auto-generated method stub
 		return null;
 	}
@@ -40,10 +46,5 @@ public class PromotionHotelDataServiceImpl implements PromotionHotelDataService{
 		return null;
 	}
 
-	@Override
-	public ArrayList<PromotionHotelPO> findByType(PromotionHotelType type) throws RemoteException {
-		// TODO Auto-generated method stub
-		return null;
-	}
 
 }

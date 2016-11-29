@@ -1,5 +1,6 @@
 package bl.promotionbl;
 
+import java.rmi.RemoteException;
 import java.util.ArrayList;
 
 import blservice.promotionservice.PromotionHotelBLService;
@@ -14,6 +15,7 @@ public class PromotionHotelController implements PromotionHotelBLService{
 
 	PromotionHotel promotionHotel;
 	PromotionHotelDataService hotelDataService;
+	ResultMsg resultMsg;
 	
 	public PromotionHotelController() {
 		this.hotelDataService = (PromotionHotelDataService)RMIManage
@@ -23,56 +25,102 @@ public class PromotionHotelController implements PromotionHotelBLService{
 
 	@Override
 	public ResultMsg changeBirthCut(int level, double ratio, String hotelID) {
-		// TODO Auto-generated method stub
-		return null;
+		try {
+			resultMsg = promotionHotel.changeBirthCut(level, ratio, hotelID);
+		} catch (RemoteException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return resultMsg;
 	}
 
 	@Override
 	public ResultMsg changeOverCut(int number, double ratio, String hotelID) {
-		// TODO Auto-generated method stub
-		return null;
+		try {
+			resultMsg = promotionHotel.changeOverCut(number, ratio, hotelID);
+		} catch (RemoteException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return resultMsg;
 	}
 
 	@Override
 	public ResultMsg changeJoin(String businessName, double ratio, String hotelID) {
-		// TODO Auto-generated method stub
-		return null;
+		try {
+			resultMsg = promotionHotel.changeJoin(businessName, ratio, hotelID);
+		} catch (RemoteException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return resultMsg;
 	}
 
 	@Override
 	public ResultMsg changeHotelCustomCut(String timeBegin, String timeOver, double ratio, String hotelID) {
-		// TODO Auto-generated method stub
-		return null;
+		try {
+			resultMsg = promotionHotel.changeHotelCustomCut(timeBegin, timeOver, ratio, hotelID);
+		} catch (RemoteException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return resultMsg;
 	}
 
 	@Override
 	public ResultMsg addBirthCut(int level, double ratio, String hotelID) {
-		// TODO Auto-generated method stub
-		return null;
+		try {
+			resultMsg = promotionHotel.addBirthCut(level, ratio, hotelID);
+		} catch (RemoteException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return resultMsg;
 	}
 
 	@Override
 	public ResultMsg addOverCut(int number, double ratio, String hotelID) {
-		// TODO Auto-generated method stub
-		return null;
+		try {
+			resultMsg = promotionHotel.addOverCut(number, ratio, hotelID);
+		} catch (RemoteException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return resultMsg;
 	}
 
 	@Override
 	public ResultMsg addJoin(String businessName, double ratio, String hotelID) {
-		// TODO Auto-generated method stub
-		return null;
+		try {
+			resultMsg = promotionHotel.addJoin(businessName, ratio, hotelID);
+		} catch (RemoteException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return resultMsg;
 	}
 
 	@Override
 	public ResultMsg addHotelCustomCut(String timeBegin, String timeOver, double ratio, String hotelID) {
-		// TODO Auto-generated method stub
-		return null;
+		try {
+			resultMsg = promotionHotel.addHotelCustomCut(timeBegin, timeOver, ratio, hotelID);
+		} catch (RemoteException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return resultMsg;
 	}
 
 	@Override
 	public ArrayList<PromotionHotelVO> getHotelPromotion(PromotionHotelType type, String hotelID) {
-		// TODO Auto-generated method stub
-		return null;
+		ArrayList<PromotionHotelVO> list = null;
+		try {
+			list = promotionHotel.getHotelPromotion(type, hotelID);
+		} catch (RemoteException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return list;
 	}
 
 

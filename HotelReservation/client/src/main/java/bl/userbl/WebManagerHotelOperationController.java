@@ -1,8 +1,12 @@
 package bl.userbl;
 
+import java.rmi.RemoteException;
 import java.util.ArrayList;
 
 import blservice.userblservice.WebManagerHotelOperationBlService;
+import dataservice.userdataservice.UserManagementDataService;
+import net.RMIManage;
+import util.DataServiceType;
 import vo.HotelInfoVO;
 
 
@@ -13,14 +17,26 @@ import vo.HotelInfoVO;
  */
 public class WebManagerHotelOperationController implements WebManagerHotelOperationBlService {
 
-	WebManager manager=new WebManager();
+	private WebManager manager;
+	private UserManagementDataService data;
+	
+	
+	public WebManagerHotelOperationController(){
+		data= (UserManagementDataService)RMIManage.
+				getDataService(DataServiceType.UserManagementDataService);
+		manager=new WebManager(data);
+	}
 	
 	/**
 	 * 添加酒店	
 	 * @param 酒店信息VO
 	 */
 	public void HotelAdd(HotelInfoVO vo){
-		manager.HotelAdd(vo);
+		try {
+			manager.HotelAdd(vo);
+		} catch (RemoteException e) {
+			e.printStackTrace();
+		}
 	}
 			
 	/**
@@ -29,7 +45,12 @@ public class WebManagerHotelOperationController implements WebManagerHotelOperat
 	 * @param 用户IDVO
 	 */
 	public boolean StuffAdd(String hotelid,String userid){
-		return manager.StuffAdd(hotelid, userid);
+		try {
+			return manager.StuffAdd(hotelid, userid);
+		} catch (RemoteException e) {
+			e.printStackTrace();
+			return false;
+		}
 	}
 
 
@@ -38,7 +59,12 @@ public class WebManagerHotelOperationController implements WebManagerHotelOperat
 	 * @return 酒店信息列表
 	 */
 	public ArrayList<HotelInfoVO> HotelScan() {
-		return manager.HotelScan();
+		try {
+			return manager.HotelScan();
+		} catch (RemoteException e) {
+			e.printStackTrace();
+			return null;
+		}
 	}
 
 }

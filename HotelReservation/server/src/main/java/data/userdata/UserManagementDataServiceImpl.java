@@ -80,5 +80,13 @@ public class UserManagementDataServiceImpl implements UserManagementDataService 
 			return true;
 			}
 	}
+	
+	/**
+	 * 查看网站营销人员列表
+	 * @return 网站营销人员列表
+	 */
+	public ArrayList<UserInfoPO> WebStuffScan(){
+		return null;
+	}
 
 }	

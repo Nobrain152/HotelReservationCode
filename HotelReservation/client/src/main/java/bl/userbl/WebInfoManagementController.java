@@ -1,18 +1,30 @@
 package bl.userbl;
 
+import java.rmi.RemoteException;
+
 import blservice.userblservice.WebIndividualInformationManagementBLService;
+import dataservice.userdataservice.UserManagementDataService;
+import net.RMIManage;
+import util.DataServiceType;
 import vo.UserInfoVO;
 
 
 /**
  * 网站营销人员和网站管理人员的个人信息管理
- * @author Administrator
+ * @author 曹畅
  *
  */
 public class WebInfoManagementController implements WebIndividualInformationManagementBLService {
 
-	private WebManager manager=new WebManager();
+	private WebManager manager;
+	private UserManagementDataService data;
 	
+	
+	public WebInfoManagementController(){
+		data= (UserManagementDataService)RMIManage.
+				getDataService(DataServiceType.UserManagementDataService);
+		manager=new WebManager(data);
+	}
 	
 	/**
 	 * 查看个人信息	
@@ -20,7 +32,12 @@ public class WebInfoManagementController implements WebIndividualInformationMana
 	 * @return 用户个人信息VO
 	 */
 	public UserInfoVO IndividualBaseInfolnquiry(String userid){
-		return  manager.IndividualBaseInfolnquiry(userid);
+		try {
+			return  manager.IndividualBaseInfolnquiry(userid);
+		} catch (RemoteException e) {
+			e.printStackTrace();
+			return null;
+		}
 	}
 			
 	/**
@@ -30,7 +47,12 @@ public class WebInfoManagementController implements WebIndividualInformationMana
 	 * @return 修改结果
 	 */
 	public boolean IndividualBaseInfoModification(String userid,UserInfoVO vo2){
-		return manager.IndividualBaseInfoModification(userid, vo2);
+		try {
+			return manager.IndividualBaseInfoModification(userid, vo2);
+		} catch (RemoteException e) {
+			e.printStackTrace();
+			return false;
+		}
 	}
 			
 }

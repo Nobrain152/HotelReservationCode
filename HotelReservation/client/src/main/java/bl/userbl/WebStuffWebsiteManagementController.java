@@ -4,7 +4,10 @@ import java.rmi.RemoteException;
 import java.util.ArrayList;
 
 import blservice.userblservice.WebStuffWebsiteManagementBLService;
-import vo.CreditVO;
+import dataservice.userdataservice.UserManagementDataService;
+import net.RMIManage;
+import util.DataServiceType;
+import util.ResultMsg;
 import vo.OrderVO;
 import vo.PromotionWebVO;
 
@@ -17,9 +20,13 @@ import vo.PromotionWebVO;
 public class WebStuffWebsiteManagementController implements WebStuffWebsiteManagementBLService {
 
 	private WebStuff stuff;
+	private UserManagementDataService data;
 	
-	public  WebStuffWebsiteManagementController(){
-		stuff=new WebStuff();
+	
+	public WebStuffWebsiteManagementController(){
+		data= (UserManagementDataService)RMIManage.
+				getDataService(DataServiceType.UserManagementDataService);
+		stuff=new WebStuff(data);
 	}
 	
 	/**
@@ -27,7 +34,11 @@ public class WebStuffWebsiteManagementController implements WebStuffWebsiteManag
 	 * @param 网站促销策略VO
 	 */
 	public void WebsiteStrategeCreate(PromotionWebVO vo){
-		stuff.WebsiteStrategeCreate(vo);
+		try {
+			stuff.WebsiteStrategeCreate(vo);
+		} catch (RemoteException e) {
+			e.printStackTrace();
+		}
 	}
 			
 	/**
@@ -35,7 +46,12 @@ public class WebStuffWebsiteManagementController implements WebStuffWebsiteManag
 	 * @return 订单VO列表
 	 */
 	public ArrayList<OrderVO> AbnormalOrderScan(){
-		return stuff.AbnormalOrderScan();
+		try {
+			return stuff.AbnormalOrderScan();
+		} catch (RemoteException e) {
+			e.printStackTrace();
+			return null;
+		}
 	}
 			
 	/**
@@ -44,8 +60,13 @@ public class WebStuffWebsiteManagementController implements WebStuffWebsiteManag
 	 * @param 增加值
 	 * @return 修改后的用户信用值VO
 	 */
-	public CreditVO UserCreditModification(String userid,int n){
-		return stuff.UserCreditModification(userid, n);
+	public ResultMsg UserCreditModification(String userid,int n){
+		try {
+			return stuff.UserCreditModification(userid, n);
+		} catch (RemoteException e) {
+			e.printStackTrace();
+			return null;
+		}
 	}
 
 
@@ -53,8 +74,13 @@ public class WebStuffWebsiteManagementController implements WebStuffWebsiteManag
 	 * 查看网站营销策略
 	 * @return 网站营销策略列表
 	 */
-	public ArrayList<PromotionWebVO> WebsiteStrategeInquire() {
-		return stuff.WebsiteStrategeInquire();
+	public ArrayList<PromotionWebVO> WebsiteStrategeInquire(PromotionWebVO vo) {
+		try {
+			return stuff.WebsiteStrategeInquire(vo);
+		} catch (RemoteException e) {
+			e.printStackTrace();
+			return null;
+		}
 	}
 
 	/**
@@ -62,7 +88,12 @@ public class WebStuffWebsiteManagementController implements WebStuffWebsiteManag
 	 * @param 用户IDVO
 	 * @return 用户信用信息VO
 	 */
-	public CreditVO userCreditInquire(String userid) {
-		return stuff.userCreditInquire(userid);
+	public int userCreditInquire(String userid) {
+		try {
+			return stuff.userCreditInquire(userid);
+		} catch (RemoteException e) {
+			e.printStackTrace();
+			return -10000000;
+		}
 	}
 }

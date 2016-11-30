@@ -8,31 +8,34 @@ import bl.VOPOchange;
 import bl.creditbl.CreditController;
 import bl.orderbl.OrderOnWeb;
 import bl.promotionbl.PromotionWebController;
-import data.userdata.UserManagementDataServiceImpl;
 import dataservice.creditdataservice.CreditDataService;
 import dataservice.orderdataservice.OrderDataService;
+import dataservice.userdataservice.UserManagementDataService;
 import po.ContactPO;
 import po.UserInfoPO;
+import util.PromotionWebType;
+import util.ResultMsg;
 import vo.ContactVO;
-import vo.CreditVO;
+import vo.CustomerInfoVO;
 import vo.OrderVO;
 import vo.PromotionWebVO;
 import vo.UserInfoVO;
 
 public class WebStuff extends User{
 
-	private UserManagementDataServiceImpl user;
+	private UserManagementDataService user;
 	private PromotionWebController pro;
 	private OrderOnWeb order;
 	private CreditController inte;
 	private OrderDataService orderDataService;
 	private CreditDataService creditDataService;
 	
-	public  WebStuff(){
+	public  WebStuff(UserManagementDataService user){
+		super(user);
 		pro = new PromotionWebController();
 		order = new OrderOnWeb(orderDataService, creditDataService);
 		inte=new CreditController();
-		user=new UserManagementDataServiceImpl();
+		this.user=user;
 	}
 	
 	
@@ -41,7 +44,7 @@ public class WebStuff extends User{
 	 * @param 用户IDVO
 	 * @return 用户个人信息VO
 	 */
-	public UserInfoVO IndividualBaseInfolnquiry(String userid){
+	public UserInfoVO IndividualBaseInfolnquiry(String userid)throws RemoteException{
 		UserInfoPO po= user.GetUserBaseInfo(userid);
 		UserInfoVO vo=new UserInfoVO(po.getUserID(),po.getUsername(),(ContactVO)VOPOchange.POtoVO(po.getContact()));
 		return vo;
@@ -53,7 +56,7 @@ public class WebStuff extends User{
 	 * @param 用户信息VO
 	 * @return 修改结果
 	 */
-	public boolean IndividualBaseInfoModification(String userid,UserInfoVO vo2){
+	public boolean IndividualBaseInfoModification(String userid,UserInfoVO vo2)throws RemoteException{
 		UserInfoPO po= new UserInfoPO(vo2.getUserID(),vo2.getUsername(),(ContactPO)VOPOchange.VOtoPO(vo2.getContact()));
 		return user.SetUserBaseInfo(userid, po);
 	}
@@ -62,22 +65,55 @@ public class WebStuff extends User{
 	 * 创建网站促销策略
 	 * @param 网站促销策略VO
 	 */
-	public void WebsiteStrategeCreate(PromotionWebVO vo){
+	public ResultMsg WebsiteStrategeCreate(PromotionWebVO vo)throws RemoteException{
+		PromotionWebType type=vo.getType();
+		ResultMsg msg=null;
+		if(type==PromotionWebType.VIP_LEVEL_PROMOTION){
+			msg=pro.addLevelCut(vo.getLevel(),vo.getRatio(),vo.getHotelID());
+		}
+		else if(type==PromotionWebType.VIP_CIRCLE_PROMOTION){
+			msg=pro.addCircleCut(vo.getLocation(),vo.getRatio(),vo.getHotelID());
+		}
+		else{
+			msg=pro.addWebCustomCut(vo.getTimeBegin(),vo.getTimeOver(),vo.getRatio(),vo.getHotelID());
+		}
 		
+		return msg;
 	}
+	
+	/**
+	 * 修改网站促销策略
+	 * @param 网站促销策略VO
+	 */
+	public ResultMsg WebsiteStrategeMod(PromotionWebVO vo)throws RemoteException{
+		PromotionWebType type=vo.getType();
+		ResultMsg msg=null;
+		if(type==PromotionWebType.VIP_LEVEL_PROMOTION){
+			msg=pro.changeLevelCut(vo.getLevel(),vo.getRatio(),vo.getHotelID());
+		}
+		else if(type==PromotionWebType.VIP_CIRCLE_PROMOTION){
+			msg=pro.changeCircleCut(vo.getLocation(),vo.getRatio(),vo.getHotelID());
+		}
+		else{
+			msg=pro.changeWebCustomCut(vo.getTimeBegin(),vo.getTimeOver(),vo.getRatio(),vo.getHotelID());
+		}
+		
+		return msg;
+	}
+	
 			
 	/**
 	 * 查看异常订单
 	 * @return 订单VO列表
 	 */
-	public ArrayList<OrderVO> AbnormalOrderScan(){
+	public ArrayList<OrderVO> AbnormalOrderScan()throws RemoteException{
 		try {
 			return order.abnormalOrderScan();
 		} catch (RemoteException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
+			return null;
 		}
-		return null;
+		
 	}
 			
 	/**
@@ -86,8 +122,9 @@ public class WebStuff extends User{
 	 * @param 增加值
 	 * @return 修改后的用户信用值VO
 	 */
-	public CreditVO UserCreditModification(String userid,int n){
-		return null;
+	public ResultMsg UserCreditModification(String userid,int n)throws RemoteException{
+		CustomerInfoVO vo=(CustomerInfoVO)VOPOchange.POtoVO(user.GetUserBaseInfo(userid));
+		return inte.changeCredit(vo, n);
 	}
 
 
@@ -95,8 +132,8 @@ public class WebStuff extends User{
 	 * 查看网站营销策略
 	 * @return 网站营销策略列表
 	 */
-	public ArrayList<PromotionWebVO> WebsiteStrategeInquire() {
-		return null;
+	public ArrayList<PromotionWebVO> WebsiteStrategeInquire(PromotionWebVO vo)throws RemoteException {
+		return pro.getWebPromotion(vo.getType(),vo.getHotelID());
 	}
 
 	/**
@@ -104,7 +141,9 @@ public class WebStuff extends User{
 	 * @param 用户IDVO
 	 * @return 用户信用信息VO
 	 */
-	public CreditVO userCreditInquire(String userid) {
-		return null;
+	public int userCreditInquire(String userid)throws RemoteException {
+		CustomerInfoVO vo=(CustomerInfoVO)VOPOchange.POtoVO(user.GetUserBaseInfo(userid));
+		return inte.getCredit(vo);
 	}
-}
+	
+	}

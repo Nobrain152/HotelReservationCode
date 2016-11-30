@@ -3,22 +3,33 @@ package user;
 
 import static org.junit.Assert.assertEquals;
 
+import java.rmi.RemoteException;
+
 import bl.userbl.HotelStuff;
+import data.userdata.UserManagementDataServiceImpl;
+import dataservice.userdataservice.UserManagementDataService;
 import vo.ContactVO;
 import vo.StuffInfoVO;
 import vo.UserInfoVO;
 
 public class HotelStuffTest {
-	private StuffInfoVO vo;
 	private HotelStuff stuff;
+	private UserManagementDataService service;
 	
 	public void setup(){
-		stuff=new HotelStuff("7654321");
+		service=new UserManagementDataServiceImpl();
+		stuff=new HotelStuff(service);
 		
 	}
 	
 	public void testinquiry(){
-		UserInfoVO po=stuff.IndividualBaseInfolnquiry("1234567");
+		UserInfoVO po = null;
+		try {
+			po = stuff.IndividualBaseInfolnquiry("1234567");
+		} catch (RemoteException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		assertEquals(po.getUserID(),"7654321");
 		assertEquals(po.getUsername(),"Tim");
 		assertEquals(po.getContact(),"18192345782");
@@ -26,8 +37,20 @@ public class HotelStuffTest {
 	
 	public void testmodify(){
 		StuffInfoVO vo1=new StuffInfoVO("1234567","Tom",new ContactVO("13067893451",null),"1234567");
-		boolean cantest=stuff.IndividualBaseInfoModification("1234567",vo1);
-		UserInfoVO po=stuff.IndividualBaseInfolnquiry("1234567");
+		boolean cantest = false;
+		try {
+			cantest = stuff.IndividualBaseInfoModification("1234567",vo1);
+		} catch (RemoteException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		UserInfoVO po = null;
+		try {
+			po = stuff.IndividualBaseInfolnquiry("1234567");
+		} catch (RemoteException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		if(cantest){
 			assertEquals(po.getUserID(),"1234567");
 			assertEquals(po.getUsername(),"Tom");

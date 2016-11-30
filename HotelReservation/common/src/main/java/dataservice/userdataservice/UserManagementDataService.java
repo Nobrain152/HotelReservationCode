@@ -1,5 +1,7 @@
 package dataservice.userdataservice;
 
+import java.util.ArrayList;
+
 import po.LoginInPO;
 import po.UserInfoPO;
 
@@ -26,7 +28,7 @@ public interface UserManagementDataService{
 		public String AddUser(LoginInPO po);
 		
 		/**
-		 * h获取用户基本信息
+		 * 获取用户基本信息
 		 * @param 用户IDPO
 		 * @return 用户基本信息
 		 */
@@ -39,5 +41,13 @@ public interface UserManagementDataService{
 		 * @return 设置结果
 		 */
 		public boolean SetUserBaseInfo(String userid,UserInfoPO po2);
+		
+		public boolean addHotelStuff(String hotelid,String userid);
+		
+		public boolean addWebStuff(String userid);
+		
+		public ArrayList<UserInfoPO> WebStuffScan();
+		
+		
 		
 }

@@ -2,7 +2,7 @@ package blservice.userblservice;
 
 import java.util.ArrayList;
 
-import vo.CreditVO;
+import util.ResultMsg;
 import vo.OrderVO;
 import vo.PromotionWebVO;
 
@@ -21,7 +21,7 @@ public interface WebStuffWebsiteManagementBLService{
 	 * 查看网站营销策略
 	 * @return 网站营销策略列表
 	 */
-	public ArrayList<PromotionWebVO> WebsiteStrategeInquire();
+	public ArrayList<PromotionWebVO> WebsiteStrategeInquire(PromotionWebVO vo);
 	
 	/**
 	 * 创建网站促销策略
@@ -40,7 +40,7 @@ public interface WebStuffWebsiteManagementBLService{
 	 * @param 用户IDVO
 	 * @return 用户信用信息VO
 	 */
-	public CreditVO userCreditInquire(String userid);
+	public int userCreditInquire(String userid);
 	
 	/**
 	 * 修改用户信用值
@@ -48,7 +48,7 @@ public interface WebStuffWebsiteManagementBLService{
 	 * @param 增加值
 	 * @return 修改后的用户信用值VO
 	 */
-	public CreditVO UserCreditModification(String userid,int n);
+	public ResultMsg UserCreditModification(String userid,int n);
 		
 		
 }

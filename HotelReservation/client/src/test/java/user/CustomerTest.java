@@ -35,7 +35,7 @@ public class CustomerTest {
 	}
 	
 	public void testmodify(){
-		CustomerInfoVO vo1=new CustomerInfoVO("1234567","Tom",new ContactVO("13067893451",null),100);
+		CustomerInfoVO vo1=new CustomerInfoVO("1234567","Tom",new ContactVO("13067893451",null),100,null);
 		boolean cantest = false;
 		try {
 			cantest = cu.IndividualBaseInfoModification("1234567",vo1);

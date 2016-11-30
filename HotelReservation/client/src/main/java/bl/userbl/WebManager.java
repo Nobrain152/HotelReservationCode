@@ -1,25 +1,36 @@
 package bl.userbl;
 
+import java.rmi.RemoteException;
 import java.util.ArrayList;
 
 import bl.VOPOchange;
-import data.userdata.UserManagementDataServiceImpl;
+import dataservice.userdataservice.UserManagementDataService;
 import po.ContactPO;
 import po.UserInfoPO;
 import vo.ContactVO;
 import vo.HotelInfoVO;
 import vo.UserInfoVO;
 
+/**
+ * 网站管理人员类
+ * @author 曹畅
+ * 
+ *
+ */
 public class WebManager extends User {
-	private UserManagementDataServiceImpl user=new UserManagementDataServiceImpl();
+	private UserManagementDataService data;
 	
+	public WebManager(UserManagementDataService data){
+		super(data);
+		this.data=data;
+	}
 	/**
 	 * 查看个人信息	
 	 * @param 用户IDVO
 	 * @return 用户个人信息VO
 	 */
-	public UserInfoVO IndividualBaseInfolnquiry(String userid){
-		UserInfoPO po= user.GetUserBaseInfo(userid);
+	public UserInfoVO IndividualBaseInfolnquiry(String userid)throws RemoteException{
+		UserInfoPO po= data.GetUserBaseInfo(userid);
 		UserInfoVO vo=new UserInfoVO(po.getUserID(),po.getUsername(),(ContactVO)VOPOchange.POtoVO(po.getContact()));
 		return vo;
 	}
@@ -30,16 +41,16 @@ public class WebManager extends User {
 	 * @param 用户信息VO
 	 * @return 修改结果
 	 */
-	public boolean IndividualBaseInfoModification(String userid,UserInfoVO vo2){
+	public boolean IndividualBaseInfoModification(String userid,UserInfoVO vo2)throws RemoteException{
 		UserInfoPO po= new UserInfoPO(vo2.getUserID(),vo2.getUsername(),(ContactPO)VOPOchange.VOtoPO(vo2.getContact()));
-		return user.SetUserBaseInfo(userid, po);
+		return data.SetUserBaseInfo(userid, po);
 	}
 		
 	/**
 	 * 添加酒店	
 	 * @param 酒店信息VO
 	 */
-	public void HotelAdd(HotelInfoVO vo){
+	public void HotelAdd(HotelInfoVO vo)throws RemoteException{
 		
 	}
 			
@@ -48,8 +59,8 @@ public class WebManager extends User {
 	 * @param 酒店IDVO
 	 * @param 用户IDVO
 	 */
-	public boolean StuffAdd(String hotelid,String userid){
-		return user.addHotelStuff(hotelid,userid);
+	public boolean StuffAdd(String hotelid,String userid)throws RemoteException{
+		return data.addHotelStuff(hotelid,userid);
 	}
 
 
@@ -57,7 +68,7 @@ public class WebManager extends User {
 	 * 查看酒店列表
 	 * @return 酒店信息列表
 	 */
-	public ArrayList<HotelInfoVO> HotelScan() {
+	public ArrayList<HotelInfoVO> HotelScan()throws RemoteException {
 		// TODO Auto-generated method stub
 		return null;
 	}
@@ -67,8 +78,8 @@ public class WebManager extends User {
 	 * @param 用户IDVO
 	 * @return 用户个人信息VO
 	 */
-	public UserInfoVO UserInformationInquiry(String userid){
-		UserInfoPO po=user.GetUserBaseInfo(userid);
+	public UserInfoVO UserInformationInquiry(String userid)throws RemoteException{
+		UserInfoPO po=data.GetUserBaseInfo(userid);
 		UserInfoVO vo=new UserInfoVO(po.getUserID(),po.getUsername(),(ContactVO)VOPOchange.POtoVO(po.getContact()));
 		return vo;
 	}
@@ -80,26 +91,30 @@ public class WebManager extends User {
 	 * @param 用户个人信息VO
 	 * @return 修改结果
 	 */
-	public boolean UserInformationModification(String userid,UserInfoVO vo2){
+	public boolean UserInformationModification(String userid,UserInfoVO vo2)throws RemoteException{
 		UserInfoPO po1=new UserInfoPO(vo2.getUserID(),vo2.getUsername(),(ContactPO)VOPOchange.VOtoPO(vo2.getContact()));
-		return user.SetUserBaseInfo(userid,po1);
+		return data.SetUserBaseInfo(userid,po1);
 	}
 			
 	/**
 	 * 添加网站营销人员
 	 * @param 用户IDVO
 	 */
-	public boolean WebsiteStuffAdd(String userid){
-		return user.addWebStuff(userid);
+	public boolean WebsiteStuffAdd(String userid)throws RemoteException{
+		return data.addWebStuff(userid);
 	}
 
 	/**
 	 * 查看网站营销人员列表
 	 * @return 网站营销人员列表
 	 */
-	public ArrayList<UserInfoVO> WebStuffScan() {
-		// TODO Auto-generated method stub
-		return null;
+	public ArrayList<UserInfoVO> WebStuffScan() throws RemoteException{
+		ArrayList<UserInfoPO> pos=data.WebStuffScan();
+		ArrayList<UserInfoVO> vos=new ArrayList<UserInfoVO>();
+		for(int i=0;i<pos.size();i++){
+			vos.add(new UserInfoVO(pos.get(i).getUserID(),pos.get(i).getUsername(),new ContactVO(pos.get(i).getContact().phoneNumber,pos.get(i).getContact().emailAddress)));
+		}
+		return vos;
 	}
 
 }

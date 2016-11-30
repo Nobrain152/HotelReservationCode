@@ -1,8 +1,12 @@
 package bl.userbl;
 
+import java.rmi.RemoteException;
 import java.util.ArrayList;
 
 import blservice.userblservice.WebManagerWebsiteManagementBLService;
+import dataservice.userdataservice.UserManagementDataService;
+import net.RMIManage;
+import util.DataServiceType;
 import vo.UserInfoVO;
 
 
@@ -14,7 +18,15 @@ import vo.UserInfoVO;
  */
 public class WebManagerWebsiteManagementController implements WebManagerWebsiteManagementBLService {
 
-	private WebManager manager=new WebManager();
+	private WebManager manager;
+	private UserManagementDataService data;
+	
+	
+	public WebManagerWebsiteManagementController(){
+		data= (UserManagementDataService)RMIManage.
+				getDataService(DataServiceType.UserManagementDataService);
+		manager=new WebManager(data);
+	}
 	
 	/**
 	 * 查看用户个人信息
@@ -22,7 +34,12 @@ public class WebManagerWebsiteManagementController implements WebManagerWebsiteM
 	 * @return 用户个人信息VO
 	 */
 	public UserInfoVO UserInformationInquiry(String userid){
-		return manager.UserInformationInquiry(userid);
+		try {
+			return manager.UserInformationInquiry(userid);
+		} catch (RemoteException e) {
+			e.printStackTrace();
+			return null;
+		}
 	}
 			
 	
@@ -33,7 +50,12 @@ public class WebManagerWebsiteManagementController implements WebManagerWebsiteM
 	 * @return 修改结果
 	 */
 	public boolean UserInformationModification(String userid,UserInfoVO vo2){
-		return manager.UserInformationModification(userid, vo2);
+		try {
+			return manager.UserInformationModification(userid, vo2);
+		} catch (RemoteException e) {
+			e.printStackTrace();
+			return false;
+		}
 	}
 			
 	/**
@@ -41,7 +63,12 @@ public class WebManagerWebsiteManagementController implements WebManagerWebsiteM
 	 * @param 用户IDVO
 	 */
 	public boolean WebsiteStuffAdd(String userid){
-		return manager.WebsiteStuffAdd(userid);
+		try {
+			return manager.WebsiteStuffAdd(userid);
+		} catch (RemoteException e) {
+			e.printStackTrace();
+			return false;
+		}
 	}
 
 	/**
@@ -49,6 +76,11 @@ public class WebManagerWebsiteManagementController implements WebManagerWebsiteM
 	 * @return 网站营销人员列表
 	 */
 	public ArrayList<UserInfoVO> WebStuffScan() {
-		return manager.WebStuffScan();
+		try {
+			return manager.WebStuffScan();
+		} catch (RemoteException e) {
+			e.printStackTrace();
+			return null;
+		}
 	}
 }

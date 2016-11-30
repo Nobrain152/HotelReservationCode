@@ -27,10 +27,12 @@ public class VipPO implements Serializable{
 	 */
 	VipType type;
 	
+	/*
 	/**
 	 * 会员的等级与所需要积分的对应关系
-	 */
+	 
 	ArrayList<int[][]> levelList;
+	*/
 	
 	/**
 	 * 会员当前的等级
@@ -38,16 +40,16 @@ public class VipPO implements Serializable{
 	int level;
 	
 	public VipPO(String name,ArrayList<int[][]> levelList,int level,VipType type) {
-		this.levelList = levelList;
+		//this.levelList = levelList;
 		this.level = level;
 		this.name = name;
 		this.type = type;
 	}
-	
+	/*
 	public ArrayList<int[][]> getLevelList() {
 		return levelList;
 	}
-	
+	*/
 	public String getName() {
 		return name;
 	}

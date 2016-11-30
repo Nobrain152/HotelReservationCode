@@ -23,7 +23,7 @@ import util.ResultMsg;
 public class DataSuperClass extends UnicastRemoteObject{
 	
 	/**
-	 * 
+	 * –Ú¡–ªØ
 	 */
 	private static final long serialVersionUID = 1L;
 	

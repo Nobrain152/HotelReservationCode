@@ -10,18 +10,18 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="617.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ui.customerGuide.customerGuideController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="487.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ui.customerGuide.customerGuideController">
    <children>
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#b4b4b4" height="53.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="617.0" />
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#b4b4b4" height="53.0" layoutY="547.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="617.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#b4b4b4" height="53.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="600.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#b4b4b4" height="53.0" layoutY="434.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="600.0" />
       <Text layoutX="242.0" layoutY="36.0" strokeType="OUTSIDE" strokeWidth="0.0" text="您好，XXX">
          <font>
             <Font size="27.0" />
          </font>
       </Text>
-      <Button layoutX="531.0" layoutY="560.0" mnemonicParsing="false" prefHeight="28.0" prefWidth="66.0" text="退出" />
-      <TextField layoutY="53.0" prefHeight="28.0" prefWidth="553.0" promptText="名称搜索" />
-      <Button layoutX="552.0" layoutY="53.0" mnemonicParsing="false" prefHeight="28.0" prefWidth="66.0" text="搜索" />
+      <Button fx:id="button_Cancel" layoutX="510.0" layoutY="447.0" mnemonicParsing="false" onAction="#button_CancelAction" prefHeight="28.0" prefWidth="66.0" text="退出" />
+      <TextField layoutY="53.0" prefHeight="28.0" prefWidth="522.0" promptText="名称搜索" />
+      <Button layoutX="531.0" layoutY="53.0" mnemonicParsing="false" prefHeight="28.0" prefWidth="66.0" text="搜索" />
       <Text layoutX="43.0" layoutY="122.0" strokeType="OUTSIDE" strokeWidth="0.0" text="地址">
          <font>
             <Font size="18.0" />
@@ -64,27 +64,25 @@
       <DatePicker layoutX="404.0" layoutY="189.0" prefHeight="23.0" prefWidth="171.0" />
       <CheckBox layoutX="43.0" layoutY="234.0" mnemonicParsing="false" text="只搜索预订过的" />
       <Button layoutX="537.0" layoutY="228.0" mnemonicParsing="false" prefHeight="28.0" prefWidth="54.0" text="搜索" />
-      <Button fx:id="button1" layoutX="37.0" layoutY="275.0" mnemonicParsing="false" onAction="#button1Action" prefHeight="44.0" prefWidth="141.0" text="我的订单">
+      <Button fx:id="button_Order" layoutX="108.0" layoutY="275.0" mnemonicParsing="false" onAction="#button_OrderAction" prefHeight="44.0" prefWidth="141.0" text="我的订单">
          <font>
             <Font size="14.0" />
          </font>
       </Button>
-      <Button layoutX="37.0" layoutY="407.0" mnemonicParsing="false" prefHeight="44.0" prefWidth="141.0" text="个人中心">
+      <Button fx:id="button_Info" layoutX="109.0" layoutY="351.0" mnemonicParsing="false" onAction="#button_InfoAction" prefHeight="44.0" prefWidth="141.0" text="个人中心">
          <font>
             <Font size="14.0" />
          </font>
       </Button>
-      <Button layoutX="37.0" layoutY="342.0" mnemonicParsing="false" prefHeight="44.0" prefWidth="141.0" text="我订过的酒店">
+      <Button fx:id="button_Hotel" layoutX="349.0" layoutY="275.0" mnemonicParsing="false" onAction="#button_HotelAction" prefHeight="44.0" prefWidth="141.0" text="我订过的酒店">
          <font>
             <Font size="14.0" />
          </font>
       </Button>
-      <Button layoutX="37.0" layoutY="475.0" mnemonicParsing="false" prefHeight="44.0" prefWidth="141.0" text="申请会员">
+      <Button fx:id="button_Vip" layoutX="349.0" layoutY="351.0" mnemonicParsing="false" onAction="#button_VipAction" prefHeight="44.0" prefWidth="141.0" text="申请会员">
          <font>
             <Font size="14.0" />
          </font>
       </Button>
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#edf1f5" height="245.0" layoutX="226.0" layoutY="275.0" stroke="BLACK" strokeType="INSIDE" width="349.0" />
-      <Text layoutX="386.0" layoutY="402.0" strokeType="OUTSIDE" strokeWidth="0.0" text="广告区" />
    </children>
 </AnchorPane>

@@ -13,16 +13,48 @@ public class customerGuideController implements Initializable{
 	private UILaunch application;
 	
 	@FXML
-	private Button button1;
+	private Button button_Order;
+	
+	@FXML
+	private Button button_Hotel;
+	
+	@FXML
+	private Button button_Info;
+	
+	@FXML
+	private Button button_Vip;
+	
+	@FXML
+	private Button button_Cancel;
+	
 	
 	public void setApp(UILaunch application){
 		this.application= application;
 	}
 	
 	@FXML
-	private void button1Action(ActionEvent event) throws Exception{
-		
-		
+	private void button_OrderAction(ActionEvent event) throws Exception{
+		application.gotoorderOnUser();		
+	}
+	
+	@FXML
+	private void button_HotelAction(ActionEvent event) throws Exception{
+				
+	}
+	
+	@FXML
+	private void button_InfoAction(ActionEvent event) throws Exception{
+				
+	}
+	
+	@FXML
+	private void button_VipAction(ActionEvent event) throws Exception{
+				
+	}
+	
+	@FXML
+	private void button_CancelAction(ActionEvent event) throws Exception{
+				
 	}
 
 	@Override

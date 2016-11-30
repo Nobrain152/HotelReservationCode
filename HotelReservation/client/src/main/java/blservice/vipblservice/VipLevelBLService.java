@@ -10,8 +10,7 @@ import vo.VipVO;
 
 import java.util.ArrayList;
 
-import po.VipPO;
-import vo.UserInfoVO;
+import vo.CustomerInfoVO;
 
 public interface VipLevelBLService {
 	/**
@@ -22,7 +21,7 @@ public interface VipLevelBLService {
 	/**
 	 * 获得用户当前信用值对应的等级
 	 */
-	public int searchLevel(UserInfoVO user);
+	public int searchLevel(CustomerInfoVO user);
 	
 	/**
 	 * 修改用户等级需要的信用值

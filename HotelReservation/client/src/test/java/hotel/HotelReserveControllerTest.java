@@ -40,7 +40,7 @@ public class HotelReserveControllerTest {
 		hotel2=new HotelInfoVO("SunHotel","SunRoad","SunArea",4,"It's a nice hotel","cafe",
 				false,"7868");
 		
-		order1 = new OrderVO(new CustomerInfoVO("123", "txin", 
+		/*order1 = new OrderVO(new CustomerInfoVO("123", "txin", 
 				new ContactVO("18805156300", null), 100), 
 				OrderState.UNEXECUTED, 100, "01", "513", false, 
 				"2016-10-16 24:00", "2016-10-16 12:00", "2016-10-17 12:00", 
@@ -60,7 +60,7 @@ public class HotelReserveControllerTest {
 				OrderState.UNEXECUTED, 100, "01", "513", false, 
 				"2016-10-16 24:00", "2016-10-16 12:00", "2016-10-17 12:00", 
 				1, 1, RoomType.ROOM_STANDARD);
-		
+		*/
 		
 		//reMsg = new ResultMsg(true, "Ô¤¶¨³É¹¦");
 		reMsg = ResultMsg.SUCCESS;

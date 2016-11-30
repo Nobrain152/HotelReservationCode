@@ -13,8 +13,8 @@ import vo.PromotionHotelVO;
 
 public class PromotionHotelController implements PromotionHotelBLService{
 
-	PromotionHotel promotionHotel;
-	PromotionHotelDataService hotelDataService;
+	private PromotionHotel promotionHotel;
+	private PromotionHotelDataService hotelDataService;
 	ResultMsg resultMsg;
 	
 	public PromotionHotelController() {

@@ -33,7 +33,7 @@ public class OrderOnHotelControllerTest {
 	
 	@Before
 	public void setUp() throws RemoteException {
-		order1 = new OrderVO(new CustomerInfoVO("123", "txin", 
+		/*order1 = new OrderVO(new CustomerInfoVO("123", "txin", 
 				new ContactVO("18805156300", null), 100), 
 				OrderState.UNEXECUTED, 100, "01", "513", false, 
 				"2016-10-16 24:00", "2016-10-16 12:00", "2016-10-17 12:00", 
@@ -53,6 +53,7 @@ public class OrderOnHotelControllerTest {
 				OrderState.UNEXECUTED, 100, "01", "513", false, 
 				"2016-10-16 24:00", "2016-10-16 12:00", "2016-10-17 12:00", 
 				1, 1, RoomType.ROOM_STANDARD);
+				*/
 		hotelBLServiceImpl = new OrderOnHotelController();
 		//r1 = new ResultMsg(true, "Ö´ÐÐ³É¹¦£¡");
 		r1 = ResultMsg.SUCCESS;
@@ -62,11 +63,11 @@ public class OrderOnHotelControllerTest {
 		hotelList.add(order3);
 		hotelList.add(order4);
 		
-		r11 = new OrderVO(new CustomerInfoVO("123", "txin", 
+		/*r11 = new OrderVO(new CustomerInfoVO("123", "txin", 
 				new ContactVO("18805156300", null), 100), 
 				OrderState.UNEXECUTED, 100, "01", "513", false, 
 				"2016-10-16 24:00", "2016-10-16 12:00", "2016-10-17 12:00", 
-				1, 1, RoomType.ROOM_STANDARD);
+				1, 1, RoomType.ROOM_STANDARD);*/
 	}
 
 	@Test

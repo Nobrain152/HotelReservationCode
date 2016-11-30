@@ -29,7 +29,7 @@ public class OrderVO {
 	/**
 	 * ¼Û¸ñ
 	 */
-	public int price;
+	public double price;
 
 	/**
 	 * ¶©µ¥×´Ì¬
@@ -82,7 +82,7 @@ public class OrderVO {
 	public boolean pass;
 	
 	public OrderVO(CustomerInfoVO customerInfoVO, OrderState orderState,
-			int price, String orderID, String hotelID, boolean hasChild,
+			double price, String orderID, String hotelID, boolean hasChild,
 			String latestExecutionTime, String checkInTime, String checkOutTime,
 			int roomNumber, int peopleNumber, RoomType roomType){
 		this.initiator = customerInfoVO;
@@ -150,7 +150,7 @@ public class OrderVO {
 		return orderState;
 	}
 
-	public int getPrice() {
+	public double getPrice() {
 		return price;
 	}
 
@@ -206,7 +206,7 @@ public class OrderVO {
 		this.orderState = orderState;
 	}
 
-	public void setPrice(int price) {
+	public void setPrice(double price) {
 		this.price = price;
 	}
 

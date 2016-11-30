@@ -28,7 +28,7 @@ public class OrderOnWebControllerTest {
 	public void setUp(){
 		webBLServiceImpl = new OrderOnWebController();
 		webList = new ArrayList<OrderVO>();
-		web1 = new OrderVO(new CustomerInfoVO("123", "txin", 
+		/*web1 = new OrderVO(new CustomerInfoVO("123", "txin", 
 				new ContactVO("18805156300", null), 100), 
 				OrderState.UNEXECUTED, 100, "01", "513", false, 
 				"2016-10-16 24:00", "2016-10-16 12:00", "2016-10-17 12:00", 
@@ -40,7 +40,7 @@ public class OrderOnWebControllerTest {
 				new ContactVO("18805156300", null), 100), 
 				OrderState.UNEXECUTED, 100, "01", "513", false, 
 				"2016-10-16 24:00", "2016-10-16 12:00", "2016-10-17 12:00", 
-				1, 1, RoomType.ROOM_STANDARD);
+				1, 1, RoomType.ROOM_STANDARD);*/
 	}
 	
 	@Test

@@ -35,7 +35,7 @@ public class OrderPO implements Serializable {
 	/**
 	 * ¼Û¸ñ
 	 */
-	public int price;
+	public double price;
 
 	/**
 	 * ¶©µ¥×´Ì¬
@@ -88,7 +88,7 @@ public class OrderPO implements Serializable {
 	public boolean pass;
 	
 	public OrderPO(CustomerInfoPO customerInfoPO, OrderState orderState,
-			int price, String orderID, String hotelID, boolean hasChild,
+			double price, String orderID, String hotelID, boolean hasChild,
 			String latestExecutionTime, String checkInTime, String checkOutTime,
 			int roomNumber, int peopleNumber, RoomType roomType){
 		this.initiator = customerInfoPO;
@@ -156,7 +156,7 @@ public class OrderPO implements Serializable {
 		return orderState;
 	}
 
-	public int getPrice() {
+	public double getPrice() {
 		return price;
 	}
 

@@ -28,7 +28,7 @@ public class OrderDataServiceImplTest {
 	@Before
 	public void setUp(){
 		dataServiceImpl = new OrderDataServiceImpl();
-		order1 = new OrderPO(new CustomerInfoPO("123", "txin", 
+		/*order1 = new OrderPO(new CustomerInfoPO("123", "txin", 
 				new ContactPO("18805156300", null), 100), 
 				OrderState.UNEXECUTED, 100, "01", "513", false, 
 				"2016-10-16 24:00", "2016-10-16 12:00", "2016-10-17 12:00", 
@@ -47,7 +47,7 @@ public class OrderDataServiceImplTest {
 				new ContactPO("18805156300", null), 100), 
 				OrderState.CANCELLED, 100, "01", "513", false, 
 				"2016-10-16 24:00", "2016-10-16 12:00", "2016-10-17 12:00", 
-				1, 1, RoomType.ROOM_STANDARD);
+				1, 1, RoomType.ROOM_STANDARD);*/
 		list = new ArrayList<OrderPO>();
 	}
 	

@@ -18,8 +18,8 @@ public class CreditControllerTest {
 	
 	@Before
 	public void setUp() throws Exception {
-		user1 = new CustomerInfoVO("10101010", "╩ф©╜нд", new ContactVO("13270898633", null),100);
-		user2 = new CustomerInfoVO("20202020", "╩ф©╜нд", new ContactVO("13270898633", null),100);
+		//user1 = new CustomerInfoVO("10101010", "╩ф©╜нд", new ContactVO("13270898633", null),100);
+		//user2 = new CustomerInfoVO("20202020", "╩ф©╜нд", new ContactVO("13270898633", null),100);
 	}
 	
 	@Test

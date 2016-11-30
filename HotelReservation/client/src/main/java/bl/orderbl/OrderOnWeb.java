@@ -62,7 +62,7 @@ public class OrderOnWeb {
 			order.setOrderState(OrderState.CANCELLED);
 			CreditPO creditPO = creditDataService.findByUserID(order.getOrderID());
 			creditPO.setCreditResult(order.getInitiator().getCredit()
-					+ order.getPrice());
+					+ (int)order.getPrice());
 		}
 		resultMsg = webDataService.update(order);
 		return resultMsg;

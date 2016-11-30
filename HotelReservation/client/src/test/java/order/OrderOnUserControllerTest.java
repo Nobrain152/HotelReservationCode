@@ -31,7 +31,7 @@ public class OrderOnUserControllerTest {
 	
 	@Before
 	public void setUp() throws RemoteException {
-		order1 = new OrderVO(new CustomerInfoVO("123", "txin", 
+		/*order1 = new OrderVO(new CustomerInfoVO("123", "txin", 
 				new ContactVO("18805156300", null), 100), 
 				OrderState.UNEXECUTED, 100, "01", "513", false, 
 				"2016-10-16 24:00", "2016-10-16 12:00", "2016-10-17 12:00", 
@@ -50,7 +50,7 @@ public class OrderOnUserControllerTest {
 				new ContactVO("18805156300", null), 100), 
 				OrderState.UNEXECUTED, 100, "01", "513", false, 
 				"2016-10-16 24:00", "2016-10-16 12:00", "2016-10-17 12:00", 
-				1, 1, RoomType.ROOM_STANDARD);
+				1, 1, RoomType.ROOM_STANDARD);*/
 		userBLServiceImpl = new OrderOnUserController();
 		userBLServiceImpl.createOrder(order1);
 		userBLServiceImpl.createOrder(order2);

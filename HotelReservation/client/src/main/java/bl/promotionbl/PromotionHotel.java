@@ -17,7 +17,7 @@ import vo.PromotionHotelVO;
  */
 public class PromotionHotel {
 	
-	PromotionHotelDataService promotionHotelDataService;
+	private PromotionHotelDataService promotionHotelDataService;
 	ResultMsg resultMsg = ResultMsg.FAIL;
 	
 	public PromotionHotel(PromotionHotelDataService promotionHotelDataService) {
@@ -51,7 +51,7 @@ public class PromotionHotel {
 	 * @throws RemoteException 
 	 */
 	public ResultMsg changeOverCut(int number,double ratio,String hotelID) throws RemoteException {
-		PromotionHotelType type = PromotionHotelType.BIRTH_PROMOTION;
+		PromotionHotelType type = PromotionHotelType.OVERTHREE_PROMOTION;
 		ArrayList<PromotionHotelPO> promotion = promotionHotelDataService.findByType(type,hotelID);
 		for(PromotionHotelPO po : promotion) {
 			if(po.getNumber() == number) {
@@ -71,7 +71,7 @@ public class PromotionHotel {
 	 * @throws RemoteException 
 	 */
 	public ResultMsg changeHotelCustomCut(String timeBegin, String timeOver, double ratio,String hotelID) throws RemoteException {
-		PromotionHotelType type = PromotionHotelType.BIRTH_PROMOTION;
+		PromotionHotelType type = PromotionHotelType.HOTEL_CUSTOM_PROMOTION;
 		ArrayList<PromotionHotelPO> promotion = promotionHotelDataService.findByType(type,hotelID);
 		for(PromotionHotelPO po : promotion) {
 			if(po.getTimeBegin().equals(timeBegin) && po.getTimeOver().equals(timeOver)) {
@@ -90,7 +90,7 @@ public class PromotionHotel {
 	 * @throws RemoteException 
 	 */
 	public ResultMsg changeJoin(String businessName, double ratio,String hotelID) throws RemoteException {
-		PromotionHotelType type = PromotionHotelType.BIRTH_PROMOTION;
+		PromotionHotelType type = PromotionHotelType.JOIN_PROMOTION;
 		ArrayList<PromotionHotelPO> promotion = promotionHotelDataService.findByType(type,hotelID);
 		for(PromotionHotelPO po : promotion) {
 			if(po.getBusinessName().equals(businessName)) {

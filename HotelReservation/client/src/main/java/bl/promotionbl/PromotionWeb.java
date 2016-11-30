@@ -14,8 +14,8 @@ import vo.PromotionWebVO;
 
 public class PromotionWeb{
 
-	PromotionWebDataService promotionWebDataService;
-	ResultMsg resultMsg = ResultMsg.FAIL;
+	private PromotionWebDataService promotionWebDataService;
+	private ResultMsg resultMsg = ResultMsg.FAIL;
 	
 	public PromotionWeb(PromotionWebDataService promotionWebDataService) {
 		this.promotionWebDataService = promotionWebDataService;

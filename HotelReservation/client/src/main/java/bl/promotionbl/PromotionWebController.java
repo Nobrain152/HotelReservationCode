@@ -13,8 +13,8 @@ import vo.PromotionWebVO;
 
 public class PromotionWebController implements PromotionWebBLService{
 	
-	PromotionWeb promotionWeb;
-	PromotionWebDataService webDataService;
+	private PromotionWeb promotionWeb;
+	private PromotionWebDataService webDataService;
 	ResultMsg resultMsg = ResultMsg.FAIL;
 	
 	public PromotionWebController() {

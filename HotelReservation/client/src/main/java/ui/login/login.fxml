@@ -10,9 +10,9 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ui.login.loginController">
    <children>
-      <Button layoutX="256.0" layoutY="319.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="89.0" text="登录" />
+      <Button fx:id="login" layoutX="256.0" layoutY="319.0" mnemonicParsing="false" onAction="#loginAction" prefHeight="38.0" prefWidth="89.0" text="登录" />
       <Circle fill="WHITE" layoutX="300.0" layoutY="106.0" radius="70.0" stroke="#e4d6d6" strokeType="INSIDE">
          <effect>
             <DropShadow />

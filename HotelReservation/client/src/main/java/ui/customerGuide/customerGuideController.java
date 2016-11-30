@@ -5,20 +5,22 @@ import java.util.ResourceBundle;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import ui.UILaunch;
 
 public class customerGuideController implements Initializable{
+	private UILaunch application;
 	
 	@FXML
 	private Button button1;
 	
+	public void setApp(UILaunch application){
+		this.application= application;
+	}
+	
 	@FXML
 	private void button1Action(ActionEvent event) throws Exception{
-		
 		
 		
 	}

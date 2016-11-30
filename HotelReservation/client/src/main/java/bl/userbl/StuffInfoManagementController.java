@@ -1,19 +1,29 @@
 package bl.userbl;
 
+import java.rmi.RemoteException;
+
 import blservice.userblservice.StuffIndividualInformationManagementBLService;
+import dataservice.userdataservice.UserManagementDataService;
+import net.RMIManage;
+import util.DataServiceType;
 import vo.StuffInfoVO;
 
 
 /**
  * 酒店管理人员管理个人信息
- * @author Administrator
+ * @author 曹畅
  *
  */
 public class StuffInfoManagementController implements StuffIndividualInformationManagementBLService {
 
 	private HotelStuff stuff;
-	public StuffInfoManagementController(String userid){
-		stuff=new HotelStuff(userid);
+	private UserManagementDataService userManagementDataService;
+	
+	
+	public StuffInfoManagementController(){
+		userManagementDataService = (UserManagementDataService)RMIManage.
+				getDataService(DataServiceType.UserManagementDataService);
+		stuff=new HotelStuff(userManagementDataService);
 	}
 	
 	/**
@@ -22,7 +32,12 @@ public class StuffInfoManagementController implements StuffIndividualInformation
 	 * @return 酒店管理人员信息VO
 	 */
 	public StuffInfoVO IndividualBaseInfolnquiry(String userid){
-		return stuff.IndividualBaseInfolnquiry(userid);
+		try {
+			return stuff.IndividualBaseInfolnquiry(userid);
+		} catch (RemoteException e) {
+			e.printStackTrace();
+			return null;
+		}
 	}
 			
 	
@@ -33,7 +48,12 @@ public class StuffInfoManagementController implements StuffIndividualInformation
 	 * @return 修改结果
 	 */
 	public boolean IndividualBaseInfoModification(String userid,StuffInfoVO vo2){
-		return stuff.IndividualBaseInfoModification(userid, vo2);
+		try {
+			return stuff.IndividualBaseInfoModification(userid, vo2);
+		} catch (RemoteException e) {
+			e.printStackTrace();
+			return false;
+		}
 	}
 			
 }

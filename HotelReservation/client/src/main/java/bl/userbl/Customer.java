@@ -19,7 +19,11 @@ import vo.CreditVO;
 import vo.OrderVO;
 import vo.UserInfoVO;
 import vo.VipVO;
-
+/**
+ * 客户类
+ * @author 曹畅
+ *
+ */
 public class Customer extends User {
 	private HotelSearchController hotel;
 	private HotelEvaluateController eval;
@@ -35,6 +39,7 @@ public class Customer extends User {
 	 * @param 用户ID
 	 */
 	public Customer(CustomerManagementDataService userdataservice){
+		super(userdataservice);
 		hotel=new HotelSearchController();
 		eval=new HotelEvaluateController();
 		order=new OrderOnUserController();
@@ -111,7 +116,7 @@ public class Customer extends User {
 	 */
 	public boolean IndividualBaseInfoModification(String userid,CustomerInfoVO vo2)throws RemoteException{
 		ContactPO contactPO = (ContactPO)VOPOchange.VOtoPO(vo2.getContact());
-		CustomerInfoPO po2 = new CustomerInfoPO(vo2.getUserID(),vo2.getUsername(),contactPO,vo2.getCredit());
+		CustomerInfoPO po2 = new CustomerInfoPO(vo2.getUserID(),vo2.getUsername(),contactPO,vo2.getCredit(),vo2.getBirthday());
 		return userdataservice.SetUserBaseInfo(userid,po2);
 	}
 			

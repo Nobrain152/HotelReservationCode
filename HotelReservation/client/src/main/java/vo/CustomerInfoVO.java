@@ -5,7 +5,7 @@ import java.util.ArrayList;
 /**
  * 客户信息
  * 
- * @author lenovo
+ * @author 曹畅
  *
  */
 public class CustomerInfoVO extends UserInfoVO {
@@ -18,19 +18,25 @@ public class CustomerInfoVO extends UserInfoVO {
 	/**
 	 * 是否会员
 	 */
-	boolean isMember;
+	private boolean isMember;
+	
+	/*
+	 * 生日
+	 */
+	private String birthday;
 	
 	ArrayList<String> orderIDList;
 	ArrayList<String> hotelIDList;
 	ArrayList<String> creditList;
 
-	public CustomerInfoVO(String userid, String username, ContactVO contact, int credit) {
+	public CustomerInfoVO(String userid, String username, ContactVO contact, int credit,String birthday) {
 		super(userid, username, contact);
 		this.credit = credit;
 		this.isMember = false;
 		this.orderIDList = new ArrayList<String>();
 		this.hotelIDList = new ArrayList<String>();
 		this.creditList = new ArrayList<String>();
+		this.birthday=birthday;
 	}
 
 	public int getCredit() {
@@ -39,6 +45,10 @@ public class CustomerInfoVO extends UserInfoVO {
 
 	public boolean getIsMember() {
 		return isMember;
+	}
+	
+	public String getBirthday(){
+		return birthday;
 	}
 	
 	public ArrayList<String> getOrderIDList() {
@@ -67,5 +77,9 @@ public class CustomerInfoVO extends UserInfoVO {
 		if (hotelIDList.indexOf(id) == -1) {
 			hotelIDList.add(id);
 		}
+	}
+	
+	public void setBirthday(String birthday){
+		this.birthday=birthday;
 	}
 }

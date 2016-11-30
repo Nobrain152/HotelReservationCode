@@ -40,7 +40,6 @@ public class CustomerHotelOperationController implements CustomerHotelOperationB
 		try {
 			return customer.HotelSearch(vo);
 		} catch (RemoteException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 			return null;
 		}
@@ -58,7 +57,6 @@ public class CustomerHotelOperationController implements CustomerHotelOperationB
 	   try {
 		customer.OederCreat(hotelID, vo2);
 	} catch (RemoteException e) {
-		// TODO Auto-generated catch block
 		e.printStackTrace();
 	}
 		
@@ -73,7 +71,6 @@ public class CustomerHotelOperationController implements CustomerHotelOperationB
 		try {
 			customer.HotelEvaluate(vo);
 		} catch (RemoteException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}

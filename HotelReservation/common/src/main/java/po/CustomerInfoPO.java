@@ -5,7 +5,7 @@ import java.util.ArrayList;
 
 /**
  * 客户信息
- * @author lenovo
+ * @author 曹畅
  *
  */
 public class CustomerInfoPO extends UserInfoPO implements Serializable{
@@ -25,15 +25,21 @@ public class CustomerInfoPO extends UserInfoPO implements Serializable{
 	 */
 	boolean isMember;
 	
+	/*
+	 * 生日
+	 */
+	private String birthday;
+	
 	ArrayList<String> orderIDList;
 	ArrayList<String> hotelIDList;
 
-	public CustomerInfoPO(String userid, String username, ContactPO contact, int credit) {
+	public CustomerInfoPO(String userid, String username, ContactPO contact, int credit,String birthday) {
 		super(userid, username, contact);
 		this.credit = credit;
 		this.isMember = false;
 		this.orderIDList = new ArrayList<String>();
 		this.hotelIDList = new ArrayList<String>();
+		this.birthday=birthday;
 	}
 
 	public int getCredit() {
@@ -42,6 +48,10 @@ public class CustomerInfoPO extends UserInfoPO implements Serializable{
 
 	public boolean getIsMember() {
 		return isMember;
+	}
+	
+	public String getBirthday(){
+		return birthday;
 	}
 	
 	public ArrayList<String> getOrderIDList() {
@@ -66,5 +76,9 @@ public class CustomerInfoPO extends UserInfoPO implements Serializable{
 		if (hotelIDList.indexOf(id) == -1) {
 			hotelIDList.add(id);
 		}
+	}
+	
+	public void setBirthday(String birthday){
+		this.birthday=birthday;
 	}
 }

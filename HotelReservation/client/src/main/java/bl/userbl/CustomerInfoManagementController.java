@@ -14,6 +14,11 @@ import vo.OrderVO;
 import vo.UserInfoVO;
 import vo.VipVO;
 
+/**
+ * 客户对个人信息的操作
+ * @author 曹畅
+ *
+ */
 public class CustomerInfoManagementController
 		implements CustomerIndividualInformationManagementBLService {
 	
@@ -40,7 +45,6 @@ public class CustomerInfoManagementController
 		try {
 			return customer.IndividualBaseInfolnquiry(userid);
 		} catch (RemoteException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 			return null;
 		}
@@ -56,7 +60,6 @@ public class CustomerInfoManagementController
 		try {
 			return customer.IndividualBaseInfoModification(userid, vo2);
 		} catch (RemoteException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 			return false;
 		}
@@ -71,7 +74,6 @@ public class CustomerInfoManagementController
 		try {
 			return customer.IndividualOrderInquiry(userid);
 		} catch (RemoteException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 			return null;
 		}
@@ -86,7 +88,6 @@ public class CustomerInfoManagementController
 		try {
 			return customer.IndividualHotelInquiry(userid);
 		} catch (RemoteException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 			return null;
 		}
@@ -101,7 +102,6 @@ public class CustomerInfoManagementController
 		try {
 			return 	customer.IndividualCredictInquiry(userid);
 		} catch (RemoteException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 			return null;
 		}
@@ -110,14 +110,12 @@ public class CustomerInfoManagementController
 
 	@Override
 	public void HotelMemberRegisterApply(String hotelID, VipVO vo2) {
-		// TODO Auto-generated method stub
 		
 	}
 
 
 	@Override
 	public void WebMemberRegisterApply(VipVO vo2) {
-		// TODO Auto-generated method stub
 		
 	}
 			

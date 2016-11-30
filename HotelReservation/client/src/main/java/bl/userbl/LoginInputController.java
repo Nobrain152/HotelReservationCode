@@ -1,6 +1,11 @@
 package bl.userbl;
 
+import java.rmi.RemoteException;
+
 import blservice.userblservice.LoginInputBLService;
+import dataservice.userdataservice.UserManagementDataService;
+import net.RMIManage;
+import util.DataServiceType;
 import vo.LoginInVO;
 
 /**
@@ -10,7 +15,18 @@ import vo.LoginInVO;
  */
 public class LoginInputController implements LoginInputBLService {
 
-	private User user = new User();
+	private User user;
+	private UserManagementDataService data;
+	
+	/**
+	 * 构造方法
+	 * @param 用户ID
+	 */
+	public LoginInputController(){
+		data= (UserManagementDataService)RMIManage.
+				getDataService(DataServiceType.UserManagementDataService);
+		user=new User(data);
+	}
 	
 	
 	/**
@@ -19,7 +35,12 @@ public class LoginInputController implements LoginInputBLService {
 	 * @return 登录结果
 	 */
     public boolean  LogIn(LoginInVO vo){
-    	return user.LogIn(vo);
+    	try {
+			return user.LogIn(vo);
+		} catch (RemoteException e) {
+			e.printStackTrace();
+			return false;
+		}
     }
 	
 	
@@ -29,7 +50,12 @@ public class LoginInputController implements LoginInputBLService {
 	 * @return 登出结果
 	 */
 	public boolean LogOut(boolean ok){
-		return user.LogOut(ok);
+		try {
+			return user.LogOut(ok);
+		} catch (RemoteException e) {
+			e.printStackTrace();
+			return false;
+		}
 	}
 	
 	
@@ -39,6 +65,11 @@ public class LoginInputController implements LoginInputBLService {
 	 * @return 注册结果
 	 */
 	public String Register(LoginInVO vo){
-		return user.Register(vo);
+		try {
+			return user.Register(vo);
+		} catch (RemoteException e) {
+			e.printStackTrace();
+			return null;
+		}
 	}
 }

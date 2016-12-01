@@ -13,7 +13,7 @@ import vo.HotelInfoVO;
 
 /**
  * 
- * @author gyf
+ * @author ²Ü³©
  *
  */
 public class HotelInfoMaintainController implements HotelInfoMaintainBLService{
@@ -52,9 +52,15 @@ public class HotelInfoMaintainController implements HotelInfoMaintainBLService{
     }
 
 
-	public ResultMsg submitInfo(HotelInfoVO vo1) {
-		// TODO Auto-generated method stub
-		return null;
+
+
+	@Override
+	public ResultMsg addHotel(HotelInfoVO hotelInfoVO) {
+		try {
+			return hotelInfoMaintain.addHotel(hotelInfoVO);
+		} catch (RemoteException e) {
+			return ResultMsg.FAIL;
+		}
 	}
 
 }

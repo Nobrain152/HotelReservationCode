@@ -7,12 +7,11 @@ import blservice.hotelblservice.HotelInfoCheckBLService;
 import dataservice.hoteldataservice.HotelInfoDataService;
 import net.RMIManage;
 import util.DataServiceType;
-import util.ResultMsg;
 import vo.HotelInfoVO;
 
 /**
  * 
- * @author gyf
+ * @author ²Ü³©
  *
  */
 public class HotelInfoCheckController implements HotelInfoCheckBLService{
@@ -37,5 +36,15 @@ public class HotelInfoCheckController implements HotelInfoCheckBLService{
 		}
 		return null;
     }
+
+
+	@Override
+	public ArrayList<HotelInfoVO> hotelScan() {
+		try {
+			return hotelInfoCheck.hotelScan();
+		} catch (RemoteException e) {
+			return null;
+		}
+	}
       
 }

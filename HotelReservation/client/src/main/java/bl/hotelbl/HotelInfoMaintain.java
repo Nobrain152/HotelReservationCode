@@ -10,7 +10,7 @@ import vo.HotelInfoVO;
 
 /**
  * 维护酒店基本信息
- * @author gyf
+ * @author 曹畅
  *
  */
 public class HotelInfoMaintain {
@@ -40,7 +40,24 @@ public class HotelInfoMaintain {
 	 * @throws RemoteException
 	 */
     public ResultMsg checkInfo(HotelInfoVO hotelInfoVO)  throws RemoteException{
-    	// TODO
-    	return ResultMsg.SUCCESS;
+    	if((hotelInfoVO.getAddress()==null)||(hotelInfoVO.getArea()==null)||(hotelInfoVO.getName()==null)||(hotelInfoVO.getFacility()==null)){
+    		return ResultMsg.FAIL;
+    	}
+    	else{
+    		return ResultMsg.SUCCESS;
+    	}
+    }
+    
+    /**
+     * 添加酒店
+     * @param hotelInfoVO
+     * @return
+     */
+    public ResultMsg addHotel(HotelInfoVO hotelInfoVO)throws RemoteException{
+    	try {
+			return hotelInfoData.insert((HotelInfoPO)VOPOchange.VOtoPO(hotelInfoVO));
+		} catch (RemoteException e) {
+			return ResultMsg.FAIL;
+		}
     }
 }

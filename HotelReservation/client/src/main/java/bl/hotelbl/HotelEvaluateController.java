@@ -14,7 +14,7 @@ import vo.HotelEvaluateVO;
 
 /**
  * 
- * @author gyf
+ * @author ²Ü³©
  *
  */
 public class HotelEvaluateController implements HotelEvaluateBLService{
@@ -34,10 +34,10 @@ public class HotelEvaluateController implements HotelEvaluateBLService{
 		try {
 			return hotelEvaluate.inputEvaluate(evaluateInfoVO);
 		} catch (RemoteException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
+			return null;
 		}
-		return null;
+		
 	}
 
 	@Override
@@ -45,10 +45,19 @@ public class HotelEvaluateController implements HotelEvaluateBLService{
 		try {
 			return hotelEvaluate.checkOrder(evaluateInfoVO);
 		} catch (RemoteException  e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
+			return null;
 		}
-		return null;
+		
+	}
+
+	@Override
+	public ArrayList<HotelEvaluateVO> getEvaluate(String hotelid) {
+		try {
+			return hotelEvaluate.getEvaluate(hotelid);
+		} catch (RemoteException e) {
+			return null;
+		}
 	}
 	
 }

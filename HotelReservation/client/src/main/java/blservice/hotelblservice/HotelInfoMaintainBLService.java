@@ -5,7 +5,7 @@ import vo.HotelInfoVO;
 
 /**
  * 维护酒店基本信息的接口
- * @author gyf
+ * @author 曹畅
  *
  */
 public interface HotelInfoMaintainBLService {
@@ -23,5 +23,12 @@ public interface HotelInfoMaintainBLService {
 	 * @return
 	 */
     public ResultMsg checkInfo(HotelInfoVO hotelInfoVO);
+    
+    /**
+     * 添加酒店
+     * @param hotelInfoVO
+     * @return
+     */
+    public ResultMsg addHotel(HotelInfoVO hotelInfoVO);
   
 }

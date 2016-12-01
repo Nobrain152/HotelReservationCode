@@ -1,6 +1,7 @@
 package bl.hotelbl;
 
 import java.rmi.RemoteException;
+import java.util.ArrayList;
 
 import bl.VOPOchange;
 import dataservice.hoteldataservice.HotelEvaluateDataService;
@@ -10,7 +11,7 @@ import vo.HotelEvaluateVO;
 
 /**
  * 评价酒店
- * @author gyf
+ * @author 曹畅
  *
  */
 public class HotelEvaluate {
@@ -29,8 +30,12 @@ public class HotelEvaluate {
 	 * @throws RemoteException
 	 */
 	public ResultMsg inputEvaluate(HotelEvaluateVO evaluateInfoVO) throws RemoteException{
-		HotelEvaluatePO evaluatePO = (HotelEvaluatePO)VOPOchange.VOtoPO(evaluateInfoVO);
-		result = evaluateData.insert(evaluatePO);
+		if(checkOrder(evaluateInfoVO)==ResultMsg.SUCCESS){
+			HotelEvaluatePO evaluatePO = (HotelEvaluatePO)VOPOchange.VOtoPO(evaluateInfoVO);
+			result = evaluateData.insert(evaluatePO);
+			return result;
+		}
+		result=ResultMsg.FAIL;
 		return result;
 	}
 
@@ -48,5 +53,24 @@ public class HotelEvaluate {
 			result= ResultMsg.FAIL;
 		return result;
 	}
+	
+	/**
+	    * 查看某一酒店的评价
+	    * @param hotelid
+	    * @return
+	    */
+	   public ArrayList<HotelEvaluateVO> getEvaluate(String hotelid)throws RemoteException{
+		   ArrayList<HotelEvaluateVO> vos=new ArrayList<HotelEvaluateVO>();
+		   ArrayList<HotelEvaluatePO> pos;
+		try {
+			pos = evaluateData.find(hotelid);
+		} catch (RemoteException e) {
+			return null;
+		}
+		   for(int i=0;i<pos.size();i++){
+			   vos.add((HotelEvaluateVO)VOPOchange.POtoVO(pos.get(i)));
+		   }
+		   return vos;
+	   }
    
 }

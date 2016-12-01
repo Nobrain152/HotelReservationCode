@@ -21,6 +21,11 @@ import vo.OrderVO;
 import vo.PromotionWebVO;
 import vo.UserInfoVO;
 
+/**
+ * 网站营销人员类
+ * @author 曹畅
+ *
+ */
 public class WebStuff extends User{
 
 	private UserManagementDataService user;

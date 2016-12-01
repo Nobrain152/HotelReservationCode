@@ -53,12 +53,16 @@ public class HotelEvaluateDataServiceImpl implements HotelEvaluateDataService{
 	/**
 	 * œ‘ æ
 	 */
-	public ArrayList<HotelEvaluatePO>show() throws RemoteException{
-		return POs;
-	}
+	
 
 	@Override
 	public HotelEvaluatePO findByID(String ID) throws RemoteException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public ArrayList<HotelEvaluatePO> show(String hotelid) throws RemoteException {
 		// TODO Auto-generated method stub
 		return null;
 	}

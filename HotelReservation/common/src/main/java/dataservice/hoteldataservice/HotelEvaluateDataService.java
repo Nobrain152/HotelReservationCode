@@ -45,7 +45,7 @@ public interface HotelEvaluateDataService {
 	 * @return ArrayList<HotelEvaluatePO>
 	 * @throws RemoteException
 	 */
-	public ArrayList<HotelEvaluatePO> show() throws RemoteException;
+	public ArrayList<HotelEvaluatePO> show(String hotelid) throws RemoteException;
 
 
 

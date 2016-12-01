@@ -1,5 +1,7 @@
 package blservice.hotelblservice;
 
+import java.util.ArrayList;
+
 import vo.HotelInfoVO;
 
 /**
@@ -15,5 +17,11 @@ public interface HotelInfoCheckBLService {
 	 * @return
 	 */
     public HotelInfoVO checkHotelInfo(String hotelid);
+    
+    /**
+	 * 查看酒店列表方法
+	 * @return
+	 */
+	public ArrayList<HotelInfoVO> hotelScan();
   
 }

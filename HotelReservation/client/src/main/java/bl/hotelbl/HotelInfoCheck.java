@@ -2,6 +2,7 @@
 package bl.hotelbl;
 
 import java.rmi.RemoteException;
+import java.util.ArrayList;
 
 import bl.VOPOchange;
 import dataservice.hoteldataservice.HotelInfoDataService;
@@ -10,7 +11,7 @@ import vo.HotelInfoVO;
 
 /**
  * 查看酒店信息
- * @author gyf
+ * @author 曹畅
  *
  */
 public class HotelInfoCheck {
@@ -31,4 +32,18 @@ public class HotelInfoCheck {
 		HotelInfoPO hotelInfoPO = hotelData.findByID(hotelid);
     	return (HotelInfoVO)VOPOchange.POtoVO(hotelInfoPO);
     }
+	
+	
+	/**
+	 * 查看酒店列表方法
+	 * @return
+	 */
+	public ArrayList<HotelInfoVO> hotelScan()throws RemoteException{
+		ArrayList<HotelInfoVO> vos=new ArrayList<HotelInfoVO>();
+		ArrayList<HotelInfoPO> pos=hotelData.show();
+		for(int i=0;i<pos.size();i++){
+			vos.add((HotelInfoVO)VOPOchange.POtoVO(pos.get(i)));
+		}
+		return vos;
+	}
 }

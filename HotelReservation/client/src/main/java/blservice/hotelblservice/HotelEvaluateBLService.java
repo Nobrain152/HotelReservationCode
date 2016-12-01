@@ -1,11 +1,13 @@
 package blservice.hotelblservice;
 
+import java.util.ArrayList;
+
 import util.ResultMsg;
 import vo.HotelEvaluateVO;
 
 /**
  * 评价酒店的接口
- * @author gyf
+ * @author 曹畅
  *
  */
 public interface HotelEvaluateBLService {
@@ -23,5 +25,12 @@ public interface HotelEvaluateBLService {
     * @return
     */
    public ResultMsg checkOrder(HotelEvaluateVO orderListVO);
+   
+   /**
+    * 查看某一酒店的评价
+    * @param hotelid
+    * @return
+    */
+   public ArrayList<HotelEvaluateVO> getEvaluate(String hotelid);
   
 }

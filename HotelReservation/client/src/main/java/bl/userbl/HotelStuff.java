@@ -67,7 +67,7 @@ public class HotelStuff extends User {
 	 * @return ÐÞ¸Ä½á¹û
 	 */
 	public ResultMsg HotelInformationModification(HotelInfoVO vo1,String userid)throws RemoteException{
-		return mod.submitInfo(vo1);
+		return mod.inputHotelInfo(vo1);
 	}
 			
 	

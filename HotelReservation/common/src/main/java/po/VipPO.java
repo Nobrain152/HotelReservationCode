@@ -39,7 +39,7 @@ public class VipPO implements Serializable{
 	 */
 	int level;
 	
-	public VipPO(String name,ArrayList<int[][]> levelList,int level,VipType type) {
+	public VipPO(String name,int level,VipType type) {
 		//this.levelList = levelList;
 		this.level = level;
 		this.name = name;

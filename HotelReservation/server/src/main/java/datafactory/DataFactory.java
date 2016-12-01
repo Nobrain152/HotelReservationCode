@@ -1,5 +1,7 @@
 package datafactory;
 
+import java.rmi.RemoteException;
+
 import data.creditdata.CreditDataServiceImpl;
 import data.vipdata.VipDataSerivceImpl;
 import dataservice.creditdataservice.CreditDataService;
@@ -18,7 +20,7 @@ public class DataFactory {
 		// TODO Auto-generated constructor stub
 	}
 	
-	public DataFactory getDataFactory(){
+	public DataFactory getDataFactory()throws RemoteException{
 		if(dataFactory == null){
 			dataFactory = new DataFactory();
 		}
@@ -26,11 +28,11 @@ public class DataFactory {
 	}
 	
 	//先实现一个的构建，其余的这个成功之后批量创建
-	public CreditDataService getCreditDataServiceImpl() {
+	public CreditDataService getCreditDataServiceImpl() throws RemoteException{
 		return new CreditDataServiceImpl();
 	}
 	
-	public static VipDataService getVipDataService(){
+	public static VipDataService getVipDataService() throws RemoteException{
 		return new VipDataSerivceImpl();
 	}
 	

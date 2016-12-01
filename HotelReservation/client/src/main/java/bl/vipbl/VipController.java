@@ -14,7 +14,7 @@ public class VipController implements VipLevelBLService{
 	private Vip vip;
 	private VipDataService vipDataService;
 	
-	public VipController() {
+	public VipController() throws RemoteException {
 		vipDataService = DataFactory.getVipDataService();
 		vip = new Vip(vipDataService);
 	}

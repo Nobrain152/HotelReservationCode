@@ -1,6 +1,9 @@
 package blservice.creditblservice;
 
+import java.util.ArrayList;
+
 import util.ResultMsg;
+import vo.CreditVO;
 import vo.CustomerInfoVO;
 
 /**
@@ -30,4 +33,10 @@ public interface CreditBLService{
 	 */
 	public ResultMsg changeCredit(CustomerInfoVO client,int value);
 
+	/**
+	 * 获取信用值列表
+	 * @param userID
+	 * @return
+	 */
+	public ArrayList<CreditVO> getCreditList(String userID);
 }

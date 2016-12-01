@@ -1,12 +1,14 @@
 package bl.creditbl;
 
 import java.rmi.RemoteException;
+import java.util.ArrayList;
 
 import blservice.creditblservice.CreditBLService;
 import dataservice.creditdataservice.CreditDataService;
 import net.RMIManage;
 import util.DataServiceType;
 import util.ResultMsg;
+import vo.CreditVO;
 import vo.CustomerInfoVO;
 
 public class CreditController implements CreditBLService{
@@ -62,6 +64,18 @@ public class CreditController implements CreditBLService{
 			e.printStackTrace();
 		}
 		return ResultMsg.FAIL;
+	}
+
+	@Override
+	public ArrayList<CreditVO> getCreditList(String userID) {
+		ArrayList<CreditVO> creditVOs = new ArrayList<>();
+		try {
+			creditVOs = credit.getCreditList(userID);
+		} catch (RemoteException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return creditVOs;
 	}
 
 }

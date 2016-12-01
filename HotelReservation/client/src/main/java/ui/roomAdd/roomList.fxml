@@ -42,14 +42,14 @@
                   <TableColumn prefWidth="145.0" text="预计退房时间" />
               </columns>
             </TableView>
-            <Button layoutX="471.0" layoutY="346.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="72.0" text="添加客房" />
+            <Button fx:id="btn_Add" layoutX="471.0" layoutY="346.0" mnemonicParsing="false" onAction="#btn_AddAction" prefHeight="30.0" prefWidth="72.0" text="添加客房" />
             <Button layoutX="574.0" layoutY="346.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="72.0" text="保存修改" />
          </children>
       </Pane>
       <Pane layoutY="468.0" prefHeight="62.0" prefWidth="679.0">
          <children>
             <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#b4b4b4" height="62.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="679.0" />
-            <Button layoutX="582.0" layoutY="17.0" mnemonicParsing="false" prefHeight="28.0" prefWidth="61.0" text="返回">
+            <Button fx:id="btn_Cancel" layoutX="582.0" layoutY="17.0" mnemonicParsing="false" onAction="#btn_CancelAction" prefHeight="28.0" prefWidth="61.0" text="返回">
                <font>
                   <Font size="14.0" />
                </font>

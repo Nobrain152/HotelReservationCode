@@ -20,7 +20,7 @@
             <Font size="14.0" />
          </font>
       </Text>
-      <Button layoutX="521.0" layoutY="417.0" mnemonicParsing="false" prefHeight="28.0" prefWidth="66.0" text="返回" />
+      <Button fx:id="button_Cancel" layoutX="521.0" layoutY="417.0" mnemonicParsing="false" onAction="#button_CancelAction" prefHeight="28.0" prefWidth="66.0" text="返回" />
       <Button layoutX="48.0" layoutY="295.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="90.0" text="我的订单">
          <font>
             <Font size="14.0" />
@@ -36,7 +36,7 @@
             <Font size="14.0" />
          </font>
       </Button>
-      <Button layoutX="165.0" layoutY="350.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="90.0" text="信息修改">
+      <Button fx:id="button_Modify" layoutX="165.0" layoutY="350.0" mnemonicParsing="false" onAction="#button_ModifyAction" prefHeight="37.0" prefWidth="90.0" text="信息修改">
          <font>
             <Font size="14.0" />
          </font>

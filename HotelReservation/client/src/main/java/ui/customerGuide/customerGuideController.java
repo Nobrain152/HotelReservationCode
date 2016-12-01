@@ -3,10 +3,12 @@ package ui.customerGuide;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import javafx.scene.control.ChoiceBox;
 import ui.UILaunch;
 
 public class customerGuideController implements Initializable{
@@ -27,6 +29,10 @@ public class customerGuideController implements Initializable{
 	@FXML
 	private Button button_Cancel;
 	
+	@FXML
+	private ChoiceBox<String> cb_star;
+	
+	
 	
 	public void setApp(UILaunch application){
 		this.application= application;
@@ -39,28 +45,28 @@ public class customerGuideController implements Initializable{
 	
 	@FXML
 	private void button_HotelAction(ActionEvent event) throws Exception{
-				
+		application.gotoreservedHotelList();	
 	}
 	
 	@FXML
 	private void button_InfoAction(ActionEvent event) throws Exception{
-				
+		application.gotocustomerInfo();	
 	}
 	
 	@FXML
 	private void button_VipAction(ActionEvent event) throws Exception{
-				
+		application.gotovip();	
 	}
 	
 	@FXML
 	private void button_CancelAction(ActionEvent event) throws Exception{
-				
+		application.gotologin();
 	}
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		// TODO Auto-generated method stub
-		
+		cb_star.setItems(FXCollections.observableArrayList("1", "2"));
 	}
 
 }

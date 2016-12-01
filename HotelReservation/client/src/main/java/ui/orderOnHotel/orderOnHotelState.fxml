@@ -45,10 +45,10 @@
                   <Font size="14.0" />
                </font>
             </Text>
-            <RadioButton layoutX="290.0" layoutY="73.0" mnemonicParsing="false" selected="true" text="置为已执行" />
-            <RadioButton layoutX="290.0" layoutY="110.0" mnemonicParsing="false" text="置为未执行" />
-            <RadioButton layoutX="290.0" layoutY="150.0" mnemonicParsing="false" text="置为已撤销" />
-            <RadioButton layoutX="290.0" layoutY="191.0" mnemonicParsing="false" text="置为异常" />
+            <RadioButton fx:id="rb1" layoutX="290.0" layoutY="73.0" mnemonicParsing="false" text="置为已执行" />
+            <RadioButton fx:id="rb2" layoutX="290.0" layoutY="110.0" mnemonicParsing="false" text="置为未执行" />
+            <RadioButton fx:id="rb3" layoutX="290.0" layoutY="150.0" mnemonicParsing="false" text="置为已撤销" />
+            <RadioButton fx:id="rb4" layoutX="290.0" layoutY="191.0" mnemonicParsing="false" text="置为异常" />
             <Button layoutX="408.0" layoutY="237.0" mnemonicParsing="false" prefHeight="18.0" prefWidth="56.0" text="确认" />
          </children></Pane>
    </children>

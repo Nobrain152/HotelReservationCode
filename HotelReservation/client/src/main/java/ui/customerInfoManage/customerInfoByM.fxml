@@ -32,7 +32,7 @@
       <Pane layoutY="393.0" prefHeight="62.0" prefWidth="617.0">
          <children>
             <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#b4b4b4" height="62.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="617.0" />
-            <Button layoutX="529.0" layoutY="17.0" mnemonicParsing="false" prefHeight="28.0" prefWidth="61.0" text="返回">
+            <Button fx:id="btn_Cancel" layoutX="529.0" layoutY="17.0" mnemonicParsing="false" onAction="#btn_CancelAction" prefHeight="28.0" prefWidth="61.0" text="返回">
                <font>
                   <Font size="14.0" />
                </font>
@@ -50,7 +50,7 @@
             <Text layoutX="115.0" layoutY="71.0" strokeType="OUTSIDE" strokeWidth="0.0" text="账户ID" />
             <Text layoutX="109.0" layoutY="171.0" strokeType="OUTSIDE" strokeWidth="0.0" text="联系方式" />
             <Text layoutX="115.0" layoutY="227.0" strokeType="OUTSIDE" strokeWidth="0.0" text="信用值" />
-            <Button layoutX="424.0" layoutY="268.0" mnemonicParsing="false" prefHeight="29.0" prefWidth="97.0" text="修改用户信息" />
+            <Button fx:id="btn_Modify" layoutX="424.0" layoutY="268.0" mnemonicParsing="false" onAction="#btn_ModifyAction" prefHeight="29.0" prefWidth="97.0" text="修改用户信息" />
             <Label layoutX="170.0" layoutY="55.0" text="12345678">
                <font>
                   <Font size="18.0" />

@@ -21,8 +21,8 @@
             <Font size="14.0" />
          </font>
       </Text>
-      <Button layoutX="496.0" layoutY="417.0" mnemonicParsing="false" prefHeight="28.0" prefWidth="66.0" text="返回" />
-      <Button layoutX="70.0" layoutY="416.0" mnemonicParsing="false" prefHeight="28.0" prefWidth="66.0" text="保存">
+      <Button fx:id="btn_Cancel" layoutX="496.0" layoutY="417.0" mnemonicParsing="false" onAction="#btn_CancelAction" prefHeight="28.0" prefWidth="66.0" text="返回" />
+      <Button layoutX="276.0" layoutY="332.0" mnemonicParsing="false" prefHeight="28.0" prefWidth="66.0" text="保存">
          <font>
             <Font size="14.0" />
          </font>
@@ -32,25 +32,24 @@
             <Font size="24.0" />
          </font>
       </Text>
-      <Text layoutX="142.0" layoutY="143.0" strokeType="OUTSIDE" strokeWidth="0.0" text="姓名">
+      <Text layoutX="139.0" layoutY="95.0" strokeType="OUTSIDE" strokeWidth="0.0" text="姓名">
          <font>
             <Font size="18.0" />
          </font>
       </Text>
-      <Text layoutX="126.0" layoutY="196.0" strokeType="OUTSIDE" strokeWidth="0.0" text="联系方式">
+      <Text layoutX="123.0" layoutY="148.0" strokeType="OUTSIDE" strokeWidth="0.0" text="联系方式">
          <font>
             <Font size="18.0" />
          </font>
       </Text>
-      <TextField layoutX="272.0" layoutY="125.0" prefHeight="23.0" prefWidth="203.0" />
-      <TextField layoutX="272.0" layoutY="178.0" prefHeight="23.0" prefWidth="203.0" />
-      <Text layoutX="142.0" layoutY="248.0" strokeType="OUTSIDE" strokeWidth="0.0" text="头像">
+      <TextField layoutX="269.0" layoutY="77.0" prefHeight="23.0" prefWidth="203.0" />
+      <TextField layoutX="269.0" layoutY="130.0" prefHeight="23.0" prefWidth="203.0" />
+      <Text layoutX="139.0" layoutY="200.0" strokeType="OUTSIDE" strokeWidth="0.0" text="头像">
          <font>
             <Font size="18.0" />
          </font>
       </Text>
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#dee3e8" height="119.0" layoutX="272.0" layoutY="228.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="120.0" />
-      <Button layoutX="409.0" layoutY="324.0" mnemonicParsing="false" prefHeight="23.0" prefWidth="66.0" text="上传头像" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#dee3e8" height="119.0" layoutX="269.0" layoutY="180.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="120.0" />
+      <Button layoutX="406.0" layoutY="276.0" mnemonicParsing="false" prefHeight="23.0" prefWidth="66.0" text="上传头像" />
    </children>
 </AnchorPane>
-

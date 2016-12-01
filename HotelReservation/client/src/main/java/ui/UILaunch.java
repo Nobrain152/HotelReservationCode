@@ -61,9 +61,9 @@ public class UILaunch extends Application{
 		
 		stage = primaryStage;
 		stage.setTitle("DIMENSION");
-		stage.setMinWidth(MINIMUM_WINDOW_WIDTH);
-		stage.setMinHeight(MINIMUM_WINDOW_HEIGHT);
-		gotologin();	
+		stage.setMinWidth(2*MINIMUM_WINDOW_WIDTH);
+		stage.setMinHeight(2*MINIMUM_WINDOW_HEIGHT);
+		gotowebSalesmanGuide();	
 		stage.show();
 	}
 	
@@ -433,7 +433,7 @@ public class UILaunch extends Application{
 	 */
 	public void gotoroomList(){
 		try{
-			roomListController roomList=(roomListController) replaceSceneContent("roomList/roomList.fxml");
+			roomListController roomList=(roomListController) replaceSceneContent("roomAdd/roomList.fxml");
 			roomList.setApp(this);
 		}catch(Exception ex){
 			ex.printStackTrace();

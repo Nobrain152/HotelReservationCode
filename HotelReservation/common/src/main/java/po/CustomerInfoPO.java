@@ -3,6 +3,8 @@ package po;
 import java.io.Serializable;
 import java.util.ArrayList;
 
+import util.VipType;
+
 /**
  * 客户信息
  * @author 曹畅
@@ -23,23 +25,26 @@ public class CustomerInfoPO extends UserInfoPO implements Serializable{
 	/**
 	 * 是否会员
 	 */
-	boolean isMember;
+	private boolean isMember;
 	
-	/*
-	 * 生日
+	/**
+	 * 会员类型
 	 */
-	private String birthday;
+	private VipType vipType;
 	
 	ArrayList<String> orderIDList;
 	ArrayList<String> hotelIDList;
+	ArrayList<String> creditList;
 
-	public CustomerInfoPO(String userid, String username, ContactPO contact, int credit,String birthday) {
+	public CustomerInfoPO(String userid, String username, ContactPO contact,
+			int credit, boolean isMember,VipType vipType) {
 		super(userid, username, contact);
 		this.credit = credit;
-		this.isMember = false;
+		this.isMember = isMember;
+		this.vipType = vipType;
 		this.orderIDList = new ArrayList<String>();
 		this.hotelIDList = new ArrayList<String>();
-		this.birthday=birthday;
+		this.creditList = new ArrayList<String>();
 	}
 
 	public int getCredit() {
@@ -50,8 +55,8 @@ public class CustomerInfoPO extends UserInfoPO implements Serializable{
 		return isMember;
 	}
 	
-	public String getBirthday(){
-		return birthday;
+	public VipType getVipType() {
+		return vipType;
 	}
 	
 	public ArrayList<String> getOrderIDList() {
@@ -60,6 +65,14 @@ public class CustomerInfoPO extends UserInfoPO implements Serializable{
 
 	public ArrayList<String> getHotelIDList() {
 		return hotelIDList;
+	}
+	
+	public ArrayList<String> getCreditList() {
+		return creditList;
+	}
+	
+	public void setVipType(VipType vipType) {
+		this.vipType = vipType;
 	}
 	
 	public void setIsMember(boolean isMember) {
@@ -78,7 +91,4 @@ public class CustomerInfoPO extends UserInfoPO implements Serializable{
 		}
 	}
 	
-	public void setBirthday(String birthday){
-		this.birthday=birthday;
-	}
 }

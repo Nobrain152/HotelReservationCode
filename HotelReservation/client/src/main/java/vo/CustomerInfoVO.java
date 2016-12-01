@@ -2,6 +2,8 @@ package vo;
 
 import java.util.ArrayList;
 
+import util.VipType;
+
 /**
  * 客户信息
  * 
@@ -20,23 +22,24 @@ public class CustomerInfoVO extends UserInfoVO {
 	 */
 	private boolean isMember;
 	
-	/*
-	 * 生日
+	/**
+	 * 会员类型
 	 */
-	private String birthday;
+	private VipType vipType;
 	
 	ArrayList<String> orderIDList;
 	ArrayList<String> hotelIDList;
 	ArrayList<String> creditList;
 
-	public CustomerInfoVO(String userid, String username, ContactVO contact, int credit,String birthday) {
+	public CustomerInfoVO(String userid, String username, ContactVO contact,
+			int credit, boolean isMember,VipType vipType) {
 		super(userid, username, contact);
 		this.credit = credit;
-		this.isMember = false;
+		this.isMember = isMember;
+		this.vipType = vipType;
 		this.orderIDList = new ArrayList<String>();
 		this.hotelIDList = new ArrayList<String>();
 		this.creditList = new ArrayList<String>();
-		this.birthday=birthday;
 	}
 
 	public int getCredit() {
@@ -47,8 +50,8 @@ public class CustomerInfoVO extends UserInfoVO {
 		return isMember;
 	}
 	
-	public String getBirthday(){
-		return birthday;
+	public VipType getVipType() {
+		return vipType;
 	}
 	
 	public ArrayList<String> getOrderIDList() {
@@ -61,6 +64,10 @@ public class CustomerInfoVO extends UserInfoVO {
 	
 	public ArrayList<String> getCreditList() {
 		return creditList;
+	}
+	
+	public void setVipType(VipType vipType) {
+		this.vipType = vipType;
 	}
 	
 	public void setIsMember(boolean isMember) {
@@ -79,7 +86,4 @@ public class CustomerInfoVO extends UserInfoVO {
 		}
 	}
 	
-	public void setBirthday(String birthday){
-		this.birthday=birthday;
-	}
 }

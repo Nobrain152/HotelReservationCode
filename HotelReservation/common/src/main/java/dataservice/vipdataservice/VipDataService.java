@@ -3,6 +3,8 @@ package dataservice.vipdataservice;
 import java.rmi.RemoteException;
 import java.util.ArrayList;
 
+import po.CustomerInfoPO;
+import po.LevelSystemPO;
 import po.VipPO;
 import util.ResultMsg;
 
@@ -22,6 +24,11 @@ public interface VipDataService {
 	
 	public VipPO findByLevel(int level) throws RemoteException;
 	
+	public CustomerInfoPO findByUserID(String id) throws RemoteException;
+	
 	public ArrayList<VipPO> show() throws RemoteException;
 	
+	public ResultMsg update(LevelSystemPO levelSystemPO) throws RemoteException;
+
+	public LevelSystemPO getLevelSystemPO() throws RemoteException;
 }

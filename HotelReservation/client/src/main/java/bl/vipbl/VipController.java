@@ -6,7 +6,9 @@ import java.util.ArrayList;
 import blservice.vipblservice.VipLevelBLService;
 import datafactory.DataFactory;
 import dataservice.vipdataservice.VipDataService;
+import util.ResultMsg;
 import vo.CustomerInfoVO;
+import vo.LevelSystemVO;
 import vo.VipVO;
 
 public class VipController implements VipLevelBLService{
@@ -18,24 +20,11 @@ public class VipController implements VipLevelBLService{
 		vipDataService = DataFactory.getVipDataService();
 		vip = new Vip(vipDataService);
 	}
-	
+
 	@Override
 	public ArrayList<VipVO> showLevelNeed() {
 		// TODO Auto-generated method stub
-		//没有捕获异常
-		try {
-			return vip.showLevelNeed();
-		} catch (RemoteException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
 		return null;
-	}
-
-	@Override
-	public void changeLevelNeed(int level, int integral) {
-		// TODO Auto-generated method stub
-		
 	}
 
 	@Override
@@ -43,5 +32,18 @@ public class VipController implements VipLevelBLService{
 		// TODO Auto-generated method stub
 		return 0;
 	}
+
+	@Override
+	public ResultMsg registerVip(CustomerInfoVO customerInfoVO, String str) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public ResultMsg createLevelSystem(LevelSystemVO levelSystemVO) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	
 
 }

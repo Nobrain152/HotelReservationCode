@@ -3,11 +3,11 @@ package data.vipdata;
 import java.rmi.RemoteException;
 import java.util.ArrayList;
 
-import javax.naming.spi.DirStateFactory.Result;
 
-import dataSuper.DataServiceHelper;
 import dataSuper.DataSuperClass;
 import dataservice.vipdataservice.VipDataService;
+import po.CustomerInfoPO;
+import po.LevelSystemPO;
 import po.VipPO;
 import util.ResultMsg;
 
@@ -29,7 +29,7 @@ public class VipDataSerivceImpl extends DataSuperClass implements VipDataService
 	@Override
 	public ResultMsg insert(VipPO vip) throws RemoteException {
 		//调用父类的方法
-		return addToSQL(tableName, vip.getName());
+		return addToSQL(tableName, vip.getUsername());
 	}
 	
 	public void initial() throws RemoteException{
@@ -41,7 +41,7 @@ public class VipDataSerivceImpl extends DataSuperClass implements VipDataService
 	@Override
 	public ResultMsg delete(VipPO vip) throws RemoteException {
 		// TODO Auto-generated method stub
-		return delFromSQL(tableName, vip.getName());
+		return delFromSQL(tableName, vip.getUsername());
 	}
 
 	@Override
@@ -58,6 +58,24 @@ public class VipDataSerivceImpl extends DataSuperClass implements VipDataService
 
 	@Override
 	public ArrayList<VipPO> show() throws RemoteException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public CustomerInfoPO findByUserID(String id) throws RemoteException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public ResultMsg update(LevelSystemPO levelSystemPO) throws RemoteException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public LevelSystemPO getLevelSystemPO() throws RemoteException {
 		// TODO Auto-generated method stub
 		return null;
 	}

@@ -1,50 +1,86 @@
 package bl.vipbl;
 
-import java.nio.file.attribute.DosFileAttributes;
 import java.rmi.RemoteException;
-import java.util.ArrayList;
 
+import bl.VOPOchange;
 import dataservice.vipdataservice.VipDataService;
-import po.VipPO;
+import po.BusinessVipPO;
+import po.CommonVipPO;
+import po.LevelSystemPO;
 import util.ResultMsg;
-import vo.UserInfoVO;
-import vo.VipVO;
+import util.VipType;
+import vo.BusinessVipVO;
+import vo.CommonVipVO;
+import vo.CustomerInfoVO;
+import vo.LevelSystemVO;
 
 public class Vip {
 	
 	private VipDataService vipDataService;
-	private VipVO vipVO;
-	private ResultMsg result;
 	
 	public Vip(VipDataService vipDataService) {
 		this.vipDataService = vipDataService;
 	}
 
-	public ArrayList<VipVO> showLevelNeed() throws RemoteException {
-		ArrayList<VipVO> vos = null;
-		ArrayList<VipPO> pos = vipDataService.show();
-		
-		if(pos == null){
-			return null;
+	/**
+	 * 获得用户当前信用值对应的等级
+	 * @param user
+	 * @return
+	 * @throws RemoteException
+	 */
+	public int searchLevel(CustomerInfoVO user) throws RemoteException {
+		LevelSystemPO levelSystemPO = vipDataService.getLevelSystemPO();
+		int credit = 0;
+		if(user.getIsMember()) {
+			credit = user.getCredit();
 		}
 		
-		vos = new ArrayList<VipVO>(pos.size());
-		for(VipPO vipPO : pos){
-			//vo,po转换还没写
-			vos.add(null);
+		if(credit <= 0) {
+			return 0;
 		}
 		
-		return vos;
-	}
-
-	public int searchLevel(UserInfoVO user) {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
-	public void changeLevelNeed(int level, int integral) {
-		// TODO Auto-generated method stub
+		int[] credits = levelSystemPO.getCredits();
+		for(int i = 0; i < credits.length-1; i++) {
+			if(credit > credits[i] && credit <= credits[i+1]) {
+				return i+1;
+			}
+		}
 		
+		return credits.length;
+	}
+	
+	/**
+	 * 注册会员
+	 * @param customerInfoVO
+	 * @param str
+	 * @return
+	 * @throws RemoteException 
+	 */
+	public ResultMsg registerVip(CustomerInfoVO customerInfoVO,String str) throws RemoteException {
+		ResultMsg resultMsg = ResultMsg.FAIL;
+		if(customerInfoVO.getIsMember() && customerInfoVO.getVipType() == VipType.COMMON_VIP) {
+			CommonVipVO commonVipVO = new CommonVipVO(customerInfoVO.getUserID(), customerInfoVO.getUsername()
+					, customerInfoVO.getContact(), customerInfoVO.getCredit(), str, VipType.COMMON_VIP);
+			CommonVipPO commonVipPO = (CommonVipPO)VOPOchange.VOtoPO(commonVipVO);
+			resultMsg = vipDataService.insert(commonVipPO);
+		} else if(customerInfoVO.getIsMember() && customerInfoVO.getVipType() == VipType.COMPANY_VIP) {
+			BusinessVipVO businessVipVO = new BusinessVipVO(customerInfoVO.getUserID(), customerInfoVO.getUsername()
+					, customerInfoVO.getContact(), customerInfoVO.getCredit(), str, VipType.COMPANY_VIP);
+			BusinessVipPO businessVipPO = (BusinessVipPO)VOPOchange.VOtoPO(businessVipVO);
+			resultMsg = vipDataService.insert(businessVipPO);
+		}
+		return resultMsg;
+	}
+
+	/**
+	 * 制定等级制度
+	 * @param levelSystemVO
+	 * @throws RemoteException 
+	 */
+	public ResultMsg createLevelSystem(LevelSystemVO levelSystemVO) throws RemoteException {
+		LevelSystemPO levelSystemPO = (LevelSystemPO)VOPOchange.VOtoPO(levelSystemVO);
+		ResultMsg resultMsg = vipDataService.update(levelSystemPO);
+		return resultMsg;
 	}
 
 }

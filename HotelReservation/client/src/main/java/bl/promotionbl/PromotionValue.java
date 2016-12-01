@@ -11,11 +11,14 @@ import dataservice.orderdataservice.OrderDataService;
 import dataservice.promotiondataservice.PromotionHotelDataService;
 import dataservice.promotiondataservice.PromotionWebDataService;
 import dataservice.vipdataservice.VipDataService;
+import po.CommonVipPO;
+import po.CustomerInfoPO;
 import po.OrderPO;
 import po.PromotionHotelPO;
 import po.PromotionWebPO;
 import util.PromotionHotelType;
 import util.PromotionWebType;
+import util.VipType;
 import vo.CustomerInfoVO;
 import vo.OrderVO;
 
@@ -42,9 +45,10 @@ public class PromotionValue {
 		
 			case BIRTH_PROMOTION:
 				
-				if(user.getIsMember()) {
+				if(user.getIsMember() && user.getVipType() == VipType.COMMON_VIP) {
+					CommonVipPO commonVipPO = (CommonVipPO)((CustomerInfoPO)VOPOchange.VOtoPO(user));
 					for(PromotionHotelPO hotelPO : po) {
-						if(hotelPO.getTimeBegin().equals(user.getBirthday())) {
+						if(hotelPO.getTimeBegin().equals(commonVipPO.getBirthday())) {
 							ratio = hotelPO.getRatio();
 							break;
 						}

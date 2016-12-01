@@ -10,7 +10,9 @@ import vo.VipVO;
 
 import java.util.ArrayList;
 
+import util.ResultMsg;
 import vo.CustomerInfoVO;
+import vo.LevelSystemVO;
 
 public interface VipLevelBLService {
 	/**
@@ -24,7 +26,16 @@ public interface VipLevelBLService {
 	public int searchLevel(CustomerInfoVO user);
 	
 	/**
-	 * 修改用户等级需要的信用值
+	 * 注册会员
+	 * @param customerInfoVO
+	 * @param str
+	 * @return
 	 */
-	public void changeLevelNeed(int level, int integral);
+	public ResultMsg registerVip(CustomerInfoVO customerInfoVO,String str);
+	
+	/**
+	 * 制定等级制度
+	 * @param levelSystemVO
+	 */
+	public ResultMsg createLevelSystem(LevelSystemVO levelSystemVO);
 }

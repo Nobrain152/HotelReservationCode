@@ -1,13 +1,14 @@
 package po;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 
 import util.RoomState;
 import util.RoomType;
 
 /**
  * 房间信息
- * @author gyf
+ * @author 曹畅
  *
  */
 public class RoomInfoPO implements Serializable{
@@ -34,12 +35,15 @@ public class RoomInfoPO implements Serializable{
 	 * 价格
 	 */
 	private int price;
+	
+	private ArrayList<String> OrderedTime;
 
 	public RoomInfoPO(RoomState state, RoomType type, String roomID, int price ) {
 		this.state = state;
 		this.type = type;
 		this.roomID= roomID;
 		this.price= price;
+		OrderedTime=new ArrayList<String>();
 	}
 
 	public RoomState getState() {
@@ -57,5 +61,11 @@ public class RoomInfoPO implements Serializable{
 	public int getPrice() {
 		return price;
 	}
+	
+	public  ArrayList<String> getOrderedTime(){
+		return OrderedTime;
+	}
+	
+	
 
 }	

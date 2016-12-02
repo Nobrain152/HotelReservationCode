@@ -5,6 +5,7 @@ import java.util.ArrayList;
 
 import bl.hotelbl.HotelEvaluateController;
 import bl.hotelbl.HotelInfoCheckController;
+import bl.hotelbl.HotelReserveController;
 import bl.hotelbl.HotelSearchController;
 import bl.VOPOchange;
 import bl.orderbl.OrderOnUserController;
@@ -33,6 +34,7 @@ public class Customer extends User {
 	private CustomerManagementDataService userdataservice;
 	private OrderOnUserController order;
 	private HotelInfoCheckController hotelinfo;
+	private HotelReserveController reserve;
 	
 	/**
 	 * 构造方法
@@ -45,6 +47,7 @@ public class Customer extends User {
 		order=new OrderOnUserController();
 		hotelinfo=new HotelInfoCheckController();
 		this.userdataservice=userdataservice;
+		reserve=new HotelReserveController();
 	}
 	
 	/**
@@ -64,8 +67,8 @@ public class Customer extends User {
 	 *
 	 */
 	public void OederCreat(String hotelID,OrderVO vo2)throws RemoteException{
-	    
-			order.createOrder(vo2);
+	    reserve.reserveHotel(vo2);
+	    order.createOrder(vo2);
 		
 	}
 			

@@ -7,9 +7,14 @@ import dataservice.hoteldataservice.HotelInfoDataService;
 import net.RMIManage;
 import util.DataServiceType;
 import util.ResultMsg;
-import vo.HotelInfoVO;
 import vo.OrderVO;
 
+
+/**
+ * 预定酒店
+ * @author 曹畅
+ *
+ */
 public class HotelReserveController implements HotelReserveBLService{
 	private HotelReserve hotelReserve;
 	private HotelInfoDataService hotelInfoData;
@@ -24,30 +29,16 @@ public class HotelReserveController implements HotelReserveBLService{
 	 * 预定酒店
 	 *
 	 */
-	@Override
-	public ResultMsg reserveHotel(HotelInfoVO reserveHotelVO){
+	
+	public ResultMsg reserveHotel(OrderVO vo){
 		try {
-			return hotelReserve.reserveHotel(reserveHotelVO);
+			return hotelReserve.reserveHotel(vo);
 		} catch (RemoteException  e) {
 			e.printStackTrace();
+			return ResultMsg.FAIL;
 		}
-		return null;
+		
 	}
 	
-	/**
-	 * 创建用户订单
-	 * 
-	 */
-	@Override
-    public ResultMsg createUserOrder(OrderVO order){
-		try {
-			return hotelReserve.createUserOrder(order);
-		} catch (RemoteException  e) {
-			e.printStackTrace();
-		}
-		return null;
-    }
-	
-
       
 }

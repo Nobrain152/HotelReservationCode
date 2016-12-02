@@ -6,13 +6,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import bl.hotelbl.HotelReserveController;
-import po.ContactPO;
-import po.CustomerInfoPO;
-import util.OrderState;
 import util.ResultMsg;
-import util.RoomType;
-import vo.ContactVO;
-import vo.CustomerInfoVO;
 import vo.HotelInfoVO;
 import vo.OrderVO;
 
@@ -68,15 +62,11 @@ public class HotelReserveControllerTest {
 	
 	@Test
 	public void testreserveHotel(){
-		ResultMsg msg = impl.reserveHotel(hotel1); 
+		ResultMsg msg = impl.reserveHotel(orderMsg1); 
 		//assertEquals(msg.getMessage(), reMsg.getMessage());
 		assertEquals(msg, reMsg);
 	}
 	
-	@Test
-	public void testcreateUserOrder(){
-		ResultMsg msg1 = impl.createUserOrder(order1);
-		assertEquals(msg1, ResultMsg.SUCCESS);
-    }
+	
 
 }

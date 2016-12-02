@@ -1,17 +1,17 @@
 package bl.hotelbl;
 
 import java.rmi.RemoteException;
+import java.util.ArrayList;
 
 import bl.VOPOchange;
 import dataservice.hoteldataservice.RoomInfoDataService;
 import po.RoomInfoPO;
 import util.ResultMsg;
-import util.RoomState;
 import vo.RoomInfoVO;
 
 /**
- * 添加客房
- * @author gyf
+ * 关于房间的操作
+ * @author 曹畅
  *
  */
 public class RoomAdd {
@@ -43,11 +43,35 @@ public class RoomAdd {
 	 */
     public ResultMsg updateRoom(RoomInfoVO roomInfoVO) throws RemoteException{
     	RoomInfoPO roomInfoPO = (RoomInfoPO)VOPOchange.VOtoPO(roomInfoVO);
-    	if(roomInfoPO.getState()==RoomState.USABLE)
-    		result = ResultMsg.SUCCESS;
-    	else
-    		result = ResultMsg.FAIL;
-    	return result;
+    	return roomData.update(roomInfoPO);
     }
+    
+    /**
+	 * 根据酒店ID查看酒店房间列表
+	 * @param hotelID
+	 * @return
+	 */
+	public ArrayList<RoomInfoVO> HotelRoomSearch(String hotelID)throws RemoteException{
+		ArrayList<RoomInfoVO> vos=new ArrayList<RoomInfoVO>();
+		ArrayList<RoomInfoPO> pos=roomData.HotelRoomSearch(hotelID);
+		for(RoomInfoPO p:pos){
+			vos.add((RoomInfoVO)VOPOchange.POtoVO(p));
+		}
+		return vos;
+	}
+	
+	/**
+	 * 修改酒店房间列表
+	 * @param hotelid
+	 * @param vo
+	 * @return
+	 */
+	public ResultMsg HotelRoomMod(String hotelid,ArrayList<RoomInfoVO> vo)throws RemoteException{
+		ArrayList<RoomInfoPO> pos=new ArrayList<RoomInfoPO>();
+		for(RoomInfoVO v:vo){
+			pos.add((RoomInfoPO)VOPOchange.VOtoPO(v));
+		}
+		return roomData.HotelRoomMod(hotelid, pos);
+	}
 
 }

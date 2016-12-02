@@ -8,13 +8,11 @@ import dataservice.hoteldataservice.RoomInfoDataService;
 import net.RMIManage;
 import util.DataServiceType;
 import util.ResultMsg;
-import util.RoomMsg;
-import util.RoomState;
 import vo.RoomInfoVO;
 
 /**
  * 
- * @author gyf
+ * @author 曹畅
  *
  */
 public class RoomAddController implements RoomAddBLService{
@@ -49,5 +47,32 @@ public class RoomAddController implements RoomAddBLService{
 		}
 		return null;
     }
+	
+	/**
+	 * 根据酒店ID查看酒店房间列表
+	 * @param hotelID
+	 * @return
+	 */
+	public ArrayList<RoomInfoVO> HotelRoomSearch(String hotelID){
+		try {
+			return roomAdd.HotelRoomSearch(hotelID);
+		} catch (RemoteException e) {
+			return null;
+		}
+	}
+	
+	/**
+	 * 修改酒店房间列表
+	 * @param hotelid
+	 * @param po
+	 * @return
+	 */
+	public ResultMsg HotelRoomMod(String hotelid,ArrayList<RoomInfoVO> vo){
+		try {
+			return roomAdd.HotelRoomMod(hotelid, vo);
+		} catch (RemoteException e) {
+			return ResultMsg.FAIL;
+		}
+	}
 	
 }

@@ -61,8 +61,8 @@ public class HotelEvaluateDataServiceImplTest {
 		list.add(evaluation1);
 		list.add(evaluation2);
 		
-		//ArrayList<HotelEvaluatePO> arrayList = impl.show();
-		//assertEquals(list, arrayList);
+		ArrayList<HotelEvaluatePO> arrayList = impl.show("123456");
+		assertEquals(list, arrayList);
 	}
 
 }

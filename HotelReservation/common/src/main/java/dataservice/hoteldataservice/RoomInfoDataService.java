@@ -33,6 +33,21 @@ public interface RoomInfoDataService {
 	 * 显示
 	 */
 	public ArrayList<RoomInfoPO> show() throws RemoteException;
+	
+	/**
+	 * 根据酒店ID查看酒店房间列表
+	 * @param hotelID
+	 * @return
+	 */
+	public ArrayList<RoomInfoPO> HotelRoomSearch(String hotelID);
+	
+	/**
+	 * 修改酒店房间列表
+	 * @param hotelid
+	 * @param po
+	 * @return
+	 */
+	public ResultMsg HotelRoomMod(String hotelid,ArrayList<RoomInfoPO> po);
 
 
 

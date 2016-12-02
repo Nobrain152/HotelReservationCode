@@ -67,6 +67,15 @@ public class RoomInfoDataServiceImpl implements RoomInfoDataService{
 		return roomPOs;
 	}
 
+	
+	public ArrayList<RoomInfoPO> HotelRoomSearch(String hotelID){
+		return null;
+	}
+	
+	
+	public ResultMsg HotelRoomMod(String hotelid,ArrayList<RoomInfoPO> po){
+		return null;
+	}
 
 
 }

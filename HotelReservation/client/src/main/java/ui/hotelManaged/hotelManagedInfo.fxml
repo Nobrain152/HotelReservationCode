@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.image.*?>
 <?import javafx.scene.effect.*?>
 <?import javafx.geometry.*?>
 <?import javafx.scene.web.*?>
@@ -11,33 +12,90 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="455.0" prefWidth="617.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ui.hotelManaged.hotelManagedInfoController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ui.hotelManaged.hotelManagedInfoController">
    <children>
-      <Pane prefHeight="62.0" prefWidth="617.0">
+      <Pane prefHeight="70.0" prefWidth="800.0">
          <children>
-            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#b4b4b4" height="62.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="617.0" />
-            <Text layoutX="32.0" layoutY="39.0" strokeType="OUTSIDE" strokeWidth="0.0" text="酒店预定系统">
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#b4b4b4" height="70.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="800.0" />
+            <Text layoutX="32.0" layoutY="43.0" strokeType="OUTSIDE" strokeWidth="0.0" text="酒店预定系统">
                <font>
                   <Font size="24.0" />
                </font>
             </Text>
-            <Text layoutX="498.0" layoutY="36.0" strokeType="OUTSIDE" strokeWidth="0.0" text="XXX，欢迎你！">
+            <Text layoutX="651.0" layoutY="40.0" strokeType="OUTSIDE" strokeWidth="0.0" text="XXX，欢迎你！">
                <font>
                   <Font size="14.0" />
                </font>
             </Text>
          </children>
       </Pane>
-      <Pane layoutY="393.0" prefHeight="62.0" prefWidth="617.0">
+      <Pane layoutY="530.0" prefHeight="70.0" prefWidth="800.0">
          <children>
-            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#b4b4b4" height="62.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="617.0" />
-            <Button layoutX="529.0" layoutY="17.0" mnemonicParsing="false" prefHeight="28.0" prefWidth="61.0" text="返回">
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#b4b4b4" height="70.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="800.0" />
+            <Button fx:id="btn_Cancel" layoutX="714.0" layoutY="21.0" mnemonicParsing="false" onAction="#btn_CancelAction" prefHeight="28.0" prefWidth="61.0" text="返回">
                <font>
                   <Font size="14.0" />
                </font>
             </Button>
          </children>
       </Pane>
-      <Pane layoutY="62.0" prefHeight="332.0" prefWidth="617.0" />
+      <ScrollPane focusTraversable="false" hbarPolicy="NEVER" layoutY="70.0" prefHeight="460.0" prefWidth="800.0">
+        <content>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="557.0" prefWidth="800.0">
+               <children>
+                  <Text layoutX="201.0" layoutY="53.0" strokeType="OUTSIDE" strokeWidth="0.0" text="酒店名称">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Text>
+                  <Text layoutX="201.0" layoutY="91.0" strokeType="OUTSIDE" strokeWidth="0.0" text="星级">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Text>
+                  <Text layoutX="201.0" layoutY="128.0" strokeType="OUTSIDE" strokeWidth="0.0" text="价格">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Text>
+                  <Text layoutX="201.0" layoutY="167.0" strokeType="OUTSIDE" strokeWidth="0.0" text="评分">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Text>
+                  <Text layoutX="201.0" layoutY="202.0" strokeType="OUTSIDE" strokeWidth="0.0" text="地址">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Text>
+                  <Text layoutX="201.0" layoutY="236.0" strokeType="OUTSIDE" strokeWidth="0.0" text="所属商圈">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Text>
+                  <Text layoutX="201.0" layoutY="278.0" strokeType="OUTSIDE" strokeWidth="0.0" text="联系电话">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Text>
+                  <Text layoutX="201.0" layoutY="316.0" strokeType="OUTSIDE" strokeWidth="0.0" text="服务设施">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Text>
+                  <Text layoutX="201.0" layoutY="389.0" strokeType="OUTSIDE" strokeWidth="0.0" text="简介">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Text>
+                  <Button fx:id="btn_Modify" layoutX="525.0" layoutY="472.0" mnemonicParsing="false" onAction="#btn_ModifyAction" prefHeight="30.0" prefWidth="77.0" text="修改信息" />
+                  <ImageView fitHeight="132.0" fitWidth="144.0" layoutX="448.0" layoutY="39.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../../../image/hotel.jpg" />
+                     </image>
+                  </ImageView>
+               </children></AnchorPane>
+        </content>
+      </ScrollPane>
    </children>
 </AnchorPane>

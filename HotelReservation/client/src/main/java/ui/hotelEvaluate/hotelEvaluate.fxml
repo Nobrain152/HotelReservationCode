@@ -11,46 +11,49 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="564.0" prefWidth="617.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ui.hotelEvaluate.hotelEvaluateController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ui.hotelEvaluate.hotelEvaluateController">
    <children>
-      <Pane prefHeight="62.0" prefWidth="617.0">
+      <Pane prefHeight="77.0" prefWidth="800.0">
          <children>
-            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#b4b4b4" height="62.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="617.0" />
-            <Text layoutX="32.0" layoutY="39.0" strokeType="OUTSIDE" strokeWidth="0.0" text="酒店预定系统">
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#b4b4b4" height="77.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="800.0" />
+            <Text layoutX="31.0" layoutY="47.0" strokeType="OUTSIDE" strokeWidth="0.0" text="酒店预定系统">
                <font>
                   <Font size="24.0" />
                </font>
             </Text>
-            <Text layoutX="498.0" layoutY="36.0" strokeType="OUTSIDE" strokeWidth="0.0" text="XXX，欢迎你！">
+            <Text layoutX="667.0" layoutY="43.0" strokeType="OUTSIDE" strokeWidth="0.0" text="XXX，欢迎你！">
                <font>
                   <Font size="14.0" />
                </font>
             </Text>
          </children>
       </Pane>
-      <Pane layoutY="393.0" prefHeight="62.0" prefWidth="617.0" />
-      <Pane layoutY="62.0" prefHeight="442.0" prefWidth="617.0">
+      <Pane layoutY="529.0" prefHeight="71.0" prefWidth="800.0">
          <children>
-            <Line endX="200.0" layoutX="308.0" layoutY="92.0" startX="-200.0" strokeWidth="0.5" />
-            <Label layoutX="108.0" layoutY="44.0" text="A Hotel">
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#b4b4b4" height="71.0" layoutY="2.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="800.0" />
+            <Button layoutX="702.0" layoutY="20.0" mnemonicParsing="false" prefHeight="28.0" prefWidth="61.0" text="返回">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Button>
+         </children></Pane>
+      <Pane layoutY="77.0" prefHeight="454.0" prefWidth="800.0">
+         <children>
+            <Line endX="200.0" layoutX="400.0" layoutY="93.0" startX="-200.0" strokeWidth="0.5" />
+            <Label layoutX="200.0" layoutY="45.0" text="A Hotel">
                <font>
                   <Font size="24.0" />
                </font>
             </Label>
-            <Text layoutX="108.0" layoutY="138.0" strokeType="OUTSIDE" strokeWidth="0.0" text="为酒店评分">
+            <Text layoutX="200.0" layoutY="139.0" strokeType="OUTSIDE" strokeWidth="0.0" text="为酒店评分">
                <font>
                   <Font size="14.0" />
                </font>
             </Text>
-            <TextField layoutX="206.0" layoutY="121.0" promptText="输入0~10的数字" />
-            <TextArea layoutX="108.0" layoutY="167.0" prefHeight="166.0" prefWidth="401.0" promptText="写下您对酒店的评价吧（至少输入8个字）" />
-            <Button layoutX="454.0" layoutY="361.0" mnemonicParsing="false" prefHeight="29.0" prefWidth="54.0" text="提交" />
-         </children></Pane>
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#b4b4b4" height="62.0" layoutY="502.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="617.0" />
-      <Button layoutX="531.0" layoutY="519.0" mnemonicParsing="false" prefHeight="28.0" prefWidth="61.0" text="返回">
-         <font>
-            <Font size="14.0" />
-         </font>
-      </Button>
+            <TextField layoutX="298.0" layoutY="122.0" promptText="输入0~10的数字" />
+            <TextArea layoutX="200.0" layoutY="168.0" prefHeight="166.0" prefWidth="401.0" promptText="写下您对酒店的评价吧（至少输入8个字）" />
+            <Button layoutX="546.0" layoutY="362.0" mnemonicParsing="false" prefHeight="29.0" prefWidth="54.0" text="提交" />
+         </children>
+      </Pane>
    </children>
 </AnchorPane>

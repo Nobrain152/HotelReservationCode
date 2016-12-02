@@ -11,78 +11,78 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="455.0" prefWidth="617.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ui.roomAdd.roomAddController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ui.roomAdd.roomAddController">
    <children>
-      <Pane prefHeight="62.0" prefWidth="617.0">
+      <Pane prefHeight="73.0" prefWidth="800.0">
          <children>
-            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#b4b4b4" height="62.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="617.0" />
-            <Text layoutX="32.0" layoutY="39.0" strokeType="OUTSIDE" strokeWidth="0.0" text="酒店预定系统">
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#b4b4b4" height="73.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="800.0" />
+            <Text layoutX="31.0" layoutY="45.0" strokeType="OUTSIDE" strokeWidth="0.0" text="酒店预定系统">
                <font>
                   <Font size="24.0" />
                </font>
             </Text>
-            <Text layoutX="498.0" layoutY="36.0" strokeType="OUTSIDE" strokeWidth="0.0" text="XXX，欢迎你！">
+            <Text layoutX="663.0" layoutY="41.0" strokeType="OUTSIDE" strokeWidth="0.0" text="XXX，欢迎你！">
                <font>
                   <Font size="14.0" />
                </font>
             </Text>
          </children>
       </Pane>
-      <Pane layoutY="393.0" prefHeight="62.0" prefWidth="617.0">
+      <Pane layoutY="527.0" prefHeight="73.0" prefWidth="800.0">
          <children>
-            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#b4b4b4" height="62.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="617.0" />
-            <Button fx:id="btn_Cancel" layoutX="529.0" layoutY="17.0" mnemonicParsing="false" onAction="#btn_CancelAction" prefHeight="28.0" prefWidth="61.0" text="返回">
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#b4b4b4" height="73.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="800.0" />
+            <Button fx:id="btn_Cancel" layoutX="693.0" layoutY="30.0" mnemonicParsing="false" onAction="#btn_CancelAction" prefHeight="28.0" prefWidth="61.0" text="返回">
                <font>
                   <Font size="14.0" />
                </font>
             </Button>
          </children>
       </Pane>
-      <Pane layoutY="62.0" prefHeight="332.0" prefWidth="617.0">
+      <Pane layoutY="73.0" prefHeight="455.0" prefWidth="800.0">
          <children>
             <Text layoutX="97.0" layoutY="53.0" strokeType="OUTSIDE" strokeWidth="0.0" text="客房添加">
                <font>
                   <Font size="18.0" />
                </font>
             </Text>
-            <Line endX="210.0" layoutX="309.0" layoutY="73.0" startX="-210.0" strokeWidth="0.5" />
-            <Text layoutX="99.0" layoutY="106.0" strokeType="OUTSIDE" strokeWidth="0.0" text="房间号">
+            <Line endX="390.0" layoutX="309.0" layoutY="73.0" startX="-210.0" strokeWidth="0.5" />
+            <Text layoutX="99.0" layoutY="120.0" strokeType="OUTSIDE" strokeWidth="0.0" text="房间号">
                <font>
                   <Font size="14.0" />
                </font>
             </Text>
-            <TextField layoutX="169.0" layoutY="89.0" prefHeight="23.0" prefWidth="126.0" />
-            <ChoiceBox layoutX="169.0" layoutY="132.0" prefHeight="23.0" prefWidth="126.0" />
-            <ChoiceBox layoutX="394.0" layoutY="133.0" prefHeight="23.0" prefWidth="126.0" />
-            <Text layoutX="99.0" layoutY="149.0" strokeType="OUTSIDE" strokeWidth="0.0" text="房间类型">
+            <TextField layoutX="169.0" layoutY="103.0" prefHeight="23.0" prefWidth="126.0" />
+            <ChoiceBox layoutX="169.0" layoutY="165.0" prefHeight="23.0" prefWidth="126.0" />
+            <ChoiceBox layoutX="510.0" layoutY="169.0" prefHeight="23.0" prefWidth="126.0" />
+            <Text layoutX="99.0" layoutY="182.0" strokeType="OUTSIDE" strokeWidth="0.0" text="房间类型">
                <font>
                   <Font size="14.0" />
                </font>
             </Text>
-            <Text layoutX="330.0" layoutY="149.0" strokeType="OUTSIDE" strokeWidth="0.0" text="房间状态">
+            <Text layoutX="446.0" layoutY="185.0" strokeType="OUTSIDE" strokeWidth="0.0" text="房间状态">
                <font>
                   <Font size="14.0" />
                </font>
             </Text>
-            <Text layoutX="330.0" layoutY="106.0" strokeType="OUTSIDE" strokeWidth="0.0" text="原始价格">
+            <Text layoutX="446.0" layoutY="123.0" strokeType="OUTSIDE" strokeWidth="0.0" text="原始价格">
                <font>
                   <Font size="14.0" />
                </font>
             </Text>
-            <TextField layoutX="394.0" layoutY="89.0" prefHeight="23.0" prefWidth="126.0" />
-            <Text layoutX="99.0" layoutY="193.0" strokeType="OUTSIDE" strokeWidth="0.0" text="入住时间">
+            <TextField layoutX="510.0" layoutY="106.0" prefHeight="23.0" prefWidth="126.0" />
+            <Text layoutX="99.0" layoutY="247.0" strokeType="OUTSIDE" strokeWidth="0.0" text="入住时间">
                <font>
                   <Font size="14.0" />
                </font>
             </Text>
-            <Text layoutX="99.0" layoutY="232.0" strokeType="OUTSIDE" strokeWidth="0.0" text="退房时间">
+            <Text layoutX="99.0" layoutY="324.0" strokeType="OUTSIDE" strokeWidth="0.0" text="退房时间">
                <font>
                   <Font size="14.0" />
                </font>
             </Text>
-            <DatePicker layoutX="169.0" layoutY="176.0" prefHeight="23.0" prefWidth="217.0" />
-            <DatePicker layoutX="169.0" layoutY="215.0" prefHeight="23.0" prefWidth="217.0" />
-            <Button layoutX="465.0" layoutY="259.0" mnemonicParsing="false" prefHeight="29.0" prefWidth="56.0" text="确认" />
+            <DatePicker layoutX="169.0" layoutY="230.0" prefHeight="23.0" prefWidth="217.0" />
+            <DatePicker layoutX="169.0" layoutY="307.0" prefHeight="23.0" prefWidth="217.0" />
+            <Button layoutX="621.0" layoutY="370.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="61.0" text="确认" />
          </children></Pane>
    </children>
 </AnchorPane>

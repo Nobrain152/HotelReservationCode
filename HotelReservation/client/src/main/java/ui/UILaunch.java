@@ -46,8 +46,8 @@ import ui.webSalesmanGuide.webSalesmanGuideController;
 
 public class UILaunch extends Application{
 	private Stage stage;
-	private final int  MINIMUM_WINDOW_WIDTH =600;
-	private final int  MINIMUM_WINDOW_HEIGHT =400;
+	private final int  MINIMUM_WINDOW_WIDTH =800;
+	private final int  MINIMUM_WINDOW_HEIGHT =600;
 	
 
 	@Override
@@ -61,9 +61,9 @@ public class UILaunch extends Application{
 		
 		stage = primaryStage;
 		stage.setTitle("DIMENSION");
-		stage.setMinWidth(2*MINIMUM_WINDOW_WIDTH);
-		stage.setMinHeight(2*MINIMUM_WINDOW_HEIGHT);
-		gotowebSalesmanGuide();	
+		stage.setMinWidth(MINIMUM_WINDOW_WIDTH);
+		stage.setMinHeight(MINIMUM_WINDOW_HEIGHT);
+		gotohotelStuffGuide();	
 		stage.show();
 	}
 	

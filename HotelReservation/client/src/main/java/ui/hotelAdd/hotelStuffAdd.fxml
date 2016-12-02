@@ -12,49 +12,49 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="455.0" prefWidth="617.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ui.hotelAdd.hotelStuffAddController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ui.hotelAdd.hotelStuffAddController">
    <children>
-      <Pane prefHeight="62.0" prefWidth="617.0">
+      <Pane prefHeight="77.0" prefWidth="800.0">
          <children>
-            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#b4b4b4" height="62.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="617.0" />
-            <Text layoutX="32.0" layoutY="39.0" strokeType="OUTSIDE" strokeWidth="0.0" text="酒店预定系统">
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#b4b4b4" height="77.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="800.0" />
+            <Text layoutX="35.0" layoutY="47.0" strokeType="OUTSIDE" strokeWidth="0.0" text="酒店预定系统">
                <font>
                   <Font size="24.0" />
                </font>
             </Text>
-            <Text layoutX="498.0" layoutY="36.0" strokeType="OUTSIDE" strokeWidth="0.0" text="XXX，欢迎你！">
+            <Text layoutX="662.0" layoutY="43.0" strokeType="OUTSIDE" strokeWidth="0.0" text="XXX，欢迎你！">
                <font>
                   <Font size="14.0" />
                </font>
             </Text>
          </children>
       </Pane>
-      <Pane layoutY="393.0" prefHeight="62.0" prefWidth="617.0">
+      <Pane layoutY="523.0" prefHeight="77.0" prefWidth="800.0">
          <children>
-            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#b4b4b4" height="62.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="617.0" />
-            <Button fx:id="btn_Cancel" layoutX="529.0" layoutY="17.0" mnemonicParsing="false" onAction="#btn_CancelAction" prefHeight="28.0" prefWidth="61.0" text="返回">
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#b4b4b4" height="77.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="800.0" />
+            <Button fx:id="btn_Cancel" layoutX="688.0" layoutY="24.0" mnemonicParsing="false" onAction="#btn_CancelAction" prefHeight="28.0" prefWidth="61.0" text="返回">
                <font>
                   <Font size="14.0" />
                </font>
             </Button>
          </children>
       </Pane>
-      <Pane layoutY="62.0" prefHeight="332.0" prefWidth="617.0">
+      <Pane layoutX="7.0" layoutY="77.0" prefHeight="446.0" prefWidth="800.0">
          <children>
-            <ImageView fitHeight="143.0" fitWidth="156.0" layoutX="372.0" layoutY="43.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="143.0" fitWidth="156.0" layoutX="457.0" layoutY="96.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../../../../../image/head1.png" />
                </image>
             </ImageView>
-            <Text layoutX="121.0" layoutY="67.0" strokeType="OUTSIDE" strokeWidth="0.0" text="姓名" />
-            <Text layoutX="115.0" layoutY="118.0" strokeType="OUTSIDE" strokeWidth="0.0" text="账户ID" />
-            <Text layoutX="121.0" layoutY="171.0" strokeType="OUTSIDE" strokeWidth="0.0" text="职务" />
-            <Text layoutX="109.0" layoutY="227.0" strokeType="OUTSIDE" strokeWidth="0.0" text="所属酒店" />
-            <TextField layoutX="170.0" layoutY="51.0" prefHeight="23.0" prefWidth="134.0" />
-            <TextField layoutX="170.0" layoutY="102.0" prefHeight="23.0" prefWidth="134.0" />
-            <TextField layoutX="170.0" layoutY="155.0" prefHeight="23.0" prefWidth="134.0" />
-            <TextField layoutX="170.0" layoutY="211.0" prefHeight="23.0" prefWidth="239.0" />
-            <Button layoutX="460.0" layoutY="268.0" mnemonicParsing="false" prefHeight="29.0" prefWidth="61.0" text="确认" />
+            <Text layoutX="206.0" layoutY="120.0" strokeType="OUTSIDE" strokeWidth="0.0" text="姓名" />
+            <Text layoutX="200.0" layoutY="171.0" strokeType="OUTSIDE" strokeWidth="0.0" text="账户ID" />
+            <Text layoutX="206.0" layoutY="224.0" strokeType="OUTSIDE" strokeWidth="0.0" text="职务" />
+            <Text layoutX="194.0" layoutY="280.0" strokeType="OUTSIDE" strokeWidth="0.0" text="所属酒店" />
+            <TextField layoutX="255.0" layoutY="104.0" prefHeight="23.0" prefWidth="134.0" />
+            <TextField layoutX="255.0" layoutY="155.0" prefHeight="23.0" prefWidth="134.0" />
+            <TextField layoutX="255.0" layoutY="208.0" prefHeight="23.0" prefWidth="134.0" />
+            <TextField layoutX="255.0" layoutY="264.0" prefHeight="23.0" prefWidth="239.0" />
+            <Button layoutX="545.0" layoutY="321.0" mnemonicParsing="false" prefHeight="29.0" prefWidth="61.0" text="确认" />
          </children>
       </Pane>
    </children>

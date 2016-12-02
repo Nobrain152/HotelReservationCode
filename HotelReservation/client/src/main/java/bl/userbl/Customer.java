@@ -116,7 +116,7 @@ public class Customer extends User {
 	 */
 	public boolean IndividualBaseInfoModification(String userid,CustomerInfoVO vo2)throws RemoteException{
 		ContactPO contactPO = (ContactPO)VOPOchange.VOtoPO(vo2.getContact());
-		CustomerInfoPO po2 = new CustomerInfoPO(vo2.getUserID(),vo2.getUsername(),contactPO,vo2.getCredit(),vo2.getBirthday());
+		CustomerInfoPO po2 = new CustomerInfoPO(vo2.getUserID(),vo2.getUsername(),contactPO,vo2.getCredit(),vo2.getIsMember(),vo2.getVipType());
 		return userdataservice.SetUserBaseInfo(userid,po2);
 	}
 			

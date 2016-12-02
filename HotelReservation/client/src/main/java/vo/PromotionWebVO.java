@@ -60,7 +60,7 @@ public class PromotionWebVO {
 		this.location = location;
 	}
 	
-	public PromotionWebVO(PromotionWebType promotionWebType,String hotelId,Integer level,double ratio) {
+	public PromotionWebVO(PromotionWebType promotionWebType,String hotelId,int level,double ratio) {
 		this.hotelType = promotionWebType;
 		this.hotelID = hotelId;
 		this.level = level;

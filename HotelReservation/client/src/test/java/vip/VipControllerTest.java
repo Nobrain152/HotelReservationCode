@@ -2,7 +2,7 @@ package vip;
 
 import static org.junit.Assert.assertEquals;
 
-import java.util.ArrayList;
+import java.rmi.RemoteException;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -10,24 +10,25 @@ import org.junit.Test;
 import bl.vipbl.Vip;
 import dataservice.vipdataservice.VipDataService;
 import util.VipType;
-import vo.VipVO;
+import vo.ContactVO;
+import vo.CustomerInfoVO;
 
 public class VipControllerTest {
 	int level;
 	int integral;
 	private VipDataService vipDataService;
+	CustomerInfoVO customerInfoVO;
 	
 	@Before
 	public void setUp() throws Exception {
+		customerInfoVO = new CustomerInfoVO("0513", "txin", new ContactVO("18805156300", null), 100, true, VipType.COMMON_VIP);
 	}
 
 	@Test
-	public void testchangeLevelNeed() {
-		level = 1;
-		integral = 100;
+	public void testSearchLevel() throws RemoteException {
 		Vip vip = new Vip(vipDataService);
-		//vip.changeLevelNeed(level, integral);
-		//assertEquals(vip.showLevelNeed(),new VipVO("null", new ArrayList<int[][]>(), level, VipType.COMMON_VIP));
+		level = vip.searchLevel(customerInfoVO);
+		assertEquals(level,1);
 	}
 
 }

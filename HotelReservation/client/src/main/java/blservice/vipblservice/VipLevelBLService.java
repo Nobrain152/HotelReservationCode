@@ -6,19 +6,12 @@ package blservice.vipblservice;
  *
  */
 
-import vo.VipVO;
-
-import java.util.ArrayList;
 
 import util.ResultMsg;
 import vo.CustomerInfoVO;
 import vo.LevelSystemVO;
 
 public interface VipLevelBLService {
-	/**
-	 * 获得各个会员等级对应信用值
-	 */
-	public ArrayList<VipVO> showLevelNeed() ;
 	
 	/**
 	 * 获得用户当前信用值对应的等级

@@ -1,7 +1,6 @@
 package bl.vipbl;
 
 import java.rmi.RemoteException;
-import java.util.ArrayList;
 
 import blservice.vipblservice.VipLevelBLService;
 import datafactory.DataFactory;
@@ -9,7 +8,6 @@ import dataservice.vipdataservice.VipDataService;
 import util.ResultMsg;
 import vo.CustomerInfoVO;
 import vo.LevelSystemVO;
-import vo.VipVO;
 
 public class VipController implements VipLevelBLService{
 	
@@ -22,28 +20,39 @@ public class VipController implements VipLevelBLService{
 	}
 
 	@Override
-	public ArrayList<VipVO> showLevelNeed() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
 	public int searchLevel(CustomerInfoVO user) {
-		// TODO Auto-generated method stub
-		return 0;
+		int level = 0;
+		try {
+			level = vip.searchLevel(user);
+		} catch (RemoteException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return level;
 	}
 
 	@Override
 	public ResultMsg registerVip(CustomerInfoVO customerInfoVO, String str) {
-		// TODO Auto-generated method stub
-		return null;
+		ResultMsg resultMsg = ResultMsg.FAIL;
+		try {
+			resultMsg = vip.registerVip(customerInfoVO, str);
+		} catch (RemoteException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return resultMsg;
 	}
 
 	@Override
 	public ResultMsg createLevelSystem(LevelSystemVO levelSystemVO) {
-		// TODO Auto-generated method stub
-		return null;
+		ResultMsg resultMsg = ResultMsg.FAIL;
+		try {
+			resultMsg = vip.createLevelSystem(levelSystemVO);
+		} catch (RemoteException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return resultMsg;
 	}
-	
 
 }

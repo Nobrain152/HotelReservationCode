@@ -12,6 +12,7 @@ import bl.orderbl.OrderOnWebController;
 import util.OrderState;
 import util.ResultMsg;
 import util.RoomType;
+import util.VipType;
 import vo.ContactVO;
 import vo.CustomerInfoVO;
 import vo.OrderVO;
@@ -28,19 +29,18 @@ public class OrderOnWebControllerTest {
 	public void setUp(){
 		webBLServiceImpl = new OrderOnWebController();
 		webList = new ArrayList<OrderVO>();
-		/*web1 = new OrderVO(new CustomerInfoVO("123", "txin", 
-				new ContactVO("18805156300", null), 100), 
+		web1 = new OrderVO(new CustomerInfoVO("123", "txin", 
+				new ContactVO("18805156300", null), 100,true,VipType.COMMON_VIP), 
 				OrderState.UNEXECUTED, 100, "01", "513", false, 
 				"2016-10-16 24:00", "2016-10-16 12:00", "2016-10-17 12:00", 
 				1, 1, RoomType.ROOM_STANDARD);
 		webList.add(web1);
-		//r1 = new ResultMsg(true, "处理成功！");
 		r1 = ResultMsg.SUCCESS;
 		msg1 = new OrderVO(new CustomerInfoVO("123", "txin", 
-				new ContactVO("18805156300", null), 100), 
+				new ContactVO("18805156300", null), 100,true,VipType.COMMON_VIP), 
 				OrderState.UNEXECUTED, 100, "01", "513", false, 
 				"2016-10-16 24:00", "2016-10-16 12:00", "2016-10-17 12:00", 
-				1, 1, RoomType.ROOM_STANDARD);*/
+				1, 1, RoomType.ROOM_STANDARD);
 	}
 	
 	@Test

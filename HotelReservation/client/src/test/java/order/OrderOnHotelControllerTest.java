@@ -9,12 +9,10 @@ import org.junit.Before;
 import org.junit.Test;
 
 import bl.orderbl.OrderOnHotelController;
-import po.ContactPO;
-import po.CustomerInfoPO;
-import po.OrderPO;
 import util.OrderState;
 import util.ResultMsg;
 import util.RoomType;
+import util.VipType;
 import vo.ContactVO;
 import vo.CustomerInfoVO;
 import vo.OrderVO;
@@ -33,29 +31,28 @@ public class OrderOnHotelControllerTest {
 	
 	@Before
 	public void setUp() throws RemoteException {
-		/*order1 = new OrderVO(new CustomerInfoVO("123", "txin", 
-				new ContactVO("18805156300", null), 100), 
+		order1 = new OrderVO(new CustomerInfoVO("123", "txin", 
+				new ContactVO("18805156300", null), 100,true,VipType.COMMON_VIP), 
 				OrderState.UNEXECUTED, 100, "01", "513", false, 
 				"2016-10-16 24:00", "2016-10-16 12:00", "2016-10-17 12:00", 
 				1, 1, RoomType.ROOM_STANDARD);
 		order2 = new OrderVO(new CustomerInfoVO("123", "txin", 
-				new ContactVO("18805156300", null), 100), 
+				new ContactVO("18805156300", null), 100,true,VipType.COMMON_VIP), 
 				OrderState.UNEXECUTED, 100, "01", "513", false, 
 				"2016-10-16 24:00", "2016-10-16 12:00", "2016-10-17 12:00", 
 				1, 1, RoomType.ROOM_STANDARD);
 		order3 = new OrderVO(new CustomerInfoVO("123", "txin", 
-				new ContactVO("18805156300", null), 100), 
+				new ContactVO("18805156300", null), 100,true,VipType.COMMON_VIP), 
 				OrderState.UNEXECUTED, 100, "01", "513", false, 
 				"2016-10-16 24:00", "2016-10-16 12:00", "2016-10-17 12:00", 
 				1, 1, RoomType.ROOM_STANDARD);
 		order4 = new OrderVO(new CustomerInfoVO("123", "txin", 
-				new ContactVO("18805156300", null), 100), 
+				new ContactVO("18805156300", null), 100,true,VipType.COMMON_VIP), 
 				OrderState.UNEXECUTED, 100, "01", "513", false, 
 				"2016-10-16 24:00", "2016-10-16 12:00", "2016-10-17 12:00", 
 				1, 1, RoomType.ROOM_STANDARD);
-				*/
+		
 		hotelBLServiceImpl = new OrderOnHotelController();
-		//r1 = new ResultMsg(true, "Ö´ÐÐ³É¹¦£¡");
 		r1 = ResultMsg.SUCCESS;
 		hotelList = new ArrayList<OrderVO>();
 		hotelList.add(order1);
@@ -63,11 +60,11 @@ public class OrderOnHotelControllerTest {
 		hotelList.add(order3);
 		hotelList.add(order4);
 		
-		/*r11 = new OrderVO(new CustomerInfoVO("123", "txin", 
-				new ContactVO("18805156300", null), 100), 
+		r11 = new OrderVO(new CustomerInfoVO("123", "txin", 
+				new ContactVO("18805156300", null), 100,true,VipType.COMMON_VIP), 
 				OrderState.UNEXECUTED, 100, "01", "513", false, 
 				"2016-10-16 24:00", "2016-10-16 12:00", "2016-10-17 12:00", 
-				1, 1, RoomType.ROOM_STANDARD);*/
+				1, 1, RoomType.ROOM_STANDARD);
 	}
 
 	@Test
@@ -85,7 +82,6 @@ public class OrderOnHotelControllerTest {
 	@Test
 	public void testHotelOrderModify() throws RemoteException{
 		ResultMsg msg1 = hotelBLServiceImpl.hotelOrderModify(order1);
-		//assertEquals(msg1.getMessage(), r1.getMessage());
 		assertEquals(msg1, r1);
 	}
 }

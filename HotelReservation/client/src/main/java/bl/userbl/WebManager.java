@@ -4,9 +4,12 @@ import java.rmi.RemoteException;
 import java.util.ArrayList;
 
 import bl.VOPOchange;
+import bl.hotelbl.HotelInfoCheckController;
+import bl.hotelbl.HotelInfoMaintainController;
 import dataservice.userdataservice.UserManagementDataService;
 import po.ContactPO;
 import po.UserInfoPO;
+import util.ResultMsg;
 import vo.ContactVO;
 import vo.HotelInfoVO;
 import vo.UserInfoVO;
@@ -19,10 +22,14 @@ import vo.UserInfoVO;
  */
 public class WebManager extends User {
 	private UserManagementDataService data;
+	private HotelInfoCheckController check;
+	private HotelInfoMaintainController main;
 	
 	public WebManager(UserManagementDataService data){
 		super(data);
 		this.data=data;
+		check=new HotelInfoCheckController();
+		main=new HotelInfoMaintainController();
 	}
 	/**
 	 * 查看个人信息	
@@ -50,8 +57,8 @@ public class WebManager extends User {
 	 * 添加酒店	
 	 * @param 酒店信息VO
 	 */
-	public void HotelAdd(HotelInfoVO vo)throws RemoteException{
-		
+	public ResultMsg HotelAdd(HotelInfoVO vo)throws RemoteException{
+		return main.addHotel(vo);
 	}
 			
 	/**
@@ -69,8 +76,7 @@ public class WebManager extends User {
 	 * @return 酒店信息列表
 	 */
 	public ArrayList<HotelInfoVO> HotelScan()throws RemoteException {
-		// TODO Auto-generated method stub
-		return null;
+		return check.hotelScan();
 	}
 	
 	/**

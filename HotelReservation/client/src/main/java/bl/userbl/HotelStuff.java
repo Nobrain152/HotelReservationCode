@@ -151,10 +151,8 @@ public class HotelStuff extends User {
 		try {
 			return order.hotelOrderScan(hotelid);
 		} catch (RemoteException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			return null;
 		}
-		return null;
 	}
 
 	/**

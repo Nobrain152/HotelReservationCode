@@ -7,12 +7,12 @@ import blservice.userblservice.CustomerIndividualInformationManagementBLService;
 import dataservice.userdataservice.CustomerManagementDataService;
 import net.RMIManage;
 import util.DataServiceType;
+import util.ResultMsg;
 import vo.CreditVO;
 import vo.CustomerInfoVO;
 import vo.HotelInfoVO;
 import vo.OrderVO;
 import vo.UserInfoVO;
-import vo.VipVO;
 
 /**
  * 客户对个人信息的操作
@@ -98,25 +98,45 @@ public class CustomerInfoManagementController
 	 * @param userid
 	 * @return 个人信用信息
 	 */
-	public CreditVO IndividualCredictInquiry(String userid){
+	public int[] IndividualCredictInquiry(String userid){
 		try {
-			return 	customer.IndividualCredictInquiry(userid);
+			int[] result= {customer.IndividualCredictInquiry(userid),0};
+			return result;
 		} catch (RemoteException e) {
-			e.printStackTrace();
+			int[] result={-1,-1};
+			return result;
+		}
+	}
+
+
+	/**
+	 * 查询个人信用记录
+	 * @param userid
+	 * @return 个人信用信息
+	 */
+	public ArrayList<CreditVO> IndividualCredictRecord(String userid) {
+		try {
+			return customer.IndividualCredictRecord(userid);
+		} catch (RemoteException e) {
 			return null;
 		}
 	}
 
 
-	@Override
-	public void HotelMemberRegisterApply(String hotelID, VipVO vo2) {
-		
+	/**
+	 * 删除个人订单
+	 * @param orderVO
+	 * @return
+	 */
+	public ResultMsg personalOrderCancel(OrderVO orderVO){
+		try {
+			return customer.personalOrderCancel(orderVO);
+		} catch (RemoteException e) {
+			return ResultMsg.FAIL;
+		}
 	}
 
 
-	@Override
-	public void WebMemberRegisterApply(VipVO vo2) {
-		
-	}
+	
 			
 }

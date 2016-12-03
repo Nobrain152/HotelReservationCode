@@ -3,24 +3,23 @@ package vo;
 
 /**
  * 酒店管理人员，网站管理人员，网站营销人员的信息
- * @author lenovo
+ * @author 曹畅
  *
  */
 public class StuffInfoVO extends UserInfoVO{
 	
-	// TODO
-	private String hotelVO;
+	private String hotel;
 	
-	public StuffInfoVO(String userid,String username,ContactVO contact,String VO){
+	public StuffInfoVO(String userid,String username,ContactVO contact,String hotelid){
 	    super(userid, username, contact);
-		this.hotelVO = VO;
+		this.hotel =hotelid;
 	}
 	
 	public String getHotel(){
-		return hotelVO;
+		return hotel;
 	}	
 	
-	public void setHotel(String vo){
-		hotelVO = vo;
+	public void setHotel(String id){
+		hotel = id;
 	}
 }

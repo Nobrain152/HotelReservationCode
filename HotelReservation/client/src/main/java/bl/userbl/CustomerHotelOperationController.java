@@ -7,10 +7,12 @@ import blservice.userblservice.CustomerHotelOperationBlService;
 import dataservice.userdataservice.CustomerManagementDataService;
 import net.RMIManage;
 import util.DataServiceType;
+import util.ResultMsg;
+import util.VipType;
+import vo.CustomerInfoVO;
 import vo.HotelEvaluateVO;
 import vo.HotelInfoVO;
 import vo.OrderVO;
-import vo.VipVO;
 
 
 /**
@@ -53,11 +55,12 @@ public class CustomerHotelOperationController implements CustomerHotelOperationB
 	 * @param 订单VO
 	 *
 	 */
-	public void OederCreat(String hotelID,OrderVO vo2){
+	public ResultMsg OederCreat(String hotelID,OrderVO vo2){
 	   try {
-		customer.OederCreat(hotelID, vo2);
+		return customer.OederCreat(hotelID, vo2);
 	} catch (RemoteException e) {
 		e.printStackTrace();
+		return ResultMsg.FAIL;
 	}
 		
 	}
@@ -81,17 +84,14 @@ public class CustomerHotelOperationController implements CustomerHotelOperationB
 	 * @param 酒店IDVO
 	 * @param 会员信息VO
 	 */
-	public void HotelMemberRegisterApply(String hotelID,VipVO vo2){
-		
+	public ResultMsg HotelMemberRegisterApply(VipType type,String pa,CustomerInfoVO vo){
+		try {
+			return customer.HotelMemberRegisterApply(type,pa, vo);
+		} catch (RemoteException e) {
+			return ResultMsg.FAIL;
+		}
 	}
 	
 	
-	/**
-	 * 申请网站会员
-	 * @param 会员信息VO
-	 */
-	public void WebMemberRegisterApply(VipVO vo2){
-		
-	}
 
 }

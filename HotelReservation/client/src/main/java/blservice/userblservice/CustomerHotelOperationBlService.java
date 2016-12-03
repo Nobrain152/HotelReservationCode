@@ -2,6 +2,9 @@ package blservice.userblservice;
 
 import java.util.ArrayList;
 
+import util.ResultMsg;
+import util.VipType;
+import vo.CustomerInfoVO;
 import vo.HotelEvaluateVO;
 import vo.HotelInfoVO;
 import vo.OrderVO;
@@ -28,13 +31,20 @@ public interface CustomerHotelOperationBlService{
 	 * @param 订单VO
 	 *
 	 */
-	public void OederCreat(String hotelID,OrderVO vo2);
+	public ResultMsg OederCreat(String hotelID,OrderVO vo2);
 		
 	/**
 	 * 评价酒店	
 	 * @param 酒店评价VO
 	 */
 	public void HotelEvaluate(HotelEvaluateVO vo);
+	
+	/**
+	 * 申请酒店会员
+	 * @param 酒店IDVO
+	 * @param 会员信息VO
+	 */
+	public ResultMsg HotelMemberRegisterApply(VipType type,String pa,CustomerInfoVO vo);
 		
 	
 	

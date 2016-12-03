@@ -2,12 +2,12 @@ package blservice.userblservice;
 
 import java.util.ArrayList;
 
+import util.ResultMsg;
 import vo.CreditVO;
 import vo.CustomerInfoVO;
 import vo.HotelInfoVO;
 import vo.OrderVO;
 import vo.UserInfoVO;
-import vo.VipVO;
 
 
 /**
@@ -51,20 +51,22 @@ public interface CustomerIndividualInformationManagementBLService{
 	 * @param 用户IDVO
 	 * @return 信用VO
 	 */
-	public CreditVO IndividualCredictInquiry(String userid);
+	public int[] IndividualCredictInquiry(String userid);
 	
 	/**
-	 * 申请酒店会员
-	 * @param 酒店IDVO
-	 * @param 会员信息VO
+	 * 查询个人信用信息记录	
+	 * @param 用户IDVO
+	 * @return 信用VO
 	 */
-	public void HotelMemberRegisterApply(String hotelID,VipVO vo2);
-	
+	public ArrayList<CreditVO> IndividualCredictRecord(String userid);
 	
 	/**
-	 * 申请网站会员
-	 * @param 会员信息VO
+	 * 删除个人订单
+	 * @param orderVO
+	 * @return
 	 */
-	public void WebMemberRegisterApply(VipVO vo2);	
+	public ResultMsg personalOrderCancel(OrderVO orderVO);
+	
+	
 			
 }

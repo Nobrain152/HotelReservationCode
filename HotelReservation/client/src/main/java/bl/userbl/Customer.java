@@ -8,18 +8,21 @@ import bl.hotelbl.HotelInfoCheckController;
 import bl.hotelbl.HotelReserveController;
 import bl.hotelbl.HotelSearchController;
 import bl.VOPOchange;
+import bl.creditbl.CreditController;
 import bl.orderbl.OrderOnUserController;
+import bl.vipbl.VipController;
 import dataservice.userdataservice.CustomerManagementDataService;
 import po.ContactPO;
 import po.CustomerInfoPO;
 import po.UserInfoPO;
+import util.ResultMsg;
+import util.VipType;
 import vo.CustomerInfoVO;
 import vo.HotelEvaluateVO;
 import vo.HotelInfoVO;
 import vo.CreditVO;
 import vo.OrderVO;
 import vo.UserInfoVO;
-import vo.VipVO;
 /**
  * 客户类
  * @author 曹畅
@@ -30,11 +33,12 @@ public class Customer extends User {
 	private HotelEvaluateController eval;
 	private UserInfoVO userInfoVO;
 	private ArrayList<HotelInfoVO> hotelInfoVOs;
-	private CreditVO integralVO;
+	private CreditController integral;
 	private CustomerManagementDataService userdataservice;
 	private OrderOnUserController order;
 	private HotelInfoCheckController hotelinfo;
 	private HotelReserveController reserve;
+	private VipController vip;
 	
 	/**
 	 * 构造方法
@@ -47,7 +51,13 @@ public class Customer extends User {
 		order=new OrderOnUserController();
 		hotelinfo=new HotelInfoCheckController();
 		this.userdataservice=userdataservice;
+		integral=new CreditController();
 		reserve=new HotelReserveController();
+		try {
+			vip=new VipController();
+		} catch (RemoteException e) {
+			e.printStackTrace();
+		}
 	}
 	
 	/**
@@ -66,9 +76,17 @@ public class Customer extends User {
 	 * @param 订单VO
 	 *
 	 */
-	public void OederCreat(String hotelID,OrderVO vo2)throws RemoteException{
-	    reserve.reserveHotel(vo2);
-	    order.createOrder(vo2);
+	public ResultMsg OederCreat(String userid,OrderVO vo2)throws RemoteException{
+	    ResultMsg r1=reserve.reserveHotel(vo2);
+	    if(r1==ResultMsg.SUCCESS){
+	    	order.createOrder(vo2);
+	    	boolean r=userdataservice.addCustomerOrders(userid,vo2.getOrderID());
+	    	boolean r2=userdataservice.addCustomerHotel(userid,vo2.getHotelID());
+	    	if(r&&r2){
+	    		return ResultMsg.SUCCESS;
+	    	}
+	    }
+	    return ResultMsg.FAIL;
 		
 	}
 			
@@ -87,18 +105,25 @@ public class Customer extends User {
 	 * @param 酒店IDVO
 	 * @param 会员信息VO
 	 */
-	public void HotelMemberRegisterApply(String hotelID,VipVO vo2)throws RemoteException{
-		
+	public ResultMsg HotelMemberRegisterApply(VipType type,String pa,CustomerInfoVO vo)throws RemoteException{
+		if(vo.getIsMember()){
+			if(vo.getVipType()==type){
+				return ResultMsg.FAIL;
+			}
+		}
+		vo.setIsMember(true);
+		vo.setVipType(type);
+		ResultMsg resultMsg= vip.registerVip(vo,pa);
+		if(resultMsg==ResultMsg.SUCCESS){
+			boolean r=userdataservice.SetUserBaseInfo(vo.getUserID(),(UserInfoPO)VOPOchange.VOtoPO(vo));
+			if(r){
+				return ResultMsg.SUCCESS;
+			}
+		}
+		return ResultMsg.FAIL;
 	}
 	
 	
-	/**
-	 * 申请网站会员
-	 * @param 会员信息VO
-	 */
-	public void WebMemberRegisterApply(VipVO vo2)throws RemoteException{
-		
-	}
 
 	/**
 	 * 查询个人基本信息
@@ -150,7 +175,27 @@ public class Customer extends User {
 	 * @param userid
 	 * @return 个人信用信息
 	 */
-	public CreditVO IndividualCredictInquiry(String userid)throws RemoteException{
-		return 	integralVO;
+	public int IndividualCredictInquiry(String userid)throws RemoteException{
+		return 	integral.getCredit((CustomerInfoVO)VOPOchange.POtoVO(userdataservice.GetUserBaseInfo(userid)));
 	}
+	
+	
+	/**
+	 * 查询个人信用记录
+	 * @param userid
+	 * @return 个人信用信息
+	 */
+	public ArrayList<CreditVO> IndividualCredictRecord(String userid)throws RemoteException{
+		return 	integral.getCreditList(userid);
+	}
+	
+	/**
+	 * 删除个人订单
+	 * @param orderVO
+	 * @return
+	 */
+	public ResultMsg personalOrderCancel(OrderVO orderVO)throws RemoteException{
+		return order.personalOrderCancel(orderVO);
+	}
+	
 }

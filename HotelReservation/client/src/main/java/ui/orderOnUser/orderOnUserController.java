@@ -20,7 +20,7 @@ public class orderOnUserController implements Initializable{
 	}
 	
 	@FXML
-	public void btn_CancelAction(ActionEvent ev) throws Exception{
+	public void btn_CancelAction(ActionEvent ev){
 		application.gotocustomerGuide();
 	}
 

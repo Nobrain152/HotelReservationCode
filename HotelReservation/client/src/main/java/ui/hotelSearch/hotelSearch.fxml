@@ -31,7 +31,7 @@
       <Pane layoutY="529.0" prefHeight="71.0" prefWidth="800.0">
          <children>
             <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#b4b4b4" height="71.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="800.0" />
-            <Button layoutX="690.0" layoutY="21.0" mnemonicParsing="false" prefHeight="28.0" prefWidth="61.0" text="返回">
+            <Button fx:id="btn_Cancel" layoutX="690.0" layoutY="21.0" mnemonicParsing="false" onAction="#btn_CancelAction" prefHeight="28.0" prefWidth="61.0" text="返回">
                <font>
                   <Font size="14.0" />
                </font>
@@ -67,10 +67,10 @@
             </Text>
             <TextField layoutX="376.0" layoutY="70.0" prefHeight="23.0" prefWidth="187.0" />
             <TextField layoutX="376.0" layoutY="109.0" prefHeight="23.0" prefWidth="187.0" />
-            <ChoiceBox layoutX="376.0" layoutY="192.0" prefHeight="23.0" prefWidth="187.0" />
-            <ChoiceBox layoutX="376.0" layoutY="232.0" prefHeight="23.0" prefWidth="187.0" />
-            <ChoiceBox layoutX="376.0" layoutY="275.0" prefHeight="23.0" prefWidth="187.0" />
-            <Button layoutX="499.0" layoutY="324.0" mnemonicParsing="false" prefHeight="29.0" prefWidth="61.0" text="搜索" />
+            <ChoiceBox fx:id="cb_Price" layoutX="376.0" layoutY="192.0" prefHeight="23.0" prefWidth="187.0" />
+            <ChoiceBox fx:id="cb_Star" layoutX="376.0" layoutY="232.0" prefHeight="23.0" prefWidth="187.0" />
+            <ChoiceBox fx:id="cb_Score" layoutX="376.0" layoutY="275.0" prefHeight="23.0" prefWidth="187.0" />
+            <Button fx:id="btn_Search" layoutX="499.0" layoutY="324.0" mnemonicParsing="false" onAction="#btn_SearchAction" prefHeight="29.0" prefWidth="61.0" text="搜索" />
             <Text layoutX="240.0" layoutY="168.0" strokeType="OUTSIDE" strokeWidth="0.0" text="名称">
                <font>
                   <Font size="14.0" />

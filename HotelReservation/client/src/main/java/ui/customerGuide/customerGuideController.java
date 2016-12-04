@@ -15,6 +15,9 @@ public class customerGuideController implements Initializable{
 	private UILaunch application;
 	
 	@FXML
+	private Button button_Search;
+	
+	@FXML
 	private Button button_Order;
 	
 	@FXML
@@ -29,13 +32,17 @@ public class customerGuideController implements Initializable{
 	@FXML
 	private Button button_Cancel;
 	
-	@FXML
-	private ChoiceBox<String> cb_star;
+	
 	
 	
 	
 	public void setApp(UILaunch application){
 		this.application= application;
+	}
+	
+	@FXML
+	private void button_SearchAction(ActionEvent event) throws Exception{
+		application.gotohotelSearch();
 	}
 	
 	@FXML
@@ -66,7 +73,7 @@ public class customerGuideController implements Initializable{
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		// TODO Auto-generated method stub
-		cb_star.setItems(FXCollections.observableArrayList("1", "2"));
+	
 	}
 
 }

@@ -3,6 +3,7 @@ package ui.hotelSearch;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
@@ -16,6 +17,9 @@ public class hotelSearchListController implements Initializable{
 	private UILaunch application;
 	
 	@FXML
+	private Button btn_Cancel;
+	
+	@FXML
 	private Pagination pagination;
 	
 	private static int itemsPerPage=4;
@@ -24,10 +28,12 @@ public class hotelSearchListController implements Initializable{
 		this.application= application;
 	}
 	
-	
+	public void btn_CancelAction(ActionEvent ev) throws Exception{
+		application.gotohotelSearch();
+	}
 	
 	public VBox createPage(int pageIndex) {
-		VBox box = new VBox(5);
+		VBox box = new VBox(4);
 		int page = pageIndex * itemsPerPage;
 		for (int i = page; i < page + itemsPerPage; i++) {
 			VBox element = new VBox();

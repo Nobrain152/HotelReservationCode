@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.image.*?>
 <?import javafx.geometry.*?>
 <?import javafx.scene.web.*?>
 <?import javafx.scene.text.*?>
@@ -19,54 +20,10 @@
             <Font size="27.0" />
          </font>
       </Text>
-      <Button fx:id="button_Cancel" layoutX="587.0" layoutY="485.0" mnemonicParsing="false" onAction="#button_CancelAction" prefHeight="34.0" prefWidth="72.0" text="退出">
+      <Button fx:id="button_Cancel" layoutX="674.0" layoutY="550.0" mnemonicParsing="false" onAction="#button_CancelAction" prefHeight="34.0" prefWidth="72.0" text="退出">
          <font>
             <Font size="14.0" />
          </font></Button>
-      <TextField layoutX="83.0" layoutY="97.0" prefHeight="28.0" prefWidth="522.0" promptText="名称搜索" />
-      <Button layoutX="614.0" layoutY="97.0" mnemonicParsing="false" prefHeight="28.0" prefWidth="66.0" text="搜索" />
-      <Text layoutX="126.0" layoutY="166.0" strokeType="OUTSIDE" strokeWidth="0.0" text="地址">
-         <font>
-            <Font size="18.0" />
-         </font>
-      </Text>
-      <TextField layoutX="182.0" layoutY="148.0" prefHeight="23.0" prefWidth="161.0" />
-      <Text layoutX="423.0" layoutY="166.0" strokeType="OUTSIDE" strokeWidth="0.0" text="商圈">
-         <font>
-            <Font size="18.0" />
-         </font>
-      </Text>
-      <TextField layoutX="486.0" layoutY="148.0" prefHeight="23.0" prefWidth="161.0" />
-      <Text layoutX="423.0" layoutY="212.0" strokeType="OUTSIDE" strokeWidth="0.0" text="星级">
-         <font>
-            <Font size="18.0" />
-         </font>
-      </Text>
-      <ChoiceBox fx:id="cb_star" layoutX="487.0" layoutY="193.0" prefHeight="23.0" prefWidth="106.0">
-         <opaqueInsets>
-            <Insets />
-         </opaqueInsets>
-      </ChoiceBox>
-      <Text layoutX="126.0" layoutY="210.0" strokeType="OUTSIDE" strokeWidth="0.0" text="评分区间">
-         <font>
-            <Font size="18.0" />
-         </font>
-      </Text>
-      <ChoiceBox layoutX="218.0" layoutY="192.0" prefHeight="23.0" prefWidth="124.0" />
-      <Text layoutX="126.0" layoutY="251.0" strokeType="OUTSIDE" strokeWidth="0.0" text="空房时段">
-         <font>
-            <Font size="18.0" />
-         </font>
-      </Text>
-      <DatePicker layoutX="223.0" layoutY="233.0" prefHeight="23.0" prefWidth="171.0" />
-      <Text layoutX="432.0" layoutY="251.0" strokeType="OUTSIDE" strokeWidth="0.0" text="至">
-         <font>
-            <Font size="18.0" />
-         </font>
-      </Text>
-      <DatePicker layoutX="487.0" layoutY="233.0" prefHeight="23.0" prefWidth="171.0" />
-      <CheckBox layoutX="126.0" layoutY="278.0" mnemonicParsing="false" text="只搜索预订过的" />
-      <Button layoutX="620.0" layoutY="272.0" mnemonicParsing="false" prefHeight="28.0" prefWidth="54.0" text="搜索" />
       <Button fx:id="button_Order" layoutX="191.0" layoutY="319.0" mnemonicParsing="false" onAction="#button_OrderAction" prefHeight="44.0" prefWidth="141.0" text="我的订单">
          <font>
             <Font size="14.0" />
@@ -83,6 +40,16 @@
          </font>
       </Button>
       <Button fx:id="button_Vip" layoutX="432.0" layoutY="395.0" mnemonicParsing="false" onAction="#button_VipAction" prefHeight="44.0" prefWidth="141.0" text="申请会员">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Button>
+      <ImageView fitHeight="139.0" fitWidth="148.0" layoutX="232.0" layoutY="124.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../../../image/house.jpg" />
+         </image>
+      </ImageView>
+      <Button fx:id="button_Search" layoutX="417.0" layoutY="184.0" mnemonicParsing="false" onAction="#button_SearchAction" prefHeight="44.0" prefWidth="98.0" text="搜索酒店">
          <font>
             <Font size="14.0" />
          </font>

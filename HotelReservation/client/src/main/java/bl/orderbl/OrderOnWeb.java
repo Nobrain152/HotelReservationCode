@@ -10,6 +10,7 @@ import po.CreditPO;
 import po.OrderPO;
 import util.OrderState;
 import util.ResultMsg;
+import util.Today;
 import vo.OrderVO;
 
 public class OrderOnWeb {
@@ -55,14 +56,15 @@ public class OrderOnWeb {
 	 * @return 系统提示消息
 	 * @throws RemoteException 
 	 */
-	public ResultMsg complaintHandle(OrderVO orderVO) throws RemoteException{
+	public ResultMsg complaintHandle(OrderVO orderVO,double rate) throws RemoteException{
 		OrderPO order = (OrderPO)VOPOchange.VOtoPO(orderVO);
 		ResultMsg resultMsg;
 		if(order.getPass()){
 			order.setOrderState(OrderState.CANCELLED);
 			CreditPO creditPO = creditDataService.findByUserID(order.getOrderID());
 			creditPO.setCreditResult(order.getInitiator().getCredit()
-					+ (int)order.getPrice());
+					+ (int)(order.getPrice()*rate));
+			order.setCancelledTime(new Today().getToday());
 		}
 		resultMsg = webDataService.update(order);
 		return resultMsg;
@@ -88,6 +90,31 @@ public class OrderOnWeb {
 		webVOs = new ArrayList<OrderVO>();
 		for(OrderPO webPO : webPOs){
 			if(webPO.getOrderState() == OrderState.ABNORMAL)
+				webVOs.add((OrderVO)VOPOchange.POtoVO(webPO));
+		}
+		
+		return webVOs;
+	}
+	
+	/**
+	 * 浏览每日未执行订单
+	 * @param today
+	 * @return
+	 * @throws RemoteException
+	 */
+	public ArrayList<OrderVO> dayUnexOrder(String today) throws RemoteException {
+		ArrayList<OrderVO> webVOs;
+		ArrayList<OrderPO> webPOs;
+		
+		webPOs = webDataService.showList();
+		
+		if(webPOs == null || webPOs.isEmpty()) {
+			return null;
+		}
+		
+		webVOs = new ArrayList<OrderVO>();
+		for(OrderPO webPO : webPOs){
+			if(webPO.getOrderState() == OrderState.UNEXECUTED && webPO.getLatestExecutionTime().equals(today))
 				webVOs.add((OrderVO)VOPOchange.POtoVO(webPO));
 		}
 		

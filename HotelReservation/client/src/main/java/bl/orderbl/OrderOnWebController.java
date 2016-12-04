@@ -34,9 +34,9 @@ public class OrderOnWebController implements OrderOnWebBLService{
 	}
 
 	@Override
-	public ResultMsg complaintHandle(OrderVO orderVO) {
+	public ResultMsg complaintHandle(OrderVO orderVO,double rate) {
 		try {
-			return orderOnWeb.complaintHandle(orderVO);
+			return orderOnWeb.complaintHandle(orderVO,rate);
 		} catch (RemoteException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

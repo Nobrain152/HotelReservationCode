@@ -27,7 +27,7 @@ public interface OrderOnWebBLService {
 	 * @param orderVO 订单VO
 	 * @return 系统提示消息
 	 */
-	public ResultMsg complaintHandle(OrderVO orderVO);
+	public ResultMsg complaintHandle(OrderVO orderVO,double rate);
 	
 	/**
 	 * 网站营销人员查看异常订单列表

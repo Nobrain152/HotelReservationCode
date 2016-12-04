@@ -63,7 +63,7 @@ public class VipDataSerivceImpl extends DataSuperClass implements VipDataService
 	}
 
 	@Override
-	public CustomerInfoPO findByUserID(String id) throws RemoteException {
+	public VipPO findByUserID(String id) throws RemoteException {
 		// TODO Auto-generated method stub
 		return null;
 	}

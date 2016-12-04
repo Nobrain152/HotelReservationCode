@@ -63,7 +63,7 @@ public class Credit {
 	
 	public ArrayList<CreditVO> getCreditList(String userID) throws RemoteException {
 		ArrayList<CreditPO> creditPOs = creditDataService.getListByUserID(userID);
-		ArrayList<CreditVO> creditVOs = new ArrayList<CreditVO>();
+		ArrayList<CreditVO> creditVOs = new ArrayList<>();
 		for(CreditPO creditPO : creditPOs) {
 			creditVOs.add((CreditVO)VOPOchange.POtoVO(creditPO));
 		}

@@ -109,7 +109,7 @@ public class PromotionHotel {
 	 */
 	public ArrayList<PromotionHotelVO> getHotelPromotion(PromotionHotelType type,String hotelID) throws RemoteException {
 		ArrayList<PromotionHotelPO> list = promotionHotelDataService.findByType(type,hotelID);
-		ArrayList<PromotionHotelVO> voList = new ArrayList<PromotionHotelVO>();
+		ArrayList<PromotionHotelVO> voList = new ArrayList<>();
 		PromotionHotelVO vo;
 		for(PromotionHotelPO po : list) {
 			vo = (PromotionHotelVO)VOPOchange.POtoVO(po);

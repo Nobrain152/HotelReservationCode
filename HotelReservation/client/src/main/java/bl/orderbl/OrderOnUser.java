@@ -130,7 +130,7 @@ public class OrderOnUser {
 			orderOnUserPO.setCancelledTime(today);
 			resultMsg = userDataService.update(orderOnUserPO);
 			
-			//如果撤销的订单距离最晚执行时间不足6个小时，扣除信用值（订单价值的1/2）
+			//如果撤销的订单距离最晚执行时间不足6个小时，扣除信用值（订单价值的1/2），设置creditPO状态为Cancelled
 			String lastTime = orderOnUserPO.getLatestExecutionTime();
 			if(lastTime.compareTo(today) >= 0) {
 				// TODO

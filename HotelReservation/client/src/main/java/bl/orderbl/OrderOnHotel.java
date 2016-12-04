@@ -5,11 +5,14 @@ import java.util.ArrayList;
 
 import bl.VOPOchange;
 import bl.creditbl.CreditController;
+import dataservice.creditdataservice.CreditDataService;
 import dataservice.hoteldataservice.RoomInfoDataService;
 import dataservice.orderdataservice.OrderDataService;
+import po.CreditPO;
 import po.CustomerInfoPO;
 import po.OrderPO;
 import po.RoomInfoPO;
+import util.Action;
 import util.OrderState;
 import util.ResultMsg;
 import util.RoomState;
@@ -20,10 +23,12 @@ public class OrderOnHotel {
 	
 	private OrderDataService hotelDataService;
 	private RoomInfoDataService roomInfoDataService;
+	private CreditDataService creditDataService;
 	
-	public OrderOnHotel(OrderDataService hotelDataService,RoomInfoDataService roomInfoDataService) {
+	public OrderOnHotel(OrderDataService hotelDataService,RoomInfoDataService roomInfoDataService,CreditDataService creditDataService) {
 		this.hotelDataService = hotelDataService;
 		this.roomInfoDataService = roomInfoDataService;
+		this.creditDataService = creditDataService;
 	}
 	
 	/**
@@ -80,6 +85,8 @@ public class OrderOnHotel {
 			CustomerInfoPO customerInfoPO = orderPO.getInitiator();
 			CreditController controller = new CreditController();
 			controller.addCredit((CustomerInfoVO)VOPOchange.POtoVO(customerInfoPO), (int)orderVO.getPrice());
+			CreditPO creditPO = creditDataService.findByUserID(orderVO.getInitiator().getUserID());
+			creditPO.setAction(Action.Executed);
 			roomInfoPO.setRoomState(RoomState.UNUSABLE);
 			orderPO.setRoomInfoPO(roomInfoPO);
 			resultMsg = hotelDataService.update(orderPO);

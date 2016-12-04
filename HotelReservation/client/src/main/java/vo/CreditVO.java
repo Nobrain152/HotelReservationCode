@@ -47,4 +47,7 @@ public class CreditVO {
 		this.creditResult = creditResult;
 	}
 	
+	public void setAction(Action action) {
+		this.action = action;
+	}
 }

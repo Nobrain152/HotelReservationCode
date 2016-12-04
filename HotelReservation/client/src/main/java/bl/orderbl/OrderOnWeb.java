@@ -4,9 +4,8 @@ import java.rmi.RemoteException;
 import java.util.ArrayList;
 
 import bl.VOPOchange;
-import dataservice.creditdataservice.CreditDataService;
+import bl.creditbl.CreditController;
 import dataservice.orderdataservice.OrderDataService;
-import po.CreditPO;
 import po.OrderPO;
 import util.OrderState;
 import util.ResultMsg;
@@ -16,12 +15,9 @@ import vo.OrderVO;
 public class OrderOnWeb {
 	
 	private OrderDataService webDataService;
-	private CreditDataService creditDataService;
 	
-	public OrderOnWeb(OrderDataService webDataService,
-			CreditDataService creditDataService) {
+	public OrderOnWeb(OrderDataService webDataService) {
 		this.webDataService = webDataService;
-		this.creditDataService = creditDataService;
 	}
 	
 	/**
@@ -61,9 +57,8 @@ public class OrderOnWeb {
 		ResultMsg resultMsg;
 		if(order.getPass()){
 			order.setOrderState(OrderState.CANCELLED);
-			CreditPO creditPO = creditDataService.findByUserID(order.getOrderID());
-			creditPO.setCreditResult(order.getInitiator().getCredit()
-					+ (int)(order.getPrice()*rate));
+			CreditController controller = new CreditController();
+			controller.addCredit(orderVO.getInitiator(), (int)(order.getPrice()*rate));
 			order.setCancelledTime(new Today().getToday());
 		}
 		resultMsg = webDataService.update(order);

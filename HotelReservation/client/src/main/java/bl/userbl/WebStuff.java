@@ -61,7 +61,7 @@ public class WebStuff extends User{
 	 * @param 用户信息VO
 	 * @return 修改结果
 	 */
-	public boolean IndividualBaseInfoModification(String userid,UserInfoVO vo2)throws RemoteException{
+	public ResultMsg IndividualBaseInfoModification(String userid,UserInfoVO vo2)throws RemoteException{
 		UserInfoPO po= new UserInfoPO(vo2.getUserID(),vo2.getUsername(),(ContactPO)VOPOchange.VOtoPO(vo2.getContact()));
 		return user.SetUserBaseInfo(userid, po);
 	}

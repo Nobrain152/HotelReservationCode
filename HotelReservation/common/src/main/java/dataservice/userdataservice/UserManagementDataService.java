@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 import po.LoginInPO;
 import po.UserInfoPO;
+import util.ResultMsg;
 
 /**
  * 用户信息管理
@@ -40,7 +41,7 @@ public interface UserManagementDataService{
 		 * @param 用户信息PO
 		 * @return 设置结果
 		 */
-		public boolean SetUserBaseInfo(String userid,UserInfoPO po2);
+		public ResultMsg SetUserBaseInfo(String userid,UserInfoPO po2);
 		
 		public boolean addHotelStuff(String hotelid,String userid);
 		

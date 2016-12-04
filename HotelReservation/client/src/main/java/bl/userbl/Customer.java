@@ -129,10 +129,8 @@ public class Customer extends User {
 		vo.setVipType(type);
 		ResultMsg resultMsg= vip.registerVip(vo,pa);
 		if(resultMsg==ResultMsg.SUCCESS){
-			boolean r=userdataservice.SetUserBaseInfo(vo.getUserID(),(UserInfoPO)VOPOchange.VOtoPO(vo));
-			if(r){
-				return ResultMsg.SUCCESS;
-			}
+			return userdataservice.SetUserBaseInfo(vo.getUserID(),(UserInfoPO)VOPOchange.VOtoPO(vo));
+			
 		}
 		return ResultMsg.FAIL;
 	}
@@ -156,7 +154,11 @@ public class Customer extends User {
 	 * @param 客户基本信息
 	 * @return 修改结果
 	 */
-	public boolean IndividualBaseInfoModification(String userid,CustomerInfoVO vo2)throws RemoteException{
+	public ResultMsg IndividualBaseInfoModification(String userid,CustomerInfoVO vo2)throws RemoteException{
+		CustomerInfoPO past=(CustomerInfoPO) userdataservice.GetUserBaseInfo(userid);
+		if((past.getIsMember()!=vo2.getIsMember())||(past.getCredit()!=vo2.getCredit())||(!past.getUserID().equals(vo2.getUserID())||(past.getVipType()!=vo2.getVipType()))){
+			return ResultMsg.UNAUYHORIZED;
+		}
 		ContactPO contactPO = (ContactPO)VOPOchange.VOtoPO(vo2.getContact());
 		CustomerInfoPO po2 = new CustomerInfoPO(vo2.getUserID(),vo2.getUsername(),contactPO,vo2.getCredit(),vo2.getIsMember(),vo2.getVipType());
 		return userdataservice.SetUserBaseInfo(userid,po2);
@@ -172,21 +174,24 @@ public class Customer extends User {
 	}
 	
 	/**
-	 * 查询个人未执行订单信息
+	 * 查询个人某一类订单信息
 	 * @param userid
 	 * @return 个人订单列表
 	 */
-	public ArrayList<OrderVO> UnfinishedOrderInquiry(String userid)throws RemoteException{
+	public ArrayList<OrderVO> SpecialOrderInquiry(String userid,OrderState state)throws RemoteException{
 		ArrayList<OrderVO> all= order.personalOrderScan(userid);
-		ArrayList<OrderVO> unfinished=new ArrayList<OrderVO>();
+		ArrayList<OrderVO> special=new ArrayList<OrderVO>();
 		for(OrderVO vo:all){
-			if(vo.getOrderState()==OrderState.UNEXECUTED){
-				unfinished.add(vo);
+			if(vo.getOrderState()==state){
+				special.add(vo);
 			}
 		}
-		return unfinished;
+		return special;
 	}
-			
+	
+	
+	
+	
 	/**
 	 * 查询个人酒店信息
 	 * @param userid

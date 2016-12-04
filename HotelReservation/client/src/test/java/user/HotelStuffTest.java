@@ -8,6 +8,7 @@ import java.rmi.RemoteException;
 import bl.userbl.HotelStuff;
 import data.userdata.UserManagementDataServiceImpl;
 import dataservice.userdataservice.UserManagementDataService;
+import util.ResultMsg;
 import vo.ContactVO;
 import vo.StuffInfoVO;
 import vo.UserInfoVO;
@@ -37,7 +38,7 @@ public class HotelStuffTest {
 	
 	public void testmodify(){
 		StuffInfoVO vo1=new StuffInfoVO("1234567","Tom",new ContactVO("13067893451",null),"1234567");
-		boolean cantest = false;
+		ResultMsg cantest = ResultMsg.FAIL;
 		try {
 			cantest = stuff.IndividualBaseInfoModification("1234567",vo1);
 		} catch (RemoteException e) {
@@ -51,7 +52,7 @@ public class HotelStuffTest {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		if(cantest){
+		if(cantest==ResultMsg.SUCCESS){
 			assertEquals(po.getUserID(),"1234567");
 			assertEquals(po.getUsername(),"Tom");
 			assertEquals(po.getContact(),"13067893451");

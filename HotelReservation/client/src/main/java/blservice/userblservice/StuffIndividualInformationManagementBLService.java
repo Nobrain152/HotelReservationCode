@@ -1,5 +1,6 @@
 package blservice.userblservice;
 
+import util.ResultMsg;
 import vo.StuffInfoVO;
 
 
@@ -23,6 +24,6 @@ public interface StuffIndividualInformationManagementBLService{
 	 * @param 酒店管理人员信息VO
 	 * @return 修改结果
 	 */
-	public boolean IndividualBaseInfoModification(String userid,StuffInfoVO vo2);
+	public ResultMsg IndividualBaseInfoModification(String userid,StuffInfoVO vo2);
 		
 }

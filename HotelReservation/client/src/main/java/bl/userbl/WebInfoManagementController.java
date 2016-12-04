@@ -6,6 +6,7 @@ import blservice.userblservice.WebIndividualInformationManagementBLService;
 import dataservice.userdataservice.UserManagementDataService;
 import net.RMIManage;
 import util.DataServiceType;
+import util.ResultMsg;
 import vo.UserInfoVO;
 
 
@@ -46,12 +47,12 @@ public class WebInfoManagementController implements WebIndividualInformationMana
 	 * @param 用户信息VO
 	 * @return 修改结果
 	 */
-	public boolean IndividualBaseInfoModification(String userid,UserInfoVO vo2){
+	public ResultMsg IndividualBaseInfoModification(String userid,UserInfoVO vo2){
 		try {
 			return manager.IndividualBaseInfoModification(userid, vo2);
 		} catch (RemoteException e) {
 			e.printStackTrace();
-			return false;
+			return ResultMsg.FAIL;
 		}
 	}
 			

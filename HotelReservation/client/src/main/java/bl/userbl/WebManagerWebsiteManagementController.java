@@ -7,6 +7,7 @@ import blservice.userblservice.WebManagerWebsiteManagementBLService;
 import dataservice.userdataservice.UserManagementDataService;
 import net.RMIManage;
 import util.DataServiceType;
+import util.ResultMsg;
 import vo.UserInfoVO;
 
 
@@ -49,12 +50,12 @@ public class WebManagerWebsiteManagementController implements WebManagerWebsiteM
 	 * @param 用户个人信息VO
 	 * @return 修改结果
 	 */
-	public boolean UserInformationModification(String userid,UserInfoVO vo2){
+	public ResultMsg UserInformationModification(String userid,UserInfoVO vo2){
 		try {
 			return manager.UserInformationModification(userid, vo2);
 		} catch (RemoteException e) {
 			e.printStackTrace();
-			return false;
+			return ResultMsg.FAIL;
 		}
 	}
 			

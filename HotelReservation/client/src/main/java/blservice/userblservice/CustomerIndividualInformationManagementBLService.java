@@ -30,7 +30,7 @@ public interface CustomerIndividualInformationManagementBLService{
 	 * @param 客户个人信息VO
 	 * @return 修改成功与否
 	 */
-	public boolean IndividualBaseInfoModification(String userid,CustomerInfoVO vo2);
+	public ResultMsg IndividualBaseInfoModification(String userid,CustomerInfoVO vo2);
 		
 	/**
 	 * 查询个人订单
@@ -46,6 +46,32 @@ public interface CustomerIndividualInformationManagementBLService{
 	 * @return 个人订单列表
 	 */
 	public ArrayList<OrderVO> UnfinishedOrderInquiry(String userid);
+	
+	
+	/**
+	 * 查询个人已执行订单信息
+	 * @param userid
+	 * @return 个人订单列表
+	 */
+	public ArrayList<OrderVO> finishedOrderInquiry(String userid);
+	
+	
+	/**
+	 * 查询个撤销订单信息
+	 * @param userid
+	 * @return 个人订单列表
+	 */
+	public ArrayList<OrderVO> CancelOrderInquiry(String userid);
+	
+	
+	/**
+	 * 查询个人异常订单信息
+	 * @param userid
+	 * @return 个人订单列表
+	 */
+	public ArrayList<OrderVO> AbnormalOrderInquiry(String userid);
+	
+	
 	/**
 	 * 查询预定过的酒店	
 	 * @param 用户IDVO

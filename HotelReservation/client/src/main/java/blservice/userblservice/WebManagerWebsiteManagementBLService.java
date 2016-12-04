@@ -2,6 +2,7 @@ package blservice.userblservice;
 
 import java.util.ArrayList;
 
+import util.ResultMsg;
 import vo.UserInfoVO;
 
 
@@ -29,7 +30,7 @@ public interface WebManagerWebsiteManagementBLService{
 	 * @param 用户个人信息VO
 	 * @return 修改结果
 	 */
-	public boolean UserInformationModification(String userid,UserInfoVO vo2);
+	public ResultMsg UserInformationModification(String userid,UserInfoVO vo2);
 	
 	/**
 	 * 查看网站营销人员列表

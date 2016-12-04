@@ -191,7 +191,7 @@ public class HotelStuff extends User {
 	 * @param 酒店管理人员信息VO
 	 * @return 修改结果
 	 */
-	public boolean IndividualBaseInfoModification(String userid,StuffInfoVO vo2)throws RemoteException{
+	public ResultMsg IndividualBaseInfoModification(String userid,StuffInfoVO vo2)throws RemoteException{
 		StuffInfoPO po2=new StuffInfoPO(vo2.getUserID(),vo2.getUsername(),(ContactPO)VOPOchange.VOtoPO(vo2.getContact()),vo2.getHotel());
 		return userDataService.SetUserBaseInfo(userid,po2);
 	}

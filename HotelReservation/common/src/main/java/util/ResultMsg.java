@@ -29,6 +29,11 @@ public enum ResultMsg {
 	
 	SQL_ERROR,
 	
-	MONEY_NOT_ENOUGH;
+	MONEY_NOT_ENOUGH,
+	
+	/*
+	 * Î´ÊÚÈ¨²Ù×÷
+	 */
+	UNAUYHORIZED;
 
 }

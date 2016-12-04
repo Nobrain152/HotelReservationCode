@@ -6,6 +6,7 @@ import blservice.userblservice.StuffIndividualInformationManagementBLService;
 import dataservice.userdataservice.UserManagementDataService;
 import net.RMIManage;
 import util.DataServiceType;
+import util.ResultMsg;
 import vo.StuffInfoVO;
 
 
@@ -47,12 +48,12 @@ public class StuffInfoManagementController implements StuffIndividualInformation
 	 * @param 酒店管理人员信息VO
 	 * @return 修改结果
 	 */
-	public boolean IndividualBaseInfoModification(String userid,StuffInfoVO vo2){
+	public ResultMsg IndividualBaseInfoModification(String userid,StuffInfoVO vo2){
 		try {
 			return stuff.IndividualBaseInfoModification(userid, vo2);
 		} catch (RemoteException e) {
 			e.printStackTrace();
-			return false;
+			return ResultMsg.FAIL;
 		}
 	}
 			

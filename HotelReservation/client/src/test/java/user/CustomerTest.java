@@ -7,6 +7,7 @@ import java.rmi.RemoteException;
 import bl.userbl.Customer;
 import data.userdata.CustomerManagementDataServiceImpl;
 import dataservice.userdataservice.CustomerManagementDataService;
+import util.ResultMsg;
 import vo.ContactVO;
 import vo.CustomerInfoVO;
 import vo.UserInfoVO;
@@ -36,7 +37,7 @@ public class CustomerTest {
 	
 	public void testmodify(){
 		CustomerInfoVO vo1=new CustomerInfoVO("1234567","Tom",new ContactVO("13067893451",null),100,false,null);
-		boolean cantest = false;
+		ResultMsg cantest = ResultMsg.FAIL;
 		try {
 			cantest = cu.IndividualBaseInfoModification("1234567",vo1);
 		} catch (RemoteException e) {
@@ -50,7 +51,7 @@ public class CustomerTest {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		if(cantest){
+		if(cantest==ResultMsg.SUCCESS){
 			assertEquals(po.getUserID(),"1234567");
 			assertEquals(po.getUsername(),"Tom");
 			assertEquals(po.getContact(),"13067893451");

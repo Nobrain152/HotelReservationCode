@@ -6,11 +6,13 @@ import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.control.Hyperlink;
 import javafx.scene.control.Label;
 import javafx.scene.control.Pagination;
 import javafx.scene.layout.VBox;
+import javafx.util.Callback;
 import ui.UILaunch;
 
 public class hotelSearchListController implements Initializable{
@@ -50,7 +52,11 @@ public class hotelSearchListController implements Initializable{
 	public void initialize(URL location, ResourceBundle resources) {
 		// TODO Auto-generated method stub
 		pagination.setStyle("-fx-border-color:blue;");
-		pagination.setPageFactory((Integer pageIndex) -> createPage(pageIndex));
+		pagination.setPageFactory(new Callback<Integer, Node>() {
+			public Node call(Integer pageIndex) {
+				return createPage(pageIndex);
+			}
+		});
 		
 		
 		

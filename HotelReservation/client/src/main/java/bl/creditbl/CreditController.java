@@ -68,7 +68,7 @@ public class CreditController implements CreditBLService{
 
 	@Override
 	public ArrayList<CreditVO> getCreditList(String userID) {
-		ArrayList<CreditVO> creditVOs = new ArrayList<>();
+		ArrayList<CreditVO> creditVOs = new ArrayList<CreditVO>();
 		try {
 			creditVOs = credit.getCreditList(userID);
 		} catch (RemoteException e) {

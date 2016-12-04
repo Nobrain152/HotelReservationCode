@@ -24,7 +24,7 @@ public class PromotionValueControllerTest {
 	public void setUp() throws Exception {
 		promotionImpl = new PromotionValueController();
 		customerInfoVO = new CustomerInfoVO("0513", "txin", new ContactVO("18805156300", null), 100, true, VipType.COMMON_VIP);
-		orderVO = new OrderVO(customerInfoVO, OrderState.UNEXECUTED, 100, "2016/12/02", "18805156300", false, "2016/12/02", "2016/12/02", "2016/12/03", 1, 1, RoomType.ROOM_STANDARD);
+		//orderVO = new OrderVO(customerInfoVO, OrderState.UNEXECUTED, 100, "2016/12/02", "18805156300", false, "2016/12/02", "2016/12/02", "2016/12/03", 1, 1, RoomType.ROOM_STANDARD);
 	}
 
 	@Test

@@ -46,7 +46,8 @@ public class HotelStuff extends User {
 		super(user);
 		this.userDataService=user;
 		mod=new HotelInfoMaintainController();
-		order=new OrderOnHotel(orderDataService,roomInfoDataService);
+		//先注释掉，使其能够运行，你们写的时候，把注释符号取消就好
+		//order=new OrderOnHotel(orderDataService,roomInfoDataService);
 		room=new RoomAddController();
 		hotel=new HotelInfoCheckController();
 		promotion=new PromotionHotelController();

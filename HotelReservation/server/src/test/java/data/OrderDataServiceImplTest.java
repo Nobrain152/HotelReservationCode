@@ -26,7 +26,7 @@ public class OrderDataServiceImplTest {
 	OrderPO order4;
 	
 	@Before
-	public void setUp(){
+	public void setUp() throws RemoteException{
 		dataServiceImpl = new OrderDataServiceImpl();
 		/*order1 = new OrderPO(new CustomerInfoPO("123", "txin", 
 				new ContactPO("18805156300", null), 100), 

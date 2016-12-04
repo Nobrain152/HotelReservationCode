@@ -1,5 +1,6 @@
 package util;
 
+
 /**
  * 用户类型
  * 

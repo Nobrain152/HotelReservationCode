@@ -4,19 +4,23 @@ import java.rmi.RemoteException;
 import java.util.ArrayList;
 
 import bl.VOPOchange;
+import dataservice.hoteldataservice.RoomInfoDataService;
 import dataservice.orderdataservice.OrderDataService;
 import po.OrderPO;
+import po.RoomInfoPO;
 import util.OrderState;
 import util.ResultMsg;
-import util.Today;
+import util.RoomState;
 import vo.OrderVO;
 
 public class OrderOnHotel {
 	
 	private OrderDataService hotelDataService;
+	private RoomInfoDataService roomInfoDataService;
 	
-	public OrderOnHotel(OrderDataService hotelDataService) {
+	public OrderOnHotel(OrderDataService hotelDataService,RoomInfoDataService roomInfoDataService) {
 		this.hotelDataService = hotelDataService;
+		this.roomInfoDataService = roomInfoDataService;
 	}
 	
 	/**
@@ -64,11 +68,20 @@ public class OrderOnHotel {
 	 * @throws RemoteException 
 	 */
 	public ResultMsg hotelOrderModify(OrderVO orderVO) throws RemoteException {
-		OrderPO hotelPO = hotelDataService.findByOrderID(orderVO.getOrderID());
+		OrderPO orderPO = hotelDataService.findByOrderID(orderVO.getOrderID());
 		ResultMsg resultMsg = ResultMsg.FAIL;
-		if(hotelPO.getOrderState() == OrderState.UNEXECUTED) {
-			hotelPO.setOrderState(OrderState.EXECUTED);
-			resultMsg = hotelDataService.update(hotelPO);
+		RoomInfoPO roomInfoPO = roomInfoDataService.findByRoomID(orderVO.getRoomInfoVO().getRoomID());
+		if(orderPO.getOrderState() == OrderState.UNEXECUTED
+				&& roomInfoPO.getState() == RoomState.USABLE) {
+			orderPO.setOrderState(OrderState.EXECUTED);
+			roomInfoPO.setRoomState(RoomState.UNUSABLE);
+			orderPO.setRoomInfoPO(roomInfoPO);
+			resultMsg = hotelDataService.update(orderPO);
+		} else if(orderPO.getOrderState() == OrderState.EXECUTED
+				&& roomInfoPO.getState() == RoomState.UNUSABLE) {
+			roomInfoPO.setRoomState(RoomState.USABLE);
+			orderPO.setRoomInfoPO(roomInfoPO);
+			resultMsg = hotelDataService.update(orderPO);
 		}
 		return resultMsg;
 	}

@@ -94,13 +94,14 @@ public class OrderPO implements Serializable {
 	public OrderPO(CustomerInfoPO customerInfoPO, OrderState orderState,
 			double price, String orderID, String hotelID, boolean hasChild,
 			String latestExecutionTime, String checkInTime, String checkOutTime,
-			String cancelledTime,int roomNumber, int peopleNumber){
+			String cancelledTime,int roomNumber, int peopleNumber,RoomInfoPO roomInfoPO){
 		this.initiator = customerInfoPO;
 		this.orderState = orderState;
 		this.price = price;
 		this.orderID = orderID;
 		this.hotelID = hotelID;
 		this.hasChild = hasChild;
+		this.roomInfoPO = roomInfoPO;
 		this.latestExecutionTime = latestExecutionTime;
 		this.checkInTime = checkInTime;
 		this.checkOutTime = checkOutTime;
@@ -170,12 +171,12 @@ public class OrderPO implements Serializable {
 		return hotelID;
 	}
 	
-	public RoomInfoPO getRoomInfoVO() {
+	public RoomInfoPO getRoomInfoPO() {
 		return roomInfoPO;
 	}
 	
-	public void setRoomInfoVO(RoomInfoPO roomInfoVO) {
-		this.roomInfoPO = roomInfoVO;
+	public void setRoomInfoPO(RoomInfoPO roomInfoPO) {
+		this.roomInfoPO = roomInfoPO;
 	}
 
 	public boolean getHasChild() {

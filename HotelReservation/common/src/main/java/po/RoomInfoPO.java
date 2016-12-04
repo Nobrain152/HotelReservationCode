@@ -69,8 +69,16 @@ public class RoomInfoPO implements Serializable{
 		return hotelid;
 	}
 	
+	public String getRoomID() {
+		return roomID;
+	}
+	
 	public  ArrayList<String> getOrderedTime(){
 		return OrderedTime;
+	}
+	
+	public void setRoomState(RoomState roomState) {
+		this.state = roomState;
 	}
 	
 	

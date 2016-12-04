@@ -4,6 +4,7 @@ import java.rmi.RemoteException;
 import java.util.ArrayList;
 
 import blservice.orderblservice.OrderOnHotelBLService;
+import dataservice.hoteldataservice.RoomInfoDataService;
 import dataservice.orderdataservice.OrderDataService;
 import net.RMIManage;
 import util.DataServiceType;
@@ -14,11 +15,12 @@ public class OrderOnHotelController implements OrderOnHotelBLService{
 
 	private OrderOnHotel hotelOrder;
 	private OrderDataService hotelDataService;
+	private RoomInfoDataService roomInfoDataService;
 	
 	public OrderOnHotelController() {
 		hotelDataService = (OrderDataService)RMIManage.
 				getDataService(DataServiceType.OrderDataService);
-		hotelOrder = new OrderOnHotel(hotelDataService);
+		hotelOrder = new OrderOnHotel(hotelDataService,roomInfoDataService);
 	}
 	
 	@Override

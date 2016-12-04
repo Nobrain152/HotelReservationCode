@@ -49,14 +49,13 @@ public class RoomInfoDataServiceImpl implements RoomInfoDataService{
 	/**
 	 * ≤È’“
 	 */
-	public ArrayList<RoomInfoPO> find(RoomInfoPO po) throws RemoteException{
-		ArrayList<RoomInfoPO> arrayList = new ArrayList<RoomInfoPO>();
+	public RoomInfoPO findByRoomID(String ID) throws RemoteException{
 		for (RoomInfoPO op : roomPOs) {
-			
-				arrayList.add(op);
+			if(op.getRoomID().equals(ID))
+			return op;
 			
 		}
-		return arrayList;
+		return null;
 	}
 	
 	

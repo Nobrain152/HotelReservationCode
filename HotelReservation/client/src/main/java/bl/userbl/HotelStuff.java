@@ -9,6 +9,7 @@ import bl.hotelbl.HotelInfoMaintainController;
 import bl.hotelbl.RoomAddController;
 import bl.orderbl.OrderOnHotel;
 import bl.promotionbl.PromotionHotelController;
+import dataservice.hoteldataservice.RoomInfoDataService;
 import dataservice.orderdataservice.OrderDataService;
 import dataservice.userdataservice.UserManagementDataService;
 import po.ContactPO;
@@ -35,6 +36,7 @@ public class HotelStuff extends User {
 	private OrderOnHotel order;
 	private RoomAddController room;
 	private OrderDataService orderDataService;
+	private RoomInfoDataService roomInfoDataService;
 	private UserInfoVO userInfoVO;
 	private UserManagementDataService userDataService;
 	private PromotionHotelController promotion;
@@ -44,7 +46,7 @@ public class HotelStuff extends User {
 		super(user);
 		this.userDataService=user;
 		mod=new HotelInfoMaintainController();
-		order=new OrderOnHotel(orderDataService);
+		order=new OrderOnHotel(orderDataService,roomInfoDataService);
 		room=new RoomAddController();
 		hotel=new HotelInfoCheckController();
 		promotion=new PromotionHotelController();

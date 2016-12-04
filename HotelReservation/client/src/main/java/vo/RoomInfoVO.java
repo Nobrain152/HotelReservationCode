@@ -65,6 +65,10 @@ public class RoomInfoVO {
 		return price;
 	}
 	
+	public String getRoomID() {
+		return roomID;
+	}
+	
 	public String getHotelid(){
 		return hotelid;
 	}

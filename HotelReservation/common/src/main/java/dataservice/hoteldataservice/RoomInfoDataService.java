@@ -26,7 +26,7 @@ public interface RoomInfoDataService {
 	/**
 	 * ≤È’“
 	 */
-	public ArrayList<RoomInfoPO> find(RoomInfoPO po) throws RemoteException;
+	public RoomInfoPO findByRoomID(String id) throws RemoteException;
 	
 	
 	/**

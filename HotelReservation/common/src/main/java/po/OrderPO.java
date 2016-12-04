@@ -91,8 +91,8 @@ public class OrderPO implements Serializable {
 	 */
 	public RoomInfoPO roomInfoPO;
 	
-	public OrderPO(CustomerInfoPO customerInfoPO, OrderState orderState,
-			double price, String orderID, String hotelID, boolean hasChild,
+	public OrderPO(String orderID,CustomerInfoPO customerInfoPO, 
+			OrderState orderState,double price,String hotelID, boolean hasChild,
 			String latestExecutionTime, String checkInTime, String checkOutTime,
 			String cancelledTime,int roomNumber, int peopleNumber,RoomInfoPO roomInfoPO){
 		this.initiator = customerInfoPO;

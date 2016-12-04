@@ -38,8 +38,7 @@ public class WebStuff extends User{
 	public  WebStuff(UserManagementDataService user){
 		super(user);
 		pro = new PromotionWebController();
-		//先注释掉，使其能够运行，你们写的时候，把注释符号取消就好
-		//order = new OrderOnWeb(orderDataService, creditDataService);
+		order = new OrderOnWeb(orderDataService, creditDataService);
 		inte=new CreditController();
 		this.user=user;
 	}

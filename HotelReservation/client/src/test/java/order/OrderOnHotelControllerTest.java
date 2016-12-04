@@ -28,7 +28,7 @@ public class OrderOnHotelControllerTest {
 	OrderVO r11;
 	ResultMsg r1;
 	
-	/*
+	
 	@Before
 	public void setUp() throws RemoteException {
 		order1 = new OrderVO(new CustomerInfoVO("123", "txin", 
@@ -84,5 +84,4 @@ public class OrderOnHotelControllerTest {
 		ResultMsg msg1 = hotelBLServiceImpl.hotelOrderModify(order1);
 		assertEquals(msg1, r1);
 	}
-	*/
 }

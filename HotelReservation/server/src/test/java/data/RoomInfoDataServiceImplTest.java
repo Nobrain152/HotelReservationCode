@@ -52,7 +52,7 @@ public class RoomInfoDataServiceImplTest {
 		ResultMsg b = impl.update(room1);
 		assertEquals(b, ResultMsg.SUCCESS);
 	}
-	/*
+	
 	@Test
 	public void testFind() throws RemoteException{
 		impl.insert(room1);
@@ -63,7 +63,7 @@ public class RoomInfoDataServiceImplTest {
 		assertEquals(list.get(0), arrayList.get(0));
 		assertEquals(list.get(1), arrayList.get(1));
 	}
-*/
+
 	@Test
 	public void testShow() throws RemoteException{
 		impl.insert(room1);

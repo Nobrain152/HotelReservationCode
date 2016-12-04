@@ -24,7 +24,6 @@ public class OrderOnWebControllerTest {
 	OrderVO web1;
 	ResultMsg r1;
 	OrderVO msg1;
-	/**
 	
 	@Before
 	public void setUp(){
@@ -69,5 +68,4 @@ public class OrderOnWebControllerTest {
 		assertEquals(m1, web1);
 	}
 
-	 */
 }

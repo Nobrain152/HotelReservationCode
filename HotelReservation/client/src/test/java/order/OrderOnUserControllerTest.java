@@ -29,7 +29,7 @@ public class OrderOnUserControllerTest {
 	ResultMsg r22;
 	ResultMsg r33;
 	ResultMsg r44;
-	/**
+	
 	@Before
 	public void setUp() throws RemoteException {
 		order1 = new OrderVO(new CustomerInfoVO("123", "txin", 
@@ -93,5 +93,5 @@ public class OrderOnUserControllerTest {
 		OrderVO msg1 = userBLServiceImpl.personalOrderDetail("42654645437");
 		assertEquals(msg1, order1);
 	}
-	*/
+	
 }

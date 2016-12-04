@@ -31,7 +31,7 @@ public class HotelReserve {
 		Date date=new Date(vo.getCheckInTime(),vo.getCheckOutTime() );
 		ArrayList<RoomInfoVO> room=roomcon.HotelRoomSearch(hotelid);
 		for(RoomInfoVO v:room ){
-			if(v.getType()==vo.roomInfoVO.getType()){
+			if(v.getType()==vo.getRoomInfoVO().getType()){
 				if(v.addOrderedTime(date)){
 					number--;
 					if(number==0){

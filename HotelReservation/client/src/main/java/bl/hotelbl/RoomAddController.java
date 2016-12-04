@@ -75,4 +75,19 @@ public class RoomAddController implements RoomAddBLService{
 		}
 	}
 	
+	/**
+	 * 根据输入的时间判断酒店这一时间段可预订的空房
+	 * @param hotelid
+	 * @param intime
+	 * @param outtime
+	 * @return
+	 * @throws RemoteException
+	 */
+	public ArrayList<RoomInfoVO> getEmptyRoom(String hotelid,String intime,String outtime){
+		try {
+			return roomAdd.getEmptyRoom(hotelid, intime, outtime);
+		} catch (RemoteException e) {
+			return null;
+		}
+	}
 }

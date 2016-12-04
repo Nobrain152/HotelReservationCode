@@ -1,5 +1,6 @@
 package blservice.hotelblservice;
 
+import java.rmi.RemoteException;
 import java.util.ArrayList;
 
 import util.ResultMsg;
@@ -41,4 +42,14 @@ public interface RoomAddBLService {
 	 */
 	public ResultMsg HotelRoomMod(String hotelid,ArrayList<RoomInfoVO> po);
    
+	
+	/**
+	 * 根据输入的时间判断酒店这一时间段可预订的空房
+	 * @param hotelid
+	 * @param intime
+	 * @param outtime
+	 * @return
+	 * @throws RemoteException
+	 */
+	public ArrayList<RoomInfoVO> getEmptyRoom(String hotelid,String intime,String outtime);
 }

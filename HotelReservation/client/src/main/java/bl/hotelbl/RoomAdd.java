@@ -3,6 +3,7 @@ package bl.hotelbl;
 import java.rmi.RemoteException;
 import java.util.ArrayList;
 
+
 import bl.VOPOchange;
 import dataservice.hoteldataservice.RoomInfoDataService;
 import po.RoomInfoPO;
@@ -72,6 +73,38 @@ public class RoomAdd {
 			pos.add((RoomInfoPO)VOPOchange.VOtoPO(v));
 		}
 		return roomData.HotelRoomMod(hotelid, pos);
+	}
+	
+	
+	/**
+	 * 根据输入的时间判断酒店这一时间段可预订的空房
+	 * @param hotelid
+	 * @param intime
+	 * @param outtime
+	 * @return
+	 * @throws RemoteException
+	 */
+	public ArrayList<RoomInfoVO> getEmptyRoom(String hotelid,String intime,String outtime) throws RemoteException{
+		ArrayList<RoomInfoVO> empty=new ArrayList<RoomInfoVO>();
+		ArrayList<RoomInfoVO> all=HotelRoomSearch(hotelid);
+		Date date=new Date(intime, outtime);
+		for(RoomInfoVO vo:all){
+			ArrayList<Date> d=vo.getOrderedTime();
+			boolean goon=false;
+			for(Date d1:d){
+				if(d1.isConflict(date)){
+					goon=true;
+					break;
+				}
+			}
+			if(goon){
+				goon=false;
+				continue;
+			}
+			empty.add(vo);
+		}
+		return empty;
+		
 	}
 
 }

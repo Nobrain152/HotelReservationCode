@@ -3,12 +3,17 @@ package bl.orderbl;
 
 import java.rmi.RemoteException;
 import java.util.ArrayList;
+import java.util.Calendar;
 
 import bl.VOPOchange;
+import bl.creditbl.CreditController;
 import bl.promotionbl.PromotionValueController;
+import dataservice.creditdataservice.CreditDataService;
 import dataservice.orderdataservice.OrderDataService;
+import po.CreditPO;
 import po.CustomerInfoPO;
 import po.OrderPO;
+import util.Action;
 import util.OrderState;
 import util.PromotionHotelType;
 import util.PromotionWebType;
@@ -21,9 +26,11 @@ import vo.OrderVO;
 public class OrderOnUser {
 	
 	private OrderDataService userDataService;
+	private CreditDataService creditDataService;
 	
-	public OrderOnUser(OrderDataService userDataService) {
+	public OrderOnUser(OrderDataService userDataService,CreditDataService creditDataService) {
 		this.userDataService = userDataService;
+		this.creditDataService = creditDataService;
 	}
 	
 	/**
@@ -132,8 +139,28 @@ public class OrderOnUser {
 			
 			//如果撤销的订单距离最晚执行时间不足6个小时，扣除信用值（订单价值的1/2），设置creditPO状态为Cancelled
 			String lastTime = orderOnUserPO.getLatestExecutionTime();
-			if(lastTime.compareTo(today) >= 0) {
-				// TODO
+			if(lastTime.compareTo(today) >= 0 && resultMsg == ResultMsg.SUCCESS) {
+				int lastTimeYear = Integer.parseInt(lastTime.substring(0, 4));
+				int lastTimeMonth = Integer.parseInt(lastTime.substring(5, 7));
+				int lastTimeDay = Integer.parseInt(lastTime.substring(8, 10));
+				int lastTimeHour = Integer.parseInt(lastTime.substring(11, 13));
+				int lastTimeMin = Integer.parseInt(lastTime.substring(14));
+				int todayYear = Integer.parseInt(today.substring(0, 4));
+				int todayMonth = Integer.parseInt(today.substring(5, 7));
+				int todayDay = Integer.parseInt(today.substring(8, 10));
+				int todayHour = Integer.parseInt(today.substring(11, 13));
+				int todayMin = Integer.parseInt(today.substring(14));
+				Calendar lastCalendar = Calendar.getInstance();
+				Calendar todayCalendar = Calendar.getInstance();
+				lastCalendar.set(lastTimeYear, lastTimeMonth-1, lastTimeDay, lastTimeHour, lastTimeMin);
+				todayCalendar.set(todayYear, todayMonth, todayDay, todayHour, todayMin);
+				if(lastCalendar.getTimeInMillis()-todayCalendar.getTimeInMillis() <= 6*60*60*1000) {
+					CreditController controller = new CreditController();
+					controller.subCredit(orderVO.getInitiator(), (int)orderOnUserPO.getPrice()/2);
+					CreditPO creditPO = creditDataService.findByUserID(orderOnUserPO.getInitiator().getUserID());
+					creditPO.setAction(Action.Cancelled);
+					resultMsg = creditDataService.insert(creditPO);
+				}
 			}
 			
 		}else{

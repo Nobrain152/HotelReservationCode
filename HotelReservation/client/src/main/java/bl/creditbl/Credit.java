@@ -6,7 +6,6 @@ import java.util.ArrayList;
 import bl.VOPOchange;
 import dataservice.creditdataservice.CreditDataService;
 import po.CreditPO;
-import util.Action;
 import util.ResultMsg;
 import vo.CreditVO;
 import vo.CustomerInfoVO;
@@ -31,7 +30,6 @@ public class Credit {
 			resultMsg = ResultMsg.NOT_EXIST;
 		}else{
 			creditPO.setCreditResult(creditPO.getCreditResult() + value);
-			//creditPO.setAction(Action.Executed);
 			resultMsg = creditDataService.insert(creditPO);
 		}
 		return resultMsg;
@@ -43,7 +41,6 @@ public class Credit {
 			resultMsg = ResultMsg.NOT_EXIST;
 		}else{
 			creditPO.setCreditResult(creditPO.getCreditResult() - value);
-			//creditPO.setAction(Action.Executed);
 			resultMsg = creditDataService.insert(creditPO);
 		}
 		return resultMsg;
@@ -55,7 +52,6 @@ public class Credit {
 			resultMsg = ResultMsg.NOT_EXIST;
 		}else{
 			creditPO.setCreditResult(value);
-			creditPO.setAction(Action.Charge);
 			resultMsg = creditDataService.insert(creditPO);
 		}
 		return resultMsg;

@@ -89,7 +89,9 @@ public class OrderOnHotel {
 			creditPO.setAction(Action.Executed);
 			roomInfoPO.setRoomState(RoomState.UNUSABLE);
 			orderPO.setRoomInfoPO(roomInfoPO);
-			resultMsg = hotelDataService.update(orderPO);
+			resultMsg = creditDataService.insert(creditPO);
+			if(resultMsg == ResultMsg.SUCCESS)
+				resultMsg = hotelDataService.update(orderPO);
 		} else if(orderPO.getOrderState() == OrderState.EXECUTED
 				&& roomInfoPO.getState() == RoomState.UNUSABLE) {
 			roomInfoPO.setRoomState(RoomState.USABLE);

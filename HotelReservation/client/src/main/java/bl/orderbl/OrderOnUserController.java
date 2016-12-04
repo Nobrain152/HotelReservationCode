@@ -4,6 +4,7 @@ import java.rmi.RemoteException;
 import java.util.ArrayList;
 
 import blservice.orderblservice.OrderOnUserBLService;
+import dataservice.creditdataservice.CreditDataService;
 import dataservice.orderdataservice.OrderDataService;
 import net.RMIManage;
 import util.DataServiceType;
@@ -14,11 +15,12 @@ public class OrderOnUserController implements OrderOnUserBLService{
 
 	private OrderOnUser orderOnUser;
 	private OrderDataService userDataService;
+	private CreditDataService creditDataService;
 	
 	public OrderOnUserController() {
 		userDataService = (OrderDataService)RMIManage.
 				getDataService(DataServiceType.OrderDataService);
-		orderOnUser = new OrderOnUser(userDataService);
+		orderOnUser = new OrderOnUser(userDataService,creditDataService);
 	}
 	
 	@Override

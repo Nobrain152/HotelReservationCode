@@ -1,5 +1,6 @@
 package blservice.orderblservice;
 
+import java.rmi.RemoteException;
 import java.util.ArrayList;
 
 import util.ResultMsg;
@@ -36,6 +37,14 @@ public interface OrderOnWebBLService {
 	 * @return 异常订单列表
 	 */
 	public ArrayList<OrderVO> abnormalOrderScan();
+	
+	/**
+	 * 浏览每日未执行订单
+	 * @param today
+	 * @return
+	 * @throws RemoteException
+	 */	
+	public ArrayList<OrderVO> dayUnexOrder(String today);
 	
 	/**
 	 * 网站营销人员查看异常订单详情

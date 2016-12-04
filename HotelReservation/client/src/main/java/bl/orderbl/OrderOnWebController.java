@@ -63,5 +63,16 @@ public class OrderOnWebController implements OrderOnWebBLService{
 		}
 		return null;
 	}
+	@Override
+	public ArrayList<OrderVO> dayUnexOrder(String today) {
+		try {
+			return orderOnWeb.dayUnexOrder(today);
+		} catch (RemoteException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		// TODO Auto-generated method stub
+		return null;
+	}
 
 }

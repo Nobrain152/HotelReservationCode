@@ -37,12 +37,15 @@ public class RoomInfoVO {
 	 * 房间已经被预定的时间
 	 */
 	private ArrayList<Date> OrderedTime;
+	
+	private String hotelid;
 
-	public RoomInfoVO(RoomState state, RoomType type, String roomID, int price ) {
+	public RoomInfoVO(RoomState state, RoomType type, String roomID, int price,String hotelid ) {
 		this.state = state;
 		this.type = type;
 		this.roomID= roomID;
 		this.price= price;
+		this.hotelid=hotelid;
 		OrderedTime=new ArrayList<Date>();
 	}
 
@@ -60,6 +63,10 @@ public class RoomInfoVO {
 	
 	public int getPrice() {
 		return price;
+	}
+	
+	public String getHotelid(){
+		return hotelid;
 	}
 	
 	public  ArrayList<Date> getOrderedTime(){

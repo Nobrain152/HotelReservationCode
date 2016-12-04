@@ -75,5 +75,11 @@ public interface HotelStuffHotelOperationBlService{
 	 * @param 房间信息VO
 	 */
 	public ResultMsg UpdateRoomState(RoomInfoVO vo);
+	
+	/**
+	 * 录入可用房间
+	 * @param rooms
+	 */
+	public ResultMsg TypeInRoom(ArrayList<RoomInfoVO> rooms);
 		
 }

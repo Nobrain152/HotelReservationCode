@@ -67,7 +67,10 @@ public class HotelStuff extends User {
 	 * @return 修改结果
 	 */
 	public ResultMsg HotelInformationModification(HotelInfoVO vo1,String userid)throws RemoteException{
-		return mod.inputHotelInfo(vo1);
+		if(userid.charAt(0)=='1'){
+			return mod.inputHotelInfo(vo1);
+		}
+		return ResultMsg.UNAUYHORIZED;
 	}
 			
 	
@@ -171,6 +174,14 @@ public class HotelStuff extends User {
 	public ResultMsg UpdateRoomState(RoomInfoVO vo)throws RemoteException {
 		return room.updateRoom(vo);
 		
+	}
+	
+	/**
+	 * 录入可用房间
+	 * @param rooms
+	 */
+	public ResultMsg TypeInRoom(ArrayList<RoomInfoVO> rooms)throws RemoteException{
+		return room.HotelRoomMod(rooms.get(0).getHotelid(),rooms);
 	}
 	
 	/**

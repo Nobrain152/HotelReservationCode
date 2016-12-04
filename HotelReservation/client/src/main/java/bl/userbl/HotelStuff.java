@@ -67,7 +67,7 @@ public class HotelStuff extends User {
 	 * @return ÐÞ¸Ä½á¹û
 	 */
 	public ResultMsg HotelInformationModification(HotelInfoVO vo1,String userid)throws RemoteException{
-		if(userid.charAt(0)=='1'){
+		if(userid.charAt(0)=='2'){
 			return mod.inputHotelInfo(vo1);
 		}
 		return ResultMsg.UNAUYHORIZED;
@@ -142,7 +142,10 @@ public class HotelStuff extends User {
 	 * @throws RemoteException 
 	 */
 	public ResultMsg OrderStateUpdate(String userid,OrderVO vo2) throws RemoteException{
-		return order.hotelOrderModify(vo2);
+		if(userid.charAt(0)=='2'){
+			return order.hotelOrderModify(vo2);
+		}
+		return ResultMsg.FAIL;
 	}
 			
 	/**

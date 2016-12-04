@@ -68,8 +68,6 @@ public class OrderOnHotel {
 		ResultMsg resultMsg = ResultMsg.FAIL;
 		if(hotelPO.getOrderState() == OrderState.UNEXECUTED) {
 			hotelPO.setOrderState(OrderState.EXECUTED);
-			orderVO.setCheckInTime(new Today().getToday());
-			// TODO
 			resultMsg = hotelDataService.update(hotelPO);
 		}
 		return resultMsg;

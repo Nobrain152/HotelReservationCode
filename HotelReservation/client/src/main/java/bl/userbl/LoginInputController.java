@@ -6,6 +6,7 @@ import blservice.userblservice.LoginInputBLService;
 import dataservice.userdataservice.UserManagementDataService;
 import net.RMIManage;
 import util.DataServiceType;
+import util.UserType;
 import vo.LoginInVO;
 
 /**
@@ -69,6 +70,19 @@ public class LoginInputController implements LoginInputBLService {
 			return user.Register(vo);
 		} catch (RemoteException e) {
 			e.printStackTrace();
+			return null;
+		}
+	}
+	
+	/**
+	 * 得到用户类型
+	 * @param userid
+	 * @return
+	 */
+	public UserType getType(String userid){
+		try {
+			return user.getType(userid);
+		} catch (RemoteException e) {
 			return null;
 		}
 	}

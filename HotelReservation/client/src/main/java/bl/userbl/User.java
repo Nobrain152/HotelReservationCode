@@ -4,6 +4,7 @@ import java.rmi.RemoteException;
 
 import dataservice.userdataservice.UserManagementDataService;
 import po.LoginInPO;
+import util.UserType;
 import vo.LoginInVO;
 
 public class User {
@@ -52,5 +53,21 @@ public class User {
 	public String Register(LoginInVO vo)throws RemoteException{
 		po=new LoginInPO(vo.getUsername(),vo.getPassword());
 		return data.AddUser(po);
+	}
+	
+	/**
+	 * 得到用户类型
+	 * @param userid
+	 * @return
+	 */
+	public UserType getType(String userid)throws RemoteException{
+		char charge=userid.charAt(0);
+		switch(charge){
+		case'1':return UserType.Customer;
+		case'2':return UserType.HotelStuff;
+		case'3':return UserType.WebStuff;
+		case'4':return UserType.WebManager;
+		default:return null;
+		}
 	}
 }

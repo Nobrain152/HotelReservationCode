@@ -3,6 +3,7 @@ package bl.userbl;
 import java.rmi.RemoteException;
 import java.util.ArrayList;
 
+
 import bl.hotelbl.HotelEvaluateController;
 import bl.hotelbl.HotelInfoCheckController;
 import bl.hotelbl.HotelReserveController;
@@ -65,8 +66,20 @@ public class Customer extends User {
 	 * @param 筛选条件VO
 	 * @return 酒店信息VO列表
 	 */
-	public ArrayList<HotelInfoVO> HotelSearch(HotelInfoVO vo)throws RemoteException{
-		return hotel.selectCondition(vo);
+	public ArrayList<HotelInfoVO> HotelSearch(HotelInfoVO vo,String userid)throws RemoteException{
+		ArrayList<HotelInfoVO> hotelInfoVOs= hotel.selectCondition(vo);
+		ArrayList<OrderVO> ord=this.IndividualOrderInquiry(userid);
+		for(HotelInfoVO v:hotelInfoVOs){
+			String hotelid=v.getHotelID();
+			ArrayList<OrderVO> hotelorder=new ArrayList<OrderVO>();
+			for(OrderVO v1:ord){
+				if(hotelid.equals(v1.hotelID)){
+					hotelorder.add(v1);
+				}
+			}
+			v.setOrder(hotelorder);
+		}
+		return hotelInfoVOs;
 	}		
 	
 	

@@ -38,9 +38,9 @@ public class CustomerHotelOperationController implements CustomerHotelOperationB
 	 * @param 筛选条件VO
 	 * @return 酒店信息VO列表
 	 */
-	public ArrayList<HotelInfoVO> HotelSearch(HotelInfoVO vo){
+	public ArrayList<HotelInfoVO> HotelSearch(HotelInfoVO vo,String userid){
 		try {
-			return customer.HotelSearch(vo);
+			return customer.HotelSearch(vo,userid);
 		} catch (RemoteException e) {
 			e.printStackTrace();
 			return null;

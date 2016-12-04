@@ -22,7 +22,7 @@ public interface CustomerHotelOperationBlService{
 	 * @param 筛选条件VO
 	 * @return 酒店信息VO列表
 	 */
-	public ArrayList<HotelInfoVO> HotelSearch(HotelInfoVO vo);
+	public ArrayList<HotelInfoVO> HotelSearch(HotelInfoVO vo,String userid);
 	
 	
 	/**

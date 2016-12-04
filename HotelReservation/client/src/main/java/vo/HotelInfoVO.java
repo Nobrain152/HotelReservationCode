@@ -1,8 +1,10 @@
 package vo;
 
+import java.util.ArrayList;
+
 /**
  * æ∆µÍ–≈œ¢
- * @author gyf
+ * @author ≤‹≥©
  *
  */
 public class HotelInfoVO {
@@ -47,6 +49,8 @@ public class HotelInfoVO {
 	 */
 	private String hotelID;
 	
+	private ArrayList<OrderVO> order;
+	
 	public HotelInfoVO(String name, String address, String area, int level, String introduction, String facility, boolean reserve ,String hotelID) {
 		this.name = name;
 		this.address = address;
@@ -56,6 +60,7 @@ public class HotelInfoVO {
 		this.facility=facility;
 		this.reserve=reserve;
 		this.hotelID = hotelID;
+		this.order=new ArrayList<OrderVO>();
 	}
 
 	public String getName() {
@@ -88,6 +93,14 @@ public class HotelInfoVO {
 
 	public String getHotelID() {
 		return hotelID;
+	}
+	
+	public ArrayList<OrderVO> getOrder(){
+		return order;
+	}
+	
+	public void setOrder(ArrayList<OrderVO> vo){
+		this.order=vo;
 	}
 
 }	

@@ -12,36 +12,36 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="455.0" prefWidth="617.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ui.orderOnWeb.abnormalOrderInfoController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ui.orderOnWeb.abnormalOrderInfoController">
    <children>
-      <Pane prefHeight="62.0" prefWidth="617.0">
+      <Pane prefHeight="70.0" prefWidth="800.0">
          <children>
-            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#d0d0d0" height="62.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="617.0" />
-            <Text layoutX="32.0" layoutY="39.0" strokeType="OUTSIDE" strokeWidth="0.0" text="酒店预定系统">
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#d0d0d0" height="70.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="800.0" />
+            <Text layoutX="33.0" layoutY="43.0" strokeType="OUTSIDE" strokeWidth="0.0" text="酒店预定系统">
                <font>
                   <Font size="24.0" />
                </font>
             </Text>
-            <Text layoutX="498.0" layoutY="36.0" strokeType="OUTSIDE" strokeWidth="0.0" text="XXX，欢迎你！">
+            <Text layoutX="654.0" layoutY="40.0" strokeType="OUTSIDE" strokeWidth="0.0" text="XXX，欢迎你！">
                <font>
                   <Font size="14.0" />
                </font>
             </Text>
          </children>
       </Pane>
-      <Pane layoutY="393.0" prefHeight="62.0" prefWidth="617.0">
+      <Pane layoutY="530.0" prefHeight="70.0" prefWidth="800.0">
          <children>
-            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#b4b4b4" height="62.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="617.0" />
-            <Button layoutX="529.0" layoutY="17.0" mnemonicParsing="false" prefHeight="28.0" prefWidth="61.0" text="返回">
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#b4b4b4" height="70.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="800.0" />
+            <Button layoutX="692.0" layoutY="21.0" mnemonicParsing="false" prefHeight="28.0" prefWidth="61.0" text="返回">
                <font>
                   <Font size="14.0" />
                </font>
             </Button>
          </children>
       </Pane>
-      <Pane layoutY="62.0" prefHeight="332.0" prefWidth="617.0">
+      <Pane layoutY="70.0" prefHeight="461.0" prefWidth="800.0">
          <children>
-            <TabPane prefHeight="332.0" prefWidth="617.0" tabClosingPolicy="UNAVAILABLE">
+            <TabPane prefHeight="461.0" prefWidth="800.0" tabClosingPolicy="UNAVAILABLE">
               <tabs>
                 <Tab id="allOrders" closable="false" text="订单信息">
                   <content>

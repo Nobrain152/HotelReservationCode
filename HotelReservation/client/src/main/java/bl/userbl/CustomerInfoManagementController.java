@@ -145,6 +145,58 @@ public class CustomerInfoManagementController
 			return null;
 		}
 	}
+	
+	/**
+	 * 查询个人未执行酒店信息
+	 * @param userid
+	 * @return 个人订单列表
+	 */
+	public ArrayList<HotelInfoVO> UnfinishedHotelInquiry(String userid){
+		try {
+			return customer.SpecialHotelInquiry(userid,OrderState.UNEXECUTED);
+		} catch (RemoteException e) {
+			return null;
+		}
+	}
+	
+	/**
+	 * 查询个人已执行酒店信息
+	 * @param userid
+	 * @return 个人订单列表
+	 */
+	public ArrayList<HotelInfoVO> finishedHotelInquiry(String userid){
+		try {
+			return customer.SpecialHotelInquiry(userid,OrderState.EXECUTED);
+		} catch (RemoteException e) {
+			return null;
+		}
+	}
+	
+	/**
+	 * 查询个人异常酒店信息
+	 * @param userid
+	 * @return 个人订单列表
+	 */
+	public ArrayList<HotelInfoVO> AbnormalHotelInquiry(String userid){
+		try {
+			return customer.SpecialHotelInquiry(userid,OrderState.ABNORMAL);
+		} catch (RemoteException e) {
+			return null;
+		}
+	}
+	
+	/**
+	 * 查询个撤销酒店信息
+	 * @param userid
+	 * @return 个人订单列表
+	 */
+	public ArrayList<HotelInfoVO> CancelHotelInquiry(String userid){
+		try {
+			return customer.SpecialHotelInquiry(userid,OrderState.CANCELLED);
+		} catch (RemoteException e) {
+			return null;
+		}
+	}
 			
 	/**
 	 * 查询个人信用

@@ -204,6 +204,21 @@ public class Customer extends User {
 		}
 		return hotelInfoVOs;
 	}
+	
+	/**
+	 * 查询个人某一类酒店信息
+	 * @param userid
+	 * @return 个人订单列表
+	 */
+	public ArrayList<HotelInfoVO> SpecialHotelInquiry(String userid,OrderState state)throws RemoteException{
+		ArrayList<OrderVO> special=SpecialOrderInquiry(userid, state);
+		ArrayList<HotelInfoVO> hvo=new ArrayList<HotelInfoVO>();
+		for(OrderVO vo:special){
+			hvo.add(hotelinfo.checkHotelInfo(vo.getHotelID()));
+		}
+		return hvo;
+	}
+	
 			
 	/**
 	 * 查询个人信用

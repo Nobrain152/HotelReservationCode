@@ -8,7 +8,6 @@ import bl.VOPOchange;
 import bl.creditbl.CreditController;
 import bl.orderbl.OrderOnWeb;
 import bl.promotionbl.PromotionWebController;
-import dataservice.creditdataservice.CreditDataService;
 import dataservice.orderdataservice.OrderDataService;
 import dataservice.userdataservice.UserManagementDataService;
 import po.ContactPO;
@@ -33,12 +32,12 @@ public class WebStuff extends User{
 	private OrderOnWeb order;
 	private CreditController inte;
 	private OrderDataService orderDataService;
-	private CreditDataService creditDataService;
+	
 	
 	public  WebStuff(UserManagementDataService user){
 		super(user);
 		pro = new PromotionWebController();
-		order = new OrderOnWeb(orderDataService, creditDataService);
+		order = new OrderOnWeb(orderDataService);
 		inte=new CreditController();
 		this.user=user;
 	}

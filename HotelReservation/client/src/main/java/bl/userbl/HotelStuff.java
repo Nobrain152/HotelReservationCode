@@ -9,10 +9,12 @@ import bl.hotelbl.HotelInfoMaintainController;
 import bl.hotelbl.RoomAddController;
 import bl.orderbl.OrderOnHotel;
 import bl.promotionbl.PromotionHotelController;
+import dataservice.creditdataservice.CreditDataService;
 import dataservice.hoteldataservice.RoomInfoDataService;
 import dataservice.orderdataservice.OrderDataService;
 import dataservice.userdataservice.UserManagementDataService;
 import po.ContactPO;
+import po.CreditPO;
 import po.StuffInfoPO;
 import po.UserInfoPO;
 import util.PromotionHotelType;
@@ -46,7 +48,38 @@ public class HotelStuff extends User {
 		super(user);
 		this.userDataService=user;
 		mod=new HotelInfoMaintainController();
-		order=new OrderOnHotel(orderDataService,roomInfoDataService);
+		order=new OrderOnHotel(orderDataService,roomInfoDataService,new CreditDataService() {
+			
+			@Override
+			public ArrayList<CreditPO> show() throws RemoteException {
+				// TODO Auto-generated method stub
+				return null;
+			}
+			
+			@Override
+			public ResultMsg insert(CreditPO creditPO) throws RemoteException {
+				// TODO Auto-generated method stub
+				return null;
+			}
+			
+			@Override
+			public ArrayList<CreditPO> getListByUserID(String userID) throws RemoteException {
+				// TODO Auto-generated method stub
+				return null;
+			}
+			
+			@Override
+			public CreditPO getListByOrderID(String orderID) throws RemoteException {
+				// TODO Auto-generated method stub
+				return null;
+			}
+			
+			@Override
+			public CreditPO findByUserID(String userID) throws RemoteException {
+				// TODO Auto-generated method stub
+				return null;
+			}
+		});
 		room=new RoomAddController();
 		hotel=new HotelInfoCheckController();
 		promotion=new PromotionHotelController();

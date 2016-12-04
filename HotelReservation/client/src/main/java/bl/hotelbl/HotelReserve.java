@@ -26,7 +26,7 @@ public class HotelReserve {
 	
 	
 	public ResultMsg reserveHotel(OrderVO vo) throws RemoteException{
-		String hotelid=vo.hotelID;
+		String hotelid=vo.getHotelID();
 		int number=vo.getRoomNumber();
 		Date date=new Date(vo.getCheckInTime(),vo.getCheckOutTime() );
 		ArrayList<RoomInfoVO> room=roomcon.HotelRoomSearch(hotelid);

@@ -78,6 +78,34 @@ public interface CustomerIndividualInformationManagementBLService{
 	 * @return 酒店信息列表
 	 */
 	public ArrayList<HotelInfoVO> IndividualHotelInquiry(String userid);
+	
+	/**
+	 * 查询个人未执行酒店信息
+	 * @param userid
+	 * @return 个人订单列表
+	 */
+	public ArrayList<HotelInfoVO> UnfinishedHotelInquiry(String userid);
+	
+	/**
+	 * 查询个人已执行酒店信息
+	 * @param userid
+	 * @return 个人订单列表
+	 */
+	public ArrayList<HotelInfoVO> finishedHotelInquiry(String userid);
+	
+	/**
+	 * 查询个人异常酒店信息
+	 * @param userid
+	 * @return 个人订单列表
+	 */
+	public ArrayList<HotelInfoVO> AbnormalHotelInquiry(String userid);
+	
+	/**
+	 * 查询个撤销酒店信息
+	 * @param userid
+	 * @return 个人订单列表
+	 */
+	public ArrayList<HotelInfoVO> CancelHotelInquiry(String userid);
 		
 	/**
 	 * 查询个人信用信息	
@@ -99,6 +127,8 @@ public interface CustomerIndividualInformationManagementBLService{
 	 * @return
 	 */
 	public ResultMsg personalOrderCancel(OrderVO orderVO);
+	
+	
 	
 	
 			

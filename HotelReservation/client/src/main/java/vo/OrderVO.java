@@ -1,7 +1,7 @@
 package vo;
 
+
 import util.OrderState;
-import util.RoomType;
 
 /**
  * 所有订单VO的父类
@@ -50,11 +50,16 @@ public class OrderVO {
 	 * 最晚执行时间
 	 */
 	public String latestExecutionTime;
-
+	
 	/**
-	 * 房间类型
+	 * 房间信息
 	 */
-	public RoomType roomType;
+	public RoomInfoVO roomInfoVO;
+	
+	/**
+	 * 订单撤销时间
+	 */
+	public String cancelledTime;
 
 	/**
 	 * 房间数量
@@ -84,7 +89,7 @@ public class OrderVO {
 	public OrderVO(CustomerInfoVO customerInfoVO, OrderState orderState,
 			double price, String orderID, String hotelID, boolean hasChild,
 			String latestExecutionTime, String checkInTime, String checkOutTime,
-			int roomNumber, int peopleNumber, RoomType roomType){
+			String cancelledTime,int roomNumber,RoomInfoVO roomInfoVO, int peopleNumber){
 		this.initiator = customerInfoVO;
 		this.orderState = orderState;
 		this.price = price;
@@ -94,9 +99,10 @@ public class OrderVO {
 		this.latestExecutionTime = latestExecutionTime;
 		this.checkInTime = checkInTime;
 		this.checkOutTime = checkOutTime;
+		this.cancelledTime = cancelledTime;
+		this.roomInfoVO = roomInfoVO;
 		this.roomNumber = roomNumber;
 		this.peopleNumber = peopleNumber;
-		this.roomType = roomType;
 	}
 	
 	/**
@@ -116,7 +122,6 @@ public class OrderVO {
 		this.checkOutTime = vo.getCheckOutTime();
 		this.roomNumber = vo.getRoomNumber();
 		this.peopleNumber = vo.getPeopleNumber();
-		this.roomType = vo.getRoomType();
 		this.reason = reason;		
 	}
 	
@@ -137,7 +142,6 @@ public class OrderVO {
 		this.checkOutTime = vo.getCheckOutTime();
 		this.roomNumber = vo.getRoomNumber();
 		this.peopleNumber = vo.getPeopleNumber();
-		this.roomType = vo.getRoomType();
 		this.reason = vo.getReason();
 		this.pass = pass;
 	}
@@ -170,8 +174,12 @@ public class OrderVO {
 		return latestExecutionTime;
 	}
 
-	public RoomType getRoomType() {
-		return roomType;
+	public RoomInfoVO getRoomInfoVO() {
+		return roomInfoVO;
+	}
+	
+	public void setRoomInfoVO(RoomInfoVO roomInfoVO) {
+		this.roomInfoVO = roomInfoVO;
 	}
 
 	public int getRoomNumber() {
@@ -188,6 +196,14 @@ public class OrderVO {
 
 	public String getCheckOutTime() {
 		return checkOutTime;
+	}
+	
+	public String getCancelledTime() {
+		return cancelledTime;
+	}
+	
+	public void setCancelledTime(String cancelledTime) {
+		this.cancelledTime = cancelledTime;
 	}
 	
 	public String getReason() {
@@ -228,10 +244,6 @@ public class OrderVO {
 
 	public void setLatestExecutionTime(String lastestExecutionTime) {
 		this.latestExecutionTime = lastestExecutionTime;
-	}
-
-	public void setRoomType(RoomType roomType) {
-		this.roomType = roomType;
 	}
 
 	public void setPeopleNumber(int peopleNumber) {

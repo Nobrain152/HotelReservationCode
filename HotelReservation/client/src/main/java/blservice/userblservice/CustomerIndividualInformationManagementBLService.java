@@ -39,6 +39,13 @@ public interface CustomerIndividualInformationManagementBLService{
 	 */
 	public ArrayList<OrderVO> IndividualOrderInquiry(String userid);
 		
+	
+	/**
+	 * 查询个人未执行订单信息
+	 * @param userid
+	 * @return 个人订单列表
+	 */
+	public ArrayList<OrderVO> UnfinishedOrderInquiry(String userid);
 	/**
 	 * 查询预定过的酒店	
 	 * @param 用户IDVO

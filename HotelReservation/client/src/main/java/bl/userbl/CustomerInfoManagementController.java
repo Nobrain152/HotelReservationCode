@@ -78,6 +78,19 @@ public class CustomerInfoManagementController
 			return null;
 		}
 	}
+	
+	/**
+	 * 查询个人未执行订单信息
+	 * @param userid
+	 * @return 个人订单列表
+	 */
+	public ArrayList<OrderVO> UnfinishedOrderInquiry(String userid){
+		try {
+			return customer.UnfinishedOrderInquiry(userid);
+		} catch (RemoteException e) {
+			return null;
+		}
+	}
 			
 	/**
 	 * 查询个人酒店信息

@@ -23,8 +23,8 @@ public class Date {
 	}
 	
 	public void makeNumber(){
-		String[] in={intime.substring(0,4),intime.substring(4,6),intime.substring(6)};
-		String[] out={outtime.substring(0,4),outtime.substring(4,6),outtime.substring(6)};
+		String[] in={intime.substring(0,4),intime.substring(5,7),intime.substring(8,10)};
+		String[] out={outtime.substring(0,4),outtime.substring(5,7),outtime.substring(8,10)};
 		inYear=Integer.parseInt(in[0]);
 		inMonth=Integer.parseInt(in[1]);
 		inDay=Integer.parseInt(in[2]);

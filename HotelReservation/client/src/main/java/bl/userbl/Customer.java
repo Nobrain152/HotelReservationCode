@@ -16,6 +16,7 @@ import dataservice.userdataservice.CustomerManagementDataService;
 import po.ContactPO;
 import po.CustomerInfoPO;
 import po.UserInfoPO;
+import util.OrderState;
 import util.ResultMsg;
 import util.VipType;
 import vo.CustomerInfoVO;
@@ -168,6 +169,22 @@ public class Customer extends User {
 	 */
 	public ArrayList<OrderVO> IndividualOrderInquiry(String userid)throws RemoteException{
 		return order.personalOrderScan(userid);
+	}
+	
+	/**
+	 * 查询个人未执行订单信息
+	 * @param userid
+	 * @return 个人订单列表
+	 */
+	public ArrayList<OrderVO> UnfinishedOrderInquiry(String userid)throws RemoteException{
+		ArrayList<OrderVO> all= order.personalOrderScan(userid);
+		ArrayList<OrderVO> unfinished=new ArrayList<OrderVO>();
+		for(OrderVO vo:all){
+			if(vo.getOrderState()==OrderState.UNEXECUTED){
+				unfinished.add(vo);
+			}
+		}
+		return unfinished;
 	}
 			
 	/**

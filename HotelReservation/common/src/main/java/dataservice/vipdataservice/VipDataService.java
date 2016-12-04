@@ -24,7 +24,7 @@ public interface VipDataService {
 	
 	public VipPO findByLevel(int level) throws RemoteException;
 	
-	public CustomerInfoPO findByUserID(String id) throws RemoteException;
+	public VipPO findByUserID(String id) throws RemoteException;
 	
 	public ArrayList<VipPO> show() throws RemoteException;
 	

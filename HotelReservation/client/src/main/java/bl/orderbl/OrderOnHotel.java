@@ -4,13 +4,16 @@ import java.rmi.RemoteException;
 import java.util.ArrayList;
 
 import bl.VOPOchange;
+import bl.creditbl.CreditController;
 import dataservice.hoteldataservice.RoomInfoDataService;
 import dataservice.orderdataservice.OrderDataService;
+import po.CustomerInfoPO;
 import po.OrderPO;
 import po.RoomInfoPO;
 import util.OrderState;
 import util.ResultMsg;
 import util.RoomState;
+import vo.CustomerInfoVO;
 import vo.OrderVO;
 
 public class OrderOnHotel {
@@ -74,6 +77,9 @@ public class OrderOnHotel {
 		if(orderPO.getOrderState() == OrderState.UNEXECUTED
 				&& roomInfoPO.getState() == RoomState.USABLE) {
 			orderPO.setOrderState(OrderState.EXECUTED);
+			CustomerInfoPO customerInfoPO = orderPO.getInitiator();
+			CreditController controller = new CreditController();
+			controller.addCredit((CustomerInfoVO)VOPOchange.POtoVO(customerInfoPO), (int)orderVO.getPrice());
 			roomInfoPO.setRoomState(RoomState.UNUSABLE);
 			orderPO.setRoomInfoPO(roomInfoPO);
 			resultMsg = hotelDataService.update(orderPO);

@@ -81,5 +81,13 @@ public interface HotelStuffHotelOperationBlService{
 	 * @param rooms
 	 */
 	public ResultMsg TypeInRoom(ArrayList<RoomInfoVO> rooms);
+	
+	/**
+	 * 酒店工作人员更改订单状态
+	 * @param hotelid
+	 * @param orderid
+	 *
+	 */
+	public ResultMsg setAbnormalOrder(String hotelid,String orderid);
 		
 }

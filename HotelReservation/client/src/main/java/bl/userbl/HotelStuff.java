@@ -7,16 +7,13 @@ import bl.VOPOchange;
 import bl.hotelbl.HotelInfoCheckController;
 import bl.hotelbl.HotelInfoMaintainController;
 import bl.hotelbl.RoomAddController;
-import bl.orderbl.OrderOnHotel;
+import bl.orderbl.OrderOnHotelController;
 import bl.promotionbl.PromotionHotelController;
-import dataservice.creditdataservice.CreditDataService;
-import dataservice.hoteldataservice.RoomInfoDataService;
-import dataservice.orderdataservice.OrderDataService;
 import dataservice.userdataservice.UserManagementDataService;
 import po.ContactPO;
-import po.CreditPO;
 import po.StuffInfoPO;
 import po.UserInfoPO;
+import util.OrderState;
 import util.PromotionHotelType;
 import util.ResultMsg;
 import vo.HotelInfoVO;
@@ -35,10 +32,8 @@ import vo.UserInfoVO;
 public class HotelStuff extends User {
 	private HotelInfoMaintainController mod;
 	private HotelInfoCheckController hotel;
-	private OrderOnHotel order;
+	private OrderOnHotelController order;
 	private RoomAddController room;
-	private OrderDataService orderDataService;
-	private RoomInfoDataService roomInfoDataService;
 	private UserInfoVO userInfoVO;
 	private UserManagementDataService userDataService;
 	private PromotionHotelController promotion;
@@ -48,38 +43,7 @@ public class HotelStuff extends User {
 		super(user);
 		this.userDataService=user;
 		mod=new HotelInfoMaintainController();
-		order=new OrderOnHotel(orderDataService,roomInfoDataService,new CreditDataService() {
-			
-			@Override
-			public ArrayList<CreditPO> show() throws RemoteException {
-				// TODO Auto-generated method stub
-				return null;
-			}
-			
-			@Override
-			public ResultMsg insert(CreditPO creditPO) throws RemoteException {
-				// TODO Auto-generated method stub
-				return null;
-			}
-			
-			@Override
-			public ArrayList<CreditPO> getListByUserID(String userID) throws RemoteException {
-				// TODO Auto-generated method stub
-				return null;
-			}
-			
-			@Override
-			public CreditPO getListByOrderID(String orderID) throws RemoteException {
-				// TODO Auto-generated method stub
-				return null;
-			}
-			
-			@Override
-			public CreditPO findByUserID(String userID) throws RemoteException {
-				// TODO Auto-generated method stub
-				return null;
-			}
-		});
+		order=new OrderOnHotelController();
 		room=new RoomAddController();
 		hotel=new HotelInfoCheckController();
 		promotion=new PromotionHotelController();
@@ -189,11 +153,40 @@ public class HotelStuff extends User {
 	 * @return 订单VO列表
 	 */
 	public ArrayList<OrderVO> OrderScan(String hotelid)throws RemoteException{
-		try {
-			return order.hotelOrderScan(hotelid);
-		} catch (RemoteException e) {
-			return null;
+		return order.hotelOrderScan(hotelid);
+	}
+	
+	/**
+	 * 浏览酒店异常订单	
+	 * @param 酒店IDVO
+	 * @return 订单VO列表
+	 */
+	public ArrayList<OrderVO> AbnormalOrderScan(String hotelid)throws RemoteException{
+		ArrayList<OrderVO> all = order.hotelOrderScan(hotelid);
+		ArrayList<OrderVO> res=new ArrayList<OrderVO>();
+		for(OrderVO vo:all){
+			if(vo.getOrderState()==OrderState.ABNORMAL){
+				res.add(vo);
+			}
 		}
+		return res;
+	}
+	
+	/**
+	 * 酒店工作人员更改订单状态
+	 * @param hotelid
+	 * @param orderid
+	 * @return
+	 * @throws RemoteException
+	 */
+	public ResultMsg setAbnormalOrder(String hotelid,String orderid)throws RemoteException{
+		ArrayList<OrderVO> all=AbnormalOrderScan(hotelid);
+		for(OrderVO vo:all){
+			if(vo.getOrderID().equals(orderid)){
+				return order.hotelOrderModify(vo);
+			}
+		}
+		return ResultMsg.FAIL;
 	}
 
 	/**

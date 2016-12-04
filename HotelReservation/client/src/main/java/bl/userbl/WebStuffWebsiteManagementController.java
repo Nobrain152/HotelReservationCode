@@ -96,4 +96,48 @@ public class WebStuffWebsiteManagementController implements WebStuffWebsiteManag
 			return -10000000;
 		}
 	}
+	
+	/**
+	 * 网站营销人员查看申诉列表
+	 *
+	 * @param void
+	 * @return 申诉列表
+	 * @throws RemoteException 
+	 */
+	public ArrayList<OrderVO> complaintListScan(){
+		try {
+			return stuff.complaintListScan();
+		} catch (RemoteException e) {
+			return null;
+		}
+	}
+	
+	/**
+	 * 网站营销人员处理申诉
+	 *
+	 * @param orderVO 订单VO
+	 * @return 系统提示消息
+	 * @throws RemoteException 
+	 */
+	public ResultMsg complaintHandle(OrderVO orderVO,double rate){
+		try {
+			return stuff.complaintHandle(orderVO, rate);
+		} catch (RemoteException e) {
+			return ResultMsg.FAIL;
+		}
+	}
+	
+	/**
+	 * 浏览每日未执行订单
+	 * @param today
+	 * @return
+	 * @throws RemoteException
+	 */
+	public ArrayList<OrderVO> dayUnexOrder(String today){
+		try {
+			return stuff.dayUnexOrder(today);
+		} catch (RemoteException e) {
+			return null;
+		}
+	}
 }

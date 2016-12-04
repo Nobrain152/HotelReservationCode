@@ -6,9 +6,8 @@ import java.util.ArrayList;
 
 import bl.VOPOchange;
 import bl.creditbl.CreditController;
-import bl.orderbl.OrderOnWeb;
+import bl.orderbl.OrderOnWebController;
 import bl.promotionbl.PromotionWebController;
-import dataservice.orderdataservice.OrderDataService;
 import dataservice.userdataservice.UserManagementDataService;
 import po.ContactPO;
 import po.UserInfoPO;
@@ -29,15 +28,14 @@ public class WebStuff extends User{
 
 	private UserManagementDataService user;
 	private PromotionWebController pro;
-	private OrderOnWeb order;
+	private OrderOnWebController order;
 	private CreditController inte;
-	private OrderDataService orderDataService;
 	
 	
 	public  WebStuff(UserManagementDataService user){
 		super(user);
 		pro = new PromotionWebController();
-		order = new OrderOnWeb(orderDataService);
+		order = new OrderOnWebController();
 		inte=new CreditController();
 		this.user=user;
 	}
@@ -111,12 +109,7 @@ public class WebStuff extends User{
 	 * @return 订单VO列表
 	 */
 	public ArrayList<OrderVO> AbnormalOrderScan()throws RemoteException{
-		try {
-			return order.abnormalOrderScan();
-		} catch (RemoteException e) {
-			e.printStackTrace();
-			return null;
-		}
+		return order.abnormalOrderScan();
 		
 	}
 			
@@ -148,6 +141,38 @@ public class WebStuff extends User{
 	public int userCreditInquire(String userid)throws RemoteException {
 		CustomerInfoVO vo=(CustomerInfoVO)VOPOchange.POtoVO(user.GetUserBaseInfo(userid));
 		return inte.getCredit(vo);
+	}
+	
+	/**
+	 * 网站营销人员查看申诉列表
+	 *
+	 * @param void
+	 * @return 申诉列表
+	 * @throws RemoteException 
+	 */
+	public ArrayList<OrderVO> complaintListScan() throws RemoteException{
+		return order.complaintListScan();
+	}
+	
+	/**
+	 * 网站营销人员处理申诉
+	 *
+	 * @param orderVO 订单VO
+	 * @return 系统提示消息
+	 * @throws RemoteException 
+	 */
+	public ResultMsg complaintHandle(OrderVO orderVO,double rate) throws RemoteException{
+		return order.complaintHandle(orderVO, rate);
+	}
+	
+	/**
+	 * 浏览每日未执行订单
+	 * @param today
+	 * @return
+	 * @throws RemoteException
+	 */
+	public ArrayList<OrderVO> dayUnexOrder(String today) throws RemoteException {
+		return order.dayUnexOrder(today);
 	}
 	
 	}

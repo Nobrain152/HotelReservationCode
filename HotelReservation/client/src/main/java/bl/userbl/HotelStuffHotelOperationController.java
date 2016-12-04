@@ -157,4 +157,18 @@ public class HotelStuffHotelOperationController implements HotelStuffHotelOperat
 			return false;
 		}
 	}
+	/**
+	 * 酒店工作人员更改订单状态
+	 * @param hotelid
+	 * @param orderid
+	 * @return
+	 * @throws RemoteException
+	 */
+	public ResultMsg setAbnormalOrder(String hotelid,String orderid){
+		try {
+			return stuff.setAbnormalOrder(hotelid, orderid);
+		} catch (RemoteException e) {
+			return ResultMsg.FAIL;
+		}
+	}
 }

@@ -21,6 +21,7 @@ public class CreditVO {
 	
 	/**
 	 * 信用值变化
+	 * 例：+100；-100；t100；
 	 */
 	String creditChange;
 	

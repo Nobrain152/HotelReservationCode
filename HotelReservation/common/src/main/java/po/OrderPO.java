@@ -3,6 +3,7 @@ package po;
 import java.io.Serializable;
 
 import util.OrderState;
+import util.RoomType;
 
 /**
  * 订单
@@ -55,11 +56,11 @@ public class OrderPO implements Serializable {
 	 * 最晚执行时间
 	 */
 	public String latestExecutionTime;
-	
+
 	/**
-	 * 订单撤销时间
+	 * 房间类型
 	 */
-	public String cancelledTime;
+	public RoomType roomType;
 
 	/**
 	 * 房间数量
@@ -86,15 +87,10 @@ public class OrderPO implements Serializable {
 	 */
 	public boolean pass;
 	
-	/**
-	 * 房间信息
-	 */
-	public RoomInfoPO roomInfoPO;
-	
 	public OrderPO(CustomerInfoPO customerInfoPO, OrderState orderState,
 			double price, String orderID, String hotelID, boolean hasChild,
 			String latestExecutionTime, String checkInTime, String checkOutTime,
-			String cancelledTime,int roomNumber, int peopleNumber){
+			int roomNumber, int peopleNumber, RoomType roomType){
 		this.initiator = customerInfoPO;
 		this.orderState = orderState;
 		this.price = price;
@@ -104,9 +100,9 @@ public class OrderPO implements Serializable {
 		this.latestExecutionTime = latestExecutionTime;
 		this.checkInTime = checkInTime;
 		this.checkOutTime = checkOutTime;
-		this.cancelledTime = cancelledTime;
 		this.roomNumber = roomNumber;
 		this.peopleNumber = peopleNumber;
+		this.roomType = roomType;
 	}
 	
 	/**
@@ -126,6 +122,7 @@ public class OrderPO implements Serializable {
 		this.checkOutTime = po.getCheckOutTime();
 		this.roomNumber = po.getRoomNumber();
 		this.peopleNumber = po.getPeopleNumber();
+		this.roomType = po.getRoomType();
 		this.reason = reason;		
 	}
 	
@@ -146,6 +143,7 @@ public class OrderPO implements Serializable {
 		this.checkOutTime = po.getCheckOutTime();
 		this.roomNumber = po.getRoomNumber();
 		this.peopleNumber = po.getPeopleNumber();
+		this.roomType = po.getRoomType();
 		this.reason = po.getReason();
 		this.pass = pass;
 	}
@@ -169,14 +167,6 @@ public class OrderPO implements Serializable {
 	public String getHotelID() {
 		return hotelID;
 	}
-	
-	public RoomInfoPO getRoomInfoVO() {
-		return roomInfoPO;
-	}
-	
-	public void setRoomInfoVO(RoomInfoPO roomInfoVO) {
-		this.roomInfoPO = roomInfoVO;
-	}
 
 	public boolean getHasChild() {
 		return hasChild;
@@ -184,6 +174,10 @@ public class OrderPO implements Serializable {
 
 	public String getLatestExecutionTime() {
 		return latestExecutionTime;
+	}
+
+	public RoomType getRoomType() {
+		return roomType;
 	}
 
 	public int getRoomNumber() {
@@ -210,14 +204,6 @@ public class OrderPO implements Serializable {
 		return pass;
 	}
 
-	public String getCancelledTime() {
-		return cancelledTime;
-	}
-	
-	public void setCancelledTime(String cancelledTime) {
-		this.cancelledTime = cancelledTime;
-	}
-	
 	public void setInitiator(CustomerInfoPO initiator) {
 		this.initiator = initiator;
 	}
@@ -226,7 +212,7 @@ public class OrderPO implements Serializable {
 		this.orderState = orderState;
 	}
 
-	public void setPrice(double price) {
+	public void setPrice(int price) {
 		this.price = price;
 	}
 
@@ -248,6 +234,10 @@ public class OrderPO implements Serializable {
 
 	public void setLatestExecutionTime(String lastestExecutionTime) {
 		this.latestExecutionTime = lastestExecutionTime;
+	}
+
+	public void setRoomType(RoomType roomType) {
+		this.roomType = roomType;
 	}
 
 	public void setPeopleNumber(int peopleNumber) {

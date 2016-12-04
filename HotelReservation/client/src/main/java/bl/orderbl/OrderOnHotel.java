@@ -8,7 +8,6 @@ import dataservice.orderdataservice.OrderDataService;
 import po.OrderPO;
 import util.OrderState;
 import util.ResultMsg;
-import util.Today;
 import vo.OrderVO;
 
 public class OrderOnHotel {

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.*?>
 <?import javafx.scene.effect.*?>
 <?import javafx.geometry.*?>
 <?import javafx.scene.web.*?>
@@ -38,6 +39,10 @@
             </Button>
          </children>
       </Pane>
-      <Pane layoutY="69.0" prefHeight="462.0" prefWidth="800.0" />
+      <Pane layoutY="69.0" prefHeight="464.0" prefWidth="800.0">
+         <children>
+            <Pagination fx:id="pagination" layoutX="97.0" maxPageIndicatorCount="4" pageCount="8" prefHeight="464.0" prefWidth="607.0" />
+         </children>
+      </Pane>
    </children>
 </AnchorPane>

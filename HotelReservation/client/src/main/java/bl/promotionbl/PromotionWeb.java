@@ -148,7 +148,7 @@ public class PromotionWeb{
 	 */
 	public ArrayList<PromotionWebVO> getWebPromotion(PromotionWebType type,String hotelID) throws RemoteException {
 		ArrayList<PromotionWebPO> list = promotionWebDataService.findByType(type,hotelID);
-		ArrayList<PromotionWebVO> voList = new ArrayList<>();
+		ArrayList<PromotionWebVO> voList = new ArrayList<PromotionWebVO>();
 		PromotionWebVO vo;
 		for(PromotionWebPO po : list) {
 			vo = (PromotionWebVO)VOPOchange.POtoVO(po);

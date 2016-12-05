@@ -97,6 +97,18 @@ public class OrderOnHotel {
 			roomInfoPO.setRoomState(RoomState.USABLE);
 			orderPO.setRoomInfoPO(roomInfoPO);
 			resultMsg = hotelDataService.update(orderPO);
+		} else if(orderPO.getOrderState() == OrderState.ABNORMAL) {
+			orderPO.setOrderState(OrderState.EXECUTED);
+			CustomerInfoPO customerInfoPO = orderPO.getInitiator();
+			CreditController controller = new CreditController();
+			controller.addCredit((CustomerInfoVO)VOPOchange.POtoVO(customerInfoPO), (int)orderVO.getPrice());
+			CreditPO creditPO = creditDataService.findByUserID(orderVO.getInitiator().getUserID());
+			creditPO.setAction(Action.Executed);
+			roomInfoPO.setRoomState(RoomState.UNUSABLE);
+			orderPO.setRoomInfoPO(roomInfoPO);
+			resultMsg = creditDataService.insert(creditPO);
+			if(resultMsg == ResultMsg.SUCCESS)
+				resultMsg = hotelDataService.update(orderPO);
 		}
 		return resultMsg;
 	}

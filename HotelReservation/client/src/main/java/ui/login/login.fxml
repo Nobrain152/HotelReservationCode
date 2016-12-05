@@ -24,12 +24,15 @@
          </font>
       </Text>
       <TextField fx:id="userid" layoutX="323.0" layoutY="302.0" promptText="账号" />
-      <ImageView fitHeight="29.0" fitWidth="29.0" layoutX="277.0" layoutY="299.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="29.0" fitWidth="29.0" layoutX="277.0" layoutY="299.0" pickOnBounds="true">
          <image>
             <Image url="@../../../../../image/login_user.jpg" />
          </image>
       </ImageView>
-      <ImageView fx:id="image_password" fitHeight="29.0" fitWidth="29.0" layoutX="277.0" layoutY="349.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fitHeight="29.0" fitWidth="29.0" layoutX="277.0" layoutY="349.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../../../image/login_password.jpg" />
+         </image></ImageView>
       <PasswordField fx:id="password" layoutX="323.0" layoutY="352.0" prefHeight="23.0" prefWidth="161.0" promptText="密码" />
    </children>
 </AnchorPane>

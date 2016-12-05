@@ -6,6 +6,7 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.fxml.JavaFXBuilderFactory;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
@@ -52,9 +53,10 @@ public class UILaunch extends Application{
 
 	@Override
 	public void start(Stage primaryStage) throws Exception {
-		//Parent root = FXMLLoader.load(getClass().getResource("customerGuide/customerGuide.fxml"));
+		//Parent root = FXMLLoader.load(getClass().getResource("login/login.fxml"));
 		
 		//Scene scene= new Scene(root,MINIMUM_WINDOW_WIDTH,MINIMUM_WINDOW_HEIGHT);
+		//stage=primaryStage;
 		//stage.setTitle("Welcome");
 		//stage.setScene(scene);
 		//stage.show();
@@ -63,7 +65,7 @@ public class UILaunch extends Application{
 		stage.setTitle("DIMENSION");
 		stage.setMinWidth(MINIMUM_WINDOW_WIDTH);
 		stage.setMinHeight(MINIMUM_WINDOW_HEIGHT);
-		gotologin();	
+		gotohotelSearchList();	
 		stage.show();
 	}
 	

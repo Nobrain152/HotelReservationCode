@@ -11,11 +11,13 @@ import org.junit.Test;
 import bl.orderbl.OrderOnHotelController;
 import util.OrderState;
 import util.ResultMsg;
+import util.RoomState;
 import util.RoomType;
 import util.VipType;
 import vo.ContactVO;
 import vo.CustomerInfoVO;
 import vo.OrderVO;
+import vo.RoomInfoVO;
 
 public class OrderOnHotelControllerTest {
 
@@ -34,23 +36,23 @@ public class OrderOnHotelControllerTest {
 		order1 = new OrderVO(new CustomerInfoVO("123", "txin", 
 				new ContactVO("18805156300", null), 100,true,VipType.COMMON_VIP), 
 				OrderState.UNEXECUTED, 100, "01", "513", false, 
-				"2016-10-16 24:00", "2016-10-16 12:00", "2016-10-17 12:00", 
-				1, 1, RoomType.ROOM_STANDARD);
+				"2016-10-16 24:00", "2016-10-16 12:00", "2016-10-17 12:00", null,
+				1, new RoomInfoVO(RoomState.USABLE, RoomType.ROOM_STANDARD, "212", 100, "1234"),1);
 		order2 = new OrderVO(new CustomerInfoVO("123", "txin", 
 				new ContactVO("18805156300", null), 100,true,VipType.COMMON_VIP), 
 				OrderState.UNEXECUTED, 100, "01", "513", false, 
-				"2016-10-16 24:00", "2016-10-16 12:00", "2016-10-17 12:00", 
-				1, 1, RoomType.ROOM_STANDARD);
+				"2016-10-16 24:00", "2016-10-16 12:00", "2016-10-17 12:00", null,
+				1, new RoomInfoVO(RoomState.USABLE, RoomType.ROOM_STANDARD, "212", 100, "1234"),1);
 		order3 = new OrderVO(new CustomerInfoVO("123", "txin", 
 				new ContactVO("18805156300", null), 100,true,VipType.COMMON_VIP), 
 				OrderState.UNEXECUTED, 100, "01", "513", false, 
-				"2016-10-16 24:00", "2016-10-16 12:00", "2016-10-17 12:00", 
-				1, 1, RoomType.ROOM_STANDARD);
+				"2016-10-16 24:00", "2016-10-16 12:00", "2016-10-17 12:00", null,
+				1, new RoomInfoVO(RoomState.USABLE, RoomType.ROOM_STANDARD, "212", 100, "1234"),1);
 		order4 = new OrderVO(new CustomerInfoVO("123", "txin", 
 				new ContactVO("18805156300", null), 100,true,VipType.COMMON_VIP), 
 				OrderState.UNEXECUTED, 100, "01", "513", false, 
-				"2016-10-16 24:00", "2016-10-16 12:00", "2016-10-17 12:00", 
-				1, 1, RoomType.ROOM_STANDARD);
+				"2016-10-16 24:00", "2016-10-16 12:00", "2016-10-17 12:00", null,
+				1, new RoomInfoVO(RoomState.USABLE, RoomType.ROOM_STANDARD, "212", 100, "1234"),1);
 		
 		hotelBLServiceImpl = new OrderOnHotelController();
 		r1 = ResultMsg.SUCCESS;
@@ -63,8 +65,8 @@ public class OrderOnHotelControllerTest {
 		r11 = new OrderVO(new CustomerInfoVO("123", "txin", 
 				new ContactVO("18805156300", null), 100,true,VipType.COMMON_VIP), 
 				OrderState.UNEXECUTED, 100, "01", "513", false, 
-				"2016-10-16 24:00", "2016-10-16 12:00", "2016-10-17 12:00", 
-				1, 1, RoomType.ROOM_STANDARD);
+				"2016-10-16 24:00", "2016-10-16 12:00", "2016-10-17 12:00", null,
+				1, new RoomInfoVO(RoomState.USABLE, RoomType.ROOM_STANDARD, "212", 100, "1234"),1);
 	}
 
 	@Test

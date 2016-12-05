@@ -7,6 +7,7 @@ import bl.VOPOchange;
 import dataservice.creditdataservice.CreditDataService;
 import po.CreditPO;
 import util.ResultMsg;
+import util.Today;
 import vo.CreditVO;
 import vo.CustomerInfoVO;
 
@@ -31,6 +32,7 @@ public class Credit {
 		}else{
 			creditPO.setCreditResult(creditPO.getCreditResult() + value);
 			creditPO.setCreditChange("+" + value);
+			creditPO.setTime(new Today().getToday());
 			resultMsg = creditDataService.insert(creditPO);
 		}
 		return resultMsg;
@@ -43,6 +45,7 @@ public class Credit {
 		}else{
 			creditPO.setCreditResult(creditPO.getCreditResult() - value);
 			creditPO.setCreditChange("-" + value);
+			creditPO.setTime(new Today().getToday());
 			resultMsg = creditDataService.insert(creditPO);
 		}
 		return resultMsg;
@@ -55,6 +58,7 @@ public class Credit {
 		}else{
 			creditPO.setCreditResult(value);
 			creditPO.setCreditChange("t" + value);
+			creditPO.setTime(new Today().getToday());
 			resultMsg = creditDataService.insert(creditPO);
 		}
 		return resultMsg;

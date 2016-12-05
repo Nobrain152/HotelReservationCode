@@ -2,6 +2,8 @@ package dataservice.userdataservice;
 
 import java.util.ArrayList;
 
+import po.CustomerInfoPO;
+
 
 
 /**
@@ -49,6 +51,8 @@ public interface CustomerManagementDataService extends UserManagementDataService
 		 * @return 更新结果
 		 */
 		public boolean addCustomerHotel (String userid,String idh);
+		
+		public CustomerInfoPO FindByID(String userid);
 		
 		
 		

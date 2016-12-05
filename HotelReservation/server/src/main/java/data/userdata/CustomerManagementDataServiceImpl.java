@@ -71,4 +71,11 @@ public class CustomerManagementDataServiceImpl extends UserManagementDataService
 		return result;
 	}
 
+
+	@Override
+	public CustomerInfoPO FindByID(String userid) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }

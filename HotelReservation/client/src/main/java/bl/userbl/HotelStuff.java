@@ -212,7 +212,23 @@ public class HotelStuff extends User {
 	 * @param rooms
 	 */
 	public ResultMsg TypeInRoom(ArrayList<RoomInfoVO> rooms)throws RemoteException{
-		return room.HotelRoomMod(rooms.get(0).getHotelid(),rooms);
+		for(RoomInfoVO v:rooms){
+			ResultMsg resultMsg=room.addRoom(v);
+			if(resultMsg==ResultMsg.FAIL){
+				return ResultMsg.FAIL;
+			}
+		}
+		return ResultMsg.SUCCESS;
+	}
+	
+	/**
+	 * 修改酒店房间信息
+	 * @param rooms
+	 * @return
+	 * @throws RemoteException
+	 */
+	public ResultMsg SetRoomInfo(ArrayList<RoomInfoVO> rooms)throws RemoteException{
+		return room.HotelRoomMod(rooms.get(0).getHotelid(), rooms);
 	}
 	
 	/**

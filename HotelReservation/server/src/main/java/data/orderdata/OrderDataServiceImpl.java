@@ -21,6 +21,7 @@ public class OrderDataServiceImpl extends DataSuperClass implements OrderDataSer
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
+	
 	private final String tableName = "order";
 	
 	public OrderDataServiceImpl() throws RemoteException {

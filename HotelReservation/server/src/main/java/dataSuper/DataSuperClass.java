@@ -60,13 +60,14 @@ public class DataSuperClass extends UnicastRemoteObject{
 	
 	static{
 		//根据PO写，先写别的部分，成功之后回来补充即可
+		
 		SQLmap.put("customer", helper.bulidSQL("customer", 7, "userid","username","contact","isMember","credit","order","hotel"));
 		//SQLmap.put("HotelCondition",helper.bulidSQL("HotelCondition", 10, "address","businessDistrict","hotelName","roomtype","upLevel",""));
 		SQLmap.put("credit", helper.bulidSQL("credit", 2, "userID","credit"));
 		SQLmap.put("customerInfo", helper.bulidSQL("customerInfo", 2, "cresit","isMember"));
 		SQLmap.put("hotelEvaluatePO", helper.bulidSQL("hotelEvaluatePO", 6, "userID","hotelID","score","comment","reserve","orderID"));
 		SQLmap.put("hotelInfo", helper.bulidSQL("hotelInfo", 8, "hotelID","name","address","area","level","introduction","facility","reserve"));
-		SQLmap.put("orderPo", helper.bulidSQL("order", 15, "orderID","customerInfoPO","orderState","price","hotelID","hasChild","latestExecutionTime","checkInTime","checkOutTime","cancelledTime","roomNumber","peopleNumber","roomInfoPO","reason","pass"));
+		SQLmap.put("order", helper.bulidSQL("order", 15, "orderID","customerInfoPO","orderState","price","hotelID","hasChild","latestExecutionTime","checkInTime","checkOutTime","cancelledTime","roomNumber","peopleNumber","roomInfoPO","reason","pass"));
 		
 	}
 	
@@ -92,7 +93,7 @@ public class DataSuperClass extends UnicastRemoteObject{
 		} /*catch(MySQLIntegrityConstraintViolationException e){
 			return ResultMsg.hasExist;
 			//这个异常捕获不了？不存在
-		} */catch (SQLException e) {
+		}*/ catch (SQLException e) {
 			e.printStackTrace();
 			return ResultMsg.FAIL;
 		}
@@ -116,10 +117,13 @@ public class DataSuperClass extends UnicastRemoteObject{
 			affectRows = preState.executeUpdate();
 		} catch (SQLException e) {
 			e.printStackTrace();
+			System.out.println("有毒");
 			return ResultMsg.FAIL;
 		}
 		
 		if(affectRows != 1){
+			System.out.println(affectRows);
+			System.out.println("逼疯");
 			return ResultMsg.NOT_EXIST;
 		}
 		

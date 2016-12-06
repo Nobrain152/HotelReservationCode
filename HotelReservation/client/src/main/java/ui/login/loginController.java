@@ -10,7 +10,6 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
-import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import ui.UILaunch;
 import util.UserType;
@@ -20,7 +19,8 @@ public class loginController implements Initializable{
 	
 	private LoginInputController login;
 	
-	
+	@FXML
+	private ImageView iv1;
 	
 	@FXML
 	private TextField userid;
@@ -51,8 +51,10 @@ public class loginController implements Initializable{
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		// TODO Auto-generated method stub
-
 		
+		
+		
+
 	}
 
 }

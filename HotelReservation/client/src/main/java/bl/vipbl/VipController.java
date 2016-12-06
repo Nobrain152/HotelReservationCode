@@ -3,8 +3,9 @@ package bl.vipbl;
 import java.rmi.RemoteException;
 
 import blservice.vipblservice.VipLevelBLService;
-import datafactory.DataFactory;
+import net.RMIManage;
 import dataservice.vipdataservice.VipDataService;
+import util.DataServiceType;
 import util.ResultMsg;
 import vo.CustomerInfoVO;
 import vo.LevelSystemVO;
@@ -14,8 +15,9 @@ public class VipController implements VipLevelBLService{
 	private Vip vip;
 	private VipDataService vipDataService;
 	
-	public VipController() throws RemoteException {
-		vipDataService = new DataFactory().getVipDataService();
+	public VipController() {
+		vipDataService = (VipDataService)RMIManage.
+		getDataService(DataServiceType.VipDataService);
 		vip = new Vip(vipDataService);
 	}
 

@@ -101,11 +101,11 @@ public class OrderDataServiceImplTest {
 		ResultMsg b = dataServiceImpl.delete(order1.getOrderID());
 		assertEquals(b, ResultMsg.SUCCESS);
 	}
-	
+	*/
 	@Test
 	public void testUpdate() throws RemoteException{
 		dataServiceImpl.insert(order1);
-		order1.setHotelID("456123456");
+		order1.setCheckOutTime("456123456");
 		ResultMsg b = dataServiceImpl.update(order1);
 		assertEquals(b, ResultMsg.SUCCESS);
 	}
@@ -117,7 +117,7 @@ public class OrderDataServiceImplTest {
 		OrderPO order = dataServiceImpl.findByOrderID("100010");
 	}
 	*/
-	
+	/*
 	@Test
 	public void testFindByOrderID() throws RemoteException{
 		dataServiceImpl.insert(order1);

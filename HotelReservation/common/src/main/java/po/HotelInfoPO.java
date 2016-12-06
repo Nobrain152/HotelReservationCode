@@ -52,9 +52,8 @@ public class HotelInfoPO implements Serializable{
 	 */
 	private String hotelID;
 	
-	private double score;
 	
-	public HotelInfoPO(String hotelID,String name, String address, String area, int level, String introduction, String facility, boolean reserve,double score) {
+	public HotelInfoPO(String hotelID,String name, String address, String area, int level, String introduction, String facility, boolean reserve) {
 		this.name = name;
 		this.address = address;
 		this.area= area;
@@ -63,7 +62,6 @@ public class HotelInfoPO implements Serializable{
 		this.facility=facility;
 		this.reserve=reserve;
 		this.hotelID = hotelID;
-		this.score=score;
 	}
 
 	public String getName() {
@@ -97,13 +95,42 @@ public class HotelInfoPO implements Serializable{
 	public String getHotelID() {
 		return hotelID;
 	}
+
 	
-	public double getScore(){
-		return score;
+	public void setHotelID(String newID) {
+		this.hotelID = newID;
 	}
 	
-	public void setScore(double s){
-		score=s;
+	public void setName(String newName) {
+		this.name = newName;
 	}
+
+	public void setAddress(String newAddress) {
+		this.address = newAddress;
+	}
+	
+	public void setArea(String newArea) {
+		this.area = newArea;
+	}
+	
+	public void setLevel(int newLevel) {
+		this.level = newLevel;
+	}
+	
+	public void setIntroduction(String newIntroduction) {
+		this.introduction = newIntroduction;
+	}
+	
+	public void setFacility(String newFacility) {
+		this.facility = newFacility;
+	}
+	
+	public void setIsReserved(boolean newReserved){
+		this.reserve = newReserved;
+	}
+
+
+
+	
 
 }	

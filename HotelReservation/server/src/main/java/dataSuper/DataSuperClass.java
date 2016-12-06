@@ -118,13 +118,13 @@ public class DataSuperClass extends UnicastRemoteObject{
 			affectRows = preState.executeUpdate();
 		} catch (SQLException e) {
 			e.printStackTrace();
-			System.out.println("有毒");
+			System.out.println("无法连接数据库");
 			return ResultMsg.FAIL;
 		}
 		
 		if(affectRows != 1){
-			System.out.println(affectRows);
-			System.out.println("逼疯");
+			System.out.println("当前数据库中影响的条数为"+affectRows);
+			System.out.println("在数据库中这个信息不存在或者存在多条无法定位删除，在"+tableName+"表中，ID为" + ID);
 			return ResultMsg.NOT_EXIST;
 		}
 		
@@ -198,6 +198,8 @@ public class DataSuperClass extends UnicastRemoteObject{
 	protected ResultMsg modifyFromSQL(String tableName , String... newParas) {
 		
 		try {
+			//System.out.println(SQLmap.get(tableName).get(0));
+			//System.out.println(SQLmap.get(tableName).get(4));
 			int paralen = Integer.parseInt(SQLmap.get(tableName).get(0));
 			preState = conn.prepareStatement(SQLmap.get(tableName).get(4) +"\"" + newParas[0]  +"\"");
 			for (int i = 0; i < paralen - 1; i++) {

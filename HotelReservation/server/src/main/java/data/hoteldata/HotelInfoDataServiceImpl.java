@@ -105,4 +105,16 @@ public class HotelInfoDataServiceImpl extends DataSuperClass implements HotelInf
 		return null;
 	}
 
+	@Override
+	public ArrayList<HotelInfoPO> findByAreaAndCircle(String area, String circle) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public ArrayList<HotelInfoPO> findByName(String name) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }

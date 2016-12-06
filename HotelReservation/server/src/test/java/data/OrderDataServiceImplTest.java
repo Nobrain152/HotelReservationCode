@@ -5,6 +5,8 @@ import static org.junit.Assert.assertEquals;
 import java.rmi.RemoteException;
 import java.util.ArrayList;
 
+import javax.swing.plaf.synth.SynthStyle;
+
 import org.junit.Before;
 import org.junit.Test;
 
@@ -91,7 +93,7 @@ public class OrderDataServiceImplTest {
 		ResultMsg b = dataServiceImpl.insert(order2);
 		assertEquals(b, ResultMsg.SUCCESS);
 	}
-	
+	/*
 	@Test
 	public void testDelete() throws RemoteException{
 		dataServiceImpl.insert(order1);
@@ -107,24 +109,25 @@ public class OrderDataServiceImplTest {
 		ResultMsg b = dataServiceImpl.update(order1);
 		assertEquals(b, ResultMsg.SUCCESS);
 	}
-	*/
 	
+	/*
 	public void testFindByOrderID() throws RemoteException{
 		dataServiceImpl.insert(order1);
 		dataServiceImpl.insert(order2);
 		OrderPO order = dataServiceImpl.findByOrderID("100010");
 	}
+	*/
 	
-	/*
 	@Test
 	public void testFindByOrderID() throws RemoteException{
 		dataServiceImpl.insert(order1);
 		dataServiceImpl.insert(order2);
-		ArrayList<OrderPO> arrayList = dataServiceImpl.findByUserID("45234");
-		list.add(order1);
-		list.add(order2);
-		assertEquals(list.get(0), arrayList.get(0));
-		assertEquals(list.get(1), arrayList.get(1));
+		System.out.println("³É¹¦");
+		OrderPO arrayList = dataServiceImpl.findByOrderID(order1.getOrderID());
+		System.out.println(arrayList.getHotelID());
+		dataServiceImpl.delete(order1.getOrderID());
+		dataServiceImpl.delete(order2.getOrderID());
+		assertEquals(arrayList.getHotelID(), order1.getHotelID());
 	}
 	
 	/*

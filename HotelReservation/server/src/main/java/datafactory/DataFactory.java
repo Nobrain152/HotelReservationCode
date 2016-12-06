@@ -1,9 +1,6 @@
 package datafactory;
 
 import java.rmi.RemoteException;
-
-import org.junit.internal.Throwables;
-
 import data.creditdata.CreditDataServiceImpl;
 import data.hoteldata.HotelEvaluateDataServiceImpl;
 import data.hoteldata.HotelInfoDataServiceImpl;
@@ -15,6 +12,7 @@ import data.userdata.CustomerManagementDataServiceImpl;
 import data.userdata.UserManagementDataServiceImpl;
 import data.vipdata.VipDataSerivceImpl;
 import dataservice.creditdataservice.CreditDataService;
+import dataservice.datafactoryservice.DataFactoryService;
 import dataservice.hoteldataservice.HotelEvaluateDataService;
 import dataservice.hoteldataservice.HotelInfoDataService;
 import dataservice.hoteldataservice.RoomInfoDataService;
@@ -31,7 +29,7 @@ import dataservice.vipdataservice.VipDataService;
  *
  */
 
-public class DataFactory {
+public class DataFactory implements DataFactoryService{
 	
 	private static DataFactory dataFactory;
 	

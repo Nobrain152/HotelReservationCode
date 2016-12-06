@@ -27,7 +27,7 @@ public interface HotelInfoDataService {
 	/**
 	 * 查找
 	 */
-	public ArrayList<HotelInfoPO> find(HotelInfoPO po) throws RemoteException;
+	public HotelInfoPO find(String ID) throws RemoteException;
 
 	/**
 	 * 根据订单ID查找
@@ -35,7 +35,7 @@ public interface HotelInfoDataService {
 	 * @return
 	 * @throws RemoteException
 	 */
-	public HotelInfoPO findByID(String ID) throws RemoteException;
+	public HotelInfoPO findByOrderID(String ID) throws RemoteException;
 	
 	/**
 	 * 显示

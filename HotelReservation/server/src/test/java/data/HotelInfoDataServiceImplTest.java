@@ -22,14 +22,14 @@ public class HotelInfoDataServiceImplTest {
 	HotelInfoPO hotel4;
 	
 	@Before
-	public void setUp(){
+	public void setUp() throws RemoteException{
 		impl = new HotelInfoDataServiceImpl();
-		hotel1=new HotelInfoPO("StarHotel","StarRoad","StarArea",5,"It's a wonderful hotel","cafe, garden and so on",
-				true,"1343");
-		hotel2=new HotelInfoPO("SunHotel","SunRoad","SunArea",4,"It's a nice hotel","cafe",
-				false,"2352");
-		hotel3=new HotelInfoPO("MoonHotel","MoonRoad","MoonArea",-1,"It's a terrible hotel","nothing",
-				true,"4353");
+		hotel1=new HotelInfoPO("1343","StarHotel","StarRoad","StarArea",5,"It's a wonderful hotel","cafe, garden and so on",
+				true);
+		hotel2=new HotelInfoPO("2352","SunHotel","SunRoad","SunArea",4,"It's a nice hotel","cafe",
+				false);
+		hotel3=new HotelInfoPO("4353","MoonHotel","MoonRoad","MoonArea",-1,"It's a terrible hotel","nothing",
+				true);
 		
 		list = new ArrayList<HotelInfoPO>();
 	}
@@ -58,12 +58,12 @@ public class HotelInfoDataServiceImplTest {
 	public void testFind() throws RemoteException{
 		impl.insert(hotel1);
 		impl.insert(hotel2);
-		ArrayList<HotelInfoPO> arrayList = impl.find(new HotelInfoPO("SunHotel","SunRoad","SunArea",4,"It's a nice hotel","cafe",
-				false,"754"));
+		HotelInfoPO arrayList = impl.find("754");
 		list.add(hotel1);
 		list.add(hotel2);
-		assertEquals(list.get(0), arrayList.get(0));
-		assertEquals(list.get(1), arrayList.get(1));
+		assertEquals(list.get(0), arrayList);
+		HotelInfoPO arrayList2 = impl.find("2352");
+		assertEquals(list.get(1), arrayList2);
 	}
 
 	@Test

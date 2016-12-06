@@ -69,6 +69,7 @@ public class DataSuperClass extends UnicastRemoteObject{
 		SQLmap.put("hotelInfo", helper.bulidSQL("hotelInfo", 8, "hotelID","name","address","area","level","introduction","facility","reserve"));
 		SQLmap.put("order", helper.bulidSQL("order", 15, "orderID","customerInfoPO","orderState","price","hotelID","hasChild","latestExecutionTime","checkInTime","checkOutTime","cancelledTime","roomNumber","peopleNumber","roomInfoPO","reason","pass"));
 		
+		
 	}
 	
 	public DataSuperClass() throws RemoteException {

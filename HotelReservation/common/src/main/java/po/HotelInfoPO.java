@@ -52,7 +52,7 @@ public class HotelInfoPO implements Serializable{
 	 */
 	private String hotelID;
 	
-	public HotelInfoPO(String name, String address, String area, int level, String introduction, String facility, boolean reserve ,String hotelID) {
+	public HotelInfoPO(String hotelID,String name, String address, String area, int level, String introduction, String facility, boolean reserve) {
 		this.name = name;
 		this.address = address;
 		this.area= area;

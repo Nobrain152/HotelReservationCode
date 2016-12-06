@@ -2,12 +2,8 @@ package data.orderdata;
 
 import java.rmi.RemoteException;
 import java.util.ArrayList;
-
-import javax.print.attribute.standard.RequestingUserName;
-
 import data.hoteldata.RoomInfoDataServiceImpl;
 import data.userdata.CustomerManagementDataServiceImpl;
-import dataSuper.DataServiceHelper;
 import dataSuper.DataSuperClass;
 import dataservice.orderdataservice.OrderDataService;
 import po.OrderPO;
@@ -26,7 +22,6 @@ public class OrderDataServiceImpl extends DataSuperClass implements OrderDataSer
 	
 	public OrderDataServiceImpl() throws RemoteException {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 	
 	@Override
@@ -85,7 +80,9 @@ public class OrderDataServiceImpl extends DataSuperClass implements OrderDataSer
 		CustomerManagementDataServiceImpl customer = new CustomerManagementDataServiceImpl();
 		RoomInfoDataServiceImpl room = new RoomInfoDataServiceImpl();
 		if(findMes != null){
-			orderPO = new OrderPO(findMes.get(0), null/*需要返回customerinfo*/, 
+			
+			orderPO = new OrderPO(findMes.get(0), 
+								customer.FindByID(findMes.get(1))/*需要返回customerinfo*/, 
 								OrderState.valueOf(findMes.get(2)),
 								Double.valueOf(findMes.get(3)), findMes.get(4), 
 								Boolean.getBoolean(findMes.get(5)), findMes.get(6), 

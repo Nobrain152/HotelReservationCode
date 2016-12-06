@@ -8,7 +8,6 @@ import org.junit.Before;
 import org.junit.Test;
 
 import bl.hotelbl.HotelInfoMaintainController;
-import util.HotelMsg;
 import util.ResultMsg;
 import vo.HotelInfoVO;
 

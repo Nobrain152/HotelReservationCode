@@ -9,7 +9,6 @@ import org.junit.Test;
 
 import bl.hotelbl.RoomAddController;
 import util.ResultMsg;
-import util.RoomMsg;
 import util.RoomState;
 import util.RoomType;
 import vo.RoomInfoVO;
@@ -23,7 +22,7 @@ public class RoomAddControllerTest {
 	RoomInfoVO room3;
 	RoomInfoVO room4;
 	
-	RoomMsg roomMsg;
+	ResultMsg roomMsg;
 	ResultMsg reMsg1;
 	ResultMsg reMsg2;
 	
@@ -46,7 +45,7 @@ public class RoomAddControllerTest {
 		roomList.add(room4);
 		
 		
-		roomMsg = new RoomMsg(RoomState.USABLE,RoomType.ROOM_STANDARD,5,1599);
+		roomMsg = ResultMsg.SUCCESS;
 		//reMsg1=new ResultMsg(true,"添加成功");
 		//reMsg2=new ResultMsg(false,"添加失败");
 		reMsg1 = ResultMsg.SUCCESS;

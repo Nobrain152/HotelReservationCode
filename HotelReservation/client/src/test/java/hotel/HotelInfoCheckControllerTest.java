@@ -8,7 +8,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import bl.hotelbl.HotelInfoCheckController;
-import util.HotelMsg;
+import util.ResultMsg;
 import vo.HotelInfoVO;
 
 public class HotelInfoCheckControllerTest {
@@ -19,7 +19,7 @@ public class HotelInfoCheckControllerTest {
 	HotelInfoVO hotel2;
 	HotelInfoVO hotel3;
 	
-	HotelMsg hotelMsg;
+	ResultMsg hotelMsg;
 	
 	
 	
@@ -41,14 +41,13 @@ public class HotelInfoCheckControllerTest {
 		hotelList.add(hotel3);
 		
 		
-		hotelMsg = new HotelMsg(hotel1.getName(),hotel1.getAddress(),hotel1.getArea(),hotel1.getLevel(),
-				hotel1.getIntroduction(),hotel1.getFacility(),hotel1.getIsReserved());
+		hotelMsg = ResultMsg.SUCCESS;
 	}
 	
 	@Test
 	public void testcheckHotelInfo(){
 		HotelInfoVO msg1 = impl.checkHotelInfo(hotel1.getHotelID());
-		assertEquals(msg1, hotelMsg.getName());
+		assertEquals(msg1, hotelMsg);
 		
     }
 

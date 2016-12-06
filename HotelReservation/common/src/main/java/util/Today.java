@@ -2,6 +2,11 @@ package util;
 
 import java.util.Calendar;
 
+/**
+ * 获取当前日期
+ * @author txin15
+ *
+ */
 public class Today {
 	
 	String today;

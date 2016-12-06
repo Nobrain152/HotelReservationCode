@@ -9,5 +9,5 @@ public enum UserType {
 	Customer,      //客户
 	HotelStuff,    //酒店管理人员
 	WebStuff,      //网站营销人员
-	WebManager     //普通用户
+	WebManager     //网站管理人员
 }

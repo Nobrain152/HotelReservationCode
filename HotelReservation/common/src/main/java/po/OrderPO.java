@@ -231,14 +231,6 @@ public class OrderPO implements Serializable {
 		this.price = price;
 	}
 
-	public void setOrderID(String orderID) {
-		this.orderID = orderID;
-	}
-
-	public void setHotelID(String hotelID) {
-		this.hotelID = hotelID;
-	}
-
 	public void setRoomNumber(int roomNumber) {
 		this.roomNumber = roomNumber;
 	}

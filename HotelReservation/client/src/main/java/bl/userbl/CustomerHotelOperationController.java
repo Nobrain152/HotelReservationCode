@@ -13,6 +13,7 @@ import vo.CustomerInfoVO;
 import vo.HotelEvaluateVO;
 import vo.HotelInfoVO;
 import vo.OrderVO;
+import vo.RoomInfoVO;
 
 
 /**
@@ -38,9 +39,9 @@ public class CustomerHotelOperationController implements CustomerHotelOperationB
 	 * @param 筛选条件VO
 	 * @return 酒店信息VO列表
 	 */
-	public ArrayList<HotelInfoVO> HotelSearch(HotelInfoVO vo,String userid){
+	public ArrayList<HotelInfoVO> HotelSearch(RoomInfoVO vo1,HotelInfoVO vo,String userid){
 		try {
-			return customer.HotelSearch(vo,userid);
+			return customer.HotelSearch(vo1,vo,userid);
 		} catch (RemoteException e) {
 			e.printStackTrace();
 			return null;

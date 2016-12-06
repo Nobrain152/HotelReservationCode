@@ -3,10 +3,13 @@ package bl.hotelbl;
 import java.rmi.RemoteException;
 import java.util.ArrayList;
 
+import bl.BusinessLogicDataFactory;
 import bl.VOPOchange;
+import blservice.hotelblservice.RoomAddBLService;
 import dataservice.hoteldataservice.HotelInfoDataService;
 import po.HotelInfoPO;
 import vo.HotelInfoVO;
+import vo.RoomInfoVO;
 
 /**
  * ËÑË÷¾Æµê
@@ -16,10 +19,14 @@ import vo.HotelInfoVO;
 public class HotelSearch {
 	private HotelInfoDataService hotelData;
 	public ArrayList<HotelInfoVO> hotelList;
+	private RoomAddBLService room;
+	private BusinessLogicDataFactory factory;
 	
 	public HotelSearch(HotelInfoDataService hotelDataService){
 		this.hotelData=hotelDataService;
 		hotelList = new ArrayList<HotelInfoVO>();
+		factory=BusinessLogicDataFactory.getFactory();
+		room=factory.getRoomAddBLService();
 	}
 
 	/**
@@ -28,9 +35,55 @@ public class HotelSearch {
 	 * @return
 	 * @throws RemoteException
 	 */
-	public ArrayList<HotelInfoVO> selectCondition(HotelInfoVO hotelInfoVO) throws RemoteException{
-		HotelInfoPO po=(HotelInfoPO)VOPOchange.VOtoPO(hotelInfoVO);
-		ArrayList<HotelInfoPO> pos=hotelData.find(po);
+	public ArrayList<HotelInfoVO> selectCondition(HotelInfoVO hotelInfoVO,RoomInfoVO roomin) throws RemoteException{
+		ArrayList<HotelInfoPO> pos;
+		if(hotelInfoVO.getName()!=null){
+			pos=hotelData.findByName(hotelInfoVO.getName());
+		}
+		else{
+			pos=hotelData.findByAreaAndCircle(hotelInfoVO.getAddress(),hotelInfoVO.getArea());
+		}
+		
+		if(hotelInfoVO.getLevel()!=0){
+			for(int i=0;i<pos.size();i++){
+				HotelInfoPO po=pos.get(i);
+				if(po.getLevel()!=hotelInfoVO.getLevel()){
+					pos.remove(i);
+				}
+			}
+		}
+		double up=hotelInfoVO.getUp();
+		double down=hotelInfoVO.getDown();
+		if((up!=0.0)||(down!=0.0)){
+			for(int i=0;i<pos.size();i++){
+				HotelInfoPO po=pos.get(i);
+				if((po.getScore()<down)||(po.getScore()>up)){
+					pos.remove(i);
+				}
+			}
+		}
+		
+		if(roomin!=null){
+			for(int i=0;i<pos.size();i++){
+				String hotelid=pos.get(i).getHotelID();
+				ArrayList<RoomInfoVO> r=room.HotelRoomSearch(hotelid);
+				for(int j=0;j<r.size();j++){
+					if(roomin.getPrice()!=0){
+						if(r.get(j).getPrice()!=roomin.getPrice()){
+							pos.remove(i);
+							break;
+						}
+					}
+					if(roomin.getType()!=null){
+						if(r.get(j).getType()!=roomin.getType()){
+							pos.remove(i);
+							break;
+						}
+					}
+				}
+				
+			}
+		}
 		for(HotelInfoPO p:pos){
 			hotelList.add((HotelInfoVO)VOPOchange.POtoVO(p));
 		}

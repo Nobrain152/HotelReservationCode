@@ -4,14 +4,15 @@ import java.rmi.RemoteException;
 import java.util.ArrayList;
 
 
-import bl.hotelbl.HotelEvaluateController;
-import bl.hotelbl.HotelInfoCheckController;
-import bl.hotelbl.HotelReserveController;
-import bl.hotelbl.HotelSearchController;
+import bl.BusinessLogicDataFactory;
 import bl.VOPOchange;
-import bl.creditbl.CreditController;
-import bl.orderbl.OrderOnUserController;
-import bl.vipbl.VipController;
+import blservice.creditblservice.CreditBLService;
+import blservice.hotelblservice.HotelEvaluateBLService;
+import blservice.hotelblservice.HotelInfoCheckBLService;
+import blservice.hotelblservice.HotelReserveBLService;
+import blservice.hotelblservice.HotelSearchBLService;
+import blservice.orderblservice.OrderOnUserBLService;
+import blservice.vipblservice.VipLevelBLService;
 import dataservice.userdataservice.CustomerManagementDataService;
 import po.ContactPO;
 import po.CustomerInfoPO;
@@ -24,6 +25,7 @@ import vo.HotelEvaluateVO;
 import vo.HotelInfoVO;
 import vo.CreditVO;
 import vo.OrderVO;
+import vo.RoomInfoVO;
 import vo.UserInfoVO;
 /**
  * 客户类
@@ -31,16 +33,17 @@ import vo.UserInfoVO;
  *
  */
 public class Customer extends User {
-	private HotelSearchController hotel;
-	private HotelEvaluateController eval;
+	private HotelSearchBLService hotel;
+	private HotelEvaluateBLService eval;
 	private UserInfoVO userInfoVO;
 	private ArrayList<HotelInfoVO> hotelInfoVOs;
-	private CreditController integral;
+	private CreditBLService integral;
 	private CustomerManagementDataService userdataservice;
-	private OrderOnUserController order;
-	private HotelInfoCheckController hotelinfo;
-	private HotelReserveController reserve;
-	private VipController vip;
+	private OrderOnUserBLService order;
+	private HotelInfoCheckBLService hotelinfo;
+	private HotelReserveBLService reserve;
+	private VipLevelBLService vip;
+	private BusinessLogicDataFactory factory;
 	
 	/**
 	 * 构造方法
@@ -48,18 +51,15 @@ public class Customer extends User {
 	 */
 	public Customer(CustomerManagementDataService userdataservice){
 		super(userdataservice);
-		hotel=new HotelSearchController();
-		eval=new HotelEvaluateController();
-		order=new OrderOnUserController();
-		hotelinfo=new HotelInfoCheckController();
+		factory=BusinessLogicDataFactory.getFactory();
+		hotel=factory.getHotelSearchBLService();
+		eval=factory.getHotelEvaluateBLService();
+		order=factory.getOrderOnUserBLService();
+		hotelinfo=factory.getHotelInfoCheckBLService();
 		this.userdataservice=userdataservice;
-		integral=new CreditController();
-		reserve=new HotelReserveController();
-		try {
-			vip=new VipController();
-		} catch (RemoteException e) {
-			e.printStackTrace();
-		}
+		integral=factory.getCreditBLService();
+		reserve=factory.getHotelReserveBLService();
+		vip=factory.getVipLevelBLService();
 	}
 	
 	/**
@@ -67,8 +67,8 @@ public class Customer extends User {
 	 * @param 筛选条件VO
 	 * @return 酒店信息VO列表
 	 */
-	public ArrayList<HotelInfoVO> HotelSearch(HotelInfoVO vo,String userid)throws RemoteException{
-		ArrayList<HotelInfoVO> hotelInfoVOs= hotel.selectCondition(vo);
+	public ArrayList<HotelInfoVO> HotelSearch(RoomInfoVO vo1,HotelInfoVO vo,String userid)throws RemoteException{
+		ArrayList<HotelInfoVO> hotelInfoVOs= hotel.selectCondition(vo,vo1);
 		ArrayList<OrderVO> ord=this.IndividualOrderInquiry(userid);
 		for(HotelInfoVO v:hotelInfoVOs){
 			String hotelid=v.getHotelID();

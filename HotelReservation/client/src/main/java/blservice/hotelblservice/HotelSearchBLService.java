@@ -3,6 +3,7 @@ package blservice.hotelblservice;
 import java.util.ArrayList;
 
 import vo.HotelInfoVO;
+import vo.RoomInfoVO;
 
 /**
  * ËÑË÷¾ÆµêµÄ½Ó¿Ú
@@ -16,7 +17,7 @@ public interface HotelSearchBLService {
 	 * @param hotelConditionVO
 	 * @return
 	 */
-	public ArrayList<HotelInfoVO> selectCondition(HotelInfoVO hotelConditionVO);
+	public ArrayList<HotelInfoVO> selectCondition(HotelInfoVO hotelConditionVO,RoomInfoVO vo2);
 	
 	
     

@@ -41,6 +41,12 @@ public interface HotelInfoDataService {
 	 * œ‘ æ
 	 */
 	public ArrayList<HotelInfoPO> show() throws RemoteException;
+	
+	
+	public ArrayList<HotelInfoPO> findByAreaAndCircle(String area,String circle);
+	
+	
+	public ArrayList<HotelInfoPO> findByName(String name);
 
 
 

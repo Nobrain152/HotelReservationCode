@@ -51,7 +51,13 @@ public class HotelInfoVO {
 	
 	private ArrayList<OrderVO> order;
 	
-	public HotelInfoVO(String name, String address, String area, int level, String introduction, String facility, boolean reserve ,String hotelID) {
+	private double score;
+	
+	private double up;
+	
+	private double down;
+	
+	public HotelInfoVO(String name, String address, String area, int level, String introduction, String facility, boolean reserve ,String hotelID,double score) {
 		this.name = name;
 		this.address = address;
 		this.area= area;
@@ -61,6 +67,7 @@ public class HotelInfoVO {
 		this.reserve=reserve;
 		this.hotelID = hotelID;
 		this.order=new ArrayList<OrderVO>();
+		this.score=score;
 	}
 
 	public String getName() {
@@ -101,6 +108,30 @@ public class HotelInfoVO {
 	
 	public void setOrder(ArrayList<OrderVO> vo){
 		this.order=vo;
+	}
+	
+	public double getScore(){
+		return score;
+	}
+	
+	public void setScore(double s){
+		score=s;
+	}
+
+	public double getUp(){
+		return up;
+	}
+	
+	public void setUp(double s){
+		up=s;
+	}
+	
+	public double getDown(){
+		return down;
+	}
+	
+	public void setDown(double s){
+		down=s;
 	}
 
 }	

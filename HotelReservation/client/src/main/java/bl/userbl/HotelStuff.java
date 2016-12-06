@@ -3,12 +3,13 @@ package bl.userbl;
 import java.rmi.RemoteException;
 import java.util.ArrayList;
 
+import bl.BusinessLogicDataFactory;
 import bl.VOPOchange;
-import bl.hotelbl.HotelInfoCheckController;
-import bl.hotelbl.HotelInfoMaintainController;
-import bl.hotelbl.RoomAddController;
-import bl.orderbl.OrderOnHotelController;
-import bl.promotionbl.PromotionHotelController;
+import blservice.hotelblservice.HotelInfoCheckBLService;
+import blservice.hotelblservice.HotelInfoMaintainBLService;
+import blservice.hotelblservice.RoomAddBLService;
+import blservice.orderblservice.OrderOnHotelBLService;
+import blservice.promotionservice.PromotionHotelBLService;
 import dataservice.userdataservice.UserManagementDataService;
 import po.ContactPO;
 import po.StuffInfoPO;
@@ -24,29 +25,32 @@ import vo.StuffInfoVO;
 import vo.UserInfoVO;
 
 
+
 /**
  * 酒店管理人员类
  * @author 曹畅
  *
  */
 public class HotelStuff extends User {
-	private HotelInfoMaintainController mod;
-	private HotelInfoCheckController hotel;
-	private OrderOnHotelController order;
-	private RoomAddController room;
+	private HotelInfoMaintainBLService mod;
+	private HotelInfoCheckBLService hotel;
+	private OrderOnHotelBLService order;
+	private RoomAddBLService room;
 	private UserInfoVO userInfoVO;
 	private UserManagementDataService userDataService;
-	private PromotionHotelController promotion;
+	private PromotionHotelBLService promotion;
+	private BusinessLogicDataFactory factory;
 	
 	
 	public HotelStuff(UserManagementDataService user){
 		super(user);
+		factory=BusinessLogicDataFactory.getFactory();
 		this.userDataService=user;
-		mod=new HotelInfoMaintainController();
-		order=new OrderOnHotelController();
-		room=new RoomAddController();
-		hotel=new HotelInfoCheckController();
-		promotion=new PromotionHotelController();
+		mod=factory.getHotelInfoMaintainBLService();
+		order=factory.getOrderOnHotelBLService();
+		room=factory.getRoomAddBLService();
+		hotel=factory.getHotelInfoCheckBLService();
+		promotion=factory.getPromotionHotelBLService();
 	}
 	
 	

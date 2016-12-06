@@ -8,6 +8,7 @@ import vo.CustomerInfoVO;
 import vo.HotelEvaluateVO;
 import vo.HotelInfoVO;
 import vo.OrderVO;
+import vo.RoomInfoVO;
 
 /**
  * 客户对酒店的操作
@@ -22,7 +23,7 @@ public interface CustomerHotelOperationBlService{
 	 * @param 筛选条件VO
 	 * @return 酒店信息VO列表
 	 */
-	public ArrayList<HotelInfoVO> HotelSearch(HotelInfoVO vo,String userid);
+	public ArrayList<HotelInfoVO> HotelSearch(RoomInfoVO vo1,HotelInfoVO vo,String userid);
 	
 	
 	/**

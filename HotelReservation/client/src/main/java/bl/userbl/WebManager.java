@@ -3,9 +3,10 @@ package bl.userbl;
 import java.rmi.RemoteException;
 import java.util.ArrayList;
 
+import bl.BusinessLogicDataFactory;
 import bl.VOPOchange;
-import bl.hotelbl.HotelInfoCheckController;
-import bl.hotelbl.HotelInfoMaintainController;
+import blservice.hotelblservice.HotelInfoCheckBLService;
+import blservice.hotelblservice.HotelInfoMaintainBLService;
 import dataservice.userdataservice.UserManagementDataService;
 import po.ContactPO;
 import po.UserInfoPO;
@@ -22,14 +23,16 @@ import vo.UserInfoVO;
  */
 public class WebManager extends User {
 	private UserManagementDataService data;
-	private HotelInfoCheckController check;
-	private HotelInfoMaintainController main;
+	private HotelInfoCheckBLService check;
+	private HotelInfoMaintainBLService main;
+	private BusinessLogicDataFactory factory;
 	
 	public WebManager(UserManagementDataService data){
 		super(data);
+		factory=BusinessLogicDataFactory.getFactory();
 		this.data=data;
-		check=new HotelInfoCheckController();
-		main=new HotelInfoMaintainController();
+		check=factory.getHotelInfoCheckBLService();
+		main=factory.getHotelInfoMaintainBLService();
 	}
 	/**
 	 * 查看个人信息	

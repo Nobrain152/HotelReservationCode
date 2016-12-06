@@ -29,7 +29,7 @@ public class HotelInfoCheck {
 	 * @throws RemoteException
 	 */
 	public HotelInfoVO checkHotelInfo(String hotelid) throws RemoteException{
-		HotelInfoPO hotelInfoPO = hotelData.findByID(hotelid);
+		HotelInfoPO hotelInfoPO = hotelData.find(hotelid);
     	return (HotelInfoVO)VOPOchange.POtoVO(hotelInfoPO);
     }
 	

@@ -4,10 +4,11 @@ package bl.userbl;
 import java.rmi.RemoteException;
 import java.util.ArrayList;
 
+import bl.BusinessLogicDataFactory;
 import bl.VOPOchange;
-import bl.creditbl.CreditController;
-import bl.orderbl.OrderOnWebController;
-import bl.promotionbl.PromotionWebController;
+import blservice.creditblservice.CreditBLService;
+import blservice.orderblservice.OrderOnWebBLService;
+import blservice.promotionservice.PromotionWebBLService;
 import dataservice.userdataservice.UserManagementDataService;
 import po.ContactPO;
 import po.UserInfoPO;
@@ -27,16 +28,18 @@ import vo.UserInfoVO;
 public class WebStuff extends User{
 
 	private UserManagementDataService user;
-	private PromotionWebController pro;
-	private OrderOnWebController order;
-	private CreditController inte;
+	private PromotionWebBLService pro;
+	private OrderOnWebBLService order;
+	private CreditBLService inte;
+	private BusinessLogicDataFactory factory;
 	
 	
 	public  WebStuff(UserManagementDataService user){
 		super(user);
-		pro = new PromotionWebController();
-		order = new OrderOnWebController();
-		inte=new CreditController();
+		factory=BusinessLogicDataFactory.getFactory();
+		pro = factory.getPromotionWebBLService();
+		order = factory.getOrderOnWebBLService();
+		inte=factory.getCreditBLService();
 		this.user=user;
 	}
 	

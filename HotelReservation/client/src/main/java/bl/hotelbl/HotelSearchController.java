@@ -8,6 +8,7 @@ import dataservice.hoteldataservice.HotelInfoDataService;
 import net.RMIManage;
 import util.DataServiceType;
 import vo.HotelInfoVO;
+import vo.RoomInfoVO;
 
 /**
  * 
@@ -28,9 +29,9 @@ public class HotelSearchController implements HotelSearchBLService{
 	
 	
 	@Override
-	public ArrayList<HotelInfoVO> selectCondition(HotelInfoVO hotelInfoVO){
+	public ArrayList<HotelInfoVO> selectCondition(HotelInfoVO hotelInfoVO,RoomInfoVO vo2){
 		try {
-			return hotelSearch.selectCondition(hotelInfoVO);
+			return hotelSearch.selectCondition(hotelInfoVO,vo2);
 		} catch (RemoteException  e) {
 			e.printStackTrace();
 		}

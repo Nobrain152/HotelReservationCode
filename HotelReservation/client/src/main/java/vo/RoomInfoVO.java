@@ -31,7 +31,7 @@ public class RoomInfoVO {
 	/**
 	 * 价格
 	 */
-	private int price;
+	private double price;
 	
 	/**
 	 * 房间已经被预定的时间
@@ -40,7 +40,7 @@ public class RoomInfoVO {
 	
 	private String hotelid;
 
-	public RoomInfoVO(RoomState state, RoomType type, String roomID, int price,String hotelid ) {
+	public RoomInfoVO(RoomState state, RoomType type, String roomID, double price,String hotelid ) {
 		this.state = state;
 		this.type = type;
 		this.roomID= roomID;
@@ -61,7 +61,7 @@ public class RoomInfoVO {
 		return roomID;
 	}
 	
-	public int getPrice() {
+	public double getPrice() {
 		return price;
 	}
 	

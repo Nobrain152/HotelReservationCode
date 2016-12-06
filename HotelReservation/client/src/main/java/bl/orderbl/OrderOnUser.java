@@ -65,8 +65,7 @@ public class OrderOnUser {
 	 */
 	public ResultMsg createOrder(OrderVO orderVO) throws RemoteException {
 		
-		OrderPO orderPO = userDataService.findByOrderID(orderVO.getOrderID());
-		CustomerInfoPO customerInfoPO = orderPO.getInitiator();
+		CustomerInfoPO customerInfoPO = (CustomerInfoPO)VOPOchange.VOtoPO(orderVO.getInitiator());
 		
 		if(customerInfoPO.getCredit() > 0){
 			

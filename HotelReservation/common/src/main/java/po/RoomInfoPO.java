@@ -34,13 +34,13 @@ public class RoomInfoPO implements Serializable{
 	/**
 	 * ¼Û¸ñ
 	 */
-	private int price;
+	private double price;
 	
 	private ArrayList<String> OrderedTime;
 	
 	private String hotelid;
 
-	public RoomInfoPO(RoomState state, RoomType type, String roomID, int price ,String hotelid) {
+	public RoomInfoPO(RoomState state, RoomType type, String roomID, double price ,String hotelid) {
 		this.state = state;
 		this.type = type;
 		this.roomID= roomID;
@@ -61,7 +61,7 @@ public class RoomInfoPO implements Serializable{
 		return roomID;
 	}
 	
-	public int getPrice() {
+	public double getPrice() {
 		return price;
 	}
 	

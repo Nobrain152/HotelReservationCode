@@ -31,7 +31,7 @@ public class HotelInfoDataServiceImpl extends DataSuperClass implements HotelInf
 	public ResultMsg insert(HotelInfoPO po) throws RemoteException{
 		return addToSQL(tableName, po.getHotelID(),po.getName(),po.getAddress(),po.getArea(),
 				""+po.getLevel(),po.getIntroduction(),po.getFacility(),
-				Boolean.toString(po.getIsReserved()));
+				Boolean.toString(po.getIsReserved()),""+po.getScore());
 	}
 	
 	
@@ -48,7 +48,7 @@ public class HotelInfoDataServiceImpl extends DataSuperClass implements HotelInf
 	public ResultMsg update(HotelInfoPO po) throws RemoteException{
 		return modifyFromSQL(tableName, po.getHotelID(),po.getName(),po.getAddress(),po.getArea(),
 				""+po.getLevel(),po.getIntroduction(),po.getFacility(),
-				Boolean.toString(po.getIsReserved()));
+				Boolean.toString(po.getIsReserved()),""+po.getScore());
 	}
 	
 	/**
@@ -67,6 +67,11 @@ public class HotelInfoDataServiceImpl extends DataSuperClass implements HotelInf
 		HotelInfoPO hotelInfoPO = null;
 		
 		if(findMes != null){
+			hotelInfoPO = new HotelInfoPO(findMes.get(0), findMes.get(1), 
+								findMes.get(2), findMes.get(3),
+								Integer.valueOf(findMes.get(4)), findMes.get(5), 
+								findMes.get(6),Boolean.valueOf(findMes.get(7)),
+								Double.parseDouble(findMes.get(8)));
 			hotelInfoPO = new HotelInfoPO(findMes.get(0), findMes.get(1), findMes.get(2), findMes.get(3),
 								Integer.valueOf(findMes.get(4)), findMes.get(5), findMes.get(6), 
 								Boolean.getBoolean(findMes.get(7)),1.1 );
@@ -86,6 +91,11 @@ public class HotelInfoDataServiceImpl extends DataSuperClass implements HotelInf
 			preState = conn.prepareStatement(sql);
 			result = preState.executeQuery();
 			while (result.next()) {
+				pos.add(new HotelInfoPO(result.getString(1), result.getString(2),
+						result.getString(3), result.getString(4),
+						Integer.valueOf(result.getString(5)),result.getString(6),
+						result.getString(7),Boolean.getBoolean(result.getString(8)),
+						Double.parseDouble(result.getString(9))));
 				pos.add(new HotelInfoPO(result.getString(0), result.getString(1),
 						result.getString(2), result.getString(3),
 						Integer.valueOf(result.getString(4)),result.getString(5),
@@ -100,11 +110,22 @@ public class HotelInfoDataServiceImpl extends DataSuperClass implements HotelInf
 		return pos.size()==0?null:pos;
 	}
 
-	
+
 
 	@Override
 	public ArrayList<HotelInfoPO> findByAreaAndCircle(String area, String circle) {
-		// TODO Auto-generated method stub
+		ArrayList<HotelInfoPO> pos = new ArrayList<HotelInfoPO>(50);
+		
+		try {
+			sql = "SELECT "+ area + " FROM " + tableName ;
+			preState = conn.prepareStatement(sql);
+			result = preState.executeQuery();
+		} catch (SQLException e) {
+			e.printStackTrace();
+			System.out.println("酒店信息从数据库中查找出错");
+		}
+		
+		
 		return null;
 	}
 

@@ -33,7 +33,8 @@ public class CreditDataServiceImpl extends DataSuperClass implements CreditDataS
 
 	@Override
 	public ArrayList<CreditPO> getListByUserID(String userID) throws RemoteException {
-		// TODO Auto-generated method stub
+		ArrayList<CreditPO> pos = new ArrayList<CreditPO>(50);
+		
 		return null;
 	}
 

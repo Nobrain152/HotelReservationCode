@@ -85,7 +85,7 @@ public class OrderDataServiceImpl extends DataSuperClass implements OrderDataSer
 								customer.FindByID(findMes.get(1))/*ÐèÒª·µ»Øcustomerinfo*/, 
 								OrderState.valueOf(findMes.get(2)),
 								Double.valueOf(findMes.get(3)), findMes.get(4), 
-								Boolean.getBoolean(findMes.get(5)), findMes.get(6), 
+								Boolean.valueOf(findMes.get(5)), findMes.get(6), 
 								findMes.get(7), findMes.get(8), findMes.get(9), 
 								Integer.getInteger(findMes.get(10)),Integer.getInteger(findMes.get(11)),
 								room.findByRoomID(findMes.get(12)));

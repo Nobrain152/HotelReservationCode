@@ -3,6 +3,7 @@ package blservice.userblservice;
 import java.util.ArrayList;
 
 import util.ResultMsg;
+import util.Sort;
 import util.VipType;
 import vo.CustomerInfoVO;
 import vo.HotelEvaluateVO;
@@ -47,7 +48,13 @@ public interface CustomerHotelOperationBlService{
 	 */
 	public ResultMsg HotelMemberRegisterApply(VipType type,String pa,CustomerInfoVO vo);
 		
-	
+	/**
+	 * 根据排序种类返回排好序的酒店列表
+	 * @param before
+	 * @param type
+	 * @return
+	 */
+	public ArrayList<HotelInfoVO> sortHotel(ArrayList<HotelInfoVO> before,Sort type);
 	
 		
 			

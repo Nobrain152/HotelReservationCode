@@ -19,6 +19,7 @@ import po.CustomerInfoPO;
 import po.UserInfoPO;
 import util.OrderState;
 import util.ResultMsg;
+import util.Sort;
 import util.VipType;
 import vo.CustomerInfoVO;
 import vo.HotelEvaluateVO;
@@ -80,9 +81,112 @@ public class Customer extends User {
 			}
 			v.setOrder(hotelorder);
 		}
+		if(vo.getIsReserved()==true){
+			ArrayList<String> r=userdataservice.GetCustomerHotel(userid);
+			for(int i=0;i<hotelInfoVOs.size();i++){
+				boolean remo=true;
+				for(int j=0;j<r.size();j++){
+					if(hotelInfoVOs.get(i).getHotelID().equals(r.get(j))){
+						remo=false;
+						break;
+					}
+				}
+				if(remo){
+					hotelInfoVOs.remove(i);
+				}
+			}
+		}
 		return hotelInfoVOs;
 	}		
 	
+	
+	/**
+	 * 根据排序种类返回排好序的酒店列表
+	 * @param before
+	 * @param type
+	 * @return
+	 */
+	public ArrayList<HotelInfoVO> sortHotel(ArrayList<HotelInfoVO> before,Sort type){
+		HotelInfoVO temp;
+		if(type==Sort.Price_DownToUp){
+			for(int i=0;i<before.size();i++){
+				for(int j=0;j<before.size();j++){
+					if(before.get(i).getSP()>before.get(j).getSP()){
+						temp=before.get(i);
+						before.set(i,before.get(j));
+						before.set(j,temp);
+					}
+				}
+			}
+			return before;
+		}
+		
+		if(type==Sort.Price_UpToDown){
+			for(int i=0;i<before.size();i++){
+				for(int j=0;j<before.size();j++){
+					if(before.get(i).getSP()<before.get(j).getSP()){
+						temp=before.get(i);
+						before.set(i,before.get(j));
+						before.set(j,temp);
+					}
+				}
+			}
+			return before;
+		}
+		
+		if(type==Sort.Score_DownToUp){
+			for(int i=0;i<before.size();i++){
+				for(int j=0;j<before.size();j++){
+					if(before.get(i).getScore()>before.get(j).getScore()){
+						temp=before.get(i);
+						before.set(i,before.get(j));
+						before.set(j,temp);
+					}
+				}
+			}
+			return before;
+		}
+		
+		if(type==Sort.Score_UpToDown){
+			for(int i=0;i<before.size();i++){
+				for(int j=0;j<before.size();j++){
+					if(before.get(i).getScore()<before.get(j).getScore()){
+						temp=before.get(i);
+						before.set(i,before.get(j));
+						before.set(j,temp);
+					}
+				}
+			}
+			return before;
+		}
+		
+		if(type==Sort.Star_DownToUp){
+			for(int i=0;i<before.size();i++){
+				for(int j=0;j<before.size();j++){
+					if(before.get(i).getLevel()>before.get(j).getLevel()){
+						temp=before.get(i);
+						before.set(i,before.get(j));
+						before.set(j,temp);
+					}
+				}
+			}
+			return before;
+		}
+		
+		else{
+			for(int i=0;i<before.size();i++){
+				for(int j=0;j<before.size();j++){
+					if(before.get(i).getLevel()<before.get(j).getLevel()){
+						temp=before.get(i);
+						before.set(i,before.get(j));
+						before.set(j,temp);
+					}
+				}
+			}
+			return before;
+		}
+		
+	}
 	
 	/**
 	 * 对某一酒店生成订单

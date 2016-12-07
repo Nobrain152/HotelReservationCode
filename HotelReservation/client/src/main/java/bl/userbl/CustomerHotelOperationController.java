@@ -8,6 +8,7 @@ import dataservice.userdataservice.CustomerManagementDataService;
 import net.RMIManage;
 import util.DataServiceType;
 import util.ResultMsg;
+import util.Sort;
 import util.VipType;
 import vo.CustomerInfoVO;
 import vo.HotelEvaluateVO;
@@ -47,7 +48,17 @@ public class CustomerHotelOperationController implements CustomerHotelOperationB
 			return null;
 		}
 		
-	}		
+	}
+	
+	/**
+	 * 根据排序种类返回排好序的酒店列表
+	 * @param before
+	 * @param type
+	 * @return
+	 */
+	public ArrayList<HotelInfoVO> sortHotel(ArrayList<HotelInfoVO> before,Sort type){
+		return customer.sortHotel(before, type);
+	}
 	
 	
 	/**

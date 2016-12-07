@@ -30,7 +30,7 @@ public class CreditVO {
 	 */
 	int creditResult;
 	
-	public CreditVO(String time,String orderID,Action action,
+	public CreditVO(String orderID,String time,Action action,
 			String creditChange,int creditResult) {
 		this.time = time;
 		this.orderID = orderID;

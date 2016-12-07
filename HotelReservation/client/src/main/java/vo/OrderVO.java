@@ -86,8 +86,8 @@ public class OrderVO {
 	 */
 	public boolean pass;
 	
-	public OrderVO(CustomerInfoVO customerInfoVO, OrderState orderState,
-			double price, String orderID, String hotelID, boolean hasChild,
+	public OrderVO(String orderID,CustomerInfoVO customerInfoVO, OrderState orderState,
+			double price , String hotelID, boolean hasChild,
 			String latestExecutionTime, String checkInTime, String checkOutTime,
 			String cancelledTime,int roomNumber,RoomInfoVO roomInfoVO, int peopleNumber){
 		this.initiator = customerInfoVO;

@@ -35,7 +35,6 @@ public interface HotelInfoDataService {
 	 * @return
 	 * @throws RemoteException
 	 */
-	public HotelInfoPO findByOrderID(String ID) throws RemoteException;
 	
 	/**
 	 * œ‘ æ

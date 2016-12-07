@@ -4,7 +4,6 @@ import java.rmi.RemoteException;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-import com.mysql.cj.mysqlx.protobuf.MysqlxDatatypes.Array;
 
 import dataSuper.DataSuperClass;
 import dataservice.hoteldataservice.HotelInfoDataService;
@@ -70,7 +69,7 @@ public class HotelInfoDataServiceImpl extends DataSuperClass implements HotelInf
 		if(findMes != null){
 			hotelInfoPO = new HotelInfoPO(findMes.get(0), findMes.get(1), findMes.get(2), findMes.get(3),
 								Integer.valueOf(findMes.get(4)), findMes.get(5), findMes.get(6), 
-								Boolean.getBoolean(findMes.get(7)) );
+								Boolean.getBoolean(findMes.get(7)),1.1 );
 		}
 		
 		return hotelInfoPO;
@@ -90,7 +89,7 @@ public class HotelInfoDataServiceImpl extends DataSuperClass implements HotelInf
 				pos.add(new HotelInfoPO(result.getString(0), result.getString(1),
 						result.getString(2), result.getString(3),
 						Integer.valueOf(result.getString(4)),result.getString(5),
-						result.getString(6),Boolean.getBoolean(result.getString(7))));
+						result.getString(6),Boolean.getBoolean(result.getString(7)),1.1));
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -101,10 +100,7 @@ public class HotelInfoDataServiceImpl extends DataSuperClass implements HotelInf
 		return pos.size()==0?null:pos;
 	}
 
-	@Override
-	public HotelInfoPO findByOrderID(String ID) throws RemoteException {
-		return null;
-	}
+	
 
 	@Override
 	public ArrayList<HotelInfoPO> findByAreaAndCircle(String area, String circle) {

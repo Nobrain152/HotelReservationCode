@@ -12,6 +12,8 @@ public class ContactVO {
 	 */
 	public String emailAddress;
 	
+	public ContactVO() {}
+	
 	public ContactVO(String phoneNumber,String emailAddress) {
 		this.phoneNumber = phoneNumber;
 		this.emailAddress = emailAddress;

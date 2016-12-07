@@ -50,6 +50,8 @@ public class UserInfoVO {
 	 * 会员类型
 	 */
 	private VipType vipType;
+	
+	public UserInfoVO() {}
 
 	public UserInfoVO(String userID, String username, ContactVO contact) {
 		this.userID = userID;

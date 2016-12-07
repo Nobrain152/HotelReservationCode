@@ -39,6 +39,8 @@ public class RoomInfoVO {
 	private ArrayList<Date> OrderedTime;
 	
 	private String hotelid;
+	
+	public RoomInfoVO() {}
 
 	public RoomInfoVO(RoomState state, RoomType type, String roomID, double price,String hotelid ) {
 		this.state = state;

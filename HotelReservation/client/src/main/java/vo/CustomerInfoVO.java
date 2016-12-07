@@ -1,3 +1,4 @@
+
 package vo;
 
 
@@ -26,7 +27,8 @@ public class CustomerInfoVO extends UserInfoVO {
 	 */
 	private VipType vipType;
 	
-
+	public CustomerInfoVO() {}
+	
 	public CustomerInfoVO(String userid, String username, ContactVO contact,
 			int credit, boolean isMember,VipType vipType) {
 		super(userid, username, contact);

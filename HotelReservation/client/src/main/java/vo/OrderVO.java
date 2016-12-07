@@ -86,6 +86,8 @@ public class OrderVO {
 	 */
 	public boolean pass;
 	
+	public OrderVO() {}
+	
 	public OrderVO(String orderID,CustomerInfoVO customerInfoVO, OrderState orderState,
 			double price , String hotelID, boolean hasChild,
 			String latestExecutionTime, String checkInTime, String checkOutTime,

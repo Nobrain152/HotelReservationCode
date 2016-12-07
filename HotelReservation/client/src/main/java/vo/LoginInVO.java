@@ -17,6 +17,8 @@ public class LoginInVO {
 	 */
 	private String password;
 	
+	public LoginInVO() {}
+	
 	public LoginInVO(String username,String password){
 	    this.username = username;
 		this.password = password;

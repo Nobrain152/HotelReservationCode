@@ -8,6 +8,8 @@ public class BusinessVipVO extends CustomerInfoVO {
 	 * 企业会员名称
 	 */
 	String businessName;
+	
+	public BusinessVipVO() {}
 
 	public BusinessVipVO(String userid, String username, ContactVO contact,
 			int credit, String businessName,VipType vipType) {

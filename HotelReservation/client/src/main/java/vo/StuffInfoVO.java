@@ -10,6 +10,8 @@ public class StuffInfoVO extends UserInfoVO{
 	
 	private String hotel;
 	
+	public StuffInfoVO() {}
+	
 	public StuffInfoVO(String userid,String username,ContactVO contact,String hotelid){
 	    super(userid, username, contact);
 		this.hotel =hotelid;

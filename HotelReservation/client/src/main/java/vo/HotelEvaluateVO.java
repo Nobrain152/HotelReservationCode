@@ -37,6 +37,8 @@ public class HotelEvaluateVO {
 	 * ¶©µ¥ID
 	 */
 	private String orderID;
+	
+	public HotelEvaluateVO() {}
 
 	public HotelEvaluateVO(String userID,String hotelID, int score, String comment, boolean reserve, String orderID) {
 		this.userID=userID;

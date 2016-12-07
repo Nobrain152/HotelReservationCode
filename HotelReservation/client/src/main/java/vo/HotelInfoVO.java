@@ -57,6 +57,8 @@ public class HotelInfoVO {
 	
 	private double down;
 	
+	public HotelInfoVO() {}
+	
 	public HotelInfoVO(String name, String address, String area, int level, String introduction, String facility, boolean reserve ,String hotelID,double score) {
 		this.name = name;
 		this.address = address;

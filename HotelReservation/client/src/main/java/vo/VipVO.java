@@ -8,6 +8,8 @@ import util.VipType;
  *
  */
 public class VipVO extends CustomerInfoVO{
+	
+	public VipVO() {}
 
 	public VipVO(String userid, String username, ContactVO contact, int credit, boolean isMember,
 			VipType vipType) {

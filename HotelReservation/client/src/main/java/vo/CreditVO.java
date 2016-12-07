@@ -15,6 +15,11 @@ public class CreditVO {
 	String orderID;
 	
 	/**
+	 * 用户ID
+	 */
+	String userID;
+	
+	/**
 	 * 执行动作
 	 */
 	Action action;
@@ -30,6 +35,8 @@ public class CreditVO {
 	 */
 	int creditResult;
 	
+	public CreditVO() {}
+	
 	public CreditVO(String orderID,String time,Action action,
 			String creditChange,int creditResult) {
 		this.time = time;
@@ -37,6 +44,14 @@ public class CreditVO {
 		this.action = action;
 		this.creditChange = creditChange;
 		this.creditResult = creditResult;
+	}
+	
+	public String getUserID(){
+		return userID;
+	}
+	
+	public String getOrderID(){
+		return orderID;
 	}
 	
 	public int getCreditResult() {

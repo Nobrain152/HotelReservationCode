@@ -35,68 +35,67 @@ public class VOPOchange {
 		
 		Class<? extends Object> poClass = o.getClass();
 		
-		Class< ? extends Object> voClass = null;
+		Class<? extends Object> voClass = null;
 		
 		String poName = poClass.getName();
 		
 		String voName = "vo"+poName.substring(2,poName.length()-2)+"VO";
 		
+		Field[] field = poClass.getDeclaredFields();
+		
 		try {
 			voClass = Class.forName(voName);
+			vo = voClass.newInstance();
 		} catch (ClassNotFoundException e) {
 			e.printStackTrace();
-		}
-		try {
-			vo = voClass.newInstance();
 		} catch (InstantiationException e) {
 			e.printStackTrace();
 		} catch (IllegalAccessException e) {
 			e.printStackTrace();
+		} catch (SecurityException e) {
+			e.printStackTrace();
 		}
-		Field[] fields = poClass.getDeclaredFields();
 		
-		for(Field f : fields){
-			Field tmp = null;
-			if(f.getName().equals("serialVersionUID"))
-				continue;
+		for(int i = 0 ; i < field.length; i++){
+			
+			if(field[i].getType().toString().endsWith("ArrayList")
+					&& !field[i].getGenericType().toString().endsWith("String>")){
 				
-			if(f.getType().toString().endsWith("ArrayList")
-					&&!f.getGenericType().toString().endsWith("String>")){
-				
-				Type listType = f.getGenericType();
+				Type listType = field[i].getGenericType();
 				Object list = null;
-				f.setAccessible(true);
+				
 				try {
-					 list = f.get(o);
+					 list = field[i].get(o);
 				} catch (IllegalArgumentException e1) {
 					e1.printStackTrace();
 				} catch (IllegalAccessException e1) {
 					e1.printStackTrace();
 				}
-				if(list ==null)
-					continue;
+				
 				ArrayList<Object> polist = (ArrayList<Object>)list;
 				
-				String[] spl = listType.toString().split("<");		
-				String votName = "vo"+spl[1].substring(2, spl[1].length()-3)+"VO";
+				String[] spl = listType.toString().split("<");
+				
+				String votName = "vo" + spl[1].substring(2, spl[1].length()-3)+"VO";
 
-				Class<? extends Object> votmp = null;
+				Class<? extends Object> potmp = null;
 
 				try {
 					
-					votmp = Class.forName(votName);
+					potmp = Class.forName(votName);
 
 				} catch (ClassNotFoundException e) {
 					e.printStackTrace();
 				}
+				
 				ArrayList<Object> volist = new ArrayList<Object>(polist.size());
-				for(int j =0 ; j< polist.size(); j++){
-					volist.add(votmp.cast(POtoVO(polist.get(j))));
+				for(int j = 0 ; j < polist.size(); j++){
+					volist.add(potmp.cast(POtoVO(polist.get(j))));
 				}
 				
 				Field ft = null;
 				try {
-					ft = vo.getClass().getDeclaredField(f.getName());
+					ft = vo.getClass().getDeclaredField(field[i].getName());
 				} catch (NoSuchFieldException e) {
 					e.printStackTrace();
 				} catch (SecurityException e) {
@@ -104,7 +103,7 @@ public class VOPOchange {
 				}
 				ft.setAccessible(true);
 				try {
-					ft.set(vo, volist);
+					ft.set(vo, polist);
 				} catch (IllegalArgumentException e) {
 					e.printStackTrace();
 				} catch (IllegalAccessException e) {
@@ -112,30 +111,85 @@ public class VOPOchange {
 				}
 				
 			}
-			else{
-				try {
-					tmp = voClass.getDeclaredField(f.getName());
-				} catch (NoSuchFieldException e) {
-					e.printStackTrace();
-				} catch (SecurityException e) {
-					e.printStackTrace();
-				}
-				f.setAccessible(true);
-				tmp.setAccessible(true);
-				try {
-					tmp.set(vo, f.get(o));
-				} catch (IllegalArgumentException e) {
-					e.printStackTrace();
-				} catch (IllegalAccessException e) {
-					e.printStackTrace();
-				}
+			else
+//				try {
+//					tmp = voClass.getDeclaredField(f.getName());
+//				} catch (NoSuchFieldException e) {
+//					e.printStackTrace();
+//				} catch (SecurityException e) {
+//					e.printStackTrace();
+//				}
+//				f.setAccessible(true);
+//				tmp.setAccessible(true);
+//				try {
+//					tmp.set(vo, f.get(o));
+//				} catch (IllegalArgumentException e) {
+//					e.printStackTrace();
+//				} catch (IllegalAccessException e) {
+//					e.printStackTrace();
+//				}
+				setSuperFieldTmp(vo, o, field[i].getName());
 			}
-		}
 		return vo;
 		
 	}
+	
+	private static void setSuperFieldTmp(Object vo, Object o, String name) {
+		
+		Field field1 = getSuperFieldTmp(o.getClass(), name);
+		if(name.endsWith("PO")) {
+			name = name.substring(0, name.length()-2) + "VO";
+		}
+		Field field2 = getSuperFieldTmp(vo.getClass(), name);
+		
+		try {
+			
+			field1.setAccessible(true);
+			Object val = field1.get(o);
+			field2.setAccessible(true);
+
+			try {
+				if(val.getClass().toString().endsWith("PO")) {
+					Object valtmp = POtoVO(val);
+					field2.set(vo, valtmp);
+				} else {
+					field2.set(vo, val);
+				}
+			} catch(NullPointerException exception) {
+				
+			}
+		} catch (IllegalArgumentException e) {
+			e.printStackTrace();
+		} catch (IllegalAccessException e) {
+			e.printStackTrace();
+		}
+		
+	}
+	
+	@SuppressWarnings("rawtypes") 
+	private static Field getSuperFieldTmp(Class clazz, String name) {
+		Field[] field = clazz.getDeclaredFields();
+		
+		for(Field f : field ){
+			if(f.getName().equals(name)){
+				return f;
+			}
+		}
+		
+		Class supClass = clazz.getSuperclass();
+		if(supClass!=null){
+			return getSuperFieldTmp(supClass, name);
+		}
+		return null;
+	}
+	
+
 	@SuppressWarnings("unchecked")
 	public static Object VOtoPO(Object o){
+		
+		if(o == null) {
+			return null;
+		}
 		
 		Object po = null;
 		
@@ -296,9 +350,9 @@ public class VOPOchange {
 //		ContactPO po = (ContactPO)VOtoPO(vo);
 //		System.out.println(po.getPhoneNumber());
 
-//		ContactPO po = new ContactPO("18805156300",null);
-//		ContactVO vo = (ContactVO)POtoVO(po);
-//		System.out.println(vo.getPhoneNumber());
+		ContactPO po = new ContactPO("18805156300",null);
+		ContactVO vo = (ContactVO)POtoVO(po);
+		System.out.println(vo.getPhoneNumber());
 	}
 
 }

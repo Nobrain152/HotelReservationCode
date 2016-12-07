@@ -12,6 +12,8 @@ public class LevelSystemVO {
 	 */
 	int[] credits;
 	
+	public LevelSystemVO() {}
+	
 	public LevelSystemVO(int[] levels, int[] credits) {
 		this.levels = levels;
 		this.credits = credits;

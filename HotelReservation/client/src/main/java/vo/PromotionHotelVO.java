@@ -53,6 +53,8 @@ public class PromotionHotelVO {
 	 */
 	double ratio;
 	
+	public PromotionHotelVO() {}
+	
 	public PromotionHotelVO(String hotelID, PromotionHotelType hotelType,VipType customType,
 			String beginTime,String endTime,double ratio,int level,int number,String businessName) {
 		this.hotelID = hotelID;

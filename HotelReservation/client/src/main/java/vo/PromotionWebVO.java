@@ -48,6 +48,8 @@ public class PromotionWebVO {
 	 */
 	double ratio;
 	
+	public PromotionWebVO() {}
+	
 	public PromotionWebVO(String hotelID, PromotionWebType hotelType,VipType customType,
 			String beginTime,String endTime,double ratio,int level,String location) {
 		this.hotelID = hotelID;

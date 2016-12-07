@@ -31,7 +31,7 @@ public interface CreditDataService {
 	 * @return
 	 * @throws RemoteException
 	 */
-	public CreditPO getListByOrderID(String orderID) throws RemoteException;
+	public ArrayList<CreditPO> getListByOrderID(String orderID) throws RemoteException;
 	
 	/**
 	 * 显示所有记录

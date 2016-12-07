@@ -38,7 +38,7 @@ public class CreditDataServiceImpl extends DataSuperClass implements CreditDataS
 		ArrayList<CreditPO> pos = new ArrayList<CreditPO>(50);
 		
 		try {
-			sql = "SELECT userID FROM " + tableName ;
+			sql = "SELECT * FROM " + tableName ;
 			preState = conn.prepareStatement(sql);
 			result = preState.executeQuery();
 			
@@ -84,9 +84,29 @@ public class CreditDataServiceImpl extends DataSuperClass implements CreditDataS
 	}
 
 	@Override
-	public CreditPO getListByOrderID(String orderID) throws RemoteException {
-		// TODO Auto-generated method stub
-		return null;
+	public ArrayList<CreditPO> getListByOrderID(String orderID) throws RemoteException {
+		ArrayList<CreditPO> pos = new ArrayList<CreditPO>(50);
+		
+		try {
+			sql = "SELECT * FROM " + tableName ;
+			preState = conn.prepareStatement(sql);
+			result = preState.executeQuery();
+			
+			while (result.next()) {
+				if(result.getString(2) == orderID){
+					pos.add(new CreditPO(result.getString(1), result.getString(2),
+							result.getString(3), Action.valueOf(result.getString(4)),
+							result.getString(5), 
+							Integer.getInteger(result.getString(6))));
+				}
+				
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+			System.out.println("信用信息从数据库中查找出错");
+		}
+		
+		return pos.size()==0?null:pos;
 	}
 
 }

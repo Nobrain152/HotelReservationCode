@@ -10,40 +10,40 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
-import ui.credit.creditCheckController;
-import ui.credit.creditRechargeController;
-import ui.customerGuide.customerGuideController;
-import ui.customerInfo.customerInfoController;
-import ui.customerInfo.customerInfoModifyController;
-import ui.customerInfoManage.customerInfoByMController;
-import ui.customerInfoManage.customerInfoInquireByMController;
-import ui.customerInfoManage.customerInfoModifyByMController;
-import ui.hotelAdd.hotelAddController;
-import ui.hotelAdd.hotelStuffAddController;
-import ui.hotelEvaluate.hotelEvaluateController;
-import ui.hotelManaged.hotelInfoMaintainController;
-import ui.hotelManaged.hotelManagedInfoController;
-import ui.hotelReserve.hotelReserveController;
-import ui.hotelSearch.hotelInfoSearchedController;
-import ui.hotelSearch.hotelSearchController;
-import ui.hotelSearch.hotelSearchListController;
-import ui.hotelStuffGuide.hotelStuffGuideController;
-import ui.login.loginController;
-import ui.orderOnHotel.orderOnHotelController;
-import ui.orderOnHotel.orderOnHotelInfoController;
-import ui.orderOnHotel.orderOnHotelStateController;
-import ui.orderOnUser.orderOnUserCancelController;
-import ui.orderOnUser.orderOnUserController;
-import ui.orderOnUser.orderOnUserInfoController;
-import ui.orderOnWeb.abnormalOrderController;
-import ui.orderOnWeb.abnormalOrderInfoController;
-import ui.reservedHotel.reservedHotelInfoController;
-import ui.reservedHotel.reservedHotelListController;
-import ui.roomAdd.roomAddController;
-import ui.roomAdd.roomListController;
-import ui.vip.vipController;
-import ui.webManagerGuide.webManagerGuideController;
-import ui.webSalesmanGuide.webSalesmanGuideController;
+import ui.credit.creditCheckViewController;
+import ui.credit.creditRechargeViewController;
+import ui.customerGuide.customerGuideViewController;
+import ui.customerInfo.customerInfoViewController;
+import ui.customerInfo.customerInfoModifyViewController;
+import ui.customerInfoManage.customerInfoByMViewController;
+import ui.customerInfoManage.customerInfoInquireByMViewController;
+import ui.customerInfoManage.customerInfoModifyByMViewController;
+import ui.hotelAdd.hotelAddViewController;
+import ui.hotelAdd.hotelStuffAddViewController;
+import ui.hotelEvaluate.hotelEvaluateViewController;
+import ui.hotelManaged.hotelInfoMaintainViewController;
+import ui.hotelManaged.hotelManagedInfoViewController;
+import ui.hotelReserve.hotelReserveViewController;
+import ui.hotelSearch.hotelInfoSearchedViewController;
+import ui.hotelSearch.hotelSearchViewController;
+import ui.hotelSearch.hotelSearchListViewController;
+import ui.hotelStuffGuide.hotelStuffGuideViewController;
+import ui.login.loginViewController;
+import ui.orderOnHotel.orderOnHotelViewController;
+import ui.orderOnHotel.orderOnHotelInfoViewController;
+import ui.orderOnHotel.orderOnHotelStateViewController;
+import ui.orderOnUser.orderOnUserCancelViewController;
+import ui.orderOnUser.orderOnUserViewController;
+import ui.orderOnUser.orderOnUserInfoViewController;
+import ui.orderOnWeb.abnormalOrderViewController;
+import ui.orderOnWeb.abnormalOrderInfoViewController;
+import ui.reservedHotel.reservedHotelInfoViewController;
+import ui.reservedHotel.reservedHotelListViewController;
+import ui.roomAdd.roomAddViewController;
+import ui.roomAdd.roomListViewController;
+import ui.vip.vipViewController;
+import ui.webManagerGuide.webManagerGuideViewController;
+import ui.webSalesmanGuide.webSalesmanGuideViewController;
 
 public class UILaunch extends Application{
 	private Stage stage;
@@ -65,7 +65,7 @@ public class UILaunch extends Application{
 		stage.setTitle("DIMENSION");
 		stage.setMinWidth(MINIMUM_WINDOW_WIDTH);
 		stage.setMinHeight(MINIMUM_WINDOW_HEIGHT);
-		gotologin();	
+		gotoorderOnHotel();	
 		stage.show();
 	}
 	
@@ -74,7 +74,7 @@ public class UILaunch extends Application{
 	 */
 	public void gotologin(){
 		try{
-			loginController login=(loginController) replaceSceneContent("login/login.fxml");
+			loginViewController login=(loginViewController) replaceSceneContent("login/login.fxml");
 			login.setApp(this);
 		}catch(Exception ex){
 			ex.printStackTrace();
@@ -86,7 +86,7 @@ public class UILaunch extends Application{
 	 */
 	public void gotocustomerGuide(){
 		try{
-			customerGuideController customerGuide=(customerGuideController) replaceSceneContent("customerGuide/customerGuide.fxml");
+			customerGuideViewController customerGuide=(customerGuideViewController) replaceSceneContent("customerGuide/customerGuide.fxml");
 			customerGuide.setApp(this);
 		}catch(Exception ex){
 			ex.printStackTrace();
@@ -98,7 +98,7 @@ public class UILaunch extends Application{
 	 */
 	public void gotocreditCheck(){
 		try{
-			creditCheckController creditCheck=(creditCheckController) replaceSceneContent("credit/creditCheck.fxml");
+			creditCheckViewController creditCheck=(creditCheckViewController) replaceSceneContent("credit/creditCheck.fxml");
 			creditCheck.setApp(this);
 		}catch(Exception ex){
 			ex.printStackTrace();
@@ -110,7 +110,7 @@ public class UILaunch extends Application{
 	 */
 	public void gotocreditRechargge(){
 		try{
-			creditRechargeController creditRecharge=(creditRechargeController) replaceSceneContent("credit/creditRecharge.fxml");
+			creditRechargeViewController creditRecharge=(creditRechargeViewController) replaceSceneContent("credit/creditRecharge.fxml");
 			creditRecharge.setApp(this);
 		}catch(Exception ex){
 			ex.printStackTrace();
@@ -122,7 +122,7 @@ public class UILaunch extends Application{
 	 */
 	public void gotocustomerInfo(){
 		try{
-			customerInfoController customerInfo=(customerInfoController) replaceSceneContent("customerInfo/customerInfo.fxml");
+			customerInfoViewController customerInfo=(customerInfoViewController) replaceSceneContent("customerInfo/customerInfo.fxml");
 			customerInfo.setApp(this);
 		}catch(Exception ex){
 			ex.printStackTrace();
@@ -135,7 +135,7 @@ public class UILaunch extends Application{
 	 */
 	public void gotocustomerInfoModify(){
 		try{
-			customerInfoModifyController customerInfoModify=(customerInfoModifyController) replaceSceneContent("customerInfo/customerInfoModify.fxml");
+			customerInfoModifyViewController customerInfoModify=(customerInfoModifyViewController) replaceSceneContent("customerInfo/customerInfoModify.fxml");
 			customerInfoModify.setApp(this);
 		}catch(Exception ex){
 			ex.printStackTrace();
@@ -147,7 +147,7 @@ public class UILaunch extends Application{
 	 */
 	public void gotocustomerInfoByM(){
 		try{
-			customerInfoByMController customerInfoByM=(customerInfoByMController) replaceSceneContent("customerInfoManage/customerInfoByM.fxml");
+			customerInfoByMViewController customerInfoByM=(customerInfoByMViewController) replaceSceneContent("customerInfoManage/customerInfoByM.fxml");
 			customerInfoByM.setApp(this);
 		}catch(Exception ex){
 			ex.printStackTrace();
@@ -159,7 +159,7 @@ public class UILaunch extends Application{
 	 */
 	public void gotocustomerInfoInquireByM(){
 		try{
-			customerInfoInquireByMController customerInfoInquireByM=(customerInfoInquireByMController) replaceSceneContent("customerInfoManage/customerInfoInquireByM.fxml");
+			customerInfoInquireByMViewController customerInfoInquireByM=(customerInfoInquireByMViewController) replaceSceneContent("customerInfoManage/customerInfoInquireByM.fxml");
 			customerInfoInquireByM.setApp(this);
 		}catch(Exception ex){
 			ex.printStackTrace();
@@ -171,7 +171,7 @@ public class UILaunch extends Application{
 	 */
 	public void gotocustomerInfoModifyByM(){
 		try{
-			customerInfoModifyByMController customerInfoModifyByM=(customerInfoModifyByMController) replaceSceneContent("customerInfoManage/customerInfoModifyByM.fxml");
+			customerInfoModifyByMViewController customerInfoModifyByM=(customerInfoModifyByMViewController) replaceSceneContent("customerInfoManage/customerInfoModifyByM.fxml");
 			customerInfoModifyByM.setApp(this);
 		}catch(Exception ex){
 			ex.printStackTrace();
@@ -183,7 +183,7 @@ public class UILaunch extends Application{
 	 */
 	public void gotohotelAdd(){
 		try{
-			hotelAddController hotelAdd=(hotelAddController) replaceSceneContent("hotelAdd/hotelAdd.fxml");
+			hotelAddViewController hotelAdd=(hotelAddViewController) replaceSceneContent("hotelAdd/hotelAdd.fxml");
 			hotelAdd.setApp(this);
 		}catch(Exception ex){
 			ex.printStackTrace();
@@ -195,7 +195,7 @@ public class UILaunch extends Application{
 	 */
 	public void gotohotelStuffAdd(){
 		try{
-			hotelStuffAddController hotelStuffAdd=(hotelStuffAddController) replaceSceneContent("hotelAdd/hotelStuffAdd.fxml");
+			hotelStuffAddViewController hotelStuffAdd=(hotelStuffAddViewController) replaceSceneContent("hotelAdd/hotelStuffAdd.fxml");
 			hotelStuffAdd.setApp(this);
 		}catch(Exception ex){
 			ex.printStackTrace();
@@ -207,7 +207,7 @@ public class UILaunch extends Application{
 	 */
 	public void gotohotelEvaluate(){
 		try{
-			hotelEvaluateController hotelEvaluate=(hotelEvaluateController) replaceSceneContent("hotelEvaluate/hotelEvaluate.fxml");
+			hotelEvaluateViewController hotelEvaluate=(hotelEvaluateViewController) replaceSceneContent("hotelEvaluate/hotelEvaluate.fxml");
 			hotelEvaluate.setApp(this);
 		}catch(Exception ex){
 			ex.printStackTrace();
@@ -219,7 +219,7 @@ public class UILaunch extends Application{
 	 */
 	public void gotohotelInfoMaintain(){
 		try{
-			hotelInfoMaintainController hotelInfoMaintain=(hotelInfoMaintainController) replaceSceneContent("hotelManaged/hotelInfoMaintain.fxml");
+			hotelInfoMaintainViewController hotelInfoMaintain=(hotelInfoMaintainViewController) replaceSceneContent("hotelManaged/hotelInfoMaintain.fxml");
 			hotelInfoMaintain.setApp(this);
 		}catch(Exception ex){
 			ex.printStackTrace();
@@ -231,7 +231,7 @@ public class UILaunch extends Application{
 	 */
 	public void gotohotelManagedInfo(){
 		try{
-			hotelManagedInfoController hotelManagedInfo=(hotelManagedInfoController) replaceSceneContent("hotelManaged/hotelManagedInfo.fxml");
+			hotelManagedInfoViewController hotelManagedInfo=(hotelManagedInfoViewController) replaceSceneContent("hotelManaged/hotelManagedInfo.fxml");
 			hotelManagedInfo.setApp(this);
 		}catch(Exception ex){
 			ex.printStackTrace();
@@ -243,7 +243,7 @@ public class UILaunch extends Application{
 	 */
 	public void gotohotelReserve(){
 		try{
-			hotelReserveController hotelReserve=(hotelReserveController) replaceSceneContent("hotelReserve/hotelReserve.fxml");
+			hotelReserveViewController hotelReserve=(hotelReserveViewController) replaceSceneContent("hotelReserve/hotelReserve.fxml");
 			hotelReserve.setApp(this);
 		}catch(Exception ex){
 			ex.printStackTrace();
@@ -255,7 +255,7 @@ public class UILaunch extends Application{
 	 */
 	public void gotohotelInfoSearched(){
 		try{
-			hotelInfoSearchedController hotelInfoSearched=(hotelInfoSearchedController) replaceSceneContent("hotelSearch/hotelInfoSearched.fxml");
+			hotelInfoSearchedViewController hotelInfoSearched=(hotelInfoSearchedViewController) replaceSceneContent("hotelSearch/hotelInfoSearched.fxml");
 			hotelInfoSearched.setApp(this);
 		}catch(Exception ex){
 			ex.printStackTrace();
@@ -267,7 +267,7 @@ public class UILaunch extends Application{
 	 */
 	public void gotohotelSearch(){
 		try{
-			hotelSearchController hotelSearch=(hotelSearchController) replaceSceneContent("hotelSearch/hotelSearch.fxml");
+			hotelSearchViewController hotelSearch=(hotelSearchViewController) replaceSceneContent("hotelSearch/hotelSearch.fxml");
 			hotelSearch.setApp(this);
 		}catch(Exception ex){
 			ex.printStackTrace();
@@ -279,7 +279,7 @@ public class UILaunch extends Application{
 	 */
 	public void gotohotelSearchList(){
 		try{
-			hotelSearchListController hotelSearchList=(hotelSearchListController) replaceSceneContent("hotelSearch/hotelSearchList.fxml");
+			hotelSearchListViewController hotelSearchList=(hotelSearchListViewController) replaceSceneContent("hotelSearch/hotelSearchList.fxml");
 			hotelSearchList.setApp(this);
 		}catch(Exception ex){
 			ex.printStackTrace();
@@ -291,7 +291,7 @@ public class UILaunch extends Application{
 	 */
 	public void gotohotelStuffGuide(){
 		try{
-			hotelStuffGuideController hotelStuffGuide=(hotelStuffGuideController) replaceSceneContent("hotelStuffGuide/hotelStuffGuide.fxml");
+			hotelStuffGuideViewController hotelStuffGuide=(hotelStuffGuideViewController) replaceSceneContent("hotelStuffGuide/hotelStuffGuide.fxml");
 			hotelStuffGuide.setApp(this);
 		}catch(Exception ex){
 			ex.printStackTrace();
@@ -303,7 +303,7 @@ public class UILaunch extends Application{
 	 */
 	public void gotoorderOnHotel(){
 		try{
-			orderOnHotelController orderOnHotel=(orderOnHotelController) replaceSceneContent("orderOnHotel/orderOnHotel.fxml");
+			orderOnHotelViewController orderOnHotel=(orderOnHotelViewController) replaceSceneContent("orderOnHotel/orderOnHotel.fxml");
 			orderOnHotel.setApp(this);
 		}catch(Exception ex){
 			ex.printStackTrace();
@@ -315,7 +315,7 @@ public class UILaunch extends Application{
 	 */
 	public void gotoorderOnHotelInfo(){
 		try{
-			orderOnHotelInfoController orderOnHotelInfo=(orderOnHotelInfoController) replaceSceneContent("orderOnHotel/orderOnHotelInfo.fxml");
+			orderOnHotelInfoViewController orderOnHotelInfo=(orderOnHotelInfoViewController) replaceSceneContent("orderOnHotel/orderOnHotelInfo.fxml");
 			orderOnHotelInfo.setApp(this);
 		}catch(Exception ex){
 			ex.printStackTrace();
@@ -327,7 +327,7 @@ public class UILaunch extends Application{
 	 */
 	public void gotoorderOnHotelState(){
 		try{
-			orderOnHotelStateController orderOnHotelState=(orderOnHotelStateController) replaceSceneContent("orderOnHotel/orderOnHotelState.fxml");
+			orderOnHotelStateViewController orderOnHotelState=(orderOnHotelStateViewController) replaceSceneContent("orderOnHotel/orderOnHotelState.fxml");
 			orderOnHotelState.setApp(this);
 		}catch(Exception ex){
 			ex.printStackTrace();
@@ -339,7 +339,7 @@ public class UILaunch extends Application{
 	 */
 	public void gotoorderOnUser(){
 		try{
-			orderOnUserController orderOnUser=(orderOnUserController) replaceSceneContent("orderOnUser/orderOnUser.fxml");
+			orderOnUserViewController orderOnUser=(orderOnUserViewController) replaceSceneContent("orderOnUser/orderOnUser.fxml");
 			orderOnUser.setApp(this);
 		}catch(Exception ex){
 			ex.printStackTrace();
@@ -351,7 +351,7 @@ public class UILaunch extends Application{
 	 */
 	public void gotoorderOnUserInfo(){
 		try{
-			orderOnUserInfoController orderOnUserInfo=(orderOnUserInfoController) replaceSceneContent("orderOnUser/orderOnUserInfo.fxml");
+			orderOnUserInfoViewController orderOnUserInfo=(orderOnUserInfoViewController) replaceSceneContent("orderOnUser/orderOnUserInfo.fxml");
 			orderOnUserInfo.setApp(this);
 		}catch(Exception ex){
 			ex.printStackTrace();
@@ -363,7 +363,7 @@ public class UILaunch extends Application{
 	 */
 	public void gotoorderOnUserCancel(){
 		try{
-			orderOnUserCancelController orderOnUserCancel=(orderOnUserCancelController) replaceSceneContent("orderOnUser/orderOnUserCancel.fxml");
+			orderOnUserCancelViewController orderOnUserCancel=(orderOnUserCancelViewController) replaceSceneContent("orderOnUser/orderOnUserCancel.fxml");
 			orderOnUserCancel.setApp(this);
 		}catch(Exception ex){
 			ex.printStackTrace();
@@ -375,7 +375,7 @@ public class UILaunch extends Application{
 	 */
 	public void gotoabnormalOrder(){
 		try{
-			abnormalOrderController abnormalOrder=(abnormalOrderController) replaceSceneContent("orderOnWeb/abnormalOrder.fxml");
+			abnormalOrderViewController abnormalOrder=(abnormalOrderViewController) replaceSceneContent("orderOnWeb/abnormalOrder.fxml");
 			abnormalOrder.setApp(this);
 		}catch(Exception ex){
 			ex.printStackTrace();
@@ -387,7 +387,7 @@ public class UILaunch extends Application{
 	 */
 	public void gotoabnormalOrderInfo(){
 		try{
-			abnormalOrderInfoController abnormalOrderInfo=(abnormalOrderInfoController) replaceSceneContent("orderOnWeb/abnormalOrderInfo.fxml");
+			abnormalOrderInfoViewController abnormalOrderInfo=(abnormalOrderInfoViewController) replaceSceneContent("orderOnWeb/abnormalOrderInfo.fxml");
 			abnormalOrderInfo.setApp(this);
 		}catch(Exception ex){
 			ex.printStackTrace();
@@ -399,7 +399,7 @@ public class UILaunch extends Application{
 	 */
 	public void gotoreservedHotelInfo(){
 		try{
-			reservedHotelInfoController reservedHotelInfo=(reservedHotelInfoController) replaceSceneContent("reservedHotel/reservedHotelInfo.fxml");
+			reservedHotelInfoViewController reservedHotelInfo=(reservedHotelInfoViewController) replaceSceneContent("reservedHotel/reservedHotelInfo.fxml");
 			reservedHotelInfo.setApp(this);
 		}catch(Exception ex){
 			ex.printStackTrace();
@@ -411,7 +411,7 @@ public class UILaunch extends Application{
 	 */
 	public void gotoreservedHotelList(){
 		try{
-			reservedHotelListController reservedHotelList=(reservedHotelListController) replaceSceneContent("reservedHotel/reservedHotelList.fxml");
+			reservedHotelListViewController reservedHotelList=(reservedHotelListViewController) replaceSceneContent("reservedHotel/reservedHotelList.fxml");
 			reservedHotelList.setApp(this);
 		}catch(Exception ex){
 			ex.printStackTrace();
@@ -423,7 +423,7 @@ public class UILaunch extends Application{
 	 */
 	public void gotoroomAdd(){
 		try{
-			roomAddController roomAdd=(roomAddController) replaceSceneContent("roomAdd/roomAdd.fxml");
+			roomAddViewController roomAdd=(roomAddViewController) replaceSceneContent("roomAdd/roomAdd.fxml");
 			roomAdd.setApp(this);
 		}catch(Exception ex){
 			ex.printStackTrace();
@@ -435,7 +435,7 @@ public class UILaunch extends Application{
 	 */
 	public void gotoroomList(){
 		try{
-			roomListController roomList=(roomListController) replaceSceneContent("roomAdd/roomList.fxml");
+			roomListViewController roomList=(roomListViewController) replaceSceneContent("roomAdd/roomList.fxml");
 			roomList.setApp(this);
 		}catch(Exception ex){
 			ex.printStackTrace();
@@ -447,7 +447,7 @@ public class UILaunch extends Application{
 	 */
 	public void gotovip(){
 		try{
-			vipController vip=(vipController) replaceSceneContent("vip/vip.fxml");
+			vipViewController vip=(vipViewController) replaceSceneContent("vip/vip.fxml");
 			vip.setApp(this);
 		}catch(Exception ex){
 			ex.printStackTrace();
@@ -459,7 +459,7 @@ public class UILaunch extends Application{
 	 */
 	public void gotowebManagerGuide(){
 		try{
-			webManagerGuideController webManagerGuide=(webManagerGuideController) replaceSceneContent("webManagerGuide/webManagerGuide.fxml");
+			webManagerGuideViewController webManagerGuide=(webManagerGuideViewController) replaceSceneContent("webManagerGuide/webManagerGuide.fxml");
 			webManagerGuide.setApp(this);
 		}catch(Exception ex){
 			ex.printStackTrace();
@@ -471,7 +471,7 @@ public class UILaunch extends Application{
 	 */
 	public void gotowebSalesmanGuide(){
 		try{
-			webSalesmanGuideController webSalesmanGuide=(webSalesmanGuideController) replaceSceneContent("webSalesmanGuide/webSalesmanGuide.fxml");
+			webSalesmanGuideViewController webSalesmanGuide=(webSalesmanGuideViewController) replaceSceneContent("webSalesmanGuide/webSalesmanGuide.fxml");
 			webSalesmanGuide.setApp(this);
 		}catch(Exception ex){
 			ex.printStackTrace();

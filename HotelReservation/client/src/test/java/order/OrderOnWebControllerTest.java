@@ -31,18 +31,18 @@ public class OrderOnWebControllerTest {
 	public void setUp(){
 		webBLServiceImpl = new OrderOnWebController();
 		webList = new ArrayList<OrderVO>();
-		web1 = new OrderVO(new CustomerInfoVO("123", "txin", 
-				new ContactVO("18805156300", null), 100,true,VipType.COMMON_VIP), 
-				OrderState.UNEXECUTED, 100, "01", "513", false, 
-				"2016-10-16 24:00", "2016-10-16 12:00", "2016-10-17 12:00", null,
-				1, new RoomInfoVO(RoomState.USABLE, RoomType.ROOM_STANDARD, "212", 100, "1234"),1);
+		web1 = new OrderVO("201612062014",new CustomerInfoVO("19954722", "ÌÆöÎ", 
+				new ContactVO("18805156300", "151250132@smail.nju.edu.cn"), 300, true, VipType.COMMON_VIP), 
+				OrderState.UNEXECUTED, 99.9, "014", false, 
+				"2016-12-16 24:00", "2016-12-16 12:00", "2016-12-17 12:00", null,
+				1, new RoomInfoVO(RoomState.USABLE, RoomType.ROOM_STANDARD, "513", 99.9, "014"),1);
 		webList.add(web1);
 		r1 = ResultMsg.SUCCESS;
-		msg1 = new OrderVO(new CustomerInfoVO("123", "txin", 
-				new ContactVO("18805156300", null), 100,true,VipType.COMMON_VIP), 
-				OrderState.UNEXECUTED, 100, "01", "513", false, 
-				"2016-10-16 24:00", "2016-10-16 12:00", "2016-10-17 12:00", null,
-				1, new RoomInfoVO(RoomState.USABLE, RoomType.ROOM_STANDARD, "212", 100, "1234"),1);
+		msg1 = new OrderVO("201612062014",new CustomerInfoVO("19954722", "ÌÆöÎ", 
+				new ContactVO("18805156300", "151250132@smail.nju.edu.cn"), 300, true, VipType.COMMON_VIP), 
+				OrderState.UNEXECUTED, 99.9, "014", false, 
+				"2016-12-16 24:00", "2016-12-16 12:00", "2016-12-17 12:00", null,
+				1, new RoomInfoVO(RoomState.USABLE, RoomType.ROOM_STANDARD, "513", 99.9, "014"),1);
 	}
 	
 	@Test

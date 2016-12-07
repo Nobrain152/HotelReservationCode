@@ -35,9 +35,9 @@ public class OrderOnUserControllerTest {
 	
 	@Before
 	public void setUp() throws RemoteException {
-		order1 = new OrderVO(new CustomerInfoVO("19954722", "ÌÆöÎ", 
+		order1 = new OrderVO("201612062014",new CustomerInfoVO("19954722", "ÌÆöÎ", 
 				new ContactVO("18805156300", "151250132@smail.nju.edu.cn"), 300, true, VipType.COMMON_VIP), 
-				OrderState.UNEXECUTED, 99.9, "201612062014", "014", false, 
+				OrderState.UNEXECUTED, 99.9, "014", false, 
 				"2016-12-16 24:00", "2016-12-16 12:00", "2016-12-17 12:00", null,
 				1, new RoomInfoVO(RoomState.USABLE, RoomType.ROOM_STANDARD, "513", 99.9, "014"),1);
 //		order2 = new OrderVO(new CustomerInfoVO("123", "txin", 
@@ -92,10 +92,16 @@ public class OrderOnUserControllerTest {
 //		assertSame(r44, r4);
 //	}
 	
+//	@Test
+//	public void testPersonalOrderDetail() throws RemoteException{
+//		OrderVO msg1 = onUserBLService.personalOrderDetail("201612062014");
+//		assertEquals(msg1, order1);
+//	}
+	
 	@Test
-	public void testPersonalOrderDetail() throws RemoteException{
-		OrderVO msg1 = onUserBLService.personalOrderDetail("201612062014");
-		assertEquals(msg1, order1);
+	public void testCreateOrder() throws RemoteException{
+		ResultMsg result = onUserBLService.createOrder(order1);
+		assertEquals(resultMsg, result);
 	}
 	
 }

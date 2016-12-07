@@ -57,13 +57,14 @@ public class OrderOnUserController implements OrderOnUserBLService{
 	}
 
 	@Override
-	public void createOrder(OrderVO orderVO) {
+	public ResultMsg createOrder(OrderVO orderVO) {
 		try {
-			orderOnUser.createOrder(orderVO);
+			return orderOnUser.createOrder(orderVO);
 		} catch (RemoteException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		return null;
 	}
 
 }

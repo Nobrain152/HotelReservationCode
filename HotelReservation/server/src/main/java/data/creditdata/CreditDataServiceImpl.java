@@ -26,8 +26,9 @@ public class CreditDataServiceImpl extends DataSuperClass implements CreditDataS
 	
 	@Override
 	public ResultMsg insert(CreditPO creditPO) throws RemoteException {
-		
-		return null;
+		return addToSQL(tableName, creditPO.getUserID(),creditPO.getOrderID(),
+				creditPO.getTime(),creditPO.getAction().toString(),
+				creditPO.getCreditChange(),""+creditPO.getCreditResult());
 	}
 
 	@Override

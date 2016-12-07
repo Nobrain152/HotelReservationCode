@@ -17,6 +17,11 @@ public class CreditPO implements Serializable{
 	String time;
 	
 	/**
+	 * ÓÃ»§ID
+	 */
+	String userID;
+	
+	/**
 	 * ¶©µ¥ID
 	 */
 	String orderID;
@@ -38,13 +43,22 @@ public class CreditPO implements Serializable{
 	
 	public CreditPO() {}
 	
-	public CreditPO(String orderID,String time,Action action,
+	public CreditPO(String userID,String orderID,String time,Action action,
 			String creditChange,int creditResult) {
+		this.userID = userID;
 		this.time = time;
 		this.orderID = orderID;
 		this.action = action;
 		this.creditChange = creditChange;
 		this.creditResult = creditResult;
+	}
+	
+	public String getUserID(){
+		return userID;
+	}
+	
+	public String getOrderID(){
+		return orderID;
 	}
 	
 	public int getCreditResult() {

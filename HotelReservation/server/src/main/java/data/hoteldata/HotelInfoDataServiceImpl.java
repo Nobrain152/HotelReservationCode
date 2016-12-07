@@ -72,9 +72,6 @@ public class HotelInfoDataServiceImpl extends DataSuperClass implements HotelInf
 								Integer.valueOf(findMes.get(4)), findMes.get(5), 
 								findMes.get(6),Boolean.valueOf(findMes.get(7)),
 								Double.parseDouble(findMes.get(8)));
-			hotelInfoPO = new HotelInfoPO(findMes.get(0), findMes.get(1), findMes.get(2), findMes.get(3),
-								Integer.valueOf(findMes.get(4)), findMes.get(5), findMes.get(6), 
-								Boolean.getBoolean(findMes.get(7)));
 		}
 		
 		return hotelInfoPO;
@@ -96,10 +93,6 @@ public class HotelInfoDataServiceImpl extends DataSuperClass implements HotelInf
 						Integer.valueOf(result.getString(5)),result.getString(6),
 						result.getString(7),Boolean.getBoolean(result.getString(8)),
 						Double.parseDouble(result.getString(9))));
-				pos.add(new HotelInfoPO(result.getString(0), result.getString(1),
-						result.getString(2), result.getString(3),
-						Integer.valueOf(result.getString(4)),result.getString(5),
-						result.getString(6),Boolean.getBoolean(result.getString(7))));
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();

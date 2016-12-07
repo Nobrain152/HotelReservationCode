@@ -34,14 +34,6 @@ public interface CreditDataService {
 	public CreditPO getListByOrderID(String orderID) throws RemoteException;
 	
 	/**
-	 * 获取该用户的最新信用值PO
-	 * @param ID
-	 * @return
-	 * @throws RemoteException
-	 */
-	public CreditPO findByUserID(String userID) throws RemoteException;
-	
-	/**
 	 * 显示所有记录
 	 * @return
 	 * @throws RemoteException

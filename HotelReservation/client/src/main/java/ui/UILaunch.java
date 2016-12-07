@@ -6,15 +6,14 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.fxml.JavaFXBuilderFactory;
-import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import ui.credit.creditCheckViewController;
 import ui.credit.creditRechargeViewController;
 import ui.customerGuide.customerGuideViewController;
-import ui.customerInfo.customerInfoViewController;
 import ui.customerInfo.customerInfoModifyViewController;
+import ui.customerInfo.customerInfoViewController;
 import ui.customerInfoManage.customerInfoByMViewController;
 import ui.customerInfoManage.customerInfoInquireByMViewController;
 import ui.customerInfoManage.customerInfoModifyByMViewController;
@@ -25,18 +24,20 @@ import ui.hotelManaged.hotelInfoMaintainViewController;
 import ui.hotelManaged.hotelManagedInfoViewController;
 import ui.hotelReserve.hotelReserveViewController;
 import ui.hotelSearch.hotelInfoSearchedViewController;
-import ui.hotelSearch.hotelSearchViewController;
 import ui.hotelSearch.hotelSearchListViewController;
+import ui.hotelSearch.hotelSearchViewController;
 import ui.hotelStuffGuide.hotelStuffGuideViewController;
 import ui.login.loginViewController;
-import ui.orderOnHotel.orderOnHotelViewController;
 import ui.orderOnHotel.orderOnHotelInfoViewController;
 import ui.orderOnHotel.orderOnHotelStateViewController;
+import ui.orderOnHotel.orderOnHotelViewController;
 import ui.orderOnUser.orderOnUserCancelViewController;
-import ui.orderOnUser.orderOnUserViewController;
 import ui.orderOnUser.orderOnUserInfoViewController;
-import ui.orderOnWeb.abnormalOrderViewController;
+import ui.orderOnUser.orderOnUserViewController;
 import ui.orderOnWeb.abnormalOrderInfoViewController;
+import ui.orderOnWeb.abnormalOrderViewController;
+import ui.promotionHotel.promotionHotelViewController;
+import ui.promotionWeb.promotionWebViewController;
 import ui.reservedHotel.reservedHotelInfoViewController;
 import ui.reservedHotel.reservedHotelListViewController;
 import ui.roomAdd.roomAddViewController;
@@ -473,6 +474,30 @@ public class UILaunch extends Application{
 		try{
 			webSalesmanGuideViewController webSalesmanGuide=(webSalesmanGuideViewController) replaceSceneContent("webSalesmanGuide/webSalesmanGuide.fxml");
 			webSalesmanGuide.setApp(this);
+		}catch(Exception ex){
+			ex.printStackTrace();
+		}
+	}
+	
+	/**
+	 * 跳转到酒店优惠策略界面
+	 */
+	public void gotopromotionHotel(){
+		try{
+			promotionHotelViewController promotionHotel=(promotionHotelViewController) replaceSceneContent("promotionHotel/promotionHotel.fxml");
+			promotionHotel.setApp(this);
+		}catch(Exception ex){
+			ex.printStackTrace();
+		}
+	}
+	
+	/**
+	 * 跳转到网站优惠策略界面
+	 */
+	public void gotopromotionWeb(){
+		try{
+			promotionWebViewController promotionWeb=(promotionWebViewController) replaceSceneContent("promotionWeb/promotionWeb.fxml");
+			promotionWeb.setApp(this);
 		}catch(Exception ex){
 			ex.printStackTrace();
 		}

@@ -36,6 +36,8 @@ public class CreditPO implements Serializable{
 	 */
 	int creditResult;
 	
+	public CreditPO() {}
+	
 	public CreditPO(String orderID,String time,Action action,
 			String creditChange,int creditResult) {
 		this.time = time;

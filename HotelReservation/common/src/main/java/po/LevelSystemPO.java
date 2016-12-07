@@ -19,6 +19,8 @@ public class LevelSystemPO implements Serializable{
 	 */
 	int[] credits;
 	
+	public LevelSystemPO() {}
+	
 	public LevelSystemPO(int[] levels, int[] credits) {
 		this.levels = levels;
 		this.credits = credits;

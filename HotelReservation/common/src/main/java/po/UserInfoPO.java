@@ -47,6 +47,8 @@ public class UserInfoPO implements Serializable{
 	 * 会员类型
 	 */
 	private VipType vipType;
+	
+	public UserInfoPO() {}
 
 	public UserInfoPO(String userID, String username, ContactPO contact) {
 		this.userID = userID;

@@ -58,6 +58,8 @@ public class PromotionHotelPO implements Serializable{
 	 */
 	double ratio;
 	
+	public PromotionHotelPO() {}
+	
 	public PromotionHotelPO(String hotelID, PromotionHotelType hotelType,VipType customType,
 			String beginTime,String endTime,double ratio,int level,int number,String businessName) {
 		this.hotelID = hotelID;

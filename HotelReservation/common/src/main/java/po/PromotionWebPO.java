@@ -54,6 +54,8 @@ public class PromotionWebPO implements Serializable{
 	 */
 	double ratio;
 	
+	public PromotionWebPO() {}
+	
 	public PromotionWebPO(String hotelID, PromotionWebType hotelType,VipType customType,
 			String beginTime,String endTime,double ratio,int level,String location) {
 		this.hotelID = hotelID;

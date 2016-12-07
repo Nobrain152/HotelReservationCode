@@ -20,6 +20,8 @@ public class StuffInfoPO extends UserInfoPO implements Serializable{
 	// TODO
 	private String hotelVO;
 	
+	public StuffInfoPO() {}
+	
 	public StuffInfoPO(String userid,String username,ContactPO contact,String VO){
 	    super(userid, username, contact);
 		this.hotelVO = VO;

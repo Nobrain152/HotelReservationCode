@@ -24,6 +24,8 @@ public class LoginInPO implements Serializable{
 	 */
 	private String password;
 	
+	public LoginInPO() {}
+	
 	public LoginInPO(String username,String password){
 	    this.username = username;
 		this.password = password;

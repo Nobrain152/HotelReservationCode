@@ -39,6 +39,8 @@ public class RoomInfoPO implements Serializable{
 	private ArrayList<String> OrderedTime;
 	
 	private String hotelid;
+	
+	public RoomInfoPO() {}
 
 	public RoomInfoPO(RoomState state, RoomType type, String roomID, double price ,String hotelid) {
 		this.state = state;

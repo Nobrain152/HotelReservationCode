@@ -19,6 +19,8 @@ public class ContactPO implements Serializable{
 	 */
 	public String emailAddress;
 	
+	public ContactPO() {}
+	
 	public ContactPO(String phoneNumber,String emailAddress) {
 		this.phoneNumber = phoneNumber;
 		this.emailAddress = emailAddress;

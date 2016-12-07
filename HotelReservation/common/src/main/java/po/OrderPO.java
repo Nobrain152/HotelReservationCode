@@ -91,6 +91,8 @@ public class OrderPO implements Serializable {
 	 */
 	public RoomInfoPO roomInfoPO;
 	
+	public OrderPO() {}
+	
 	public OrderPO(String orderID,CustomerInfoPO customerInfoPO, 
 			OrderState orderState,double price,String hotelID, boolean hasChild,
 			String latestExecutionTime, String checkInTime, String checkOutTime,

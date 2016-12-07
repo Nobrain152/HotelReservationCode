@@ -52,6 +52,7 @@ public class HotelInfoPO implements Serializable{
 	 */
 	private String hotelID;
 	
+	public HotelInfoPO() {}
 	
 	public HotelInfoPO(String hotelID,String name, String address, String area, int level, String introduction, String facility, boolean reserve) {
 		this.name = name;

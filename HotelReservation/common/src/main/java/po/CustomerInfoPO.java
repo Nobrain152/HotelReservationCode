@@ -35,6 +35,8 @@ public class CustomerInfoPO extends UserInfoPO implements Serializable{
 	ArrayList<String> orderIDList;
 	ArrayList<String> hotelIDList;
 	ArrayList<String> creditList;
+	
+	public CustomerInfoPO() {}
 
 	public CustomerInfoPO(String userid, String username, ContactPO contact,
 			int credit, boolean isMember,VipType vipType) {

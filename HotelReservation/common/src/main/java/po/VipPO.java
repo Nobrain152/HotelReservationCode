@@ -11,6 +11,8 @@ import util.VipType;
  */
 public class VipPO extends CustomerInfoPO implements Serializable{
 	
+	public VipPO() {}
+	
 	public VipPO(String userid, String username, ContactPO contact, int credit,VipType vipType) {
 		super(userid, username, contact, credit,true,vipType);
 		// TODO Auto-generated constructor stub

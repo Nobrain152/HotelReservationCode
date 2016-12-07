@@ -16,6 +16,8 @@ public class BusinessVipPO extends VipPO implements Serializable{
 	 */
 	String businessName;
 
+	public BusinessVipPO() {}
+	
 	public BusinessVipPO(String userid, String username, ContactPO contact,
 			int credit, String businessName,VipType vipType) {
 		super(userid, username, contact, credit,vipType);

@@ -41,6 +41,8 @@ public class HotelEvaluatePO implements Serializable{
 	 * ¶©µ¥ID
 	 */
 	private String orderID;
+	
+	public HotelEvaluatePO() {}
 
 	public HotelEvaluatePO(String userID,String hotelID, int score, String comment, boolean reserve, String orderID) {
 		this.userID = userID;

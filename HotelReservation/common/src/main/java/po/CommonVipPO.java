@@ -15,6 +15,8 @@ public class CommonVipPO extends VipPO implements Serializable{
 	 * 普通会员生日
 	 */
 	String birthday;
+	
+	public CommonVipPO() {}
 
 	public CommonVipPO(String userid, String username, ContactPO contact,
 			int credit, String birthday,VipType vipType) {

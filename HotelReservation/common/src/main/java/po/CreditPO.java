@@ -55,12 +55,24 @@ public class CreditPO implements Serializable{
 		this.creditResult = creditResult;
 	}
 	
+	public Action getAction() {
+		return action;
+	}
+	
 	public void setAction(Action action) {
 		this.action = action;
 	}
 	
+	public String getCreditChange() {
+		return creditChange;
+	}
+	
 	public void setCreditChange(String creditChange) {
 		this.creditChange = creditChange;
+	}
+	
+	public String getTime() {
+		return time;
 	}
 	
 	public void setTime(String time) {

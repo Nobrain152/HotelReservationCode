@@ -36,8 +36,14 @@ public class RoomInfoPO implements Serializable{
 	 */
 	private double price;
 	
+	/**
+	 * 房间已经被预定的时间段
+	 */
 	private ArrayList<String> OrderedTime;
 	
+	/**
+	 * 房间隶属的酒店ID
+	 */
 	private String hotelid;
 	
 	public RoomInfoPO() {}

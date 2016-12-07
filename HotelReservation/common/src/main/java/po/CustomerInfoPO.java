@@ -32,8 +32,19 @@ public class CustomerInfoPO extends UserInfoPO implements Serializable{
 	 */
 	private VipType vipType;
 	
+	/**
+	 * 客户的订单ID列表
+	 */
 	ArrayList<String> orderIDList;
+	
+	/**
+	 * 客户预订过的酒店ID列表
+	 */
 	ArrayList<String> hotelIDList;
+	
+	/**
+	 * 客户的信用记录ID列表
+	 */
 	ArrayList<String> creditList;
 	
 	public CustomerInfoPO() {}

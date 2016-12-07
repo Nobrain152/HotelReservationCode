@@ -27,7 +27,9 @@ public class HotelSearchController implements HotelSearchBLService{
 		hotelSearch = new HotelSearch(hotelInfoData);
 	}
 	
-	
+	/**
+	 * 根据条件搜索酒店
+	 */
 	@Override
 	public ArrayList<HotelInfoVO> selectCondition(HotelInfoVO hotelInfoVO,RoomInfoVO vo2){
 		try {

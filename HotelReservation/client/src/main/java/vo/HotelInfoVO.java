@@ -49,13 +49,23 @@ public class HotelInfoVO {
 	 */
 	private String hotelID;
 	
+	/**
+	 * 用于界面调用时返回对应用户在该酒店的订单信息
+	 */
 	private ArrayList<OrderVO> order;
 	
+	/**
+	 * 酒店评分
+	 */
 	private double score;
 	
+	/**
+	 * 用于搜索时保存频分区间上限和下限
+	 */
 	private double up;
 	
 	private double down;
+	
 	
 	public HotelInfoVO() {}
 	

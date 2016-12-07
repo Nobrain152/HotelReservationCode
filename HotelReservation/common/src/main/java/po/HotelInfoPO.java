@@ -4,7 +4,7 @@ import java.io.Serializable;
 
 /**
  * æ∆µÍ–≈œ¢
- * @author gyf
+ * @author ≤‹≥©
  *
  */
 public class HotelInfoPO implements Serializable{
@@ -52,6 +52,9 @@ public class HotelInfoPO implements Serializable{
 	 */
 	private String hotelID;
 	
+	/**
+	 * æ∆µÍ∆¿∑÷
+	 */
 	private double score;
 	
 	public HotelInfoPO() {}

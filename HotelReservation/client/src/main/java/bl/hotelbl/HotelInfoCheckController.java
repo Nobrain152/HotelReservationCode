@@ -26,7 +26,12 @@ public class HotelInfoCheckController implements HotelInfoCheckBLService{
 		hotelInfoCheck = new HotelInfoCheck(hotelInfoData);
 	}
 
-	
+	/**
+	 * 查看酒店信息
+	 * @param hotelInfoVO
+	 * @return
+	 * @throws RemoteException
+	 */
 	@Override
     public HotelInfoVO checkHotelInfo(String hotelid){
     	try {
@@ -38,6 +43,10 @@ public class HotelInfoCheckController implements HotelInfoCheckBLService{
     }
 
 
+	/**
+	 * 查看所有注册的酒店列表
+	 * @return
+	 */
 	@Override
 	public ArrayList<HotelInfoVO> hotelScan() {
 		try {

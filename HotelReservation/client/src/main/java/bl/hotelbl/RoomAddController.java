@@ -27,7 +27,12 @@ public class RoomAddController implements RoomAddBLService{
 		roomAdd = new RoomAdd(roomInfoData);
 	}
 	
-	
+	/**
+	 * 添加客房
+	 * @param roomInfoVO
+	 * @return
+	 * @throws RemoteException
+	 */
 	@Override
 	public ResultMsg addRoom(RoomInfoVO roomInfoVO){
 		try {
@@ -38,6 +43,12 @@ public class RoomAddController implements RoomAddBLService{
 		return null;
 	}
 
+	/**
+	 * 更新客房信息
+	 * @param roomInfoVO
+	 * @return
+	 * @throws RemoteException
+	 */
 	@Override
     public ResultMsg updateRoom(RoomInfoVO roomInfoVO){
 		try {

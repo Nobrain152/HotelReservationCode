@@ -16,12 +16,20 @@ public class Date {
 	private int outMonth;
 	private int outDay;
 	
+	/**
+	 * 构造方法
+	 * @param in
+	 * @param out
+	 */
 	public Date(String in,String out){
 		intime=in;
 		outtime=out;
 		makeNumber();
 	}
 	
+	/**
+	 * 解析日期
+	 */
 	public void makeNumber(){
 		String[] in={intime.substring(0,4),intime.substring(5,7),intime.substring(8,10)};
 		String[] out={outtime.substring(0,4),outtime.substring(5,7),outtime.substring(8,10)};
@@ -33,6 +41,11 @@ public class Date {
 		outDay=Integer.parseInt(out[3]);
 	}
 	
+	
+	/**
+	 * 返回和更改各种属性
+	 * @return
+	 */
 	public String getInTime(){
 		return intime;
 	}
@@ -74,7 +87,16 @@ public class Date {
 		return outDay;
 	}
 	
-	
+	/**
+	 * 判断时间先后关系
+	 * @param i1
+	 * @param i2
+	 * @param i3
+	 * @param o1
+	 * @param o2
+	 * @param o3
+	 * @return
+	 */
 	public boolean isEarlier(int i1,int i2,int i3,int o1,int o2,int o3){
 		
 		if(i1<o1){
@@ -95,6 +117,12 @@ public class Date {
 		return false;
 	}
 	
+	
+	/**
+	 * 判断两个时间段是否冲突
+	 * @param date
+	 * @return
+	 */
 	public boolean isConflict(Date date){
 		if(intime.equals(date.getInTime())){
 			return true;

@@ -38,6 +38,9 @@ public class RoomInfoVO {
 	 */
 	private ArrayList<Date> OrderedTime;
 	
+	/**
+	 * ∑øº‰¡• Ùµƒæ∆µÍID
+	 */
 	private String hotelid;
 	
 	public RoomInfoVO() {}

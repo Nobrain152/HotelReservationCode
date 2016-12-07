@@ -35,7 +35,7 @@ public class HotelInfoCheck {
 	
 	
 	/**
-	 * 查看酒店列表方法
+	 * 查看所有注册的酒店列表
 	 * @return
 	 */
 	public ArrayList<HotelInfoVO> hotelScan()throws RemoteException{

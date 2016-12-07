@@ -30,6 +30,12 @@ public class HotelInfoMaintainController implements HotelInfoMaintainBLService{
 	}
 	
 	
+	/**
+	 * 输入酒店基本信息
+	 * @param hotelInfoVO
+	 * @return
+	 * @throws RemoteException
+	 */
 	@Override
 	public ResultMsg inputHotelInfo(HotelInfoVO hotelInfoVO){
 		try {
@@ -40,7 +46,12 @@ public class HotelInfoMaintainController implements HotelInfoMaintainBLService{
 		return null;
 	}
 	
-	
+	/**
+	 * 检查信息是否符合标准
+	 * @param hotelInfoVO
+	 * @return
+	 * @throws RemoteException
+	 */
 	@Override
     public ResultMsg checkInfo(HotelInfoVO hotelInfoVO){
 		try {
@@ -52,8 +63,11 @@ public class HotelInfoMaintainController implements HotelInfoMaintainBLService{
     }
 
 
-
-
+	/**
+     * 添加酒店
+     * @param hotelInfoVO
+     * @return
+     */
 	@Override
 	public ResultMsg addHotel(HotelInfoVO hotelInfoVO) {
 		try {

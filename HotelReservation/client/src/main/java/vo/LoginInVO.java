@@ -2,7 +2,7 @@ package vo;
 
 /**
  * µÇÂ¼ÐÅÏ¢
- * @author lenovo
+ * @author ²Ü³©
  *
  */
 public class LoginInVO {

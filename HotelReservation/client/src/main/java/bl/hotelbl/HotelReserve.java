@@ -3,6 +3,8 @@ package bl.hotelbl;
 import java.rmi.RemoteException;
 import java.util.ArrayList;
 
+import bl.BusinessLogicDataFactory;
+import blservice.hotelblservice.RoomAddBLService;
 import dataservice.hoteldataservice.HotelInfoDataService;
 import util.ResultMsg;
 import vo.OrderVO;
@@ -16,15 +18,22 @@ import vo.RoomInfoVO;
  */
 public class HotelReserve {
 	private HotelInfoDataService hotelInfoData;
-	private RoomAddController roomcon;
+	private RoomAddBLService roomcon;
+	private BusinessLogicDataFactory factory;
 	
 	public HotelReserve(HotelInfoDataService hotelInfoDataService){
 		this.hotelInfoData=hotelInfoDataService;
-		roomcon=new RoomAddController();
+		factory=BusinessLogicDataFactory.getFactory();
+		roomcon=factory.getRoomAddBLService();
 		
 	}
 	
-	
+	/**
+	 * 预订酒店并修改房间信息
+	 * @param vo
+	 * @return
+	 * @throws RemoteException
+	 */
 	public ResultMsg reserveHotel(OrderVO vo) throws RemoteException{
 		String hotelid=vo.getHotelID();
 		int number=vo.getRoomNumber();

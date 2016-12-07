@@ -27,6 +27,7 @@ public class CustomerInfoVO extends UserInfoVO {
 	 */
 	private VipType vipType;
 	
+	
 	public CustomerInfoVO() {}
 	
 	public CustomerInfoVO(String userid, String username, ContactVO contact,

@@ -29,6 +29,12 @@ public class HotelEvaluateController implements HotelEvaluateBLService{
 		hotelEvaluate = new HotelEvaluate(hotelEvaluateData);
 	}
 
+	/**
+	 * 输入评价
+	 * @param evaluateInfoVO
+	 * @return
+	 * @throws RemoteException
+	 */
 	@Override
 	public ResultMsg inputEvaluate(HotelEvaluateVO evaluateInfoVO){
 		try {
@@ -40,6 +46,13 @@ public class HotelEvaluateController implements HotelEvaluateBLService{
 		
 	}
 
+	
+	/**
+	 * 检查是否在已执行订单中
+	 * @param evaluateInfoVO
+	 * @return
+	 * @throws RemoteException
+	 */
 	@Override
 	public ResultMsg checkOrder(HotelEvaluateVO evaluateInfoVO){
 		try {
@@ -51,6 +64,12 @@ public class HotelEvaluateController implements HotelEvaluateBLService{
 		
 	}
 
+	
+	/**
+	    * 查看某一酒店的评价
+	    * @param hotelid
+	    * @return
+	    */
 	@Override
 	public ArrayList<HotelEvaluateVO> getEvaluate(String hotelid) {
 		try {

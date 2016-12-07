@@ -30,9 +30,9 @@ public class HotelReserveControllerTest {
 		impl = new HotelReserveController();
 		
 		hotel1=new HotelInfoVO("StarHotel","StarRoad","StarArea",5,"It's a wonderful hotel","cafe, garden and so on",
-				true,"587",1.1);
+				true,"587",1.1,121);
 		hotel2=new HotelInfoVO("SunHotel","SunRoad","SunArea",4,"It's a nice hotel","cafe",
-				false,"7868",1.1);
+				false,"7868",1.1,121);
 		
 		/*order1 = new OrderVO(new CustomerInfoVO("123", "txin", 
 				new ContactVO("18805156300", null), 100), 

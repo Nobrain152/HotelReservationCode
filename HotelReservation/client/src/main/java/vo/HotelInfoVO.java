@@ -66,10 +66,15 @@ public class HotelInfoVO {
 	
 	private double down;
 	
+	/**
+	 * ¾ÆµêÆð¼Û
+	 */
+	private int SP;
+	
 	
 	public HotelInfoVO() {}
 	
-	public HotelInfoVO(String name, String address, String area, int level, String introduction, String facility, boolean reserve ,String hotelID,double score) {
+	public HotelInfoVO(String name, String address, String area, int level, String introduction, String facility, boolean reserve ,String hotelID,double score,int sp) {
 		this.name = name;
 		this.address = address;
 		this.area= area;
@@ -80,6 +85,7 @@ public class HotelInfoVO {
 		this.hotelID = hotelID;
 		this.order=new ArrayList<OrderVO>();
 		this.score=score;
+		SP=sp;
 	}
 
 	public String getName() {
@@ -144,6 +150,14 @@ public class HotelInfoVO {
 	
 	public void setDown(double s){
 		down=s;
+	}
+	
+	public int getSP(){
+		return SP;
+	}
+	
+	public void setSP(int sp){
+		SP=sp;
 	}
 
 }	

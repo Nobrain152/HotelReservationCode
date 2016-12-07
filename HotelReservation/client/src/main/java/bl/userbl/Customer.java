@@ -240,12 +240,14 @@ public class Customer extends User {
 	}
 	
 	/**
-	 * 删除个人订单
+	 * 撤销个人订单
 	 * @param orderVO
 	 * @return
 	 */
 	public ResultMsg personalOrderCancel(OrderVO orderVO)throws RemoteException{
 		return order.personalOrderCancel(orderVO);
 	}
+	
+	
 	
 }

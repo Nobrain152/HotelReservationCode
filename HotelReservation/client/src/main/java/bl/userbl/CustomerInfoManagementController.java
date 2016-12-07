@@ -229,7 +229,7 @@ public class CustomerInfoManagementController
 
 
 	/**
-	 * 删除个人订单
+	 * 撤销个人订单
 	 * @param orderVO
 	 * @return
 	 */

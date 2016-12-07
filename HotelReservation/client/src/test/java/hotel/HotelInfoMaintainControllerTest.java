@@ -24,11 +24,11 @@ public class HotelInfoMaintainControllerTest {
 	@Before
 	public void setUp() {
 		hotel1=new HotelInfoVO("StarHotel","StarRoad","StarArea",5,"It's a wonderful hotel","cafe, garden and so on",
-				true,"565547657",1.1);
+				true,"565547657",1.1,120);
 		hotel2=new HotelInfoVO("SunHotel","SunRoad","SunArea",4,"It's a nice hotel","cafe",
-				false,"567858756",1.1);
+				false,"567858756",1.1,121);
 		hotel3=new HotelInfoVO("MoonHotel","MoonRoad","MoonArea",-1,"It's a terrible hotel","nothing",
-				true,"56875875456",1.1);
+				true,"56875875456",1.1,121);
 				
 				
 		impl = new HotelInfoMaintainController();

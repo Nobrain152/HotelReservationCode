@@ -21,12 +21,13 @@ public class Credit {
 	}
 	
 	public int getCredit(CustomerInfoVO client) throws RemoteException {
-		CreditPO creditPO = creditDataService.findByUserID(client.getUserID());
-		return creditPO.getCreditResult();
+		ArrayList<CreditPO> creditPOs = creditDataService.getListByUserID(client.getUserID());
+		return creditPOs.get(0).getCreditResult();
 	}
 
 	public ResultMsg addCredit(CustomerInfoVO client, int value) throws RemoteException {
-		CreditPO creditPO = creditDataService.findByUserID(client.getUserID());
+		ArrayList<CreditPO> creditPOs = creditDataService.getListByUserID(client.getUserID());
+		CreditPO creditPO = creditPOs.get(0);
 		if(creditPO == null){
 			resultMsg = ResultMsg.NOT_EXIST;
 		}else{
@@ -39,7 +40,8 @@ public class Credit {
 	}
 	
 	public ResultMsg subCredit(CustomerInfoVO client, int value) throws RemoteException {
-		CreditPO creditPO = creditDataService.findByUserID(client.getUserID());
+		ArrayList<CreditPO> creditPOs = creditDataService.getListByUserID(client.getUserID());
+		CreditPO creditPO = creditPOs.get(0);
 		if(creditPO == null){
 			resultMsg = ResultMsg.NOT_EXIST;
 		}else{
@@ -52,7 +54,8 @@ public class Credit {
 	}
 
 	public ResultMsg changeCredit(CustomerInfoVO client, int value) throws RemoteException {
-		CreditPO creditPO = creditDataService.findByUserID(client.getUserID());
+		ArrayList<CreditPO> creditPOs = creditDataService.getListByUserID(client.getUserID());
+		CreditPO creditPO = creditPOs.get(0);
 		if(creditPO == null){
 			resultMsg = ResultMsg.NOT_EXIST;
 		}else{

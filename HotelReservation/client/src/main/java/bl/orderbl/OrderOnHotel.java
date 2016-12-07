@@ -85,7 +85,8 @@ public class OrderOnHotel {
 			CustomerInfoPO customerInfoPO = orderPO.getInitiator();
 			CreditController controller = new CreditController();
 			controller.addCredit((CustomerInfoVO)VOPOchange.POtoVO(customerInfoPO), (int)orderVO.getPrice());
-			CreditPO creditPO = creditDataService.findByUserID(orderVO.getInitiator().getUserID());
+			ArrayList<CreditPO> creditPOs = creditDataService.getListByUserID(orderVO.getInitiator().getUserID());
+			CreditPO creditPO = creditPOs.get(0);
 			creditPO.setAction(Action.Executed);
 			roomInfoPO.setRoomState(RoomState.UNUSABLE);
 			orderPO.setRoomInfoPO(roomInfoPO);
@@ -102,7 +103,8 @@ public class OrderOnHotel {
 			CustomerInfoPO customerInfoPO = orderPO.getInitiator();
 			CreditController controller = new CreditController();
 			controller.addCredit((CustomerInfoVO)VOPOchange.POtoVO(customerInfoPO), (int)orderVO.getPrice());
-			CreditPO creditPO = creditDataService.findByUserID(orderVO.getInitiator().getUserID());
+			ArrayList<CreditPO> creditPOs = creditDataService.getListByUserID(orderVO.getInitiator().getUserID());
+			CreditPO creditPO = creditPOs.get(0);
 			creditPO.setAction(Action.Executed);
 			roomInfoPO.setRoomState(RoomState.UNUSABLE);
 			orderPO.setRoomInfoPO(roomInfoPO);

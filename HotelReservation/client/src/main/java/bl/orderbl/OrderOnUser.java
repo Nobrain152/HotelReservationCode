@@ -156,7 +156,8 @@ public class OrderOnUser {
 				if(lastCalendar.getTimeInMillis()-todayCalendar.getTimeInMillis() <= 6*60*60*1000) {
 					CreditController controller = new CreditController();
 					controller.subCredit(orderVO.getInitiator(), (int)orderOnUserPO.getPrice()/2);
-					CreditPO creditPO = creditDataService.findByUserID(orderOnUserPO.getInitiator().getUserID());
+					ArrayList<CreditPO> creditPOs = creditDataService.getListByUserID(orderOnUserPO.getInitiator().getUserID());
+					CreditPO creditPO = creditPOs.get(0);
 					creditPO.setAction(Action.Cancelled);
 					resultMsg = creditDataService.insert(creditPO);
 				}

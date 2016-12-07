@@ -6,7 +6,9 @@ import java.lang.reflect.Type;
 import java.util.ArrayList;
 
 import po.ContactPO;
+import po.CustomerInfoPO;
 import po.OrderPO;
+import po.RoomInfoPO;
 import po.UserInfoPO;
 import util.OrderState;
 import util.RoomState;
@@ -146,9 +148,9 @@ public class VOPOchange {
 			
 			field1.setAccessible(true);
 			Object val = field1.get(o);
-			field2.setAccessible(true);
 
 			try {
+				field2.setAccessible(true);
 				if(val.getClass().toString().endsWith("PO")) {
 					Object valtmp = POtoVO(val);
 					field2.set(vo, valtmp);
@@ -350,9 +352,24 @@ public class VOPOchange {
 //		ContactPO po = (ContactPO)VOtoPO(vo);
 //		System.out.println(po.getPhoneNumber());
 
-		ContactPO po = new ContactPO("18805156300",null);
-		ContactVO vo = (ContactVO)POtoVO(po);
-		System.out.println(vo.getPhoneNumber());
+		//OK
+//		ContactPO po = new ContactPO("18805156300",null);
+//		ContactVO vo = (ContactVO)POtoVO(po);
+//		System.out.println(vo.getPhoneNumber());
+		
+		//OK
+//		OrderPO po = new OrderPO("201612062014",new CustomerInfoPO("19954722", "ÌÆöÎ", 
+//		new ContactPO("18805156300", "151250132@smail.nju.edu.cn"), 300, true, VipType.COMMON_VIP), 
+//		OrderState.UNEXECUTED, 99.9, "014", false, 
+//		"2016-12-16 24:00", "2016-12-16 12:00", "2016-12-17 12:00", "2016-12-17 12:00",
+//		1, 1,new RoomInfoPO(RoomState.USABLE, RoomType.ROOM_STANDARD, "513", 99.9, "014"));
+//		OrderVO vo = (OrderVO)POtoVO(po);
+//		System.out.println(po.getOrderID());
+		
+		//OK
+//		UserInfoPO po = new UserInfoPO("12345", "67890", new ContactPO("18805156300", "151250132@smail.nju.edu.cn"));
+//		UserInfoVO vo = (UserInfoVO)POtoVO(po);
+//		System.out.println(vo.getContact().getEmailAddress());
 	}
 
 }

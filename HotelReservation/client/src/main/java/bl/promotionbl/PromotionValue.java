@@ -131,7 +131,7 @@ public class PromotionValue {
 				
 				if(user.getIsMember()) {
 					for(PromotionWebPO hotelPO : po) {
-						String location = dataService.findByID(order.getHotelID()).getAddress();
+						String location = dataService.find(order.getHotelID()).getAddress();
 						if(hotelPO.getLocation().equals(location)) {
 							ratio = hotelPO.getRatio();
 							break;

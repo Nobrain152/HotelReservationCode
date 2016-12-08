@@ -4,9 +4,11 @@ import java.rmi.RemoteException;
 
 import blservice.vipblservice.VipLevelBLService;
 import net.RMIManage;
+import dataservice.userdataservice.CustomerManagementDataService;
 import dataservice.vipdataservice.VipDataService;
 import util.DataServiceType;
 import util.ResultMsg;
+import util.VipType;
 import vo.CustomerInfoVO;
 import vo.LevelSystemVO;
 
@@ -14,11 +16,12 @@ public class VipController implements VipLevelBLService{
 	
 	private Vip vip;
 	private VipDataService vipDataService;
+	private CustomerManagementDataService dataService;
 	
 	public VipController() {
 		vipDataService = (VipDataService)RMIManage.
 		getDataService(DataServiceType.VipDataService);
-		vip = new Vip(vipDataService);
+		vip = new Vip(vipDataService,dataService);
 	}
 
 	@Override
@@ -34,10 +37,10 @@ public class VipController implements VipLevelBLService{
 	}
 
 	@Override
-	public ResultMsg registerVip(CustomerInfoVO customerInfoVO, String str) {
+	public ResultMsg registerVip(String userID,VipType type,String str) {
 		ResultMsg resultMsg = ResultMsg.FAIL;
 		try {
-			resultMsg = vip.registerVip(customerInfoVO, str);
+			resultMsg = vip.registerVip(userID, type, str);
 		} catch (RemoteException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

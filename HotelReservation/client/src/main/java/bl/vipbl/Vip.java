@@ -3,9 +3,11 @@ package bl.vipbl;
 import java.rmi.RemoteException;
 
 import bl.VOPOchange;
+import dataservice.userdataservice.CustomerManagementDataService;
 import dataservice.vipdataservice.VipDataService;
 import po.BusinessVipPO;
 import po.CommonVipPO;
+import po.CustomerInfoPO;
 import po.LevelSystemPO;
 import util.ResultMsg;
 import util.VipType;
@@ -17,9 +19,11 @@ import vo.LevelSystemVO;
 public class Vip {
 	
 	private VipDataService vipDataService;
+	private CustomerManagementDataService dataService;
 	
-	public Vip(VipDataService vipDataService) {
+	public Vip(VipDataService vipDataService, CustomerManagementDataService dataService) {
 		this.vipDataService = vipDataService;
+		this.dataService = dataService;
 	}
 
 	/**
@@ -56,14 +60,17 @@ public class Vip {
 	 * @return
 	 * @throws RemoteException 
 	 */
-	public ResultMsg registerVip(CustomerInfoVO customerInfoVO,String str) throws RemoteException {
+	public ResultMsg registerVip(String userID, VipType type, String str) throws RemoteException {
 		ResultMsg resultMsg = ResultMsg.FAIL;
-		if(customerInfoVO.getIsMember() && customerInfoVO.getVipType() == VipType.COMMON_VIP) {
+		CustomerInfoPO customerInfoPO = dataService.FindByID(userID);
+		CustomerInfoVO customerInfoVO = (CustomerInfoVO)VOPOchange.POtoVO(customerInfoPO);
+	
+		if(type == VipType.COMMON_VIP) {
 			CommonVipVO commonVipVO = new CommonVipVO(customerInfoVO.getUserID(), customerInfoVO.getUsername()
 					, customerInfoVO.getContact(), customerInfoVO.getCredit(), str, VipType.COMMON_VIP);
 			CommonVipPO commonVipPO = (CommonVipPO)VOPOchange.VOtoPO(commonVipVO);
 			resultMsg = vipDataService.insert(commonVipPO);
-		} else if(customerInfoVO.getIsMember() && customerInfoVO.getVipType() == VipType.COMPANY_VIP) {
+		} else if(type == VipType.COMPANY_VIP) {
 			BusinessVipVO businessVipVO = new BusinessVipVO(customerInfoVO.getUserID(), customerInfoVO.getUsername()
 					, customerInfoVO.getContact(), customerInfoVO.getCredit(), str, VipType.COMPANY_VIP);
 			BusinessVipPO businessVipPO = (BusinessVipPO)VOPOchange.VOtoPO(businessVipVO);

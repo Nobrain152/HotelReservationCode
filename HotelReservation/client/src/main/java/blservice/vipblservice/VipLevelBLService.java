@@ -8,6 +8,7 @@ package blservice.vipblservice;
 
 
 import util.ResultMsg;
+import util.VipType;
 import vo.CustomerInfoVO;
 import vo.LevelSystemVO;
 
@@ -20,11 +21,11 @@ public interface VipLevelBLService {
 	
 	/**
 	 * 注册会员
-	 * @param customerInfoVO
+	 * @param userID
 	 * @param str
 	 * @return
 	 */
-	public ResultMsg registerVip(CustomerInfoVO customerInfoVO,String str);
+	public ResultMsg registerVip(String userID,VipType type,String str);
 	
 	/**
 	 * 制定等级制度

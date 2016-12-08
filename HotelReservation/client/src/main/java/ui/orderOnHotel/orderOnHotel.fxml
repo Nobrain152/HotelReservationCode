@@ -53,6 +53,7 @@
                                   <TableColumn fx:id="order_all_userName" prefWidth="89.0" text="用户名" />
                                     <TableColumn fx:id="order_all_time" prefWidth="190.0" text="时间" />
                                     <TableColumn fx:id="order_all_price" prefWidth="87.0" text="金额" />
+                                    <TableColumn prefWidth="75.0" text="状态" />
                                 </columns>
                               </TableView>
                            </children></AnchorPane>

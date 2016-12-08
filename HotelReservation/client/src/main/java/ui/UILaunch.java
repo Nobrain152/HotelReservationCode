@@ -42,7 +42,7 @@ import ui.reservedHotel.reservedHotelInfoViewController;
 import ui.reservedHotel.reservedHotelListViewController;
 import ui.roomAdd.roomAddViewController;
 import ui.roomAdd.roomListViewController;
-import ui.vip.vipViewController;
+import ui.vip.vipRegisterViewController;
 import ui.webManagerGuide.webManagerGuideViewController;
 import ui.webSalesmanGuide.webSalesmanGuideViewController;
 
@@ -66,7 +66,7 @@ public class UILaunch extends Application{
 		stage.setTitle("DIMENSION");
 		stage.setMinWidth(MINIMUM_WINDOW_WIDTH);
 		stage.setMinHeight(MINIMUM_WINDOW_HEIGHT);
-		gotologin();	
+		gotoorderOnHotel();	
 		stage.show();
 	}
 	
@@ -448,7 +448,7 @@ public class UILaunch extends Application{
 	 */
 	public void gotovip(){
 		try{
-			vipViewController vip=(vipViewController) replaceSceneContent("vip/vip.fxml");
+			vipRegisterViewController vip=(vipRegisterViewController) replaceSceneContent("vip/vip.fxml");
 			vip.setApp(this);
 		}catch(Exception ex){
 			ex.printStackTrace();

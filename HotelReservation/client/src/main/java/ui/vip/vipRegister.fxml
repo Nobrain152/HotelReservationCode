@@ -11,7 +11,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ui.vip.vipViewControllerller">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ui.vip.vipRegisterViewController">
    <children>
       <Pane prefHeight="69.0" prefWidth="800.0">
          <children>
@@ -45,15 +45,21 @@
                   <Font size="14.0" />
                </font>
             </Text>
-            <Text layoutX="239.0" layoutY="189.0" strokeType="OUTSIDE" strokeWidth="0.0" text="会员信息">
+            <Text layoutX="239.0" layoutY="237.0" strokeType="OUTSIDE" strokeWidth="0.0" text="企业名称">
                <font>
                   <Font size="14.0" />
                </font>
             </Text>
-            <Button layoutX="500.0" layoutY="255.0" mnemonicParsing="false" prefHeight="29.0" prefWidth="61.0" text="注册" />
+            <Button layoutX="502.0" layoutY="336.0" mnemonicParsing="false" prefHeight="29.0" prefWidth="61.0" text="注册" />
             <ChoiceBox fx:id="cb_VipType" layoutX="362.0" layoutY="110.0" prefHeight="23.0" prefWidth="161.0" />
-            <TextField layoutX="362.0" layoutY="172.0" />
-            <Text fill="#2294cd" layoutX="240.0" layoutY="220.0" strokeType="OUTSIDE" strokeWidth="0.0" text="*普通会员请填写生日信息，企业会员请填写企业名称" />
+            <TextField layoutX="362.0" layoutY="220.0" />
+            <Text fill="#2294cd" layoutX="240.0" layoutY="296.0" strokeType="OUTSIDE" strokeWidth="0.0" text="*普通会员请填写生日信息，企业会员请填写企业名称" />
+            <Text layoutX="239.0" layoutY="184.0" strokeType="OUTSIDE" strokeWidth="0.0" text="生日信息">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Text>
+            <DatePicker layoutX="362.0" layoutY="167.0" prefHeight="23.0" prefWidth="161.0" />
          </children></Pane>
    </children>
 </AnchorPane>

@@ -28,9 +28,9 @@ public class PromotionWeb{
 	 * @return
 	 * @throws RemoteException 
 	 */
-	public ResultMsg changeLevelCut(int level, double ratio ,String hotelID) throws RemoteException {
+	public ResultMsg changeLevelCut(int level, double ratio) throws RemoteException {
 		PromotionWebType type = PromotionWebType.VIP_LEVEL_PROMOTION;
-		ArrayList<PromotionWebPO> promotion = promotionWebDataService.findByType(type,hotelID);
+		ArrayList<PromotionWebPO> promotion = promotionWebDataService.findByType(type);
 		for(PromotionWebPO po : promotion) {
 			if(po.getLevel() == level) {
 				po.setRatio(ratio);
@@ -48,9 +48,9 @@ public class PromotionWeb{
 	 * @return
 	 * @throws RemoteException 
 	 */
-	public ResultMsg changeWebCustomCut(String timeBegin, String timeOver, double ratio,String hotelID) throws RemoteException {
+	public ResultMsg changeWebCustomCut(String timeBegin, String timeOver, double ratio) throws RemoteException {
 		PromotionWebType type = PromotionWebType.WEB_CUSTOM_PROMOTION;
-		ArrayList<PromotionWebPO> promotion = promotionWebDataService.findByType(type,hotelID);
+		ArrayList<PromotionWebPO> promotion = promotionWebDataService.findByType(type);
 		for(PromotionWebPO po : promotion) {
 			if(po.getTimeBegin().equals(timeBegin) && po.getTimeOver().equals(timeOver)) {
 				po.setRatio(ratio);
@@ -67,9 +67,9 @@ public class PromotionWeb{
 	 * @return
 	 * @throws RemoteException 
 	 */
-	public ResultMsg changeCircleCut(String location, double ratio,String hotelID) throws RemoteException {
+	public ResultMsg changeCircleCut(String location, double ratio) throws RemoteException {
 		PromotionWebType type = PromotionWebType.VIP_CIRCLE_PROMOTION;
-		ArrayList<PromotionWebPO> promotion = promotionWebDataService.findByType(type,hotelID);
+		ArrayList<PromotionWebPO> promotion = promotionWebDataService.findByType(type);
 		for(PromotionWebPO po : promotion) {
 			if(po.getLocation().equals(location)) {
 				po.setRatio(ratio);
@@ -86,15 +86,15 @@ public class PromotionWeb{
 	 * @return
 	 * @throws RemoteException 
 	 */
-	public ResultMsg addLevelCut(int level, double ratio,String hotelID) throws RemoteException {
+	public ResultMsg addLevelCut(int level, double ratio) throws RemoteException {
 		PromotionWebType type = PromotionWebType.VIP_LEVEL_PROMOTION;
-		ArrayList<PromotionWebPO> promotion = promotionWebDataService.findByType(type,hotelID);
+		ArrayList<PromotionWebPO> promotion = promotionWebDataService.findByType(type);
 		for(PromotionWebPO po : promotion) {
 			if(po.getLevel() == level) {
 				return resultMsg;
 			}
 		}
-		PromotionWebPO po = new PromotionWebPO(type, hotelID, level, ratio);
+		PromotionWebPO po = new PromotionWebPO(type, level, ratio);
 		resultMsg = promotionWebDataService.insert(po);
 		return resultMsg;
 	}
@@ -106,15 +106,15 @@ public class PromotionWeb{
 	 * @return
 	 * @throws RemoteException 
 	 */
-	public ResultMsg addCircleCut(String location, double radio,String hotelID) throws RemoteException {
+	public ResultMsg addCircleCut(String location, double radio) throws RemoteException {
 		PromotionWebType type = PromotionWebType.VIP_CIRCLE_PROMOTION;
-		ArrayList<PromotionWebPO> promotion = promotionWebDataService.findByType(type,hotelID);
+		ArrayList<PromotionWebPO> promotion = promotionWebDataService.findByType(type);
 		for(PromotionWebPO po : promotion) {
 			if(po.getLocation().equals(location)) {
 				return resultMsg;
 			}
 		}
-		PromotionWebPO po = new PromotionWebPO(type, hotelID, location, radio);
+		PromotionWebPO po = new PromotionWebPO(type, location, radio);
 		resultMsg = promotionWebDataService.insert(po);
 		return resultMsg;
 	}
@@ -127,15 +127,15 @@ public class PromotionWeb{
 	 * @return
 	 * @throws RemoteException 
 	 */
-	public ResultMsg addWebCustomCut(String timeBegin, String timeOver, double ratio,String hotelID) throws RemoteException {
+	public ResultMsg addWebCustomCut(String timeBegin, String timeOver, double ratio) throws RemoteException {
 		PromotionWebType type = PromotionWebType.WEB_CUSTOM_PROMOTION;
-		ArrayList<PromotionWebPO> promotion = promotionWebDataService.findByType(type,hotelID);
+		ArrayList<PromotionWebPO> promotion = promotionWebDataService.findByType(type);
 		for(PromotionWebPO po : promotion) {
 			if(po.getTimeBegin().equals(timeBegin) && po.getTimeOver().equals(timeOver)) {
 				return resultMsg;
 			}
 		}
-		PromotionWebPO po = new PromotionWebPO(type, hotelID, timeBegin,timeOver, ratio);
+		PromotionWebPO po = new PromotionWebPO(type, timeBegin,timeOver, ratio);
 		resultMsg = promotionWebDataService.insert(po);
 		return resultMsg;
 	}
@@ -146,14 +146,47 @@ public class PromotionWeb{
 	 * @return
 	 * @throws RemoteException 
 	 */
-	public ArrayList<PromotionWebVO> getWebPromotion(PromotionWebType type,String hotelID) throws RemoteException {
-		ArrayList<PromotionWebPO> list = promotionWebDataService.findByType(type,hotelID);
+	public ArrayList<PromotionWebVO> getWebPromotion(PromotionWebType type) throws RemoteException {
+		ArrayList<PromotionWebPO> list = promotionWebDataService.findByType(type);
 		ArrayList<PromotionWebVO> voList = new ArrayList<>();
 		PromotionWebVO vo;
 		for(PromotionWebPO po : list) {
 			vo = (PromotionWebVO)VOPOchange.POtoVO(po);
 			voList.add(vo);
 		}
-		return voList;	}
+		return voList;	
+	}
 	
+	public ResultMsg deleteLevelCut(int level) throws RemoteException {
+		PromotionWebType type = PromotionWebType.WEB_CUSTOM_PROMOTION;
+		ArrayList<PromotionWebPO> promotion = promotionWebDataService.findByType(type);
+		for(PromotionWebPO po : promotion) {
+			if(po.getLevel() == level) {
+				resultMsg = promotionWebDataService.delete(po);
+			}
+		}
+		return resultMsg;
+	}
+	
+	public ResultMsg deleteCircleCut(String location) throws RemoteException {
+		PromotionWebType type = PromotionWebType.VIP_CIRCLE_PROMOTION;
+		ArrayList<PromotionWebPO> promotion = promotionWebDataService.findByType(type);
+		for(PromotionWebPO po : promotion) {
+			if(po.getLocation().equals(location)) {
+				resultMsg = promotionWebDataService.delete(po);
+			}
+		}
+		return resultMsg;
+	}
+	
+	public ResultMsg deleteWebCustomCut(String timeBegin,String timeOver) throws RemoteException {
+		PromotionWebType type = PromotionWebType.WEB_CUSTOM_PROMOTION;
+		ArrayList<PromotionWebPO> promotion = promotionWebDataService.findByType(type);
+		for(PromotionWebPO po : promotion) {
+			if(po.getTimeBegin().equals(timeBegin) && po.getTimeOver().equals(timeOver)) {
+				resultMsg = promotionWebDataService.delete(po);
+			}
+		}
+		return resultMsg;
+	}
 }

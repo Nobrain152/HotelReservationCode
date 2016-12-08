@@ -23,7 +23,7 @@ public interface PromotionWebDataService {
 	
 	public PromotionWebPO findByName(String name) throws RemoteException;
 	
-	public ArrayList<PromotionWebPO> findByType(PromotionWebType type,String hotelID) throws RemoteException;
+	public ArrayList<PromotionWebPO> findByType(PromotionWebType type) throws RemoteException;
 	
 	public ArrayList<PromotionWebPO> show() throws RemoteException;
 	

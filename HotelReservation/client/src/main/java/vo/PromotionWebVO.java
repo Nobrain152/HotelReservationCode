@@ -14,11 +14,6 @@ import util.VipType;
 public class PromotionWebVO {
 	
 	/**
-	 * 酒店ID
-	 */
-	String hotelID;
-	
-	/**
 	 * 促销策略类型
 	 */
 	PromotionWebType hotelType;
@@ -50,9 +45,8 @@ public class PromotionWebVO {
 	
 	public PromotionWebVO() {}
 	
-	public PromotionWebVO(String hotelID, PromotionWebType hotelType,VipType customType,
+	public PromotionWebVO(PromotionWebType hotelType,VipType customType,
 			String beginTime,String endTime,double ratio,int level,String location) {
-		this.hotelID = hotelID;
 		this.hotelType = hotelType;
 		this.hotelType = hotelType;
 		this.beginTime = beginTime;
@@ -62,30 +56,22 @@ public class PromotionWebVO {
 		this.location = location;
 	}
 	
-	public PromotionWebVO(PromotionWebType promotionWebType,String hotelId,int level,double ratio) {
+	public PromotionWebVO(PromotionWebType promotionWebType,int level,double ratio) {
 		this.hotelType = promotionWebType;
-		this.hotelID = hotelId;
 		this.level = level;
 		this.ratio = ratio;
 	}
 	
-	public PromotionWebVO(PromotionWebType promotionWebType,String hotelID,String location,double ratio) {
+	public PromotionWebVO(PromotionWebType promotionWebType,String location,double ratio) {
 		this.hotelType = promotionWebType;
-		this.hotelID = hotelID;
 		this.location  = location;
 		this.ratio = ratio;
 	}
 	
-	public PromotionWebVO(PromotionWebType type,String hotelID,String beginTime,String endTime,double radio) {
+	public PromotionWebVO(PromotionWebType type,String beginTime,String endTime,double radio) {
 		this.hotelType = type;
-		this.hotelID = hotelID;
 		this.beginTime = beginTime;
 		this.endTime = endTime;
-		this.hotelID = hotelID;
-	}
-	
-	public String getHotelID() {
-		return hotelID;
 	}
 	
 	public PromotionWebType getType(){

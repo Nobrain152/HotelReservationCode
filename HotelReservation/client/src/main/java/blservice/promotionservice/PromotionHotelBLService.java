@@ -39,7 +39,16 @@ public interface PromotionHotelBLService {
 	
 	public ResultMsg addJoin(String businessName,double ratio,String hotelID) ;
 	
-	public ResultMsg addHotelCustomCut (String timeBegin,String timeOver, double ratio,String hotelID);
+	public ResultMsg addHotelCustomCut(String timeBegin,String timeOver, double ratio,String hotelID);
+	
+	//É¾³ý´ÙÏú²ßÂÔ
+	public ResultMsg deleteBirthCut(int level, String hotelID);
+	
+	public ResultMsg deleteOverCut(int number, String hotelID);
+	
+	public ResultMsg deleteJoin(String businessName, String hotelID);
+	
+	public ResultMsg deleteHotelCustomCut(String timeBegin,String timeOver, String hotelID);
 	
 	/**
 	 * @param type

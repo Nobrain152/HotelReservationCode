@@ -121,7 +121,7 @@ public class PromotionValue {
 	
 	public OrderVO getValue(CustomerInfoVO user, OrderVO order, PromotionWebType webType) throws RemoteException {
 		ArrayList<PromotionWebPO> po = promotionWebDataService.
-				findByType(webType, order.getHotelID());;
+				findByType(webType);;
 		Vip vip = new Vip(vipDataService);
 		double ratio = 1;
 		

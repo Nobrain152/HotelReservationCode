@@ -23,9 +23,9 @@ public class PromotionWebController implements PromotionWebBLService{
 		promotionWeb = new PromotionWeb(webDataService);
 	}
 	@Override
-	public ResultMsg changeLevelCut(int level, double ratio, String hotelID) {
+	public ResultMsg changeLevelCut(int level, double ratio) {
 		try {
-			resultMsg = promotionWeb.changeLevelCut(level, ratio, hotelID);
+			resultMsg = promotionWeb.changeLevelCut(level, ratio);
 		} catch (RemoteException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -34,9 +34,9 @@ public class PromotionWebController implements PromotionWebBLService{
 	}
 
 	@Override
-	public ResultMsg changeCircleCut(String location, double ratio, String hotelID) {
+	public ResultMsg changeCircleCut(String location, double ratio) {
 		try {
-			resultMsg = promotionWeb.changeCircleCut(location, ratio, hotelID);
+			resultMsg = promotionWeb.changeCircleCut(location, ratio);
 		} catch (RemoteException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -45,9 +45,9 @@ public class PromotionWebController implements PromotionWebBLService{
 	}
 
 	@Override
-	public ResultMsg changeWebCustomCut(String timeBegin, String timeOver, double ratio, String hotelID) {
+	public ResultMsg changeWebCustomCut(String timeBegin, String timeOver, double ratio) {
 		try {
-			resultMsg = promotionWeb.changeWebCustomCut(timeBegin, timeOver, ratio, hotelID);
+			resultMsg = promotionWeb.changeWebCustomCut(timeBegin, timeOver, ratio);
 		} catch (RemoteException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -56,9 +56,9 @@ public class PromotionWebController implements PromotionWebBLService{
 	}
 
 	@Override
-	public ResultMsg addLevelCut(int level, double ratio, String hotelID) {
+	public ResultMsg addLevelCut(int level, double ratio) {
 		try {
-			resultMsg = promotionWeb.addLevelCut(level, ratio, hotelID);
+			resultMsg = promotionWeb.addLevelCut(level, ratio);
 		} catch (RemoteException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -67,9 +67,9 @@ public class PromotionWebController implements PromotionWebBLService{
 	}
 
 	@Override
-	public ResultMsg addCircleCut(String location, double ratio, String hotelID) {
+	public ResultMsg addCircleCut(String location, double ratio) {
 		try {
-			resultMsg = promotionWeb.addCircleCut(location, ratio, hotelID);
+			resultMsg = promotionWeb.addCircleCut(location, ratio);
 		} catch (RemoteException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -78,9 +78,9 @@ public class PromotionWebController implements PromotionWebBLService{
 	}
 
 	@Override
-	public ResultMsg addWebCustomCut(String timeBegin, String timeOver, double ratio, String hotelID) {
+	public ResultMsg addWebCustomCut(String timeBegin, String timeOver, double ratio) {
 		try {
-			resultMsg = promotionWeb.addWebCustomCut(timeBegin, timeOver, ratio, hotelID);
+			resultMsg = promotionWeb.addWebCustomCut(timeBegin, timeOver, ratio);
 		} catch (RemoteException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -89,15 +89,45 @@ public class PromotionWebController implements PromotionWebBLService{
 	}
 
 	@Override
-	public ArrayList<PromotionWebVO> getWebPromotion(PromotionWebType type, String hotelID) {
+	public ArrayList<PromotionWebVO> getWebPromotion(PromotionWebType type) {
 		ArrayList<PromotionWebVO> list = null;
 		try {
-			list = promotionWeb.getWebPromotion(type, hotelID);
+			list = promotionWeb.getWebPromotion(type);
 		} catch (RemoteException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		return list;
+	}
+	@Override
+	public ResultMsg deleteLevelCut(int level) {
+		try {
+			resultMsg = promotionWeb.deleteLevelCut(level);
+		} catch (RemoteException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return resultMsg;
+	}
+	@Override
+	public ResultMsg deleteCircleCut(String location) {
+		try {
+			resultMsg = promotionWeb.deleteCircleCut(location);
+		} catch (RemoteException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return resultMsg;
+	}
+	@Override
+	public ResultMsg deleteWebCustomCut(String timeBegin, String timeOver) {
+		try {
+			resultMsg = promotionWeb.deleteWebCustomCut(timeBegin, timeOver);
+		} catch (RemoteException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return resultMsg;
 	}
 
 }

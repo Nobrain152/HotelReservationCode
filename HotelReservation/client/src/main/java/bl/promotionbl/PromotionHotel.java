@@ -201,5 +201,50 @@ public class PromotionHotel {
 		resultMsg = promotionHotelDataService.insert(po);
 		return resultMsg;
 	}
+	
+	public ResultMsg deleteBirthCut(int level,String hotelID) throws RemoteException {
+		PromotionHotelType type = PromotionHotelType.BIRTH_PROMOTION;
+		ArrayList<PromotionHotelPO> promotion = promotionHotelDataService.findByType(type,hotelID);
+		for(PromotionHotelPO po : promotion) {
+			if(po.getLevel() == level) {
+				resultMsg = promotionHotelDataService.delete(po);
+			}
+		}
+		return resultMsg;
+	}
+	
+	public ResultMsg deleteOverCut(int number, String hotelID) throws RemoteException {
+		PromotionHotelType type = PromotionHotelType.OVERTHREE_PROMOTION;
+		ArrayList<PromotionHotelPO> promotion = promotionHotelDataService.findByType(type,hotelID);
+		for(PromotionHotelPO po : promotion) {
+			if(po.getNumber() == number) {
+				resultMsg = promotionHotelDataService.delete(po);
+			}
+		}
+		return resultMsg;
+	}
+	
+	public ResultMsg deleteJoin(String businessName, String hotelID) throws RemoteException {
+		PromotionHotelType type = PromotionHotelType.OVERTHREE_PROMOTION;
+		ArrayList<PromotionHotelPO> promotion = promotionHotelDataService.findByType(type,hotelID);
+		for(PromotionHotelPO po : promotion) {
+			if(po.getBusinessName() == businessName) {
+				resultMsg = promotionHotelDataService.delete(po);
+			}
+		}
+		return resultMsg;
+	}
+	
+	public ResultMsg deleteHotelCustomCut(String timeBegin,String timeOver, String hotelID) throws RemoteException {
+		PromotionHotelType type = PromotionHotelType.OVERTHREE_PROMOTION;
+		ArrayList<PromotionHotelPO> promotion = promotionHotelDataService.findByType(type,hotelID);
+		for(PromotionHotelPO po : promotion) {
+			if(po.getTimeBegin().equals(timeBegin) 
+					&& po.getTimeOver().equals(timeOver)) {
+				resultMsg = promotionHotelDataService.delete(po);
+			}
+		}
+		return resultMsg;
+	}
 
 }

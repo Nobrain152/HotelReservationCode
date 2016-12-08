@@ -37,7 +37,7 @@ public class PromotionWebDataServiceImpl implements PromotionWebDataService{
 	}
 
 	@Override
-	public ArrayList<PromotionWebPO> findByType(PromotionWebType type, String hotelID) throws RemoteException {
+	public ArrayList<PromotionWebPO> findByType(PromotionWebType type) throws RemoteException {
 		// TODO Auto-generated method stub
 		return null;
 	}

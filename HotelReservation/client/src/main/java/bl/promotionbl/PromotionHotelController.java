@@ -123,5 +123,48 @@ public class PromotionHotelController implements PromotionHotelBLService{
 		return list;
 	}
 
+	@Override
+	public ResultMsg deleteBirthCut(int level, String hotelID) {
+		try {
+			resultMsg = promotionHotel.deleteBirthCut(level, hotelID);
+		} catch (RemoteException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return resultMsg;
+	}
+
+	@Override
+	public ResultMsg deleteOverCut(int number, String hotelID) {
+		try {
+			resultMsg = promotionHotel.deleteOverCut(number, hotelID);
+		} catch (RemoteException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return resultMsg;
+	}
+
+	@Override
+	public ResultMsg deleteJoin(String businessName, String hotelID) {
+		try {
+			resultMsg = promotionHotel.deleteJoin(businessName, hotelID);
+		} catch (RemoteException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return resultMsg;
+	}
+
+	@Override
+	public ResultMsg deleteHotelCustomCut(String timeBegin, String timeOver, String hotelID) {
+		try {
+			resultMsg = promotionHotel.deleteHotelCustomCut(timeBegin, timeOver, hotelID);
+		} catch (RemoteException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return null;
+	}
 
 }

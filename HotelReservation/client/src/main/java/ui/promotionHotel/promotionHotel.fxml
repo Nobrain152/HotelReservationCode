@@ -19,7 +19,7 @@
       </Pane>
       <Pane layoutY="530.0" prefHeight="70.0" prefWidth="800.0" style="-fx-background-color: lightgrey;">
          <children>
-            <Button layoutX="700.0" layoutY="20.0" mnemonicParsing="false" prefHeight="28.0" prefWidth="59.0" text="返回">
+            <Button fx:id="btn_Cancel" layoutX="700.0" layoutY="20.0" mnemonicParsing="false" prefHeight="28.0" prefWidth="59.0" text="返回">
                <font>
                   <Font size="14.0" />
                </font></Button>
@@ -31,10 +31,10 @@
             <content>
               <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                      <children>
-                        <TableView layoutX="84.0" layoutY="72.0" prefHeight="254.0" prefWidth="326.0">
+                        <TableView fx:id="promotion_birthday" layoutX="84.0" layoutY="72.0" prefHeight="254.0" prefWidth="326.0">
                           <columns>
-                            <TableColumn prefWidth="164.0" text="会员等级" />
-                            <TableColumn prefWidth="161.0" text="相应会员折扣" />
+                            <TableColumn fx:id="promotion_birthday_level" prefWidth="164.0" text="会员等级" />
+                            <TableColumn fx:id="promotion_birthday_discount" prefWidth="161.0" text="相应会员折扣" />
                           </columns>
                         </TableView>
                         <Button layoutX="125.0" layoutY="353.0" mnemonicParsing="false" text="修改" />
@@ -49,17 +49,58 @@
           </Tab>
           <Tab text="三间以上优惠策略">
             <content>
-              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <Button layoutX="112.0" layoutY="356.0" mnemonicParsing="false" text="Button" />
+                        <TableView fx:id="promotion_threeroom" layoutX="94.0" layoutY="82.0" prefHeight="254.0" prefWidth="326.0">
+                           <columns>
+                              <TableColumn fx:id="promotion_threeroom_number" prefWidth="164.0" text="房间数量" />
+                              <TableColumn fx:id="promotion_threeroom_discount" prefWidth="161.0" text="相应折扣" />
+                           </columns>
+                        </TableView>
+                        <Button layoutX="680.0" layoutY="287.0" mnemonicParsing="false" text="添加" />
+                        <Label layoutX="574.0" layoutY="114.0" text="优惠策略添加" />
+                        <TextField layoutX="574.0" layoutY="209.0" promptText="相应折扣" />
+                        <TextField layoutX="574.0" layoutY="160.0" promptText="房间数量" />
+                     </children></AnchorPane>
             </content>
           </Tab>
             <Tab text="合作企业优惠策略">
               <content>
-                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <Button layoutX="124.0" layoutY="355.0" mnemonicParsing="false" text="Button" />
+                        <TableView fx:id="promotion_enterprise" layoutX="94.0" layoutY="82.0" prefHeight="254.0" prefWidth="326.0">
+                           <columns>
+                              <TableColumn fx:id="promotion_enterprise_name" prefWidth="164.0" text="合作企业" />
+                              <TableColumn fx:id="promotion_enterprise_discount" prefWidth="161.0" text="相应折扣" />
+                           </columns>
+                        </TableView>
+                        <Button layoutX="680.0" layoutY="287.0" mnemonicParsing="false" text="添加" />
+                        <Label layoutX="574.0" layoutY="114.0" text="优惠策略添加" />
+                        <TextField layoutX="574.0" layoutY="209.0" promptText="相应折扣" />
+                        <TextField layoutX="574.0" layoutY="160.0" promptText="合作企业" />
+                     </children></AnchorPane>
               </content>
             </Tab>
             <Tab text="自定义优惠策略">
               <content>
-                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <Button layoutX="115.0" layoutY="360.0" mnemonicParsing="false" text="Button" />
+                        <TableView fx:id="promotion_diy" layoutX="94.0" layoutY="82.0" prefHeight="254.0" prefWidth="397.0">
+                           <columns>
+                              <TableColumn fx:id="promotion_diy_startTime" prefWidth="151.0" text="起始时间" />
+                              <TableColumn fx:id="promotion_diy_endTime" prefWidth="157.0" text="结束时间" />
+                              <TableColumn fx:id="promotion_diy_discount" prefWidth="88.0" text="折扣" />
+                           </columns>
+                        </TableView>
+                        <Button layoutX="680.0" layoutY="287.0" mnemonicParsing="false" text="添加" />
+                        <Label layoutX="574.0" layoutY="94.0" text="优惠策略添加" />
+                        <TextField layoutX="575.0" layoutY="232.0" promptText="相应折扣" />
+                        <DatePicker layoutX="574.0" layoutY="134.0" prefHeight="23.0" prefWidth="162.0" promptText="起始时间" />
+                        <DatePicker layoutX="574.0" layoutY="183.0" prefHeight="23.0" prefWidth="162.0" promptText="结束时间" />
+                     </children></AnchorPane>
               </content>
             </Tab>
         </tabs>

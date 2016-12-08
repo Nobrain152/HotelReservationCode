@@ -18,9 +18,9 @@ import ui.UILaunch;
 public class orderOnUserViewController implements Initializable{
 	private UILaunch application;
 	
+	//全部订单
 	@FXML
-	private TableView<OrderInTable> order_all;
-	
+	private TableView<OrderInTable> order_all;	
 	@FXML
 	private TableColumn<?, ?> order_all_ID;
 	@FXML
@@ -29,8 +29,60 @@ public class orderOnUserViewController implements Initializable{
 	private TableColumn<?, ?> order_all_time;
 	@FXML
 	private TableColumn<?, ?> order_all_price;
+	private ObservableList<OrderInTable> data_all;
 	
-	private ObservableList<OrderInTable> data;
+	//已执行订单
+	@FXML
+	private TableView<OrderInTable> order_executed;	
+	@FXML
+	private TableColumn<?, ?> order_executed_ID;
+	@FXML
+	private TableColumn<?, ?> order_executed_hotelName;
+	@FXML
+	private TableColumn<?, ?> order_executed_time;
+	@FXML
+	private TableColumn<?, ?> order_executed_price;
+	private ObservableList<OrderInTable> data_executed;
+	
+	//未执行订单
+	@FXML
+	private TableView<OrderInTable> order_waiting;	
+	@FXML
+	private TableColumn<?, ?> order_waiting_ID;
+	@FXML
+	private TableColumn<?, ?> order_waiting_hotelName;
+	@FXML
+	private TableColumn<?, ?> order_waiting_time;
+	@FXML
+	private TableColumn<?, ?> order_waiting_price;
+	private ObservableList<OrderInTable> data_waiting;
+	
+	//已撤销订单
+	@FXML
+	private TableView<OrderInTable> order_canceled;	
+	@FXML
+	private TableColumn<?, ?> order_canceled_ID;
+	@FXML
+	private TableColumn<?, ?> order_canceled_hotelName;
+	@FXML
+	private TableColumn<?, ?> order_canceled_time;
+	@FXML
+	private TableColumn<?, ?> order_canceled_price;
+	private ObservableList<OrderInTable> data_canceled;
+	
+	//异常订单
+	@FXML
+	private TableView<OrderInTable> order_abnormal;	
+	@FXML
+	private TableColumn<?, ?> order_abnormal_ID;
+	@FXML
+	private TableColumn<?, ?> order_abnormal_hotelName;
+	@FXML
+	private TableColumn<?, ?> order_abnormal_time;
+	@FXML
+	private TableColumn<?, ?> order_abnormal_price;
+	private ObservableList<OrderInTable> data_abnormal;
+	
 	
 	@FXML
 	private Button btn_Cancel;
@@ -42,12 +94,14 @@ public class orderOnUserViewController implements Initializable{
 	@FXML
 	public void btn_CancelAction(ActionEvent ev){
 		application.gotocustomerGuide();
+		//OrderInTable result= order_all.getSelectionModel().getSelectedItem();
+		
 	}
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		// TODO Auto-generated method stub
-		data=FXCollections.observableArrayList(new OrderInTable("123","A Hotel","2016-10-01","1000"),
+		data_all=FXCollections.observableArrayList(new OrderInTable("123","A Hotel","2016-10-01","1000"),
 				new OrderInTable("123","A Hotel","2016-10-01","1000"),
 				new OrderInTable("123","A Hotel","2016-10-01","1000"),
 				new OrderInTable("123","A Hotel","2016-10-01","1000"),
@@ -62,7 +116,7 @@ public class orderOnUserViewController implements Initializable{
 		order_all_hotelName.setCellValueFactory(new PropertyValueFactory<>("hotelName"));
 		order_all_time.setCellValueFactory(new PropertyValueFactory<>("time"));
 		order_all_price.setCellValueFactory(new PropertyValueFactory<>("price"));
-		order_all.setItems(data);
+		order_all.setItems(data_all);
 	}
 	
 	/**

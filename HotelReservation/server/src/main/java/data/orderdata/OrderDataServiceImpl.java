@@ -1,10 +1,12 @@
 package data.orderdata;
 
 import java.rmi.RemoteException;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import data.hoteldata.RoomInfoDataServiceImpl;
 import data.userdata.CustomerManagementDataServiceImpl;
 import dataSuper.DataSuperClass;
+import datafactory.DataFactory;
 import dataservice.orderdataservice.OrderDataService;
 import po.OrderPO;
 import util.OrderState;
@@ -57,11 +59,52 @@ public class OrderDataServiceImpl extends DataSuperClass implements OrderDataSer
 		}
 		return orderPO;
 	}
-
+	
+	
+	
+	//抽象出来
 	@Override
 	public ArrayList<OrderPO> findByUserID(String ID) throws RemoteException {
+		ArrayList<OrderPO> pos = new ArrayList<OrderPO>(50);
+		OrderPO orderPO = null;
 		
-		return null;
+		try {
+			sql = "SELECT * FROM " + tableName ;
+			preState = conn.prepareStatement(sql);
+			result = preState.executeQuery();
+			CustomerManagementDataServiceImpl customer = (CustomerManagementDataServiceImpl) DataFactory.getDataFactory().getCustomerManagementDataServiceImpl();
+			RoomInfoDataServiceImpl room = (RoomInfoDataServiceImpl) DataFactory.getDataFactory().getRoomInfoDataServiceImpl();
+			
+			while (result.next()) {
+					orderPO = new OrderPO(result.getString(1), 
+							customer.FindByID(result.getString(2))/*需要返回customerinfo*/, 
+							OrderState.valueOf(result.getString(3)),
+							Double.valueOf(result.getString(4)), result.getString(5), 
+							Boolean.valueOf(result.getString(6)), result.getString(7), 
+							result.getString(8), result.getString(9), 
+							result.getString(10),
+							Integer.getInteger(result.getString(11)),
+							Integer.getInteger(result.getString(12)),
+							room.findByRoomID(result.getString(13)));
+					
+					if(findMes != null && result.getString(15) != null){
+						orderPO = new OrderPO(orderPO, result.getString(15));
+					}
+					
+					if(findMes !=null && result.getString(14) != null){
+						orderPO = new OrderPO(orderPO, 
+											Boolean.valueOf(result.getString(14)));
+					}
+					
+					pos.add(orderPO);
+				
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+			System.out.println("订单信息从数据库中查找出错");
+		}
+		
+		return pos.size()==0?null:pos;
 	}
 
 	@Override
@@ -71,7 +114,47 @@ public class OrderDataServiceImpl extends DataSuperClass implements OrderDataSer
 
 	@Override
 	public ArrayList<OrderPO> showList() throws RemoteException {
-		return null;
+		ArrayList<OrderPO> pos = new ArrayList<OrderPO>(50);
+		CustomerManagementDataServiceImpl customer = (CustomerManagementDataServiceImpl) DataFactory.getDataFactory().getCustomerManagementDataServiceImpl();
+		RoomInfoDataServiceImpl room = (RoomInfoDataServiceImpl) DataFactory.getDataFactory().getRoomInfoDataServiceImpl();
+		OrderPO orderPO = null;
+		
+		try {
+			sql = "SELECT * FROM " + tableName ;
+			preState = conn.prepareStatement(sql);
+			result = preState.executeQuery();
+			
+			while (result.next()) {
+					orderPO = new OrderPO(result.getString(1), 
+							customer.FindByID(result.getString(2))/*需要返回customerinfo*/, 
+							OrderState.valueOf(result.getString(3)),
+							Double.valueOf(result.getString(4)), result.getString(5), 
+							Boolean.valueOf(result.getString(6)), result.getString(7), 
+							result.getString(8), result.getString(9), 
+							result.getString(10),
+							Integer.getInteger(result.getString(11)),
+							Integer.getInteger(result.getString(12)),
+							room.findByRoomID(result.getString(13)));
+					
+					if(findMes != null && result.getString(15) != null){
+						orderPO = new OrderPO(orderPO, result.getString(15));
+					}
+					
+					if(findMes !=null && result.getString(14) != null){
+						orderPO = new OrderPO(orderPO, 
+											Boolean.valueOf(result.getString(14)));
+					}
+					
+					pos.add(orderPO);
+				
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+			System.out.println("订单信息从数据库中查找出错");
+		}
+		
+		return pos.size()==0?null:pos;
+		
 	}
 	
 	private OrderPO getMsg(String ID) throws RemoteException{
@@ -96,7 +179,7 @@ public class OrderDataServiceImpl extends DataSuperClass implements OrderDataSer
 		}
 		
 		if(findMes !=null && findMes.get(13) != null){
-			orderPO = new OrderPO(orderPO, Boolean.getBoolean(findMes.get(13)));
+			orderPO = new OrderPO(orderPO, Boolean.valueOf(findMes.get(13)));
 		}
 		
 		return orderPO;

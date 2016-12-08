@@ -8,52 +8,26 @@ import po.HotelEvaluatePO;
 import util.ResultMsg;
 
 public class HotelEvaluateDataServiceImpl implements HotelEvaluateDataService{
-	ArrayList<HotelEvaluatePO> POs;
 	
-	public HotelEvaluateDataServiceImpl(){
-		POs = new ArrayList<HotelEvaluatePO>();
+	private String tableName = "hotelEvaluate";
+	
+	@Override
+	public ResultMsg insert(HotelEvaluatePO po) throws RemoteException {
+		// TODO Auto-generated method stub
+		return null;
 	}
-	
-	/**
-	 * 增加
-	 */
-	public ResultMsg insert(HotelEvaluatePO po) throws RemoteException{
-		if(POs.add(po))
-			return ResultMsg.SUCCESS;
-		else
-			return ResultMsg.FAIL;
+
+	@Override
+	public ResultMsg delete(HotelEvaluatePO po) throws RemoteException {
+		// TODO Auto-generated method stub
+		return null;
 	}
-	
-	
-	/**
-	 * 删除
-	 */
-	public ResultMsg delete(HotelEvaluatePO po) throws RemoteException{
-		if(POs.remove(po))
-			return ResultMsg.SUCCESS;
-		else
-			return ResultMsg.FAIL;
+
+	@Override
+	public ArrayList<HotelEvaluatePO> find(String searchInfo) throws RemoteException {
+		// TODO Auto-generated method stub
+		return null;
 	}
-	
-	
-	/**
-	 * 查找
-	 */
-	public ArrayList<HotelEvaluatePO> find(String searchInfo) throws RemoteException{
-		ArrayList<HotelEvaluatePO> arrayList = new ArrayList<HotelEvaluatePO>();
-		for (HotelEvaluatePO p : POs) {
-			if(p.getHotelID().equals(searchInfo)){
-				arrayList.add(p);
-			}
-		}
-		return arrayList;
-	}
-	
-	
-	/**
-	 * 显示
-	 */
-	
 
 	@Override
 	public HotelEvaluatePO findByID(String ID) throws RemoteException {
@@ -66,5 +40,5 @@ public class HotelEvaluateDataServiceImpl implements HotelEvaluateDataService{
 		// TODO Auto-generated method stub
 		return null;
 	}
-
+	
 }	

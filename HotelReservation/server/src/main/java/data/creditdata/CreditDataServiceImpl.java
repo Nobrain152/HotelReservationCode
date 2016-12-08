@@ -83,6 +83,7 @@ public class CreditDataServiceImpl extends DataSuperClass implements CreditDataS
 		return pos.size()==0?null:pos;
 	}
 
+	//Œ¥≤‚ ‘
 	@Override
 	public ArrayList<CreditPO> getListByOrderID(String orderID) throws RemoteException {
 		ArrayList<CreditPO> pos = new ArrayList<CreditPO>(50);

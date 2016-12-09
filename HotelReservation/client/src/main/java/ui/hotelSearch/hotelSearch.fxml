@@ -11,7 +11,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ui.hotelSearch.hotelSearchViewControllerller">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ui.hotelSearch.hotelSearchViewController">
    <children>
       <Pane prefHeight="71.0" prefWidth="800.0">
          <children>
@@ -65,8 +65,6 @@
                   <Font size="14.0" />
                </font>
             </Text>
-            <TextField layoutX="376.0" layoutY="70.0" prefHeight="23.0" prefWidth="187.0" />
-            <TextField layoutX="376.0" layoutY="109.0" prefHeight="23.0" prefWidth="187.0" />
             <ChoiceBox fx:id="cb_Price" layoutX="376.0" layoutY="192.0" prefHeight="23.0" prefWidth="187.0" />
             <ChoiceBox fx:id="cb_Star" layoutX="376.0" layoutY="232.0" prefHeight="23.0" prefWidth="187.0" />
             <ChoiceBox fx:id="cb_Score" layoutX="376.0" layoutY="275.0" prefHeight="23.0" prefWidth="187.0" />
@@ -77,6 +75,8 @@
                </font>
             </Text>
             <TextField layoutX="376.0" layoutY="151.0" prefHeight="23.0" prefWidth="187.0" />
+            <ChoiceBox fx:id="cb_Address" layoutX="376.0" layoutY="69.0" prefHeight="23.0" prefWidth="187.0" />
+            <ChoiceBox fx:id="cb_Area" layoutX="376.0" layoutY="109.0" prefHeight="23.0" prefWidth="187.0" />
          </children>
       </Pane>
    </children>

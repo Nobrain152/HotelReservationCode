@@ -12,7 +12,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ui.hotelSearch.hotelSearchListViewControllerller">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ui.hotelSearch.hotelSearchListViewController">
    <children>
       <Pane prefHeight="69.0" prefWidth="800.0">
          <children>
@@ -20,11 +20,6 @@
             <Text layoutX="31.0" layoutY="43.0" strokeType="OUTSIDE" strokeWidth="0.0" text="酒店预定系统">
                <font>
                   <Font size="24.0" />
-               </font>
-            </Text>
-            <Text layoutX="655.0" layoutY="39.0" strokeType="OUTSIDE" strokeWidth="0.0" text="XXX，欢迎你！">
-               <font>
-                  <Font size="14.0" />
                </font>
             </Text>
          </children>
@@ -41,7 +36,17 @@
       </Pane>
       <Pane layoutY="69.0" prefHeight="464.0" prefWidth="800.0">
          <children>
-            <Pagination fx:id="pagination" layoutX="97.0" maxPageIndicatorCount="4" pageCount="8" prefHeight="464.0" prefWidth="607.0" />
+            <TableView fx:id="tv_hotel" layoutX="62.0" layoutY="34.0" prefHeight="335.0" prefWidth="691.0">
+              <columns>
+                <TableColumn fx:id="tc_name" prefWidth="75.0" text="酒店名称" />
+                <TableColumn fx:id="tc_star" prefWidth="75.0" text="星级" />
+                  <TableColumn fx:id="tc_score" prefWidth="75.0" text="评分" />
+                  <TableColumn fx:id="tc_isReserved" prefWidth="124.0" text="是否预定过" />
+                  <TableColumn fx:id="tc_price" prefWidth="77.0" text="价格" />
+              </columns>
+            </TableView>
+            <Button fx:id="btn_Reserve" layoutX="560.0" layoutY="396.0" mnemonicParsing="false" onAction="#btn_ReserveAction" prefHeight="29.0" prefWidth="61.0" text="预定" />
+            <Button fx:id="btn_Info" layoutX="658.0" layoutY="396.0" mnemonicParsing="false" onAction="#btn_InfoAction" prefHeight="29.0" prefWidth="71.0" text="详细信息" />
          </children>
       </Pane>
    </children>

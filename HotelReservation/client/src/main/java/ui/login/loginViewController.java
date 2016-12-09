@@ -20,9 +20,6 @@ public class loginViewController implements Initializable{
 	private LoginInputController login;
 	
 	@FXML
-	private ImageView iv1;
-	
-	@FXML
 	private TextField userid;
 	
 	@FXML
@@ -30,6 +27,9 @@ public class loginViewController implements Initializable{
 	
 	@FXML
 	private Button btn_login;
+	
+	@FXML
+	private Button btn_register;
 	
 	public void setApp(UILaunch application){
 		this.application= application;
@@ -46,6 +46,11 @@ public class loginViewController implements Initializable{
 		case WebStuff:    application.gotowebSalesmanGuide();break;
 		case WebManager:  application.gotowebManagerGuide();
 		}
+	}
+	
+	@FXML
+	public void btn_registerAction(ActionEvent event){
+		application.gotoregister();
 	}
 
 	@Override

@@ -1,47 +1,72 @@
 package ui.hotelSearch;
 
-import java.io.IOException;
-import java.io.InputStream;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import javafx.beans.property.SimpleIntegerProperty;
+import javafx.beans.property.SimpleStringProperty;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.fxml.JavaFXBuilderFactory;
 import javafx.scene.control.Button;
-import javafx.scene.control.Pagination;
-import javafx.scene.layout.GridPane;
-import javafx.scene.layout.Pane;
-import javafx.scene.layout.RowConstraints;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
+import javafx.scene.control.cell.PropertyValueFactory;
 import ui.UILaunch;
 
 public class hotelSearchListViewController implements Initializable{
 	private UILaunch application;
 	
+	@FXML
+	private TableView<hotelItem> tv_hotel;
 	
+	@FXML
+	private TableColumn<?, ?> tc_name;	
+	@FXML
+	private TableColumn<?, ?> tc_star;
+	@FXML
+	private TableColumn<?, ?> tc_score;
+	@FXML
+	private TableColumn<?, ?> tc_isReserved;
+	@FXML
+	private TableColumn<?, ?> tc_price;
+	
+	private ObservableList<hotelItem> data;
+	
+	@FXML
+	private Button btn_Info;
+	
+	@FXML
+	private Button btn_Reserve;
 	
 	@FXML
 	private Button btn_Cancel;
-	
-	@FXML
-	private Pagination pagination;
-	
-	
+		
 	
 	public void setApp(UILaunch application){
 		this.application= application;
 	}
 	
 	@FXML
-	public void btn_CancelAction(ActionEvent ev) throws Exception{
+	public void btn_InfoAction(ActionEvent ev){
+		application.gotohotelInfoSearched();
+	}
+	
+	@FXML
+	public void btn_ReserveAction(ActionEvent ev){
+		application.gotohotelReserve();
+	}
+	
+	@FXML
+	public void btn_CancelAction(ActionEvent ev) {
 		application.gotohotelSearch();
 	}
-	/**
 	
-	 
 	
+	
+	/**	
 	public VBox createPage(int pageIndex) {
 		VBox box = new VBox(4);
 		int page = pageIndex * itemsPerPage;
@@ -57,8 +82,7 @@ public class hotelSearchListViewController implements Initializable{
 		return box;
 	}
 	
-	 */
-	
+	 
 	public Pane createPane() throws IOException{
 		Pane p ;
 				
@@ -109,19 +133,82 @@ public class hotelSearchListViewController implements Initializable{
 	    
 		return gp;
 	}
-	
+	*/
 	
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		// TODO Auto-generated method stub
-		
-		pagination.setPageFactory((Integer pageIndex) -> createPage(pageIndex));
-		pagination.setStyle("-fx-border-color:blue;");
-		
-		
+		data = FXCollections.observableArrayList(new hotelItem("Sun Hotel", 5, 10, "预定过",1500),
+				new hotelItem("Sun Hotel", 5, 10, "预定过",1500),
+				new hotelItem("Sun Hotel", 5, 10, "预定过",1500),
+				new hotelItem("Sun Hotel", 5, 10, "预定过",1500)
+				);
+		tc_name.setCellValueFactory(new PropertyValueFactory<>("name"));
+		tc_star.setCellValueFactory(new PropertyValueFactory<>("star"));
+		tc_score.setCellValueFactory(new PropertyValueFactory<>("score"));
+		tc_isReserved.setCellValueFactory(new PropertyValueFactory<>("isReserved"));
+		tc_price.setCellValueFactory(new PropertyValueFactory<>("price"));
+		tv_hotel.setItems(data);
 	}
 	
 	
+	public static class hotelItem{
+		private SimpleStringProperty name;
+		private SimpleIntegerProperty star;
+		private SimpleIntegerProperty score;
+		private SimpleStringProperty isReserved;
+		private SimpleIntegerProperty price;
+		
+		private hotelItem(String name,int star,int score,String isReserved,int price){
+			this.name=new SimpleStringProperty(name);
+			this.star=new SimpleIntegerProperty(star);
+			this.score=new SimpleIntegerProperty(score);
+			this.isReserved=new SimpleStringProperty(isReserved);
+			this.price=new SimpleIntegerProperty(price);
+		}
+		
+		public String getName(){
+			return name.get();
+		}
+		
+		public void setName(String str){
+			name.set(str);
+		}
+		
+		public int getStar(){
+			return star.get();
+		}
+		
+		public void setStar(int n){
+			star.set(n);
+		}
+		
+		public int getScore(){
+			return score.get();
+		}
+		
+		public void setScore(int n){
+			score.set(n);
+		}
+		
+		public String getIsReserved(){
+			return isReserved.get();
+		}
+		
+		public void setIsReserved(String str){
+			isReserved.set(str);
+		}
+		
+		public int getPrice(){
+			return price.get();
+		}
+		
+		public void setPrice(int n){
+			price.set(n);
+		}
+		
+		
+	}
 
 }

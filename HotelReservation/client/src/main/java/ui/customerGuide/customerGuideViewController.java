@@ -3,12 +3,10 @@ package ui.customerGuide;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
-import javafx.scene.control.ChoiceBox;
 import ui.UILaunch;
 
 public class customerGuideViewController implements Initializable{

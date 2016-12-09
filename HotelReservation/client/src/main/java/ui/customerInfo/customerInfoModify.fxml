@@ -12,7 +12,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ui.customerInfo.customerInfoModifyViewControllerller">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ui.customerInfo.customerInfoModifyViewController">
    <children>
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#b4b4b4" height="70.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="800.0" />
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#b4b4b4" height="61.0" layoutY="539.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="800.0" />
@@ -22,7 +22,7 @@
          </font>
       </Text>
       <Button fx:id="btn_Cancel" layoutX="687.0" layoutY="556.0" mnemonicParsing="false" onAction="#btn_CancelAction" prefHeight="28.0" prefWidth="66.0" text="返回" />
-      <Button layoutX="379.0" layoutY="413.0" mnemonicParsing="false" prefHeight="28.0" prefWidth="66.0" text="保存">
+      <Button layoutX="367.0" layoutY="375.0" mnemonicParsing="false" prefHeight="28.0" prefWidth="66.0" text="保存">
          <font>
             <Font size="14.0" />
          </font>
@@ -32,24 +32,17 @@
             <Font size="24.0" />
          </font>
       </Text>
-      <Text layoutX="242.0" layoutY="176.0" strokeType="OUTSIDE" strokeWidth="0.0" text="姓名">
+      <Text layoutX="242.0" layoutY="233.0" strokeType="OUTSIDE" strokeWidth="0.0" text="姓名">
          <font>
             <Font size="18.0" />
          </font>
       </Text>
-      <Text layoutX="226.0" layoutY="229.0" strokeType="OUTSIDE" strokeWidth="0.0" text="联系方式">
+      <Text layoutX="226.0" layoutY="309.0" strokeType="OUTSIDE" strokeWidth="0.0" text="联系方式">
          <font>
             <Font size="18.0" />
          </font>
       </Text>
-      <TextField layoutX="372.0" layoutY="158.0" prefHeight="23.0" prefWidth="203.0" />
-      <TextField layoutX="372.0" layoutY="211.0" prefHeight="23.0" prefWidth="203.0" />
-      <Text layoutX="242.0" layoutY="281.0" strokeType="OUTSIDE" strokeWidth="0.0" text="头像">
-         <font>
-            <Font size="18.0" />
-         </font>
-      </Text>
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#dee3e8" height="119.0" layoutX="372.0" layoutY="261.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="120.0" />
-      <Button layoutX="509.0" layoutY="357.0" mnemonicParsing="false" prefHeight="23.0" prefWidth="66.0" text="上传头像" />
+      <TextField layoutX="372.0" layoutY="215.0" prefHeight="23.0" prefWidth="203.0" />
+      <TextField layoutX="372.0" layoutY="291.0" prefHeight="23.0" prefWidth="203.0" />
    </children>
 </AnchorPane>

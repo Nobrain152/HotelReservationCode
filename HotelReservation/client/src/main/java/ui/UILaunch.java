@@ -28,6 +28,7 @@ import ui.hotelSearch.hotelSearchListViewController;
 import ui.hotelSearch.hotelSearchViewController;
 import ui.hotelStuffGuide.hotelStuffGuideViewController;
 import ui.login.loginViewController;
+import ui.login.registerViewController;
 import ui.orderOnHotel.orderOnHotelInfoViewController;
 import ui.orderOnHotel.orderOnHotelStateViewController;
 import ui.orderOnHotel.orderOnHotelViewController;
@@ -66,7 +67,7 @@ public class UILaunch extends Application{
 		stage.setTitle("DIMENSION");
 		stage.setMinWidth(MINIMUM_WINDOW_WIDTH);
 		stage.setMinHeight(MINIMUM_WINDOW_HEIGHT);
-		gotoorderOnHotel();	
+		gotologin();	
 		stage.show();
 	}
 	
@@ -77,6 +78,18 @@ public class UILaunch extends Application{
 		try{
 			loginViewController login=(loginViewController) replaceSceneContent("login/login.fxml");
 			login.setApp(this);
+		}catch(Exception ex){
+			ex.printStackTrace();
+		}
+	}
+	
+	/**
+	 * 跳转到注册界面
+	 */
+	public void gotoregister(){
+		try{
+			registerViewController register=(registerViewController) replaceSceneContent("login/register.fxml");
+			register.setApp(this);
 		}catch(Exception ex){
 			ex.printStackTrace();
 		}

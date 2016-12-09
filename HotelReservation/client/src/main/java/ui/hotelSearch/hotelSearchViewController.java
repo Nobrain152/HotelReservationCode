@@ -15,6 +15,12 @@ public class hotelSearchViewController implements Initializable{
 	private UILaunch application;
 	
 	@FXML
+	private ChoiceBox<String> cb_Address;
+	
+	@FXML
+	private ChoiceBox<String> cb_Area;
+	
+	@FXML
 	private ChoiceBox<String> cb_Price;
 	
 	@FXML
@@ -46,6 +52,8 @@ public class hotelSearchViewController implements Initializable{
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		// TODO Auto-generated method stub
+		cb_Address.setItems(FXCollections.observableArrayList("北京","上海","南京","广州"));
+		cb_Area.setItems(FXCollections.observableArrayList("东区","西区","南区","北区"));
 		cb_Price.setItems(FXCollections.observableArrayList("从高到低", "从低到高"));
 		cb_Star.setItems(FXCollections.observableArrayList(1, 2,3,4,5));
 		cb_Score.setItems(FXCollections.observableArrayList("0~2", "3~5","6~8","9~10"));

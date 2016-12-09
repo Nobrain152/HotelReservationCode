@@ -2,7 +2,7 @@ package vo;
 
 import util.VipType;
 
-public class CommonVipVO extends VipVO {
+public class CommonVipVO extends CustomerInfoVO {
 	
 	/**
 	 * 普通会员生日

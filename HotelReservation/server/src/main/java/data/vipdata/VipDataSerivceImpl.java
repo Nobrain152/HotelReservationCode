@@ -8,7 +8,7 @@ import dataSuper.DataSuperClass;
 import dataservice.vipdataservice.VipDataService;
 import po.CustomerInfoPO;
 import po.LevelSystemPO;
-import po.VipPO;
+import po.CustomerInfoPO;
 import util.ResultMsg;
 
 public class VipDataSerivceImpl extends DataSuperClass implements VipDataService{
@@ -26,7 +26,7 @@ public class VipDataSerivceImpl extends DataSuperClass implements VipDataService
 	}
 
 	@Override
-	public ResultMsg insert(VipPO vip) throws RemoteException {
+	public ResultMsg insert(CustomerInfoPO vip) throws RemoteException {
 		//调用父类的方法
 		return addToSQL(tableName, vip.getUsername());
 	}
@@ -38,31 +38,31 @@ public class VipDataSerivceImpl extends DataSuperClass implements VipDataService
 	}
 
 	@Override
-	public ResultMsg delete(VipPO vip) throws RemoteException {
+	public ResultMsg delete(CustomerInfoPO vip) throws RemoteException {
 		// TODO Auto-generated method stub
 		return delFromSQL(tableName, vip.getUsername());
 	}
 
 	@Override
-	public ResultMsg update(VipPO vip) throws RemoteException {
+	public ResultMsg update(CustomerInfoPO vip) throws RemoteException {
 		// TODO Auto-generated method stub
 		return ResultMsg.FAIL;
 	}
 
 	@Override
-	public VipPO findByLevel(int level) throws RemoteException {
+	public CustomerInfoPO findByLevel(int level) throws RemoteException {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public ArrayList<VipPO> show() throws RemoteException {
+	public ArrayList<CustomerInfoPO> show() throws RemoteException {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public VipPO findByUserID(String id) throws RemoteException {
+	public CustomerInfoPO findByUserID(String id) throws RemoteException {
 		// TODO Auto-generated method stub
 		return null;
 	}

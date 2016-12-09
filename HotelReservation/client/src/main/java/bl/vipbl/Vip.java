@@ -76,12 +76,12 @@ public class Vip {
 			CommonVipVO commonVipVO = new CommonVipVO(customerInfoVO.getUserID(), customerInfoVO.getUsername()
 					, customerInfoVO.getContact(), 300, str, VipType.COMMON_VIP);
 			CommonVipPO commonVipPO = (CommonVipPO)VOPOchange.VOtoPO(commonVipVO);
-			resultMsg = vipDataService.insert(commonVipPO);
+			resultMsg = vipDataService.insertC(commonVipPO);
 		} else if(type == VipType.COMPANY_VIP) {
 			BusinessVipVO businessVipVO = new BusinessVipVO(customerInfoVO.getUserID(), customerInfoVO.getUsername()
 					, customerInfoVO.getContact(), 300, str, VipType.COMPANY_VIP);
 			BusinessVipPO businessVipPO = (BusinessVipPO)VOPOchange.VOtoPO(businessVipVO);
-			resultMsg = vipDataService.insert(businessVipPO);
+			resultMsg = vipDataService.insertB(businessVipPO);
 		}
 		if(resultMsg != ResultMsg.FAIL) {
 			resultMsg = creditDataService.insert(new CreditPO(customerInfoVO.getUserID(), null, new Today().getToday(), Action.Initial, "t300", 300));

@@ -4,7 +4,7 @@ import java.io.Serializable;
 
 import util.VipType;
 
-public class BusinessVipPO extends VipPO implements Serializable{
+public class BusinessVipPO extends CustomerInfoPO implements Serializable{
 	
 	/**
 	 * 
@@ -20,7 +20,7 @@ public class BusinessVipPO extends VipPO implements Serializable{
 	
 	public BusinessVipPO(String userid, String username, ContactPO contact,
 			int credit, String businessName,VipType vipType) {
-		super(userid, username, contact, credit,vipType);
+		super(userid, username, contact, credit, true, vipType);
 		this.businessName = businessName;
 	}
 	

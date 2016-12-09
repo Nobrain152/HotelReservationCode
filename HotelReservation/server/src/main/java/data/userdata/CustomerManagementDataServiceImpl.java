@@ -1,14 +1,20 @@
 package data.userdata;
 
+import java.rmi.RemoteException;
 import java.util.ArrayList;
-
 import dataservice.userdataservice.CustomerManagementDataService;
 import po.CustomerInfoPO;
-import po.HotelInfoPO;
-import po.OrderPO;
-import po.UserInfoPO;
 
 public class CustomerManagementDataServiceImpl extends UserManagementDataServiceImpl implements CustomerManagementDataService {
+	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	
+	public CustomerManagementDataServiceImpl() throws RemoteException {
+		super();
+	}
 
 	@Override
 	public boolean AddMembers(String userid) {

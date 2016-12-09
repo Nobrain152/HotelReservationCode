@@ -23,7 +23,6 @@ public class VipDataSerivceImpl extends DataSuperClass implements VipDataService
 	
 	public VipDataSerivceImpl() throws RemoteException {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 
 	@Override

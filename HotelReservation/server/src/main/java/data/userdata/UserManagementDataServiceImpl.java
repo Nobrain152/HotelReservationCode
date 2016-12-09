@@ -1,15 +1,27 @@
 package data.userdata;
 
+import java.rmi.RemoteException;
 import java.util.ArrayList;
-
-
+import dataSuper.DataSuperClass;
 import dataservice.userdataservice.UserManagementDataService;
 import po.LoginInPO;
-import po.StuffInfoPO;
 import po.UserInfoPO;
 import util.ResultMsg;
 
-public class UserManagementDataServiceImpl implements UserManagementDataService {
+public class UserManagementDataServiceImpl extends DataSuperClass implements UserManagementDataService {
+
+	
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	
+	private final static String tableName = "userInfo";
+	
+	public UserManagementDataServiceImpl() throws RemoteException {
+		super();
+	}
 
 	@Override
 	public String GetLoginInfo(LoginInPO po) {
@@ -25,7 +37,17 @@ public class UserManagementDataServiceImpl implements UserManagementDataService 
 
 	@Override
 	public UserInfoPO GetUserBaseInfo(String userid) {
-		// TODO Auto-generated method stub
+		UserInfoPO po = findMes(userid);
+		return null;
+	}
+	
+	public UserInfoPO findMes(String userID){
+		findMes = findFromSQL(tableName, userID);
+		UserInfoPO po = null;
+		if(findMes != null){
+			/*po = new UserInfoPO(findMes.get(0),findMes.get(1),
+							findMes.get(2));*/
+		}
 		return null;
 	}
 

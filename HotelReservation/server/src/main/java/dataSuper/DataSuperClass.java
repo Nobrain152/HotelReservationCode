@@ -64,7 +64,10 @@ public class DataSuperClass extends UnicastRemoteObject{
 		SQLmap.put("customer", helper.bulidSQL("customer", 7, "userid","username","contact","isMember","credit","order","hotel"));
 		//SQLmap.put("HotelCondition",helper.bulidSQL("HotelCondition", 10, "address","businessDistrict","hotelName","roomtype","upLevel",""));
 		SQLmap.put("credit", helper.bulidSQL("credit",6, "userID","orderID","time","action","creditChange","creditResult"));
-		SQLmap.put("customerInfo", helper.bulidSQL("customerInfo", 2, "cresit","isMember"));
+		SQLmap.put("userInfo", helper.bulidSQL("userInfo", 3, "userID","username","contact"));
+		SQLmap.put("contact", helper.bulidSQL("contact", 2, "phoneNumber","emailAddress"));
+		SQLmap.put("loginIn", helper.bulidSQL("loginIn", 2, "username","password"));
+		SQLmap.put("customerInfo", helper.bulidSQL("customerInfo", 6, "userid","username","contact","credit","isMember","vipType"));
 		SQLmap.put("hotelEvaluatePO", helper.bulidSQL("hotelEvaluatePO", 6, "userID","hotelID","score","comment","reserve","orderID"));
 		SQLmap.put("hotelInfo", helper.bulidSQL("hotelInfo", 9, "hotelID","name","address","area","level","introduction","facility","reserve","score"));
 		SQLmap.put("order", helper.bulidSQL("order", 15, "orderID","customerInfoPO","orderState","price","hotelID","hasChild","latestExecutionTime","checkInTime","checkOutTime","cancelledTime","roomNumber","peopleNumber","roomInfoPO","reason","pass"));

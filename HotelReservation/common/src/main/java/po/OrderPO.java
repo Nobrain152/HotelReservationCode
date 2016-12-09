@@ -75,17 +75,7 @@ public class OrderPO implements Serializable {
 	 * 是否携带儿童
 	 */
 	public boolean hasChild;
-	
-	/**
-	 * 申诉理由
-	 */
-	public String reason;
-	
-	/**
-	 * 申诉是否通过
-	 */
-	public boolean pass;
-	
+
 	/**
 	 * 房间信息
 	 */
@@ -110,47 +100,6 @@ public class OrderPO implements Serializable {
 		this.cancelledTime = cancelledTime;
 		this.roomNumber = roomNumber;
 		this.peopleNumber = peopleNumber;
-	}
-	
-	/**
-	 * 申诉用的PO
-	 * @param po
-	 * @param reason
-	 */
-	public OrderPO(OrderPO po, String reason){
-		this.initiator = po.getInitiator();
-		this.orderState = po.getOrderState();
-		this.price = po.getPrice();
-		this.orderID = po.getOrderID();
-		this.hotelID = po.getHotelID();
-		this.hasChild = po.getHasChild();
-		this.latestExecutionTime = po.getLatestExecutionTime();
-		this.checkInTime = po.getCheckInTime();
-		this.checkOutTime = po.getCheckOutTime();
-		this.roomNumber = po.getRoomNumber();
-		this.peopleNumber = po.getPeopleNumber();
-		this.reason = reason;		
-	}
-	
-	/**
-	 * 处理完申诉返回的PO
-	 * @param po
-	 * @param pass
-	 */
-	public OrderPO(OrderPO po, boolean pass){
-		this.initiator = po.getInitiator();
-		this.orderState = po.getOrderState();
-		this.price = po.getPrice();
-		this.orderID = po.getOrderID();
-		this.hotelID = po.getHotelID();
-		this.hasChild = po.getHasChild();
-		this.latestExecutionTime = po.getLatestExecutionTime();
-		this.checkInTime = po.getCheckInTime();
-		this.checkOutTime = po.getCheckOutTime();
-		this.roomNumber = po.getRoomNumber();
-		this.peopleNumber = po.getPeopleNumber();
-		this.reason = po.getReason();
-		this.pass = pass;
 	}
 
 	public CustomerInfoPO getInitiator() {
@@ -203,14 +152,6 @@ public class OrderPO implements Serializable {
 
 	public String getCheckOutTime() {
 		return checkOutTime;
-	}
-	
-	public String getReason() {
-		return reason;
-	}
-	
-	public boolean getPass() {
-		return pass;
 	}
 
 	public String getCancelledTime() {

@@ -3,7 +3,6 @@ package blservice.orderblservice;
 import java.rmi.RemoteException;
 import java.util.ArrayList;
 
-import util.ResultMsg;
 import vo.OrderVO;
 
 /**
@@ -13,22 +12,6 @@ import vo.OrderVO;
  *
  */
 public interface OrderOnWebBLService {
-	
-	/**
-	 * 网站营销人员查看申诉列表
-	 *
-	 * @param void
-	 * @return 申诉列表
-	 */
-	public ArrayList<OrderVO> complaintListScan();
-	
-	/**
-	 * 网站营销人员处理申诉
-	 *
-	 * @param orderVO 订单VO
-	 * @return 系统提示消息
-	 */
-	public ResultMsg complaintHandle(OrderVO orderVO,double rate);
 	
 	/**
 	 * 网站营销人员查看异常订单列表

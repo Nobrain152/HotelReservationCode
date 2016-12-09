@@ -46,19 +46,6 @@ public class OrderOnWebControllerTest {
 	}
 	
 	@Test
-	public void testComplaintListScan() throws RemoteException{
-		ArrayList<OrderVO> webs = webBLServiceImpl.complaintListScan();
-		assertEquals(webs, webList);
-	}
-	
-	@Test
-	public void testComplaintHandle() throws RemoteException{
-		ResultMsg msg1 = webBLServiceImpl.complaintHandle(web1,1);
-		assertEquals(msg1, r1);
-		assertEquals(msg1, r1);
-	}
-	
-	@Test
 	public void testAbnormalOrderScan() throws RemoteException{
 		ArrayList<OrderVO> webs = webBLServiceImpl.abnormalOrderScan();
 		assertEquals(webs, webList);

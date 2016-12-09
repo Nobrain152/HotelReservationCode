@@ -7,7 +7,6 @@ import blservice.orderblservice.OrderOnWebBLService;
 import dataservice.orderdataservice.OrderDataService;
 import net.RMIManage;
 import util.DataServiceType;
-import util.ResultMsg;
 import vo.OrderVO;
 
 public class OrderOnWebController implements OrderOnWebBLService{
@@ -19,27 +18,6 @@ public class OrderOnWebController implements OrderOnWebBLService{
 		orderOnWebDataService = (OrderDataService)RMIManage.
 				getDataService(DataServiceType.OrderDataService);
 		orderOnWeb = new OrderOnWeb(orderOnWebDataService);
-	}
-	@Override
-	public ArrayList<OrderVO> complaintListScan() {
-		try {
-			return orderOnWeb.complaintListScan();
-		} catch (RemoteException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		return null;
-	}
-
-	@Override
-	public ResultMsg complaintHandle(OrderVO orderVO,double rate) {
-		try {
-			return orderOnWeb.complaintHandle(orderVO,rate);
-		} catch (RemoteException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		return null;
 	}
 
 	@Override
@@ -71,7 +49,6 @@ public class OrderOnWebController implements OrderOnWebBLService{
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		// TODO Auto-generated method stub
 		return null;
 	}
 

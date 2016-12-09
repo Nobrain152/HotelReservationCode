@@ -76,16 +76,6 @@ public class OrderVO {
 	 */
 	public boolean hasChild;
 	
-	/**
-	 * 申诉理由
-	 */
-	public String reason;
-	
-	/**
-	 * 申诉是否通过
-	 */
-	public boolean pass;
-	
 	public OrderVO() {}
 	
 	public OrderVO(String orderID,CustomerInfoVO customerInfoVO, OrderState orderState,
@@ -105,47 +95,6 @@ public class OrderVO {
 		this.roomInfoVO = roomInfoVO;
 		this.roomNumber = roomNumber;
 		this.peopleNumber = peopleNumber;
-	}
-	
-	/**
-	 * 申诉用的VO
-	 * @param vo
-	 * @param reason
-	 */
-	public OrderVO(OrderVO vo, String reason){
-		this.initiator = vo.getInitiator();
-		this.orderState = vo.getOrderState();
-		this.price = vo.getPrice();
-		this.orderID = vo.getOrderID();
-		this.hotelID = vo.getHotelID();
-		this.hasChild = vo.getHasChild();
-		this.latestExecutionTime = vo.getLatestExecutionTime();
-		this.checkInTime = vo.getCheckInTime();
-		this.checkOutTime = vo.getCheckOutTime();
-		this.roomNumber = vo.getRoomNumber();
-		this.peopleNumber = vo.getPeopleNumber();
-		this.reason = reason;		
-	}
-	
-	/**
-	 * 处理完申诉返回的VO
-	 * @param vo
-	 * @param pass
-	 */
-	public OrderVO(OrderVO vo, boolean pass){
-		this.initiator = vo.getInitiator();
-		this.orderState = vo.getOrderState();
-		this.price = vo.getPrice();
-		this.orderID = vo.getOrderID();
-		this.hotelID = vo.getHotelID();
-		this.hasChild = vo.getHasChild();
-		this.latestExecutionTime = vo.getLatestExecutionTime();
-		this.checkInTime = vo.getCheckInTime();
-		this.checkOutTime = vo.getCheckOutTime();
-		this.roomNumber = vo.getRoomNumber();
-		this.peopleNumber = vo.getPeopleNumber();
-		this.reason = vo.getReason();
-		this.pass = pass;
 	}
 
 	public CustomerInfoVO getInitiator() {
@@ -206,14 +155,6 @@ public class OrderVO {
 	
 	public void setCancelledTime(String cancelledTime) {
 		this.cancelledTime = cancelledTime;
-	}
-	
-	public String getReason() {
-		return reason;
-	}
-	
-	public boolean getPass() {
-		return pass;
 	}
 
 	public void setInitiator(CustomerInfoVO initiator) {

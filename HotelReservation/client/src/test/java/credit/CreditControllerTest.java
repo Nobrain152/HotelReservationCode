@@ -12,26 +12,25 @@ import vo.CustomerInfoVO;
 
 public class CreditControllerTest {
 	
-	private CreditController credit;
-	CustomerInfoVO user1 ;
-	CustomerInfoVO user2 ;
+	private CreditController creditController;
+	CustomerInfoVO user;
 	
 	@Before
 	public void setUp() throws Exception {
-		user1 = new CustomerInfoVO("10101010", "»Æ¿­ÎÄ", new ContactVO("13270898633", null),100,true,VipType.COMMON_VIP);
-		user2 = new CustomerInfoVO("20202020", "»Æ¿­ÎÄ", new ContactVO("13270898633", null),100,true,VipType.COMMON_VIP);
+		creditController = new CreditController();
+		user = new CustomerInfoVO("09954722", "ÌÆöÎ", new ContactVO("18805156300", "151250132@smail.nju.edu.cn"),300,true,VipType.COMMON_VIP);
+	}
+	
+	@Test
+	public void testGetCredit() {
+		int credit = creditController.getCredit(user);
+		assertEquals(300, credit);
 	}
 	
 	@Test
 	public void testAddCredit() {
-		credit = new CreditController();
-		credit.addCredit(user1,100);
-		assertEquals(200,user1.getCredit());
-		
-		credit = new CreditController();
-		credit.addCredit(user2,500);
-		assertEquals(600,user2.getCredit());
-		
+		creditController.addCredit(user,100);
+		assertEquals(400,user.getCredit());
 	}
 }
 

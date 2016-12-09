@@ -5,6 +5,7 @@ public enum Action {
 	Executed,
 	Abnormal,
 	Cancelled,
-	Charge
+	Charge,
+	Initial
 
 }

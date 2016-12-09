@@ -3,13 +3,17 @@ package bl.vipbl;
 import java.rmi.RemoteException;
 
 import bl.VOPOchange;
+import dataservice.creditdataservice.CreditDataService;
 import dataservice.userdataservice.CustomerManagementDataService;
 import dataservice.vipdataservice.VipDataService;
 import po.BusinessVipPO;
 import po.CommonVipPO;
+import po.CreditPO;
 import po.CustomerInfoPO;
 import po.LevelSystemPO;
+import util.Action;
 import util.ResultMsg;
+import util.Today;
 import util.VipType;
 import vo.BusinessVipVO;
 import vo.CommonVipVO;
@@ -20,10 +24,13 @@ public class Vip {
 	
 	private VipDataService vipDataService;
 	private CustomerManagementDataService dataService;
+	private CreditDataService creditDataService;
 	
-	public Vip(VipDataService vipDataService, CustomerManagementDataService dataService) {
+	public Vip(VipDataService vipDataService, CustomerManagementDataService dataService
+			,CreditDataService creditDataService) {
 		this.vipDataService = vipDataService;
 		this.dataService = dataService;
+		this.creditDataService = creditDataService;
 	}
 
 	/**
@@ -67,14 +74,17 @@ public class Vip {
 	
 		if(type == VipType.COMMON_VIP) {
 			CommonVipVO commonVipVO = new CommonVipVO(customerInfoVO.getUserID(), customerInfoVO.getUsername()
-					, customerInfoVO.getContact(), customerInfoVO.getCredit(), str, VipType.COMMON_VIP);
+					, customerInfoVO.getContact(), 300, str, VipType.COMMON_VIP);
 			CommonVipPO commonVipPO = (CommonVipPO)VOPOchange.VOtoPO(commonVipVO);
 			resultMsg = vipDataService.insert(commonVipPO);
 		} else if(type == VipType.COMPANY_VIP) {
 			BusinessVipVO businessVipVO = new BusinessVipVO(customerInfoVO.getUserID(), customerInfoVO.getUsername()
-					, customerInfoVO.getContact(), customerInfoVO.getCredit(), str, VipType.COMPANY_VIP);
+					, customerInfoVO.getContact(), 300, str, VipType.COMPANY_VIP);
 			BusinessVipPO businessVipPO = (BusinessVipPO)VOPOchange.VOtoPO(businessVipVO);
 			resultMsg = vipDataService.insert(businessVipPO);
+		}
+		if(resultMsg != ResultMsg.FAIL) {
+			resultMsg = creditDataService.insert(new CreditPO(customerInfoVO.getUserID(), null, new Today().getToday(), Action.Initial, "t300", 300));
 		}
 		return resultMsg;
 	}

@@ -8,6 +8,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import bl.vipbl.Vip;
+import dataservice.creditdataservice.CreditDataService;
 import dataservice.userdataservice.CustomerManagementDataService;
 import dataservice.vipdataservice.VipDataService;
 import util.VipType;
@@ -19,6 +20,7 @@ public class VipControllerTest {
 	int integral;
 	private VipDataService vipDataService;
 	private CustomerManagementDataService dataService;
+	private CreditDataService creditDataService;
 	CustomerInfoVO customerInfoVO;
 	
 	@Before
@@ -28,7 +30,7 @@ public class VipControllerTest {
 
 	@Test
 	public void testSearchLevel() throws RemoteException {
-		Vip vip = new Vip(vipDataService,dataService);
+		Vip vip = new Vip(vipDataService,dataService,creditDataService);
 		level = vip.searchLevel(customerInfoVO);
 		assertEquals(level,1);
 	}

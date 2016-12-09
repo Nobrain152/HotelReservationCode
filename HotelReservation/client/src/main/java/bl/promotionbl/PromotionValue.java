@@ -6,6 +6,7 @@ import java.util.ArrayList;
 
 import bl.VOPOchange;
 import bl.vipbl.Vip;
+import dataservice.creditdataservice.CreditDataService;
 import dataservice.hoteldataservice.HotelInfoDataService;
 import dataservice.orderdataservice.OrderDataService;
 import dataservice.promotiondataservice.PromotionHotelDataService;
@@ -29,6 +30,7 @@ public class PromotionValue {
 	private VipDataService vipDataService;
 	private OrderDataService orderDataService;
 	private CustomerManagementDataService customerManagementDataService;
+	private CreditDataService creditDataService;
 	
 	public PromotionValue(PromotionHotelDataService promotionHotelDataService,
 			VipDataService vipDataService,OrderDataService orderDataService) {
@@ -40,7 +42,7 @@ public class PromotionValue {
 	public OrderVO getValue(CustomerInfoVO user, OrderVO order, PromotionHotelType hotelType) throws RemoteException {
 		ArrayList<PromotionHotelPO> po = promotionHotelDataService.
 				findByType(hotelType, order.getHotelID());;
-		Vip vip = new Vip(vipDataService,customerManagementDataService);
+		Vip vip = new Vip(vipDataService,customerManagementDataService,creditDataService);
 		double ratio = 1;
 		
 		switch(hotelType) {
@@ -124,7 +126,7 @@ public class PromotionValue {
 	public OrderVO getValue(CustomerInfoVO user, OrderVO order, PromotionWebType webType) throws RemoteException {
 		ArrayList<PromotionWebPO> po = promotionWebDataService.
 				findByType(webType);;
-		Vip vip = new Vip(vipDataService,customerManagementDataService);
+		Vip vip = new Vip(vipDataService,customerManagementDataService,creditDataService);
 		double ratio = 1;
 		
 		switch(webType) {

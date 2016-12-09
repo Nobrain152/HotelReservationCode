@@ -32,8 +32,7 @@ public class OrderDataServiceImpl extends DataSuperClass implements OrderDataSer
 				po.getOrderState().toString(),""+po.getPrice(),po.getHotelID(),
 				""+po.getHasChild(),po.getLatestExecutionTime(),po.getCheckInTime(),
 				po.getCheckOutTime(),po.getCancelledTime(),""+po.getRoomNumber(),
-				""+po.getPeopleNumber(),po.getRoomInfoPO().getRoomID(),
-				""+po.getPass(),po.getReason());
+				""+po.getPeopleNumber(),po.getRoomInfoPO().getRoomID());
 	}
 
 	@Override
@@ -47,8 +46,7 @@ public class OrderDataServiceImpl extends DataSuperClass implements OrderDataSer
 				po.getOrderState().toString(),""+po.getPrice(),po.getHotelID(),
 				""+po.getHasChild(),po.getLatestExecutionTime(),po.getCheckInTime(),
 				po.getCheckOutTime(),po.getCancelledTime(),""+po.getRoomNumber(),
-				""+po.getPeopleNumber(),po.getRoomInfoPO().getRoomID(),
-				""+po.getPass(),po.getReason());
+				""+po.getPeopleNumber(),po.getRoomInfoPO().getRoomID());
 	}
 
 	@Override
@@ -64,12 +62,13 @@ public class OrderDataServiceImpl extends DataSuperClass implements OrderDataSer
 	
 	//抽象出来
 	@Override
+	//没有userID信息
 	public ArrayList<OrderPO> findByUserID(String ID) throws RemoteException {
 		ArrayList<OrderPO> pos = new ArrayList<OrderPO>(50);
 		OrderPO orderPO = null;
 		
 		try {
-			sql = "SELECT * FROM " + tableName ;
+			sql = "SELECT * FROM " + tableName + " WHERE orderID = \'" + ID + "\'";
 			preState = conn.prepareStatement(sql);
 			result = preState.executeQuery();
 			CustomerManagementDataServiceImpl customer = (CustomerManagementDataServiceImpl) DataFactory.getDataFactory().getCustomerManagementDataServiceImpl();
@@ -86,16 +85,6 @@ public class OrderDataServiceImpl extends DataSuperClass implements OrderDataSer
 							Integer.getInteger(result.getString(11)),
 							Integer.getInteger(result.getString(12)),
 							room.findByRoomID(result.getString(13)));
-					
-					if(findMes != null && result.getString(15) != null){
-						orderPO = new OrderPO(orderPO, result.getString(15));
-					}
-					
-					if(findMes !=null && result.getString(14) != null){
-						orderPO = new OrderPO(orderPO, 
-											Boolean.valueOf(result.getString(14)));
-					}
-					
 					pos.add(orderPO);
 				
 			}
@@ -109,6 +98,7 @@ public class OrderDataServiceImpl extends DataSuperClass implements OrderDataSer
 
 	@Override
 	public ArrayList<OrderPO> findByHotelID(String ID) throws RemoteException {
+		
 		return null;
 	}
 
@@ -135,16 +125,6 @@ public class OrderDataServiceImpl extends DataSuperClass implements OrderDataSer
 							Integer.getInteger(result.getString(11)),
 							Integer.getInteger(result.getString(12)),
 							room.findByRoomID(result.getString(13)));
-					
-					if(findMes != null && result.getString(15) != null){
-						orderPO = new OrderPO(orderPO, result.getString(15));
-					}
-					
-					if(findMes !=null && result.getString(14) != null){
-						orderPO = new OrderPO(orderPO, 
-											Boolean.valueOf(result.getString(14)));
-					}
-					
 					pos.add(orderPO);
 				
 			}
@@ -173,15 +153,6 @@ public class OrderDataServiceImpl extends DataSuperClass implements OrderDataSer
 								Integer.getInteger(findMes.get(10)),Integer.getInteger(findMes.get(11)),
 								room.findByRoomID(findMes.get(12)));
 		}
-		
-		if(findMes != null && findMes.get(14) != null){
-			orderPO = new OrderPO(orderPO, findMes.get(14));
-		}
-		
-		if(findMes !=null && findMes.get(13) != null){
-			orderPO = new OrderPO(orderPO, Boolean.valueOf(findMes.get(13)));
-		}
-		
 		return orderPO;
 	}
 

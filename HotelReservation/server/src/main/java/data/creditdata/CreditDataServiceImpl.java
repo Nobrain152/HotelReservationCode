@@ -38,18 +38,14 @@ public class CreditDataServiceImpl extends DataSuperClass implements CreditDataS
 		ArrayList<CreditPO> pos = new ArrayList<CreditPO>(50);
 		
 		try {
-			sql = "SELECT * FROM " + tableName ;
+			sql = "SELECT * FROM " + tableName  + " WHERE userID = \'" + userID + "\'";
 			preState = conn.prepareStatement(sql);
 			result = preState.executeQuery();
-			
 			while (result.next()) {
-				if(result.getString(1) == userID){
 					pos.add(new CreditPO(result.getString(1), result.getString(2),
 							result.getString(3), Action.valueOf(result.getString(4)),
 							result.getString(5), 
-							Integer.getInteger(result.getString(6))));
-				}
-				
+							Integer.valueOf(result.getString(6))));
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -74,7 +70,7 @@ public class CreditDataServiceImpl extends DataSuperClass implements CreditDataS
 				pos.add(new CreditPO(result.getString(1), result.getString(2),
 							result.getString(3), Action.valueOf(result.getString(4)),
 							result.getString(5), 
-							Integer.getInteger(result.getString(6))));
+							Integer.valueOf(result.getString(6))));
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -83,24 +79,20 @@ public class CreditDataServiceImpl extends DataSuperClass implements CreditDataS
 		return pos.size()==0?null:pos;
 	}
 
-	//Œ¥≤‚ ‘
 	@Override
 	public ArrayList<CreditPO> getListByOrderID(String orderID) throws RemoteException {
 		ArrayList<CreditPO> pos = new ArrayList<CreditPO>(50);
 		
 		try {
-			sql = "SELECT * FROM " + tableName ;
+			sql = "SELECT * FROM " + tableName + " WHERE orderID = \'" + orderID + "\'";
 			preState = conn.prepareStatement(sql);
 			result = preState.executeQuery();
 			
 			while (result.next()) {
-				if(result.getString(2) == orderID){
 					pos.add(new CreditPO(result.getString(1), result.getString(2),
 							result.getString(3), Action.valueOf(result.getString(4)),
 							result.getString(5), 
-							Integer.getInteger(result.getString(6))));
-				}
-				
+							Integer.valueOf(result.getString(6))));
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();

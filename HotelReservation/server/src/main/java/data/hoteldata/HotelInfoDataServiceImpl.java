@@ -31,7 +31,7 @@ public class HotelInfoDataServiceImpl extends DataSuperClass implements HotelInf
 	public ResultMsg insert(HotelInfoPO po) throws RemoteException{
 		return addToSQL(tableName, po.getHotelID(),po.getName(),po.getAddress(),po.getArea(),
 				""+po.getLevel(),po.getIntroduction(),po.getFacility(),
-				Boolean.toString(po.getIsReserved()),""+po.getScore());
+				Boolean.toString(po.getIsReserved()),""+po.getScore(),""+po.getSP());
 	}
 	
 	
@@ -48,7 +48,7 @@ public class HotelInfoDataServiceImpl extends DataSuperClass implements HotelInf
 	public ResultMsg update(HotelInfoPO po) throws RemoteException{
 		return modifyFromSQL(tableName, po.getHotelID(),po.getName(),po.getAddress(),po.getArea(),
 				""+po.getLevel(),po.getIntroduction(),po.getFacility(),
-				Boolean.toString(po.getIsReserved()),""+po.getScore());
+				Boolean.toString(po.getIsReserved()),""+po.getScore(),""+po.getSP());
 	}
 	
 	/**
@@ -71,7 +71,7 @@ public class HotelInfoDataServiceImpl extends DataSuperClass implements HotelInf
 								findMes.get(2), findMes.get(3),
 								Integer.valueOf(findMes.get(4)), findMes.get(5), 
 								findMes.get(6),Boolean.valueOf(findMes.get(7)),
-								Double.parseDouble(findMes.get(8)));
+								Double.parseDouble(findMes.get(8)),Integer.valueOf(findMes.get(9)));
 		}
 		
 		return hotelInfoPO;
@@ -81,7 +81,7 @@ public class HotelInfoDataServiceImpl extends DataSuperClass implements HotelInf
 	 * 显示
 	 */
 	public ArrayList<HotelInfoPO> show() throws RemoteException{
-		ArrayList<HotelInfoPO> pos = new ArrayList<HotelInfoPO>(30);
+		ArrayList<HotelInfoPO> pos = new ArrayList<HotelInfoPO>();
 		
 		try {
 			sql = "SELECT * FROM " + tableName ;
@@ -91,8 +91,9 @@ public class HotelInfoDataServiceImpl extends DataSuperClass implements HotelInf
 				pos.add(new HotelInfoPO(result.getString(1), result.getString(2),
 						result.getString(3), result.getString(4),
 						Integer.valueOf(result.getString(5)),result.getString(6),
-						result.getString(7),Boolean.getBoolean(result.getString(8)),
-						Double.parseDouble(result.getString(9))));
+						result.getString(7),Boolean.valueOf(result.getString(8)),
+						Double.parseDouble(result.getString(9)),
+						Integer.valueOf(result.getString(10))));
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -107,25 +108,50 @@ public class HotelInfoDataServiceImpl extends DataSuperClass implements HotelInf
 
 	@Override
 	public ArrayList<HotelInfoPO> findByAreaAndCircle(String area, String circle) {
-		ArrayList<HotelInfoPO> pos = new ArrayList<HotelInfoPO>(50);
+		ArrayList<HotelInfoPO> pos = new ArrayList<HotelInfoPO>();
 		
 		try {
-			sql = "SELECT "+ area + " FROM " + tableName ;
+			sql = "SELECT * FROM " + tableName + " WHERE area = \'" + area + "\' AND circle = \'" + circle + "\'";
 			preState = conn.prepareStatement(sql);
 			result = preState.executeQuery();
+			while (result.next()) {
+				pos.add(new HotelInfoPO(result.getString(1), result.getString(2),
+						result.getString(3), result.getString(4),
+						Integer.valueOf(result.getString(5)),result.getString(6),
+						result.getString(7),Boolean.valueOf(result.getString(8)),
+						Double.parseDouble(result.getString(9)),
+						Integer.valueOf(result.getString(10))));
+			}
 		} catch (SQLException e) {
 			e.printStackTrace();
 			System.out.println("酒店信息从数据库中查找出错");
+			return null;
 		}
-		
-		
-		return null;
+		return pos.size()==0?null:pos;
 	}
 
 	@Override
 	public ArrayList<HotelInfoPO> findByName(String name) {
-		// TODO Auto-generated method stub
-		return null;
+		ArrayList<HotelInfoPO> pos = new ArrayList<HotelInfoPO>();
+		
+		try {
+			sql = "SELECT * FROM " + tableName + " WHERE name = \'" + name + "\'";
+			preState = conn.prepareStatement(sql);
+			result = preState.executeQuery();
+			while (result.next()) {
+				pos.add(new HotelInfoPO(result.getString(1), result.getString(2),
+						result.getString(3), result.getString(4),
+						Integer.valueOf(result.getString(5)),result.getString(6),
+						result.getString(7),Boolean.valueOf(result.getString(8)),
+						Double.parseDouble(result.getString(9)),
+						Integer.valueOf(result.getString(10))));
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+			System.out.println("酒店信息从数据库中查找出错");
+			return null;
+		}
+		return pos.size()==0?null:pos;
 	}
 
 }

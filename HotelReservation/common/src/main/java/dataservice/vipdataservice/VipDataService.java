@@ -21,7 +21,7 @@ public interface VipDataService {
 	
 	public ResultMsg insertC(CommonVipPO vip) throws RemoteException;
 	
-	public ResultMsg deleteC(CommonVipPO vip) throws RemoteException;
+	public ResultMsg delete(String userid) throws RemoteException;
 	
 	public ResultMsg updateC(CommonVipPO vip) throws RemoteException;
 	
@@ -32,8 +32,6 @@ public interface VipDataService {
 	public ArrayList<CommonVipPO> showC(Type type) throws RemoteException;
 	
 	public ResultMsg insertB(BusinessVipPO vip) throws RemoteException;
-	
-	public ResultMsg deleteB(BusinessVipPO vip) throws RemoteException;
 	
 	public ResultMsg updateB(BusinessVipPO vip) throws RemoteException;
 	

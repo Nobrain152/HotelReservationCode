@@ -27,8 +27,6 @@ public interface PromotionHotelDataService {
 	
 	public ResultMsg update(PromotionHotelPO promotion) throws RemoteException;
 	
-	public PromotionHotelPO findByName(String name) throws RemoteException;
-	
 	public ArrayList<PromotionHotelPO> findByType(PromotionHotelType type,String hotelID) throws RemoteException;
 	
 	public ArrayList<PromotionHotelPO> show() throws RemoteException;

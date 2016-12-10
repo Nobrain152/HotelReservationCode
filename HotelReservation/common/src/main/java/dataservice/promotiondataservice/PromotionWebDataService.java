@@ -25,8 +25,6 @@ public interface PromotionWebDataService {
 	
 	public ResultMsg update(PromotionWebPO Promotion) throws RemoteException;
 	
-	public PromotionWebPO findByName(String name) throws RemoteException;
-	
 	public ArrayList<PromotionWebPO> findByType(PromotionWebType type) throws RemoteException;
 	
 	public ArrayList<PromotionWebPO> show() throws RemoteException;

@@ -6,10 +6,8 @@ import static org.junit.Assert.assertEquals;
 import java.rmi.RemoteException;
 
 import bl.userbl.HotelStuff;
-import data.userdata.UserManagementDataServiceImpl;
 import dataservice.userdataservice.UserManagementDataService;
 import util.ResultMsg;
-import vo.ContactVO;
 import vo.StuffInfoVO;
 import vo.UserInfoVO;
 
@@ -18,7 +16,6 @@ public class HotelStuffTest {
 	private UserManagementDataService service;
 	
 	public void setup(){
-		service=new UserManagementDataServiceImpl();
 		stuff=new HotelStuff(service);
 		
 	}
@@ -37,7 +34,7 @@ public class HotelStuffTest {
 	}
 	
 	public void testmodify(){
-		StuffInfoVO vo1=new StuffInfoVO("1234567","Tom",new ContactVO("13067893451",null),"1234567");
+		StuffInfoVO vo1=new StuffInfoVO("1234567","Tom","13067893451","66666","1234567");
 		ResultMsg cantest = ResultMsg.FAIL;
 		try {
 			cantest = stuff.IndividualBaseInfoModification("1234567",vo1);

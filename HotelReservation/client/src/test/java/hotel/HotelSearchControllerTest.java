@@ -8,6 +8,8 @@ import org.junit.Before;
 import org.junit.Test;
 
 import bl.hotelbl.HotelSearchController;
+import util.Adress;
+import util.Area;
 import util.ResultMsg;
 import vo.HotelInfoVO;
 import vo.RoomInfoVO;
@@ -27,12 +29,12 @@ public class HotelSearchControllerTest {
 	
 	@Before
 	public void setUp() {
-		hotel1=new HotelInfoVO("StarHotel","StarRoad","StarArea",5,"It's a wonderful hotel","cafe, garden and so on",
-				true,"3453",1.1,121);
-		hotel2=new HotelInfoVO("SunHotel","SunRoad","SunArea",4,"It's a nice hotel","cafe",
-				false,"546",1.1,121);
-		hotel3=new HotelInfoVO("MoonHotel","MoonRoad","MoonArea",-1,"It's a terrible hotel","nothing",
-				true,"4536",1.1,121);
+		hotel1=new HotelInfoVO("StarHotel",Adress.NANJING,Area.EAST,5,"It's a wonderful hotel","cafe, garden and so on",
+				true,"431543263",1.1,120);
+		hotel2=new HotelInfoVO("SunHotel",Adress.NANJING,Area.WEST,4,"It's a nice hotel","cafe",
+				false,"452346236",1.1,120);
+		hotel3=new HotelInfoVO("MoonHotel",Adress.NANJING,Area.NORTH,-1,"It's a terrible hotel","nothing",
+				true,"234655754634",1.1,120);
 				
 				
 		impl = new HotelSearchController();

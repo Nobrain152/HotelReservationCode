@@ -6,6 +6,8 @@ import org.junit.Before;
 import org.junit.Test;
 
 import bl.hotelbl.HotelReserveController;
+import util.Adress;
+import util.Area;
 import util.ResultMsg;
 import vo.HotelInfoVO;
 import vo.OrderVO;
@@ -29,10 +31,10 @@ public class HotelReserveControllerTest {
 	public void setUp() {
 		impl = new HotelReserveController();
 		
-		hotel1=new HotelInfoVO("StarHotel","StarRoad","StarArea",5,"It's a wonderful hotel","cafe, garden and so on",
-				true,"587",1.1,121);
-		hotel2=new HotelInfoVO("SunHotel","SunRoad","SunArea",4,"It's a nice hotel","cafe",
-				false,"7868",1.1,121);
+		hotel1=new HotelInfoVO("StarHotel",Adress.NANJING,Area.EAST,5,"It's a wonderful hotel","cafe, garden and so on",
+				true,"431543263",1.1,120);
+		hotel2=new HotelInfoVO("SunHotel",Adress.NANJING,Area.WEST,4,"It's a nice hotel","cafe",
+				false,"452346236",1.1,120);
 		
 		/*order1 = new OrderVO(new CustomerInfoVO("123", "txin", 
 				new ContactVO("18805156300", null), 100), 

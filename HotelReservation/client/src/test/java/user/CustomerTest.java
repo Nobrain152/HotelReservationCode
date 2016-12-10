@@ -5,16 +5,14 @@ import static org.junit.Assert.assertEquals;
 import java.rmi.RemoteException;
 
 import bl.userbl.Customer;
-import data.userdata.CustomerManagementDataServiceImpl;
 import dataservice.userdataservice.CustomerManagementDataService;
 import util.ResultMsg;
-import vo.ContactVO;
 import vo.CustomerInfoVO;
 import vo.UserInfoVO;
 
 public class CustomerTest {
 	private Customer cu;
-	private CustomerManagementDataService customerManagementDataService =new CustomerManagementDataServiceImpl();
+	private CustomerManagementDataService customerManagementDataService;
 
 	
 	public void setup(){
@@ -36,7 +34,7 @@ public class CustomerTest {
 	}
 	
 	public void testmodify(){
-		CustomerInfoVO vo1=new CustomerInfoVO("1234567","Tom",new ContactVO("13067893451",null),100,false,null);
+		CustomerInfoVO vo1=new CustomerInfoVO("1234567","Tom","1234543215","1234567",100,false,null);
 		ResultMsg cantest = ResultMsg.FAIL;
 		try {
 			cantest = cu.IndividualBaseInfoModification("1234567",vo1);

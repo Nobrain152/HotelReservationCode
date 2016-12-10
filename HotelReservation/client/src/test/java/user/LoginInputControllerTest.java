@@ -8,6 +8,7 @@ import org.junit.Test;
 
 import bl.userbl.LoginInputController;
 import vo.LoginInVO;
+import vo.UserInfoVO;
 
 public class LoginInputControllerTest {
 
@@ -24,7 +25,7 @@ public class LoginInputControllerTest {
 
 		@Test
 		public void testLogin() {
-			boolean result=im.LogIn(vo);
+			boolean result=im.LogIn("Tom","123456789");
 			assertEquals(result,false);
 		}
 		
@@ -36,6 +37,7 @@ public class LoginInputControllerTest {
 		
 		@Test
 		public void testregister(){
+			UserInfoVO vo=new UserInfoVO();
 		    String result=im.Register(vo);
 		    assertEquals(result,"000000001");
 		}

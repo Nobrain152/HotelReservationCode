@@ -21,7 +21,7 @@
          </font>
       </Text>
       <Button fx:id="button_Cancel" layoutX="691.0" layoutY="556.0" mnemonicParsing="false" onAction="#button_CancelAction" prefHeight="28.0" prefWidth="66.0" text="返回" />
-      <Button layoutX="280.0" layoutY="426.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="90.0" text="信用记录">
+      <Button fx:id="button_Credit" layoutX="280.0" layoutY="426.0" mnemonicParsing="false" onAction="#button_CreditAction" prefHeight="37.0" prefWidth="90.0" text="信用记录">
          <font>
             <Font size="14.0" />
          </font>

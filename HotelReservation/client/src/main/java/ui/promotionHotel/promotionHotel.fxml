@@ -37,7 +37,7 @@
                             <TableColumn fx:id="promotion_birthday_discount" prefWidth="161.0" text="相应会员折扣" />
                           </columns>
                         </TableView>
-                        <Button layoutX="135.0" layoutY="352.0" mnemonicParsing="false" text="修改">
+                        <Button fx:id="btn_birthday_modify" layoutX="135.0" layoutY="352.0" mnemonicParsing="false" onAction="#btn_birthday_modifyAction" text="修改">
                            <font>
                               <Font size="14.0" />
                            </font></Button>
@@ -72,7 +72,7 @@
                               <Font size="14.0" />
                            </font>
                         </Button>
-                        <Button layoutX="142.0" layoutY="346.0" mnemonicParsing="false" text="修改">
+                        <Button fx:id="btn_threeroom_modify" layoutX="142.0" layoutY="346.0" mnemonicParsing="false" onAction="#btn_threeroom_modifyAction" text="修改">
                            <font>
                               <Font size="14.0" />
                            </font>
@@ -99,7 +99,7 @@
                               <Font size="14.0" />
                            </font>
                         </Button>
-                        <Button layoutX="145.0" layoutY="346.0" mnemonicParsing="false" text="修改">
+                        <Button fx:id="btn_enterprise_modify" layoutX="145.0" layoutY="346.0" mnemonicParsing="false" onAction="#btn_enterprise_modifyAction" text="修改">
                            <font>
                               <Font size="14.0" />
                            </font>
@@ -128,7 +128,7 @@
                               <Font size="14.0" />
                            </font>
                         </Button>
-                        <Button layoutX="136.0" layoutY="336.0" mnemonicParsing="false" text="修改">
+                        <Button fx:id="btn_diy_modify" layoutX="136.0" layoutY="336.0" mnemonicParsing="false" onAction="#btn_diy_modifyAction" text="修改">
                            <font>
                               <Font size="14.0" />
                            </font>

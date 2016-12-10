@@ -25,6 +25,8 @@ public class promotionHotelViewController implements Initializable {
 	@FXML
 	private TableColumn<?, ?> promotion_birthday_discount;
 	private ObservableList<PromotionBirthday> data_birthday;
+	@FXML
+	private Button btn_birthday_modify;
 
 	// 三间以上优惠策略
 	@FXML
@@ -34,6 +36,8 @@ public class promotionHotelViewController implements Initializable {
 	@FXML
 	private TableColumn<?, ?> promotion_threeroom_discount;
 	private ObservableList<PromotionThreeRoom> data_threeroom;
+	@FXML
+	private Button btn_threeroom_modify;
 
 	// 合作企业优惠策略
 	@FXML
@@ -43,6 +47,8 @@ public class promotionHotelViewController implements Initializable {
 	@FXML
 	private TableColumn<?, ?> promotion_enterprise_discount;
 	private ObservableList<PromotionEnterprise> data_enterprise;
+	@FXML
+	private Button btn_enterprise_modify;
 
 	// 自定义优惠策略
 	@FXML
@@ -54,6 +60,8 @@ public class promotionHotelViewController implements Initializable {
 	@FXML
 	private TableColumn<?, ?> promotion_diy_discount;
 	private ObservableList<PromotionDiy> data_diy;
+	@FXML
+	private Button btn_diy_modify;
 	
 
 	@FXML
@@ -66,6 +74,26 @@ public class promotionHotelViewController implements Initializable {
 	@FXML
 	public void btn_CancelAction(ActionEvent ev) {
 		application.gotohotelStuffGuide();
+	}
+	
+	@FXML
+	public void btn_birthday_modifyAction(ActionEvent ev) {
+		application.gotopromotionHotelBirthday();
+	}
+	
+	@FXML
+	public void btn_diy_modifyAction(ActionEvent ev) {
+		application.gotopromotionHotelDIY();
+	}
+	
+	@FXML
+	public void btn_enterprise_modifyAction(ActionEvent ev) {
+		application.gotopromotionHotelEnterprise();
+	}
+	
+	@FXML
+	public void btn_threeroom_modifyAction(ActionEvent ev) {
+		application.gotopromotionHotelRoom();
 	}
 
 	@Override

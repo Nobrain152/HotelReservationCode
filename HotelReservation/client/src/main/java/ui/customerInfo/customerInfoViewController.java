@@ -13,6 +13,9 @@ public class customerInfoViewController implements Initializable{
 	private UILaunch application;
 	
 	@FXML
+	private Button button_Credit;
+	
+	@FXML
 	private Button button_Modify;
 	
 	@FXML
@@ -20,6 +23,11 @@ public class customerInfoViewController implements Initializable{
 	
 	public void setApp(UILaunch application){
 		this.application= application;
+	}
+	
+	@FXML
+	private void button_CreditAction(ActionEvent event) throws Exception{
+		application.gotocreditCheck();
 	}
 	
 	@FXML

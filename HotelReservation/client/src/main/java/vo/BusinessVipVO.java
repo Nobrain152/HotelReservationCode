@@ -11,9 +11,9 @@ public class BusinessVipVO extends CustomerInfoVO {
 	
 	public BusinessVipVO() {}
 
-	public BusinessVipVO(String userid, String username, ContactVO contact,
+	public BusinessVipVO(String userid, String username, String password,String contact,
 			int credit, String businessName,VipType vipType) {
-		super(userid, username, contact, credit, true ,vipType);
+		super(userid, username, password, contact, credit, true ,vipType);
 		this.businessName = businessName;
 	}
 	

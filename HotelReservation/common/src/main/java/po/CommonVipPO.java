@@ -18,9 +18,9 @@ public class CommonVipPO extends CustomerInfoPO implements Serializable{
 	
 	public CommonVipPO() {}
 
-	public CommonVipPO(String userid, String username, ContactPO contact,
+	public CommonVipPO(String userid, String username,String password,String contact,
 			int credit, String birthday,VipType vipType) {
-		super(userid, username, contact, credit, true, vipType);
+		super(userid, username, password,contact, credit, true, vipType);
 		this.birthday = birthday;
 	}
 	

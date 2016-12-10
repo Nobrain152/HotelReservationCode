@@ -1,43 +1,123 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.effect.*?>
-<?import javafx.geometry.*?>
-<?import javafx.scene.web.*?>
-<?import javafx.scene.text.*?>
-<?import javafx.scene.paint.*?>
 <?import javafx.scene.shape.*?>
-<?import java.lang.*?>
+<?import javafx.scene.text.*?>
 <?import javafx.scene.control.*?>
+<?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.AnchorPane?>
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ui.reservedHotel.reservedHotelInfoViewController">
    <children>
-      <Pane prefHeight="71.0" prefWidth="800.0">
+      <Pane prefHeight="80.0" prefWidth="800.0" style="-fx-background-color: lightgrey;">
          <children>
-            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#b4b4b4" height="71.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="800.0" />
-            <Text layoutX="35.0" layoutY="44.0" strokeType="OUTSIDE" strokeWidth="0.0" text="酒店预定系统">
+            <Text layoutX="70.0" layoutY="50.0" strokeType="OUTSIDE" strokeWidth="0.0" text="酒店预定系统">
                <font>
-                  <Font size="24.0" />
-               </font>
-            </Text>
-            <Text layoutX="655.0" layoutY="40.0" strokeType="OUTSIDE" strokeWidth="0.0" text="XXX，欢迎你！">
-               <font>
-                  <Font size="14.0" />
+                  <Font name="System Bold Italic" size="24.0" />
                </font>
             </Text>
          </children>
       </Pane>
-      <Pane layoutY="529.0" prefHeight="71.0" prefWidth="800.0">
+      <Pane layoutY="530.0" prefHeight="70.0" prefWidth="800.0" style="-fx-background-color: lightgrey;">
          <children>
-            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#b4b4b4" height="71.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="800.0" />
-            <Button layoutX="704.0" layoutY="21.0" mnemonicParsing="false" prefHeight="28.0" prefWidth="61.0" text="返回">
+            <Button fx:id="btn_Cancel" layoutX="700.0" layoutY="20.0" mnemonicParsing="false" onAction="#btn_CancelAction" prefHeight="28.0" prefWidth="59.0" text="返回">
+               <font>
+                  <Font size="14.0" />
+               </font></Button>
+         </children>
+      </Pane>
+      <Pane layoutY="80.0" prefHeight="450.0" prefWidth="800.0">
+         <children>
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#dee6ee" height="30.0" layoutX="100.0" layoutY="106.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="153.0" />
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#dee6ee" height="30.0" layoutX="100.0" layoutY="149.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="153.0" />
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#dee6ee" height="63.0" layoutX="40.0" layoutY="223.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="312.0" />
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#dee6ee" height="93.0" layoutX="41.0" layoutY="328.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="312.0" />
+            <Label layoutX="43.0" layoutY="30.0" text="Sun Hotel" textFill="#2a75ae">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Label>
+            <Label layoutX="62.0" layoutY="73.0" text="星">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <Label layoutX="43.0" layoutY="73.0" text="5">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <Label layoutX="197.0" layoutY="37.0" text="￥">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <Label layoutX="217.0" layoutY="37.0" text="1599">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <Label layoutX="176.0" layoutY="73.0" text="评分：">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <Label layoutX="233.0" layoutY="73.0" text="10">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <Label layoutX="41.0" layoutY="111.0" text="地址：">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <Label layoutX="109.0" layoutY="112.0" text="南京">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <Label layoutX="41.0" layoutY="155.0" text="商圈：">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <Label layoutX="109.0" layoutY="155.0" text="东区">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <Label layoutX="51.0" layoutY="222.0" prefHeight="63.0" prefWidth="291.0" text="咖啡厅，花园，餐厅等" wrapText="true" />
+            <Label layoutX="41.0" layoutY="193.0" text="服务设施：">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <Label layoutX="41.0" layoutY="301.0" text="简介：">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <Label layoutX="50.0" layoutY="328.0" prefHeight="93.0" prefWidth="291.0" text="五星级国际品牌酒店，优质的酒店服务让您真正感受到宾至如归，倍受关怀！地理优越，环境优雅，是您出行的好选择" wrapText="true" />
+            <TableView fx:id="order" layoutX="393.0" layoutY="87.0" prefHeight="250.0" prefWidth="371.0">
+              <columns>
+                <TableColumn fx:id="order_ID" prefWidth="87.0" text="订单ID" />
+                <TableColumn fx:id="order_time" prefWidth="117.0" text="时间" />
+                  <TableColumn fx:id="order_condition" prefWidth="79.0" text="订单情况" />
+                  <TableColumn fx:id="order_price" prefWidth="74.0" text="价格" />
+              </columns>
+            </TableView>
+            <Label layoutX="393.0" layoutY="47.0" text="在该酒店的订单">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <Button fx:id="btn_Evaluate" layoutX="544.0" layoutY="359.0" mnemonicParsing="false" onAction="#btn_EvaluateAction" prefHeight="32.0" prefWidth="70.0" text="评价">
                <font>
                   <Font size="14.0" />
                </font>
             </Button>
          </children>
       </Pane>
-      <Pane layoutY="71.0" prefHeight="459.0" prefWidth="800.0" />
    </children>
 </AnchorPane>

@@ -11,7 +11,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ui.hotelEvaluate.hotelEvaluateController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ui.hotelEvaluate.hotelEvaluateViewController">
    <children>
       <Pane prefHeight="77.0" prefWidth="800.0">
          <children>
@@ -31,7 +31,7 @@
       <Pane layoutY="529.0" prefHeight="71.0" prefWidth="800.0">
          <children>
             <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#b4b4b4" height="71.0" layoutY="2.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="800.0" />
-            <Button layoutX="702.0" layoutY="20.0" mnemonicParsing="false" prefHeight="28.0" prefWidth="61.0" text="返回">
+            <Button fx:id="btn_Cancel" layoutX="702.0" layoutY="20.0" mnemonicParsing="false" onAction="#btn_CancelAction" prefHeight="28.0" prefWidth="61.0" text="返回">
                <font>
                   <Font size="14.0" />
                </font>

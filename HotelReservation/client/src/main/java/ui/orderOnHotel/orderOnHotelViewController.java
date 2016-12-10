@@ -30,6 +30,8 @@ public class orderOnHotelViewController implements Initializable {
 	@FXML
 	private TableColumn<?, ?> order_all_price;
 	private ObservableList<OrderInTable> data_all;
+	@FXML
+	private Button btn_all_info;
 
 	// 已执行订单
 	@FXML
@@ -43,6 +45,8 @@ public class orderOnHotelViewController implements Initializable {
 	@FXML
 	private TableColumn<?, ?> order_executed_price;
 	private ObservableList<OrderInTable> data_executed;
+	@FXML
+	private Button btn_executed_info;
 
 	// 未执行订单
 	@FXML
@@ -56,6 +60,8 @@ public class orderOnHotelViewController implements Initializable {
 	@FXML
 	private TableColumn<?, ?> order_waiting_price;
 	private ObservableList<OrderInTable> data_waiting;
+	@FXML
+	private Button btn_waiting_info;
 
 	// 已撤销订单
 	@FXML
@@ -69,6 +75,8 @@ public class orderOnHotelViewController implements Initializable {
 	@FXML
 	private TableColumn<?, ?> order_canceled_price;
 	private ObservableList<OrderInTable> data_canceled;
+	@FXML
+	private Button btn_canceled_info;
 
 	// 异常订单
 	@FXML
@@ -82,12 +90,19 @@ public class orderOnHotelViewController implements Initializable {
 	@FXML
 	private TableColumn<?, ?> order_abnormal_price;
 	private ObservableList<OrderInTable> data_abnormal;
+	@FXML
+	private Button btn_abnormal_info;
 
 	@FXML
 	private Button btn_Cancel;
 
 	public void setApp(UILaunch application) {
 		this.application = application;
+	}
+	
+	@FXML
+	public void btn_all_infoAction(ActionEvent ev) throws Exception {
+		application.gotoorderOnHotelInfo();
 	}
 
 	@FXML

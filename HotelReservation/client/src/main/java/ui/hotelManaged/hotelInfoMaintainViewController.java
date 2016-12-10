@@ -15,12 +15,20 @@ public class hotelInfoMaintainViewController implements Initializable{
 	@FXML
 	private Button btn_Cancel;
 	
+	@FXML
+	private Button btn_Save;
+	
 	public void setApp(UILaunch application){
 		this.application= application;
 	}
 	
 	@FXML
 	public void btn_CancelAction(ActionEvent ev) throws Exception{
+		application.gotohotelManagedInfo();
+	}
+	
+	@FXML
+	public void btn_SaveAction(ActionEvent ev) throws Exception{
 		application.gotohotelManagedInfo();
 	}
 	

@@ -54,7 +54,7 @@ public class promotionWebViewController implements Initializable {
 
 	@FXML
 	public void btn_CancelAction(ActionEvent ev) {
-		application.gotocustomerGuide();
+		application.gotowebSalesmanGuide();
 	}
 
 	@Override

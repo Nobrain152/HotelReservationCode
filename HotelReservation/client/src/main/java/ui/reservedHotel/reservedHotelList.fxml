@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.*?>
 <?import javafx.scene.effect.*?>
 <?import javafx.geometry.*?>
 <?import javafx.scene.web.*?>
@@ -11,19 +12,14 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ui.reservedHotel.reservedHotelListViewControllerller">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ui.reservedHotel.reservedHotelListViewController">
    <children>
       <Pane prefHeight="69.0" prefWidth="800.0">
          <children>
             <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#b4b4b4" height="69.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="800.0" />
-            <Text layoutX="32.0" layoutY="43.0" strokeType="OUTSIDE" strokeWidth="0.0" text="酒店预定系统">
+            <Text layoutX="31.0" layoutY="43.0" strokeType="OUTSIDE" strokeWidth="0.0" text="酒店预定系统">
                <font>
                   <Font size="24.0" />
-               </font>
-            </Text>
-            <Text layoutX="653.0" layoutY="39.0" strokeType="OUTSIDE" strokeWidth="0.0" text="XXX，欢迎你！">
-               <font>
-                  <Font size="14.0" />
                </font>
             </Text>
          </children>
@@ -36,6 +32,20 @@
                   <Font size="14.0" />
                </font>
             </Button>
+         </children>
+      </Pane>
+      <Pane layoutY="69.0" prefHeight="464.0" prefWidth="800.0">
+         <children>
+            <TableView fx:id="tv_hotel" layoutX="62.0" layoutY="34.0" prefHeight="335.0" prefWidth="691.0">
+              <columns>
+                <TableColumn fx:id="tc_name" prefWidth="75.0" text="酒店名称" />
+                <TableColumn fx:id="tc_star" prefWidth="75.0" text="星级" />
+                  <TableColumn fx:id="tc_score" prefWidth="75.0" text="评分" />
+                  <TableColumn fx:id="tc_condition" prefWidth="124.0" text="订单状况" />
+                  <TableColumn fx:id="tc_price" prefWidth="77.0" text="价格" />
+              </columns>
+            </TableView>
+            <Button fx:id="btn_Info" layoutX="658.0" layoutY="396.0" mnemonicParsing="false" onAction="#btn_InfoAction" prefHeight="29.0" prefWidth="71.0" text="详细信息" />
          </children>
       </Pane>
    </children>

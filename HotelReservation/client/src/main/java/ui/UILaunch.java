@@ -43,6 +43,8 @@ import ui.reservedHotel.reservedHotelInfoViewController;
 import ui.reservedHotel.reservedHotelListViewController;
 import ui.roomAdd.roomAddViewController;
 import ui.roomAdd.roomListViewController;
+import ui.roomAdd.roomModifyViewController;
+import ui.vip.vipInfoViewController;
 import ui.vip.vipRegisterViewController;
 import ui.webManagerGuide.webManagerGuideViewController;
 import ui.webSalesmanGuide.webSalesmanGuideViewController;
@@ -445,6 +447,19 @@ public class UILaunch extends Application{
 	}
 	
 	/**
+	 * 跳转到修改客房信息界面
+	 */
+	public void gotoroomModify(){
+		try{
+			roomModifyViewController roomModify=(roomModifyViewController) replaceSceneContent("roomAdd/roomModify.fxml");
+			roomModify.setApp(this);
+		}catch(Exception ex){
+			ex.printStackTrace();
+		}
+	}
+	
+	
+	/**
 	 * 跳转到添加可用客房列表界面
 	 */
 	public void gotoroomList(){
@@ -459,9 +474,21 @@ public class UILaunch extends Application{
 	/**
 	 * 跳转到注册会员界面
 	 */
-	public void gotovip(){
+	public void gotovipRegister(){
 		try{
-			vipRegisterViewController vip=(vipRegisterViewController) replaceSceneContent("vip/vip.fxml");
+			vipRegisterViewController vip=(vipRegisterViewController) replaceSceneContent("vip/vipRegister.fxml");
+			vip.setApp(this);
+		}catch(Exception ex){
+			ex.printStackTrace();
+		}
+	}
+	
+	/**
+	 * 跳转到会员信息界面
+	 */
+	public void gotovipInfo(){
+		try{
+			vipInfoViewController vip=(vipInfoViewController) replaceSceneContent("vip/vipInfo.fxml");
 			vip.setApp(this);
 		}catch(Exception ex){
 			ex.printStackTrace();

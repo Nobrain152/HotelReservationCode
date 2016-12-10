@@ -65,7 +65,7 @@ public class promotionHotelViewController implements Initializable {
 
 	@FXML
 	public void btn_CancelAction(ActionEvent ev) {
-		application.gotowebSalesmanGuide();
+		application.gotohotelStuffGuide();
 	}
 
 	@Override

@@ -12,7 +12,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ui.hotelManaged.hotelInfoMaintainViewControllerller">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ui.hotelManaged.hotelInfoMaintainViewController">
    <children>
       <Pane prefHeight="70.0" prefWidth="800.0">
          <children>
@@ -39,71 +39,58 @@
             </Button>
          </children>
       </Pane>
-      <ScrollPane focusTraversable="false" hbarPolicy="NEVER" layoutY="70.0" prefHeight="460.0" prefWidth="800.0">
-        <content>
-          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="557.0" prefWidth="800.0">
-               <children>
-                  <Text layoutX="201.0" layoutY="53.0" strokeType="OUTSIDE" strokeWidth="0.0" text="酒店名称">
-                     <font>
-                        <Font size="14.0" />
-                     </font>
-                  </Text>
-                  <Text layoutX="201.0" layoutY="91.0" strokeType="OUTSIDE" strokeWidth="0.0" text="星级">
-                     <font>
-                        <Font size="14.0" />
-                     </font>
-                  </Text>
-                  <Text layoutX="201.0" layoutY="128.0" strokeType="OUTSIDE" strokeWidth="0.0" text="价格">
-                     <font>
-                        <Font size="14.0" />
-                     </font>
-                  </Text>
-                  <Text layoutX="201.0" layoutY="167.0" strokeType="OUTSIDE" strokeWidth="0.0" text="评分">
-                     <font>
-                        <Font size="14.0" />
-                     </font>
-                  </Text>
-                  <Text layoutX="201.0" layoutY="202.0" strokeType="OUTSIDE" strokeWidth="0.0" text="地址">
-                     <font>
-                        <Font size="14.0" />
-                     </font>
-                  </Text>
-                  <Text layoutX="201.0" layoutY="236.0" strokeType="OUTSIDE" strokeWidth="0.0" text="所属商圈">
-                     <font>
-                        <Font size="14.0" />
-                     </font>
-                  </Text>
-                  <Text layoutX="201.0" layoutY="278.0" strokeType="OUTSIDE" strokeWidth="0.0" text="联系电话">
-                     <font>
-                        <Font size="14.0" />
-                     </font>
-                  </Text>
-                  <Text layoutX="201.0" layoutY="316.0" strokeType="OUTSIDE" strokeWidth="0.0" text="服务设施">
-                     <font>
-                        <Font size="14.0" />
-                     </font>
-                  </Text>
-                  <Text layoutX="201.0" layoutY="389.0" strokeType="OUTSIDE" strokeWidth="0.0" text="简介">
-                     <font>
-                        <Font size="14.0" />
-                     </font>
-                  </Text>
-                  <Button layoutX="525.0" layoutY="472.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="52.0" text="确定" />
-                  <TextArea layoutX="294.0" layoutY="301.0" prefHeight="62.0" prefWidth="282.0" />
-                  <TextArea layoutX="294.0" layoutY="374.0" prefHeight="88.0" prefWidth="283.0" />
-                  <TextField layoutX="294.0" layoutY="261.0" prefHeight="23.0" prefWidth="281.0" />
-                  <TextField layoutX="294.0" layoutY="219.0" prefHeight="23.0" prefWidth="281.0" />
-                  <TextField layoutX="294.0" layoutY="185.0" prefHeight="23.0" prefWidth="281.0" />
-                  <TextField layoutX="295.0" layoutY="150.0" prefHeight="23.0" prefWidth="125.0" />
-                  <TextField layoutX="295.0" layoutY="111.0" prefHeight="23.0" prefWidth="125.0" />
-                  <TextField layoutX="295.0" layoutY="36.0" prefHeight="23.0" prefWidth="125.0" />
-                  <ImageView fitHeight="128.0" fitWidth="138.0" layoutX="435.0" layoutY="36.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../../../../../image/hotel.jpg" />
-                     </image>
-                  </ImageView>
-               </children></AnchorPane>
-        </content>
-      </ScrollPane>
+      <Pane layoutY="70.0" prefHeight="460.0" prefWidth="800.0">
+         <children>
+            <Button fx:id="btn_Save" layoutX="610.0" layoutY="361.0" mnemonicParsing="false" onAction="#btn_SaveAction" prefHeight="30.0" prefWidth="77.0" text="保存信息" />
+            <Text layoutX="423.0" layoutY="190.0" strokeType="OUTSIDE" strokeWidth="0.0" text="简介">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Text>
+            <Text layoutX="423.0" layoutY="68.0" strokeType="OUTSIDE" strokeWidth="0.0" text="服务设施">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Text>
+            <Text layoutX="83.0" layoutY="327.0" strokeType="OUTSIDE" strokeWidth="0.0" text="所属商圈">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Text>
+            <Text layoutX="83.0" layoutY="279.0" strokeType="OUTSIDE" strokeWidth="0.0" text="地址">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Text>
+            <Text layoutX="83.0" layoutY="229.0" strokeType="OUTSIDE" strokeWidth="0.0" text="评分">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Text>
+            <Text layoutX="83.0" layoutY="182.0" strokeType="OUTSIDE" strokeWidth="0.0" text="价格">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Text>
+            <Text layoutX="83.0" layoutY="127.0" strokeType="OUTSIDE" strokeWidth="0.0" text="星级">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Text>
+            <Text layoutX="83.0" layoutY="69.0" strokeType="OUTSIDE" strokeWidth="0.0" text="酒店名称">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Text>
+            <TextField layoutX="188.0" layoutY="49.0" prefHeight="29.0" prefWidth="173.0" />
+            <TextField layoutX="188.0" layoutY="107.0" prefHeight="29.0" prefWidth="173.0" />
+            <TextField layoutX="188.0" layoutY="162.0" prefHeight="29.0" prefWidth="173.0" />
+            <TextField layoutX="188.0" layoutY="209.0" prefHeight="29.0" prefWidth="173.0" />
+            <TextField layoutX="188.0" layoutY="259.0" prefHeight="29.0" prefWidth="173.0" />
+            <TextField layoutX="188.0" layoutY="307.0" prefHeight="29.0" prefWidth="173.0" />
+            <TextArea layoutX="423.0" layoutY="86.0" prefHeight="83.0" prefWidth="264.0" />
+            <TextArea layoutX="423.0" layoutY="197.0" prefHeight="140.0" prefWidth="264.0" />
+         </children>
+      </Pane>
    </children>
 </AnchorPane>

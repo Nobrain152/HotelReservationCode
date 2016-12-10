@@ -24,6 +24,9 @@ public class hotelStuffGuideViewController implements Initializable{
 	@FXML
 	private Button btn_Hotel;
 	
+	@FXML
+	private Button btn_Promotion;
+	
 	public void setApp(UILaunch application){
 		this.application= application;
 	}
@@ -46,6 +49,11 @@ public class hotelStuffGuideViewController implements Initializable{
 	@FXML
 	private void btn_HotelAction(ActionEvent event) throws Exception{
 		application.gotohotelManagedInfo();
+	}
+	
+	@FXML
+	private void btn_PromotionAction(ActionEvent event) throws Exception{
+		application.gotopromotionHotel();
 	}
 
 	@Override

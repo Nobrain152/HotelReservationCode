@@ -60,7 +60,7 @@ public class customerGuideViewController implements Initializable{
 	
 	@FXML
 	private void button_VipAction(ActionEvent event) throws Exception{
-		application.gotovip();	
+		application.gotovipRegister();	
 	}
 	
 	@FXML

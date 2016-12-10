@@ -15,15 +15,10 @@
    <children>
       <Pane prefHeight="69.0" prefWidth="800.0">
          <children>
-            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#b4b4b4" height="69.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="800.0" />
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#c6cdcd" height="69.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="800.0" />
             <Text layoutX="34.0" layoutY="43.0" strokeType="OUTSIDE" strokeWidth="0.0" text="酒店预定系统">
                <font>
                   <Font size="24.0" />
-               </font>
-            </Text>
-            <Text layoutX="658.0" layoutY="39.0" strokeType="OUTSIDE" strokeWidth="0.0" text="XXX，欢迎你！">
-               <font>
-                  <Font size="14.0" />
                </font>
             </Text>
          </children>
@@ -31,13 +26,65 @@
       <Pane layoutY="531.0" prefHeight="69.0" prefWidth="800.0">
          <children>
             <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#b4b4b4" height="69.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="800.0" />
-            <Button layoutX="696.0" layoutY="20.0" mnemonicParsing="false" prefHeight="28.0" prefWidth="61.0" text="返回">
+            <Button fx:id="btn_Cancel" layoutX="696.0" layoutY="20.0" mnemonicParsing="false" onAction="#btn_CancelAction" prefHeight="28.0" prefWidth="61.0" text="返回">
                <font>
                   <Font size="14.0" />
                </font>
             </Button>
          </children>
       </Pane>
-      <Pane layoutY="69.0" prefHeight="462.0" prefWidth="800.0" />
+      <TabPane layoutY="69.0" prefHeight="462.0" prefWidth="800.0" tabClosingPolicy="UNAVAILABLE">
+        <tabs>
+          <Tab text="未执行订单">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <TableView fx:id="order_waiting" layoutX="115.0" layoutY="42.0" prefHeight="284.0" prefWidth="581.0">
+                          <columns>
+                            <TableColumn fx:id="order_waiting_ID" prefWidth="82.0" text="ID" />
+                            <TableColumn fx:id="order_waiting_userName" prefWidth="83.0" text="用户名" />
+                              <TableColumn fx:id="order_waiting_hotelName" prefWidth="103.0" text="酒店名称" />
+                              <TableColumn fx:id="order_waiting_time" prefWidth="199.0" text="时间" />
+                              <TableColumn fx:id="order_waiting_price" prefWidth="98.0" text="金额" />
+                          </columns>
+                        </TableView>
+                        <Button fx:id="btn_waiting_info" layoutX="620.0" layoutY="364.0" mnemonicParsing="false" onAction="#btn_waiting_infoAction" text="详细信息">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Button>
+                     </children>
+                  </AnchorPane>
+            </content>
+          </Tab>
+          <Tab text="异常订单">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <TableView fx:id="order_abnormal" layoutX="116.0" layoutY="32.0" prefHeight="284.0" prefWidth="581.0">
+                           <columns>
+                              <TableColumn fx:id="order_abnormal_ID" prefWidth="82.0" text="ID" />
+                              <TableColumn fx:id="order_abnormal_userName" prefWidth="83.0" text="用户名" />
+                              <TableColumn fx:id="order_abnormal_hotelName" prefWidth="103.0" text="酒店名称" />
+                              <TableColumn fx:id="order_abnormal_time" prefWidth="199.0" text="时间" />
+                              <TableColumn fx:id="order_abnormal_price" prefWidth="98.0" text="金额" />
+                           </columns>
+                        </TableView>
+                        <Button fx:id="btn_abnormal_info" layoutX="621.0" layoutY="364.0" mnemonicParsing="false" onAction="#btn_abnormal_infoAction" text="详细信息">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Button>
+                        <Button layoutX="513.0" layoutY="364.0" mnemonicParsing="false" prefHeight="29.0" prefWidth="61.0" text="撤销">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Button>
+                     </children>
+                  </AnchorPane>
+            </content>
+          </Tab>
+        </tabs>
+      </TabPane>
    </children>
 </AnchorPane>

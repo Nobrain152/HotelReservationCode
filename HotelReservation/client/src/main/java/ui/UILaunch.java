@@ -124,7 +124,7 @@ public class UILaunch extends Application{
 	/**
 	 * 跳转到信誉充值界面
 	 */
-	public void gotocreditRechargge(){
+	public void gotocreditRecharge(){
 		try{
 			creditRechargeViewController creditRecharge=(creditRechargeViewController) replaceSceneContent("credit/creditRecharge.fxml");
 			creditRecharge.setApp(this);
@@ -542,6 +542,8 @@ public class UILaunch extends Application{
 			ex.printStackTrace();
 		}
 	}
+	
+	
 	
     private Initializable replaceSceneContent(String fxml) throws Exception{
     	FXMLLoader loader = new FXMLLoader();

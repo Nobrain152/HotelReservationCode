@@ -15,8 +15,6 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import ui.UILaunch;
-import ui.promotionHotel.promotionHotelViewController.PromotionDiy;
-import ui.reservedHotel.reservedHotelListViewController.hotelItem;
 
 public class roomListViewController implements Initializable{
 	private UILaunch application;

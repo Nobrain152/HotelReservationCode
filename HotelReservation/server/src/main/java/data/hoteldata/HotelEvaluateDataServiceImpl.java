@@ -24,7 +24,7 @@ public class HotelEvaluateDataServiceImpl extends DataSuperClass implements Hote
 	@Override
 	public ResultMsg insert(HotelEvaluatePO po) throws RemoteException {
 		return addToSQL(tableName, po.getUserID(),po.getHotelID(),""+po.getScore(),
-									po.getComment(),""+po.getIsReserved(),po.getOrderID());
+						po.getComment(),""+po.getIsReserved(),po.getOrderID());
 	}
 
 	@Override

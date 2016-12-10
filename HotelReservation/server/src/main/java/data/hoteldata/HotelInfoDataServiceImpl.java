@@ -8,6 +8,8 @@ import java.util.ArrayList;
 import dataSuper.DataSuperClass;
 import dataservice.hoteldataservice.HotelInfoDataService;
 import po.HotelInfoPO;
+import util.Adress;
+import util.Area;
 import util.ResultMsg;
 
 public class HotelInfoDataServiceImpl extends DataSuperClass implements HotelInfoDataService{
@@ -152,6 +154,14 @@ public class HotelInfoDataServiceImpl extends DataSuperClass implements HotelInf
 			return null;
 		}
 		return pos.size()==0?null:pos;
+	}
+
+	
+
+	@Override
+	public ArrayList<HotelInfoPO> findByAreaAndCircle(Adress area, Area circle) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }

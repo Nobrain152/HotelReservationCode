@@ -33,9 +33,9 @@ public class PromotionHotelDataServiceImpl extends DataSuperClass implements Pro
 							po.getBusinessName());
 	}
 
+	
 	@Override
-	public ResultMsg delete(PromotionHotelPO po) throws RemoteException {
-		//改接口，重新写
+	public ResultMsg deleteOverCut(int num, String hotelID) throws RemoteException {
 		return null;
 	}
 
@@ -48,12 +48,7 @@ public class PromotionHotelDataServiceImpl extends DataSuperClass implements Pro
 							po.getBusinessName());
 	}
 
-	@Override
-	public PromotionHotelPO findByName(String name) throws RemoteException {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
+	
 	@Override
 	public ArrayList<PromotionHotelPO> findByType(PromotionHotelType type, String hotelID) throws RemoteException {
 		// TODO Auto-generated method stub
@@ -71,8 +66,25 @@ public class PromotionHotelDataServiceImpl extends DataSuperClass implements Pro
 			preState = conn.prepareStatement(sql);
 			result = preState.executeQuery();
 			while (result.next()) {
-				//构造函数不明
-				//pos.add(new PromotionHotelpo);
+				if(result.getString(2).equals(PromotionHotelType.BIRTH_PROMOTION)||
+				result.getString(2).equals(PromotionHotelType.OVERTHREE_PROMOTION)){
+					pos.add(new PromotionHotelPO(
+							PromotionHotelType.valueOf(result.getString(2)),
+							result.getString(1), Integer.valueOf(result.getString(8)),
+							Double.valueOf(result.getString(6))));
+				}
+				else if(result.getString(2).equals(PromotionHotelType.JOIN_PROMOTION)){
+					pos.add(new PromotionHotelPO(
+							PromotionHotelType.valueOf(result.getString(2)),
+							result.getString(1), result.getString(9),
+							Double.valueOf(result.getString(6))));
+				}
+				else if(result.getString(2).equals(PromotionHotelType.HOTEL_CUSTOM_PROMOTION)){
+					pos.add(new PromotionHotelPO(
+							PromotionHotelType.valueOf(result.getString(2)),
+							result.getString(1), result.getString(4), result.getString(5),
+							Double.valueOf(result.getString(6))));
+				}
 			}
 			
 		} catch (SQLException e) {
@@ -81,6 +93,25 @@ public class PromotionHotelDataServiceImpl extends DataSuperClass implements Pro
 		
 		return pos;
 	}
+
+	@Override
+	public ResultMsg deleteBirthCut(int level, String hotelID) throws RemoteException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public ResultMsg deleteHotelCustomCut(String beginTime, String endTime, String hotelID) throws RemoteException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public ResultMsg deleteJoin(String businessName, String hotelID) throws RemoteException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 
 
 }

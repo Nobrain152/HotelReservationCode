@@ -66,17 +66,18 @@ public class DataSuperClass extends UnicastRemoteObject{
 		SQLmap.put("hotelInfo", helper.bulidSQL("hotelInfo", 10, "hotelID","name","address","area","level","introduction","facility","reserve","score","SP"));
 		SQLmap.put("roomInfo", helper.bulidSQL("roomInfo", 5, "state","type","roomID","price","hotelID"));
 		SQLmap.put("order", helper.bulidSQL("order", 13, "orderID","customerInfoPO","orderState","price","hotelID","hasChild","latestExecutionTime","checkInTime","checkOutTime","cancelledTime","roomNumber","peopleNumber","roomInfoPO"));
-		SQLmap.put("promotionHotel", helper.bulidSQL("promotionHotel", 9, "hotelID","hotelType","customType","beginTime","endTime","ratio","level","number","businessName"));
+		SQLmap.put("promotionHotel", helper.bulidSQL("promotionHotel", 9, "hotelID","promotionHotelType","customType","beginTime","endTime","ratio","level","number","businessName"));
 		
 		SQLmap.put("customer", helper.bulidSQL("customer", 7, "userid","username","contact","isMember","credit","order","hotel"));
 		//SQLmap.put("HotelCondition",helper.bulidSQL("HotelCondition", 10, "address","businessDistrict","hotelName","roomtype","upLevel",""));
 		SQLmap.put("userInfo", helper.bulidSQL("userInfo", 3, "userID","username","contact"));
 		SQLmap.put("contact", helper.bulidSQL("contact", 2, "phoneNumber","emailAddress"));
 		SQLmap.put("loginIn", helper.bulidSQL("loginIn", 2, "username","password"));
-		SQLmap.put("customerInfo", helper.bulidSQL("customerInfo", 6, "userid","username","contact","credit","isMember","vipType"));
-		
+		SQLmap.put("customerInfo", helper.bulidSQL("customerInfo", 6, "userID","username","contact","credit","isMember","vipType"));
 		SQLmap.put("hotelEvaluate", helper.bulidSQL("hotelEvaluate", 6, "userID","hotelID","score","comment","reserve","orderID"));
-		
+		SQLmap.put("commonVip", helper.bulidSQL("commonVip", 7, "userID","username","password","contact","credit","birthday","vipType"));
+		SQLmap.put("businessVip", helper.bulidSQL("businessVip", 7, "userID","username","password","contact","credit","businessName","vipType"));
+		//SQLmap.put("levelSystem", helper.bulidSQL("LevelSystem", 2, paras));
 		
 	}
 	

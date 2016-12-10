@@ -20,17 +20,32 @@
          </font>
       </Text>
       <Button fx:id="btn_Cancel" layoutX="702.0" layoutY="556.0" mnemonicParsing="false" onAction="#btn_CancelAction" prefHeight="28.0" prefWidth="66.0" text="退出" />
-      <Button fx:id="btn_Customer" layoutX="135.0" layoutY="239.0" mnemonicParsing="false" onAction="#btn_CustomerAction" prefHeight="61.0" prefWidth="149.0" text="用户信息查询">
+      <Button fx:id="btn_Customer" layoutX="201.0" layoutY="166.0" mnemonicParsing="false" onAction="#btn_CustomerAction" prefHeight="61.0" prefWidth="149.0" text="客户查询">
          <font>
             <Font size="14.0" />
          </font>
       </Button>
-      <Button fx:id="btn_Hotel" layoutX="325.0" layoutY="239.0" mnemonicParsing="false" onAction="#btn_HotelAction" prefHeight="61.0" prefWidth="149.0" text="添加酒店">
+      <Button fx:id="btn_Hotel" layoutX="449.0" layoutY="166.0" mnemonicParsing="false" onAction="#btn_HotelAction" prefHeight="61.0" prefWidth="149.0" text="酒店添加">
          <font>
             <Font size="14.0" />
          </font>
       </Button>
-      <Button layoutX="516.0" layoutY="239.0" mnemonicParsing="false" prefHeight="61.0" prefWidth="149.0" text="修改酒店工作人员">
+      <Button fx:id="btn_StuffInquire" layoutX="201.0" layoutY="274.0" mnemonicParsing="false" onAction="#btn_StuffInquireAction" prefHeight="61.0" prefWidth="149.0" text="酒店工作人员查询">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Button>
+      <Button fx:id="btn_SalesmanInquire" layoutX="201.0" layoutY="388.0" mnemonicParsing="false" onAction="#btn_SalesmanInquireAction" prefHeight="61.0" prefWidth="149.0" text="网站营销人员查询">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Button>
+      <Button fx:id="btn_StuffAdd" layoutX="449.0" layoutY="274.0" mnemonicParsing="false" onAction="#btn_StuffAddAction" prefHeight="61.0" prefWidth="149.0" text="酒店工作人员添加">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Button>
+      <Button fx:id="btn_SalesmanAdd" layoutX="449.0" layoutY="388.0" mnemonicParsing="false" onAction="#btn_SalesmanAddAction" prefHeight="61.0" prefWidth="149.0" text="网站营销人员添加">
          <font>
             <Font size="14.0" />
          </font>

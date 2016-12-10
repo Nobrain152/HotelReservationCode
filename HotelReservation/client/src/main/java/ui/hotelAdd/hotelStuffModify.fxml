@@ -12,7 +12,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ui.hotelAdd.hotelStuffAddViewController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ui.hotelAdd.hotelStuffModifyViewController">
    <children>
       <Pane prefHeight="77.0" prefWidth="800.0">
          <children>
@@ -56,7 +56,7 @@
             <TextField layoutX="375.0" layoutY="153.0" prefHeight="23.0" prefWidth="160.0" />
             <TextField layoutX="375.0" layoutY="211.0" prefHeight="23.0" prefWidth="160.0" />
             <TextField layoutX="375.0" layoutY="263.0" prefHeight="23.0" prefWidth="160.0" />
-            <Button layoutX="370.0" layoutY="331.0" mnemonicParsing="false" prefHeight="29.0" prefWidth="61.0" text="确认" />
+            <Button layoutX="370.0" layoutY="331.0" mnemonicParsing="false" prefHeight="29.0" prefWidth="71.0" text="确认修改" />
          </children>
       </Pane>
    </children>

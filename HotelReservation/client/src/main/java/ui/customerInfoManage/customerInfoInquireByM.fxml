@@ -12,7 +12,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ui.customerInfoManage.customerInfoInquireByMViewControllerller">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ui.customerInfoManage.customerInfoInquireByMViewController">
    <children>
       <Pane prefHeight="75.0" prefWidth="800.0">
          <children>
@@ -20,11 +20,6 @@
             <Text layoutX="32.0" layoutY="46.0" strokeType="OUTSIDE" strokeWidth="0.0" text="酒店预定系统">
                <font>
                   <Font size="24.0" />
-               </font>
-            </Text>
-            <Text layoutX="663.0" layoutY="41.0" strokeType="OUTSIDE" strokeWidth="0.0" text="XXX，欢迎你！">
-               <font>
-                  <Font size="14.0" />
                </font>
             </Text>
          </children>

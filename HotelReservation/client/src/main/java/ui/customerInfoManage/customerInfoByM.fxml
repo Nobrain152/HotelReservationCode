@@ -12,7 +12,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ui.customerInfoManage.customerInfoByMViewControllerller">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ui.customerInfoManage.customerInfoByMViewController">
    <children>
       <Pane prefHeight="76.0" prefWidth="800.0">
          <children>
@@ -41,32 +41,43 @@
       </Pane>
       <Pane layoutY="76.0" prefHeight="448.0" prefWidth="800.0">
          <children>
-            <ImageView fitHeight="185.0" fitWidth="165.0" layoutX="414.0" layoutY="96.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../../../../../image/head1.png" />
-               </image>
-            </ImageView>
-            <Text layoutX="179.0" layoutY="161.0" strokeType="OUTSIDE" strokeWidth="0.0" text="姓名" />
-            <Text layoutX="173.0" layoutY="112.0" strokeType="OUTSIDE" strokeWidth="0.0" text="账户ID" />
-            <Text layoutX="167.0" layoutY="212.0" strokeType="OUTSIDE" strokeWidth="0.0" text="联系方式" />
-            <Text layoutX="173.0" layoutY="268.0" strokeType="OUTSIDE" strokeWidth="0.0" text="信用值" />
-            <Button fx:id="btn_Modify" layoutX="482.0" layoutY="309.0" mnemonicParsing="false" onAction="#btn_ModifyAction" prefHeight="29.0" prefWidth="97.0" text="修改用户信息" />
-            <Label layoutX="228.0" layoutY="96.0" text="12345678">
+            <Text layoutX="259.0" layoutY="168.0" strokeType="OUTSIDE" strokeWidth="0.0" text="姓名">
+               <font>
+                  <Font size="14.0" />
+               </font></Text>
+            <Text layoutX="253.0" layoutY="119.0" strokeType="OUTSIDE" strokeWidth="0.0" text="账户ID">
+               <font>
+                  <Font size="14.0" />
+               </font></Text>
+            <Text layoutX="247.0" layoutY="219.0" strokeType="OUTSIDE" strokeWidth="0.0" text="联系方式">
+               <font>
+                  <Font size="14.0" />
+               </font></Text>
+            <Text layoutX="253.0" layoutY="275.0" strokeType="OUTSIDE" strokeWidth="0.0" text="信用值">
+               <font>
+                  <Font size="14.0" />
+               </font></Text>
+            <Button fx:id="btn_Modify" layoutX="353.0" layoutY="321.0" mnemonicParsing="false" onAction="#btn_ModifyAction" prefHeight="29.0" prefWidth="97.0" text="修改用户信息" />
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#d3dde8" height="30.0" layoutX="346.0" layoutY="99.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="208.0" />
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#d3dde8" height="30.0" layoutX="346.0" layoutY="148.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="208.0" />
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#d3dde8" height="30.0" layoutX="346.0" layoutY="199.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="208.0" />
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#d3dde8" height="30.0" layoutX="346.0" layoutY="255.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="208.0" />
+            <Label layoutX="359.0" layoutY="102.0" prefHeight="24.0" prefWidth="144.0" text="12345678">
                <font>
                   <Font size="18.0" />
                </font>
             </Label>
-            <Label layoutX="228.0" layoutY="145.0" text="顾逸飞">
+            <Label layoutX="359.0" layoutY="151.0" prefHeight="24.0" prefWidth="174.0" text="顾逸飞">
                <font>
                   <Font size="18.0" />
                </font>
             </Label>
-            <Label layoutX="228.0" layoutY="196.0" text="15150158583">
+            <Label layoutX="359.0" layoutY="202.0" prefHeight="24.0" prefWidth="174.0" text="15150158583">
                <font>
                   <Font size="18.0" />
                </font>
             </Label>
-            <Label layoutX="228.0" layoutY="252.0" text="100">
+            <Label layoutX="359.0" layoutY="258.0" prefHeight="24.0" prefWidth="61.0" text="100">
                <font>
                   <Font size="18.0" />
                </font>

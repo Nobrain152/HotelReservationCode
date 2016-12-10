@@ -19,6 +19,8 @@ import ui.customerInfoManage.customerInfoInquireByMViewController;
 import ui.customerInfoManage.customerInfoModifyByMViewController;
 import ui.hotelAdd.hotelAddViewController;
 import ui.hotelAdd.hotelStuffAddViewController;
+import ui.hotelAdd.hotelStuffInquireViewController;
+import ui.hotelAdd.hotelStuffModifyViewController;
 import ui.hotelEvaluate.hotelEvaluateViewController;
 import ui.hotelManaged.hotelInfoMaintainViewController;
 import ui.hotelManaged.hotelManagedInfoViewController;
@@ -47,6 +49,9 @@ import ui.roomAdd.roomModifyViewController;
 import ui.vip.vipInfoViewController;
 import ui.vip.vipRegisterViewController;
 import ui.webManagerGuide.webManagerGuideViewController;
+import ui.webSalesman.webSalesmanAddViewController;
+import ui.webSalesman.webSalesmanInquireViewController;
+import ui.webSalesman.webSalesmanModifyViewController;
 import ui.webSalesmanGuide.webSalesmanGuideViewController;
 
 public class UILaunch extends Application{
@@ -213,6 +218,66 @@ public class UILaunch extends Application{
 		try{
 			hotelStuffAddViewController hotelStuffAdd=(hotelStuffAddViewController) replaceSceneContent("hotelAdd/hotelStuffAdd.fxml");
 			hotelStuffAdd.setApp(this);
+		}catch(Exception ex){
+			ex.printStackTrace();
+		}
+	}
+	
+	/**
+	 * 跳转到酒店工作人员查询界面
+	 */
+	public void gotohotelStuffInquire(){
+		try{
+			hotelStuffInquireViewController hotelStuffInquire=(hotelStuffInquireViewController) replaceSceneContent("hotelAdd/hotelStuffInquire.fxml");
+			hotelStuffInquire.setApp(this);
+		}catch(Exception ex){
+			ex.printStackTrace();
+		}
+	}
+	
+	/**
+	 * 跳转到酒店工作人员修改界面
+	 */
+	public void gotohotelStuffModify(){
+		try{
+			hotelStuffModifyViewController hotelStuffModify=(hotelStuffModifyViewController) replaceSceneContent("hotelAdd/hotelStuffModify.fxml");
+			hotelStuffModify.setApp(this);
+		}catch(Exception ex){
+			ex.printStackTrace();
+		}
+	}
+	
+	/**
+	 * 跳转到网站营销人员添加界面
+	 */
+	public void gotowebSalesmanAdd(){
+		try{
+			webSalesmanAddViewController webSalesmanAdd=(webSalesmanAddViewController) replaceSceneContent("webSalesman/webSalesmanAdd.fxml");
+			webSalesmanAdd.setApp(this);
+		}catch(Exception ex){
+			ex.printStackTrace();
+		}
+	}
+	
+	/**
+	 * 跳转到网站营销人员查询界面
+	 */
+	public void gotowebSalesmanInquire(){
+		try{
+			webSalesmanInquireViewController webSalesmanInquire=(webSalesmanInquireViewController) replaceSceneContent("webSalesman/webSalesmanInquire.fxml");
+			webSalesmanInquire.setApp(this);
+		}catch(Exception ex){
+			ex.printStackTrace();
+		}
+	}
+	
+	/**
+	 * 跳转到网站营销人员修改界面
+	 */
+	public void gotowebSalesmanModify(){
+		try{
+			webSalesmanModifyViewController webSalesmanModify=(webSalesmanModifyViewController) replaceSceneContent("webSalesman/webSalesmanModify.fxml");
+			webSalesmanModify.setApp(this);
 		}catch(Exception ex){
 			ex.printStackTrace();
 		}

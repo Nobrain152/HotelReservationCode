@@ -12,7 +12,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ui.customerInfoManage.customerInfoModifyByMViewControllerller">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ui.customerInfoManage.customerInfoModifyByMViewController">
    <children>
       <Pane prefHeight="74.0" prefWidth="800.0">
          <children>
@@ -41,24 +41,17 @@
       </Pane>
       <Pane layoutY="74.0" prefHeight="453.0" prefWidth="800.0">
          <children>
-            <ImageView fitHeight="185.0" fitWidth="165.0" layoutX="441.0" layoutY="92.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../../../../../image/head1.png" />
-               </image>
-            </ImageView>
-            <Text layoutX="206.0" layoutY="157.0" strokeType="OUTSIDE" strokeWidth="0.0" text="姓名" />
-            <Text layoutX="200.0" layoutY="108.0" strokeType="OUTSIDE" strokeWidth="0.0" text="账户ID" />
-            <Text layoutX="194.0" layoutY="208.0" strokeType="OUTSIDE" strokeWidth="0.0" text="联系方式" />
-            <Text layoutX="200.0" layoutY="264.0" strokeType="OUTSIDE" strokeWidth="0.0" text="信用值" />
-            <TextField layoutX="255.0" layoutY="141.0" prefHeight="23.0" prefWidth="134.0" />
-            <TextField layoutX="255.0" layoutY="192.0" prefHeight="23.0" prefWidth="134.0" />
-            <TextField layoutX="255.0" layoutY="248.0" prefHeight="23.0" prefWidth="134.0" />
-            <Button layoutX="538.0" layoutY="305.0" mnemonicParsing="false" prefHeight="29.0" prefWidth="68.0" text="确认修改" />
-            <Label layoutX="255.0" layoutY="94.0" text="12345678">
+            <Text layoutX="266.0" layoutY="165.0" strokeType="OUTSIDE" strokeWidth="0.0" text="姓名">
                <font>
                   <Font size="14.0" />
-               </font>
-            </Label>
+               </font></Text>
+            <Text layoutX="252.0" layoutY="231.0" strokeType="OUTSIDE" strokeWidth="0.0" text="联系方式">
+               <font>
+                  <Font size="14.0" />
+               </font></Text>
+            <TextField layoutX="357.0" layoutY="146.0" prefHeight="29.0" prefWidth="192.0" />
+            <TextField layoutX="357.0" layoutY="212.0" prefHeight="29.0" prefWidth="192.0" />
+            <Button layoutX="366.0" layoutY="302.0" mnemonicParsing="false" prefHeight="29.0" prefWidth="68.0" text="确认修改" />
          </children>
       </Pane>
    </children>

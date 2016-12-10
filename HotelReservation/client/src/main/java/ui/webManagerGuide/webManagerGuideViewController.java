@@ -22,6 +22,18 @@ public class webManagerGuideViewController implements Initializable{
 	@FXML
 	private Button btn_Hotel;
 	
+	@FXML
+	private Button btn_StuffAdd;
+	
+	@FXML
+	private Button btn_StuffInquire;
+	
+	@FXML
+	private Button btn_SalesmanAdd;
+	
+	@FXML
+	private Button btn_SalesmanInquire;
+	
 	public void setApp(UILaunch application){
 		this.application= application;
 	}
@@ -40,6 +52,28 @@ public class webManagerGuideViewController implements Initializable{
 	private void btn_HotelAction(ActionEvent event) throws Exception{
 		application.gotohotelAdd();
 	}
+	
+	@FXML
+	private void btn_StuffAddAction(ActionEvent event) throws Exception{
+		application.gotohotelStuffAdd();
+	}
+	
+	@FXML
+	private void btn_StuffInquireAction(ActionEvent event) throws Exception{
+		application.gotohotelStuffInquire();
+	}
+	
+	@FXML
+	private void btn_SalesmanAddAction(ActionEvent event) throws Exception{
+		application.gotowebSalesmanAdd();
+	}
+	
+	@FXML
+	private void btn_SalesmanInquireAction(ActionEvent event) throws Exception{
+		application.gotowebSalesmanInquire();
+	}
+	
+	
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {

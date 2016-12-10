@@ -4,6 +4,8 @@ import java.rmi.RemoteException;
 
 import bl.VOPOchange;
 import dataservice.userdataservice.UserManagementDataService;
+import po.CustomerInfoPO;
+import po.StuffInfoPO;
 import po.UserInfoPO;
 import util.UserType;
 import vo.UserInfoVO;
@@ -55,7 +57,19 @@ public class User {
 	 */
 	public String Register(UserInfoVO vo)throws RemoteException{
 		UserInfoPO po=(UserInfoPO)VOPOchange.VOtoPO(vo);
-		return data.AddUser(po);
+		if(po.getType()==UserType.Customer){
+			return data.AddCustomer((CustomerInfoPO)po);
+		}
+		if(po.getType()==UserType.HotelStuff){
+			return data.AddHotelStuff((StuffInfoPO)po);
+		}
+		if(po.getType()==UserType.WebStuff){
+			return data.AddWebStuff(po);
+		}
+		if(po.getType()==UserType.WebManager){
+			return data.AddWebManager(po);
+		}
+		return null;
 	}
 	
 	/**

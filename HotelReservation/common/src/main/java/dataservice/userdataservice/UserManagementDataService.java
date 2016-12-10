@@ -2,6 +2,7 @@ package dataservice.userdataservice;
 
 import java.util.ArrayList;
 
+import po.CustomerInfoPO;
 import po.StuffInfoPO;
 import po.UserInfoPO;
 import util.ResultMsg;
@@ -22,12 +23,17 @@ public interface UserManagementDataService{
 		public String GetLoginInfo(String userid);
 		
 		/**
-		 * 注册
+		 * 注册的四种情况
 		 * @param 登录信息PO
 		 * @return 账号
 		 */
-		public String AddUser(UserInfoPO po);
+		public String AddWebStuff(UserInfoPO po);
 		
+		public String AddWebManager(UserInfoPO po);
+		
+		public String AddCustomer(CustomerInfoPO po);
+		
+		public String AddHotelStuff(StuffInfoPO po);
 		/**
 		 * 获取用户基本信息
 		 * @param 用户IDPO

@@ -60,6 +60,18 @@ public class PromotionHotelPO implements Serializable{
 	
 	public PromotionHotelPO() {}
 	
+	/**
+	 * 自定义时需要所有参数
+	 * @param hotelID
+	 * @param hotelType
+	 * @param customType
+	 * @param beginTime
+	 * @param endTime
+	 * @param ratio
+	 * @param level
+	 * @param number
+	 * @param businessName
+	 */
 	public PromotionHotelPO(String hotelID, PromotionHotelType hotelType,VipType customType,
 			String beginTime,String endTime,double ratio,int level,int number,String businessName) {
 		this.hotelID = hotelID;
@@ -73,6 +85,13 @@ public class PromotionHotelPO implements Serializable{
 		this.businessName = businessName;
 	}
 	
+	/**
+	 * 生日折扣，超过一定数量房间的折扣
+	 * @param promotionHotelType
+	 * @param hotelId
+	 * @param num
+	 * @param ratio
+	 */
 	public PromotionHotelPO(PromotionHotelType promotionHotelType,String hotelId,int num,double ratio) {
 		this.hotelType = promotionHotelType;
 		this.hotelID = hotelId;
@@ -83,6 +102,13 @@ public class PromotionHotelPO implements Serializable{
 		this.ratio = ratio;
 	}
 	
+	/**
+	 * 合作企业折扣
+	 * @param promotionHotelType
+	 * @param hotelID
+	 * @param businessName
+	 * @param ratio
+	 */
 	public PromotionHotelPO(PromotionHotelType promotionHotelType,String hotelID,String businessName,double ratio) {
 		this.hotelType = promotionHotelType;
 		this.hotelID = hotelID;
@@ -90,6 +116,14 @@ public class PromotionHotelPO implements Serializable{
 		this.ratio = ratio;
 	}
 	
+	/**
+	 * 自定义折扣（某特定时间
+	 * @param type
+	 * @param hotelID
+	 * @param beginTime
+	 * @param endTime
+	 * @param radio
+	 */
 	public PromotionHotelPO(PromotionHotelType type,String hotelID,String beginTime,String endTime,double radio) {
 		this.hotelType = type;
 		this.hotelID = hotelID;

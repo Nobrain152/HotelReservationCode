@@ -8,6 +8,7 @@ import org.junit.Test;
 import bl.promotionbl.PromotionValueController;
 import util.OrderState;
 import util.PromotionHotelType;
+import util.PromotionWebType;
 import util.RoomState;
 import util.RoomType;
 import util.VipType;
@@ -35,6 +36,9 @@ public class PromotionValueControllerTest {
 	@Test
 	public void testGetValue() {
 		orderVO = promotionImpl.getValue(customerInfoVO, orderVO,PromotionHotelType.BIRTH_PROMOTION);
+		assertEquals(orderVO.getPrice(), 100*0.9,0.01);
+		
+		orderVO = promotionImpl.getValue(customerInfoVO, orderVO, PromotionWebType.VIP_CIRCLE_PROMOTION);
 		assertEquals(orderVO.getPrice(), 100*0.9,0.01);
 	}
 

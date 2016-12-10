@@ -21,6 +21,8 @@ public interface VipDataService {
 	
 	public ResultMsg insertC(CommonVipPO vip) throws RemoteException;
 	
+	public ResultMsg insertL(LevelSystemPO levelSystemPO) throws RemoteException;
+	
 	public ResultMsg delete(String userid) throws RemoteException;
 	
 	public ResultMsg updateC(CommonVipPO vip) throws RemoteException;

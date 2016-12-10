@@ -13,7 +13,7 @@ import vo.CreditVO;
 import vo.CustomerInfoVO;
 import vo.HotelInfoVO;
 import vo.OrderVO;
-import vo.UserInfoVO;
+
 
 /**
  * 客户对个人信息的操作
@@ -42,7 +42,7 @@ public class CustomerInfoManagementController
 	 * @param userid
 	 * @return 个人基本信息
 	 */
-	public UserInfoVO IndividualBaseInfolnquiry(String userid){
+	public CustomerInfoVO IndividualBaseInfolnquiry(String userid){
 		try {
 			return customer.IndividualBaseInfolnquiry(userid);
 		} catch (RemoteException e) {

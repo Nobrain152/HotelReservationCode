@@ -12,8 +12,8 @@ public class StuffInfoVO extends UserInfoVO{
 	
 	public StuffInfoVO() {}
 	
-	public StuffInfoVO(String userid,String username,ContactVO contact,String hotelid){
-	    super(userid, username, contact);
+	public StuffInfoVO(String userid,String username,String contact,String hotelid,String password){
+	    super(userid, username, contact,password);
 		this.hotel =hotelid;
 	}
 	

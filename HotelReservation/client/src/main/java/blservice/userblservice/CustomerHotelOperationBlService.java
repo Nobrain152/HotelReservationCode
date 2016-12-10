@@ -4,8 +4,6 @@ import java.util.ArrayList;
 
 import util.ResultMsg;
 import util.Sort;
-import util.VipType;
-import vo.CustomerInfoVO;
 import vo.HotelEvaluateVO;
 import vo.HotelInfoVO;
 import vo.OrderVO;
@@ -41,13 +39,7 @@ public interface CustomerHotelOperationBlService{
 	 */
 	public void HotelEvaluate(HotelEvaluateVO vo);
 	
-	/**
-	 * 申请酒店会员
-	 * @param 酒店IDVO
-	 * @param 会员信息VO
-	 */
-	public ResultMsg HotelMemberRegisterApply(VipType type,String pa,CustomerInfoVO vo);
-		
+	
 	/**
 	 * 根据排序种类返回排好序的酒店列表
 	 * @param before

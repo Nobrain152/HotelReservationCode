@@ -7,7 +7,6 @@ import vo.CreditVO;
 import vo.CustomerInfoVO;
 import vo.HotelInfoVO;
 import vo.OrderVO;
-import vo.UserInfoVO;
 
 
 /**
@@ -22,7 +21,7 @@ public interface CustomerIndividualInformationManagementBLService{
 	 * @param 用户IDVO
 	 * @return 用户基本信息VO
 	 */
-	public UserInfoVO IndividualBaseInfolnquiry(String userid);
+	public CustomerInfoVO IndividualBaseInfolnquiry(String userid);
 		
 	/**
 	 * 修改个人基本信息

@@ -2,7 +2,7 @@ package dataservice.userdataservice;
 
 import java.util.ArrayList;
 
-import po.LoginInPO;
+import po.StuffInfoPO;
 import po.UserInfoPO;
 import util.ResultMsg;
 
@@ -19,14 +19,14 @@ public interface UserManagementDataService{
 		 * @param 登录信息PO
 		 * @return 密码
 		 */
-		public String GetLoginInfo(LoginInPO po);
+		public String GetLoginInfo(String userid);
 		
 		/**
 		 * 注册
 		 * @param 登录信息PO
 		 * @return 账号
 		 */
-		public String AddUser(LoginInPO po);
+		public String AddUser(UserInfoPO po);
 		
 		/**
 		 * 获取用户基本信息
@@ -43,12 +43,42 @@ public interface UserManagementDataService{
 		 */
 		public ResultMsg SetUserBaseInfo(String userid,UserInfoPO po2);
 		
+		/**
+		 * 增加酒店工作人员
+		 * @param hotelid
+		 * @param userid
+		 * @return
+		 */
 		public boolean addHotelStuff(String hotelid,String userid);
 		
+		/**
+		 * 增加网站营销人员
+		 * @param userid
+		 * @return
+		 */
 		public boolean addWebStuff(String userid);
 		
+		
+		/**
+		 * 浏览网站营销人员名单
+		 * @return
+		 */
 		public ArrayList<UserInfoPO> WebStuffScan();
 		
+		/**
+		 * 查找酒店管理人员信息
+		 * @param userid
+		 * @return
+		 */
+		public StuffInfoPO FindStuffInfo(String userid);
+		
+		/**
+		 * 修改酒店管理人员信息
+		 * @param userid
+		 * @param po
+		 * @return
+		 */
+		public boolean ModStuffInfo(String userid,StuffInfoPO po);
 		
 		
 }

@@ -11,9 +11,7 @@ import blservice.hotelblservice.RoomAddBLService;
 import blservice.orderblservice.OrderOnHotelBLService;
 import blservice.promotionservice.PromotionHotelBLService;
 import dataservice.userdataservice.UserManagementDataService;
-import po.ContactPO;
 import po.StuffInfoPO;
-import po.UserInfoPO;
 import util.OrderState;
 import util.PromotionHotelType;
 import util.ResultMsg;
@@ -22,7 +20,6 @@ import vo.OrderVO;
 import vo.PromotionHotelVO;
 import vo.RoomInfoVO;
 import vo.StuffInfoVO;
-import vo.UserInfoVO;
 
 
 
@@ -36,7 +33,7 @@ public class HotelStuff extends User {
 	private HotelInfoCheckBLService hotel;
 	private OrderOnHotelBLService order;
 	private RoomAddBLService room;
-	private UserInfoVO userInfoVO;
+	private StuffInfoVO userInfoVO;
 	private UserManagementDataService userDataService;
 	private PromotionHotelBLService promotion;
 	private BusinessLogicDataFactory factory;
@@ -241,9 +238,9 @@ public class HotelStuff extends User {
 	 * @return 酒店管理人员信息VO
 	 */
 	public StuffInfoVO IndividualBaseInfolnquiry(String userid)throws RemoteException{
-		UserInfoPO userInfoPO = userDataService.GetUserBaseInfo(userid);
-		userInfoVO = (UserInfoVO)VOPOchange.POtoVO(userInfoPO);
-		return (StuffInfoVO) userInfoVO;
+		StuffInfoPO userInfoPO = userDataService.FindStuffInfo(userid);
+		userInfoVO = (StuffInfoVO)VOPOchange.POtoVO(userInfoPO);
+		return  userInfoVO;
 	}
 			
 	
@@ -254,7 +251,11 @@ public class HotelStuff extends User {
 	 * @return 修改结果
 	 */
 	public ResultMsg IndividualBaseInfoModification(String userid,StuffInfoVO vo2)throws RemoteException{
-		StuffInfoPO po2=new StuffInfoPO(vo2.getUserID(),vo2.getUsername(),(ContactPO)VOPOchange.VOtoPO(vo2.getContact()),vo2.getHotel());
-		return userDataService.SetUserBaseInfo(userid,po2);
+		StuffInfoPO po2=(StuffInfoPO)VOPOchange.VOtoPO(vo2);
+		boolean result= userDataService.ModStuffInfo(userid,po2);
+		if(result){
+			return ResultMsg.SUCCESS;
+		}
+		return ResultMsg.FAIL;
 	}
 }

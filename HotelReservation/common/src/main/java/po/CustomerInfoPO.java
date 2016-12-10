@@ -49,9 +49,9 @@ public class CustomerInfoPO extends UserInfoPO implements Serializable{
 	
 	public CustomerInfoPO() {}
 
-	public CustomerInfoPO(String userid, String username, ContactPO contact,
-			int credit, boolean isMember,VipType vipType) {
-		super(userid, username, contact);
+	public CustomerInfoPO(String userid, String username, String contact,
+			String password,int credit, boolean isMember,VipType vipType) {
+		super(userid, username, contact,password);
 		this.credit = credit;
 		this.isMember = isMember;
 		this.vipType = vipType;
@@ -103,5 +103,7 @@ public class CustomerInfoPO extends UserInfoPO implements Serializable{
 			hotelIDList.add(id);
 		}
 	}
+	
+
 	
 }

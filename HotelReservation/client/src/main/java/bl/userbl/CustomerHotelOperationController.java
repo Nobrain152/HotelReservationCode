@@ -9,8 +9,6 @@ import net.RMIManage;
 import util.DataServiceType;
 import util.ResultMsg;
 import util.Sort;
-import util.VipType;
-import vo.CustomerInfoVO;
 import vo.HotelEvaluateVO;
 import vo.HotelInfoVO;
 import vo.OrderVO;
@@ -91,18 +89,7 @@ public class CustomerHotelOperationController implements CustomerHotelOperationB
 	}
 			
 	
-	/**
-	 * 申请酒店会员
-	 * @param 酒店IDVO
-	 * @param 会员信息VO
-	 */
-	public ResultMsg HotelMemberRegisterApply(VipType type,String pa,CustomerInfoVO vo){
-		try {
-			return customer.HotelMemberRegisterApply(type,pa, vo);
-		} catch (RemoteException e) {
-			return ResultMsg.FAIL;
-		}
-	}
+	
 	
 	
 

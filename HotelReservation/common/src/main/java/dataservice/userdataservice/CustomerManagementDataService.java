@@ -52,7 +52,20 @@ public interface CustomerManagementDataService extends UserManagementDataService
 		 */
 		public boolean addCustomerHotel (String userid,String idh);
 		
+		/**
+		 * 查找客户信息
+		 * @param userid
+		 * @return
+		 */
 		public CustomerInfoPO FindByID(String userid);
+		
+		/**
+		 * 更改客户信息
+		 * @param userid
+		 * @param po
+		 * @return
+		 */
+		public boolean ModInfo(String userid,CustomerInfoPO po);
 		
 		
 		

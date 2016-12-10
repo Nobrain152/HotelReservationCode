@@ -3,8 +3,12 @@ package po;
 import java.io.Serializable;
 
 import util.UserType;
-import util.VipType;
 
+/**
+ * 用户父类
+ * @author 曹畅
+ *
+ */
 public class UserInfoPO implements Serializable{
 	
 	private static final long serialVersionUID = -7187002330817151504L;
@@ -17,43 +21,30 @@ public class UserInfoPO implements Serializable{
 	 * 用户姓名
 	 */
 	private String username;
+	
+	/**
+	 * 密码
+	 */
+	private String password;
 
 	/**
 	 * 联系方式
 	 */
-	private ContactPO contact;
+	private String contact;
 	
 	/**
 	 * 用户类型
 	 */
 	private UserType type;
 	
-	/**
-	 * 酒店工作人员的隶属酒店ID
-	 */
-	private String hotel;
-	
-	/**
-	 * 客户信用值
-	 */
-	private int credit;
-	
-	/**
-	 * 是否会员
-	 */
-	private boolean isMember;
-	
-	/**
-	 * 会员类型
-	 */
-	private VipType vipType;
 	
 	public UserInfoPO() {}
 
-	public UserInfoPO(String userID, String username, ContactPO contact) {
+	public UserInfoPO(String userID, String username, String  contact,String password) {
 		this.userID = userID;
 		this.username = username;
 		this.contact = contact;
+		this.password=password;
 	}
 
 	public String getUserID() {
@@ -64,8 +55,12 @@ public class UserInfoPO implements Serializable{
 		return username;
 	}
 
-	public ContactPO getContact() {
+	public String getContact() {
 		return contact;
+	}
+	
+	public String getPassword(){
+		return password;
 	}
 	
 	public void setUserid(String userID) {
@@ -76,8 +71,12 @@ public class UserInfoPO implements Serializable{
 		this.username = username;
 	}
 	
-	public void setContact(ContactPO contactVO) {
-		this.contact = contactVO;
+	public void setContact(String contact) {
+		this.contact = contact;
+	}
+	
+	public void setPassword(String pass){
+		password=pass;
 	}
 	
 	public UserType getType(){
@@ -88,32 +87,4 @@ public class UserInfoPO implements Serializable{
 		type=ty;
 	}
 	
-	public String getHotel(){
-		return hotel;
-	}	
-	
-	public void setHotel(String id){
-		hotel = id;
-	}
-	
-	public int getCredit() {
-		return credit;
-	}
-
-	public boolean getIsMember() {
-		return isMember;
-	}
-	
-	public VipType getVipType() {
-		return vipType;
-	}
-	
-	
-	public void setVipType(VipType vipType) {
-		this.vipType = vipType;
-	}
-	
-	public void setIsMember(boolean isMember) {
-		this.isMember = isMember;
-	}
 }

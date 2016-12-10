@@ -7,7 +7,7 @@ import dataservice.userdataservice.UserManagementDataService;
 import net.RMIManage;
 import util.DataServiceType;
 import util.UserType;
-import vo.LoginInVO;
+import vo.UserInfoVO;
 
 /**
  * 用户登录
@@ -35,9 +35,9 @@ public class LoginInputController implements LoginInputBLService {
 	 * @param 登录输入信息VO
 	 * @return 登录结果
 	 */
-    public boolean  LogIn(LoginInVO vo){
+    public boolean  LogIn(String id,String password){
     	try {
-			return user.LogIn(vo);
+			return user.LogIn(id,password);
 		} catch (RemoteException e) {
 			e.printStackTrace();
 			return false;
@@ -65,7 +65,7 @@ public class LoginInputController implements LoginInputBLService {
 	 * @param 登录输入信息VO
 	 * @return 注册结果
 	 */
-	public String Register(LoginInVO vo){
+	public String Register(UserInfoVO vo){
 		try {
 			return user.Register(vo);
 		} catch (RemoteException e) {

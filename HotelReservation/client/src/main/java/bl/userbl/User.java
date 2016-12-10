@@ -2,15 +2,20 @@ package bl.userbl;
 
 import java.rmi.RemoteException;
 
+import bl.VOPOchange;
 import dataservice.userdataservice.UserManagementDataService;
-import po.LoginInPO;
+import po.UserInfoPO;
 import util.UserType;
-import vo.LoginInVO;
+import vo.UserInfoVO;
 
+/**
+ * 用户类的父类
+ * @author 曹畅
+ *
+ */
 public class User {
 	
 	private UserManagementDataService data;
-	private LoginInPO po;
 	
 	public User(UserManagementDataService data){
 		this.data=data;
@@ -21,11 +26,9 @@ public class User {
 	 * @param 登录输入信息VO
 	 * @return 登录结果
 	 */
-    public boolean  LogIn(LoginInVO vo)throws RemoteException{
-    	String pass=vo.getPassword();
-    	po=new LoginInPO(vo.getUsername(),vo.getPassword());
-    	String real=data.GetLoginInfo(po);
-    	return real.equals(pass);
+    public boolean  LogIn(String id,String password)throws RemoteException{
+    	String real=data.GetLoginInfo(id);
+    	return real.equals(password);
     	
     }
 	
@@ -50,8 +53,8 @@ public class User {
 	 * @param 登录输入信息VO
 	 * @return 注册结果
 	 */
-	public String Register(LoginInVO vo)throws RemoteException{
-		po=new LoginInPO(vo.getUsername(),vo.getPassword());
+	public String Register(UserInfoVO vo)throws RemoteException{
+		UserInfoPO po=(UserInfoPO)VOPOchange.VOtoPO(vo);
 		return data.AddUser(po);
 	}
 	

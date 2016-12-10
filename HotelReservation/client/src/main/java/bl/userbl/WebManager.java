@@ -8,10 +8,8 @@ import bl.VOPOchange;
 import blservice.hotelblservice.HotelInfoCheckBLService;
 import blservice.hotelblservice.HotelInfoMaintainBLService;
 import dataservice.userdataservice.UserManagementDataService;
-import po.ContactPO;
 import po.UserInfoPO;
 import util.ResultMsg;
-import vo.ContactVO;
 import vo.HotelInfoVO;
 import vo.UserInfoVO;
 
@@ -41,7 +39,7 @@ public class WebManager extends User {
 	 */
 	public UserInfoVO IndividualBaseInfolnquiry(String userid)throws RemoteException{
 		UserInfoPO po= data.GetUserBaseInfo(userid);
-		UserInfoVO vo=new UserInfoVO(po.getUserID(),po.getUsername(),(ContactVO)VOPOchange.POtoVO(po.getContact()));
+		UserInfoVO vo=(UserInfoVO)VOPOchange.POtoVO(po);
 		return vo;
 	}
 			
@@ -52,7 +50,7 @@ public class WebManager extends User {
 	 * @return 修改结果
 	 */
 	public ResultMsg IndividualBaseInfoModification(String userid,UserInfoVO vo2)throws RemoteException{
-		UserInfoPO po= new UserInfoPO(vo2.getUserID(),vo2.getUsername(),(ContactPO)VOPOchange.VOtoPO(vo2.getContact()));
+		UserInfoPO po= (UserInfoPO)VOPOchange.VOtoPO(vo2);
 		return data.SetUserBaseInfo(userid, po);
 	}
 		
@@ -89,7 +87,7 @@ public class WebManager extends User {
 	 */
 	public UserInfoVO UserInformationInquiry(String userid)throws RemoteException{
 		UserInfoPO po=data.GetUserBaseInfo(userid);
-		UserInfoVO vo=new UserInfoVO(po.getUserID(),po.getUsername(),(ContactVO)VOPOchange.POtoVO(po.getContact()));
+		UserInfoVO vo=(UserInfoVO)VOPOchange.POtoVO(po);
 		return vo;
 	}
 			
@@ -101,7 +99,7 @@ public class WebManager extends User {
 	 * @return 修改结果
 	 */
 	public ResultMsg UserInformationModification(String userid,UserInfoVO vo2)throws RemoteException{
-		UserInfoPO po1=new UserInfoPO(vo2.getUserID(),vo2.getUsername(),(ContactPO)VOPOchange.VOtoPO(vo2.getContact()));
+		UserInfoPO po1=(UserInfoPO)VOPOchange.POtoVO(vo2);
 		return data.SetUserBaseInfo(userid,po1);
 	}
 			
@@ -121,7 +119,7 @@ public class WebManager extends User {
 		ArrayList<UserInfoPO> pos=data.WebStuffScan();
 		ArrayList<UserInfoVO> vos=new ArrayList<UserInfoVO>();
 		for(int i=0;i<pos.size();i++){
-			vos.add(new UserInfoVO(pos.get(i).getUserID(),pos.get(i).getUsername(),new ContactVO(pos.get(i).getContact().phoneNumber,pos.get(i).getContact().emailAddress)));
+			vos.add((UserInfoVO)VOPOchange.POtoVO(pos.get(i)));
 		}
 		return vos;
 	}

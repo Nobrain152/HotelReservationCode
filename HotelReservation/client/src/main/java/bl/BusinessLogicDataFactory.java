@@ -24,9 +24,9 @@ import blservice.hotelblservice.RoomAddBLService;
 import blservice.orderblservice.OrderOnHotelBLService;
 import blservice.orderblservice.OrderOnUserBLService;
 import blservice.orderblservice.OrderOnWebBLService;
-import blservice.promotionservice.PromotionHotelBLService;
-import blservice.promotionservice.PromotionValueBLService;
-import blservice.promotionservice.PromotionWebBLService;
+import blservice.promotionblservice.PromotionHotelBLService;
+import blservice.promotionblservice.PromotionValueBLService;
+import blservice.promotionblservice.PromotionWebBLService;
 import blservice.vipblservice.VipLevelBLService;
 
 /**

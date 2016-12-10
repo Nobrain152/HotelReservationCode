@@ -49,5 +49,11 @@ public class OrderOnWebControllerTest {
 		OrderVO m1 = webBLServiceImpl.abnormalOrderDetail("201612062014");
 		assertEquals(m1, order1);
 	}
+	
+	@Test
+	public void testDayUnexOrder() throws RemoteException{
+		ArrayList<OrderVO> vos = webBLServiceImpl.dayUnexOrder("2016-12-16");
+		assertEquals(vos.get(0).getOrderID(), order1.getOrderID());
+	}
 
 }

@@ -3,7 +3,7 @@ package bl.promotionbl;
 import java.rmi.RemoteException;
 import java.util.ArrayList;
 
-import blservice.promotionservice.PromotionWebBLService;
+import blservice.promotionblservice.PromotionWebBLService;
 import dataservice.promotiondataservice.PromotionWebDataService;
 import net.RMIManage;
 import util.DataServiceType;

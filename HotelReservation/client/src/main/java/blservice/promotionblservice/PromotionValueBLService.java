@@ -1,4 +1,4 @@
-package blservice.promotionservice;
+package blservice.promotionblservice;
 
 import util.PromotionHotelType;
 import util.PromotionWebType;

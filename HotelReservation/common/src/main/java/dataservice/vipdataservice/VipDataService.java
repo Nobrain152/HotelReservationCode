@@ -25,7 +25,7 @@ public interface VipDataService {
 	
 	public ResultMsg updateC(CommonVipPO vip) throws RemoteException;
 	
-	public CommonVipPO findByLevelC(int level,Type type) throws RemoteException;
+//	public CommonVipPO findByLevelC(int level,Type type) throws RemoteException;
 	
 	public CommonVipPO findByUserIDC(String id) throws RemoteException;
 	
@@ -35,7 +35,7 @@ public interface VipDataService {
 	
 	public ResultMsg updateB(BusinessVipPO vip) throws RemoteException;
 	
-	public BusinessVipPO findByLevelB(int level,Type type) throws RemoteException;
+//	public BusinessVipPO findByLevelB(int level,Type type) throws RemoteException;
 	
 	public BusinessVipPO findByUserIDB(String id) throws RemoteException;
 	

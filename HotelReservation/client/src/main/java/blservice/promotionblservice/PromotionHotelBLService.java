@@ -1,4 +1,4 @@
-package blservice.promotionservice;
+package blservice.promotionblservice;
 
 import java.util.ArrayList;
 

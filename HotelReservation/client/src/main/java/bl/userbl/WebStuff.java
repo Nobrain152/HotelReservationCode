@@ -8,7 +8,7 @@ import bl.BusinessLogicDataFactory;
 import bl.VOPOchange;
 import blservice.creditblservice.CreditBLService;
 import blservice.orderblservice.OrderOnWebBLService;
-import blservice.promotionservice.PromotionWebBLService;
+import blservice.promotionblservice.PromotionWebBLService;
 import dataservice.userdataservice.UserManagementDataService;
 import po.UserInfoPO;
 import util.PromotionWebType;

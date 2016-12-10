@@ -2,7 +2,7 @@ package bl.promotionbl;
 
 import java.rmi.RemoteException;
 
-import blservice.promotionservice.PromotionValueBLService;
+import blservice.promotionblservice.PromotionValueBLService;
 import dataservice.hoteldataservice.HotelInfoDataService;
 import dataservice.orderdataservice.OrderDataService;
 import dataservice.promotiondataservice.PromotionHotelDataService;

@@ -2,6 +2,7 @@ package credit;
 
 import static org.junit.Assert.assertEquals;
 
+import java.util.ArrayList;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -10,6 +11,7 @@ import bl.creditbl.CreditController;
 import bl.vipbl.VipController;
 import util.VipType;
 import vo.CommonVipVO;
+import vo.CreditVO;
 import vo.CustomerInfoVO;
 
 public class CreditControllerTest {
@@ -53,7 +55,8 @@ public class CreditControllerTest {
 	
 	@Test
 	public void testGetCreditList() {
-		// TODO
+		ArrayList<CreditVO> vos = creditController.getCreditList(user.getUserID());
+		assertEquals(vos.get(0).getCreditResult(), 300);
 	}
 }
 

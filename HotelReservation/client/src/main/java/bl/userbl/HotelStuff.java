@@ -9,7 +9,7 @@ import blservice.hotelblservice.HotelInfoCheckBLService;
 import blservice.hotelblservice.HotelInfoMaintainBLService;
 import blservice.hotelblservice.RoomAddBLService;
 import blservice.orderblservice.OrderOnHotelBLService;
-import blservice.promotionservice.PromotionHotelBLService;
+import blservice.promotionblservice.PromotionHotelBLService;
 import dataservice.userdataservice.UserManagementDataService;
 import po.StuffInfoPO;
 import util.OrderState;

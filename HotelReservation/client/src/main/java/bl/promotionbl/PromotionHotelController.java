@@ -3,7 +3,7 @@ package bl.promotionbl;
 import java.rmi.RemoteException;
 import java.util.ArrayList;
 
-import blservice.promotionservice.PromotionHotelBLService;
+import blservice.promotionblservice.PromotionHotelBLService;
 import dataservice.promotiondataservice.PromotionHotelDataService;
 import net.RMIManage;
 import util.DataServiceType;

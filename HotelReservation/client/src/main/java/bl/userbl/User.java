@@ -18,9 +18,11 @@ import vo.UserInfoVO;
 public class User {
 	
 	private UserManagementDataService data;
+	private MD5Util md;
 	
 	public User(UserManagementDataService data){
 		this.data=data;
+		md=new MD5Util();
 	}
 	
 	/**
@@ -30,6 +32,7 @@ public class User {
 	 */
     public boolean  LogIn(String id,String password)throws RemoteException{
     	String real=data.GetLoginInfo(id);
+    	real=md.md5Encode(real);
     	return real.equals(password);
     	
     }
@@ -57,6 +60,7 @@ public class User {
 	 */
 	public String Register(UserInfoVO vo)throws RemoteException{
 		UserInfoPO po=(UserInfoPO)VOPOchange.VOtoPO(vo);
+		po.setPassword(md.md5Encode(po.getPassword()));
 		if(po.getType()==UserType.Customer){
 			return data.AddCustomer((CustomerInfoPO)po);
 		}

@@ -87,4 +87,9 @@ public interface UserManagementDataService{
 		public boolean ModStuffInfo(String userid,StuffInfoPO po);
 		
 		
+		/**
+		 * 查看酒店管理人员信息
+		 * @return
+		 */
+		public ArrayList<StuffInfoPO> HotelStuffScan();
 }

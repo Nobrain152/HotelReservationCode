@@ -29,6 +29,6 @@ public interface HotelInfoMaintainBLService {
      * @param hotelInfoVO
      * @return
      */
-    public ResultMsg addHotel(HotelInfoVO hotelInfoVO);
+    public String addHotel(HotelInfoVO hotelInfoVO);
   
 }

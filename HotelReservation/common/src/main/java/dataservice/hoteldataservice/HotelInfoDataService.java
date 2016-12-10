@@ -13,7 +13,7 @@ public interface HotelInfoDataService {
 	/**
 	 * Ôö¼Ó
 	 */
-	public ResultMsg insert(HotelInfoPO po) throws RemoteException;
+	public String insert(HotelInfoPO po) throws RemoteException;
 	
 	
 	/**

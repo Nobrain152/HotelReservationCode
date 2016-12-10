@@ -2,7 +2,6 @@ package blservice.userblservice;
 
 import java.util.ArrayList;
 
-import util.ResultMsg;
 import vo.HotelInfoVO;
 
 /**
@@ -24,7 +23,7 @@ public interface WebManagerHotelOperationBlService{
 	 * 添加酒店	
 	 * @param 酒店信息VO
 	 */
-	public ResultMsg HotelAdd(HotelInfoVO vo);
+	public String HotelAdd(HotelInfoVO vo);
 		
 	/**
 	 * 添加酒店工作人员

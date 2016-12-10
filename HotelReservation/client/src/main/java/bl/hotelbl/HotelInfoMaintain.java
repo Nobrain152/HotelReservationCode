@@ -53,11 +53,11 @@ public class HotelInfoMaintain {
      * @param hotelInfoVO
      * @return
      */
-    public ResultMsg addHotel(HotelInfoVO hotelInfoVO)throws RemoteException{
+    public String addHotel(HotelInfoVO hotelInfoVO)throws RemoteException{
     	try {
 			return hotelInfoData.insert((HotelInfoPO)VOPOchange.VOtoPO(hotelInfoVO));
 		} catch (RemoteException e) {
-			return ResultMsg.FAIL;
+			return null;
 		}
     }
 }

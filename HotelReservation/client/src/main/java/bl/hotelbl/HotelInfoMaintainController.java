@@ -69,11 +69,11 @@ public class HotelInfoMaintainController implements HotelInfoMaintainBLService{
      * @return
      */
 	@Override
-	public ResultMsg addHotel(HotelInfoVO hotelInfoVO) {
+	public String addHotel(HotelInfoVO hotelInfoVO) {
 		try {
 			return hotelInfoMaintain.addHotel(hotelInfoVO);
 		} catch (RemoteException e) {
-			return ResultMsg.FAIL;
+			return null;
 		}
 	}
 

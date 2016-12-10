@@ -7,7 +7,6 @@ import blservice.userblservice.WebManagerHotelOperationBlService;
 import dataservice.userdataservice.UserManagementDataService;
 import net.RMIManage;
 import util.DataServiceType;
-import util.ResultMsg;
 import vo.HotelInfoVO;
 
 
@@ -32,11 +31,11 @@ public class WebManagerHotelOperationController implements WebManagerHotelOperat
 	 * ÃÌº”æ∆µÍ	
 	 * @param æ∆µÍ–≈œ¢VO
 	 */
-	public ResultMsg HotelAdd(HotelInfoVO vo){
+	public String HotelAdd(HotelInfoVO vo){
 		try {
 			return manager.HotelAdd(vo);
 		} catch (RemoteException e) {
-			return ResultMsg.FAIL;
+			return null;
 		}
 	}
 			

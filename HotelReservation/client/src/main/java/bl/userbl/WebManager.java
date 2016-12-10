@@ -8,6 +8,7 @@ import bl.VOPOchange;
 import blservice.hotelblservice.HotelInfoCheckBLService;
 import blservice.hotelblservice.HotelInfoMaintainBLService;
 import dataservice.userdataservice.UserManagementDataService;
+import po.StuffInfoPO;
 import po.UserInfoPO;
 import util.ResultMsg;
 import vo.HotelInfoVO;
@@ -58,7 +59,7 @@ public class WebManager extends User {
 	 * 添加酒店	
 	 * @param 酒店信息VO
 	 */
-	public ResultMsg HotelAdd(HotelInfoVO vo)throws RemoteException{
+	public String HotelAdd(HotelInfoVO vo)throws RemoteException{
 		return main.addHotel(vo);
 	}
 			
@@ -68,6 +69,11 @@ public class WebManager extends User {
 	 * @param 用户IDVO
 	 */
 	public boolean StuffAdd(String hotelid,String userid)throws RemoteException{
+		ArrayList<StuffInfoPO> already=data.HotelStuffScan();
+		for(StuffInfoPO p:already){
+			if(p.getHotel().equals(hotelid))
+				return false;
+		}
 		return data.addHotelStuff(hotelid,userid);
 	}
 
@@ -108,6 +114,7 @@ public class WebManager extends User {
 	 * @param 用户IDVO
 	 */
 	public boolean WebsiteStuffAdd(String userid)throws RemoteException{
+		
 		return data.addWebStuff(userid);
 	}
 

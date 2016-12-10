@@ -45,5 +45,5 @@ public interface VipDataService {
 	
 	public ResultMsg update(LevelSystemPO levelSystemPO) throws RemoteException;
 
-	public LevelSystemPO getLevelSystemPO() throws RemoteException;
+	public ArrayList<LevelSystemPO> getLevelSystemPO() throws RemoteException;
 }

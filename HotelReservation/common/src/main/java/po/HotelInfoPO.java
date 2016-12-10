@@ -2,6 +2,9 @@ package po;
 
 import java.io.Serializable;
 
+import util.Adress;
+import util.Area;
+
 /**
  * æ∆µÍ–≈œ¢
  * @author ≤‹≥©
@@ -20,12 +23,12 @@ public class HotelInfoPO implements Serializable{
 	/**
 	 * æ∆µÍµÿ÷∑
 	 */
-	private String address;
+	private Adress address;
 	
 	/**
 	 * À˘ Ù…Ã»¶
 	 */
-	private String area;
+	private Area area;
 	
 	/**
 	 * –«º∂
@@ -63,7 +66,7 @@ public class HotelInfoPO implements Serializable{
 	
 	public HotelInfoPO() {}
 	
-	public HotelInfoPO(String hotelID,String name, String address, String area, int level, String introduction, String facility, boolean reserve,double score,int SP) {
+	public HotelInfoPO(String hotelID,String name, Adress address, Area area, int level, String introduction, String facility, boolean reserve,double score,int SP) {
 		this.name = name;
 		this.address = address;
 		this.area= area;
@@ -80,11 +83,11 @@ public class HotelInfoPO implements Serializable{
 		return name;
 	}
 
-	public String getAddress() {
+	public Adress getAddress() {
 		return address;
 	}
 	
-	public String getArea() {
+	public Area getArea() {
 		return area;
 	}
 	
@@ -117,11 +120,11 @@ public class HotelInfoPO implements Serializable{
 		this.name = newName;
 	}
 
-	public void setAddress(String newAddress) {
+	public void setAddress(Adress newAddress) {
 		this.address = newAddress;
 	}
 	
-	public void setArea(String newArea) {
+	public void setArea(Area newArea) {
 		this.area = newArea;
 	}
 	

@@ -22,14 +22,14 @@ public class HotelInfoMaintain {
 	}
 
 	/**
-	 * 输入酒店基本信息
+	 * 修改酒店基本信息
 	 * @param hotelInfoVO
 	 * @return
 	 * @throws RemoteException
 	 */
 	public ResultMsg inputHotelInfo(HotelInfoVO hotelInfoVO)  throws RemoteException{
 		HotelInfoPO hotelInfoPO = (HotelInfoPO)VOPOchange.VOtoPO(hotelInfoVO);
-		resultMsg = hotelInfoData.insert(hotelInfoPO);
+		resultMsg = hotelInfoData.update(hotelInfoPO);
 		return resultMsg;
 	}
 	

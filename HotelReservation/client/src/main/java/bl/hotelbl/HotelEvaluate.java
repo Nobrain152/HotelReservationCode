@@ -3,11 +3,15 @@ package bl.hotelbl;
 import java.rmi.RemoteException;
 import java.util.ArrayList;
 
+import bl.BusinessLogicDataFactory;
 import bl.VOPOchange;
+import blservice.hotelblservice.HotelInfoCheckBLService;
+import blservice.hotelblservice.HotelInfoMaintainBLService;
 import dataservice.hoteldataservice.HotelEvaluateDataService;
 import po.HotelEvaluatePO;
 import util.ResultMsg;
 import vo.HotelEvaluateVO;
+import vo.HotelInfoVO;
 
 /**
  * ÆÀ¼Û¾Æµê
@@ -17,10 +21,16 @@ import vo.HotelEvaluateVO;
 public class HotelEvaluate {
 	
 	private HotelEvaluateDataService evaluateData;
+	private HotelInfoCheckBLService check;
+	private BusinessLogicDataFactory factory;
+	private HotelInfoMaintainBLService maint;
 	ResultMsg result;
 	
 	public HotelEvaluate(HotelEvaluateDataService evaluateDataService){
 		this.evaluateData = evaluateDataService;
+		this.factory=BusinessLogicDataFactory.getFactory();
+		this.check=factory.getHotelInfoCheckBLService();
+		this.maint=factory.getHotelInfoMaintainBLService();
 	}
 	
 	/**
@@ -33,7 +43,17 @@ public class HotelEvaluate {
 		if(checkOrder(evaluateInfoVO)==ResultMsg.SUCCESS){
 			HotelEvaluatePO evaluatePO = (HotelEvaluatePO)VOPOchange.VOtoPO(evaluateInfoVO);
 			result = evaluateData.insert(evaluatePO);
-			return result;
+			HotelInfoVO vo=check.checkHotelInfo(evaluateInfoVO.getHotelID());
+			ArrayList<HotelEvaluateVO> past=getEvaluate(evaluateInfoVO.getHotelID());
+			double sum=vo.getScore()*(past.size());
+			sum+=evaluateInfoVO.getScore();
+			sum=sum/(past.size()+1);
+			vo.setScore(sum);
+			ResultMsg r2=maint.inputHotelInfo(vo);
+			if(r2==ResultMsg.SUCCESS){
+				return result;
+			}
+			
 		}
 		result=ResultMsg.FAIL;
 		return result;

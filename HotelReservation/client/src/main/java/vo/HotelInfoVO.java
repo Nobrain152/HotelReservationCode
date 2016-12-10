@@ -2,6 +2,9 @@ package vo;
 
 import java.util.ArrayList;
 
+import util.Adress;
+import util.Area;
+
 /**
  * æ∆µÍ–≈œ¢
  * @author ≤‹≥©
@@ -17,12 +20,12 @@ public class HotelInfoVO {
 	/**
 	 * æ∆µÍµÿ÷∑
 	 */
-	private String address;
+	private Adress address;
 	
 	/**
 	 * À˘ Ù…Ã»¶
 	 */
-	private String area;
+	private Area area;
 	
 	/**
 	 * –«º∂
@@ -74,7 +77,7 @@ public class HotelInfoVO {
 	
 	public HotelInfoVO() {}
 	
-	public HotelInfoVO(String name, String address, String area, int level, String introduction, String facility, boolean reserve ,String hotelID,double score,int sp) {
+	public HotelInfoVO(String name, Adress address, Area area, int level, String introduction, String facility, boolean reserve ,String hotelID,double score,int sp) {
 		this.name = name;
 		this.address = address;
 		this.area= area;
@@ -92,11 +95,11 @@ public class HotelInfoVO {
 		return name;
 	}
 
-	public String getAddress() {
+	public Adress getAddress() {
 		return address;
 	}
 	
-	public String getArea() {
+	public Area getArea() {
 		return area;
 	}
 	

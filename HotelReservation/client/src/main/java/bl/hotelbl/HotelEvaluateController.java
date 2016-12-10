@@ -13,7 +13,7 @@ import util.ResultMsg;
 import vo.HotelEvaluateVO;
 
 /**
- * 
+ * ÆÀ¼Û¾Æµê
  * @author ²Ü³©
  *
  */

@@ -17,7 +17,13 @@ public interface PromotionHotelDataService {
 	
 	public ResultMsg insert(PromotionHotelPO promotion) throws RemoteException;
 	
-	public ResultMsg delete(PromotionHotelPO promotion) throws RemoteException;
+	public ResultMsg deleteBirthCut(int level, String hotelID) throws RemoteException;
+	
+	public ResultMsg deleteHotelCustomCut(String beginTime,String endTime,String hotelID) throws RemoteException;
+	
+	public ResultMsg deleteJoin(String businessName,String hotelID) throws RemoteException;
+	
+	public ResultMsg deleteOverCut(int num,String hotelID) throws RemoteException;
 	
 	public ResultMsg update(PromotionHotelPO promotion) throws RemoteException;
 	

@@ -162,7 +162,7 @@ public class PromotionWeb{
 		ArrayList<PromotionWebPO> promotion = promotionWebDataService.findByType(type);
 		for(PromotionWebPO po : promotion) {
 			if(po.getLevel() == level) {
-				resultMsg = promotionWebDataService.delete(po);
+				resultMsg = promotionWebDataService.deleteLevelCut(po.getLevel());
 			}
 		}
 		return resultMsg;
@@ -173,7 +173,7 @@ public class PromotionWeb{
 		ArrayList<PromotionWebPO> promotion = promotionWebDataService.findByType(type);
 		for(PromotionWebPO po : promotion) {
 			if(po.getLocation().equals(location)) {
-				resultMsg = promotionWebDataService.delete(po);
+				resultMsg = promotionWebDataService.deleteCircleCut(po.getLocation());
 			}
 		}
 		return resultMsg;
@@ -184,7 +184,7 @@ public class PromotionWeb{
 		ArrayList<PromotionWebPO> promotion = promotionWebDataService.findByType(type);
 		for(PromotionWebPO po : promotion) {
 			if(po.getTimeBegin().equals(timeBegin) && po.getTimeOver().equals(timeOver)) {
-				resultMsg = promotionWebDataService.delete(po);
+				resultMsg = promotionWebDataService.deleteWebCustomCut(po.getTimeBegin(), po.getTimeOver());
 			}
 		}
 		return resultMsg;

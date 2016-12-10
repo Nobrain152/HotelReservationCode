@@ -207,7 +207,7 @@ public class PromotionHotel {
 		ArrayList<PromotionHotelPO> promotion = promotionHotelDataService.findByType(type,hotelID);
 		for(PromotionHotelPO po : promotion) {
 			if(po.getLevel() == level) {
-				resultMsg = promotionHotelDataService.delete(po);
+				resultMsg = promotionHotelDataService.deleteBirthCut(po.getLevel(),po.getHotelID());
 			}
 		}
 		return resultMsg;
@@ -218,7 +218,7 @@ public class PromotionHotel {
 		ArrayList<PromotionHotelPO> promotion = promotionHotelDataService.findByType(type,hotelID);
 		for(PromotionHotelPO po : promotion) {
 			if(po.getNumber() == number) {
-				resultMsg = promotionHotelDataService.delete(po);
+				resultMsg = promotionHotelDataService.deleteOverCut(po.getNumber(),po.getHotelID());
 			}
 		}
 		return resultMsg;
@@ -229,7 +229,7 @@ public class PromotionHotel {
 		ArrayList<PromotionHotelPO> promotion = promotionHotelDataService.findByType(type,hotelID);
 		for(PromotionHotelPO po : promotion) {
 			if(po.getBusinessName() == businessName) {
-				resultMsg = promotionHotelDataService.delete(po);
+				resultMsg = promotionHotelDataService.deleteJoin(po.getBusinessName(),po.getHotelID());
 			}
 		}
 		return resultMsg;
@@ -241,7 +241,7 @@ public class PromotionHotel {
 		for(PromotionHotelPO po : promotion) {
 			if(po.getTimeBegin().equals(timeBegin) 
 					&& po.getTimeOver().equals(timeOver)) {
-				resultMsg = promotionHotelDataService.delete(po);
+				resultMsg = promotionHotelDataService.deleteHotelCustomCut(po.getTimeBegin(),po.getTimeOver(),po.getHotelID());
 			}
 		}
 		return resultMsg;

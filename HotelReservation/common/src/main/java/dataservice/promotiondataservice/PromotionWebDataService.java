@@ -17,7 +17,11 @@ public interface PromotionWebDataService {
 	
 	public ResultMsg insert(PromotionWebPO Promotion) throws RemoteException;
 	
-	public ResultMsg delete(PromotionWebPO Promotion) throws RemoteException;
+	public ResultMsg deleteCircleCut(String circle) throws RemoteException;
+	
+	public ResultMsg deleteLevelCut(int level) throws RemoteException;
+	
+	public ResultMsg deleteWebCustomCut(String beginTime,String endTme) throws RemoteException;
 	
 	public ResultMsg update(PromotionWebPO Promotion) throws RemoteException;
 	

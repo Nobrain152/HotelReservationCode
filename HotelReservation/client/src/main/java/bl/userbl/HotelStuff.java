@@ -238,7 +238,7 @@ public class HotelStuff extends User {
 	 * @return 酒店管理人员信息VO
 	 */
 	public StuffInfoVO IndividualBaseInfolnquiry(String userid)throws RemoteException{
-		StuffInfoPO userInfoPO = userDataService.FindStuffInfo(userid);
+		StuffInfoPO userInfoPO = userDataService.GetHotelStuffInfo(userid);
 		userInfoVO = (StuffInfoVO)VOPOchange.POtoVO(userInfoPO);
 		return  userInfoVO;
 	}
@@ -252,10 +252,7 @@ public class HotelStuff extends User {
 	 */
 	public ResultMsg IndividualBaseInfoModification(String userid,StuffInfoVO vo2)throws RemoteException{
 		StuffInfoPO po2=(StuffInfoPO)VOPOchange.VOtoPO(vo2);
-		boolean result= userDataService.ModStuffInfo(userid,po2);
-		if(result){
-			return ResultMsg.SUCCESS;
-		}
-		return ResultMsg.FAIL;
+		return userDataService.SetHotelStuffInfo(userid,po2);
+		
 	}
 }

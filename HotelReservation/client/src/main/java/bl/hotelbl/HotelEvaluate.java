@@ -83,7 +83,7 @@ public class HotelEvaluate {
 		   ArrayList<HotelEvaluateVO> vos=new ArrayList<HotelEvaluateVO>();
 		   ArrayList<HotelEvaluatePO> pos;
 		try {
-			pos = evaluateData.find(hotelid);
+			pos = evaluateData.show(hotelid);
 		} catch (RemoteException e) {
 			return null;
 		}

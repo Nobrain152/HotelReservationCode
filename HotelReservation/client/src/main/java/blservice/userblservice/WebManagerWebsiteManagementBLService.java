@@ -39,10 +39,6 @@ public interface WebManagerWebsiteManagementBLService{
 	public ArrayList<UserInfoVO> WebStuffScan();
 	
 	
-	/**
-	 * 添加网站营销人员
-	 * @param 用户IDVO
-	 */
-	public boolean WebsiteStuffAdd(String userid);
+	
 		
 }

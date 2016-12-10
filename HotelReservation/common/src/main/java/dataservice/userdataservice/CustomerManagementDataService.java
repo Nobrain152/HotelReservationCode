@@ -2,7 +2,8 @@ package dataservice.userdataservice;
 
 import java.util.ArrayList;
 
-import po.CustomerInfoPO;
+
+import util.ResultMsg;
 
 
 
@@ -15,12 +16,7 @@ public interface CustomerManagementDataService extends UserManagementDataService
         
 		
 		
-		/**
-		 * 增加会员
-		 * @param 会员ID
-		 * @return 增加结果
-		 */
-		public boolean AddMembers(String userid);
+		
 		
 		/**
 		 * 获取用户订单ID列表
@@ -32,10 +28,10 @@ public interface CustomerManagementDataService extends UserManagementDataService
 		/**
 		 * 更新订单
 		 * @param 用户ID
-		 * @param 订单VO
+		 * @param 订单ID
 		 * @return 更新结果
 		 */
-		public boolean addCustomerOrders(String userid,String i);
+		public ResultMsg addCustomerOrders(String userid,String i);
 		
 		/**
 		 * 获取用户预定过的酒店ID
@@ -47,25 +43,12 @@ public interface CustomerManagementDataService extends UserManagementDataService
 		/**
 		 * 增加用户居住过的酒店信息
 		 * @param 用户ID
-		 * @param 酒店信息
+		 * @param 酒店ID
 		 * @return 更新结果
 		 */
-		public boolean addCustomerHotel (String userid,String idh);
+		public ResultMsg addCustomerHotel (String userid,String idh);
 		
-		/**
-		 * 查找客户信息
-		 * @param userid
-		 * @return
-		 */
-		public CustomerInfoPO FindByID(String userid);
 		
-		/**
-		 * 更改客户信息
-		 * @param userid
-		 * @param po
-		 * @return
-		 */
-		public boolean ModInfo(String userid,CustomerInfoPO po);
 		
 		
 		

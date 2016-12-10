@@ -31,10 +31,7 @@ public class WebManagerWebsiteManagementControllerTest {
 		assertEquals(impl.UserInformationModification("1234567", info),true);
 	}
 	
-	@Test
-	public void testaddStuff(){
-	    assertEquals(impl.WebsiteStuffAdd("1234567"),true);
-	}
+	
 	
 	@Test
 	public void testScan(){

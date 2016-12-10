@@ -14,7 +14,6 @@ import util.ResultMsg;
 import util.RoomState;
 import util.RoomType;
 import util.VipType;
-import vo.ContactVO;
 import vo.CustomerInfoVO;
 import vo.OrderVO;
 import vo.RoomInfoVO;
@@ -23,26 +22,20 @@ public class OrderOnWebControllerTest {
 
 	OrderOnWebController webBLServiceImpl;
 	ArrayList<OrderVO> webList;
-	OrderVO web1;
-	ResultMsg r1;
-	OrderVO msg1;
+	OrderVO order1;
+	ResultMsg resultMsg;
 	
 	@Before
 	public void setUp(){
 		webBLServiceImpl = new OrderOnWebController();
 		webList = new ArrayList<OrderVO>();
-		web1 = new OrderVO("201612062014",new CustomerInfoVO("19954722", "ÌÆöÎ", "sdf",
+		order1 = new OrderVO("201612062014",new CustomerInfoVO("19954722", "ÌÆöÎ", "sdf",
 				"18805156300", 300, true, VipType.COMMON_VIP), 
-				OrderState.UNEXECUTED, 99.9, "014", false, 
+				OrderState.ABNORMAL, 99.9, "014", false, 
 				"2016-12-16 24:00", "2016-12-16 12:00", "2016-12-17 12:00", null,
 				1, new RoomInfoVO(RoomState.USABLE, RoomType.ROOM_STANDARD, "513", 99.9, "014"),1);
-		webList.add(web1);
-		r1 = ResultMsg.SUCCESS;
-		msg1 = new OrderVO("201612062014",new CustomerInfoVO("19954722", "ÌÆöÎ", "sdf",
-				"18805156300", 300, true, VipType.COMMON_VIP), 
-				OrderState.UNEXECUTED, 99.9, "014", false, 
-				"2016-12-16 24:00", "2016-12-16 12:00", "2016-12-17 12:00", null,
-				1, new RoomInfoVO(RoomState.USABLE, RoomType.ROOM_STANDARD, "513", 99.9, "014"),1);
+		webList.add(order1);
+		resultMsg = ResultMsg.SUCCESS;
 	}
 	
 	@Test
@@ -53,8 +46,8 @@ public class OrderOnWebControllerTest {
 	
 	@Test
 	public void testAbnormalOrderDetail() throws RemoteException{
-		OrderVO m1 = webBLServiceImpl.abnormalOrderDetail("42654645437");
-		assertEquals(m1, web1);
+		OrderVO m1 = webBLServiceImpl.abnormalOrderDetail("201612062014");
+		assertEquals(m1, order1);
 	}
 
 }

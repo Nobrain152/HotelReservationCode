@@ -11,7 +11,6 @@ import util.PromotionHotelType;
 import util.RoomState;
 import util.RoomType;
 import util.VipType;
-import vo.ContactVO;
 import vo.CustomerInfoVO;
 import vo.OrderVO;
 import vo.RoomInfoVO;

@@ -2,6 +2,7 @@ package credit;
 
 import static org.junit.Assert.assertEquals;
 
+
 import org.junit.Before;
 import org.junit.Test;
 
@@ -9,7 +10,6 @@ import bl.creditbl.CreditController;
 import bl.vipbl.VipController;
 import util.VipType;
 import vo.CommonVipVO;
-import vo.ContactVO;
 import vo.CustomerInfoVO;
 
 public class CreditControllerTest {
@@ -37,6 +37,23 @@ public class CreditControllerTest {
 	public void testAddCredit() {
 		creditController.addCredit(user,100);
 		assertEquals(400,user.getCredit());
+	}
+	
+	@Test
+	public void testSubCredit() {
+		creditController.subCredit(user, 100);
+		assertEquals(200, user.getCredit());
+	}
+	
+	@Test
+	public void testChangeCredit() {
+		creditController.changeCredit(user, 100);
+		assertEquals(100, user.getCredit());
+	}
+	
+	@Test
+	public void testGetCreditList() {
+		// TODO
 	}
 }
 

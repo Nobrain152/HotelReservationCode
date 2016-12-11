@@ -7,10 +7,14 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import ui.UILaunch;
+import ui.UIhelper;
 
 public class customerGuideViewController implements Initializable{
 	private UILaunch application;
+	
+	
 	
 	@FXML
 	private Button button_Search;
@@ -30,12 +34,17 @@ public class customerGuideViewController implements Initializable{
 	@FXML
 	private Button button_Cancel;
 	
+	@FXML
+	private Label label;
+	
 	
 	
 	
 	
 	public void setApp(UILaunch application){
 		this.application= application;
+		
+		
 	}
 	
 	@FXML
@@ -67,11 +76,13 @@ public class customerGuideViewController implements Initializable{
 	private void button_CancelAction(ActionEvent event) throws Exception{
 		application.gotologin();
 	}
+	
+	
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		// TODO Auto-generated method stub
-	
+		
 	}
 
 }

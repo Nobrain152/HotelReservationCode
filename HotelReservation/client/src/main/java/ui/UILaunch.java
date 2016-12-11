@@ -65,7 +65,6 @@ public class UILaunch extends Application{
 	private Stage stage;
 	private final int  MINIMUM_WINDOW_WIDTH =800;
 	private final int  MINIMUM_WINDOW_HEIGHT =600;
-	
 
 	@Override
 	public void start(Stage primaryStage) throws Exception {

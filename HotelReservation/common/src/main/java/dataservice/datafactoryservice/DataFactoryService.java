@@ -1,5 +1,6 @@
 package dataservice.datafactoryservice;
 
+import java.rmi.Remote;
 import java.rmi.RemoteException;
 
 import dataservice.creditdataservice.CreditDataService;
@@ -13,7 +14,7 @@ import dataservice.userdataservice.CustomerManagementDataService;
 import dataservice.userdataservice.UserManagementDataService;
 import dataservice.vipdataservice.VipDataService;
 
-public interface DataFactoryService {
+public interface DataFactoryService extends Remote{
 	public CreditDataService getCreditDataServiceImpl() throws RemoteException;
 	
 	public HotelEvaluateDataService getHotelEvaluateDataServiceImpl() throws RemoteException;

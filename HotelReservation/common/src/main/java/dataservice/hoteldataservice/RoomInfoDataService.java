@@ -1,12 +1,13 @@
 package dataservice.hoteldataservice;
 
+import java.rmi.Remote;
 import java.rmi.RemoteException;
 import java.util.ArrayList;
 
 import po.RoomInfoPO;
 import util.ResultMsg;
 
-public interface RoomInfoDataService {
+public interface RoomInfoDataService extends Remote{
 	
 	/**
 	 * Ôö¼Ó

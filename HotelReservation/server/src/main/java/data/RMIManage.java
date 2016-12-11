@@ -1,6 +1,20 @@
 package data;
 
 import java.net.InetAddress;
+import java.net.MalformedURLException;
+import java.net.UnknownHostException;
+import java.rmi.Naming;
+import java.rmi.Remote;
+import java.rmi.RemoteException;
+import java.rmi.registry.LocateRegistry;
+import java.rmi.server.ExportException;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Map.Entry;
+
+
+import config.StaticMessage;
+import datafactory.DataFactory;
 
 /**
  * 负责初始化RMI服务
@@ -9,27 +23,32 @@ import java.net.InetAddress;
  */
 @SuppressWarnings("unused")
 public class RMIManage {
-	/*
+	
 	private InetAddress hostInetAddress;
 	private String hostAdr;
 	private String hostName;
 	private String port;
 	private static DataFactory datafactory;
-	private static Map<String, Class<? extends Remote>> NAMING_MAP = new HashMap<String, Class<? extends Remote>>(10);
+	private static Map<String, Class<? extends Remote>> NAMING_MAP = new HashMap<String, Class<? extends Remote>>(11);
 
 	static {
-		datafactory = DataFactory.getDataFactory();
+		try {
+			datafactory = DataFactory.getDataFactory();
+		} catch (RemoteException e1) {
+			e1.printStackTrace();
+		}
 
 		try {
-			NAMING_MAP.put("AccountDataService", datafactory.getAccountDataImpl().getClass());
-			NAMING_MAP.put("DTManageDataService", datafactory.getDTMangeDataImpl().getClass());
-			NAMING_MAP.put("FinanceDataService", datafactory.getFinanceDataImpl().getClass());
-			NAMING_MAP.put("OrderDataService", datafactory.getOrderDataImpl().getClass());
-			NAMING_MAP.put("PersonnelDataService", datafactory.getPersonnelDataImpl().getClass());
-			NAMING_MAP.put("StatisticDataService", datafactory.getStatisticDataImpl().getClass());
-			NAMING_MAP.put("StoreDataService", datafactory.getStoreDataImpl().getClass());
-			NAMING_MAP.put("StrategyDataService", datafactory.getStrategyDataImpl().getClass());
-			NAMING_MAP.put("TransportDataService", datafactory.getTransportDataImpl().getClass());
+			NAMING_MAP.put("CreditDataService", datafactory.getCreditDataServiceImpl().getClass());
+			NAMING_MAP.put("HotelEvaluateDataService", datafactory.getHotelEvaluateDataServiceImpl().getClass());
+			NAMING_MAP.put("HotelEvaluateDataService", datafactory.getHotelEvaluateDataServiceImpl().getClass());
+			NAMING_MAP.put("RoomInfoDataService", datafactory.getRoomInfoDataServiceImpl().getClass());
+			NAMING_MAP.put("OrderDataService", datafactory.getOrderDataServiceImpl().getClass());
+			NAMING_MAP.put("PromotionHotelDataService", datafactory.getPromotionHotelDataServiceImpl().getClass());
+			NAMING_MAP.put("PromotionWebDataServiceImpl", datafactory.getPromotionWebDataServiceImpl().getClass());
+			NAMING_MAP.put("CustomerManagementDataService", datafactory.getCustomerManagementDataServiceImpl().getClass());
+			NAMING_MAP.put("UserManagementDataService", datafactory.getUserManagementDataServiceImpl().getClass());
+			NAMING_MAP.put("VipDataService", datafactory.getVipDataService().getClass());
 
 		} catch (RemoteException e) {
 			System.err.println("产生数据实现对象出错");
@@ -50,7 +69,6 @@ public class RMIManage {
 	}
 
 	public synchronized boolean startRMI() {
-//		String pres = "rmi://" + hostAdr + ":" + port + "/";
 		String pres = StaticMessage.RMIPres;
 		System.out.println(pres);
 		try {
@@ -71,24 +89,18 @@ public class RMIManage {
 			e.printStackTrace();
 			return false;
 		} catch (RemoteException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 			return false;
 		} catch (MalformedURLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 			return false;
 		} catch (InstantiationException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 			return false;
 		} catch (IllegalAccessException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 			return false;
 		}
-
-		// String pre = "rmi://" + hostAdr
 
 		return true;
 	}
@@ -105,5 +117,5 @@ public class RMIManage {
 		}
 
 	}
-	*/
+	
 }

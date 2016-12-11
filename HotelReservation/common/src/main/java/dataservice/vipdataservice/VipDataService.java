@@ -1,6 +1,7 @@
 package dataservice.vipdataservice;
 
 import java.awt.Window.Type;
+import java.rmi.Remote;
 import java.rmi.RemoteException;
 import java.util.ArrayList;
 
@@ -15,7 +16,7 @@ import util.ResultMsg;
  *
  */
 
-public interface VipDataService {
+public interface VipDataService extends Remote{
 	
 	public ResultMsg insertC(CommonVipPO vip) throws RemoteException;
 	

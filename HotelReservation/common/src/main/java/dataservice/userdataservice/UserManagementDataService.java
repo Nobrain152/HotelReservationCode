@@ -1,5 +1,6 @@
 package dataservice.userdataservice;
 
+import java.rmi.Remote;
 import java.util.ArrayList;
 
 import po.CustomerInfoPO;
@@ -12,7 +13,7 @@ import util.ResultMsg;
  * @author ²Ü³©
  *
  */
-public interface UserManagementDataService{
+public interface UserManagementDataService extends Remote{
         
 		
 		/**

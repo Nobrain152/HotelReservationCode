@@ -1,5 +1,6 @@
 package dataservice.creditdataservice;
 
+import java.rmi.Remote;
 import java.rmi.RemoteException;
 import java.util.ArrayList;
 
@@ -7,7 +8,7 @@ import po.CreditPO;
 import util.ResultMsg;
 
 
-public interface CreditDataService {
+public interface CreditDataService extends Remote {
 	
 	/**
 	 * 插入一个信用值记录

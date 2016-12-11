@@ -1,5 +1,6 @@
 package dataservice.promotiondataservice;
 
+import java.rmi.Remote;
 import java.rmi.RemoteException;
 import java.util.ArrayList;
 
@@ -13,7 +14,7 @@ import util.ResultMsg;
  *
  */
 
-public interface PromotionHotelDataService {
+public interface PromotionHotelDataService extends Remote{
 	
 	public ResultMsg insert(PromotionHotelPO promotion) throws RemoteException;
 	

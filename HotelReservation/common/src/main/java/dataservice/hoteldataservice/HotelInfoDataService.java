@@ -1,5 +1,6 @@
 package dataservice.hoteldataservice;
 
+import java.rmi.Remote;
 import java.rmi.RemoteException;
 import java.util.ArrayList;
 
@@ -8,7 +9,7 @@ import util.Adress;
 import util.Area;
 import util.ResultMsg;
 
-public interface HotelInfoDataService {
+public interface HotelInfoDataService extends Remote{
 	
 	/**
 	 * Ôö¼Ó

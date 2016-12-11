@@ -5,13 +5,14 @@
  */
 package dataservice.orderdataservice;
 
+import java.rmi.Remote;
 import java.rmi.RemoteException;
 import java.util.ArrayList;
 
 import po.OrderPO;
 import util.ResultMsg;
 
-public interface OrderDataService {
+public interface OrderDataService extends Remote{
 
 	/**
 	 * 在数据库中插入单一持久化对象

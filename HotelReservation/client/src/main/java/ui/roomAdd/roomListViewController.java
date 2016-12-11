@@ -70,12 +70,12 @@ public class roomListViewController implements Initializable{
 				new roomItem("201", "标准房", "可用", 500,"2016-10-1 8:00","2016-10-2 8:00"),
 				new roomItem("201", "标准房", "可用", 500,"2016-10-1 8:00","2016-10-2 8:00")
 				);
-		tc_ID.setCellValueFactory(new PropertyValueFactory<>("ID"));
-		tc_type.setCellValueFactory(new PropertyValueFactory<>("type"));
-		tc_state.setCellValueFactory(new PropertyValueFactory<>("state"));
-		tc_price.setCellValueFactory(new PropertyValueFactory<>("price"));
-		tc_startTime.setCellValueFactory(new PropertyValueFactory<>("startTime"));
-		tc_endTime.setCellValueFactory(new PropertyValueFactory<>("endTime"));
+		tc_ID.setCellValueFactory(new PropertyValueFactory<Object, Object>("ID"));
+		tc_type.setCellValueFactory(new PropertyValueFactory<Object, Object>("type"));
+		tc_state.setCellValueFactory(new PropertyValueFactory<Object, Object>("state"));
+		tc_price.setCellValueFactory(new PropertyValueFactory<Object, Object>("price"));
+		tc_startTime.setCellValueFactory(new PropertyValueFactory<Object, Object>("startTime"));
+		tc_endTime.setCellValueFactory(new PropertyValueFactory<Object, Object>("endTime"));
 		tv_room.setItems(data);
 	}
 	

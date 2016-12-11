@@ -117,10 +117,10 @@ public class orderOnHotelViewController implements Initializable {
 				new OrderInTable("123", "GYF", "2016-10-01", "1000"),
 				new OrderInTable("123", "GYF", "2016-10-01", "1000"),
 				new OrderInTable("123", "GYF", "2016-10-01", "1000"));
-		order_all_ID.setCellValueFactory(new PropertyValueFactory<>("ID"));
-		order_all_userName.setCellValueFactory(new PropertyValueFactory<>("userName"));
-		order_all_time.setCellValueFactory(new PropertyValueFactory<>("time"));
-		order_all_price.setCellValueFactory(new PropertyValueFactory<>("price"));
+		order_all_ID.setCellValueFactory(new PropertyValueFactory<Object, Object>("ID"));
+		order_all_userName.setCellValueFactory(new PropertyValueFactory<Object, Object>("userName"));
+		order_all_time.setCellValueFactory(new PropertyValueFactory<Object, Object>("time"));
+		order_all_price.setCellValueFactory(new PropertyValueFactory<Object, Object>("price"));
 		order_all.setItems(data_all);
 	}
 

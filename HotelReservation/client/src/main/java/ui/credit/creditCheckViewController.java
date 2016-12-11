@@ -53,11 +53,11 @@ public class creditCheckViewController implements Initializable{
 				new creditItem("12345678", "2016-10-02", "“Ï≥£","-10",80),
 				new creditItem("12345678", "2016-10-03", "≥‰÷µ","+20",100)
 				);
-		tc_ID.setCellValueFactory(new PropertyValueFactory<>("ID"));
-		tc_time.setCellValueFactory(new PropertyValueFactory<>("time"));
-		tc_action.setCellValueFactory(new PropertyValueFactory<>("action"));
-		tc_change.setCellValueFactory(new PropertyValueFactory<>("change"));
-		tc_result.setCellValueFactory(new PropertyValueFactory<>("result"));
+		tc_ID.setCellValueFactory(new PropertyValueFactory<Object, Object>("ID"));
+		tc_time.setCellValueFactory(new PropertyValueFactory<Object, Object>("time"));
+		tc_action.setCellValueFactory(new PropertyValueFactory<Object, Object>("action"));
+		tc_change.setCellValueFactory(new PropertyValueFactory<Object, Object>("change"));
+		tc_result.setCellValueFactory(new PropertyValueFactory<Object, Object>("result"));
 		tv_credit.setItems(data);
 	}
 	

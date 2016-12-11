@@ -66,11 +66,11 @@ public class reservedHotelListViewController implements Initializable{
 				new hotelItem("Sun Hotel", 5, 10, "异常订单",1500),
 				new hotelItem("Sun Hotel", 5, 10, "撤销订单",1500)
 				);
-		tc_name.setCellValueFactory(new PropertyValueFactory<>("name"));
-		tc_star.setCellValueFactory(new PropertyValueFactory<>("star"));
-		tc_score.setCellValueFactory(new PropertyValueFactory<>("score"));
-		tc_condition.setCellValueFactory(new PropertyValueFactory<>("condition"));
-		tc_price.setCellValueFactory(new PropertyValueFactory<>("price"));
+		tc_name.setCellValueFactory(new PropertyValueFactory<Object, Object>("name"));
+		tc_star.setCellValueFactory(new PropertyValueFactory<Object, Object>("star"));
+		tc_score.setCellValueFactory(new PropertyValueFactory<Object, Object>("score"));
+		tc_condition.setCellValueFactory(new PropertyValueFactory<Object, Object>("condition"));
+		tc_price.setCellValueFactory(new PropertyValueFactory<Object, Object>("price"));
 		tv_hotel.setItems(data);
 	}
 	

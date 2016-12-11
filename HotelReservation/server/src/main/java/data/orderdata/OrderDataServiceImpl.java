@@ -76,7 +76,7 @@ public class OrderDataServiceImpl extends DataSuperClass implements OrderDataSer
 			
 			while (result.next()) {
 					orderPO = new OrderPO(result.getString(1), 
-							customer.FindByID(result.getString(2))/*需要返回customerinfo*/, 
+							customer.GetCustomerInfo(result.getString(2)), 
 							OrderState.valueOf(result.getString(3)),
 							Double.valueOf(result.getString(4)), result.getString(5), 
 							Boolean.valueOf(result.getString(6)), result.getString(7), 
@@ -116,7 +116,7 @@ public class OrderDataServiceImpl extends DataSuperClass implements OrderDataSer
 			
 			while (result.next()) {
 					orderPO = new OrderPO(result.getString(1), 
-							customer.FindByID(result.getString(2))/*需要返回customerinfo*/, 
+							customer.GetCustomerInfo(result.getString(2))/*需要返回customerinfo*/, 
 							OrderState.valueOf(result.getString(3)),
 							Double.valueOf(result.getString(4)), result.getString(5), 
 							Boolean.valueOf(result.getString(6)), result.getString(7), 
@@ -145,7 +145,7 @@ public class OrderDataServiceImpl extends DataSuperClass implements OrderDataSer
 		if(findMes != null){
 			
 			orderPO = new OrderPO(findMes.get(0), 
-								customer.FindByID(findMes.get(1))/*需要返回customerinfo*/, 
+								customer.GetCustomerInfo(findMes.get(1))/*需要返回customerinfo*/, 
 								OrderState.valueOf(findMes.get(2)),
 								Double.valueOf(findMes.get(3)), findMes.get(4), 
 								Boolean.valueOf(findMes.get(5)), findMes.get(6), 

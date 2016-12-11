@@ -19,19 +19,25 @@ public class PromotionWebDataServiceImpl implements PromotionWebDataService{
 	}
 
 	@Override
-	public ResultMsg delete(PromotionWebPO Promotion) throws RemoteException {
+	public ResultMsg deleteCircleCut(String circle) throws RemoteException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public ResultMsg deleteLevelCut(int level) throws RemoteException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public ResultMsg deleteWebCustomCut(String beginTime, String endTme) throws RemoteException {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
 	public ResultMsg update(PromotionWebPO Promotion) throws RemoteException {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public PromotionWebPO findByName(String name) throws RemoteException {
 		// TODO Auto-generated method stub
 		return null;
 	}
@@ -47,6 +53,8 @@ public class PromotionWebDataServiceImpl implements PromotionWebDataService{
 		// TODO Auto-generated method stub
 		return null;
 	}
+
+	
 
 
 

@@ -25,7 +25,7 @@ public class RoomInfoDataServiceImplTest {
 	
 	@Before
 	public void setUp(){
-		impl = new RoomInfoDataServiceImpl();
+		//impl = new RoomInfoDataServiceImpl();
 		room1=new RoomInfoPO(RoomState.USABLE,RoomType.ROOM_STANDARD,"231",1599,"1234567");
 		room2=new RoomInfoPO(RoomState.UNUSABLE,RoomType.ROOM_STANDARD,"453",1435,"1234567");
 		room3=new RoomInfoPO(RoomState.USABLE,RoomType.ROOM_BIGBED,"455",233,"1234567");

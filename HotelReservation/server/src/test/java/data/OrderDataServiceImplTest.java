@@ -36,7 +36,7 @@ public class OrderDataServiceImplTest {
 	public void setUp() throws RemoteException{
 		dataServiceImpl = DataFactory.getDataFactory().getOrderDataServiceImpl();
 		
-		order1 = new OrderPO("100001", new CustomerInfoPO("151250058","hkw", 
+		/*order1 = new OrderPO("100001", new CustomerInfoPO("151250058","hkw", 
 				new ContactPO("13270898633", "814335296@qq.com"), 200, true,
 				VipType.COMPANY_VIP), OrderState.UNEXECUTED,
 				666.66, "151250", false, MyDate.toString(MyDate.getNowTime()),

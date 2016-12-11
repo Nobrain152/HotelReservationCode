@@ -27,17 +27,7 @@ public class HotelEvaluateDataServiceImpl extends DataSuperClass implements Hote
 						po.getComment(),""+po.getIsReserved(),po.getOrderID());
 	}
 
-	@Override
-	public ResultMsg delete(HotelEvaluatePO po) throws RemoteException {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public ArrayList<HotelEvaluatePO> find(String searchInfo) throws RemoteException {
-		// TODO Auto-generated method stub
-		return null;
-	}
+	
 
 	@Override
 	public HotelEvaluatePO findByID(String ID) throws RemoteException {

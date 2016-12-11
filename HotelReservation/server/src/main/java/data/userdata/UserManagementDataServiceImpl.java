@@ -4,7 +4,9 @@ import java.rmi.RemoteException;
 import java.util.ArrayList;
 import dataSuper.DataSuperClass;
 import dataservice.userdataservice.UserManagementDataService;
+import po.CustomerInfoPO;
 import po.LoginInPO;
+import po.StuffInfoPO;
 import po.UserInfoPO;
 import util.ResultMsg;
 
@@ -24,53 +26,97 @@ public class UserManagementDataServiceImpl extends DataSuperClass implements Use
 	}
 
 	@Override
-	public String GetLoginInfo(LoginInPO po) {
+	public String GetLoginInfo(String userid) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public String AddUser(LoginInPO po) {
+	public String AddWebStuff(UserInfoPO po) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public UserInfoPO GetUserBaseInfo(String userid) {
-		UserInfoPO po = findMes(userid);
-		return null;
-	}
-	
-	public UserInfoPO findMes(String userID){
-		findMes = findFromSQL(tableName, userID);
-		UserInfoPO po = null;
-		if(findMes != null){
-			/*po = new UserInfoPO(findMes.get(0),findMes.get(1),
-							findMes.get(2));*/
-		}
-		return null;
-	}
-
-	@Override
-	public ResultMsg SetUserBaseInfo(String userid, UserInfoPO po2) {
+	public String AddWebManager(UserInfoPO po) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public boolean addHotelStuff(String hotelid, String userid) {
+	public String AddCustomer(CustomerInfoPO po) {
 		// TODO Auto-generated method stub
-		return false;
+		return null;
 	}
 
 	@Override
-	public boolean addWebStuff(String userid) {
+	public String AddHotelStuff(StuffInfoPO po) {
 		// TODO Auto-generated method stub
-		return false;
+		return null;
+	}
+
+	@Override
+	public StuffInfoPO GetHotelStuffInfo(String userid) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public UserInfoPO GetWebManagerInfo(String userid) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public UserInfoPO GetWebStuffInfo(String userid) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public CustomerInfoPO GetCustomerInfo(String userid) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public ResultMsg SetHotelStuffInfo(String userid, StuffInfoPO po) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public ResultMsg SetWebManagerInfo(String userid, UserInfoPO po) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public ResultMsg SetWebStuffInfo(String userid, UserInfoPO po2) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public ResultMsg SetCustomerInfo(String userid, CustomerInfoPO po) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public ResultMsg addHotelStuff(String hotelid, String userid) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 	@Override
 	public ArrayList<UserInfoPO> WebStuffScan() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public ArrayList<StuffInfoPO> HotelStuffScan() {
 		// TODO Auto-generated method stub
 		return null;
 	}

@@ -106,11 +106,7 @@ public class VipDataSerivceImpl extends DataSuperClass implements VipDataService
 		return null;
 	}
 
-	@Override
-	public LevelSystemPO getLevelSystemPO() throws RemoteException {
-		// TODO Auto-generated method stub
-		return null;
-	}
+	
 	
 	private CommonVipPO findMsgC(String sql) throws RemoteException{
 		CommonVipPO po = null;
@@ -181,6 +177,24 @@ public class VipDataSerivceImpl extends DataSuperClass implements VipDataService
 		}
 		
 		return pos;
+	}
+
+	@Override
+	public ResultMsg insertL(LevelSystemPO levelSystemPO) throws RemoteException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public ResultMsg findL(int level) throws RemoteException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public ArrayList<LevelSystemPO> getLevelSystemPO() throws RemoteException {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 	

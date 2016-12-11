@@ -4,6 +4,9 @@ import java.rmi.RemoteException;
 import java.util.ArrayList;
 import dataservice.userdataservice.CustomerManagementDataService;
 import po.CustomerInfoPO;
+import po.StuffInfoPO;
+import po.UserInfoPO;
+import util.ResultMsg;
 
 public class CustomerManagementDataServiceImpl extends UserManagementDataServiceImpl implements CustomerManagementDataService {
 	
@@ -17,21 +20,15 @@ public class CustomerManagementDataServiceImpl extends UserManagementDataService
 	}
 
 	@Override
-	public boolean AddMembers(String userid) {
-		// TODO Auto-generated method stub
-		return false;
-	}
-
-	@Override
 	public ArrayList<String> GetCustomerOrders(String userid) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public boolean addCustomerOrders(String userid, String i) {
+	public ResultMsg addCustomerOrders(String userid, String i) {
 		// TODO Auto-generated method stub
-		return false;
+		return null;
 	}
 
 	@Override
@@ -41,18 +38,11 @@ public class CustomerManagementDataServiceImpl extends UserManagementDataService
 	}
 
 	@Override
-	public boolean addCustomerHotel(String userid, String idh) {
-		// TODO Auto-generated method stub
-		return false;
-	}
-
-	@Override
-	public CustomerInfoPO FindByID(String userid) {
+	public ResultMsg addCustomerHotel(String userid, String idh) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
-	
 	
 
 }

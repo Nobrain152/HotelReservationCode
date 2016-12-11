@@ -23,12 +23,13 @@ public class HotelInfoDataServiceImplTest {
 	@Before
 	public void setUp() throws RemoteException{
 		impl = new HotelInfoDataServiceImpl();
-		hotel1=new HotelInfoPO("1343","StarHotel","StarRoad","StarArea",5,"It's a wonderful hotel","cafe, garden and so on",
+		/*hotel1=new HotelInfoPO("1343","StarHotel","StarRoad","StarArea",5,"It's a wonderful hotel","cafe, garden and so on",
 				true,66.6,200);
 		hotel2=new HotelInfoPO("2352","SunHotel","SunRoad","SunArea",4,"It's a nice hotel","cafe",
 				false,77.77,100);
 		hotel3=new HotelInfoPO("4353","MoonHotel","MoonRoad","MoonArea",-1,"It's a terrible hotel","nothing",
 				true,88.88,300);
+				*/
 		
 		list = new ArrayList<HotelInfoPO>();
 	}

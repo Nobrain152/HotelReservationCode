@@ -40,7 +40,7 @@ public class LoginInDataTest {
 	
 	@Test
 	public void testShow() throws RemoteException{
-		ArrayList<LoginInPO> loginInPOs = new ArrayList<>();
+		ArrayList<LoginInPO> loginInPOs = new ArrayList<LoginInPO>();
 		pos = impl.show();
 		loginInPOs.add(po1);
 		loginInPOs.add(po2);

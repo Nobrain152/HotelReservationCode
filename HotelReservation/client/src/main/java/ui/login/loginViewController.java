@@ -11,12 +11,11 @@ import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import ui.UILaunch;
-import ui.UIhelper;
 import util.UserType;
 
 public class loginViewController implements Initializable{
 	private UILaunch application;
-	//private UIhelper helper=new UIhelper();
+	
 	
 	private LoginInputController login;
 	
@@ -32,15 +31,20 @@ public class loginViewController implements Initializable{
 	@FXML
 	private Button btn_register;
 	
+	
+	
+	
+	
 	public void setApp(UILaunch application){
 		this.application= application;		
+		
 	}
 	
 	@FXML
 	public void btn_loginAction(ActionEvent event){
 		login=new LoginInputController();
 		String id=userid.getText();
-		//helper.setUserID(id);
+		
 		UserType type=login.getType(id);
 		switch(type){
 		case Customer:    application.gotocustomerGuide();break;

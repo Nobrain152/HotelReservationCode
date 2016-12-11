@@ -65,7 +65,16 @@ public class UILaunch extends Application{
 	private Stage stage;
 	private final int  MINIMUM_WINDOW_WIDTH =800;
 	private final int  MINIMUM_WINDOW_HEIGHT =600;
-
+	//private UIhelper helper;
+	/**
+	public String getHelperUserID(){
+		return helper.getUserID();
+	}
+	
+	public void setHelperUserID(String str){
+		helper.setUserID(str);
+	}
+	*/
 	@Override
 	public void start(Stage primaryStage) throws Exception {
 		//Parent root = FXMLLoader.load(getClass().getResource("login/login.fxml"));
@@ -76,6 +85,7 @@ public class UILaunch extends Application{
 		//stage.setScene(scene);
 		//stage.show();
 		
+		//helper=new UIhelper();
 		stage = primaryStage;
 		stage.setTitle("DIMENSION");
 		stage.setMinWidth(MINIMUM_WINDOW_WIDTH);

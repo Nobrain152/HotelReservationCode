@@ -60,10 +60,10 @@ public class hotelInfoSearchedViewController implements Initializable{
 				new orderItem("123", "2016-10-01","异常订单", 1000),
 				new orderItem("123", "2016-10-01","撤销订单", 1000)
 				);
-		order_ID.setCellValueFactory(new PropertyValueFactory<Object, Object>("ID"));		
-		order_time.setCellValueFactory(new PropertyValueFactory<Object, Object>("time"));
-		order_condition.setCellValueFactory(new PropertyValueFactory<Object, Object>("condition"));
-		order_price.setCellValueFactory(new PropertyValueFactory<Object, Object>("price"));
+		order_ID.setCellValueFactory(new PropertyValueFactory<>("ID"));		
+		order_time.setCellValueFactory(new PropertyValueFactory<>("time"));
+		order_condition.setCellValueFactory(new PropertyValueFactory<>("condition"));
+		order_price.setCellValueFactory(new PropertyValueFactory<>("price"));
 		order.setItems(data);
 	}
 

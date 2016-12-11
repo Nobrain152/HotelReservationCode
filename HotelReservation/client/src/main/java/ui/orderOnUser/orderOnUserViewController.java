@@ -112,10 +112,10 @@ public class orderOnUserViewController implements Initializable{
 				new OrderInTable("123","A Hotel","2016-10-01","1000"),
 				new OrderInTable("123","A Hotel","2016-10-01","1000")
 				);
-		order_all_ID.setCellValueFactory(new PropertyValueFactory<Object, Object>("ID"));
-		order_all_hotelName.setCellValueFactory(new PropertyValueFactory<Object, Object>("hotelName"));
-		order_all_time.setCellValueFactory(new PropertyValueFactory<Object, Object>("time"));
-		order_all_price.setCellValueFactory(new PropertyValueFactory<Object, Object>("price"));
+		order_all_ID.setCellValueFactory(new PropertyValueFactory<>("ID"));
+		order_all_hotelName.setCellValueFactory(new PropertyValueFactory<>("hotelName"));
+		order_all_time.setCellValueFactory(new PropertyValueFactory<>("time"));
+		order_all_price.setCellValueFactory(new PropertyValueFactory<>("price"));
 		order_all.setItems(data_all);
 	}
 	

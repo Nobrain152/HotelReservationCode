@@ -144,11 +144,11 @@ public class hotelSearchListViewController implements Initializable{
 				new hotelItem("Sun Hotel", 5, 10, "预定过",1500),
 				new hotelItem("Sun Hotel", 5, 10, "预定过",1500)
 				);
-		tc_name.setCellValueFactory(new PropertyValueFactory<Object, Object>("name"));
-		tc_star.setCellValueFactory(new PropertyValueFactory<Object, Object>("star"));
-		tc_score.setCellValueFactory(new PropertyValueFactory<Object, Object>("score"));
-		tc_isReserved.setCellValueFactory(new PropertyValueFactory<Object, Object>("isReserved"));
-		tc_price.setCellValueFactory(new PropertyValueFactory<Object, Object>("price"));
+		tc_name.setCellValueFactory(new PropertyValueFactory<>("name"));
+		tc_star.setCellValueFactory(new PropertyValueFactory<>("star"));
+		tc_score.setCellValueFactory(new PropertyValueFactory<>("score"));
+		tc_isReserved.setCellValueFactory(new PropertyValueFactory<>("isReserved"));
+		tc_price.setCellValueFactory(new PropertyValueFactory<>("price"));
 		tv_hotel.setItems(data);
 	}
 	

@@ -81,11 +81,11 @@ public class abnormalOrderViewController implements Initializable{
 				new OrderInTable("123","GYF","A Hotel","2016-10-01",1599),
 				new OrderInTable("123","GYF","A Hotel","2016-10-01",1599)
 				);
-		order_waiting_ID.setCellValueFactory(new PropertyValueFactory<Object, Object>("ID"));
-		order_waiting_userName.setCellValueFactory(new PropertyValueFactory<Object, Object>("userName"));
-		order_waiting_hotelName.setCellValueFactory(new PropertyValueFactory<Object, Object>("hotelName"));
-		order_waiting_time.setCellValueFactory(new PropertyValueFactory<Object, Object>("time"));
-		order_waiting_price.setCellValueFactory(new PropertyValueFactory<Object, Object>("price"));
+		order_waiting_ID.setCellValueFactory(new PropertyValueFactory<>("ID"));
+		order_waiting_userName.setCellValueFactory(new PropertyValueFactory<>("userName"));
+		order_waiting_hotelName.setCellValueFactory(new PropertyValueFactory<>("hotelName"));
+		order_waiting_time.setCellValueFactory(new PropertyValueFactory<>("time"));
+		order_waiting_price.setCellValueFactory(new PropertyValueFactory<>("price"));
 		order_waiting.setItems(data_waiting);
 	}
 	

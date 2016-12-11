@@ -37,7 +37,7 @@
                             <TableColumn fx:id="promotion_vip_discount" prefWidth="161.0" text="相应会员折扣" />
                           </columns>
                         </TableView>
-                        <Button layoutX="160.0" layoutY="337.0" mnemonicParsing="false" text="修改">
+                        <Button fx:id="btn_vip_modify" layoutX="160.0" layoutY="337.0" mnemonicParsing="false" onAction="#btn_vip_modifyAction" text="修改">
                            <font>
                               <Font size="14.0" />
                            </font></Button>
@@ -72,7 +72,7 @@
                               <Font size="14.0" />
                            </font>
                         </Button>
-                        <Button layoutX="159.0" layoutY="347.0" mnemonicParsing="false" text="修改">
+                        <Button fx:id="btn_area_modify" layoutX="159.0" layoutY="347.0" mnemonicParsing="false" onAction="#btn_area_modifyAction" text="修改">
                            <font>
                               <Font size="14.0" />
                            </font>
@@ -101,7 +101,7 @@
                               <Font size="14.0" />
                            </font>
                         </Button>
-                        <Button layoutX="157.0" layoutY="347.0" mnemonicParsing="false" text="修改">
+                        <Button fx:id="btn_diy_modify" layoutX="157.0" layoutY="347.0" mnemonicParsing="false" onAction="#btn_diy_modifyAction" text="修改">
                            <font>
                               <Font size="14.0" />
                            </font>

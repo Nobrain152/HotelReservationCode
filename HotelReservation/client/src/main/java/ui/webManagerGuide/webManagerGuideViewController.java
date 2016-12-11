@@ -7,7 +7,6 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
-import javafx.scene.shape.Circle;
 import ui.UILaunch;
 
 public class webManagerGuideViewController implements Initializable{

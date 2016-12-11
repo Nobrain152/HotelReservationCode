@@ -8,6 +8,7 @@ import bl.VOPOchange;
 import blservice.hotelblservice.HotelInfoCheckBLService;
 import blservice.hotelblservice.HotelInfoMaintainBLService;
 import dataservice.userdataservice.UserManagementDataService;
+import po.CustomerInfoPO;
 import po.StuffInfoPO;
 import po.UserInfoPO;
 import util.ResultMsg;
@@ -39,7 +40,7 @@ public class WebManager extends User {
 	 * @return 用户个人信息VO
 	 */
 	public UserInfoVO IndividualBaseInfolnquiry(String userid)throws RemoteException{
-		UserInfoPO po= data.GetUserBaseInfo(userid);
+		UserInfoPO po= data.GetWebManagerInfo(userid);
 		UserInfoVO vo=(UserInfoVO)VOPOchange.POtoVO(po);
 		return vo;
 	}
@@ -52,7 +53,7 @@ public class WebManager extends User {
 	 */
 	public ResultMsg IndividualBaseInfoModification(String userid,UserInfoVO vo2)throws RemoteException{
 		UserInfoPO po= (UserInfoPO)VOPOchange.VOtoPO(vo2);
-		return data.SetUserBaseInfo(userid, po);
+		return data.SetWebManagerInfo(userid, po);
 	}
 		
 	/**
@@ -68,11 +69,11 @@ public class WebManager extends User {
 	 * @param 酒店IDVO
 	 * @param 用户IDVO
 	 */
-	public boolean StuffAdd(String hotelid,String userid)throws RemoteException{
+	public ResultMsg StuffAdd(String hotelid,String userid)throws RemoteException{
 		ArrayList<StuffInfoPO> already=data.HotelStuffScan();
 		for(StuffInfoPO p:already){
 			if(p.getHotel().equals(hotelid))
-				return false;
+				return ResultMsg.FAIL;
 		}
 		return data.addHotelStuff(hotelid,userid);
 	}
@@ -92,7 +93,15 @@ public class WebManager extends User {
 	 * @return 用户个人信息VO
 	 */
 	public UserInfoVO UserInformationInquiry(String userid)throws RemoteException{
-		UserInfoPO po=data.GetUserBaseInfo(userid);
+		char c=userid.charAt(0);
+		UserInfoPO po;
+		switch(c){
+		case'1': po=data.GetCustomerInfo(userid);break;
+		case'2': po=data.GetHotelStuffInfo(userid);break;
+		case'3': po=data.GetWebStuffInfo(userid);break;
+		case'4': po=data.GetWebManagerInfo(userid);break;
+		default: po=null;
+		}
 		UserInfoVO vo=(UserInfoVO)VOPOchange.POtoVO(po);
 		return vo;
 	}
@@ -106,17 +115,19 @@ public class WebManager extends User {
 	 */
 	public ResultMsg UserInformationModification(String userid,UserInfoVO vo2)throws RemoteException{
 		UserInfoPO po1=(UserInfoPO)VOPOchange.POtoVO(vo2);
-		return data.SetUserBaseInfo(userid,po1);
+		char c=userid.charAt(0);
+		
+		switch(c){
+		case'1': return data.SetCustomerInfo(userid,(CustomerInfoPO)po1);
+		case'2': return data.SetHotelStuffInfo(userid, (StuffInfoPO)po1);
+		case'3': return data.SetWebStuffInfo(userid,po1);
+		case'4': return data.SetWebManagerInfo(userid,po1);
+		default: return ResultMsg.FAIL;
+		}
+		
 	}
 			
-	/**
-	 * 添加网站营销人员
-	 * @param 用户IDVO
-	 */
-	public boolean WebsiteStuffAdd(String userid)throws RemoteException{
-		
-		return data.addWebStuff(userid);
-	}
+	
 
 	/**
 	 * 查看网站营销人员列表

@@ -24,6 +24,8 @@ public class promotionWebViewController implements Initializable {
 	@FXML
 	private TableColumn<?, ?> promotion_vip_discount;
 	private ObservableList<PromotionVIP> data_vip;
+	@FXML
+	private Button btn_vip_modify;
 
 	// 特定商圈优惠策略
 	@FXML
@@ -33,6 +35,8 @@ public class promotionWebViewController implements Initializable {
 	@FXML
 	private TableColumn<?, ?> promotion_area_discount;
 	private ObservableList<PromotionArea> data_area;
+	@FXML
+	private Button btn_area_modify;
 
 	// 自定义优惠策略
 	@FXML
@@ -44,12 +48,29 @@ public class promotionWebViewController implements Initializable {
 	@FXML
 	private TableColumn<?, ?> promotion_diy_discount;
 	private ObservableList<PromotionDiy> data_diy;
+	@FXML
+	private Button btn_diy_modify;
 
 	@FXML
 	private Button btn_Cancel;
 
 	public void setApp(UILaunch application) {
 		this.application = application;
+	}
+	
+	@FXML
+	public void btn_vip_modifyAction(ActionEvent ev) {
+		application.gotopromotionWebVIP();
+	}
+	
+	@FXML
+	public void btn_area_modifyAction(ActionEvent ev) {
+		application.gotopromotionWebArea();
+	}
+	
+	@FXML
+	public void btn_diy_modifyAction(ActionEvent ev) {
+		application.gotopromotionWebDIY();
 	}
 
 	@FXML

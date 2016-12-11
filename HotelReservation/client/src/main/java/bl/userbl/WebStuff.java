@@ -48,7 +48,7 @@ public class WebStuff extends User{
 	 * @return 用户个人信息VO
 	 */
 	public UserInfoVO IndividualBaseInfolnquiry(String userid)throws RemoteException{
-		UserInfoPO po= user.GetUserBaseInfo(userid);
+		UserInfoPO po= user.GetWebStuffInfo(userid);
 		UserInfoVO vo=(UserInfoVO)VOPOchange.POtoVO(po);
 		return vo;
 	}
@@ -61,7 +61,7 @@ public class WebStuff extends User{
 	 */
 	public ResultMsg IndividualBaseInfoModification(String userid,UserInfoVO vo2)throws RemoteException{
 		UserInfoPO po= (UserInfoPO)VOPOchange.VOtoPO(vo2);
-		return user.SetUserBaseInfo(userid, po);
+		return user.SetWebStuffInfo(userid, po);
 	}
 	
 	/**
@@ -121,7 +121,7 @@ public class WebStuff extends User{
 	 * @return 修改后的用户信用值VO
 	 */
 	public ResultMsg UserCreditModification(String userid,int n)throws RemoteException{
-		CustomerInfoVO vo=(CustomerInfoVO)VOPOchange.POtoVO(user.GetUserBaseInfo(userid));
+		CustomerInfoVO vo=(CustomerInfoVO)VOPOchange.POtoVO(user.GetWebStuffInfo(userid));
 		return inte.changeCredit(vo, n);
 	}
 
@@ -140,7 +140,7 @@ public class WebStuff extends User{
 	 * @return 用户信用信息VO
 	 */
 	public int userCreditInquire(String userid)throws RemoteException {
-		CustomerInfoVO vo=(CustomerInfoVO)VOPOchange.POtoVO(user.GetUserBaseInfo(userid));
+		CustomerInfoVO vo=(CustomerInfoVO)VOPOchange.POtoVO(user.GetWebStuffInfo(userid));
 		return inte.getCredit(vo);
 	}
 		

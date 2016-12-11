@@ -39,7 +39,14 @@ import ui.orderOnUser.orderOnUserInfoViewController;
 import ui.orderOnUser.orderOnUserViewController;
 import ui.orderOnWeb.abnormalOrderInfoViewController;
 import ui.orderOnWeb.abnormalOrderViewController;
+import ui.promotionHotel.promotionHotelBirthdayViewController;
+import ui.promotionHotel.promotionHotelDIYViewController;
+import ui.promotionHotel.promotionHotelEnterpriseViewController;
+import ui.promotionHotel.promotionHotelRoomViewController;
 import ui.promotionHotel.promotionHotelViewController;
+import ui.promotionWeb.promotionWebAreaViewController;
+import ui.promotionWeb.promotionWebDIYViewController;
+import ui.promotionWeb.promotionWebVIPViewController;
 import ui.promotionWeb.promotionWebViewController;
 import ui.reservedHotel.reservedHotelInfoViewController;
 import ui.reservedHotel.reservedHotelListViewController;
@@ -58,7 +65,6 @@ public class UILaunch extends Application{
 	private Stage stage;
 	private final int  MINIMUM_WINDOW_WIDTH =800;
 	private final int  MINIMUM_WINDOW_HEIGHT =600;
-	
 
 	@Override
 	public void start(Stage primaryStage) throws Exception {
@@ -608,7 +614,68 @@ public class UILaunch extends Application{
 		}
 	}
 	
+	public void gotopromotionHotelBirthday(){
+		try{
+			promotionHotelBirthdayViewController promotionHotelBirthday=(promotionHotelBirthdayViewController) replaceSceneContent("promotionHotel/promotionHotelBirthday.fxml");
+			promotionHotelBirthday.setApp(this);
+		}catch(Exception ex){
+			ex.printStackTrace();
+		}
+	}
 	
+	public void gotopromotionHotelDIY(){
+		try{
+			promotionHotelDIYViewController promotionHotelDIY=(promotionHotelDIYViewController) replaceSceneContent("promotionHotel/promotionHotelDIY.fxml");
+			promotionHotelDIY.setApp(this);
+		}catch(Exception ex){
+			ex.printStackTrace();
+		}
+	}
+	
+	public void gotopromotionHotelEnterprise(){
+		try{
+			promotionHotelEnterpriseViewController promotionHotelEnterprise=(promotionHotelEnterpriseViewController) replaceSceneContent("promotionHotel/promotionHotelEnterprise.fxml");
+			promotionHotelEnterprise.setApp(this);
+		}catch(Exception ex){
+			ex.printStackTrace();
+		}
+	}
+	
+	public void gotopromotionHotelRoom(){
+		try{
+			promotionHotelRoomViewController promotionHotelRoom=(promotionHotelRoomViewController) replaceSceneContent("promotionHotel/promotionHotelRoom.fxml");
+			promotionHotelRoom.setApp(this);
+		}catch(Exception ex){
+			ex.printStackTrace();
+		}
+	}
+	
+	public void gotopromotionWebArea(){
+		try{
+			promotionWebAreaViewController promotionWebArea=(promotionWebAreaViewController) replaceSceneContent("promotionWeb/promotionWebArea.fxml");
+			promotionWebArea.setApp(this);
+		}catch(Exception ex){
+			ex.printStackTrace();
+		}
+	}
+	
+	public void gotopromotionWebDIY(){
+		try{
+			promotionWebDIYViewController promotionWebDIY=(promotionWebDIYViewController) replaceSceneContent("promotionWeb/promotionWebDIY.fxml");
+			promotionWebDIY.setApp(this);
+		}catch(Exception ex){
+			ex.printStackTrace();
+		}
+	}
+	
+	public void gotopromotionWebVIP(){
+		try{
+			promotionWebVIPViewController promotionWebVIP=(promotionWebVIPViewController) replaceSceneContent("promotionWeb/promotionWebVIP.fxml");
+			promotionWebVIP.setApp(this);
+		}catch(Exception ex){
+			ex.printStackTrace();
+		}
+	}
 	
     private Initializable replaceSceneContent(String fxml) throws Exception{
     	FXMLLoader loader = new FXMLLoader();

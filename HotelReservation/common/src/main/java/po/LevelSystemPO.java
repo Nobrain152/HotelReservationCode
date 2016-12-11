@@ -12,33 +12,33 @@ public class LevelSystemPO implements Serializable{
 	/**
 	 * 等级
 	 */
-	int[] levels;
+	int levels;
 	
 	/**
 	 * 对应等级所需要的信用值
 	 */
-	int[] credits;
+	int credits;
 	
 	public LevelSystemPO() {}
 	
-	public LevelSystemPO(int[] levels, int[] credits) {
+	public LevelSystemPO(int levels, int credits) {
 		this.levels = levels;
 		this.credits = credits;
 	}
 	
-	public int[] getLevels() {
+	public int getLevels() {
 		return levels;
 	}
 	
-	public int[] getCredits() {
+	public int getCredits() {
 		return credits;
 	}
 	
-	public void setLevels(int[] levels) {
+	public void setLevels(int levels) {
 		this.levels = levels;
 	}
 	
-	public void setCredits(int[] credits) {
+	public void setCredits(int credits) {
 		this.credits = credits;
 	}
 

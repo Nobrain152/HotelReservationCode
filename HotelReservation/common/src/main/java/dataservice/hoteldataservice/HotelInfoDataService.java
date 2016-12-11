@@ -16,10 +16,6 @@ public interface HotelInfoDataService {
 	public String insert(HotelInfoPO po) throws RemoteException;
 	
 	
-	/**
-	 * É¾³ý
-	 */
-	public ResultMsg delete(HotelInfoPO po) throws RemoteException;
 	
 	/**
 	 * ¸üÐÂ

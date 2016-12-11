@@ -1,6 +1,7 @@
 package bl.vipbl;
 
 import java.rmi.RemoteException;
+import java.util.ArrayList;
 
 import bl.VOPOchange;
 import dataservice.creditdataservice.CreditDataService;
@@ -40,7 +41,7 @@ public class Vip {
 	 * @throws RemoteException
 	 */
 	public int searchLevel(CustomerInfoVO user) throws RemoteException {
-		LevelSystemPO levelSystemPO = vipDataService.getLevelSystemPO();
+		ArrayList<LevelSystemPO> levelSystemPOs = vipDataService.getLevelSystemPO();
 		int credit = 0;
 		if(user.getIsMember()) {
 			credit = user.getCredit();
@@ -50,14 +51,15 @@ public class Vip {
 			return 0;
 		}
 		
-		int[] credits = levelSystemPO.getCredits();
-		for(int i = 0; i < credits.length-1; i++) {
-			if(credit > credits[i] && credit <= credits[i+1]) {
-				return i+1;
+		int i;
+		
+		for(i = 0; i < levelSystemPOs.size(); i++){
+			if(credit > levelSystemPOs.get(i).getCredits()){
+				break;
 			}
 		}
 		
-		return credits.length;
+		return i+1;
 	}
 	
 	/**
@@ -96,7 +98,7 @@ public class Vip {
 	 */
 	public ResultMsg createLevelSystem(LevelSystemVO levelSystemVO) throws RemoteException {
 		LevelSystemPO levelSystemPO = (LevelSystemPO)VOPOchange.VOtoPO(levelSystemVO);
-		ResultMsg resultMsg = vipDataService.update(levelSystemPO);
+		ResultMsg resultMsg = vipDataService.insertL(levelSystemPO);
 		return resultMsg;
 	}
 

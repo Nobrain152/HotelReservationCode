@@ -190,10 +190,10 @@ public class Customer extends User {
 	    ResultMsg r1=reserve.reserveHotel(vo2);
 	    if(r1==ResultMsg.SUCCESS){
 	    	order.createOrder(vo2);
-	    	boolean r=userdataservice.addCustomerOrders(userid,vo2.getOrderID());
-	    	boolean r2=userdataservice.addCustomerHotel(userid,vo2.getHotelID());
-	    	if(r&&r2){
-	    		return ResultMsg.SUCCESS;
+	    	ResultMsg  r=userdataservice.addCustomerOrders(userid,vo2.getOrderID());
+	    	ResultMsg r2=userdataservice.addCustomerHotel(userid,vo2.getHotelID());
+	    	if(r==ResultMsg.SUCCESS){
+	    		return r2;
 	    	}
 	    }
 	    return ResultMsg.FAIL;
@@ -219,7 +219,7 @@ public class Customer extends User {
 	 * @return 个人基本信息
 	 */
 	public CustomerInfoVO IndividualBaseInfolnquiry(String userid)throws RemoteException{
-		CustomerInfoPO userInfoPO = userdataservice.FindByID(userid);
+		CustomerInfoPO userInfoPO = userdataservice.GetCustomerInfo(userid);
 		CustomerInfoVO vo = (CustomerInfoVO)VOPOchange.POtoVO(userInfoPO);
 		return vo;
 	}
@@ -231,16 +231,13 @@ public class Customer extends User {
 	 * @return 修改结果
 	 */
 	public ResultMsg IndividualBaseInfoModification(String userid,CustomerInfoVO vo2)throws RemoteException{
-		CustomerInfoPO past= userdataservice.FindByID(userid);
+		CustomerInfoPO past= userdataservice.GetCustomerInfo(userid);
 		if((past.getIsMember()!=vo2.getIsMember())||(past.getCredit()!=vo2.getCredit())||(!past.getUserID().equals(vo2.getUserID())||(past.getVipType()!=vo2.getVipType()))){
 			return ResultMsg.UNAUYHORIZED;
 		}
 		CustomerInfoPO po2 = (CustomerInfoPO)VOPOchange.VOtoPO(vo2);
-		boolean result= userdataservice.ModInfo(userid, po2);
-		if(result){
-			return ResultMsg.SUCCESS;
-		}
-		return ResultMsg.FAIL;
+		return userdataservice.SetCustomerInfo(userid, po2);
+		
 	}
 			
 	/**
@@ -305,7 +302,7 @@ public class Customer extends User {
 	 * @return 个人信用信息
 	 */
 	public int IndividualCredictInquiry(String userid)throws RemoteException{
-		return 	integral.getCredit((CustomerInfoVO)VOPOchange.POtoVO(userdataservice.GetUserBaseInfo(userid)));
+		return 	integral.getCredit((CustomerInfoVO)VOPOchange.POtoVO(userdataservice.GetCustomerInfo(userid)));
 	}
 	
 	

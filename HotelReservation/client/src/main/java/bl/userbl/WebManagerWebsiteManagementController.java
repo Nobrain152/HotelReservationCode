@@ -59,18 +59,7 @@ public class WebManagerWebsiteManagementController implements WebManagerWebsiteM
 		}
 	}
 			
-	/**
-	 * 添加网站营销人员
-	 * @param 用户IDVO
-	 */
-	public boolean WebsiteStuffAdd(String userid){
-		try {
-			return manager.WebsiteStuffAdd(userid);
-		} catch (RemoteException e) {
-			e.printStackTrace();
-			return false;
-		}
-	}
+	
 
 	/**
 	 * 查看网站营销人员列表

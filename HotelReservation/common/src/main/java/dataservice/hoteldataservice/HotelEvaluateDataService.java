@@ -16,23 +16,7 @@ public interface HotelEvaluateDataService {
 	 */
 	public ResultMsg insert(HotelEvaluatePO po) throws RemoteException;
 	
-	/**
-	 * 删除
-	 * @param po
-	 * @return
-	 * @throws RemoteException
-	 */
-	public ResultMsg delete(HotelEvaluatePO po) throws RemoteException;
-	
-	/**
-	 * 查找
-	 * @param searchInfo
-	 * @return ArrayList<HotelEvaluatePO>
-	 * @throws RemoteException
-	 */
-	public ArrayList<HotelEvaluatePO> find(String searchInfo) throws RemoteException;
-	
-	/**
+		/**
 	 * 根据订单ID查找
 	 * @param ID
 	 * @return

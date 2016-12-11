@@ -7,6 +7,7 @@ import blservice.userblservice.WebManagerHotelOperationBlService;
 import dataservice.userdataservice.UserManagementDataService;
 import net.RMIManage;
 import util.DataServiceType;
+import util.ResultMsg;
 import vo.HotelInfoVO;
 
 
@@ -39,19 +40,7 @@ public class WebManagerHotelOperationController implements WebManagerHotelOperat
 		}
 	}
 			
-	/**
-	 * 添加酒店工作人员
-	 * @param 酒店IDVO
-	 * @param 用户IDVO
-	 */
-	public boolean StuffAdd(String hotelid,String userid){
-		try {
-			return manager.StuffAdd(hotelid, userid);
-		} catch (RemoteException e) {
-			e.printStackTrace();
-			return false;
-		}
-	}
+	
 
 
 	/**
@@ -64,6 +53,16 @@ public class WebManagerHotelOperationController implements WebManagerHotelOperat
 		} catch (RemoteException e) {
 			e.printStackTrace();
 			return null;
+		}
+	}
+
+	@Override
+	public ResultMsg StuffAdd(String hotelid, String userid) {
+		try {
+			return manager.StuffAdd(hotelid, userid);
+		} catch (RemoteException e) {
+			// TODO Auto-generated catch block
+			return ResultMsg.FAIL;
 		}
 	}
 

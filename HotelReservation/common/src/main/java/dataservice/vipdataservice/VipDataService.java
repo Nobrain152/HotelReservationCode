@@ -6,9 +6,7 @@ import java.util.ArrayList;
 
 import po.BusinessVipPO;
 import po.CommonVipPO;
-import po.CustomerInfoPO;
 import po.LevelSystemPO;
-import po.CustomerInfoPO;
 import util.ResultMsg;
 
 /**
@@ -20,6 +18,10 @@ import util.ResultMsg;
 public interface VipDataService {
 	
 	public ResultMsg insertC(CommonVipPO vip) throws RemoteException;
+	
+	public ResultMsg insertL(LevelSystemPO levelSystemPO) throws RemoteException;
+	
+	public ResultMsg findL(int level) throws RemoteException;
 	
 	public ResultMsg delete(String userid) throws RemoteException;
 	
@@ -43,5 +45,5 @@ public interface VipDataService {
 	
 	public ResultMsg update(LevelSystemPO levelSystemPO) throws RemoteException;
 
-	public LevelSystemPO getLevelSystemPO() throws RemoteException;
+	public ArrayList<LevelSystemPO> getLevelSystemPO() throws RemoteException;
 }

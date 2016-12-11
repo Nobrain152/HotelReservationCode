@@ -1,3 +1,4 @@
+
 package bl.vipbl;
 
 import java.rmi.RemoteException;
@@ -71,7 +72,7 @@ public class Vip {
 	 */
 	public ResultMsg registerVip(String userID, VipType type, String str) throws RemoteException {
 		ResultMsg resultMsg = ResultMsg.FAIL;
-		CustomerInfoPO customerInfoPO = dataService.FindByID(userID);
+		CustomerInfoPO customerInfoPO = dataService.GetCustomerInfo(userID);
 		CustomerInfoVO customerInfoVO = (CustomerInfoVO)VOPOchange.POtoVO(customerInfoPO);
 	
 		if(type == VipType.COMMON_VIP) {

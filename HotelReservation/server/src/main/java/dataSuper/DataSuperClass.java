@@ -64,25 +64,23 @@ public class DataSuperClass extends UnicastRemoteObject{
 	private static final Map<String, ArrayList<String>> SQLmap = new HashMap<String, ArrayList<String>>(50);
 	
 	static{
-		//根据PO写，先写别的部分，成功之后回来补充即可
-		
+		SQLmap.put("createID", helper.bulidSQL("createID", 4, "customerID","hotelStuffID","webStuffID","webManagerID"));
 		SQLmap.put("credit", helper.bulidSQL("credit",6, "userID","orderID","time","action","creditChange","creditResult"));
 		SQLmap.put("hotelEvaluate", helper.bulidSQL("hotelEvaluate", 6, "userID","hotelID","score","comment","reserve","orderID"));
 		SQLmap.put("hotelInfo", helper.bulidSQL("hotelInfo", 10, "hotelID","name","address","area","level","introduction","facility","reserve","score","SP"));
 		SQLmap.put("roomInfo", helper.bulidSQL("roomInfo", 5, "state","type","roomID","price","hotelID"));
 		SQLmap.put("order", helper.bulidSQL("order", 13, "orderID","customerInfoPO","orderState","price","hotelID","hasChild","latestExecutionTime","checkInTime","checkOutTime","cancelledTime","roomNumber","peopleNumber","roomInfoPO"));
-		SQLmap.put("promotionHotel", helper.bulidSQL("promotionHotel", 9, "hotelID","promotionHotelType","customType","beginTime","endTime","ratio","level","number","businessName"));
-		
-		SQLmap.put("customer", helper.bulidSQL("customer", 7, "userid","username","contact","isMember","credit","order","hotel"));
-		//SQLmap.put("HotelCondition",helper.bulidSQL("HotelCondition", 10, "address","businessDistrict","hotelName","roomtype","upLevel",""));
-		SQLmap.put("userInfo", helper.bulidSQL("userInfo", 3, "userID","username","contact"));
+		SQLmap.put("promiotionHotel", helper.bulidSQL("promotionHotel", 9, "hotelID","promotionHotelType","customType","beginTime","endTime","ratio","level","number","businessName"));
+		SQLmap.put("promiotionWeb", helper.bulidSQL("promotionWeb", 7, "promotionWebType","customType","beginTime","endTime","ratio","level","location"));
 		SQLmap.put("contact", helper.bulidSQL("contact", 2, "phoneNumber","emailAddress"));
+		SQLmap.put("customer", helper.bulidSQL("customer", 7, "userid","username","contact","isMember","credit","order","hotel"));
 		SQLmap.put("loginIn", helper.bulidSQL("loginIn", 2, "username","password"));
+		SQLmap.put("userInfo", helper.bulidSQL("userInfo", 3, "userID","username","contact"));
+		SQLmap.put("levelSystem", helper.bulidSQL("LevelSystem", 2, "levels","credits"));
 		SQLmap.put("customerInfo", helper.bulidSQL("customerInfo", 6, "userID","username","contact","credit","isMember","vipType"));
-		SQLmap.put("hotelEvaluate", helper.bulidSQL("hotelEvaluate", 6, "userID","hotelID","score","comment","reserve","orderID"));
 		SQLmap.put("commonVip", helper.bulidSQL("commonVip", 7, "userID","username","password","contact","credit","birthday","vipType"));
 		SQLmap.put("businessVip", helper.bulidSQL("businessVip", 7, "userID","username","password","contact","credit","businessName","vipType"));
-		//SQLmap.put("levelSystem", helper.bulidSQL("LevelSystem", 2, paras));
+		
 		
 	}
 	
@@ -212,8 +210,6 @@ public class DataSuperClass extends UnicastRemoteObject{
 	protected ResultMsg modifyFromSQL(String tableName , String... newParas) {
 		
 		try {
-			//System.out.println(SQLmap.get(tableName).get(0));
-			//System.out.println(SQLmap.get(tableName).get(4));
 			int paralen = Integer.parseInt(SQLmap.get(tableName).get(0));
 			preState = conn.prepareStatement(SQLmap.get(tableName).get(4) +"\"" + newParas[0]  +"\"");
 			for (int i = 0; i < paralen - 1; i++) {
@@ -326,6 +322,14 @@ public class DataSuperClass extends UnicastRemoteObject{
 			e.printStackTrace();
 		}
 		return 1 ;
+	}
+	
+	/**
+	 * 返回当前表中的一条数据中的数据数量
+	 */
+	protected int getResultSize(String tableName) {
+		int paralen = Integer.parseInt(SQLmap.get(tableName).get(0));
+		return paralen;
 	}
 	
 }

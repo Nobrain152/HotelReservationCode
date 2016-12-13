@@ -6,7 +6,6 @@ import java.util.ArrayList;
 
 import dataSuper.DataSuperClass;
 import dataservice.promotiondataservice.PromotionHotelDataService;
-import po.HotelEvaluatePO;
 import po.PromotionHotelPO;
 import util.PromotionHotelType;
 import util.ResultMsg;
@@ -33,10 +32,12 @@ public class PromotionHotelDataServiceImpl extends DataSuperClass implements Pro
 							po.getBusinessName());
 	}
 
-	
 	@Override
 	public ResultMsg deleteOverCut(int num, String hotelID) throws RemoteException {
-		return null;
+		sql = "DELETE FROM " + tableName + " WHERE number = \'" + num +
+										"\' AND hotelID = \'" + hotelID+"\'";
+		ResultMsg a = delete(sql);
+		return a;
 	}
 
 	@Override
@@ -50,14 +51,21 @@ public class PromotionHotelDataServiceImpl extends DataSuperClass implements Pro
 
 	
 	@Override
-	public ArrayList<PromotionHotelPO> findByType(PromotionHotelType type, String hotelID) throws RemoteException {
-		// TODO Auto-generated method stub
-		return null;
+	public ArrayList<PromotionHotelPO> findByType(PromotionHotelType type, String hotelID) 
+													throws RemoteException {
+		ArrayList<PromotionHotelPO> pos = null;
+		sql = "SELECT * FROM " + tableName  + " WHERE promotionHotelType = "
+				+ "\'" + type.toString() + "\' AND hotelID = \'" + hotelID + "\'";
+		pos = findMsgs(sql);
+		return pos;
 	}
 
 	@Override
 	public ArrayList<PromotionHotelPO> show() throws RemoteException {
-		return null;
+		ArrayList<PromotionHotelPO> pos = null;
+		sql = "SELECT * FROM " + tableName;
+		pos = findMsgs(sql);
+		return pos;
 	}
 	
 	private ArrayList<PromotionHotelPO> findMsgs(String sql) throws RemoteException{
@@ -96,22 +104,45 @@ public class PromotionHotelDataServiceImpl extends DataSuperClass implements Pro
 
 	@Override
 	public ResultMsg deleteBirthCut(int level, String hotelID) throws RemoteException {
-		// TODO Auto-generated method stub
-		return null;
+		sql = "DELETE FROM " + tableName + " WHERE level = \'" + level +
+				"\' AND hotelID = \'" + hotelID+"\'";
+		ResultMsg a = delete(sql);
+		return a;
 	}
 
 	@Override
 	public ResultMsg deleteHotelCustomCut(String beginTime, String endTime, String hotelID) throws RemoteException {
-		// TODO Auto-generated method stub
-		return null;
+		sql = "DELETE FROM " + tableName + " WHERE beginTime = \'" + beginTime +
+				"\' AND endTime = \'" + endTime +"\' AND hotelID + \'" + hotelID +"\'";
+		ResultMsg a = delete(sql);
+		return a;
 	}
 
 	@Override
 	public ResultMsg deleteJoin(String businessName, String hotelID) throws RemoteException {
-		// TODO Auto-generated method stub
-		return null;
+		sql = "DELETE FROM " + tableName + " WHERE businessName = \'" + businessName +
+				"\' AND hotelID = \'" + hotelID+"\'";
+		ResultMsg a = delete(sql);
+		return a;
 	}
 
-
+	private ResultMsg delete(String sql){
+		try {
+			preState = conn.prepareStatement(sql);
+			affectRows = preState.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+			System.out.println("无法连接数据库");
+			return ResultMsg.FAIL;
+		}
+		
+		if(affectRows != 1){
+			System.out.println("当前数据库中影响的条数为"+affectRows);
+			System.out.println("在数据库中这个信息不存在或者存在多条无法定位删除，在"+tableName+"表中");
+			return ResultMsg.NOT_EXIST;
+		}
+		
+		return ResultMsg.SUCCESS;
+	}
 
 }

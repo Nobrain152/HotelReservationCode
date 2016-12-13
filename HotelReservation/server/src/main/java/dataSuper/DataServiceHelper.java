@@ -260,7 +260,6 @@ public class DataServiceHelper {
 			e1.printStackTrace();
 		}catch (EOFException e) {
 			System.err.println("WARNING: ÕËµ¥ÎÄ¼þ¶ªÊ§");
-			return null;
 		}
 		catch (IOException e1) {
 			e1.printStackTrace();

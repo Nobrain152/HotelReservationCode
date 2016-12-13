@@ -33,6 +33,7 @@ public class VipDataSerivceImpl extends DataSuperClass implements VipDataService
 	
 	private final String tableName = "commonVip";
 	private final String tableName2 = "businessVip";
+	private LevelSystem levels;
 	
 	@Override
 	public ResultMsg insertC(CommonVipPO vip) throws RemoteException {
@@ -102,8 +103,8 @@ public class VipDataSerivceImpl extends DataSuperClass implements VipDataService
 
 	@Override
 	public ResultMsg update(LevelSystemPO levelSystemPO) throws RemoteException {
-		// TODO Auto-generated method stub
-		return null;
+		ResultMsg a = levels.updata(levelSystemPO);
+		return a;
 	}
 
 	
@@ -181,8 +182,8 @@ public class VipDataSerivceImpl extends DataSuperClass implements VipDataService
 
 	@Override
 	public ResultMsg insertL(LevelSystemPO levelSystemPO) throws RemoteException {
-		// TODO Auto-generated method stub
-		return null;
+		ResultMsg a = levels.insert(levelSystemPO);
+		return a;
 	}
 
 	@Override
@@ -193,8 +194,8 @@ public class VipDataSerivceImpl extends DataSuperClass implements VipDataService
 
 	@Override
 	public ArrayList<LevelSystemPO> getLevelSystemPO() throws RemoteException {
-		// TODO Auto-generated method stub
-		return null;
+		ArrayList<LevelSystemPO> pos = levels.show();
+		return pos;
 	}
 
 	

@@ -31,11 +31,16 @@ public class RoomInfoDataServiceImpl extends DataSuperClass implements RoomInfoD
 		return addToSQL(tableName, po.getState().toString(),po.getType().toString(),
 						po.getRoomID(),""+po.getPrice(),po.getHotelid());
 	}
-
+	
+	/**
+	 * 接口写的有问题，暂时不用，先放在这里，先不写
+	 */
 	@Override
-	public ResultMsg delete(RoomInfoPO po) throws RemoteException {
-		// TODO Auto-generated method stub
-		return null;
+	public ResultMsg delete(String hotelid, String roomid) throws RemoteException {
+		sql = "DELETE FROM " + tableName + " WHERE roomID = \'" + roomid +
+				"\' AND hotelID = \'" + hotelid+"\'";
+		ResultMsg a = delete(sql);
+		return a;
 	}
 
 	@Override
@@ -62,11 +67,7 @@ public class RoomInfoDataServiceImpl extends DataSuperClass implements RoomInfoD
 		return findMsgs(sql);
 	}
 
-	@Override
-	public ResultMsg HotelRoomMod(String hotelid, ArrayList<RoomInfoPO> po) {
-		// TODO Auto-generated method stub
-		return null;
-	}
+	
 	
 	private RoomInfoPO findMsg(String sql) throws RemoteException{
 		RoomInfoPO po = null;
@@ -102,6 +103,27 @@ public class RoomInfoDataServiceImpl extends DataSuperClass implements RoomInfoD
 		
 		return pos;
 	}
+	
+	
+	private ResultMsg delete(String sql){
+		try {
+			preState = conn.prepareStatement(sql);
+			affectRows = preState.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+			System.out.println("无法连接数据库");
+			return ResultMsg.FAIL;
+		}
+		
+		if(affectRows != 1){
+			System.out.println("当前数据库中影响的条数为"+affectRows);
+			System.out.println("在数据库中这个信息不存在或者存在多条无法定位删除，在"+tableName+"表中");
+			return ResultMsg.NOT_EXIST;
+		}
+		
+		return ResultMsg.SUCCESS;
+	}
+	
 
 
 }

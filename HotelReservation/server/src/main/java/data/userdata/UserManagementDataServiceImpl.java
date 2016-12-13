@@ -26,8 +26,8 @@ public class UserManagementDataServiceImpl extends DataSuperClass implements Use
 	}
 
 	@Override
-	public String GetLoginInfo(String userid) {
-		// TODO Auto-generated method stub
+	public String GetLoginInfo(String userid) throws RemoteException {
+		LoginInpoData po = new LoginInpoData();
 		return null;
 	}
 

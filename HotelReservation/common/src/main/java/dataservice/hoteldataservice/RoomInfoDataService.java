@@ -17,7 +17,7 @@ public interface RoomInfoDataService extends Remote{
 	/**
 	 * É¾³ý
 	 */
-	public ResultMsg delete(RoomInfoPO po) throws RemoteException;
+	public ResultMsg delete(String hotelid,String roomid) throws RemoteException;
 	
 	/**
 	 * ¸üÐÂ

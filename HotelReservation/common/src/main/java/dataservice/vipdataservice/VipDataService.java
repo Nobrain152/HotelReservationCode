@@ -22,7 +22,7 @@ public interface VipDataService extends Remote{
 	
 	public ResultMsg insertL(LevelSystemPO levelSystemPO) throws RemoteException;
 	
-	public ResultMsg findL(int level) throws RemoteException;
+	public LevelSystemPO findL(int level) throws RemoteException;
 	
 	public ResultMsg delete(String userid) throws RemoteException;
 	

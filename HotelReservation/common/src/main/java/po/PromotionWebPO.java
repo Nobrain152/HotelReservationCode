@@ -1,6 +1,8 @@
 package po;
 
 import java.io.Serializable;
+
+import util.Area;
 import util.PromotionWebType;
 import util.VipType;
 
@@ -40,9 +42,9 @@ public class PromotionWebPO implements Serializable{
 	int level;
 	
 	/**
-	 * 位置
+	 * 商圈
 	 */
-	String location;
+	Area location;
 	
 	/**
 	 * 促销策略打折比例
@@ -52,7 +54,7 @@ public class PromotionWebPO implements Serializable{
 	public PromotionWebPO() {}
 	
 	public PromotionWebPO(PromotionWebType hotelType,VipType customType,
-			String beginTime,String endTime,double ratio,int level,String location) {
+			String beginTime,String endTime,double ratio,int level,Area location) {
 		this.hotelType = hotelType;
 		this.hotelType = hotelType;
 		this.beginTime = beginTime;
@@ -68,7 +70,7 @@ public class PromotionWebPO implements Serializable{
 		this.ratio = ratio;
 	}
 	
-	public PromotionWebPO(PromotionWebType promotionWebType,String location,double ratio) {
+	public PromotionWebPO(PromotionWebType promotionWebType,Area location,double ratio) {
 		this.hotelType = promotionWebType;
 		this.location  = location;
 		this.ratio = ratio;
@@ -88,7 +90,7 @@ public class PromotionWebPO implements Serializable{
 		return customType;
 	}
 	
-	public String getLocation() {
+	public Area getLocation() {
 		return location;
 	}
 	

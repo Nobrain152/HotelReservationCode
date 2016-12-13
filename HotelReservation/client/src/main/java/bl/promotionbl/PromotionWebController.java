@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import blservice.promotionblservice.PromotionWebBLService;
 import dataservice.promotiondataservice.PromotionWebDataService;
 import net.RMIManage;
+import util.Area;
 import util.DataServiceType;
 import util.PromotionWebType;
 import util.ResultMsg;
@@ -34,7 +35,7 @@ public class PromotionWebController implements PromotionWebBLService{
 	}
 
 	@Override
-	public ResultMsg changeCircleCut(String location, double ratio) {
+	public ResultMsg changeCircleCut(Area location, double ratio) {
 		try {
 			resultMsg = promotionWeb.changeCircleCut(location, ratio);
 		} catch (RemoteException e) {
@@ -67,7 +68,7 @@ public class PromotionWebController implements PromotionWebBLService{
 	}
 
 	@Override
-	public ResultMsg addCircleCut(String location, double ratio) {
+	public ResultMsg addCircleCut(Area location, double ratio) {
 		try {
 			resultMsg = promotionWeb.addCircleCut(location, ratio);
 		} catch (RemoteException e) {
@@ -110,7 +111,7 @@ public class PromotionWebController implements PromotionWebBLService{
 		return resultMsg;
 	}
 	@Override
-	public ResultMsg deleteCircleCut(String location) {
+	public ResultMsg deleteCircleCut(Area location) {
 		try {
 			resultMsg = promotionWeb.deleteCircleCut(location);
 		} catch (RemoteException e) {

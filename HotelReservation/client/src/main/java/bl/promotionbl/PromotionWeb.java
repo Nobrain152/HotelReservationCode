@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import bl.VOPOchange;
 import dataservice.promotiondataservice.PromotionWebDataService;
 import po.PromotionWebPO;
+import util.Area;
 import util.PromotionWebType;
 import util.ResultMsg;
 import vo.PromotionWebVO;
@@ -67,7 +68,7 @@ public class PromotionWeb{
 	 * @return
 	 * @throws RemoteException 
 	 */
-	public ResultMsg changeCircleCut(String location, double ratio) throws RemoteException {
+	public ResultMsg changeCircleCut(Area location, double ratio) throws RemoteException {
 		PromotionWebType type = PromotionWebType.VIP_CIRCLE_PROMOTION;
 		ArrayList<PromotionWebPO> promotion = promotionWebDataService.findByType(type);
 		for(PromotionWebPO po : promotion) {
@@ -106,7 +107,7 @@ public class PromotionWeb{
 	 * @return
 	 * @throws RemoteException 
 	 */
-	public ResultMsg addCircleCut(String location, double radio) throws RemoteException {
+	public ResultMsg addCircleCut(Area location, double radio) throws RemoteException {
 		PromotionWebType type = PromotionWebType.VIP_CIRCLE_PROMOTION;
 		ArrayList<PromotionWebPO> promotion = promotionWebDataService.findByType(type);
 		for(PromotionWebPO po : promotion) {
@@ -168,7 +169,7 @@ public class PromotionWeb{
 		return resultMsg;
 	}
 	
-	public ResultMsg deleteCircleCut(String location) throws RemoteException {
+	public ResultMsg deleteCircleCut(Area location) throws RemoteException {
 		PromotionWebType type = PromotionWebType.VIP_CIRCLE_PROMOTION;
 		ArrayList<PromotionWebPO> promotion = promotionWebDataService.findByType(type);
 		for(PromotionWebPO po : promotion) {

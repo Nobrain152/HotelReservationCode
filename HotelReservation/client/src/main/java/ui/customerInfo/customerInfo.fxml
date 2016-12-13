@@ -60,22 +60,22 @@
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#dde4eb" height="28.0" layoutX="381.0" layoutY="208.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="144.0" />
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#dde4eb" height="28.0" layoutX="381.0" layoutY="269.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="144.0" />
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#dde4eb" height="28.0" layoutX="381.0" layoutY="333.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="144.0" />
-      <Text layoutX="432.0" layoutY="170.0" strokeType="OUTSIDE" strokeWidth="0.0" text="顾逸飞">
+      <Text fx:id="name" layoutX="395.0" layoutY="169.0" strokeType="OUTSIDE" strokeWidth="0.0" text="顾逸飞" textAlignment="CENTER" wrappingWidth="114.0">
          <font>
             <Font size="14.0" />
          </font>
       </Text>
-      <Text layoutX="424.0" layoutY="228.0" strokeType="OUTSIDE" strokeWidth="0.0" text="1234567">
+      <Text fx:id="userID" layoutX="395.0" layoutY="226.0" strokeType="OUTSIDE" strokeWidth="0.0" text="1234567" textAlignment="CENTER" wrappingWidth="114.0">
          <font>
             <Font size="14.0" />
          </font>
       </Text>
-      <Text layoutX="407.0" layoutY="289.0" strokeType="OUTSIDE" strokeWidth="0.0" text="15150158583">
+      <Text fx:id="contact" layoutX="391.0" layoutY="288.0" strokeType="OUTSIDE" strokeWidth="0.0" text="15150158583" textAlignment="CENTER" wrappingWidth="121.3095703125">
          <font>
             <Font size="14.0" />
          </font>
       </Text>
-      <Text layoutX="440.0" layoutY="352.0" strokeType="OUTSIDE" strokeWidth="0.0" text="100">
+      <Text fx:id="credit" layoutX="392.0" layoutY="352.0" strokeType="OUTSIDE" strokeWidth="0.0" text="100" textAlignment="CENTER" wrappingWidth="121.3095703125">
          <font>
             <Font size="14.0" />
          </font>

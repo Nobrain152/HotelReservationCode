@@ -3,16 +3,17 @@ package ui.customerGuide;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import bl.userbl.CustomerInfoManagementController;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import ui.UILaunch;
+import ui.UIhelper;
 
 public class customerGuideViewController implements Initializable{
 	private UILaunch application;
-	
 	
 	
 	
@@ -34,8 +35,7 @@ public class customerGuideViewController implements Initializable{
 	@FXML
 	private Button button_Cancel;
 	
-	@FXML
-	private Label label;
+	
 	
 	
 	
@@ -64,6 +64,7 @@ public class customerGuideViewController implements Initializable{
 	
 	@FXML
 	private void button_InfoAction(ActionEvent event) throws Exception{
+		
 		application.gotocustomerInfo();	
 	}
 	
@@ -82,6 +83,7 @@ public class customerGuideViewController implements Initializable{
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		// TODO Auto-generated method stub
+		
 		
 	}
 

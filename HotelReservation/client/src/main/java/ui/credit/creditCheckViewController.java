@@ -11,6 +11,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -20,7 +21,11 @@ public class creditCheckViewController implements Initializable{
 	private UILaunch application;
 	
 	@FXML
+	private Label credit;
+	
+	@FXML
 	private Button btn_Cancel;
+	
 	
 	@FXML
 	private TableView<creditItem> tv_credit;

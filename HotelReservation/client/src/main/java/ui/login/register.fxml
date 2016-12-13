@@ -45,10 +45,10 @@
             <Font size="14.0" />
          </font>
       </Label>
-      <TextField layoutX="362.0" layoutY="176.0" />
-      <TextField layoutX="362.0" layoutY="297.0" />
-      <TextField layoutX="362.0" layoutY="363.0" />
-      <PasswordField layoutX="362.0" layoutY="234.0" />
+      <TextField fx:id="userID" layoutX="362.0" layoutY="176.0" />
+      <TextField fx:id="name" layoutX="362.0" layoutY="297.0" />
+      <TextField fx:id="contact" layoutX="362.0" layoutY="363.0" />
+      <PasswordField fx:id="password" layoutX="362.0" layoutY="234.0" />
       <Button fx:id="btn_register" layoutX="468.0" layoutY="430.0" mnemonicParsing="false" onAction="#btn_registerAction" prefHeight="29.0" prefWidth="56.0" text="注册">
          <font>
             <Font size="14.0" />

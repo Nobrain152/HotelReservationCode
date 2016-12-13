@@ -11,10 +11,13 @@ import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import ui.UILaunch;
+import ui.UIhelper;
 import util.UserType;
 
 public class loginViewController implements Initializable{
 	private UILaunch application;
+	private UIhelper helper;
+	
 	
 	
 	private LoginInputController login;
@@ -44,14 +47,21 @@ public class loginViewController implements Initializable{
 	public void btn_loginAction(ActionEvent event){
 		login=new LoginInputController();
 		String id=userid.getText();
-		
-		UserType type=login.getType(id);
-		switch(type){
-		case Customer:    application.gotocustomerGuide();break;
-		case HotelStuff:  application.gotohotelStuffGuide();break;
-		case WebStuff:    application.gotowebSalesmanGuide();break;
-		case WebManager:  application.gotowebManagerGuide();
+		String key=password.getText();
+		if(login.LogIn(id, key)){
+			helper.setUserID(id);
+			UserType type=login.getType(id);
+			switch(type){
+			case Customer:    application.gotocustomerGuide();break;
+			case HotelStuff:  application.gotohotelStuffGuide();break;
+			case WebStuff:    application.gotowebSalesmanGuide();break;
+			case WebManager:  application.gotowebManagerGuide();
+			}
+		}else{
+			System.out.println("wrong");//TODO 对话框提示账户或密码错误
 		}
+		
+		
 	}
 	
 	@FXML
@@ -62,6 +72,7 @@ public class loginViewController implements Initializable{
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		// TODO Auto-generated method stub
+		helper=UIhelper.getInstance();
 		
 		
 		

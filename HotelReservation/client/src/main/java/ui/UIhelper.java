@@ -1,12 +1,19 @@
 package ui;
 
 public class UIhelper {
-	private String userID="123";
+	private static UIhelper instance;
+	private UIhelper(){}
+	
+	private String userID;
 	//private String hotelID;
 	//private String orderID;
 	
 	
-	public UIhelper(){
+	public static UIhelper getInstance(){
+		if(instance==null){
+			instance=new UIhelper();
+		}
+		return instance;
 	}
 	
 	public String getUserID(){

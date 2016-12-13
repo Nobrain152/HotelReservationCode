@@ -1,5 +1,6 @@
 package vo;
 
+import util.Area;
 import util.PromotionWebType;
 import util.VipType;
 
@@ -36,7 +37,7 @@ public class PromotionWebVO {
 	/**
 	 * 位置
 	 */
-	String location;
+	Area location;
 	
 	/**
 	 * 促销策略打折比例
@@ -46,7 +47,7 @@ public class PromotionWebVO {
 	public PromotionWebVO() {}
 	
 	public PromotionWebVO(PromotionWebType hotelType,VipType customType,
-			String beginTime,String endTime,double ratio,int level,String location) {
+			String beginTime,String endTime,double ratio,int level,Area location) {
 		this.hotelType = hotelType;
 		this.hotelType = hotelType;
 		this.beginTime = beginTime;
@@ -62,7 +63,7 @@ public class PromotionWebVO {
 		this.ratio = ratio;
 	}
 	
-	public PromotionWebVO(PromotionWebType promotionWebType,String location,double ratio) {
+	public PromotionWebVO(PromotionWebType promotionWebType,Area location,double ratio) {
 		this.hotelType = promotionWebType;
 		this.location  = location;
 		this.ratio = ratio;
@@ -82,7 +83,7 @@ public class PromotionWebVO {
 		return customType;
 	}
 	
-	public String getLocation() {
+	public Area getLocation() {
 		return location;
 	}
 	

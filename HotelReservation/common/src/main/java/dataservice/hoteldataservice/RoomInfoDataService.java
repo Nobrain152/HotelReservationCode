@@ -43,14 +43,7 @@ public interface RoomInfoDataService extends Remote{
 	 */
 	public ArrayList<RoomInfoPO> HotelRoomSearch(String hotelID) throws RemoteException;
 	
-	/**
-	 * 修改酒店房间列表
-	 * @param hotelid
-	 * @param po
-	 * @return
-	 */
-	public ResultMsg HotelRoomMod(String hotelid,ArrayList<RoomInfoPO> po);
-
+	
 
 
 

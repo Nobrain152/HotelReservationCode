@@ -30,7 +30,7 @@ public class LoginInpoData extends DataSuperClass{
 		return po;
 	}
 	
-	public LoginInPO findMes(String userID){
+	private LoginInPO findMes(String userID){
 		findMes = findFromSQL(tableName,userID);
 		LoginInPO po = null;
 		

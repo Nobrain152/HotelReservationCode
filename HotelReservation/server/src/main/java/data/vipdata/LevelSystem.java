@@ -34,6 +34,22 @@ public class LevelSystem extends DataSuperClass{
 		return a;
 	}
 	
+	public LevelSystemPO findByLevel(String level){
+		LevelSystemPO po = null;
+		sql = "SELECT * FROM " + tableName;
+		try {
+			preState = conn.prepareStatement(sql);
+			result = preState.executeQuery();
+			while(result.next()){
+				po = new LevelSystemPO(Integer.valueOf(result.getString(1)), 
+										Integer.valueOf(result.getString(2)));
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return po;
+	}
+	
 	public ArrayList<LevelSystemPO> show() {
 		ArrayList<LevelSystemPO> pos = new ArrayList<LevelSystemPO>();
 		LevelSystemPO po = null;

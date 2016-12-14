@@ -10,13 +10,8 @@ import dataSuper.DataSuperClass;
 import dataservice.vipdataservice.VipDataService;
 import po.BusinessVipPO;
 import po.CommonVipPO;
-import po.CustomerInfoPO;
 import po.LevelSystemPO;
-import po.RoomInfoPO;
-import po.CustomerInfoPO;
 import util.ResultMsg;
-import util.RoomState;
-import util.RoomType;
 import util.VipType;
 
 public class VipDataSerivceImpl extends DataSuperClass implements VipDataService{
@@ -187,9 +182,10 @@ public class VipDataSerivceImpl extends DataSuperClass implements VipDataService
 	}
 
 	@Override
-	public ResultMsg findL(int level) throws RemoteException {
-		// TODO Auto-generated method stub
-		return null;
+	public LevelSystemPO findL(int level) throws RemoteException {
+		LevelSystem levelSystem = new LevelSystem();
+		LevelSystemPO po = levelSystem.findByLevel(""+level);
+		return po;
 	}
 
 	@Override

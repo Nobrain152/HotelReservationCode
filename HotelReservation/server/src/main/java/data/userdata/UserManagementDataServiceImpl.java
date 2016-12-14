@@ -2,6 +2,8 @@ package data.userdata;
 
 import java.rmi.RemoteException;
 import java.util.ArrayList;
+
+import data.creatID.CreateID;
 import dataSuper.DataSuperClass;
 import dataservice.userdataservice.UserManagementDataService;
 import po.CustomerInfoPO;
@@ -27,33 +29,54 @@ public class UserManagementDataServiceImpl extends DataSuperClass implements Use
 
 	@Override
 	public String GetLoginInfo(String userid) throws RemoteException {
-		LoginInpoData po = new LoginInpoData();
-		return null;
+		LoginInpoData login = new LoginInpoData();
+		LoginInPO po =login.findLoginPO(userid);
+		return po.getPassword();
 	}
-
-	@Override
-	public String AddWebStuff(UserInfoPO po) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public String AddWebManager(UserInfoPO po) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
+	
 	@Override
 	public String AddCustomer(CustomerInfoPO po) {
-		// TODO Auto-generated method stub
-		return null;
+		ResultMsg bMsg = addToSQL(tableName, po.getHotelID(),po.getName(),
+				po.getAddress().toString(),po.getArea().toString(),
+				""+po.getLevel(),po.getIntroduction(),po.getFacility(),
+				Boolean.toString(po.getIsReserved()),""+po.getScore(),""+po.getSP());
+		if(bMsg == ResultMsg.SUCCESS){
+			return CreateID.getCreateID().getNewCustomerID();
+		}else{
+			return null;
+		}
 	}
-
+	
 	@Override
 	public String AddHotelStuff(StuffInfoPO po) {
 		// TODO Auto-generated method stub
 		return null;
 	}
+
+	@Override
+	public String AddWebStuff(UserInfoPO po) throws RemoteException {
+		String newID = CreateID.getCreateID().getNewWebStuffID();
+		ResultMsg bMsg = addToSQL(tableName, newID,po.getUsername(),po.getPassword(),
+									po.getContact(),po.getType().toString());
+		if(bMsg == ResultMsg.SUCCESS){
+			return newID;
+		}else{
+			return null;
+		}
+	}
+
+	@Override
+	public String AddWebManager(UserInfoPO po) throws RemoteException {
+		String newID = CreateID.getCreateID().getNewWebManagerID();
+		ResultMsg bMsg = addToSQL(tableName, newID,po.getUsername(),po.getPassword(),
+									po.getContact(),po.getType().toString());
+		if(bMsg == ResultMsg.SUCCESS){
+			return newID;
+		}else{
+			return null;
+		}
+	}
+
 
 	@Override
 	public StuffInfoPO GetHotelStuffInfo(String userid) {

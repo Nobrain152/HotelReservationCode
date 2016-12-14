@@ -64,7 +64,7 @@ public class DataSuperClass extends UnicastRemoteObject{
 	private static final Map<String, ArrayList<String>> SQLmap = new HashMap<String, ArrayList<String>>(50);
 	
 	static{
-		SQLmap.put("createID", helper.bulidSQL("createID", 4, "customerID","hotelStuffID","webStuffID","webManagerID"));
+		SQLmap.put("createID", helper.bulidSQL("createID", 5, "customerID","hotelStuffID","webStuffID","webManagerID","hotelID"));
 		SQLmap.put("credit", helper.bulidSQL("credit",6, "userID","orderID","time","action","creditChange","creditResult"));
 		SQLmap.put("hotelEvaluate", helper.bulidSQL("hotelEvaluate", 6, "userID","hotelID","score","comment","reserve","orderID"));
 		SQLmap.put("hotelInfo", helper.bulidSQL("hotelInfo", 10, "hotelID","name","address","area","level","introduction","facility","reserve","score","SP"));
@@ -73,9 +73,9 @@ public class DataSuperClass extends UnicastRemoteObject{
 		SQLmap.put("promiotionHotel", helper.bulidSQL("promotionHotel", 9, "hotelID","promotionHotelType","customType","beginTime","endTime","ratio","level","number","businessName"));
 		SQLmap.put("promiotionWeb", helper.bulidSQL("promotionWeb", 7, "promotionWebType","customType","beginTime","endTime","ratio","level","location"));
 		SQLmap.put("contact", helper.bulidSQL("contact", 2, "phoneNumber","emailAddress"));
-		SQLmap.put("customer", helper.bulidSQL("customer", 7, "userid","username","contact","isMember","credit","order","hotel"));
+		SQLmap.put("customer", helper.bulidSQL("customer", 11, "userID","username", "password","contact","type","isMember","vipType","credit","orderIDList","hotelIDList","creditList"));
 		SQLmap.put("loginIn", helper.bulidSQL("loginIn", 2, "username","password"));
-		SQLmap.put("userInfo", helper.bulidSQL("userInfo", 3, "userID","username","contact"));
+		SQLmap.put("userInfo", helper.bulidSQL("userInfo", 5, "userID","username", "password","contact","type"));
 		SQLmap.put("levelSystem", helper.bulidSQL("LevelSystem", 2, "levels","credits"));
 		SQLmap.put("customerInfo", helper.bulidSQL("customerInfo", 6, "userID","username","contact","credit","isMember","vipType"));
 		SQLmap.put("commonVip", helper.bulidSQL("commonVip", 7, "userID","username","password","contact","credit","birthday","vipType"));

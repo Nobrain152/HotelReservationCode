@@ -42,11 +42,6 @@ public class CustomerInfoPO extends UserInfoPO implements Serializable{
 	 */
 	ArrayList<String> hotelIDList;
 	
-	/**
-	 * 客户的信用记录ID列表
-	 */
-	ArrayList<String> creditList;
-	
 	public CustomerInfoPO() {}
 
 	public CustomerInfoPO(String userid, String username, String contact,
@@ -57,7 +52,6 @@ public class CustomerInfoPO extends UserInfoPO implements Serializable{
 		this.vipType = vipType;
 		this.orderIDList = new ArrayList<String>();
 		this.hotelIDList = new ArrayList<String>();
-		this.creditList = new ArrayList<String>();
 	}
 
 	public int getCredit() {
@@ -80,9 +74,7 @@ public class CustomerInfoPO extends UserInfoPO implements Serializable{
 		return hotelIDList;
 	}
 	
-	public ArrayList<String> getCreditList() {
-		return creditList;
-	}
+	
 	
 	public void setVipType(VipType vipType) {
 		this.vipType = vipType;

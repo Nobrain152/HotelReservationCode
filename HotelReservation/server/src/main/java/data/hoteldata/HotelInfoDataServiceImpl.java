@@ -4,7 +4,7 @@ import java.rmi.RemoteException;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-
+import data.creatID.CreateID;
 import dataSuper.DataSuperClass;
 import dataservice.hoteldataservice.HotelInfoDataService;
 import po.HotelInfoPO;
@@ -35,8 +35,12 @@ public class HotelInfoDataServiceImpl extends DataSuperClass implements HotelInf
 				po.getAddress().toString(),po.getArea().toString(),
 				""+po.getLevel(),po.getIntroduction(),po.getFacility(),
 				Boolean.toString(po.getIsReserved()),""+po.getScore(),""+po.getSP());
+		if(bMsg == ResultMsg.SUCCESS){
+			return CreateID.getCreateID().getNewHotelID();
+		}else{
+			return null;
+		}
 		
-		return null;
 	}
 	
 	

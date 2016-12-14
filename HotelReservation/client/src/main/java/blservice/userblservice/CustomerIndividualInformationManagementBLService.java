@@ -111,7 +111,7 @@ public interface CustomerIndividualInformationManagementBLService{
 	 * @param 用户IDVO
 	 * @return 信用VO
 	 */
-	public int[] IndividualCredictInquiry(String userid);
+	public int IndividualCredictInquiry(String userid);
 	
 	/**
 	 * 查询个人信用信息记录	

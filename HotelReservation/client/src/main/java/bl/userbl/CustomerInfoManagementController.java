@@ -203,13 +203,12 @@ public class CustomerInfoManagementController
 	 * @param userid
 	 * @return 个人信用信息
 	 */
-	public int[] IndividualCredictInquiry(String userid){
+	public int IndividualCredictInquiry(String userid){
 		try {
-			int[] result= {customer.IndividualCredictInquiry(userid),0};
+			int result= customer.IndividualCredictInquiry(userid);
 			return result;
 		} catch (RemoteException e) {
-			int[] result={-1,-1};
-			return result;
+			return -1;
 		}
 	}
 

@@ -17,7 +17,7 @@ public class PromotionWebVO {
 	/**
 	 * 促销策略类型
 	 */
-	PromotionWebType hotelType;
+	PromotionWebType webType;
 	
 	/**
 	 * 客户类型
@@ -46,10 +46,10 @@ public class PromotionWebVO {
 	
 	public PromotionWebVO() {}
 	
-	public PromotionWebVO(PromotionWebType hotelType,VipType customType,
+	public PromotionWebVO(PromotionWebType webType,VipType customType,
 			String beginTime,String endTime,double ratio,int level,Area location) {
-		this.hotelType = hotelType;
-		this.hotelType = hotelType;
+		this.webType = webType;
+		this.webType = webType;
 		this.beginTime = beginTime;
 		this.endTime = endTime;
 		this.ratio = ratio;
@@ -58,25 +58,25 @@ public class PromotionWebVO {
 	}
 	
 	public PromotionWebVO(PromotionWebType promotionWebType,int level,double ratio) {
-		this.hotelType = promotionWebType;
+		this.webType = promotionWebType;
 		this.level = level;
 		this.ratio = ratio;
 	}
 	
 	public PromotionWebVO(PromotionWebType promotionWebType,Area location,double ratio) {
-		this.hotelType = promotionWebType;
+		this.webType = promotionWebType;
 		this.location  = location;
 		this.ratio = ratio;
 	}
 	
 	public PromotionWebVO(PromotionWebType type,String beginTime,String endTime,double radio) {
-		this.hotelType = type;
+		this.webType = type;
 		this.beginTime = beginTime;
 		this.endTime = endTime;
 	}
 	
 	public PromotionWebType getType(){
-		return hotelType;
+		return webType;
 	}
 	
 	public VipType getMemberType() {
@@ -106,4 +106,29 @@ public class PromotionWebVO {
     public void setRatio(double ratio) {
     	this.ratio = ratio;
     }
+    
+    public void setType(PromotionWebType type) {
+    	this.webType = type;
+    }
+    
+    public void setMember(VipType type) {
+    	this.customType = type;
+    }
+    
+    public void setLocation(Area location) {
+    	this.location = location;
+    }
+    
+    public void setTimeBegin(String time) {
+    	this.beginTime = time;
+    }
+    
+    public void setTimeOver(String time) {
+    	this.endTime = time;
+    }
+    
+    public void setLevel(int level) {
+    	this.level = level;
+    }
+    
 }

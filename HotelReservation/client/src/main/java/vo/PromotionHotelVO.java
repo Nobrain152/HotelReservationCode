@@ -132,4 +132,33 @@ public class PromotionHotelVO {
     public void setRatio(double ratio) {
     	this.ratio = ratio;
     }
+    
+    public void setType(PromotionHotelType type) {
+    	this.hotelType = type;
+    }
+    
+    public void setMemberType(VipType type) {
+    	this.customType = type;
+    }
+    
+    public void setNumber(int num) {
+    	this.number = num;
+    }
+    
+    public void setBusinessName(String businessName) {
+    	this.businessName = businessName;
+    }
+    
+    public void setTimeBegin(String time) {
+    	this.beginTime = time;
+    }
+    
+    public void setTimeOver(String time) {
+    	this.endTime = time;
+    }
+    
+    public void setLevel(int level) {
+    	this.level = level;
+    }
+    
 }

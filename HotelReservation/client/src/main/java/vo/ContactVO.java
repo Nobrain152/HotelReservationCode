@@ -1,38 +1,38 @@
-package vo;
-
-public class ContactVO {
-	
-	/**
-	 * 手机号码
-	 */
-	public String phoneNumber;
-	
-	/**
-	 * 邮箱地址
-	 */
-	public String emailAddress;
-	
-	public ContactVO() {}
-	
-	public ContactVO(String phoneNumber,String emailAddress) {
-		this.phoneNumber = phoneNumber;
-		this.emailAddress = emailAddress;
-	}
-	
-	public String getPhoneNumber() {
-		return phoneNumber;
-	}
-	
-	public String getEmailAddress() {
-		return emailAddress;
-	}
-	
-	public void setPhoneNumber(String phoneNumber) {
-		this.phoneNumber = phoneNumber;
-	}
-	
-	public void setEmailAddress(String emailAddress) {
-		this.emailAddress = emailAddress;
-	}
-
-}
+//package vo;
+//
+//public class ContactVO {
+//	
+//	/**
+//	 * 手机号码
+//	 */
+//	public String phoneNumber;
+//	
+//	/**
+//	 * 邮箱地址
+//	 */
+//	public String emailAddress;
+//	
+//	public ContactVO() {}
+//	
+//	public ContactVO(String phoneNumber,String emailAddress) {
+//		this.phoneNumber = phoneNumber;
+//		this.emailAddress = emailAddress;
+//	}
+//	
+//	public String getPhoneNumber() {
+//		return phoneNumber;
+//	}
+//	
+//	public String getEmailAddress() {
+//		return emailAddress;
+//	}
+//	
+//	public void setPhoneNumber(String phoneNumber) {
+//		this.phoneNumber = phoneNumber;
+//	}
+//	
+//	public void setEmailAddress(String emailAddress) {
+//		this.emailAddress = emailAddress;
+//	}
+//
+//}

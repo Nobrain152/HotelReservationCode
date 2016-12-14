@@ -69,10 +69,10 @@ public class RoomAdd {
 	 */
 	public ResultMsg HotelRoomMod(String hotelid,ArrayList<RoomInfoVO> vo)throws RemoteException{
 		for(RoomInfoVO v:vo){
-			ResultMsg resultMsg=roomData.delete(v.getHotelid(),v.getRoomID());
-			resultMsg=roomData.insert((RoomInfoPO)VOPOchange.VOtoPO(v));
-			if(resultMsg!=ResultMsg.SUCCESS){
-				return resultMsg;
+			ResultMsg resultMsg1=roomData.delete(v.getHotelid(),v.getRoomID());
+			resultMsg1=roomData.insert((RoomInfoPO)VOPOchange.VOtoPO(v));
+			if(resultMsg1!=ResultMsg.SUCCESS){
+				return resultMsg1;
 			}
 		}
 		return ResultMsg.SUCCESS;

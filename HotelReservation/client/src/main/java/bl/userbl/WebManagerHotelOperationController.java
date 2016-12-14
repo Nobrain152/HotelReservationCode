@@ -56,7 +56,11 @@ public class WebManagerHotelOperationController implements WebManagerHotelOperat
 		}
 	}
 
-	@Override
+	/**
+	 * 添加酒店工作人员
+	 * @param 酒店IDVO
+	 * @param 用户IDVO
+	 */
 	public ResultMsg StuffAdd(String hotelid, String userid) {
 		try {
 			return manager.StuffAdd(hotelid, userid);

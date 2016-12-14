@@ -37,8 +37,9 @@ public class CreditVO {
 	
 	public CreditVO() {}
 	
-	public CreditVO(String orderID,String time,Action action,
+	public CreditVO(String userID, String orderID,String time,Action action,
 			String creditChange,int creditResult) {
+		this.userID = userID;
 		this.time = time;
 		this.orderID = orderID;
 		this.action = action;
@@ -54,8 +55,20 @@ public class CreditVO {
 		return orderID;
 	}
 	
+	public String getTime(){
+		return time;
+	}
+	
 	public int getCreditResult() {
 		return creditResult;
+	}
+	
+	public String getCreditChange(){
+		return creditChange;
+	}
+	
+	public Action getAction(){
+		return action;
 	}
 	
 	public void setCreditResult(int creditResult) {

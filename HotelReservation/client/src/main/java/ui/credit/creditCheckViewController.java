@@ -3,6 +3,7 @@ package ui.credit;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import bl.userbl.CustomerInfoManagementController;
 import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
@@ -16,9 +17,12 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import ui.UILaunch;
+import ui.UIhelper;
 
 public class creditCheckViewController implements Initializable{
 	private UILaunch application;
+	private UIhelper helper;
+	private CustomerInfoManagementController creditManage;
 	
 	@FXML
 	private Label credit;
@@ -53,6 +57,10 @@ public class creditCheckViewController implements Initializable{
 	
 	@Override
 	public void initialize(URL url,ResourceBundle rb){
+		helper=UIhelper.getInstance();
+		int[] cr=creditManage.IndividualCredictInquiry(helper.getUserID());
+		credit.setText(String.valueOf(cr[0]));
+		
 		data = FXCollections.observableArrayList(new creditItem("", "2016-10-01", "初始化","t100",100),
 				new creditItem("12345678", "2016-10-01", "撤销","-10",90),
 				new creditItem("12345678", "2016-10-02", "异常","-10",80),

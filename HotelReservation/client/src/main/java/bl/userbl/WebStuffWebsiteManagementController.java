@@ -40,6 +40,18 @@ public class WebStuffWebsiteManagementController implements WebStuffWebsiteManag
 			e.printStackTrace();
 		}
 	}
+	
+	/**
+	 * 修改网站促销策略
+	 * @param 网站促销策略VO
+	 */
+	public ResultMsg WebsiteStrategeMod(PromotionWebVO vo){
+		try {
+			return stuff.WebsiteStrategeMod(vo);
+		} catch (RemoteException e) {
+			return ResultMsg.FAIL;
+		}
+	}
 			
 	/**
 	 * 查看异常订单

@@ -1,5 +1,6 @@
 package blservice.userblservice;
 
+import java.rmi.RemoteException;
 import java.util.ArrayList;
 
 import util.ResultMsg;
@@ -28,6 +29,12 @@ public interface WebStuffWebsiteManagementBLService{
 	 * @param 网站促销策略VO
 	 */
 	public void WebsiteStrategeCreate(PromotionWebVO vo);
+	
+	/**
+	 * 修改网站促销策略
+	 * @param 网站促销策略VO
+	 */
+	public ResultMsg WebsiteStrategeMod(PromotionWebVO vo);
 		
 	/**
 	 * 查看异常订单
@@ -49,6 +56,14 @@ public interface WebStuffWebsiteManagementBLService{
 	 * @return 修改后的用户信用值VO
 	 */
 	public ResultMsg UserCreditModification(String userid,int n);
+	
+	/**
+	 * 浏览每日未执行订单
+	 * @param today
+	 * @return
+	 * @throws RemoteException
+	 */
+	public ArrayList<OrderVO> dayUnexOrder(String today);
 		
 		
 }

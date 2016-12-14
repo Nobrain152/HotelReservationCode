@@ -32,6 +32,15 @@ public interface HotelStuffHotelOperationBlService{
 	 */
 	public ResultMsg HotelInformationModification(HotelInfoVO vo1,String userid);
 		
+	
+	/**
+	 * 修改酒店房间信息
+	 * @param rooms
+	 * @return
+	 * @throws RemoteException
+	 */
+	public ResultMsg SetRoomInfo(ArrayList<RoomInfoVO> rooms);
+	
 	/**
 	 * 查看酒店促销策略
 	 * @param 酒店IDVO
@@ -69,6 +78,13 @@ public interface HotelStuffHotelOperationBlService{
 	 * @return 订单VO列表
 	 */
 	public ArrayList<OrderVO> OrderScan(String hotelid);
+	
+	/**
+	 * 浏览酒店异常订单	
+	 * @param 酒店IDVO
+	 * @return 订单VO列表
+	 */
+	public ArrayList<OrderVO> AbnormalOrderScan(String hotelid);
 	
 	/**
 	 * 更新房间信息

@@ -61,6 +61,20 @@ public class HotelStuffHotelOperationController implements HotelStuffHotelOperat
 			return null;
 		}
 	}
+	
+	/**
+	 * ÐÞ¸Ä¾Æµê·¿¼äÐÅÏ¢
+	 * @param rooms
+	 * @return
+	 * @throws RemoteException
+	 */
+	public ResultMsg SetRoomInfo(ArrayList<RoomInfoVO> rooms){
+		try {
+			return stuff.SetRoomInfo(rooms);
+		} catch (RemoteException e) {
+			return ResultMsg.FAIL;
+		}
+	}
 			
 	
 	/**
@@ -98,6 +112,19 @@ public class HotelStuffHotelOperationController implements HotelStuffHotelOperat
 			return stuff.OrderScan(hotelid);
 		} catch (RemoteException e) {
 			e.printStackTrace();
+			return null;
+		}
+	}
+	
+	/**
+	 * ä¯ÀÀ¾ÆµêÒì³£¶©µ¥	
+	 * @param ¾ÆµêIDVO
+	 * @return ¶©µ¥VOÁÐ±í
+	 */
+	public ArrayList<OrderVO> AbnormalOrderScan(String hotelid){
+		try {
+			return stuff.AbnormalOrderScan(hotelid);
+		} catch (RemoteException e) {
 			return null;
 		}
 	}

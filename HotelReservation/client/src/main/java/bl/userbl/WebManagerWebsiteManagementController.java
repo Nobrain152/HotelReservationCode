@@ -59,8 +59,20 @@ public class WebManagerWebsiteManagementController implements WebManagerWebsiteM
 		}
 	}
 			
+	/**
+	 * 添加网站营销人员
+	 * @param vo
+	 * @return
+	 */
+	public String AddWebStuff(UserInfoVO vo){
+		try {
+			return manager.AddWebStuff(vo);
+		} catch (RemoteException e) {
+			return null;
+		}
+	}
 	
-
+	
 	/**
 	 * 查看网站营销人员列表
 	 * @return 网站营销人员列表

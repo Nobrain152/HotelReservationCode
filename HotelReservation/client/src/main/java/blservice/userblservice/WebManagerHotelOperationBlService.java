@@ -2,8 +2,8 @@ package blservice.userblservice;
 
 import java.util.ArrayList;
 
-import util.ResultMsg;
 import vo.HotelInfoVO;
+import vo.StuffInfoVO;
 
 /**
  * 网站管理人员对酒店的操作
@@ -31,6 +31,6 @@ public interface WebManagerHotelOperationBlService{
 	 * @param 酒店IDVO
 	 * @param 用户IDVO
 	 */
-	public ResultMsg StuffAdd(String hotelid,String userid);
+	public String StuffAdd(StuffInfoVO vo);
 		
 }

@@ -5,7 +5,6 @@ import java.rmi.RemoteException;
 import bl.VOPOchange;
 import dataservice.userdataservice.UserManagementDataService;
 import po.CustomerInfoPO;
-import po.StuffInfoPO;
 import po.UserInfoPO;
 import util.UserType;
 import vo.UserInfoVO;
@@ -32,7 +31,7 @@ public class User {
 	 */
     public boolean  LogIn(String id,String password)throws RemoteException{
     	String real=data.GetLoginInfo(id);
-    	real=md.md5Encode(real);
+    	password=md.md5Encode(password);
     	return real.equals(password);
     	
     }
@@ -61,19 +60,7 @@ public class User {
 	public String Register(UserInfoVO vo)throws RemoteException{
 		UserInfoPO po=(UserInfoPO)VOPOchange.VOtoPO(vo);
 		po.setPassword(md.md5Encode(po.getPassword()));
-		if(po.getType()==UserType.Customer){
-			return data.AddCustomer((CustomerInfoPO)po);
-		}
-		if(po.getType()==UserType.HotelStuff){
-			return data.AddHotelStuff((StuffInfoPO)po);
-		}
-		if(po.getType()==UserType.WebStuff){
-			return data.AddWebStuff(po);
-		}
-		if(po.getType()==UserType.WebManager){
-			return data.AddWebManager(po);
-		}
-		return null;
+		return data.AddCustomer((CustomerInfoPO)po);
 	}
 	
 	/**

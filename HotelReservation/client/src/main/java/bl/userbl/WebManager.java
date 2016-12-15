@@ -13,6 +13,7 @@ import po.StuffInfoPO;
 import po.UserInfoPO;
 import util.ResultMsg;
 import vo.HotelInfoVO;
+import vo.StuffInfoVO;
 import vo.UserInfoVO;
 
 /**
@@ -69,13 +70,15 @@ public class WebManager extends User {
 	 * @param 酒店IDVO
 	 * @param 用户IDVO
 	 */
-	public ResultMsg StuffAdd(String hotelid,String userid)throws RemoteException{
+	public String StuffAdd(StuffInfoVO vo)throws RemoteException{
 		ArrayList<StuffInfoPO> already=data.HotelStuffScan();
 		for(StuffInfoPO p:already){
-			if(p.getHotel().equals(hotelid))
-				return ResultMsg.FAIL;
+			if(p.getHotel().equals(vo.getHotel()))
+				return null;
 		}
-		return data.addHotelStuff(hotelid,userid);
+		StuffInfoPO po=(StuffInfoPO)VOPOchange.VOtoPO(vo);
+		String id= data.AddHotelStuff(po);
+		return id;
 	}
 
 
@@ -127,6 +130,15 @@ public class WebManager extends User {
 		
 	}
 			
+	/**
+	 * 添加网站营销人员
+	 * @param vo
+	 * @return
+	 */
+	public String AddWebStuff(UserInfoVO vo)throws RemoteException{
+		UserInfoPO po=(UserInfoPO)VOPOchange.VOtoPO(vo);
+		return data.AddWebStuff(po);
+	}
 	
 
 	/**

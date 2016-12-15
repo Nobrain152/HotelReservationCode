@@ -7,8 +7,8 @@ import blservice.userblservice.WebManagerHotelOperationBlService;
 import dataservice.userdataservice.UserManagementDataService;
 import net.RMIManage;
 import util.DataServiceType;
-import util.ResultMsg;
 import vo.HotelInfoVO;
+import vo.StuffInfoVO;
 
 
 /**
@@ -61,12 +61,12 @@ public class WebManagerHotelOperationController implements WebManagerHotelOperat
 	 * @param æ∆µÍIDVO
 	 * @param ”√ªßIDVO
 	 */
-	public ResultMsg StuffAdd(String hotelid, String userid) {
+	public String StuffAdd(StuffInfoVO vo) {
 		try {
-			return manager.StuffAdd(hotelid, userid);
+			return manager.StuffAdd(vo);
 		} catch (RemoteException e) {
 			// TODO Auto-generated catch block
-			return ResultMsg.FAIL;
+			return null;
 		}
 	}
 

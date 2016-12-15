@@ -190,11 +190,8 @@ public class Customer extends User {
 	    ResultMsg r1=reserve.reserveHotel(vo2);
 	    if(r1==ResultMsg.SUCCESS){
 	    	order.createOrder(vo2);
-	    	ResultMsg  r=userdataservice.addCustomerOrders(userid,vo2.getOrderID());
 	    	ResultMsg r2=userdataservice.addCustomerHotel(userid,vo2.getHotelID());
-	    	if(r==ResultMsg.SUCCESS){
-	    		return r2;
-	    	}
+	        return r2;
 	    }
 	    return ResultMsg.FAIL;
 		

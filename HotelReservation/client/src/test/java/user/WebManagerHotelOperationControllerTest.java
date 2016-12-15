@@ -23,10 +23,7 @@ public class WebManagerHotelOperationControllerTest {
 		
 	}
 	
-	@Test
-	public void testStuffAdd(){
-		assertEquals(impl.StuffAdd("1234567", "1234567"),true);
-	}
+	
 	
 	@Test
 	public void testscan(){

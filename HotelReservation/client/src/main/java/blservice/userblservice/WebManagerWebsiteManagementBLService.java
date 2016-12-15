@@ -38,6 +38,13 @@ public interface WebManagerWebsiteManagementBLService{
 	 */
 	public ArrayList<UserInfoVO> WebStuffScan();
 	
+	/**
+	 * 添加网站营销人员
+	 * @param vo
+	 * @return
+	 */
+	public String AddWebStuff(UserInfoVO vo);
+	
 	
 	
 		

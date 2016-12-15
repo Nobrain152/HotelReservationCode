@@ -53,7 +53,6 @@
                                   <TableColumn fx:id="order_all_userName" prefWidth="89.0" text="用户名" />
                                     <TableColumn fx:id="order_all_time" prefWidth="190.0" text="时间" />
                                     <TableColumn fx:id="order_all_price" prefWidth="87.0" text="金额" />
-                                    <TableColumn prefWidth="75.0" text="状态" />
                                 </columns>
                               </TableView>
                               <Button fx:id="btn_all_info" layoutX="597.0" layoutY="360.0" mnemonicParsing="false" onAction="#btn_all_infoAction" prefHeight="30.0" prefWidth="76.0" text="详细信息">

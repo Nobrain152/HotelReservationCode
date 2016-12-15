@@ -63,7 +63,6 @@
                                   <TableColumn fx:id="order_all_hotelName" prefWidth="120.0" text="酒店名称" />
                                     <TableColumn fx:id="order_all_time" prefWidth="277.0" text="时间" />
                                     <TableColumn fx:id="order_all_price" prefWidth="86.0" text="金额" />
-                                    <TableColumn prefWidth="76.0" text="状态" />
                                 </columns>
                               </TableView>
                               <Button layoutX="427.0" layoutY="35.0" mnemonicParsing="false" text="搜索" />

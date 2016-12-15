@@ -1,6 +1,7 @@
 package ui.credit;
 
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 import bl.userbl.CustomerInfoManagementController;
@@ -18,6 +19,7 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import ui.UILaunch;
 import ui.UIhelper;
+import vo.CreditVO;
 
 public class creditCheckViewController implements Initializable{
 	private UILaunch application;
@@ -58,14 +60,18 @@ public class creditCheckViewController implements Initializable{
 	@Override
 	public void initialize(URL url,ResourceBundle rb){
 		helper=UIhelper.getInstance();
-		int[] cr=creditManage.IndividualCredictInquiry(helper.getUserID());
-		credit.setText(String.valueOf(cr[0]));
+		int cr=creditManage.IndividualCredictInquiry(helper.getUserID());
+		credit.setText(String.valueOf(cr));
 		
-		data = FXCollections.observableArrayList(new creditItem("", "2016-10-01", "初始化","t100",100),
-				new creditItem("12345678", "2016-10-01", "撤销","-10",90),
-				new creditItem("12345678", "2016-10-02", "异常","-10",80),
-				new creditItem("12345678", "2016-10-03", "充值","+20",100)
-				);
+		ArrayList<CreditVO> creditList=creditManage.IndividualCredictRecord(helper.getUserID());
+		int size=creditList.size();
+		ArrayList<creditItem> dataList=new ArrayList<creditItem>();
+		for(int i=0;i<size;i++){
+			CreditVO tempCreditVO=creditList.get(i);			
+			dataList.add(new creditItem(tempCreditVO.getOrderID(),tempCreditVO.getTime(),tempCreditVO.getAction().toString(),tempCreditVO.getCreditChange(),tempCreditVO.getCreditResult()));
+		}
+		data = FXCollections.observableArrayList(dataList);
+		
 		tc_ID.setCellValueFactory(new PropertyValueFactory<>("ID"));
 		tc_time.setCellValueFactory(new PropertyValueFactory<>("time"));
 		tc_action.setCellValueFactory(new PropertyValueFactory<>("action"));

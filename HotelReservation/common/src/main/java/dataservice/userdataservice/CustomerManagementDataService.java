@@ -25,13 +25,7 @@ public interface CustomerManagementDataService extends UserManagementDataService
 		 */
 		public ArrayList<String> GetCustomerOrders(String userid);
 		
-		/**
-		 * 增加订单
-		 * @param 用户ID
-		 * @param 订单ID
-		 * @return 更新结果
-		 */
-		public ResultMsg addCustomerOrders(String userid,String i);
+		
 		
 		/**
 		 * 获取用户预定过的酒店ID

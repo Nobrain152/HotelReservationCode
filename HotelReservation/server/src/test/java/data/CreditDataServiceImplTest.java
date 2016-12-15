@@ -30,16 +30,9 @@ public class CreditDataServiceImplTest {
 	
 	@Test
 	public void testgetListByOrderID() throws RemoteException{
-		//impl.insert(credit1);
-		//impl.insert(credit2);
-		//impl.insert(credit3);
-		pos = impl.getListByUserID("151250058");
-		ans = null;
-		ans.add(credit2);
-		ans.add(credit3);
-		System.out.println(pos.get(0).getUserID());
-		System.out.println(ans.get(0).getUserID());
-		assertEquals(pos.get(0).getUserID(), ans.get(0).getUserID());
+		impl.insert(credit1);
+		impl.insert(credit2);
+		impl.insert(credit3);
 	}
 	/*
 	@Test

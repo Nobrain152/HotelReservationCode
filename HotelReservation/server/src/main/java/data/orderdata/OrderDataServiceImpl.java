@@ -98,8 +98,36 @@ public class OrderDataServiceImpl extends DataSuperClass implements OrderDataSer
 
 	@Override
 	public ArrayList<OrderPO> findByHotelID(String ID) throws RemoteException {
+		ArrayList<OrderPO> pos = new ArrayList<OrderPO>(50);
+		OrderPO orderPO = null;
 		
-		return null;
+		try {
+			sql = "SELECT * FROM " + tableName + " WHERE hotelID = \'" + ID + "\'";
+			preState = conn.prepareStatement(sql);
+			result = preState.executeQuery();
+			CustomerManagementDataServiceImpl customer = (CustomerManagementDataServiceImpl) DataFactory.getDataFactory().getCustomerManagementDataServiceImpl();
+			RoomInfoDataServiceImpl room = (RoomInfoDataServiceImpl) DataFactory.getDataFactory().getRoomInfoDataServiceImpl();
+			
+			while (result.next()) {
+					orderPO = new OrderPO(result.getString(1), 
+							customer.GetCustomerInfo(result.getString(2)), 
+							OrderState.valueOf(result.getString(3)),
+							Double.valueOf(result.getString(4)), result.getString(5), 
+							Boolean.valueOf(result.getString(6)), result.getString(7), 
+							result.getString(8), result.getString(9), 
+							result.getString(10),
+							Integer.getInteger(result.getString(11)),
+							Integer.getInteger(result.getString(12)),
+							room.findByRoomID(result.getString(13)));
+					pos.add(orderPO);
+				
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+			System.out.println("订单信息从数据库中查找出错");
+		}
+		
+		return pos.size()==0?null:pos;
 	}
 
 	@Override

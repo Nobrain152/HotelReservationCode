@@ -5,23 +5,14 @@ import static org.junit.Assert.assertEquals;
 import java.rmi.RemoteException;
 import java.util.ArrayList;
 
-import javax.swing.plaf.synth.SynthStyle;
 
 import org.junit.Before;
 import org.junit.Test;
 
 import datafactory.DataFactory;
 import dataservice.orderdataservice.OrderDataService;
-import po.ContactPO;
-import po.CustomerInfoPO;
 import po.OrderPO;
-import po.RoomInfoPO;
-import util.MyDate;
-import util.OrderState;
 import util.ResultMsg;
-import util.RoomState;
-import util.RoomType;
-import util.VipType;
 
 public class OrderDataServiceImplTest {
 

@@ -3,6 +3,7 @@ package blservice.userblservice;
 import java.rmi.RemoteException;
 import java.util.ArrayList;
 
+import util.OrderState;
 import util.ResultMsg;
 import vo.HotelInfoVO;
 import vo.OrderVO;
@@ -85,6 +86,15 @@ public interface HotelStuffHotelOperationBlService{
 	 * @return 订单VO列表
 	 */
 	public ArrayList<OrderVO> AbnormalOrderScan(String hotelid);
+	
+	/**
+	 * 分类浏览订单
+	 * @param hotelid
+	 * @param state
+	 * @return
+	 * @throws RemoteException
+	 */
+	public ArrayList<OrderVO> specialOrderScan(String hotelid,OrderState state);
 	
 	/**
 	 * 更新房间信息

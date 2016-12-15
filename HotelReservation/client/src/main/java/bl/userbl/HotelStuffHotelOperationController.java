@@ -7,6 +7,7 @@ import blservice.userblservice.HotelStuffHotelOperationBlService;
 import dataservice.userdataservice.UserManagementDataService;
 import net.RMIManage;
 import util.DataServiceType;
+import util.OrderState;
 import util.ResultMsg;
 import vo.HotelInfoVO;
 import vo.OrderVO;
@@ -124,6 +125,21 @@ public class HotelStuffHotelOperationController implements HotelStuffHotelOperat
 	public ArrayList<OrderVO> AbnormalOrderScan(String hotelid){
 		try {
 			return stuff.AbnormalOrderScan(hotelid);
+		} catch (RemoteException e) {
+			return null;
+		}
+	}
+	
+	/**
+	 * ∑÷¿‡‰Ø¿¿∂©µ•
+	 * @param hotelid
+	 * @param state
+	 * @return
+	 * @throws RemoteException
+	 */
+	public ArrayList<OrderVO> specialOrderScan(String hotelid,OrderState state){
+		try {
+			return stuff.specialOrderScan(hotelid, state);
 		} catch (RemoteException e) {
 			return null;
 		}

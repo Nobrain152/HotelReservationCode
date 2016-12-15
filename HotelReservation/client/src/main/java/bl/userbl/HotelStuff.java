@@ -157,6 +157,25 @@ public class HotelStuff extends User {
 		return order.hotelOrderScan(hotelid);
 	}
 	
+	
+	/**
+	 * ·ÖÀàä¯ÀÀ¶©µ¥
+	 * @param hotelid
+	 * @param state
+	 * @return
+	 * @throws RemoteException
+	 */
+	public ArrayList<OrderVO> specialOrderScan(String hotelid,OrderState state)throws RemoteException{
+		ArrayList<OrderVO> all=OrderScan(hotelid);
+		ArrayList<OrderVO> res=new ArrayList<OrderVO>();
+		for(int i=0;i<all.size();i++){
+			if(all.get(i).orderState==state){
+				res.add(all.get(i));
+			}
+		}
+		return res;
+	}
+	
 	/**
 	 * ä¯ÀÀ¾ÆµêÒì³£¶©µ¥	
 	 * @param ¾ÆµêIDVO

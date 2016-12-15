@@ -160,11 +160,7 @@ public class UserManagementDataServiceImpl extends DataSuperClass implements Use
 											po.getVipType().toString(),""+po.getCredit());
 	}
 
-	@Override
-	public ResultMsg addHotelStuff(String hotelid, String userid) {
-		// TODO Auto-generated method stub
-		return null;
-	}
+
 
 	@Override
 	public ArrayList<UserInfoPO> WebStuffScan() {

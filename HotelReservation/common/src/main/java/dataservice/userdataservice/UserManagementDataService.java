@@ -65,13 +65,7 @@ public interface UserManagementDataService extends Remote{
 		public ResultMsg SetWebStuffInfo(String userid,UserInfoPO po2) throws RemoteException;
 		
 		public ResultMsg SetCustomerInfo(String userid,CustomerInfoPO po) throws RemoteException;
-		/**
-		 * 增加酒店工作人员
-		 * @param hotelid
-		 * @param userid
-		 * @return
-		 */
-		public ResultMsg addHotelStuff(String hotelid,String userid) throws RemoteException;
+		
 		
 		
 		/**

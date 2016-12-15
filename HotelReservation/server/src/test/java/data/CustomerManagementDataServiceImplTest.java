@@ -33,10 +33,7 @@ public class CustomerManagementDataServiceImplTest {
 	}
 	
 	
-	@Test
-	public void testaddCustomerOrders() throws RemoteException{
-		assertEquals(impl.addCustomerOrders(id,"123456"),true);
-	}
+	
 
 	@Test
 	public void testGetCustomerHotel() throws RemoteException{

@@ -56,4 +56,11 @@ public class CustomerTest {
 			
 		}
 	}
+	
+	public static void main(String[] args){
+		CustomerTest customerTest=new CustomerTest();
+		customerTest.setup();
+		customerTest.testinquiry();
+		customerTest.testmodify();
+	}
 }

@@ -20,7 +20,7 @@ public interface OrderDataService extends Remote{
 	 * @return
 	 * @throws RemoteException
 	 */
-	public ResultMsg insert(OrderPO po) throws RemoteException;
+	public String insert(OrderPO po) throws RemoteException;
 
 	/**
 	 * 在数据库中删除单一持久化对象

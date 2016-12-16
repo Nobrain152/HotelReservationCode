@@ -41,7 +41,8 @@ public class CreateID extends DataSuperClass{
 	 * hotelStuff  八位，开头为2
 	 * webStuff    八位，开头为3
 	 * webManager  八位，开头为4
-	 * hotelID     四位
+	 * hotelID     四位，开头为5
+	 * orderID     八位，开头为6
 	 * @return
 	 */
 	public ResultMsg initialize(){
@@ -49,7 +50,7 @@ public class CreateID extends DataSuperClass{
 		if(a != ResultMsg.SUCCESS){
 			return ResultMsg.FAIL;
 		}
-		ResultMsg b = addToSQL(tableName, "10000020","20000000","30000000","40000000","0001");
+		ResultMsg b = addToSQL(tableName, "10000020","20000000","30000000","40000000","5001","60000000");
 		
 		return b;
 	}
@@ -58,7 +59,8 @@ public class CreateID extends DataSuperClass{
 		sql = "SELECT * FROM " + tableName;
 		findMes = findMes(sql);
 		ResultMsg aMsg = addToSQL(tableName, ""+(Integer.valueOf(findMes.get(0))+1),findMes.get(1),
-									findMes.get(2),findMes.get(3),findMes.get(4));
+									findMes.get(2),findMes.get(3),findMes.get(4),findMes.get(5));
+		
 		
 		if(aMsg == ResultMsg.SUCCESS){
 			return ""+(Integer.valueOf(findMes.get(0))+1);
@@ -71,7 +73,7 @@ public class CreateID extends DataSuperClass{
 		sql = "SELECT * FROM " + tableName;
 		findMes = findMes(sql);
 		ResultMsg aMsg = addToSQL(tableName, findMes.get(0),""+(Integer.valueOf(findMes.get(1))+1),
-									findMes.get(2),findMes.get(3),findMes.get(4));
+									findMes.get(2),findMes.get(3),findMes.get(4),findMes.get(5));
 		
 		if(aMsg == ResultMsg.SUCCESS){
 			return ""+(Integer.valueOf(findMes.get(1))+1);
@@ -85,7 +87,7 @@ public class CreateID extends DataSuperClass{
 		findMes = findMes(sql);
 		ResultMsg aMsg = addToSQL(tableName, findMes.get(0),findMes.get(1),
 									""+(Integer.valueOf(findMes.get(2))+1),findMes.get(3),
-									findMes.get(4));
+									findMes.get(4),findMes.get(5));
 		
 		if(aMsg == ResultMsg.SUCCESS){
 			return ""+(Integer.valueOf(findMes.get(2))+1);
@@ -99,7 +101,7 @@ public class CreateID extends DataSuperClass{
 		findMes = findMes(sql);
 		ResultMsg aMsg = addToSQL(tableName, findMes.get(0),findMes.get(1),
 									findMes.get(2),""+(Integer.valueOf(findMes.get(3))+1),
-									findMes.get(4));
+									findMes.get(4),findMes.get(5));
 		
 		if(aMsg == ResultMsg.SUCCESS){
 			return ""+(Integer.valueOf(findMes.get(3))+1);
@@ -113,10 +115,24 @@ public class CreateID extends DataSuperClass{
 		findMes = findMes(sql);
 		ResultMsg aMsg = addToSQL(tableName, findMes.get(0),findMes.get(1),
 									findMes.get(2),findMes.get(3),
-									""+(Integer.valueOf(findMes.get(4))+1));
+									""+(Integer.valueOf(findMes.get(4))+1),findMes.get(5));
 		
 		if(aMsg == ResultMsg.SUCCESS){
 			return ""+(Integer.valueOf(findMes.get(4))+1);
+		}else{
+			return null;
+		}
+	}
+	
+	public String getNewOrderID(){
+		sql = "SELECT * FROM " + tableName;
+		findMes = findMes(sql);
+		ResultMsg aMsg = addToSQL(tableName, findMes.get(0),findMes.get(1),
+									findMes.get(2),findMes.get(3),
+									findMes.get(4),""+(Integer.valueOf(findMes.get(5))+1));
+		
+		if(aMsg == ResultMsg.SUCCESS){
+			return ""+(Integer.valueOf(findMes.get(5))+1);
 		}else{
 			return null;
 		}
@@ -148,10 +164,11 @@ public class CreateID extends DataSuperClass{
 		return ans;
 	}
 	
-	/*//test
+	//test
 	public static void main(String[] args) throws RemoteException{
 		CreateID createID = CreateID.getCreateID();
 		createID.initialize();
-		System.out.println(createID.getNewCustomerID());
-	} */
+		String ID = createID.getNewHotelID();
+		System.out.println(ID);
+	} 
 }

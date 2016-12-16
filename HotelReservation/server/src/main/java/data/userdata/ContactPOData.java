@@ -4,7 +4,6 @@ import java.rmi.RemoteException;
 
 import dataSuper.DataSuperClass;
 import po.ContactPO;
-import po.LoginInPO;
 import util.ResultMsg;
 
 public class ContactPOData extends DataSuperClass {

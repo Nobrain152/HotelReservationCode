@@ -2,8 +2,7 @@ package util;
 
 /** 
  * 
- * @author czq 
- * @version 2015年11月17日 下午8:31:56 
+ * 
  */
 public enum DataServiceType {
 	

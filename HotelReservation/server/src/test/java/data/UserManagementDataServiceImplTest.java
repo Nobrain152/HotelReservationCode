@@ -9,21 +9,20 @@ import org.junit.Before;
 import org.junit.Test;
 
 import data.userdata.UserManagementDataServiceImpl;
-import po.ContactPO;
+import po.CustomerInfoPO;
 import po.LoginInPO;
-import po.UserInfoPO;
+import util.VipType;
 
 public class UserManagementDataServiceImplTest {
 
-	UserManagementDataServiceImpl impl;
+	UserManagementDataServiceImpl impl ;
 	LoginInPO log;
-	String po;
+	CustomerInfoPO po;
 	
 	@Before
-	public void setUp(){
-		//impl=new UserManagementDataServiceImpl();
-		log=new LoginInPO("123456789","123456789");
-		po="123456798";
+	public void setUp() throws RemoteException{
+		impl=new UserManagementDataServiceImpl();
+		po = new CustomerInfoPO("19954722", "ÌÆöÎ", "18805156300", "sfd", 300, true, VipType.COMMON_VIP);
 	}
 	
 	@Test
@@ -32,8 +31,13 @@ public class UserManagementDataServiceImplTest {
 	}
 	
 	@Test
+	public void testGetCustomerInfo() throws RemoteException{
+		CustomerInfoPO ans = impl.GetCustomerInfo("19954722");
+		assertEquals(ans.getUsername(), po.getUsername());
+	}
+	
+	@Test
 	public void testAddUser() throws RemoteException{
-		log=new LoginInPO(" ","123456");
 		//assertEquals(impl.AddUser(log),"000000000");
 	}
 	
@@ -51,12 +55,10 @@ public class UserManagementDataServiceImplTest {
 	
 	@Test
 	public void testaddHotelStuff() throws RemoteException{
-		String o="123456";
 		//assertEquals(impl.addHotelStuff(o,po),true);
 	}
 	
 	public void testaddWebStuff() throws RemoteException{
-		po="123546789";
 		//assertEquals(impl.addWebStuff(po),true);
 	}
 }

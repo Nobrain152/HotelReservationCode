@@ -10,17 +10,22 @@ import org.junit.Before;
 import org.junit.Test;
 
 import data.userdata.CustomerManagementDataServiceImpl;
+import po.CustomerInfoPO;
+import util.VipType;
 
 public class CustomerManagementDataServiceImplTest {
 
 	CustomerManagementDataServiceImpl impl;
 	String id;
+	CustomerInfoPO po ;
 	
 	@Before
 	public void setUp(){
 		//impl=new CustomerManagementDataServiceImpl();
-		id="123456789";
+		po = new CustomerInfoPO("19954722", "ÌÆöÎ", "18805156300", "sfd", 300, true, VipType.COMMON_VIP);
 	}
+	
+	
 	
 	@Test
 	public void testAddMember() throws RemoteException{
@@ -29,7 +34,7 @@ public class CustomerManagementDataServiceImplTest {
 	
 	@Test
 	public void testGetCustomerOrders() throws RemoteException{
-		assertEquals(impl.GetCustomerOrders(id),null);
+		
 	}
 	
 	
@@ -37,8 +42,5 @@ public class CustomerManagementDataServiceImplTest {
 
 	@Test
 	public void testGetCustomerHotel() throws RemoteException{
-		 ArrayList<String> n=new ArrayList<String>();
-		 n.add("123456");
-		assertEquals(impl.GetCustomerHotel(id),n);
 	}
 }

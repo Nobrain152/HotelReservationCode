@@ -64,7 +64,7 @@ public class DataSuperClass extends UnicastRemoteObject{
 	private static final Map<String, ArrayList<String>> SQLmap = new HashMap<String, ArrayList<String>>(50);
 	
 	static{
-		SQLmap.put("createID", helper.bulidSQL("createID", 5, "customerID","hotelStuffID","webStuffID","webManagerID","hotelID"));
+		SQLmap.put("createID", helper.bulidSQL("createID", 6, "customerID","hotelStuffID","webStuffID","webManagerID","hotelID","orderID"));
 		SQLmap.put("credit", helper.bulidSQL("credit",6, "userID","orderID","time","action","creditChange","creditResult"));
 		SQLmap.put("hotelEvaluate", helper.bulidSQL("hotelEvaluate", 6, "userID","hotelID","score","comment","reserve","orderID"));
 		SQLmap.put("hotelInfo", helper.bulidSQL("hotelInfo", 10, "hotelID","name","address","area","level","introduction","facility","reserve","score","SP"));
@@ -102,6 +102,46 @@ public class DataSuperClass extends UnicastRemoteObject{
 			for (int i = 0; i < paralen; i++) {
 				preState.setString(i + 1, paras[i]);
 			}
+			
+			affectRows = preState.executeUpdate();
+		} /*catch(MySQLIntegrityConstraintViolationException e){
+			return ResultMsg.hasExist;
+			//这个异常捕获不了？不存在
+		}*/ catch (SQLException e) {
+			e.printStackTrace();
+			return ResultMsg.FAIL;
+		}
+		
+		if(affectRows == 0){
+			return ResultMsg.FAIL;
+		}
+		
+		return ResultMsg.SUCCESS;
+	}
+	
+	/**
+	 * 向数据库中增加一条数据,ID必须唯一的情况
+	 * @param tableName 表的名字
+	 * @param paras 可变参数列表
+	 * @return
+	 */
+	protected ResultMsg addToSQLByID(String tableName , String... paras) {
+		try {
+			//如果ID已经存在就不上传
+			sql = "SELECT * FROM "+ tableName;
+			preState = conn.prepareStatement(sql);
+			result = preState.executeQuery();
+			while (result.next()) {
+				if(paras[0].equals(result.getString(1))){
+					return ResultMsg.FAIL;
+				}
+			}
+			int paralen = Integer.parseInt(SQLmap.get(tableName).get(0));
+			preState = conn.prepareStatement(SQLmap.get(tableName).get(1));
+			for (int i = 0; i < paralen; i++) {
+				preState.setString(i + 1, paras[i]);
+			}
+			
 			affectRows = preState.executeUpdate();
 		} /*catch(MySQLIntegrityConstraintViolationException e){
 			return ResultMsg.hasExist;

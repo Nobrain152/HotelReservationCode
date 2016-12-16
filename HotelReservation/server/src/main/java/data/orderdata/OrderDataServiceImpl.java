@@ -27,12 +27,9 @@ public class OrderDataServiceImpl extends DataSuperClass implements OrderDataSer
 	}
 	
 	@Override
-	public ResultMsg insert(OrderPO po) throws RemoteException {
-		return addToSQL(tableName, po.getOrderID(),po.getInitiator().getUserID(),
-				po.getOrderState().toString(),""+po.getPrice(),po.getHotelID(),
-				""+po.getHasChild(),po.getLatestExecutionTime(),po.getCheckInTime(),
-				po.getCheckOutTime(),po.getCancelledTime(),""+po.getRoomNumber(),
-				""+po.getPeopleNumber(),po.getRoomInfoPO().getRoomID());
+	public String insert(OrderPO po) throws RemoteException {
+		// TODO
+		return null;
 	}
 
 	@Override

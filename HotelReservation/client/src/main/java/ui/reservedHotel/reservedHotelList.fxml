@@ -38,6 +38,7 @@
          <children>
             <TableView fx:id="tv_hotel" layoutX="62.0" layoutY="34.0" prefHeight="335.0" prefWidth="691.0">
               <columns>
+                  <TableColumn fx:id="tc_ID" prefWidth="75.0" text="酒店ID" />
                 <TableColumn fx:id="tc_name" prefWidth="75.0" text="酒店名称" />
                 <TableColumn fx:id="tc_star" prefWidth="75.0" text="星级" />
                   <TableColumn fx:id="tc_score" prefWidth="75.0" text="评分" />

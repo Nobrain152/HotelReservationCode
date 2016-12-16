@@ -11,18 +11,43 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import ui.UILaunch;
+import ui.UIhelper;
 
 public class reservedHotelInfoViewController implements Initializable{
 	private UILaunch application;
+	private UIhelper helper;
+	
+	@FXML
+	private Label label_hotelName;
+	
+	@FXML
+	private Label label_price;
+	
+	@FXML
+	private Label label_star;
+	
+	@FXML
+	private Label label_score;
+	
+	@FXML
+	private Label label_address;
+	
+	@FXML
+	private Label label_area;
+	
+	@FXML
+	private Label label_facility;
+	
+	@FXML
+	private Label label_introduction;
 	
 	@FXML
 	private Button btn_Evaluate;
-	
-	
 	
 	@FXML
 	private Button btn_Cancel;
@@ -58,6 +83,9 @@ public class reservedHotelInfoViewController implements Initializable{
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		// TODO Auto-generated method stub
+		
+		
+		
 		data = FXCollections.observableArrayList(new orderItem("123", "2016-10-01","正常订单", 1000),
 				new orderItem("123", "2016-10-01","异常订单", 1000),
 				new orderItem("123", "2016-10-01","撤销订单", 1000)

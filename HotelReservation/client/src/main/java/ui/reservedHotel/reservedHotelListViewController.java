@@ -1,8 +1,11 @@
 package ui.reservedHotel;
 
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 
+import bl.userbl.CustomerInfoManagementController;
+import javafx.beans.property.SimpleDoubleProperty;
 import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
@@ -15,13 +18,19 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import ui.UILaunch;
+import ui.UIhelper;
+import vo.HotelInfoVO;
 
 public class reservedHotelListViewController implements Initializable{
 	private UILaunch application;
+	private UIhelper helper;
+	private CustomerInfoManagementController customerInfo;
 	
 	@FXML
 	private TableView<hotelItem> tv_hotel;
 	
+	@FXML
+	private TableColumn<?, ?> tc_ID;	
 	@FXML
 	private TableColumn<?, ?> tc_name;	
 	@FXML
@@ -49,6 +58,9 @@ public class reservedHotelListViewController implements Initializable{
 	
 	@FXML
 	public void btn_InfoAction(ActionEvent ev){
+		hotelItem chosenItem=tv_hotel.getSelectionModel().getSelectedItem();
+		String chosenHotelID=chosenItem.getID();
+		helper.setHotelID(chosenHotelID);
 		application.gotoreservedHotelInfo();
 	}
 	
@@ -62,10 +74,40 @@ public class reservedHotelListViewController implements Initializable{
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		// TODO Auto-generated method stub
-		data = FXCollections.observableArrayList(new hotelItem("Sun Hotel", 5, 10, "正常订单",1500),
-				new hotelItem("Sun Hotel", 5, 10, "异常订单",1500),
-				new hotelItem("Sun Hotel", 5, 10, "撤销订单",1500)
-				);
+		helper=UIhelper.getInstance();
+		
+		ArrayList<hotelItem> data_List=new ArrayList<hotelItem>();
+		
+		ArrayList<HotelInfoVO> hotel_executedList=customerInfo.finishedHotelInquiry(helper.getUserID());		
+		int size_executed=hotel_executedList.size();
+		for(int i=0;i<size_executed;i++){
+			HotelInfoVO tempHotelVO=hotel_executedList.get(i);			
+			data_List.add(new hotelItem(tempHotelVO.getHotelID(),tempHotelVO.getName(),tempHotelVO.getLevel(),tempHotelVO.getScore(),"正常订单",tempHotelVO.getSP()));
+		}
+		
+		ArrayList<HotelInfoVO> hotel_waitingList=customerInfo.UnfinishedHotelInquiry(helper.getUserID());		
+		int size_waiting=hotel_waitingList.size();
+		for(int i=0;i<size_waiting;i++){
+			HotelInfoVO tempHotelVO=hotel_waitingList.get(i);			
+			data_List.add(new hotelItem(tempHotelVO.getHotelID(),tempHotelVO.getName(),tempHotelVO.getLevel(),tempHotelVO.getScore(),"正常订单",tempHotelVO.getSP()));
+		}
+		
+		ArrayList<HotelInfoVO> hotel_canceledList=customerInfo.CancelHotelInquiry(helper.getUserID());		
+		int size_canceled=hotel_canceledList.size();
+		for(int i=0;i<size_canceled;i++){
+			HotelInfoVO tempHotelVO=hotel_canceledList.get(i);			
+			data_List.add(new hotelItem(tempHotelVO.getHotelID(),tempHotelVO.getName(),tempHotelVO.getLevel(),tempHotelVO.getScore(),"撤销订单",tempHotelVO.getSP()));
+		}
+		
+		ArrayList<HotelInfoVO> hotel_abnormalList=customerInfo.AbnormalHotelInquiry(helper.getUserID());		
+		int size_abnormal=hotel_abnormalList.size();
+		for(int i=0;i<size_abnormal;i++){
+			HotelInfoVO tempHotelVO=hotel_abnormalList.get(i);			
+			data_List.add(new hotelItem(tempHotelVO.getHotelID(),tempHotelVO.getName(),tempHotelVO.getLevel(),tempHotelVO.getScore(),"异常订单",tempHotelVO.getSP()));
+		}
+		
+		data = FXCollections.observableArrayList(data_List);
+		tc_ID.setCellValueFactory(new PropertyValueFactory<>("ID"));
 		tc_name.setCellValueFactory(new PropertyValueFactory<>("name"));
 		tc_star.setCellValueFactory(new PropertyValueFactory<>("star"));
 		tc_score.setCellValueFactory(new PropertyValueFactory<>("score"));
@@ -75,18 +117,28 @@ public class reservedHotelListViewController implements Initializable{
 	}
 	
 	public static class hotelItem{
+		private SimpleStringProperty ID;
 		private SimpleStringProperty name;
 		private SimpleIntegerProperty star;
-		private SimpleIntegerProperty score;
+		private SimpleDoubleProperty score;
 		private SimpleStringProperty condition;
 		private SimpleIntegerProperty price;
 		
-		private hotelItem(String name,int star,int score,String condition,int price){
+		private hotelItem(String ID,String name,int star,double score,String condition,int price){
+			this.ID=new SimpleStringProperty(ID);
 			this.name=new SimpleStringProperty(name);
 			this.star=new SimpleIntegerProperty(star);
-			this.score=new SimpleIntegerProperty(score);
+			this.score=new SimpleDoubleProperty(score);
 			this.condition=new SimpleStringProperty(condition);
 			this.price=new SimpleIntegerProperty(price);
+		}
+		
+		public String getID(){
+			return ID.get();
+		}
+		
+		public void setID(String str){
+			ID.set(str);
 		}
 		
 		public String getName(){
@@ -105,11 +157,11 @@ public class reservedHotelListViewController implements Initializable{
 			star.set(n);
 		}
 		
-		public int getScore(){
+		public double getScore(){
 			return score.get();
 		}
 		
-		public void setScore(int n){
+		public void setScore(double n){
 			score.set(n);
 		}
 		

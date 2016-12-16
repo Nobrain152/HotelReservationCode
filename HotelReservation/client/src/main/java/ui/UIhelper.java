@@ -5,8 +5,8 @@ public class UIhelper {
 	private UIhelper(){}
 	
 	private String userID;
-	//private String hotelID;
-	//private String orderID;
+	private String hotelID;
+	private String orderID;
 	
 	
 	public static UIhelper getInstance(){
@@ -22,5 +22,21 @@ public class UIhelper {
 	
 	public void setUserID(String str){
 		this.userID=str;
+	}
+	
+	public String getHotelID(){
+		return hotelID;
+	}
+	
+	public void setHotelID(String str){
+		this.hotelID=str;
+	}
+	
+	public String getOrderID(){
+		return orderID;
+	}
+	
+	public void setOrderID(String str){
+		this.orderID=str;
 	}
 }

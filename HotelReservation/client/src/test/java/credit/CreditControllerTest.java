@@ -25,7 +25,7 @@ public class CreditControllerTest {
 	public void setUp() throws Exception {
 		creditController = new CreditController();
 		vipController = new VipController();
-		user = new CustomerInfoVO("09954722", "ÌÆöÎ", "18805156300","sfd",300,true,VipType.COMMON_VIP);
+		user = new CustomerInfoVO("19954722", "ÌÆöÎ", "18805156300","sfd",300,true,VipType.COMMON_VIP);
 		vipController.registerVip(user.getUserID(), user.getVipType(), "1997-05-13");
 	}
 	

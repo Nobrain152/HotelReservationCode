@@ -6,14 +6,16 @@ import java.util.ArrayList;
 
 import bl.VOPOchange;
 import dataservice.creditdataservice.CreditDataService;
-import dataservice.userdataservice.CustomerManagementDataService;
+import dataservice.userdataservice.UserManagementDataService;
 import dataservice.vipdataservice.VipDataService;
+import net.RMIManage;
 import po.BusinessVipPO;
 import po.CommonVipPO;
 import po.CreditPO;
 import po.CustomerInfoPO;
 import po.LevelSystemPO;
 import util.Action;
+import util.DataServiceType;
 import util.ResultMsg;
 import util.Today;
 import util.VipType;
@@ -24,11 +26,11 @@ import vo.LevelSystemVO;
 
 public class Vip {
 	
-	private VipDataService vipDataService;
-	private CustomerManagementDataService dataService;
-	private CreditDataService creditDataService;
+	private VipDataService vipDataService = (VipDataService)RMIManage.getDataService(DataServiceType.VipDataService);
+	private UserManagementDataService dataService = (UserManagementDataService)RMIManage.getDataService(DataServiceType.UserManagementDataService);
+	private CreditDataService creditDataService = (CreditDataService)RMIManage.getDataService(DataServiceType.CreditDataService);
 	
-	public Vip(VipDataService vipDataService, CustomerManagementDataService dataService
+	public Vip(VipDataService vipDataService, UserManagementDataService dataService
 			,CreditDataService creditDataService) {
 		this.vipDataService = vipDataService;
 		this.dataService = dataService;
@@ -72,7 +74,7 @@ public class Vip {
 	 */
 	public ResultMsg registerVip(String userID, VipType type, String str) throws RemoteException {
 		ResultMsg resultMsg = ResultMsg.FAIL;
-		CustomerInfoPO customerInfoPO = dataService.GetCustomerInfo(userID);
+		CustomerInfoPO customerInfoPO = dataService.GetCustomerInfo("19954722");
 		CustomerInfoVO customerInfoVO = (CustomerInfoVO)VOPOchange.POtoVO(customerInfoPO);
 	
 		if(type == VipType.COMMON_VIP) {

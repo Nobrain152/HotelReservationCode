@@ -5,7 +5,7 @@ import java.rmi.RemoteException;
 import blservice.vipblservice.VipLevelBLService;
 import net.RMIManage;
 import dataservice.creditdataservice.CreditDataService;
-import dataservice.userdataservice.CustomerManagementDataService;
+import dataservice.userdataservice.UserManagementDataService;
 import dataservice.vipdataservice.VipDataService;
 import util.DataServiceType;
 import util.ResultMsg;
@@ -17,7 +17,7 @@ public class VipController implements VipLevelBLService{
 	
 	private Vip vip;
 	private VipDataService vipDataService;
-	private CustomerManagementDataService dataService;
+	private UserManagementDataService dataService;
 	private CreditDataService creditDataService;
 	
 	public VipController() {

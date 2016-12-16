@@ -20,13 +20,14 @@ public class WebInfoManagementControllerTest {
 
 	@Test
 	public void testinquiry() {
-		assertEquals(impl.IndividualBaseInfolnquiry("1234567"),null);
+		assertEquals(impl.IndividualBaseInfolnquiry("42345679"),null);
 	}
 	
 	@Test
 	public void testmodify(){
-		UserInfoVO v=new UserInfoVO("123456789","LILY","15160897654","6666");
-		assertEquals(impl.IndividualBaseInfoModification("1234567", v),v);
+		UserInfoVO v=new UserInfoVO("42345678","LILY","15160897654","6666");
+		impl.IndividualBaseInfoModification("42345678", v);
+		assertEquals(v.getUsername(),"LILY");
 	}
 	
 	

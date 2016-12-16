@@ -3,6 +3,8 @@ package user;
 
 import static org.junit.Assert.assertEquals;
 
+import java.util.ArrayList;
+
 import org.junit.Before;
 import org.junit.Test;
 
@@ -18,23 +20,25 @@ public class WebManagerWebsiteManagementControllerTest {
 	@Before
 	public void setUp() {
 		impl=new WebManagerWebsiteManagementController();
-		info=new UserInfoVO("123456789","Lily","13124567893","666666");
+		info=new UserInfoVO("42345678","Lily","13124567893","666666");
 	}
 
 	@Test
 	public void testinquiry() {
-		assertEquals(impl.UserInformationInquiry("1234567"),info);
+		UserInfoVO vo=impl.UserInformationInquiry("42345678");
+		assertEquals(vo.getUsername(),"LILY");
 	}
 	
 	@Test
 	public void testmodify(){
-		assertEquals(impl.UserInformationModification("1234567", info),true);
+		assertEquals(impl.UserInformationModification("42345678", info),true);
 	}
 	
 	
 	
 	@Test
 	public void testScan(){
-	    assertEquals(impl.WebStuffScan(),null);
+		ArrayList<UserInfoVO> stuff=impl.WebStuffScan();
+	    assertEquals(stuff.get(0).getUsername(),"Marry");
 	}
 }

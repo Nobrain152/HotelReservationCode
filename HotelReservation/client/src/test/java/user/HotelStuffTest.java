@@ -23,36 +23,36 @@ public class HotelStuffTest {
 	public void testinquiry(){
 		UserInfoVO po = null;
 		try {
-			po = stuff.IndividualBaseInfolnquiry("1234567");
+			po = stuff.IndividualBaseInfolnquiry("22345678");
 		} catch (RemoteException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		assertEquals(po.getUserID(),"7654321");
+		assertEquals(po.getUserID(),"22345678");
 		assertEquals(po.getUsername(),"Tim");
 		assertEquals(po.getContact(),"18192345782");
 	}
 	
 	public void testmodify(){
-		StuffInfoVO vo1=new StuffInfoVO("1234567","Tom","13067893451","66666","1234567");
+		StuffInfoVO vo1=new StuffInfoVO("22345678","Tom","18192345782","66666","1234567");
 		ResultMsg cantest = ResultMsg.FAIL;
 		try {
-			cantest = stuff.IndividualBaseInfoModification("1234567",vo1);
+			cantest = stuff.IndividualBaseInfoModification("22345678",vo1);
 		} catch (RemoteException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		UserInfoVO po = null;
 		try {
-			po = stuff.IndividualBaseInfolnquiry("1234567");
+			po = stuff.IndividualBaseInfolnquiry("22345678");
 		} catch (RemoteException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		if(cantest==ResultMsg.SUCCESS){
-			assertEquals(po.getUserID(),"1234567");
+			assertEquals(po.getUserID(),"22345678");
 			assertEquals(po.getUsername(),"Tom");
-			assertEquals(po.getContact(),"13067893451");
+			assertEquals(po.getContact(),"18192345782");
 			
 		}
 	}

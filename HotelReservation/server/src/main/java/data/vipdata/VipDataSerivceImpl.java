@@ -28,7 +28,7 @@ public class VipDataSerivceImpl extends DataSuperClass implements VipDataService
 	
 	private final String tableName = "commonVip";
 	private final String tableName2 = "businessVip";
-	private LevelSystem levels;
+	private LevelSystem levels = new LevelSystem();
 	
 	@Override
 	public ResultMsg insertC(CommonVipPO vip) throws RemoteException {

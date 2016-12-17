@@ -18,7 +18,7 @@ public class UserAndHotelTest {
 	}
 	
 	@Test
-	public void test(){
+	public void test() throws RemoteException{
 		po1.add("151250058", "3B323");
 		po2.add("151250058", "asfas");
 	}

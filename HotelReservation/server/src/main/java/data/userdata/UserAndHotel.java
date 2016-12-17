@@ -18,7 +18,7 @@ public class UserAndHotel extends DataSuperClass{
 		super();
 	}
 	
-	public ResultMsg add(String userID,String hotelID){
+	public ResultMsg add(String userID,String hotelID) throws RemoteException{
 		return addToSQL(tableName, userID, hotelID);
 	}
 }

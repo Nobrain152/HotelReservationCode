@@ -72,7 +72,7 @@ public class HotelInfoDataServiceImpl extends DataSuperClass implements HotelInf
 	
 		
 	
-	private HotelInfoPO findMsg(String ID) {
+	private HotelInfoPO findMsg(String ID) throws RemoteException{
 		findMes = findFromSQL(tableName,ID);
 		HotelInfoPO hotelInfoPO = null;
 		
@@ -117,7 +117,7 @@ public class HotelInfoDataServiceImpl extends DataSuperClass implements HotelInf
 
 
 	@Override
-	public ArrayList<HotelInfoPO> findByAreaAndCircle(Adress area,Area circle) {
+	public ArrayList<HotelInfoPO> findByAreaAndCircle(Adress area,Area circle) throws RemoteException{
 		ArrayList<HotelInfoPO> pos = new ArrayList<HotelInfoPO>();
 		
 		try {
@@ -141,7 +141,7 @@ public class HotelInfoDataServiceImpl extends DataSuperClass implements HotelInf
 	}
 
 	@Override
-	public ArrayList<HotelInfoPO> findByName(String name) {
+	public ArrayList<HotelInfoPO> findByName(String name) throws RemoteException{
 		ArrayList<HotelInfoPO> pos = new ArrayList<HotelInfoPO>();
 		
 		try {

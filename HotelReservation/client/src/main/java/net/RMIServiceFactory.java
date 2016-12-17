@@ -5,10 +5,12 @@ import java.rmi.NotBoundException;
 import java.rmi.RemoteException;
 
 import dataservice.userdataservice.UserManagementDataService;
+import dataservice.vipdataservice.VipDataService;
 import util.DataServiceType;
 
 public class RMIServiceFactory {
 	public static UserManagementDataService userDataService;
+	public static VipDataService vipDataService;
 	
 	private static RMIServiceFactory rmiServiceFactory;
 	
@@ -16,6 +18,7 @@ public class RMIServiceFactory {
 	private RMIServiceFactory() {
 		try {
 			userDataService = (UserManagementDataService) RMIManage.mygetDataService(DataServiceType.UserManagementDataService);
+			vipDataService = (VipDataService) RMIManage.mygetDataService(DataServiceType.VipDataService);
 		} catch (MalformedURLException | RemoteException | NotBoundException e) {
 			
 		}
@@ -23,6 +26,7 @@ public class RMIServiceFactory {
 	static{
 		try {
 			userDataService = (UserManagementDataService) RMIManage.mygetDataService(DataServiceType.UserManagementDataService);
+			vipDataService = (VipDataService) RMIManage.mygetDataService(DataServiceType.VipDataService);
 		} catch (MalformedURLException e) {
 			e.printStackTrace();
 		} catch (RemoteException e) {
@@ -41,6 +45,7 @@ public class RMIServiceFactory {
 	private static void getAgain(){
 		try {
 			userDataService = (UserManagementDataService) RMIManage.mygetDataService(DataServiceType.UserManagementDataService);
+			vipDataService = (VipDataService) RMIManage.mygetDataService(DataServiceType.VipDataService);
 		} catch (MalformedURLException | RemoteException | NotBoundException e) {
 			getAgain();
 		}

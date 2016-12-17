@@ -21,16 +21,16 @@ public class LoginInpoData extends DataSuperClass{
 		super();
 	}
 	
-	public ResultMsg addToSQL(LoginInPO po) {
+	public ResultMsg addToSQL(LoginInPO po) throws RemoteException{
 		return addToSQL(tableName, po.getUsername(), po.getPassword());
 	}
 	
-	public LoginInPO findLoginPO(String userID) {
+	public LoginInPO findLoginPO(String userID) throws RemoteException{
 		LoginInPO po = findMes(userID);
 		return po;
 	}
 	
-	private LoginInPO findMes(String userID){
+	private LoginInPO findMes(String userID) throws RemoteException{
 		findMes = findFromSQL(tableName,userID);
 		LoginInPO po = null;
 		
@@ -40,7 +40,7 @@ public class LoginInpoData extends DataSuperClass{
 		return po;
 	}
 	
-	public ArrayList<LoginInPO> show() {
+	public ArrayList<LoginInPO> show() throws RemoteException{
 		ArrayList<LoginInPO> pos = new ArrayList<LoginInPO>(30);
 		
 		try {

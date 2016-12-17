@@ -20,7 +20,7 @@ public class LevelSystem extends DataSuperClass{
 		super();
 	}
 	
-	private final String tableName = "LevelSystem";
+	private final String tableName = "levelSystem";
 	
 	public ResultMsg insert(LevelSystemPO po) throws RemoteException{
 		ResultMsg a ;
@@ -28,13 +28,13 @@ public class LevelSystem extends DataSuperClass{
 		return a;
 	}
 	
-	public ResultMsg updata(LevelSystemPO po) {
+	public ResultMsg updata(LevelSystemPO po) throws RemoteException{
 		ResultMsg a;
 		a = modifyFromSQL(tableName, ""+po.getLevels(),""+po.getCredits());
 		return a;
 	}
 	
-	public LevelSystemPO findByLevel(String level){
+	public LevelSystemPO findByLevel(String level) throws RemoteException{
 		LevelSystemPO po = null;
 		sql = "SELECT * FROM " + tableName;
 		try {
@@ -50,7 +50,7 @@ public class LevelSystem extends DataSuperClass{
 		return po;
 	}
 	
-	public ArrayList<LevelSystemPO> show() {
+	public ArrayList<LevelSystemPO> show() throws RemoteException{
 		ArrayList<LevelSystemPO> pos = new ArrayList<LevelSystemPO>();
 		LevelSystemPO po = null;
 		sql = "SELECT * FROM " + tableName;

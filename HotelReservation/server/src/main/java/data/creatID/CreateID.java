@@ -45,7 +45,7 @@ public class CreateID extends DataSuperClass{
 	 * orderID     八位，开头为6
 	 * @return
 	 */
-	public ResultMsg initialize(){
+	public ResultMsg initialize() throws RemoteException{
 		ResultMsg a = initialFromSQL(tableName);
 		if(a != ResultMsg.SUCCESS){
 			return ResultMsg.FAIL;
@@ -55,7 +55,7 @@ public class CreateID extends DataSuperClass{
 		return b;
 	}
 	
-	public String getNewCustomerID() {
+	public String getNewCustomerID() throws RemoteException{
 		sql = "SELECT * FROM " + tableName;
 		findMes = findMes(sql);
 		ResultMsg aMsg = addToSQL(tableName, ""+(Integer.valueOf(findMes.get(0))+1),findMes.get(1),
@@ -69,7 +69,7 @@ public class CreateID extends DataSuperClass{
 		}
 	}
 	
-	public String getNewHotelStuffID(){
+	public String getNewHotelStuffID() throws RemoteException{
 		sql = "SELECT * FROM " + tableName;
 		findMes = findMes(sql);
 		ResultMsg aMsg = addToSQL(tableName, findMes.get(0),""+(Integer.valueOf(findMes.get(1))+1),
@@ -82,7 +82,7 @@ public class CreateID extends DataSuperClass{
 		}
 	}
 	
-	public String getNewWebStuffID(){
+	public String getNewWebStuffID() throws RemoteException{
 		sql = "SELECT * FROM " + tableName;
 		findMes = findMes(sql);
 		ResultMsg aMsg = addToSQL(tableName, findMes.get(0),findMes.get(1),
@@ -96,7 +96,7 @@ public class CreateID extends DataSuperClass{
 		}
 	}
 	
-	public String getNewWebManagerID(){
+	public String getNewWebManagerID() throws RemoteException{
 		sql = "SELECT * FROM " + tableName;
 		findMes = findMes(sql);
 		ResultMsg aMsg = addToSQL(tableName, findMes.get(0),findMes.get(1),
@@ -110,7 +110,7 @@ public class CreateID extends DataSuperClass{
 		}
 	}
 	
-	public String getNewHotelID(){
+	public String getNewHotelID() throws RemoteException{
 		sql = "SELECT * FROM " + tableName;
 		findMes = findMes(sql);
 		ResultMsg aMsg = addToSQL(tableName, findMes.get(0),findMes.get(1),
@@ -124,7 +124,7 @@ public class CreateID extends DataSuperClass{
 		}
 	}
 	
-	public String getNewOrderID(){
+	public String getNewOrderID() throws RemoteException{
 		sql = "SELECT * FROM " + tableName;
 		findMes = findMes(sql);
 		ResultMsg aMsg = addToSQL(tableName, findMes.get(0),findMes.get(1),
@@ -143,7 +143,7 @@ public class CreateID extends DataSuperClass{
 	 * @param sql
 	 * @return
 	 */
-	public ArrayList<String> findMes(String sql) {
+	public ArrayList<String> findMes(String sql) throws RemoteException{
 		ArrayList<String> ans = null;
 		try {
 			preState = conn.prepareStatement(sql);

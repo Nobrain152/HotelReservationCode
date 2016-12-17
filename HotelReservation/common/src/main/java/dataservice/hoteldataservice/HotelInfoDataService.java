@@ -46,14 +46,14 @@ public interface HotelInfoDataService extends Remote{
 	 * @param circle
 	 * @return
 	 */
-	public ArrayList<HotelInfoPO> findByAreaAndCircle(Adress area,Area circle);
+	public ArrayList<HotelInfoPO> findByAreaAndCircle(Adress area,Area circle) throws RemoteException;
 	
 	/**
 	 * ¸ù¾Ý¾ÆµêµÄÃû³ÆËÑË÷¾Æµê
 	 * @param name
 	 * @return
 	 */
-	public ArrayList<HotelInfoPO> findByName(String name);
+	public ArrayList<HotelInfoPO> findByName(String name) throws RemoteException;
 
 
 

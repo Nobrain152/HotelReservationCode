@@ -21,7 +21,7 @@ public class CustomerManagementDataServiceImpl extends UserManagementDataService
 	}
 
 	@Override
-	public ArrayList<String> GetCustomerOrders(String userid) {
+	public ArrayList<String> GetCustomerOrders(String userid) throws RemoteException{
 		try {
 			sql = "SELECT * FROM order WHERE customerInfoPO = \'" + userid + "\'" ;
 			preState = conn.prepareStatement(sql);
@@ -42,7 +42,7 @@ public class CustomerManagementDataServiceImpl extends UserManagementDataService
 
 	
 	@Override
-	public ArrayList<String> GetCustomerHotel(String userid) {
+	public ArrayList<String> GetCustomerHotel(String userid) throws RemoteException{
 		try {
 			sql = "SELECT * FROM " + tableName + " WHERE userID = \'" + userid + "\'" ;
 			preState = conn.prepareStatement(sql);
@@ -62,7 +62,7 @@ public class CustomerManagementDataServiceImpl extends UserManagementDataService
 	}
 
 	@Override
-	public ResultMsg addCustomerHotel(String userid, String idh) {
+	public ResultMsg addCustomerHotel(String userid, String idh) throws RemoteException{
 		return addToSQL(tableName, userid,idh);
 	}
 

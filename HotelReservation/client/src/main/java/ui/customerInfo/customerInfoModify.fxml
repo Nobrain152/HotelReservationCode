@@ -22,7 +22,7 @@
          </font>
       </Text>
       <Button fx:id="btn_Cancel" layoutX="687.0" layoutY="556.0" mnemonicParsing="false" onAction="#btn_CancelAction" prefHeight="28.0" prefWidth="66.0" text="返回" />
-      <Button layoutX="367.0" layoutY="375.0" mnemonicParsing="false" prefHeight="28.0" prefWidth="66.0" text="保存">
+      <Button fx:id="btn_Save" layoutX="367.0" layoutY="375.0" mnemonicParsing="false" onAction="#btn_SaveAction" prefHeight="28.0" prefWidth="66.0" text="保存">
          <font>
             <Font size="14.0" />
          </font>
@@ -42,7 +42,7 @@
             <Font size="18.0" />
          </font>
       </Text>
-      <TextField layoutX="372.0" layoutY="215.0" prefHeight="23.0" prefWidth="203.0" />
-      <TextField layoutX="372.0" layoutY="291.0" prefHeight="23.0" prefWidth="203.0" />
+      <TextField fx:id="name" layoutX="372.0" layoutY="215.0" prefHeight="23.0" prefWidth="203.0" />
+      <TextField fx:id="contact" layoutX="372.0" layoutY="291.0" prefHeight="23.0" prefWidth="203.0" />
    </children>
 </AnchorPane>

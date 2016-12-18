@@ -62,22 +62,22 @@
             <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#d3dde8" height="30.0" layoutX="346.0" layoutY="148.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="208.0" />
             <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#d3dde8" height="30.0" layoutX="346.0" layoutY="199.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="208.0" />
             <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#d3dde8" height="30.0" layoutX="346.0" layoutY="255.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="208.0" />
-            <Label layoutX="359.0" layoutY="102.0" prefHeight="24.0" prefWidth="144.0" text="12345678">
+            <Label fx:id="lb_ID" layoutX="359.0" layoutY="102.0" prefHeight="24.0" prefWidth="144.0">
                <font>
                   <Font size="18.0" />
                </font>
             </Label>
-            <Label layoutX="359.0" layoutY="151.0" prefHeight="24.0" prefWidth="174.0" text="顾逸飞">
+            <Label fx:id="lb_name" layoutX="359.0" layoutY="151.0" prefHeight="24.0" prefWidth="174.0">
                <font>
                   <Font size="18.0" />
                </font>
             </Label>
-            <Label layoutX="359.0" layoutY="202.0" prefHeight="24.0" prefWidth="174.0" text="15150158583">
+            <Label fx:id="lb_contact" layoutX="359.0" layoutY="202.0" prefHeight="24.0" prefWidth="174.0">
                <font>
                   <Font size="18.0" />
                </font>
             </Label>
-            <Label layoutX="359.0" layoutY="258.0" prefHeight="24.0" prefWidth="61.0" text="100">
+            <Label fx:id="lb_credit" layoutX="359.0" layoutY="258.0" prefHeight="24.0" prefWidth="61.0">
                <font>
                   <Font size="18.0" />
                </font>

@@ -41,7 +41,7 @@
       </Pane>
       <Pane layoutY="70.0" prefHeight="460.0" prefWidth="800.0">
          <children>
-            <Button layoutX="649.0" layoutY="360.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="61.0" text="添加" />
+            <Button fx:id="btn_Add" layoutX="649.0" layoutY="360.0" mnemonicParsing="false" onAction="#btn_AddAction" prefHeight="30.0" prefWidth="61.0" text="添加" />
             <Text layoutX="446.0" layoutY="189.0" strokeType="OUTSIDE" strokeWidth="0.0" text="简介">
                <font>
                   <Font size="14.0" />
@@ -57,22 +57,17 @@
                   <Font size="14.0" />
                </font>
             </Text>
-            <Text layoutX="106.0" layoutY="278.0" strokeType="OUTSIDE" strokeWidth="0.0" text="地址">
+            <Text layoutX="106.0" layoutY="264.0" strokeType="OUTSIDE" strokeWidth="0.0" text="地址">
                <font>
                   <Font size="14.0" />
                </font>
             </Text>
-            <Text layoutX="106.0" layoutY="228.0" strokeType="OUTSIDE" strokeWidth="0.0" text="评分">
+            <Text layoutX="106.0" layoutY="202.0" strokeType="OUTSIDE" strokeWidth="0.0" text="价格">
                <font>
                   <Font size="14.0" />
                </font>
             </Text>
-            <Text layoutX="106.0" layoutY="181.0" strokeType="OUTSIDE" strokeWidth="0.0" text="价格">
-               <font>
-                  <Font size="14.0" />
-               </font>
-            </Text>
-            <Text layoutX="106.0" layoutY="126.0" strokeType="OUTSIDE" strokeWidth="0.0" text="星级">
+            <Text layoutX="106.0" layoutY="133.0" strokeType="OUTSIDE" strokeWidth="0.0" text="星级">
                <font>
                   <Font size="14.0" />
                </font>
@@ -82,14 +77,13 @@
                   <Font size="14.0" />
                </font>
             </Text>
-            <TextField layoutX="211.0" layoutY="48.0" prefHeight="29.0" prefWidth="173.0" />
-            <TextField layoutX="211.0" layoutY="106.0" prefHeight="29.0" prefWidth="173.0" />
-            <TextField layoutX="211.0" layoutY="161.0" prefHeight="29.0" prefWidth="173.0" />
-            <TextField layoutX="211.0" layoutY="208.0" prefHeight="29.0" prefWidth="173.0" />
-            <TextField layoutX="211.0" layoutY="258.0" prefHeight="29.0" prefWidth="173.0" />
-            <TextField layoutX="211.0" layoutY="306.0" prefHeight="29.0" prefWidth="173.0" />
-            <TextArea layoutX="446.0" layoutY="85.0" prefHeight="83.0" prefWidth="264.0" />
-            <TextArea layoutX="446.0" layoutY="196.0" prefHeight="140.0" prefWidth="264.0" />
+            <TextField fx:id="tf_name" layoutX="211.0" layoutY="48.0" prefHeight="29.0" prefWidth="173.0" />
+            <TextField fx:id="tf_price" layoutX="211.0" layoutY="182.0" prefHeight="29.0" prefWidth="173.0" />
+            <TextArea fx:id="ta_facility" layoutX="446.0" layoutY="85.0" prefHeight="83.0" prefWidth="264.0" />
+            <TextArea fx:id="ta_introduction" layoutX="446.0" layoutY="196.0" prefHeight="140.0" prefWidth="264.0" />
+            <ChoiceBox fx:id="cb_star" layoutX="211.0" layoutY="113.0" prefHeight="29.0" prefWidth="173.0" />
+            <ChoiceBox fx:id="cb_address" layoutX="211.0" layoutY="244.0" prefHeight="29.0" prefWidth="173.0" />
+            <ChoiceBox fx:id="cb_area" layoutX="211.0" layoutY="306.0" prefHeight="29.0" prefWidth="173.0" />
          </children>
       </Pane>
    </children>

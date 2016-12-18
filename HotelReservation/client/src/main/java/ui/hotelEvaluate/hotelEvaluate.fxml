@@ -50,9 +50,9 @@
                   <Font size="14.0" />
                </font>
             </Text>
-            <TextField layoutX="298.0" layoutY="122.0" promptText="输入0~10的数字" />
-            <TextArea layoutX="200.0" layoutY="168.0" prefHeight="166.0" prefWidth="401.0" promptText="写下您对酒店的评价吧（至少输入8个字）" />
-            <Button layoutX="546.0" layoutY="362.0" mnemonicParsing="false" prefHeight="29.0" prefWidth="54.0" text="提交" />
+            <TextField fx:id="tf_score" layoutX="298.0" layoutY="122.0" promptText="输入0~10的数字" />
+            <TextArea fx:id="ta_comment" layoutX="200.0" layoutY="168.0" prefHeight="166.0" prefWidth="401.0" promptText="写下您对酒店的评价吧（至少输入8个字）" />
+            <Button fx:id="btn_Submit" layoutX="546.0" layoutY="362.0" mnemonicParsing="false" onAction="#btn_SubmitAction" prefHeight="29.0" prefWidth="54.0" text="提交" />
          </children>
       </Pane>
    </children>

@@ -45,7 +45,7 @@ public class loginViewController implements Initializable{
 	
 	@FXML
 	public void btn_loginAction(ActionEvent event){
-		login=new LoginInputController();
+		
 		String id=userid.getText();
 		String key=password.getText();
 		if(login.LogIn(id, key)){
@@ -74,7 +74,7 @@ public class loginViewController implements Initializable{
 		// TODO Auto-generated method stub
 		helper=UIhelper.getInstance();
 		
-		
+		login=new LoginInputController();
 		
 
 	}

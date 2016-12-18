@@ -62,6 +62,7 @@ public class customerInfoViewController implements Initializable{
 	public void initialize(URL location, ResourceBundle resources) {
 		// TODO Auto-generated method stub
 		helper=UIhelper.getInstance();
+		customerInfo=new CustomerInfoManagementController();
 		String ID=helper.getUserID();
 		CustomerInfoVO customer =customerInfo.IndividualBaseInfolnquiry(ID);
 		name.setText(customer.getUsername());

@@ -24,9 +24,9 @@
       </Pane>
       <Pane layoutY="80.0" prefHeight="451.0" prefWidth="800.0">
          <children>
-            <TextField layoutX="290.0" layoutY="123.0" prefHeight="40.0" prefWidth="220.0" promptText="请输入用户ID" />
-            <Button layoutX="363.0" layoutY="267.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="74.0" text="确认充值" />
-            <TextField layoutX="290.0" layoutY="187.0" prefHeight="40.0" prefWidth="220.0" promptText="请输入充值额度">
+            <TextField fx:id="tf_userID" layoutX="290.0" layoutY="123.0" prefHeight="40.0" prefWidth="220.0" promptText="请输入用户ID" />
+            <Button fx:id="btn_Confirm" layoutX="363.0" layoutY="267.0" mnemonicParsing="false" onAction="#btn_ConfirmAction" prefHeight="40.0" prefWidth="74.0" text="确认充值" />
+            <TextField fx:id="tf_recharge" layoutX="290.0" layoutY="187.0" prefHeight="40.0" prefWidth="220.0" promptText="请输入充值额度">
                <font>
                   <Font size="14.0" />
                </font>

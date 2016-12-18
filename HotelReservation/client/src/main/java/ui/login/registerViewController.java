@@ -57,7 +57,7 @@ public class registerViewController implements Initializable{
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
-		
+		register=new LoginInputController();
 		
 	}
 

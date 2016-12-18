@@ -36,27 +36,43 @@
       </Pane>
       <Pane layoutX="7.0" layoutY="77.0" prefHeight="446.0" prefWidth="800.0">
          <children>
-            <Text layoutX="277.0" layoutY="119.0" strokeType="OUTSIDE" strokeWidth="0.0" text="姓名">
+            <Text layoutX="275.0" layoutY="209.0" strokeType="OUTSIDE" strokeWidth="0.0" text="姓名">
                <font>
                   <Font size="14.0" />
                </font></Text>
-            <Text layoutX="271.0" layoutY="170.0" strokeType="OUTSIDE" strokeWidth="0.0" text="账户ID">
+            <Text layoutX="268.0" layoutY="80.0" strokeType="OUTSIDE" strokeWidth="0.0" text="账户ID">
                <font>
                   <Font size="14.0" />
                </font></Text>
-            <Text layoutX="277.0" layoutY="223.0" strokeType="OUTSIDE" strokeWidth="0.0" text="职务">
+            <Text layoutX="265.0" layoutY="268.0" strokeType="OUTSIDE" strokeWidth="0.0" text="联系方式">
                <font>
                   <Font size="14.0" />
                </font></Text>
-            <Text layoutX="265.0" layoutY="279.0" strokeType="OUTSIDE" strokeWidth="0.0" text="所属酒店ID">
+            <Text layoutX="258.0" layoutY="142.0" strokeType="OUTSIDE" strokeWidth="0.0" text="所属酒店ID">
                <font>
                   <Font size="14.0" />
                </font></Text>
-            <TextField layoutX="375.0" layoutY="102.0" prefHeight="23.0" prefWidth="160.0" />
-            <TextField layoutX="375.0" layoutY="153.0" prefHeight="23.0" prefWidth="160.0" />
-            <TextField layoutX="375.0" layoutY="211.0" prefHeight="23.0" prefWidth="160.0" />
-            <TextField layoutX="375.0" layoutY="263.0" prefHeight="23.0" prefWidth="160.0" />
-            <Button layoutX="370.0" layoutY="331.0" mnemonicParsing="false" prefHeight="29.0" prefWidth="71.0" text="确认修改" />
+            <TextField fx:id="tf_name" layoutX="376.0" layoutY="189.0" prefHeight="23.0" prefWidth="160.0">
+               <font>
+                  <Font size="14.0" />
+               </font></TextField>
+            <TextField fx:id="tf_contact" layoutX="376.0" layoutY="248.0" prefHeight="23.0" prefWidth="160.0">
+               <font>
+                  <Font size="14.0" />
+               </font></TextField>
+            <Button fx:id="btn_Modify" layoutX="370.0" layoutY="331.0" mnemonicParsing="false" onAction="#btn_ModifyAction" prefHeight="29.0" prefWidth="71.0" text="确认修改" />
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#e1e9f2" height="29.0" layoutX="376.0" layoutY="60.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="160.0" />
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#e1e9f2" height="29.0" layoutX="376.0" layoutY="122.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="160.0" />
+            <Label fx:id="lb_stuffID" layoutX="385.0" layoutY="65.0" prefHeight="15.0" prefWidth="126.0">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <Label fx:id="lb_hotelID" layoutX="385.0" layoutY="127.0" prefHeight="15.0" prefWidth="126.0">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
          </children>
       </Pane>
    </children>

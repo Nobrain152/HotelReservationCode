@@ -50,7 +50,22 @@
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#dbe3eb" height="37.0" layoutX="341.0" layoutY="282.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="210.0" />
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#dbe3eb" height="37.0" layoutX="341.0" layoutY="345.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="210.0" />
       <Line endX="150.0" layoutX="400.0" layoutY="194.0" startX="-150.0" stroke="#8a8181" />
-      <Button layoutX="501.0" layoutY="142.0" mnemonicParsing="false" prefHeight="29.0" prefWidth="50.0" text="搜索" />
-      <TextField layoutX="250.0" layoutY="141.0" prefHeight="30.0" prefWidth="210.0" promptText="账户ID" />
+      <Button fx:id="btn_Search" layoutX="501.0" layoutY="142.0" mnemonicParsing="false" onAction="#btn_SearchAction" prefHeight="29.0" prefWidth="50.0" text="搜索" />
+      <TextField fx:id="tf_ID" layoutX="250.0" layoutY="141.0" prefHeight="30.0" prefWidth="210.0" promptText="账户ID" />
+      <Label fx:id="lb_ID" layoutX="348.0" layoutY="227.0" prefHeight="30.0" prefWidth="175.0">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label fx:id="lb_name" layoutX="348.0" layoutY="286.0" prefHeight="30.0" prefWidth="175.0">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label fx:id="lb_contact" layoutX="348.0" layoutY="349.0" prefHeight="30.0" prefWidth="175.0">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>

@@ -126,6 +126,8 @@ public class orderOnHotelViewController implements Initializable {
 	public void initialize(URL location, ResourceBundle resources) {
 		// TODO Auto-generated method stub
 		helper=UIhelper.getInstance();
+		stuffInfo=new StuffInfoManagementController();
+		stuffHotelOperation=new HotelStuffHotelOperationController();
 		hotelID=stuffInfo.IndividualBaseInfolnquiry(helper.getUserID()).getHotel();
 		
 		

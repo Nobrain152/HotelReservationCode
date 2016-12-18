@@ -60,6 +60,7 @@ public class creditCheckViewController implements Initializable{
 	@Override
 	public void initialize(URL url,ResourceBundle rb){
 		helper=UIhelper.getInstance();
+		creditManage=new CustomerInfoManagementController();
 		int cr=creditManage.IndividualCredictInquiry(helper.getUserID());
 		credit.setText(String.valueOf(cr));
 		

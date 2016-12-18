@@ -49,9 +49,9 @@
                <font>
                   <Font size="14.0" />
                </font></Text>
-            <TextField layoutX="357.0" layoutY="146.0" prefHeight="29.0" prefWidth="192.0" />
-            <TextField layoutX="357.0" layoutY="212.0" prefHeight="29.0" prefWidth="192.0" />
-            <Button layoutX="366.0" layoutY="302.0" mnemonicParsing="false" prefHeight="29.0" prefWidth="68.0" text="确认修改" />
+            <TextField fx:id="tf_name" layoutX="357.0" layoutY="146.0" prefHeight="29.0" prefWidth="192.0" />
+            <TextField fx:id="tf_contact" layoutX="357.0" layoutY="212.0" prefHeight="29.0" prefWidth="192.0" />
+            <Button fx:id="btn_Save" layoutX="366.0" layoutY="302.0" mnemonicParsing="false" onAction="#btn_SaveAction" prefHeight="29.0" prefWidth="68.0" text="确认修改" />
          </children>
       </Pane>
    </children>

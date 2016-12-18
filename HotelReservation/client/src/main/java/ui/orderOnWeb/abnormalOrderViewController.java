@@ -1,8 +1,11 @@
 package ui.orderOnWeb;
 
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 
+import bl.hotelbl.HotelInfoCheckController;
+import bl.userbl.WebStuffWebsiteManagementController;
 import javafx.beans.property.SimpleDoubleProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
@@ -15,10 +18,13 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import ui.UILaunch;
-import ui.orderOnUser.orderOnUserViewController.OrderInTable;
+import util.Today;
+import vo.OrderVO;
 
 public class abnormalOrderViewController implements Initializable{
 	private UILaunch application;
+	private WebStuffWebsiteManagementController salesmanManage;
+	private HotelInfoCheckController hotelInfo;
 	
 	@FXML
 	private TableView<OrderInTable> order_waiting;	
@@ -77,16 +83,43 @@ public class abnormalOrderViewController implements Initializable{
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		// TODO Auto-generated method stub
-		data_waiting=FXCollections.observableArrayList(new OrderInTable("123","GYF","A Hotel","2016-10-01",1599),
-				new OrderInTable("123","GYF","A Hotel","2016-10-01",1599),
-				new OrderInTable("123","GYF","A Hotel","2016-10-01",1599)
-				);
+		salesmanManage=new WebStuffWebsiteManagementController();
+		hotelInfo=new HotelInfoCheckController();
+		Today date=new Today();
+		String today=date.getToday().substring(0,10);
+		
+		
+		ArrayList<OrderVO> order_waitingList=salesmanManage.dayUnexOrder(today);
+		ArrayList<OrderInTable> data_waitingList=new ArrayList<OrderInTable>();
+		int size_waiting=order_waitingList.size();
+		for(int i=0;i<size_waiting;i++){
+			OrderVO tempOrderVO=order_waitingList.get(i);
+			String hotelName=hotelInfo.checkHotelInfo(tempOrderVO.getHotelID()).getName();//TODO 可优化
+			data_waitingList.add(new OrderInTable(tempOrderVO.getOrderID(),tempOrderVO.getInitiator().getUsername(),hotelName,tempOrderVO.getCheckInTime(),tempOrderVO.getPrice()));
+		}		
+		data_waiting=FXCollections.observableArrayList(data_waitingList);
 		order_waiting_ID.setCellValueFactory(new PropertyValueFactory<>("ID"));
 		order_waiting_userName.setCellValueFactory(new PropertyValueFactory<>("userName"));
 		order_waiting_hotelName.setCellValueFactory(new PropertyValueFactory<>("hotelName"));
 		order_waiting_time.setCellValueFactory(new PropertyValueFactory<>("time"));
 		order_waiting_price.setCellValueFactory(new PropertyValueFactory<>("price"));
 		order_waiting.setItems(data_waiting);
+		
+		ArrayList<OrderVO> order_abnormalList=salesmanManage.AbnormalOrderScan();
+		ArrayList<OrderInTable> data_abnormalList=new ArrayList<OrderInTable>();
+		int size_abnormal=order_waitingList.size();
+		for(int i=0;i<size_abnormal;i++){
+			OrderVO tempOrderVO=order_abnormalList.get(i);
+			String hotelName=hotelInfo.checkHotelInfo(tempOrderVO.getHotelID()).getName();//TODO 可优化
+			data_abnormalList.add(new OrderInTable(tempOrderVO.getOrderID(),tempOrderVO.getInitiator().getUsername(),hotelName,tempOrderVO.getCheckInTime(),tempOrderVO.getPrice()));
+		}		
+		data_abnormal=FXCollections.observableArrayList(data_abnormalList);
+		order_abnormal_ID.setCellValueFactory(new PropertyValueFactory<>("ID"));
+		order_abnormal_userName.setCellValueFactory(new PropertyValueFactory<>("userName"));
+		order_abnormal_hotelName.setCellValueFactory(new PropertyValueFactory<>("hotelName"));
+		order_abnormal_time.setCellValueFactory(new PropertyValueFactory<>("time"));
+		order_abnormal_price.setCellValueFactory(new PropertyValueFactory<>("price"));
+		order_abnormal.setItems(data_abnormal);
 	}
 	
 public static class OrderInTable {

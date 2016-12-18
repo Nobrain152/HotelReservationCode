@@ -111,6 +111,8 @@ public class orderOnUserViewController implements Initializable{
 	public void initialize(URL location, ResourceBundle resources) {
 		// TODO Auto-generated method stub
 		helper=UIhelper.getInstance();
+		orderManage=new CustomerInfoManagementController();
+		hotelInfo=new HotelInfoCheckController();
 		
 		ArrayList<OrderVO> order_allList=orderManage.IndividualOrderInquiry(helper.getUserID());
 		ArrayList<OrderInTable> data_allList=new ArrayList<OrderInTable>();

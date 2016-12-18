@@ -75,6 +75,7 @@ public class reservedHotelListViewController implements Initializable{
 	public void initialize(URL location, ResourceBundle resources) {
 		// TODO Auto-generated method stub
 		helper=UIhelper.getInstance();
+		customerInfo=new CustomerInfoManagementController();
 		
 		ArrayList<hotelItem> data_List=new ArrayList<hotelItem>();
 		

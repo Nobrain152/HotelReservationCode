@@ -7,11 +7,13 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
-import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
 import ui.UILaunch;
+import ui.UIhelper;
 
 public class customerInfoInquireByMViewController implements Initializable{
 	private UILaunch application;
+	private UIhelper helper;
 	
 	@FXML
 	private Button btn_Cancel;
@@ -19,8 +21,8 @@ public class customerInfoInquireByMViewController implements Initializable{
 	@FXML
 	private Button btn_Inquire;
 	
-	@FXML
-	private Label label;
+	@FXML 
+	private TextField tf_ID;
 	
 	public void setApp(UILaunch application){
 		this.application= application;
@@ -33,6 +35,8 @@ public class customerInfoInquireByMViewController implements Initializable{
 	
 	@FXML
 	private void btn_InquireAction(ActionEvent event) throws Exception{
+		//TODO 判断是否有这个用户
+		helper.setCustomerIDbyManager(tf_ID.getText());
 		application.gotocustomerInfoByM();
 		
 	}
@@ -40,6 +44,7 @@ public class customerInfoInquireByMViewController implements Initializable{
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		// TODO Auto-generated method stub
+		helper=UIhelper.getInstance();
 		
 	}
 

@@ -57,8 +57,10 @@ public class Vip {
 		int i;
 		
 		for(i = 0; i < levelSystemPOs.size(); i++){
-			if(credit > levelSystemPOs.get(i).getCredits()){
-				break;
+			if(credit < levelSystemPOs.get(i).getCredits()){
+				continue;
+			}else{
+				
 			}
 		}
 		
@@ -101,13 +103,9 @@ public class Vip {
 	 */
 	public ResultMsg createLevelSystem(LevelSystemVO levelSystemVO) throws RemoteException {
 		LevelSystemPO levelSystemPO = (LevelSystemPO)VOPOchange.VOtoPO(levelSystemVO);
-		ResultMsg resultMsg;
-		if(vipDataService.findL(1) != null)
-			resultMsg = ResultMsg.hasExist;
-		else{
+		ResultMsg resultMsg = ResultMsg.FAIL;
+		if(vipDataService.findL(levelSystemVO.getLevels()) == null)
 			resultMsg = vipDataService.insertL(levelSystemPO);
-		}
 		return resultMsg;
 	}
-	
 }

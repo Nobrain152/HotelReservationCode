@@ -5,6 +5,7 @@ import java.lang.reflect.Field;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
 
+import po.CommonVipPO;
 import po.ContactPO;
 import po.CustomerInfoPO;
 import po.OrderPO;
@@ -14,6 +15,7 @@ import util.OrderState;
 import util.RoomState;
 import util.RoomType;
 import util.VipType;
+import vo.CommonVipVO;
 //import vo.ContactVO;
 import vo.CustomerInfoVO;
 import vo.OrderVO;
@@ -218,6 +220,28 @@ public class VOPOchange {
 			e.printStackTrace();
 		}
 		
+		if(voClass.getSuperclass().toString().endsWith("CustomerInfoVO")){
+			setSuperField(po, o, "credit");
+			setSuperField(po, o, "isMember");
+			setSuperField(po, o, "vipType");
+		}
+		
+		if(voClass.getSuperclass().toString().endsWith("UserInfoVO")){
+			setSuperField(po, o, "userID");
+			setSuperField(po, o, "password");
+			setSuperField(po, o, "username");
+			setSuperField(po, o, "contact");
+			setSuperField(po, o, "type");
+		}
+		
+		if(voClass.getSuperclass().getSuperclass().toString().endsWith("UserInfoVO")){
+			setSuperField(po, o, "userID");
+			setSuperField(po, o, "password");
+			setSuperField(po, o, "username");
+			setSuperField(po, o, "contact");
+			setSuperField(po, o, "type");
+		}
+		
 		for(int i = 0 ; i < field.length; i++){
 			
 			if(field[i].getType().toString().endsWith("ArrayList")
@@ -284,6 +308,7 @@ public class VOPOchange {
 	private static void setSuperField(Object po,Object o, String name) {
 		
 		Field field1 = getSuperField(o.getClass(), name);
+		System.out.println(name);
 		if(name.endsWith("VO")) {
 			name = name.substring(0, name.length()-2) + "PO";
 		}
@@ -333,6 +358,13 @@ public class VOPOchange {
 	
 	public static void main(String[] args) {
 		
+		CommonVipVO commonVipVO = new CommonVipVO("19954722", "ÌÆöÎ", "sfd", "18805156300", 300, "1997-05-13", VipType.COMMON_VIP);
+		CommonVipPO commonVipPO = (CommonVipPO)VOtoPO(commonVipVO);
+		System.out.println(commonVipPO.getVipType());
+		
+//		CustomerInfoVO customerInfoVO = new CustomerInfoVO("19954722", "ÌÆöÎ", "18805156300","sfd", 300, true, VipType.COMMON_VIP);
+//		CustomerInfoPO customerInfoPO = (CustomerInfoPO)VOtoPO(customerInfoVO);
+//		System.out.println("-==-");
 		//OK
 //		UserInfoVO vo = new UserInfoVO("12345", "67890", new ContactVO("18805156300", "151250132@smail.nju.edu.cn"));
 //		UserInfoPO po = (UserInfoPO)VOtoPO(vo);

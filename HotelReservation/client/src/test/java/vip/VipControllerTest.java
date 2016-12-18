@@ -8,7 +8,6 @@ import org.junit.Before;
 import org.junit.Test;
 
 import bl.vipbl.VipController;
-import po.CommonVipPO;
 import util.VipType;
 import vo.CommonVipVO;
 import vo.CustomerInfoVO;
@@ -30,18 +29,17 @@ public class VipControllerTest {
 //		assertEquals(level,1);
 //	}
 
-	@Test
-	public void testRegisterVip() throws RemoteException {
-		vipController.registerVip(customerInfoVO.getUserID(), customerInfoVO.getVipType(), "1997-05-13");
-		CommonVipVO commonVipVO = new CommonVipVO("19954722", "ÌÆöÎ", "sfd", "18805156300", 300, "1997-05-13", VipType.COMMON_VIP);
-		assertEquals(commonVipVO.getBirthday(), "1997-05-13");
-	}
-	
 //	@Test
-//	OK
-//	public void testCreateLevelSystem() throws RemoteException{
-//		LevelSystemVO levelSystemVO = new LevelSystemVO(1, 100);
-//		vipController.createLevelSystem(levelSystemVO);
-//		assertEquals(levelSystemVO.getLevels(), 1);
+//	public void testRegisterVip() throws RemoteException {
+//		vipController.registerVip(customerInfoVO.getUserID(), customerInfoVO.getVipType(), "1997-05-13");
+//		CommonVipVO commonVipVO = new CommonVipVO("19954722", "ÌÆöÎ", "sfd", "18805156300", 300, "1997-05-13", VipType.COMMON_VIP);
+//		assertEquals(commonVipVO.getBirthday(), "1997-05-13");
 //	}
+	
+	@Test
+	public void testCreateLevelSystem() throws RemoteException{
+		LevelSystemVO levelSystemVO = new LevelSystemVO(2, 200);
+		vipController.createLevelSystem(levelSystemVO);
+		assertEquals(levelSystemVO.getLevels(), 2);
+	}
 }

@@ -20,6 +20,8 @@ public class OrderOnUserController implements OrderOnUserBLService{
 	public OrderOnUserController() {
 		userDataService = (OrderDataService)RMIManage.
 				getDataService(DataServiceType.OrderDataService);
+		creditDataService = (CreditDataService)RMIManage.
+				getDataService(DataServiceType.CreditDataService);
 		orderOnUser = new OrderOnUser(userDataService,creditDataService);
 	}
 	

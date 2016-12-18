@@ -8,7 +8,6 @@ import bl.VOPOchange;
 import dataservice.creditdataservice.CreditDataService;
 import dataservice.userdataservice.UserManagementDataService;
 import dataservice.vipdataservice.VipDataService;
-import net.RMIManage;
 import po.BusinessVipPO;
 import po.CommonVipPO;
 import po.CreditPO;
@@ -56,14 +55,14 @@ public class Vip {
 		int i;
 		
 		for(i = 0; i < levelSystemPOs.size(); i++){
-			if(credit < levelSystemPOs.get(i).getCredits()){
+			if(credit > levelSystemPOs.get(i).getCredits()){
 				continue;
 			}else{
-				
+				break;
 			}
 		}
 		
-		return i+1;
+		return i;
 	}
 	
 	/**
@@ -82,13 +81,13 @@ public class Vip {
 			CommonVipVO commonVipVO = new CommonVipVO(customerInfoVO.getUserID(), customerInfoVO.getUsername()
 					, customerInfoVO.getPassword(),customerInfoVO.getContact(), 300, str, VipType.COMMON_VIP);
 			CommonVipPO commonVipPO = (CommonVipPO)VOPOchange.VOtoPO(commonVipVO);
-			//if(vipDataService.findByUserIDC(userID) == null)
+			if(vipDataService.findByUserIDC(userID) == null)
 				resultMsg = vipDataService.insertC(commonVipPO);
 		} else if(type == VipType.COMPANY_VIP) {
 			BusinessVipVO businessVipVO = new BusinessVipVO(customerInfoVO.getUserID(), customerInfoVO.getUsername()
 					, customerInfoVO.getPassword(),customerInfoVO.getContact(), 300, str, VipType.COMPANY_VIP);
 			BusinessVipPO businessVipPO = (BusinessVipPO)VOPOchange.VOtoPO(businessVipVO);
-		//if(vipDataService.findByUserIDC(userID) == null)
+			if(vipDataService.findByUserIDC(userID) == null)
 				resultMsg = vipDataService.insertB(businessVipPO);
 		}
 		if(resultMsg != ResultMsg.FAIL) {

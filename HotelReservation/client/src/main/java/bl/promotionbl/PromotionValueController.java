@@ -26,10 +26,16 @@ public class PromotionValueController implements PromotionValueBLService{
 	private OrderDataService orderDataService;
 	
 	public PromotionValueController() {
-		this.promotionHotelDataService = (PromotionHotelDataService)RMIManage.getDataService(DataServiceType.PromotionHotelDataService);
-		this.promotionWebDataService = (PromotionWebDataService)RMIManage.getDataService(DataServiceType.PromotionWebDataService);
-		this.vipDataService = (VipDataService)RMIManage.getDataService(DataServiceType.VipDataService);
-		this.hotelInfoDataService = (HotelInfoDataService)RMIManage.getDataService(DataServiceType.HotelInfoDataService);
+		promotionHotelDataService = (PromotionHotelDataService)RMIManage.
+				getDataService(DataServiceType.PromotionHotelDataService);
+		promotionWebDataService = (PromotionWebDataService)RMIManage.
+				getDataService(DataServiceType.PromotionWebDataService);
+		vipDataService = (VipDataService)RMIManage.
+				getDataService(DataServiceType.VipDataService);
+		hotelInfoDataService = (HotelInfoDataService)RMIManage.
+				getDataService(DataServiceType.HotelInfoDataService);
+		orderDataService = (OrderDataService)RMIManage.
+				getDataService(DataServiceType.OrderDataService);
 		promotionValueHotel = new PromotionValue(promotionHotelDataService, vipDataService,orderDataService);
 		promotionValueWeb = new PromotionValue(promotionWebDataService, vipDataService, hotelInfoDataService,orderDataService);
 	}

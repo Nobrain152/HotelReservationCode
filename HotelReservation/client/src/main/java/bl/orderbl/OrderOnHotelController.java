@@ -22,6 +22,10 @@ public class OrderOnHotelController implements OrderOnHotelBLService{
 	public OrderOnHotelController() {
 		hotelDataService = (OrderDataService)RMIManage.
 				getDataService(DataServiceType.OrderDataService);
+		roomInfoDataService = (RoomInfoDataService)RMIManage.
+				getDataService(DataServiceType.RoomInfoDataService);
+		creditDataService = (CreditDataService)RMIManage.
+				getDataService(DataServiceType.CreditDataService);
 		hotelOrder = new OrderOnHotel(hotelDataService,roomInfoDataService,creditDataService);
 	}
 	

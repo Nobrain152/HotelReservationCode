@@ -109,11 +109,15 @@ public class VipDataSerivceImpl extends DataSuperClass implements VipDataService
 		try {
 			preState = conn.prepareStatement(sql);
 			result = preState.executeQuery();
-			po = new CommonVipPO(result.getString(1), result.getString(2), 
+			while(result.next()){
+				po = new CommonVipPO(result.getString(1), result.getString(2), 
 								result.getString(3), result.getString(4),
 								Integer.valueOf(result.getString(5)), 
 								result.getString(6), 
 								VipType.valueOf(result.getString(7)));
+				break;
+			}
+			
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
@@ -167,11 +171,14 @@ public class VipDataSerivceImpl extends DataSuperClass implements VipDataService
 		try {
 			preState = conn.prepareStatement(sql);
 			result = preState.executeQuery();
-			pos.add(new BusinessVipPO(result.getString(1), result.getString(2), 
+			while(result.next()){
+				pos.add(new BusinessVipPO(result.getString(1), result.getString(2), 
 								result.getString(3), result.getString(4),
 								Integer.valueOf(result.getString(5)), 
 								result.getString(6), 
 								VipType.valueOf(result.getString(7))));
+			}
+			
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}

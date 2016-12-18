@@ -101,8 +101,13 @@ public class Vip {
 	 */
 	public ResultMsg createLevelSystem(LevelSystemVO levelSystemVO) throws RemoteException {
 		LevelSystemPO levelSystemPO = (LevelSystemPO)VOPOchange.VOtoPO(levelSystemVO);
-		ResultMsg resultMsg = vipDataService.insertL(levelSystemPO);
+		ResultMsg resultMsg;
+		if(vipDataService.findL(1) != null)
+			resultMsg = ResultMsg.hasExist;
+		else{
+			resultMsg = vipDataService.insertL(levelSystemPO);
+		}
 		return resultMsg;
 	}
-
+	
 }

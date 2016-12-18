@@ -1,5 +1,6 @@
 package vo;
 
+import util.UserType;
 
 /**
  * 酒店管理人员
@@ -15,6 +16,7 @@ public class StuffInfoVO extends UserInfoVO{
 	public StuffInfoVO(String userid,String username,String contact,String hotelid,String password){
 	    super(userid, username, contact,password);
 		this.hotel =hotelid;
+		setType(UserType.HotelStuff);
 	}
 	
 	public String getHotel(){

@@ -2,6 +2,7 @@
 package vo;
 
 
+import util.UserType;
 import util.VipType;
 
 /**
@@ -36,7 +37,7 @@ public class CustomerInfoVO extends UserInfoVO {
 		this.credit = credit;
 		this.isMember = isMember;
 		this.vipType = vipType;
-		
+		setType(UserType.Customer);
 	}
 
 	public int getCredit() {

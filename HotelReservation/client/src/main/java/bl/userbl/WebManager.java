@@ -12,6 +12,7 @@ import po.CustomerInfoPO;
 import po.StuffInfoPO;
 import po.UserInfoPO;
 import util.ResultMsg;
+import util.UserType;
 import vo.HotelInfoVO;
 import vo.StuffInfoVO;
 import vo.UserInfoVO;
@@ -136,6 +137,7 @@ public class WebManager extends User {
 	 * @return
 	 */
 	public String AddWebStuff(UserInfoVO vo)throws RemoteException{
+		vo.setType(UserType.WebStuff);
 		UserInfoPO po=(UserInfoPO)VOPOchange.VOtoPO(vo);
 		return data.AddWebStuff(po);
 	}

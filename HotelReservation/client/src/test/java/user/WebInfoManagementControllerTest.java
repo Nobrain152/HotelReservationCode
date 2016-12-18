@@ -18,10 +18,6 @@ public class WebInfoManagementControllerTest {
 		impl=new WebInfoManagementController();
 	}
 
-	@Test
-	public void testinquiry() {
-		assertEquals(impl.IndividualBaseInfolnquiry("42345679"),null);
-	}
 	
 	@Test
 	public void testmodify(){

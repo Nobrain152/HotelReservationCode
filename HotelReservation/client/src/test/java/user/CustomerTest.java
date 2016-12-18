@@ -20,7 +20,7 @@ public class CustomerTest {
 		
 	}
 	
-	
+	@Test
 	public void testinquiry(){
 		
 		po = customer.IndividualBaseInfolnquiry("12345678");

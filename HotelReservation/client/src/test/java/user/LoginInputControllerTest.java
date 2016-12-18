@@ -11,15 +11,12 @@ import vo.LoginInVO;
 import vo.UserInfoVO;
 
 public class LoginInputControllerTest {
-
-	
-		
-		LoginInVO vo;
+        LoginInVO vo;
 		LoginInputController im;
 		
 		@Before
 		public void setUp() {
-			vo=new LoginInVO("Tom","123456789");
+			vo=new LoginInVO("Tom","12345679");
 			im=new LoginInputController();
 		}
 

@@ -1,9 +1,11 @@
 package po;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 
 import util.Adress;
 import util.Area;
+
 
 /**
  * 酒店信息
@@ -54,6 +56,11 @@ public class HotelInfoPO implements Serializable{
 	 * 酒店ID
 	 */
 	private String hotelID;
+	
+	/**
+	 * 用于界面调用时返回对应用户在该酒店的订单信息
+	 */
+	public ArrayList<OrderPO> order;
 	
 	/**
 	 * 酒店评分
@@ -158,5 +165,13 @@ public class HotelInfoPO implements Serializable{
 	
 	public void setSP(int sp){
 		SP=sp;
+	}
+	
+	public ArrayList<OrderPO> getOrder(){
+		return order;
+	}
+	
+	public void setOrder(ArrayList<OrderPO> vo){
+		this.order=vo;
 	}
 }	

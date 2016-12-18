@@ -64,9 +64,6 @@ public class VOPOchange {
 			setSuperField(vo, o, "credit");
 			setSuperField(vo, o, "isMember");
 			setSuperField(vo, o, "vipType");
-		}
-		
-		if(voClass.getSuperclass().toString().endsWith("UserInfoVO")){
 			setSuperField(vo, o, "userID");
 			setSuperField(vo, o, "password");
 			setSuperField(vo, o, "username");
@@ -74,7 +71,7 @@ public class VOPOchange {
 			setSuperField(vo, o, "type");
 		}
 		
-		if(voClass.getSuperclass().getSuperclass().toString().endsWith("UserInfoVO")){
+		if(voClass.getSuperclass().toString().endsWith("UserInfoVO")){
 			setSuperField(vo, o, "userID");
 			setSuperField(vo, o, "password");
 			setSuperField(vo, o, "username");
@@ -246,9 +243,6 @@ public class VOPOchange {
 			setSuperField(po, o, "credit");
 			setSuperField(po, o, "isMember");
 			setSuperField(po, o, "vipType");
-		}
-		
-		if(voClass.getSuperclass().toString().endsWith("UserInfoVO")){
 			setSuperField(po, o, "userID");
 			setSuperField(po, o, "password");
 			setSuperField(po, o, "username");
@@ -256,7 +250,7 @@ public class VOPOchange {
 			setSuperField(po, o, "type");
 		}
 		
-		if(voClass.getSuperclass().getSuperclass().toString().endsWith("UserInfoVO")){
+		if(voClass.getSuperclass().toString().endsWith("UserInfoVO")){
 			setSuperField(po, o, "userID");
 			setSuperField(po, o, "password");
 			setSuperField(po, o, "username");

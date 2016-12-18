@@ -29,17 +29,17 @@ public class VipControllerTest {
 //		assertEquals(level,1);
 //	}
 
-//	@Test
-//	public void testRegisterVip() throws RemoteException {
-//		vipController.registerVip(customerInfoVO.getUserID(), customerInfoVO.getVipType(), "1997-05-13");
-//		CommonVipVO commonVipVO = new CommonVipVO("19954722", "ÌÆöÎ", "sfd", "18805156300", 300, "1997-05-13", VipType.COMMON_VIP);
-//		assertEquals(commonVipVO.getBirthday(), "1997-05-13");
-//	}
-	
 	@Test
-	public void testCreateLevelSystem() throws RemoteException{
-		LevelSystemVO levelSystemVO = new LevelSystemVO(2, 200);
-		vipController.createLevelSystem(levelSystemVO);
-		assertEquals(levelSystemVO.getLevels(), 2);
+	public void testRegisterVip() throws RemoteException {
+		vipController.registerVip(customerInfoVO.getUserID(), customerInfoVO.getVipType(), "1997-05-13");
+		CommonVipVO commonVipVO = new CommonVipVO("19954722", "ÌÆöÎ", "sfd", "18805156300", 300, "1997-05-13", VipType.COMMON_VIP);
+		assertEquals(commonVipVO.getBirthday(), "1997-05-13");
 	}
+	
+//	@Test
+//	public void testCreateLevelSystem() throws RemoteException{
+//		LevelSystemVO levelSystemVO = new LevelSystemVO(2, 200);
+//		vipController.createLevelSystem(levelSystemVO);
+//		assertEquals(levelSystemVO.getLevels(), 2);
+//	}
 }

@@ -92,6 +92,20 @@ public class HotelStuffHotelOperationController implements HotelStuffHotelOperat
 			return false;
 		}
 	}
+	
+	/**
+	 * 删除酒店促销策略	
+	 * @param 酒店IDVO
+	 * @param 酒店促销策略VO
+	 * @return 修改结果
+	 */
+	public boolean HotelStrategeDelete(PromotionHotelVO vo){
+		try {
+			return stuff.HotelStrategeDelete(vo);
+		} catch (RemoteException e) {
+			return false;
+		}
+	}
 			
 	/**
 	 * 更新订单状态	

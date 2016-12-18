@@ -52,6 +52,18 @@ public class WebStuffWebsiteManagementController implements WebStuffWebsiteManag
 			return ResultMsg.FAIL;
 		}
 	}
+	
+	/**
+	 * 删除网站促销策略
+	 * @param 网站促销策略VO
+	 */
+	public ResultMsg WebsiteStrategeDelete(PromotionWebVO vo){
+		try {
+			return stuff.WebsiteStrategeDelete(vo);
+		} catch (RemoteException e) {
+			return ResultMsg.FAIL;
+		}
+	}
 			
 	/**
 	 * 查看异常订单

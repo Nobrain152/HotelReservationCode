@@ -35,6 +35,12 @@ public interface WebStuffWebsiteManagementBLService{
 	 * @param 网站促销策略VO
 	 */
 	public ResultMsg WebsiteStrategeMod(PromotionWebVO vo);
+	
+	/**
+	 * 删除网站促销策略
+	 * @param 网站促销策略VO
+	 */
+	public ResultMsg WebsiteStrategeDelete(PromotionWebVO vo);
 		
 	/**
 	 * 查看异常订单

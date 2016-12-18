@@ -274,4 +274,35 @@ public class HotelStuff extends User {
 		return userDataService.SetHotelStuffInfo(userid,po2);
 		
 	}
+	
+	/**
+	 * É¾³ý¾Æµê´ÙÏú²ßÂÔ	
+	 * @param ¾ÆµêIDVO
+	 * @param ¾Æµê´ÙÏú²ßÂÔVO
+	 * @return ÐÞ¸Ä½á¹û
+	 */
+	public boolean HotelStrategeDelete(PromotionHotelVO vo)throws RemoteException{
+		PromotionHotelType type=vo.getType();
+		ResultMsg msg=null;
+		if(type==PromotionHotelType.BIRTH_PROMOTION){
+			msg=promotion.deleteBirthCut(vo.getLevel(),vo.getHotelID());
+		}
+		else if(type==PromotionHotelType.OVERTHREE_PROMOTION){
+			msg=promotion.deleteOverCut(vo.getNumber(),vo.getHotelID());
+		}
+		else if(type==PromotionHotelType.JOIN_PROMOTION){
+			msg=promotion.deleteJoin(vo.getBusinessName(),vo.getHotelID());
+		}
+		else{
+			promotion.deleteHotelCustomCut(vo.getTimeBegin(),vo.getTimeOver(),vo.getHotelID());
+		}
+		
+		if(msg==ResultMsg.SUCCESS){
+			return true;
+		}
+		else{
+			return false;
+		}
+	}
+	
 }

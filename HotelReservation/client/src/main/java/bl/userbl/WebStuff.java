@@ -154,4 +154,25 @@ public class WebStuff extends User{
 		return order.dayUnexOrder(today);
 	}
 	
+	/**
+	 * É¾³ýÍøÕ¾´ÙÏú²ßÂÔ
+	 * @param ÍøÕ¾´ÙÏú²ßÂÔVO
+	 */
+	public ResultMsg WebsiteStrategeDelete(PromotionWebVO vo)throws RemoteException{
+		PromotionWebType type=vo.getType();
+		ResultMsg msg=null;
+		if(type==PromotionWebType.VIP_LEVEL_PROMOTION){
+			msg=pro.deleteLevelCut(vo.getLevel());
+		}
+		else if(type==PromotionWebType.VIP_CIRCLE_PROMOTION){
+			msg=pro.deleteCircleCut(vo.getLocation());
+		}
+		else{
+			msg=pro.deleteWebCustomCut(vo.getTimeBegin(),vo.getTimeOver());
+		}
+		
+		return msg;
+	}
+	
+	
 	}

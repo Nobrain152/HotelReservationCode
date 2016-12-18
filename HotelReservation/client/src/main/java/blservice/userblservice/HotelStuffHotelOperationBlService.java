@@ -32,7 +32,14 @@ public interface HotelStuffHotelOperationBlService{
 	 * @return 修改结果
 	 */
 	public ResultMsg HotelInformationModification(HotelInfoVO vo1,String userid);
-		
+	
+	/**
+	 * 删除酒店促销策略	
+	 * @param 酒店IDVO
+	 * @param 酒店促销策略VO
+	 * @return 修改结果
+	 */
+	public boolean HotelStrategeDelete(PromotionHotelVO vo);
 	
 	/**
 	 * 修改酒店房间信息

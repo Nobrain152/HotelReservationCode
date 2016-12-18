@@ -1,4 +1,4 @@
-package data.vipdata;
+	package data.vipdata;
 
 import java.awt.Window.Type;
 import java.rmi.RemoteException;

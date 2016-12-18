@@ -18,21 +18,29 @@ import util.ResultMsg;
 
 public class VipDataServiceImplTest {
 
-	private VipDataSerivceImpl vip;
+	private VipDataSerivceImpl impl;
 	
 	@Before
 	public void setUp() throws Exception {
+		impl = new VipDataSerivceImpl();
 	}
 
+//	@Test
+//	public void testAdd() throws RemoteException {
+//		LevelSystemPO levelSystemPO = new LevelSystemPO(1, 100);
+//		vip = new VipDataSerivceImpl();	
+//			
+//		vip.insertL(levelSystemPO);
+//		System.out.println(levelSystemPO.getLevels());
+//		System.out.println(levelSystemPO.getCredits());
+//		assertEquals(levelSystemPO.getLevels(), 1);
+//	}
+	
 	@Test
-	public void testAdd() throws RemoteException {
-		LevelSystemPO levelSystemPO = new LevelSystemPO(1, 100);
-		vip = new VipDataSerivceImpl();	
-			
-		vip.insertL(levelSystemPO);
-		System.out.println(levelSystemPO.getLevels());
-		System.out.println(levelSystemPO.getCredits());
-		assertEquals(levelSystemPO.getLevels(), 1);
+	public void testFindByL() throws RemoteException{
+		LevelSystemPO po = impl.findL(1);
+		System.out.println(po.getLevels());
+		System.out.println(po.getCredits());
 	}
 
 }

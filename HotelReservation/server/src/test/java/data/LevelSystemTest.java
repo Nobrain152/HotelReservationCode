@@ -9,7 +9,6 @@ import org.junit.Test;
 
 import data.vipdata.LevelSystem;
 import po.LevelSystemPO;
-import util.ResultMsg;
 
 public class LevelSystemTest {
 	private LevelSystem impl;
@@ -22,9 +21,21 @@ public class LevelSystemTest {
 		po2 = new LevelSystemPO(2, 2000);
 	}
 	
+//	@Test
+//	public void testInsert() throws RemoteException{
+//		ResultMsg aMsg  = impl.insert(po1);
+//		assertEquals(aMsg, ResultMsg.SUCCESS);
+//	}
+	
 	@Test
-	public void testInsert() throws RemoteException{
-		ResultMsg aMsg  = impl.insert(po1);
-		assertEquals(aMsg, ResultMsg.SUCCESS);
+	public void testFindBy() throws RemoteException{
+		LevelSystemPO po = impl.findByLevel("3");
+		if(po == null){
+			System.out.println("warn");
+		}else{
+			System.out.println(po.getLevels());
+		System.out.println(po.getCredits());
+		}
+		
 	}
 }

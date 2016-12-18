@@ -117,7 +117,7 @@ public class HotelInfoDataServiceImpl extends DataSuperClass implements HotelInf
 		ArrayList<HotelInfoPO> pos = new ArrayList<HotelInfoPO>();
 		
 		try {
-			sql = "SELECT * FROM " + tableName + " WHERE area = \'" + area + "\' AND circle = \'" + circle + "\'";
+			sql = "SELECT * FROM " + tableName + " WHERE address = \'" + area + "\' AND area = \'" + circle + "\'";
 			preState = conn.prepareStatement(sql);
 			result = preState.executeQuery();
 			while (result.next()) {

@@ -66,6 +66,15 @@ public class HotelInfoDataServiceImplTest {
 	@Test
 	public void testFindByAreaAndCircle() throws RemoteException{
 		ArrayList<HotelInfoPO> po = impl.findByAreaAndCircle(Adress.NANJING, Area.NORTH);
+		assertEquals(po.get(1).getName(), "SunHotel");
 	}
 
+	
+	@Test
+	public void testFindByName() throws RemoteException{
+		ArrayList<HotelInfoPO> pos = impl.findByName("SunHotel");
+		assertEquals(pos.get(1).getHotelID(), "5002");
+	}
+	
+	
 }

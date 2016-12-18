@@ -35,11 +35,11 @@ public class LoginInputControllerTest {
 			assertEquals(result,true);
 		}
 		
-		@Test
+		
 		public void testregister(){
 			UserInfoVO vo=new UserInfoVO();
 		    String result=im.Register(vo);
-		    //assertEquals(result,"000000001");
+		    assertEquals(result,"000000001");
 		}
 	
 

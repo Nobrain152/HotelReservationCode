@@ -2,65 +2,46 @@ package user;
 
 import static org.junit.Assert.assertEquals;
 
-import java.rmi.RemoteException;
+import org.junit.Before;
+import org.junit.Test;
 
-import bl.userbl.Customer;
-import dataservice.userdataservice.CustomerManagementDataService;
+import bl.userbl.CustomerInfoManagementController;
 import util.ResultMsg;
 import vo.CustomerInfoVO;
 import vo.UserInfoVO;
 
 public class CustomerTest {
-	private Customer cu;
-	private CustomerManagementDataService customerManagementDataService;
+	private CustomerInfoManagementController customer;
+	private UserInfoVO po;
 
-	
+	@Before
 	public void setup(){
-		cu=new Customer(customerManagementDataService);
+		customer=new CustomerInfoManagementController();
 		
 	}
 	
+	
 	public void testinquiry(){
-		UserInfoVO po = null;
-		try {
-			po = cu.IndividualBaseInfolnquiry("12345678");
-		} catch (RemoteException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		assertEquals(po.getUserID(),"12345678");
-		assertEquals(po.getUsername(),"Jerry");
-		assertEquals(po.getContact(),"13067893451");
+		
+		po = customer.IndividualBaseInfolnquiry("12345678");
+		assertEquals("12345678",po.getUserID());
+		assertEquals("Jerry",po.getUsername());
+		assertEquals("13067893451",po.getContact());
 	}
 	
+	@Test
 	public void testmodify(){
 		CustomerInfoVO vo1=new CustomerInfoVO("12345678","Tom","13067893451","1234567",100,false,null);
 		ResultMsg cantest = ResultMsg.FAIL;
-		try {
-			cantest = cu.IndividualBaseInfoModification("12345678",vo1);
-		} catch (RemoteException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		cantest = customer.IndividualBaseInfoModification("12345678",vo1);
 		UserInfoVO po = null;
-		try {
-			po = cu.IndividualBaseInfolnquiry("12345678");
-		} catch (RemoteException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		po = customer.IndividualBaseInfolnquiry("12345678");
 		if(cantest==ResultMsg.SUCCESS){
-			assertEquals(po.getUserID(),"12345678");
-			assertEquals(po.getUsername(),"Tom");
-			assertEquals(po.getContact(),"13067893451");
+			assertEquals("12345678",po.getUserID());
+			assertEquals("Tom",po.getUsername());
+			assertEquals("13067893451",po.getContact());
 			
 		}
 	}
 	
-	public static void main(String[] args){
-		CustomerTest customerTest=new CustomerTest();
-		customerTest.setup();
-		customerTest.testinquiry();
-		customerTest.testmodify();
-	}
 }

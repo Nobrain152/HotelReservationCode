@@ -3,52 +3,41 @@ package user;
 
 import static org.junit.Assert.assertEquals;
 
-import java.rmi.RemoteException;
 
-import bl.userbl.HotelStuff;
-import dataservice.userdataservice.UserManagementDataService;
+import org.junit.Before;
+import org.junit.Test;
+
+
+import bl.userbl.StuffInfoManagementController;
 import util.ResultMsg;
 import vo.StuffInfoVO;
 import vo.UserInfoVO;
 
 public class HotelStuffTest {
-	private HotelStuff stuff;
-	private UserManagementDataService service;
+	private StuffInfoManagementController service;
 	
+	@Before
 	public void setup(){
-		stuff=new HotelStuff(service);
+		service=new StuffInfoManagementController();
 		
 	}
 	
+	@Test
 	public void testinquiry(){
 		UserInfoVO po = null;
-		try {
-			po = stuff.IndividualBaseInfolnquiry("22345678");
-		} catch (RemoteException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		po = service.IndividualBaseInfolnquiry("22345678");
 		assertEquals(po.getUserID(),"22345678");
 		assertEquals(po.getUsername(),"Tim");
 		assertEquals(po.getContact(),"18192345782");
 	}
 	
+	@Test
 	public void testmodify(){
 		StuffInfoVO vo1=new StuffInfoVO("22345678","Tom","18192345782","66666","1234567");
 		ResultMsg cantest = ResultMsg.FAIL;
-		try {
-			cantest = stuff.IndividualBaseInfoModification("22345678",vo1);
-		} catch (RemoteException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		cantest = service.IndividualBaseInfoModification("22345678",vo1);
 		UserInfoVO po = null;
-		try {
-			po = stuff.IndividualBaseInfolnquiry("22345678");
-		} catch (RemoteException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		po = service.IndividualBaseInfolnquiry("22345678");
 		if(cantest==ResultMsg.SUCCESS){
 			assertEquals(po.getUserID(),"22345678");
 			assertEquals(po.getUsername(),"Tom");

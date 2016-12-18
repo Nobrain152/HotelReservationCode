@@ -268,7 +268,6 @@ public class VOPOchange {
 					&& !field[i].getGenericType().toString().endsWith("String>")){
 				
 				Type listType = field[i].getGenericType();
-				System.out.println(field[i]);
 				Object list = null;
 				
 				try {
@@ -338,9 +337,9 @@ public class VOPOchange {
 			
 			field1.setAccessible(true);
 			Object val = field1.get(o);
-			field2.setAccessible(true);
 
 			try {
+				field2.setAccessible(true);
 				if(val.getClass().toString().endsWith("VO")) {
 					Object valtmp = VOtoPO(val);
 					field2.set(po, valtmp);

@@ -64,7 +64,7 @@ public class DataSuperClass extends UnicastRemoteObject{
 	private static final Map<String, ArrayList<String>> SQLmap = new HashMap<String, ArrayList<String>>(50);
 	
 	static{
-		SQLmap.put("createID", helper.bulidSQL("createID", 6, "customerID","hotelStuffID","webStuffID","webManagerID","hotelID","orderID"));
+		SQLmap.put("createID", helper.bulidSQL("createID", 7,"flag","customerID","hotelStuffID","webStuffID","webManagerID","hotelID","orderID"));
 		SQLmap.put("credit", helper.bulidSQL("credit",6, "userID","orderID","time","action","creditChange","creditResult"));
 		SQLmap.put("hotelEvaluate", helper.bulidSQL("hotelEvaluate", 6, "userID","hotelID","score","comment","reserve","orderID"));
 		SQLmap.put("hotelInfo", helper.bulidSQL("hotelInfo", 10, "hotelID","name","address","area","level","introduction","facility","reserve","score","SP"));
@@ -187,7 +187,7 @@ public class DataSuperClass extends UnicastRemoteObject{
 	 * 在数据库中查找一条消息
 	 * @param tableName 表的名字
 	 * @param ID 要查找数据的ID
-	 * @return 找不到事返回null，否则返回PO类所有信息
+	 * @return 找不到时返回null，否则返回PO类所有信息
 	 */
 	protected ArrayList<String> findFromSQL(String tableName, String ID) {
 		try {

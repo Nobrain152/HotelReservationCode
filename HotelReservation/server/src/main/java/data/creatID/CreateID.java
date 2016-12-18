@@ -18,6 +18,8 @@ public class CreateID extends DataSuperClass{
 	
 	private static String tableName = "createID";
 	
+	private static final String flag = "1";
+	
 	
 	private CreateID() throws RemoteException {
 		super();
@@ -50,7 +52,7 @@ public class CreateID extends DataSuperClass{
 		if(a != ResultMsg.SUCCESS){
 			return ResultMsg.FAIL;
 		}
-		ResultMsg b = addToSQL(tableName, "10000020","20000000","30000000","40000000","5001","60000000");
+		ResultMsg b = addToSQL(tableName, "1","10000020","20000000","30000000","40000000","5001","60000000");
 		
 		return b;
 	}
@@ -58,7 +60,7 @@ public class CreateID extends DataSuperClass{
 	public String getNewCustomerID() throws RemoteException{
 		sql = "SELECT * FROM " + tableName;
 		findMes = findMes(sql);
-		ResultMsg aMsg = addToSQL(tableName, ""+(Integer.valueOf(findMes.get(0))+1),findMes.get(1),
+		ResultMsg aMsg  = modifyFromSQL(tableName, flag,""+(Integer.valueOf(findMes.get(0))+1),findMes.get(1),
 									findMes.get(2),findMes.get(3),findMes.get(4),findMes.get(5));
 		
 		
@@ -72,7 +74,7 @@ public class CreateID extends DataSuperClass{
 	public String getNewHotelStuffID() throws RemoteException{
 		sql = "SELECT * FROM " + tableName;
 		findMes = findMes(sql);
-		ResultMsg aMsg = addToSQL(tableName, findMes.get(0),""+(Integer.valueOf(findMes.get(1))+1),
+		ResultMsg aMsg = modifyFromSQL(tableName, flag,findMes.get(0),""+(Integer.valueOf(findMes.get(1))+1),
 									findMes.get(2),findMes.get(3),findMes.get(4),findMes.get(5));
 		
 		if(aMsg == ResultMsg.SUCCESS){
@@ -85,7 +87,7 @@ public class CreateID extends DataSuperClass{
 	public String getNewWebStuffID() throws RemoteException{
 		sql = "SELECT * FROM " + tableName;
 		findMes = findMes(sql);
-		ResultMsg aMsg = addToSQL(tableName, findMes.get(0),findMes.get(1),
+		ResultMsg aMsg = modifyFromSQL(tableName, flag,findMes.get(0),findMes.get(1),
 									""+(Integer.valueOf(findMes.get(2))+1),findMes.get(3),
 									findMes.get(4),findMes.get(5));
 		
@@ -99,7 +101,7 @@ public class CreateID extends DataSuperClass{
 	public String getNewWebManagerID() throws RemoteException{
 		sql = "SELECT * FROM " + tableName;
 		findMes = findMes(sql);
-		ResultMsg aMsg = addToSQL(tableName, findMes.get(0),findMes.get(1),
+		ResultMsg aMsg = modifyFromSQL(tableName, flag,findMes.get(0),findMes.get(1),
 									findMes.get(2),""+(Integer.valueOf(findMes.get(3))+1),
 									findMes.get(4),findMes.get(5));
 		
@@ -113,7 +115,7 @@ public class CreateID extends DataSuperClass{
 	public String getNewHotelID() throws RemoteException{
 		sql = "SELECT * FROM " + tableName;
 		findMes = findMes(sql);
-		ResultMsg aMsg = addToSQL(tableName, findMes.get(0),findMes.get(1),
+		ResultMsg aMsg = modifyFromSQL(tableName, flag,findMes.get(0),findMes.get(1),
 									findMes.get(2),findMes.get(3),
 									""+(Integer.valueOf(findMes.get(4))+1),findMes.get(5));
 		
@@ -127,7 +129,7 @@ public class CreateID extends DataSuperClass{
 	public String getNewOrderID() throws RemoteException{
 		sql = "SELECT * FROM " + tableName;
 		findMes = findMes(sql);
-		ResultMsg aMsg = addToSQL(tableName, findMes.get(0),findMes.get(1),
+		ResultMsg aMsg = modifyFromSQL(tableName, flag,findMes.get(0),findMes.get(1),
 									findMes.get(2),findMes.get(3),
 									findMes.get(4),""+(Integer.valueOf(findMes.get(5))+1));
 		
@@ -161,7 +163,15 @@ public class CreateID extends DataSuperClass{
 			e.printStackTrace();
 		}
 		
-		return ans;
+		//È¥³ýµôflagµÄans
+		ArrayList<String> finalAns = new ArrayList<String>();
+		for(int i=0;i<ans.size();i++){
+			if(i!=0){
+				finalAns.add(ans.get(i));
+			}
+		}
+		
+		return finalAns;
 	}
 	
 	//test

@@ -21,48 +21,42 @@ public class HotelEvaluateDataServiceImplTest {
 	HotelEvaluatePO evaluation2;
 	
 	@Before
-	public void setUp(){
-		//impl = new HotelEvaluateDataServiceImpl();
-		evaluation1=new HotelEvaluatePO("gyf","StarHotel",10,"execellent",true,"6515164236536");
-		evaluation2=new HotelEvaluatePO("gyf","SunHotel",8,"very good",false,"5463464354");
+	public void setUp() throws RemoteException{
+		impl = new HotelEvaluateDataServiceImpl();
+		evaluation1=new HotelEvaluatePO("151250058","20000001",10,"execellent",true,"60000000");
+		evaluation2=new HotelEvaluatePO("151250059","20000002",8,"very good",false,"60000001");
 		list = new ArrayList<HotelEvaluatePO>();
 	}
 	
 	@Test
 	public void testInsert() throws RemoteException{
 		ResultMsg b = impl.insert(evaluation1);
+		impl.insert(evaluation2);
 		assertEquals(b, ResultMsg.SUCCESS);
 	}
 	
 	@Test
-	public void testDelete() throws RemoteException{
+	public void testFindByID() throws RemoteException{
 		impl.insert(evaluation1);
-		//ResultMsg b = impl.delete(evaluation1);
-		//assertEquals(b,ResultMsg.SUCCESS);;
+		HotelEvaluatePO po= impl.findByID("60000000");
+		assertEquals(po.getHotelID(), "20000001");
+		assertEquals(po.getScore(), 10);
+		assertEquals(po.getComment(), "execellent");
+		assertEquals(po.getIsReserved(), true);
+		assertEquals(po.getOrderID(), "60000000");
 	}
 	
 	
-	@Test
-	public void testFind() throws RemoteException{
-		impl.insert(evaluation1);
-		impl.insert(evaluation2);
-		//ArrayList<HotelEvaluatePO> arrayList = impl.find("StarHotel");
-		list.add(evaluation1);
-		list.add(evaluation2);
-		//assertEquals(list.get(0), arrayList.get(0));
-		//assertEquals(list.get(1), arrayList.get(1));
-	}
 
 	@Test
 	public void testShow() throws RemoteException{
 		impl.insert(evaluation1);
-		impl.insert(evaluation2);
-		
-		list.add(evaluation1);
-		list.add(evaluation2);
-		
-		ArrayList<HotelEvaluatePO> arrayList = impl.show("123456");
-		assertEquals(list, arrayList);
+		ArrayList<HotelEvaluatePO> pos= impl.show("20000001");
+		assertEquals(pos.get(0).getHotelID(), "20000001");
+		assertEquals(pos.get(0).getScore(), 10);
+		assertEquals(pos.get(0).getComment(), "execellent");
+		assertEquals(pos.get(0).getIsReserved(), true);
+		assertEquals(pos.get(0).getOrderID(), "60000000");
 	}
 
 }

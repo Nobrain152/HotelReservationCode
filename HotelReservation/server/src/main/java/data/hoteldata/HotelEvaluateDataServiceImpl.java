@@ -51,9 +51,12 @@ public class HotelEvaluateDataServiceImpl extends DataSuperClass implements Hote
 		try {
 			preState = conn.prepareStatement(sql);
 			result = preState.executeQuery();
-			po = new HotelEvaluatePO(result.getString(1), result.getString(2), 
+			while(result.next()){
+				po = new HotelEvaluatePO(result.getString(1), result.getString(2), 
 								Integer.valueOf(result.getString(3)),result.getString(4),
 								Boolean.valueOf(result.getString(5)),result.getString(6));
+				break;
+			}
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}

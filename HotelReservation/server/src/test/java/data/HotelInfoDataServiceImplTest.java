@@ -10,6 +10,9 @@ import org.junit.Test;
 
 import data.hoteldata.HotelInfoDataServiceImpl;
 import po.HotelInfoPO;
+import util.Adress;
+import util.Area;
+import util.ResultMsg;
 
 public class HotelInfoDataServiceImplTest {
 
@@ -23,32 +26,25 @@ public class HotelInfoDataServiceImplTest {
 	@Before
 	public void setUp() throws RemoteException{
 		impl = new HotelInfoDataServiceImpl();
-		/*hotel1=new HotelInfoPO("1343","StarHotel","StarRoad","StarArea",5,"It's a wonderful hotel","cafe, garden and so on",
+		hotel1=new HotelInfoPO("5001","StarHotel",Adress.BEIJING,Area.EAST,5,"It's a wonderful hotel","cafe, garden and so on",
 				true,66.6,200);
-		hotel2=new HotelInfoPO("2352","SunHotel","SunRoad","SunArea",4,"It's a nice hotel","cafe",
+		hotel2=new HotelInfoPO("5003","SunHotel",Adress.NANJING,Area.NORTH,4,"It's a nice hotel","cafe",
 				false,77.77,100);
-		hotel3=new HotelInfoPO("4353","MoonHotel","MoonRoad","MoonArea",-1,"It's a terrible hotel","nothing",
+		hotel3=new HotelInfoPO("5004","MoonHotel",Adress.SHANGHAI,Area.SOUTH,3,"It's a terrible hotel","nothing",
 				true,88.88,300);
-				*/
 		
 		list = new ArrayList<HotelInfoPO>();
 	}
-	/*
 	@Test
 	public void testInsert() throws RemoteException{
-		ResultMsg b = impl.insert(hotel2);
-		ResultMsg c = impl.insert(hotel3);
-		assertEquals(b, ResultMsg.SUCCESS);
+		String b = impl.insert(hotel2);
+		String c = impl.insert(hotel3);
+		assertEquals(b, "5003");
+		assertEquals(c, "5004");
 	}
 	
-	/*
-	@Test
-	public void testDelete() throws RemoteException{
-		impl.insert(hotel1);
-		ResultMsg b = impl.delete(hotel1.getHotelID());
-		assertEquals(b, ResultMsg.SUCCESS);
-		}
-	/*
+	
+	
 	@Test
 	public void testUpdate() throws RemoteException{
 		impl.insert(hotel1);
@@ -59,27 +55,17 @@ public class HotelInfoDataServiceImplTest {
 	
 	@Test
 	public void testFind() throws RemoteException{
-		//impl.insert(hotel1);
-		//impl.insert(hotel2);
-		HotelInfoPO arrayList = impl.find("1343");
-		list.add(hotel1);
-		list.add(hotel2);
-		assertEquals(hotel1.getIsReserved(), arrayList.getIsReserved());
-		//HotelInfoPO arrayList2 = impl.find("2352");
-		//assertEquals(list.get(1), arrayList2);
+		HotelInfoPO arrayList = impl.find("5004");
+		assertEquals(hotel3.getIsReserved(), arrayList.getIsReserved());
 	}
-*/
+	
 	@Test
 	public void testShow() throws RemoteException{
-		//impl.insert(hotel1);
-		//impl.insert(hotel2);
-		//impl.insert(hotel3);
-		list.add(hotel1);
-		list.add(hotel2);
-		list.add(hotel3);
-		ArrayList<HotelInfoPO> arrayList = impl.show();
-		System.out.println(arrayList.get(0).getAddress());
-		assertEquals(list.get(0).getName(), arrayList.get(0).getName());
+	}
+	
+	@Test
+	public void testFindByAreaAndCircle() throws RemoteException{
+		ArrayList<HotelInfoPO> po = impl.findByAreaAndCircle(Adress.NANJING, Area.NORTH);
 	}
 
 }

@@ -127,10 +127,19 @@ public class UserManagementDataServiceImpl extends DataSuperClass implements Use
 	@Override
 	public CustomerInfoPO GetCustomerInfo(String userid) throws RemoteException{
 		findMes = findFromSQL(tableName2, userid);
-		CustomerInfoPO po = new CustomerInfoPO(findMes.get(0), findMes.get(1), findMes.get(3), 
+		CustomerInfoPO po = null;
+		if(findMes.get(6) != null){
+			po = new CustomerInfoPO(findMes.get(0), findMes.get(1), findMes.get(3), 
 												findMes.get(2), Integer.valueOf(findMes.get(7)), 
 												Boolean.valueOf(findMes.get(5)), 
 												VipType.valueOf(findMes.get(6)));
+		}else{
+			po = new CustomerInfoPO(findMes.get(0), findMes.get(1), findMes.get(3), 
+					findMes.get(2), Integer.valueOf(findMes.get(7)), 
+					Boolean.valueOf(findMes.get(5)), 
+					null);
+		}
+		
 		return po;
 	}
 

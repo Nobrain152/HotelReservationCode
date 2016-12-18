@@ -31,12 +31,13 @@ public class HotelInfoDataServiceImpl extends DataSuperClass implements HotelInf
 	 * 增加
 	 */
 	public String insert(HotelInfoPO po) throws RemoteException{
-		ResultMsg bMsg = addToSQL(tableName, po.getHotelID(),po.getName(),
+		String newID = CreateID.getCreateID().getNewHotelID();
+		ResultMsg bMsg = addToSQL(tableName, newID,po.getName(),
 				po.getAddress().toString(),po.getArea().toString(),
 				""+po.getLevel(),po.getIntroduction(),po.getFacility(),
 				Boolean.toString(po.getIsReserved()),""+po.getScore(),""+po.getSP());
 		if(bMsg == ResultMsg.SUCCESS){
-			return CreateID.getCreateID().getNewHotelID();
+			return newID;
 		}else{
 			return null;
 		}
@@ -44,12 +45,7 @@ public class HotelInfoDataServiceImpl extends DataSuperClass implements HotelInf
 	}
 	
 	
-	/**
-	 * 删除
-	 */
-	public ResultMsg delete(HotelInfoPO po) throws RemoteException{
-		return delFromSQL(tableName, po.getName());
-	}
+	
 	
 	/**
 	 * 更新

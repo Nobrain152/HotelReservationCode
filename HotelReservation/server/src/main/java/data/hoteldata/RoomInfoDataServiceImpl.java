@@ -74,10 +74,14 @@ public class RoomInfoDataServiceImpl extends DataSuperClass implements RoomInfoD
 		try {
 			preState = conn.prepareStatement(sql);
 			result = preState.executeQuery();
-			po = new RoomInfoPO(RoomState.valueOf(result.getString(1)),
+			while(result.next()){
+				po = new RoomInfoPO(RoomState.valueOf(result.getString(1)),
 								RoomType.valueOf(result.getString(2)),
 								result.getString(3), Double.valueOf(result.getString(4)), 
 								result.getString(5));
+				break;
+			}
+			
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}

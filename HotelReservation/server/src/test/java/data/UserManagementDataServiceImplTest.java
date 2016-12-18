@@ -42,6 +42,7 @@ public class UserManagementDataServiceImplTest {
 	}
 	
 	
+	
 	@Test
 	public void testGetUserBaseInfo() throws RemoteException{
 		//assertEquals(impl.GetUserBaseInfo(po),null);

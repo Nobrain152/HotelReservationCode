@@ -3,6 +3,8 @@ package data.orderdata;
 import java.rmi.RemoteException;
 import java.sql.SQLException;
 import java.util.ArrayList;
+
+import data.creatID.CreateID;
 import data.hoteldata.RoomInfoDataServiceImpl;
 import data.userdata.CustomerManagementDataServiceImpl;
 import dataSuper.DataSuperClass;
@@ -28,8 +30,16 @@ public class OrderDataServiceImpl extends DataSuperClass implements OrderDataSer
 	
 	@Override
 	public String insert(OrderPO po) throws RemoteException {
-		// TODO
-		return null;
+		String newID = CreateID.getCreateID().getNewOrderID();
+		ResultMsg bMsg = addToSQL(tableName,newID,po.getInitiator().getUserID(),po.getOrderState().toString(),""+po.getPrice(),
+										po.hotelID,"" + po.getHasChild(),po.getLatestExecutionTime(),po.getCheckInTime(),
+										po.getCheckOutTime(),po.getCancelledTime(),""+ po.getRoomNumber(),
+										""+po.getPeopleNumber(),""+po.getRoomInfoPO().getRoomID());
+		if(bMsg == ResultMsg.SUCCESS){
+			return newID;
+		}else{
+			return null;
+		}
 	}
 
 	@Override

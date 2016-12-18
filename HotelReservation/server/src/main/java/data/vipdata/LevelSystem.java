@@ -36,7 +36,7 @@ public class LevelSystem extends DataSuperClass{
 	
 	public LevelSystemPO findByLevel(String level) throws RemoteException{
 		LevelSystemPO po = null;
-		sql = "SELECT * FROM " + tableName;
+		sql = "SELECT * FROM " + tableName + " WHERE levels = \'" + level + "\'";
 		try {
 			preState = conn.prepareStatement(sql);
 			result = preState.executeQuery();

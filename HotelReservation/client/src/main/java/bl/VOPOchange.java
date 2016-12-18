@@ -8,9 +8,12 @@ import java.util.ArrayList;
 import po.CommonVipPO;
 import po.ContactPO;
 import po.CustomerInfoPO;
+import po.HotelInfoPO;
 import po.OrderPO;
 import po.RoomInfoPO;
 import po.UserInfoPO;
+import util.Adress;
+import util.Area;
 import util.OrderState;
 import util.RoomState;
 import util.RoomType;
@@ -18,6 +21,7 @@ import util.VipType;
 import vo.CommonVipVO;
 //import vo.ContactVO;
 import vo.CustomerInfoVO;
+import vo.HotelInfoVO;
 import vo.OrderVO;
 import vo.RoomInfoVO;
 import vo.UserInfoVO;
@@ -264,6 +268,7 @@ public class VOPOchange {
 					&& !field[i].getGenericType().toString().endsWith("String>")){
 				
 				Type listType = field[i].getGenericType();
+				System.out.println(field[i]);
 				Object list = null;
 				
 				try {
@@ -324,7 +329,6 @@ public class VOPOchange {
 	private static void setSuperField(Object po,Object o, String name) {
 		
 		Field field1 = getSuperField(o.getClass(), name);
-		System.out.println(name);
 		if(name.endsWith("VO")) {
 			name = name.substring(0, name.length()-2) + "PO";
 		}
@@ -374,17 +378,21 @@ public class VOPOchange {
 	
 	public static void main(String[] args) {
 		
-		CommonVipVO commonVipVO = new CommonVipVO("19954722", "ÌÆöÎ", "sfd", "18805156300", 300, "1997-05-13", VipType.COMMON_VIP);
-		CommonVipPO commonVipPO = (CommonVipPO)VOtoPO(commonVipVO);
-		System.out.println(commonVipPO.getVipType());
+//		CommonVipVO commonVipVO = new CommonVipVO("19954722", "ÌÆöÎ", "sfd", "18805156300", 300, "1997-05-13", VipType.COMMON_VIP);
+//		CommonVipPO commonVipPO = (CommonVipPO)VOtoPO(commonVipVO);
+//		System.out.println(commonVipPO.getVipType());
 		
 //		CustomerInfoVO customerInfoVO = new CustomerInfoVO("19954722", "ÌÆöÎ", "18805156300","sfd", 300, true, VipType.COMMON_VIP);
 //		CustomerInfoPO customerInfoPO = (CustomerInfoPO)VOtoPO(customerInfoVO);
 //		System.out.println("-==-");
 		//OK
-//		UserInfoVO vo = new UserInfoVO("12345", "67890", new ContactVO("18805156300", "151250132@smail.nju.edu.cn"));
+//		UserInfoVO vo = new UserInfoVO("12345", "67890", "18805156300","sfd");
 //		UserInfoPO po = (UserInfoPO)VOtoPO(vo);
-//		System.out.println(po.getContact().getEmailAddress());
+//		System.out.println(po.getUserID());
+		
+		HotelInfoVO hotelInfoVO = new HotelInfoVO("name", Adress.BEIJING, Area.EAST, 1, "none", "", true, "123", 4.5, 2);
+		HotelInfoPO hotelInfoPO = (HotelInfoPO)VOtoPO(hotelInfoVO);
+		System.out.println(hotelInfoPO.getName());
 		
 		//OK
 //		OrderVO vo = new OrderVO(new CustomerInfoVO("19954722", "ÌÆöÎ", 

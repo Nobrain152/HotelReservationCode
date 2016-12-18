@@ -86,7 +86,7 @@ public class HotelInfoVO {
 		this.facility=facility;
 		this.reserve=reserve;
 		this.hotelID = hotelID;
-		this.order=new ArrayList<OrderVO>();
+		this.order=new ArrayList<>();
 		this.score=score;
 		SP=sp;
 	}

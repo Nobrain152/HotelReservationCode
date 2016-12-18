@@ -22,7 +22,7 @@ public class VipController implements VipLevelBLService{
 	
 	public VipController() {
 		vipDataService = (VipDataService)RMIManage.
-		getDataService(DataServiceType.VipDataService);
+				getDataService(DataServiceType.VipDataService);
 		dataService = (UserManagementDataService)RMIManage.
 				getDataService(DataServiceType.CustomerManagementDataService);
 		creditDataService = (CreditDataService)RMIManage.

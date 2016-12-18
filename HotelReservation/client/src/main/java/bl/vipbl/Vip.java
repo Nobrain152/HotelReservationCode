@@ -15,7 +15,6 @@ import po.CreditPO;
 import po.CustomerInfoPO;
 import po.LevelSystemPO;
 import util.Action;
-import util.DataServiceType;
 import util.ResultMsg;
 import util.Today;
 import util.VipType;
@@ -26,9 +25,9 @@ import vo.LevelSystemVO;
 
 public class Vip {
 	
-	private VipDataService vipDataService = (VipDataService)RMIManage.getDataService(DataServiceType.VipDataService);
-	private UserManagementDataService dataService = (UserManagementDataService)RMIManage.getDataService(DataServiceType.UserManagementDataService);
-	private CreditDataService creditDataService = (CreditDataService)RMIManage.getDataService(DataServiceType.CreditDataService);
+	private VipDataService vipDataService;
+	private UserManagementDataService dataService;
+	private CreditDataService creditDataService;
 	
 	public Vip(VipDataService vipDataService, UserManagementDataService dataService
 			,CreditDataService creditDataService) {
@@ -83,13 +82,13 @@ public class Vip {
 			CommonVipVO commonVipVO = new CommonVipVO(customerInfoVO.getUserID(), customerInfoVO.getUsername()
 					, customerInfoVO.getPassword(),customerInfoVO.getContact(), 300, str, VipType.COMMON_VIP);
 			CommonVipPO commonVipPO = (CommonVipPO)VOPOchange.VOtoPO(commonVipVO);
-			if(vipDataService.findByUserIDC(userID) == null)
+			//if(vipDataService.findByUserIDC(userID) == null)
 				resultMsg = vipDataService.insertC(commonVipPO);
 		} else if(type == VipType.COMPANY_VIP) {
 			BusinessVipVO businessVipVO = new BusinessVipVO(customerInfoVO.getUserID(), customerInfoVO.getUsername()
 					, customerInfoVO.getPassword(),customerInfoVO.getContact(), 300, str, VipType.COMPANY_VIP);
 			BusinessVipPO businessVipPO = (BusinessVipPO)VOPOchange.VOtoPO(businessVipVO);
-			if(vipDataService.findByUserIDC(userID) == null)
+		//if(vipDataService.findByUserIDC(userID) == null)
 				resultMsg = vipDataService.insertB(businessVipPO);
 		}
 		if(resultMsg != ResultMsg.FAIL) {

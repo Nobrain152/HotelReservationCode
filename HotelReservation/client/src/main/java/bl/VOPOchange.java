@@ -60,6 +60,28 @@ public class VOPOchange {
 			e.printStackTrace();
 		}
 		
+		if(voClass.getSuperclass().toString().endsWith("CustomerInfoVO")){
+			setSuperField(vo, o, "credit");
+			setSuperField(vo, o, "isMember");
+			setSuperField(vo, o, "vipType");
+		}
+		
+		if(voClass.getSuperclass().toString().endsWith("UserInfoVO")){
+			setSuperField(vo, o, "userID");
+			setSuperField(vo, o, "password");
+			setSuperField(vo, o, "username");
+			setSuperField(vo, o, "contact");
+			setSuperField(vo, o, "type");
+		}
+		
+		if(voClass.getSuperclass().getSuperclass().toString().endsWith("UserInfoVO")){
+			setSuperField(vo, o, "userID");
+			setSuperField(vo, o, "password");
+			setSuperField(vo, o, "username");
+			setSuperField(vo, o, "contact");
+			setSuperField(vo, o, "type");
+		}
+		
 		for(int i = 0 ; i < field.length; i++){
 			
 			if(field[i].getType().toString().endsWith("ArrayList")

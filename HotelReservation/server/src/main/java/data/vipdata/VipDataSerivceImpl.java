@@ -7,9 +7,12 @@ import java.util.ArrayList;
 
 
 import dataSuper.DataSuperClass;
+import datafactory.DataFactory;
+import dataservice.userdataservice.CustomerManagementDataService;
 import dataservice.vipdataservice.VipDataService;
 import po.BusinessVipPO;
 import po.CommonVipPO;
+import po.CustomerInfoPO;
 import po.LevelSystemPO;
 import util.ResultMsg;
 import util.VipType;
@@ -21,6 +24,8 @@ public class VipDataSerivceImpl extends DataSuperClass implements VipDataService
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
+	
+	CustomerManagementDataService customerManagementDataService = DataFactory.getDataFactory().getCustomerManagementDataServiceImpl();
 
 	public VipDataSerivceImpl() throws RemoteException {
 		super();
@@ -45,12 +50,33 @@ public class VipDataSerivceImpl extends DataSuperClass implements VipDataService
 
 	@Override
 	public ResultMsg updateC(CommonVipPO vip) throws RemoteException {
-		return modifyFromSQL(tableName, vip.getUserID(),vip.getUsername(),
+		CustomerInfoPO po = customerManagementDataService.GetCustomerInfo(vip.getUserID());
+		setVipTOCustomerC(po, vip);
+		ResultMsg a = customerManagementDataService.SetCustomerInfo(vip.getUserID(), po);
+		if(a == ResultMsg.SUCCESS){
+			return modifyFromSQL(tableName, vip.getUserID(),vip.getUsername(),
 								vip.getPassword(),vip.getContact(),
 								""+vip.getCredit(),vip.getBirthday(),
 								vip.getVipType().toString());
+		}else{
+			System.out.println("vip信息更新customer信息失败");
+			return ResultMsg.FAIL;
+		}
+		
 	}
 
+	
+	/**
+	 * vip信息同步到customer中
+	 */
+	private static CustomerInfoPO setVipTOCustomerC(CustomerInfoPO customer,CommonVipPO vipc){
+		customer.setUsername(vipc.getUsername());
+		customer.setPassword(vipc.getPassword());
+		customer.setContact(vipc.getContact());
+		customer.setCredit(vipc.getCredit());
+		customer.setVipType(vipc.getVipType());
+		return customer;
+	}
 
 	@Override
 	public CommonVipPO findByUserIDC(String id) throws RemoteException {
@@ -76,10 +102,30 @@ public class VipDataSerivceImpl extends DataSuperClass implements VipDataService
 
 	@Override
 	public ResultMsg updateB(BusinessVipPO vip) throws RemoteException {
-		return modifyFromSQL(tableName2, vip.getUserID(),vip.getUsername(),
-							vip.getPassword(),vip.getContact(),
-							""+vip.getCredit(),vip.getBusinessName(),
-							vip.getVipType().toString());
+		CustomerInfoPO po = customerManagementDataService.GetCustomerInfo(vip.getUserID());
+		setVipTOCustomerB(po, vip);
+		ResultMsg a = customerManagementDataService.SetCustomerInfo(vip.getUserID(), po);
+		if(a == ResultMsg.SUCCESS){
+			return modifyFromSQL(tableName, vip.getUserID(),vip.getUsername(),
+								vip.getPassword(),vip.getContact(),
+								""+vip.getCredit(),vip.getBusinessName(),
+								vip.getVipType().toString());
+		}else{
+			System.out.println("vip信息更新customer信息失败");
+			return ResultMsg.FAIL;
+		}
+	}
+	
+	/**
+	 * vip信息同步到customer中
+	 */
+	private static CustomerInfoPO setVipTOCustomerB(CustomerInfoPO customer,BusinessVipPO vipc){
+		customer.setUsername(vipc.getUsername());
+		customer.setPassword(vipc.getPassword());
+		customer.setContact(vipc.getContact());
+		customer.setCredit(vipc.getCredit());
+		customer.setVipType(vipc.getVipType());
+		return customer;
 	}
 
 	@Override

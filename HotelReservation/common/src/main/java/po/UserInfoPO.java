@@ -35,7 +35,7 @@ public class UserInfoPO implements Serializable{
 	/**
 	 * 用户类型
 	 */
-	private UserType type;
+	public UserType type;
 	
 	
 	public UserInfoPO() {}

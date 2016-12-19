@@ -11,6 +11,7 @@ import org.junit.Test;
 import data.userdata.UserManagementDataServiceImpl;
 import po.CustomerInfoPO;
 import po.LoginInPO;
+import util.ResultMsg;
 import util.VipType;
 
 public class UserManagementDataServiceImplTest {
@@ -52,6 +53,13 @@ public class UserManagementDataServiceImplTest {
 	public void testSetUserBaseInfo() throws RemoteException{
 		//UserInfoPO v=new UserInfoPO("123456798","Lily",new ContactPO("12345678765",null));
 		//assertEquals(impl.SetUserBaseInfo(po, v),true);
+	}
+	
+	@Test
+	public void testSeTCustomerInfo() throws RemoteException{
+		CustomerInfoPO po = new CustomerInfoPO("19954722", "ÌÆöÎ", "18805156300", "sfd", 400, true, VipType.COMMON_VIP);
+		ResultMsg aMsg = impl.SetCustomerInfo("19954722", po);
+		assertEquals(aMsg, ResultMsg.SUCCESS);
 	}
 	
 	@Test

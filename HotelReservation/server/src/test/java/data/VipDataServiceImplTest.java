@@ -15,6 +15,7 @@ import po.BusinessVipPO;
 import po.CommonVipPO;
 import po.LevelSystemPO;
 import util.ResultMsg;
+import util.VipType;
 
 public class VipDataServiceImplTest {
 
@@ -43,10 +44,15 @@ public class VipDataServiceImplTest {
 //		System.out.println(po.getCredits());
 //	}
 	
+//	@Test
+//	public void testFindByUserIDC() throws RemoteException{
+//		CommonVipPO commonVipPO = impl.findByUserIDC("19954722");
+//		assertEquals(commonVipPO.getUserID(), "19954722");
+//	}
+	
 	@Test
-	public void testFindByUserIDC() throws RemoteException{
-		CommonVipPO commonVipPO = impl.findByUserIDC("19954722");
-		assertEquals(commonVipPO.getUserID(), "19954722");
+	public void testUpdataC() throws RemoteException{
+		impl.updateC(new CommonVipPO("19954722", "kevin", "123", "13270898633", 400, "45640", VipType.COMMON_VIP));
 	}
 
 }

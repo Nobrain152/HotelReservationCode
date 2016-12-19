@@ -3,6 +3,7 @@ package po;
 import java.io.Serializable;
 import java.util.ArrayList;
 
+import util.UserType;
 import util.VipType;
 
 /**
@@ -42,6 +43,8 @@ public class CustomerInfoPO extends UserInfoPO implements Serializable{
 	 */
 	ArrayList<String> hotelIDList;
 	
+	
+	
 	public CustomerInfoPO() {}
 
 	public CustomerInfoPO(String userid, String username, String contact,
@@ -52,6 +55,7 @@ public class CustomerInfoPO extends UserInfoPO implements Serializable{
 		this.vipType = vipType;
 		this.orderIDList = new ArrayList<String>();
 		this.hotelIDList = new ArrayList<String>();
+		this.type = UserType.Customer;
 	}
 
 	public int getCredit() {

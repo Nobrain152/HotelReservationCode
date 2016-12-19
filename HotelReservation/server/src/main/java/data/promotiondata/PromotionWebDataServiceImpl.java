@@ -27,7 +27,7 @@ public class PromotionWebDataServiceImpl extends DataSuperClass implements Promo
 
 	@Override
 	public ResultMsg insert(PromotionWebPO Promotion) throws RemoteException {
-		return addToSQL(tableName, Promotion.getType().toString(),Promotion.getMemberType().toString(),
+		return addToSQL(tableName, Promotion.getType().toString(),
 									Promotion.getTimeBegin(),Promotion.getTimeOver(),
 									""+Promotion.getRatio(),""+Promotion.getLevel(),
 									Promotion.getLocation().toString());
@@ -61,7 +61,7 @@ public class PromotionWebDataServiceImpl extends DataSuperClass implements Promo
 	@Override
 	public ResultMsg update(PromotionWebPO Promotion) throws RemoteException {
 		return modifyFromSQL(tableName, Promotion.getType().toString(),
-							Promotion.getMemberType().toString(),Promotion.getTimeBegin(),
+							Promotion.getTimeBegin(),
 							Promotion.getTimeOver(),""+Promotion.getRatio(),
 							""+Promotion.getLevel(),Promotion.getLocation().toString());
 	}
@@ -110,18 +110,18 @@ public class PromotionWebDataServiceImpl extends DataSuperClass implements Promo
 			while (result.next()) {
 				if(result.getString(1).equals(PromotionWebType.VIP_LEVEL_PROMOTION)){
 					pos.add(new PromotionWebPO(PromotionWebType.valueOf(result.getString(1)),
-												Integer.valueOf(result.getString(6)), 
-												Double.valueOf(result.getString(5))));
+												Integer.valueOf(result.getString(5)), 
+												Double.valueOf(result.getString(4))));
 				}
 				else if(result.getString(1).equals(PromotionWebType.VIP_CIRCLE_PROMOTION)){
 					pos.add(new PromotionWebPO(PromotionWebType.valueOf(result.getString(1)), 
-												Area.valueOf(result.getString(7)), 
-												Double.valueOf(result.getString(5))));
+												Area.valueOf(result.getString(6)), 
+												Double.valueOf(result.getString(4))));
 				}
 				else if(result.getString(1).equals(PromotionWebType.WEB_CUSTOM_PROMOTION)){
 					pos.add(new PromotionWebPO(PromotionWebType.valueOf(result.getString(1)), 
-												result.getString(3), result.getString(4), 
-												Double.valueOf(result.getString(5))));
+												result.getString(2), result.getString(3), 
+												Double.valueOf(result.getString(4))));
 				}
 			}
 			

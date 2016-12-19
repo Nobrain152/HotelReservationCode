@@ -26,7 +26,7 @@ public class PromotionHotelDataServiceImpl extends DataSuperClass implements Pro
 	@Override
 	public ResultMsg insert(PromotionHotelPO po) throws RemoteException {
 		return addToSQL(tableName, po.getHotelID(),po.getType().toString(),
-							po.getMemberType().toString(),po.getTimeBegin(),
+							po.getTimeBegin(),
 							po.getTimeOver(),""+po.getRatio(),
 							""+po.getLevel(),""+po.getNumber(),
 							po.getBusinessName());
@@ -43,7 +43,7 @@ public class PromotionHotelDataServiceImpl extends DataSuperClass implements Pro
 	@Override
 	public ResultMsg update(PromotionHotelPO po) throws RemoteException {
 		return modifyFromSQL(tableName, po.getHotelID(),po.getType().toString(),
-							po.getMemberType().toString(),po.getTimeBegin(),
+							po.getTimeBegin(),
 							po.getTimeOver(),""+po.getRatio(),
 							""+po.getLevel(),""+po.getNumber(),
 							po.getBusinessName());
@@ -78,20 +78,20 @@ public class PromotionHotelDataServiceImpl extends DataSuperClass implements Pro
 				result.getString(2).equals(PromotionHotelType.OVERTHREE_PROMOTION)){
 					pos.add(new PromotionHotelPO(
 							PromotionHotelType.valueOf(result.getString(2)),
-							result.getString(1), Integer.valueOf(result.getString(8)),
-							Double.valueOf(result.getString(6))));
+							result.getString(1), Integer.valueOf(result.getString(7)),
+							Double.valueOf(result.getString(5))));
 				}
 				else if(result.getString(2).equals(PromotionHotelType.JOIN_PROMOTION)){
 					pos.add(new PromotionHotelPO(
 							PromotionHotelType.valueOf(result.getString(2)),
-							result.getString(1), result.getString(9),
-							Double.valueOf(result.getString(6))));
+							result.getString(1), result.getString(8),
+							Double.valueOf(result.getString(5))));
 				}
 				else if(result.getString(2).equals(PromotionHotelType.HOTEL_CUSTOM_PROMOTION)){
 					pos.add(new PromotionHotelPO(
 							PromotionHotelType.valueOf(result.getString(2)),
-							result.getString(1), result.getString(4), result.getString(5),
-							Double.valueOf(result.getString(6))));
+							result.getString(1), result.getString(3), result.getString(4),
+							Double.valueOf(result.getString(5))));
 				}
 			}
 			

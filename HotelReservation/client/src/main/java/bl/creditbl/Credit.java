@@ -44,12 +44,15 @@ public class Credit {
 			creditPO.setCreditResult(creditPO.getCreditResult() + value);
 			creditPO.setCreditChange("+" + value);
 			creditPO.setTime(new Today().getToday());
+			
 			CustomerInfoPO customerInfoPO = customerManagementDataService.GetCustomerInfo(client.getUserID());
 			customerInfoPO.setCredit(creditPO.getCreditResult());
 			customerManagementDataService.SetCustomerInfo(client.getUserID(), customerInfoPO);
-			//CommonVipPO commonVipPO = vipDataService.findByUserIDC(client.getUserID());
-			//commonVipPO.setCredit(creditPO.getCreditResult());
-			//vipDataService.updateC(commonVipPO);
+			
+			CommonVipPO commonVipPO = vipDataService.findByUserIDC(client.getUserID());
+			commonVipPO.setCredit(creditPO.getCreditResult());
+			vipDataService.updateC(commonVipPO);
+			
 			resultMsg = creditDataService.insert(creditPO);
 		}
 		return resultMsg;
@@ -64,8 +67,18 @@ public class Credit {
 			creditPO.setCreditResult(creditPO.getCreditResult() - value);
 			creditPO.setCreditChange("-" + value);
 			creditPO.setTime(new Today().getToday());
+			
+			CustomerInfoPO customerInfoPO = customerManagementDataService.GetCustomerInfo(client.getUserID());
+			customerInfoPO.setCredit(creditPO.getCreditResult());
+			customerManagementDataService.SetCustomerInfo(client.getUserID(), customerInfoPO);
+			
+			CommonVipPO commonVipPO = vipDataService.findByUserIDC(client.getUserID());
+			commonVipPO.setCredit(creditPO.getCreditResult());
+			vipDataService.updateC(commonVipPO);
+			
 			resultMsg = creditDataService.insert(creditPO);
 		}
+		System.out.println(creditPO.getCreditChange());
 		return resultMsg;
 	}
 
@@ -78,6 +91,15 @@ public class Credit {
 			creditPO.setCreditResult(value);
 			creditPO.setCreditChange("t" + value);
 			creditPO.setTime(new Today().getToday());
+			
+			CustomerInfoPO customerInfoPO = customerManagementDataService.GetCustomerInfo(client.getUserID());
+			customerInfoPO.setCredit(creditPO.getCreditResult());
+			customerManagementDataService.SetCustomerInfo(client.getUserID(), customerInfoPO);
+			
+			CommonVipPO commonVipPO = vipDataService.findByUserIDC(client.getUserID());
+			commonVipPO.setCredit(creditPO.getCreditResult());
+			vipDataService.updateC(commonVipPO);
+			
 			resultMsg = creditDataService.insert(creditPO);
 		}
 		return resultMsg;

@@ -28,7 +28,6 @@ public class CreditControllerTest {
 		creditController = new CreditController();
 		vipController = new VipController();
 		user = new CustomerInfoVO("19954722", "ÌÆöÎ", "18805156300","sfd",300,true,VipType.COMMON_VIP);
-		//vipController.registerVip(user.getUserID(), user.getVipType(), "1997-05-13");
 	}
 	
 	@Test
@@ -42,24 +41,24 @@ public class CreditControllerTest {
 		resultMsg = creditController.addCredit(user,100);
 		assertEquals(resultMsg,ResultMsg.SUCCESS);
 	}
-//	
-//	@Test
-//	public void testSubCredit() {
-//		creditController.subCredit(user, 100);
-//		assertEquals(200, user.getCredit());
-//	}
-//	
-//	@Test
-//	public void testChangeCredit() {
-//		creditController.changeCredit(user, 100);
-//		assertEquals(100, user.getCredit());
-//	}
-//	
-//	@Test
-//	public void testGetCreditList() {
-//		ArrayList<CreditVO> vos = creditController.getCreditList(user.getUserID());
-//		assertEquals(vos.get(0).getCreditResult(), 300);
-//	}
+	
+	@Test
+	public void testSubCredit() {
+		resultMsg = creditController.subCredit(user, 100);
+		assertEquals(resultMsg,ResultMsg.SUCCESS);
+	}
+	
+	@Test
+	public void testChangeCredit() {
+		resultMsg = creditController.changeCredit(user, 100);
+		assertEquals(resultMsg,ResultMsg.SUCCESS);
+	}
+	
+	@Test
+	public void testGetCreditList() {
+		ArrayList<CreditVO> vos = creditController.getCreditList(user.getUserID());
+		assertEquals(vos.get(vos.size()-1).getCreditResult(), 100);
+	}
 }
 
 

@@ -11,8 +11,14 @@ import org.junit.Test;
 
 import datafactory.DataFactory;
 import dataservice.orderdataservice.OrderDataService;
+import po.CustomerInfoPO;
 import po.OrderPO;
+import po.RoomInfoPO;
+import util.OrderState;
 import util.ResultMsg;
+import util.RoomState;
+import util.RoomType;
+import util.VipType;
 
 public class OrderDataServiceImplTest {
 
@@ -26,7 +32,11 @@ public class OrderDataServiceImplTest {
 	@Before
 	public void setUp() throws RemoteException{
 		dataServiceImpl = DataFactory.getDataFactory().getOrderDataServiceImpl();
-		
+		order1 = new OrderPO("20161002", new CustomerInfoPO("19954722", "ÌÆöÎ", "sdf",
+				"18805156300", 300, true, VipType.COMMON_VIP), 
+				OrderState.UNEXECUTED, 99.9, "5000", false, 
+				"2016-10-02 24:00", "2016-10-03 12:00", "2016-10-02 12:00", null,
+				1,1, new RoomInfoPO(RoomState.USABLE, RoomType.ROOM_STANDARD, "513", 99.9, "5000"));
 		/*order1 = new OrderPO("100001", new CustomerInfoPO("151250058","hkw", 
 				new ContactPO("13270898633", "814335296@qq.com"), 200, true,
 				VipType.COMPANY_VIP), OrderState.UNEXECUTED,
@@ -72,6 +82,12 @@ public class OrderDataServiceImplTest {
 				1, 1, RoomType.ROOM_STANDARD);*/
 		list = new ArrayList<OrderPO>();
 	}
+	
+	@Test
+	public void testGetMsg() throws RemoteException{
+		OrderPO orderPO = dataServiceImpl.findByOrderID("20161002");
+		assertEquals(orderPO.getHotelID(), "5000");
+	}
 	/*
 	@Test
 	public void testInsert() throws RemoteException{
@@ -93,14 +109,14 @@ public class OrderDataServiceImplTest {
 		assertEquals(b, ResultMsg.SUCCESS);
 	}
 	*/
-	@Test
-	public void testUpdate() throws RemoteException{
-		dataServiceImpl.insert(order1);
-		order1.setCheckOutTime("456123456");
-		ResultMsg b = dataServiceImpl.update(order1);
-		assertEquals(b, ResultMsg.SUCCESS);
-	}
-	
+//	@Test
+//	public void testUpdate() throws RemoteException{
+//		dataServiceImpl.insert(order1);
+//		order1.setCheckOutTime("456123456");
+//		ResultMsg b = dataServiceImpl.update(order1);
+//		assertEquals(b, ResultMsg.SUCCESS);
+//	}
+//	
 	/*
 	public void testFindByOrderID() throws RemoteException{
 		dataServiceImpl.insert(order1);

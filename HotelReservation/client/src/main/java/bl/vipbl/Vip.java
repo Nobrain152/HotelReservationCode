@@ -74,13 +74,12 @@ public class Vip {
 	 */
 	public ResultMsg registerVip(String userID, VipType type, String str) throws RemoteException {
 		ResultMsg resultMsg = ResultMsg.FAIL;
-		CustomerInfoPO customerInfoPO = dataService.GetCustomerInfo("19954722");
+		CustomerInfoPO customerInfoPO = dataService.GetCustomerInfo(userID);
 		CustomerInfoVO customerInfoVO = (CustomerInfoVO)VOPOchange.POtoVO(customerInfoPO);
 	
 		if(type == VipType.COMMON_VIP) {
 			CommonVipVO commonVipVO = new CommonVipVO(customerInfoVO.getUserID(), customerInfoVO.getUsername()
 					, customerInfoVO.getPassword(),customerInfoVO.getContact(), 300, str, VipType.COMMON_VIP);
-			System.out.println(userID);
 			CommonVipPO commonVipPO = (CommonVipPO)VOPOchange.VOtoPO(commonVipVO);
 			if(vipDataService.findByUserIDC(userID) == null)
 				resultMsg = vipDataService.insertC(commonVipPO);

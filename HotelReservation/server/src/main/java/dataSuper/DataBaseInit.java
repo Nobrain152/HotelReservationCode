@@ -47,7 +47,7 @@ public class DataBaseInit {
 		  try {
 			  //连接URL为'jdbc:mysql//服务器地址/数据库名 ' ，后面的2个参数分别是登陆用户名和密码
 			  conn = DriverManager.getConnection(
-					  "jdbc:mysql://localhost/withoutbrain?serverTimezone=UTC","root","hkw19970717");
+					  "jdbc:mysql://localhost/withoutbrain?serverTimezone=UTC","root","");
 		  } catch (SQLException e) {
 			e.printStackTrace();
 			System.out.println("连接数据库出错");

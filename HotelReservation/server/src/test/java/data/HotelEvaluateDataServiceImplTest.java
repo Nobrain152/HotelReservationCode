@@ -58,5 +58,7 @@ public class HotelEvaluateDataServiceImplTest {
 		assertEquals(pos.get(0).getIsReserved(), true);
 		assertEquals(pos.get(0).getOrderID(), "60000000");
 	}
+	
+	
 
 }

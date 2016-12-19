@@ -9,7 +9,9 @@ import data.hoteldata.RoomInfoDataServiceImpl;
 import data.userdata.CustomerManagementDataServiceImpl;
 import dataSuper.DataSuperClass;
 import datafactory.DataFactory;
+import dataservice.hoteldataservice.RoomInfoDataService;
 import dataservice.orderdataservice.OrderDataService;
+import dataservice.userdataservice.CustomerManagementDataService;
 import po.OrderPO;
 import util.OrderState;
 import util.ResultMsg;
@@ -23,6 +25,9 @@ public class OrderDataServiceImpl extends DataSuperClass implements OrderDataSer
 	private static final long serialVersionUID = 1L;
 	
 	private final String tableName = "order";
+	
+	CustomerManagementDataService customer = DataFactory.getDataFactory().getCustomerManagementDataServiceImpl();
+	RoomInfoDataService room =  DataFactory.getDataFactory().getRoomInfoDataServiceImpl();
 	
 	public OrderDataServiceImpl() throws RemoteException {
 		super();
@@ -78,8 +83,8 @@ public class OrderDataServiceImpl extends DataSuperClass implements OrderDataSer
 			sql = "SELECT * FROM " + tableName + " WHERE orderID = \'" + ID + "\'";
 			preState = conn.prepareStatement(sql);
 			result = preState.executeQuery();
-			CustomerManagementDataServiceImpl customer = (CustomerManagementDataServiceImpl) DataFactory.getDataFactory().getCustomerManagementDataServiceImpl();
-			RoomInfoDataServiceImpl room = (RoomInfoDataServiceImpl) DataFactory.getDataFactory().getRoomInfoDataServiceImpl();
+			//CustomerManagementDataServiceImpl customer = (CustomerManagementDataServiceImpl) DataFactory.getDataFactory().getCustomerManagementDataServiceImpl();
+			//RoomInfoDataServiceImpl room = (RoomInfoDataServiceImpl) DataFactory.getDataFactory().getRoomInfoDataServiceImpl();
 			
 			while (result.next()) {
 					orderPO = new OrderPO(result.getString(1), 
@@ -112,8 +117,8 @@ public class OrderDataServiceImpl extends DataSuperClass implements OrderDataSer
 			sql = "SELECT * FROM " + tableName + " WHERE hotelID = \'" + ID + "\'";
 			preState = conn.prepareStatement(sql);
 			result = preState.executeQuery();
-			CustomerManagementDataServiceImpl customer = (CustomerManagementDataServiceImpl) DataFactory.getDataFactory().getCustomerManagementDataServiceImpl();
-			RoomInfoDataServiceImpl room = (RoomInfoDataServiceImpl) DataFactory.getDataFactory().getRoomInfoDataServiceImpl();
+//			CustomerManagementDataService customer = DataFactory.getDataFactory().getCustomerManagementDataServiceImpl();
+//			RoomInfoDataService room =  DataFactory.getDataFactory().getRoomInfoDataServiceImpl();
 			
 			while (result.next()) {
 					orderPO = new OrderPO(result.getString(1), 
@@ -140,8 +145,8 @@ public class OrderDataServiceImpl extends DataSuperClass implements OrderDataSer
 	@Override
 	public ArrayList<OrderPO> showList() throws RemoteException {
 		ArrayList<OrderPO> pos = new ArrayList<OrderPO>(50);
-		CustomerManagementDataServiceImpl customer = (CustomerManagementDataServiceImpl) DataFactory.getDataFactory().getCustomerManagementDataServiceImpl();
-		RoomInfoDataServiceImpl room = (RoomInfoDataServiceImpl) DataFactory.getDataFactory().getRoomInfoDataServiceImpl();
+//		CustomerManagementDataServiceImpl customer = (CustomerManagementDataServiceImpl) DataFactory.getDataFactory().getCustomerManagementDataServiceImpl();
+//		RoomInfoDataServiceImpl room = (RoomInfoDataServiceImpl) DataFactory.getDataFactory().getRoomInfoDataServiceImpl();
 		OrderPO orderPO = null;
 		
 		try {
@@ -175,8 +180,8 @@ public class OrderDataServiceImpl extends DataSuperClass implements OrderDataSer
 	private OrderPO getMsg(String ID) throws RemoteException{
 		findMes = findFromSQL(tableName,ID);
 		OrderPO orderPO = null;
-		CustomerManagementDataServiceImpl customer = new CustomerManagementDataServiceImpl();
-		RoomInfoDataServiceImpl room = new RoomInfoDataServiceImpl();
+//		CustomerManagementDataServiceImpl customer = new CustomerManagementDataServiceImpl();
+//		RoomInfoDataServiceImpl room = new RoomInfoDataServiceImpl();
 		if(findMes != null){
 			
 			orderPO = new OrderPO(findMes.get(0), 

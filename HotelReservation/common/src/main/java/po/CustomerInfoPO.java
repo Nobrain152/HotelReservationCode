@@ -96,6 +96,8 @@ public class CustomerInfoPO extends UserInfoPO implements Serializable{
 		}
 	}
 	
-
+	public void setCredit(int credit) {
+		this.credit = credit;
+	}
 	
 }

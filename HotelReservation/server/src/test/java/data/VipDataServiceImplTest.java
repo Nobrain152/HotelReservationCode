@@ -36,11 +36,17 @@ public class VipDataServiceImplTest {
 //		assertEquals(levelSystemPO.getLevels(), 1);
 //	}
 	
+//	@Test
+//	public void testFindByL() throws RemoteException{
+//		LevelSystemPO po = impl.findL(1);
+//		System.out.println(po.getLevels());
+//		System.out.println(po.getCredits());
+//	}
+	
 	@Test
-	public void testFindByL() throws RemoteException{
-		LevelSystemPO po = impl.findL(1);
-		System.out.println(po.getLevels());
-		System.out.println(po.getCredits());
+	public void testFindByUserIDC() throws RemoteException{
+		CommonVipPO commonVipPO = impl.findByUserIDC("19954722");
+		assertEquals(commonVipPO.getUserID(), "19954722");
 	}
 
 }

@@ -5,6 +5,8 @@ import java.util.ArrayList;
 
 import blservice.creditblservice.CreditBLService;
 import dataservice.creditdataservice.CreditDataService;
+import dataservice.userdataservice.CustomerManagementDataService;
+import dataservice.vipdataservice.VipDataService;
 import net.RMIManage;
 import util.DataServiceType;
 import util.ResultMsg;
@@ -15,11 +17,17 @@ public class CreditController implements CreditBLService{
 
 	private Credit credit;
 	private CreditDataService creditDataService;
+	private VipDataService vipDataService;
+	private CustomerManagementDataService customerManagementDataService;
 	
 	public CreditController() {
 		creditDataService = (CreditDataService)RMIManage.
 				getDataService(DataServiceType.CreditDataService);
-		credit = new Credit(creditDataService);
+		customerManagementDataService = (CustomerManagementDataService)RMIManage.
+				getDataService(DataServiceType.CustomerManagementDataService);
+		vipDataService = (VipDataService)RMIManage.
+				getDataService(DataServiceType.VipDataService);
+		credit = new Credit(creditDataService,customerManagementDataService,vipDataService);
 	}
 	
 	@Override

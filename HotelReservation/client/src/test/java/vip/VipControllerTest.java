@@ -22,13 +22,7 @@ public class VipControllerTest {
 		vipController = new VipController();
 		customerInfoVO = new CustomerInfoVO("19954722", "ÌÆöÎ", "sfd", "18805156300", 300, true, VipType.COMMON_VIP);
 	}
-
-//	@Test
-//	public void testSearchLevel() throws RemoteException {
-//		int level = vipController.searchLevel(customerInfoVO);
-//		assertEquals(level,1);
-//	}
-
+	
 	@Test
 	public void testRegisterVip() throws RemoteException {
 		vipController.registerVip(customerInfoVO.getUserID(), customerInfoVO.getVipType(), "1997-05-13");
@@ -36,10 +30,23 @@ public class VipControllerTest {
 		assertEquals(commonVipVO.getBirthday(), "1997-05-13");
 	}
 	
-//	@Test
-//	public void testCreateLevelSystem() throws RemoteException{
-//		LevelSystemVO levelSystemVO = new LevelSystemVO(2, 200);
-//		vipController.createLevelSystem(levelSystemVO);
-//		assertEquals(levelSystemVO.getLevels(), 2);
-//	}
+	@Test
+	public void testCreateLevelSystem() throws RemoteException{
+		LevelSystemVO levelSystemVO = new LevelSystemVO(1, 100);
+		vipController.createLevelSystem(levelSystemVO);
+		assertEquals(levelSystemVO.getLevels(), 1);
+		levelSystemVO = new LevelSystemVO(2, 200);
+		vipController.createLevelSystem(levelSystemVO);
+		assertEquals(levelSystemVO.getLevels(), 2);
+		levelSystemVO = new LevelSystemVO(3, 250);
+		vipController.createLevelSystem(levelSystemVO);
+		assertEquals(levelSystemVO.getLevels(), 3);
+	}
+	
+	@Test
+	public void testSearchLevel() throws RemoteException {
+		int level = vipController.searchLevel(customerInfoVO);
+		assertEquals(level,3);
+	}
+
 }

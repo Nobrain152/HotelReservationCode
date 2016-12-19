@@ -80,6 +80,7 @@ public class Vip {
 		if(type == VipType.COMMON_VIP) {
 			CommonVipVO commonVipVO = new CommonVipVO(customerInfoVO.getUserID(), customerInfoVO.getUsername()
 					, customerInfoVO.getPassword(),customerInfoVO.getContact(), 300, str, VipType.COMMON_VIP);
+			System.out.println(userID);
 			CommonVipPO commonVipPO = (CommonVipPO)VOPOchange.VOtoPO(commonVipVO);
 			if(vipDataService.findByUserIDC(userID) == null)
 				resultMsg = vipDataService.insertC(commonVipPO);
@@ -87,7 +88,7 @@ public class Vip {
 			BusinessVipVO businessVipVO = new BusinessVipVO(customerInfoVO.getUserID(), customerInfoVO.getUsername()
 					, customerInfoVO.getPassword(),customerInfoVO.getContact(), 300, str, VipType.COMPANY_VIP);
 			BusinessVipPO businessVipPO = (BusinessVipPO)VOPOchange.VOtoPO(businessVipVO);
-			if(vipDataService.findByUserIDC(userID) == null)
+			if(vipDataService.findByUserIDB(userID) == null)
 				resultMsg = vipDataService.insertB(businessVipPO);
 		}
 		if(resultMsg != ResultMsg.FAIL) {

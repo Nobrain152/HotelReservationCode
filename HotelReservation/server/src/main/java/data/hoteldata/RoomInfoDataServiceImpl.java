@@ -28,8 +28,8 @@ public class RoomInfoDataServiceImpl extends DataSuperClass implements RoomInfoD
 
 	@Override
 	public ResultMsg insert(RoomInfoPO po) throws RemoteException {
-		return addToSQL(tableName, po.getState().toString(),po.getType().toString(),
-						po.getRoomID(),""+po.getPrice(),po.getHotelid());
+		return addToSQL(tableName, po.getRoomID(),po.getState().toString(),po.getType().toString(),
+						""+po.getPrice(),po.getHotelid());
 	}
 	
 	/**
@@ -38,15 +38,15 @@ public class RoomInfoDataServiceImpl extends DataSuperClass implements RoomInfoD
 	@Override
 	public ResultMsg delete(String hotelid, String roomid) throws RemoteException {
 		sql = "DELETE FROM " + tableName + " WHERE roomID = \'" + roomid +
-				"\' AND hotelID = \'" + hotelid+"\'";
+				"\' AND hotelID = \'" + hotelid +"\'";
 		ResultMsg a = delete(sql);
 		return a;
 	}
 
 	@Override
 	public ResultMsg update(RoomInfoPO po) throws RemoteException {
-		return modifyFromSQL(tableName, po.getState().toString(),po.getType().toString(),
-						po.getRoomID(),""+po.getPrice(),po.getHotelid());
+		return modifyFromSQL(tableName, po.getRoomID(),po.getState().toString(),po.getType().toString(),
+						""+po.getPrice(),po.getHotelid());
 	}
 
 	@Override
@@ -75,9 +75,9 @@ public class RoomInfoDataServiceImpl extends DataSuperClass implements RoomInfoD
 			preState = conn.prepareStatement(sql);
 			result = preState.executeQuery();
 			while(result.next()){
-				po = new RoomInfoPO(RoomState.valueOf(result.getString(1)),
-								RoomType.valueOf(result.getString(2)),
-								result.getString(3), Double.valueOf(result.getString(4)), 
+				po = new RoomInfoPO(RoomState.valueOf(result.getString(2)),
+								RoomType.valueOf(result.getString(3)),
+								result.getString(1), Double.valueOf(result.getString(4)), 
 								result.getString(5));
 				break;
 			}
@@ -95,9 +95,9 @@ public class RoomInfoDataServiceImpl extends DataSuperClass implements RoomInfoD
 			preState = conn.prepareStatement(sql);
 			result = preState.executeQuery();
 			while (result.next()) {
-				pos.add(new RoomInfoPO(RoomState.valueOf(result.getString(1)),
-						RoomType.valueOf(result.getString(2)),
-						result.getString(3), Double.valueOf(result.getString(4)), 
+				pos.add(new RoomInfoPO(RoomState.valueOf(result.getString(2)),
+						RoomType.valueOf(result.getString(3)),
+						result.getString(1), Double.valueOf(result.getString(4)), 
 						result.getString(5)));
 			}
 			

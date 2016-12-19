@@ -21,7 +21,7 @@ public class CreatIDTest {
 	
 	@Test
 	public void testGetNewCustomerID() throws RemoteException{
-		String ans = "10000021";
+		String ans = "10000024";
 		assertEquals(impl.getNewCustomerID(),ans);
 	}
 }

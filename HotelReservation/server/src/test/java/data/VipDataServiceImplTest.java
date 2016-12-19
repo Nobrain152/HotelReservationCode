@@ -44,15 +44,15 @@ public class VipDataServiceImplTest {
 //		System.out.println(po.getCredits());
 //	}
 	
-//	@Test
-//	public void testFindByUserIDC() throws RemoteException{
-//		CommonVipPO commonVipPO = impl.findByUserIDC("19954722");
-//		assertEquals(commonVipPO.getUserID(), "19954722");
-//	}
-	
 	@Test
-	public void testUpdataC() throws RemoteException{
-		impl.updateC(new CommonVipPO("19954722", "kevin", "123", "13270898633", 400, "45640", VipType.COMMON_VIP));
+	public void testFindByUserIDC() throws RemoteException{
+		CommonVipPO commonVipPO = impl.findByUserIDC("19954722");
+		assertEquals(commonVipPO.getUsername(), "kevin");
 	}
+	
+//	@Test
+//	public void testUpdataC() throws RemoteException{
+//		impl.updateC(new CommonVipPO("19954722", "kevin", "123", "13270898633", 400, "45640", VipType.COMMON_VIP));
+//	}
 
 }

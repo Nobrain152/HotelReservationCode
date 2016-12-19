@@ -5,8 +5,6 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 import data.creatID.CreateID;
-import data.hoteldata.RoomInfoDataServiceImpl;
-import data.userdata.CustomerManagementDataServiceImpl;
 import dataSuper.DataSuperClass;
 import datafactory.DataFactory;
 import dataservice.hoteldataservice.RoomInfoDataService;
@@ -24,7 +22,7 @@ public class OrderDataServiceImpl extends DataSuperClass implements OrderDataSer
 	 */
 	private static final long serialVersionUID = 1L;
 	
-	private final String tableName = "order";
+	private final String tableName = "orderList";
 	
 	CustomerManagementDataService customer = DataFactory.getDataFactory().getCustomerManagementDataServiceImpl();
 	RoomInfoDataService room =  DataFactory.getDataFactory().getRoomInfoDataServiceImpl();
@@ -63,7 +61,8 @@ public class OrderDataServiceImpl extends DataSuperClass implements OrderDataSer
 
 	@Override
 	public OrderPO findByOrderID(String ID) throws RemoteException {
-		OrderPO orderPO = getMsg(ID);
+		sql = "SELECT * FROM " + tableName  + " WHERE orderID = \'" + ID + "\'";
+		OrderPO orderPO = getMsg(sql);
 		if(orderPO == null){
 			return null;
 		}
@@ -72,85 +71,34 @@ public class OrderDataServiceImpl extends DataSuperClass implements OrderDataSer
 	
 	
 	
-	//抽象出来
 	@Override
-	//没有userID信息
 	public ArrayList<OrderPO> findByUserID(String ID) throws RemoteException {
-		ArrayList<OrderPO> pos = new ArrayList<OrderPO>(50);
-		OrderPO orderPO = null;
-		
-		try {
-			sql = "SELECT * FROM " + tableName + " WHERE orderID = \'" + ID + "\'";
-			preState = conn.prepareStatement(sql);
-			result = preState.executeQuery();
-			//CustomerManagementDataServiceImpl customer = (CustomerManagementDataServiceImpl) DataFactory.getDataFactory().getCustomerManagementDataServiceImpl();
-			//RoomInfoDataServiceImpl room = (RoomInfoDataServiceImpl) DataFactory.getDataFactory().getRoomInfoDataServiceImpl();
-			
-			while (result.next()) {
-					orderPO = new OrderPO(result.getString(1), 
-							customer.GetCustomerInfo(result.getString(2)), 
-							OrderState.valueOf(result.getString(3)),
-							Double.valueOf(result.getString(4)), result.getString(5), 
-							Boolean.valueOf(result.getString(6)), result.getString(7), 
-							result.getString(8), result.getString(9), 
-							result.getString(10),
-							Integer.getInteger(result.getString(11)),
-							Integer.getInteger(result.getString(12)),
-							room.findByRoomID(result.getString(13)));
-					pos.add(orderPO);
-				
-			}
-		} catch (SQLException e) {
-			e.printStackTrace();
-			System.out.println("订单信息从数据库中查找出错");
-		}
-		
+		ArrayList<OrderPO> pos = new ArrayList<OrderPO>();
+		sql = "SELECT * FROM " + tableName  + " WHERE customerInfoPO = \'" + ID + "\'";
+		System.out.println(sql);
+		pos = getMsgs(sql);
 		return pos.size()==0?null:pos;
 	}
 
 	@Override
 	public ArrayList<OrderPO> findByHotelID(String ID) throws RemoteException {
-		ArrayList<OrderPO> pos = new ArrayList<OrderPO>(50);
-		OrderPO orderPO = null;
-		
-		try {
-			sql = "SELECT * FROM " + tableName + " WHERE hotelID = \'" + ID + "\'";
-			preState = conn.prepareStatement(sql);
-			result = preState.executeQuery();
-//			CustomerManagementDataService customer = DataFactory.getDataFactory().getCustomerManagementDataServiceImpl();
-//			RoomInfoDataService room =  DataFactory.getDataFactory().getRoomInfoDataServiceImpl();
-			
-			while (result.next()) {
-					orderPO = new OrderPO(result.getString(1), 
-							customer.GetCustomerInfo(result.getString(2)), 
-							OrderState.valueOf(result.getString(3)),
-							Double.valueOf(result.getString(4)), result.getString(5), 
-							Boolean.valueOf(result.getString(6)), result.getString(7), 
-							result.getString(8), result.getString(9), 
-							result.getString(10),
-							Integer.getInteger(result.getString(11)),
-							Integer.getInteger(result.getString(12)),
-							room.findByRoomID(result.getString(13)));
-					pos.add(orderPO);
-				
-			}
-		} catch (SQLException e) {
-			e.printStackTrace();
-			System.out.println("订单信息从数据库中查找出错");
-		}
-		
+		ArrayList<OrderPO> pos = new ArrayList<OrderPO>();
+		sql = "SELECT * FROM " + tableName + " WHERE hotelID = \'" + ID + "\'";
+		pos = getMsgs(sql);
 		return pos.size()==0?null:pos;
 	}
 
 	@Override
 	public ArrayList<OrderPO> showList() throws RemoteException {
-		ArrayList<OrderPO> pos = new ArrayList<OrderPO>(50);
-//		CustomerManagementDataServiceImpl customer = (CustomerManagementDataServiceImpl) DataFactory.getDataFactory().getCustomerManagementDataServiceImpl();
-//		RoomInfoDataServiceImpl room = (RoomInfoDataServiceImpl) DataFactory.getDataFactory().getRoomInfoDataServiceImpl();
+		ArrayList<OrderPO> pos = new ArrayList<OrderPO>();
+		sql = "SELECT * FROM " + tableName ;
+		pos = getMsgs(sql);
+		return pos.size()==0?null:pos;
+	}
+	
+	private OrderPO getMsg(String sql) throws RemoteException{
 		OrderPO orderPO = null;
-		
 		try {
-			sql = "SELECT * FROM " + tableName ;
 			preState = conn.prepareStatement(sql);
 			result = preState.executeQuery();
 			
@@ -162,38 +110,43 @@ public class OrderDataServiceImpl extends DataSuperClass implements OrderDataSer
 							Boolean.valueOf(result.getString(6)), result.getString(7), 
 							result.getString(8), result.getString(9), 
 							result.getString(10),
-							Integer.getInteger(result.getString(11)),
-							Integer.getInteger(result.getString(12)),
+							Integer.valueOf(result.getString(11)),
+							Integer.valueOf(result.getString(12)),
 							room.findByRoomID(result.getString(13)));
-					pos.add(orderPO);
 				
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
 			System.out.println("订单信息从数据库中查找出错");
 		}
-		
-		return pos.size()==0?null:pos;
-		
+		return orderPO;
 	}
 	
-	private OrderPO getMsg(String ID) throws RemoteException{
-		findMes = findFromSQL(tableName,ID);
+	private ArrayList<OrderPO> getMsgs(String sql) throws RemoteException{
+		ArrayList<OrderPO> pos = new ArrayList<OrderPO>();
 		OrderPO orderPO = null;
-//		CustomerManagementDataServiceImpl customer = new CustomerManagementDataServiceImpl();
-//		RoomInfoDataServiceImpl room = new RoomInfoDataServiceImpl();
-		if(findMes != null){
+		try {
 			
-			orderPO = new OrderPO(findMes.get(0), 
-								customer.GetCustomerInfo(findMes.get(1))/*需要返回customerinfo*/, 
-								OrderState.valueOf(findMes.get(2)),
-								Double.valueOf(findMes.get(3)), findMes.get(4), 
-								Boolean.valueOf(findMes.get(5)), findMes.get(6), 
-								findMes.get(7), findMes.get(8), findMes.get(9), 
-								Integer.getInteger(findMes.get(10)),Integer.getInteger(findMes.get(11)),
-								room.findByRoomID(findMes.get(12)));
+			preState = conn.prepareStatement(sql);
+			result = preState.executeQuery();
+			while (result.next()) {
+					orderPO = new OrderPO(result.getString(1), 
+							customer.GetCustomerInfo(result.getString(2))/*需要返回customerinfo*/, 
+							OrderState.valueOf(result.getString(3)),
+							Double.valueOf(result.getString(4)), result.getString(5), 
+							Boolean.valueOf(result.getString(6)), result.getString(7), 
+							result.getString(8), result.getString(9), 
+							result.getString(10),
+							Integer.valueOf(result.getString(11)),
+							Integer.valueOf(result.getString(12)),
+							room.findByRoomID(result.getString(13)));
+					pos.add(orderPO);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+			System.out.println("订单信息从数据库中查找出错");
 		}
-		return orderPO;
+		return pos;
 	}
 
 	

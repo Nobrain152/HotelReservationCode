@@ -8,7 +8,9 @@ import java.util.ArrayList;
 
 import org.junit.Before;
 import org.junit.Test;
+import org.omg.PortableServer.IMPLICIT_ACTIVATION_POLICY_ID;
 
+import data.orderdata.OrderDataServiceImpl;
 import datafactory.DataFactory;
 import dataservice.orderdataservice.OrderDataService;
 import po.CustomerInfoPO;
@@ -22,7 +24,7 @@ import util.VipType;
 
 public class OrderDataServiceImplTest {
 
-	OrderDataService dataServiceImpl;
+	OrderDataServiceImpl dataServiceImpl;
 	ArrayList<OrderPO> list;
 	OrderPO order1;
 	OrderPO order2;
@@ -31,7 +33,7 @@ public class OrderDataServiceImplTest {
 	
 	@Before
 	public void setUp() throws RemoteException{
-		dataServiceImpl = DataFactory.getDataFactory().getOrderDataServiceImpl();
+		dataServiceImpl = new OrderDataServiceImpl();
 		order1 = new OrderPO("20161002", new CustomerInfoPO("19954722", "唐鑫", "sdf",
 				"18805156300", 300, true, VipType.COMMON_VIP), 
 				OrderState.UNEXECUTED, 99.9, "5000", false, 
@@ -83,32 +85,30 @@ public class OrderDataServiceImplTest {
 		list = new ArrayList<OrderPO>();
 	}
 	
-	@Test
-	public void testGetMsg() throws RemoteException{
-		OrderPO orderPO = dataServiceImpl.findByOrderID("20161002");
-		assertEquals(orderPO.getHotelID(), "5000");
-	}
-	/*
-	@Test
-	public void testInsert() throws RemoteException{
-		ResultMsg b = dataServiceImpl.insert(order1);
-		assertEquals(b, ResultMsg.SUCCESS);
-	}
-	
-	@Test
-	public void testInsert2() throws RemoteException{
-		ResultMsg b = dataServiceImpl.insert(order2);
-		assertEquals(b, ResultMsg.SUCCESS);
-	}
-	/*
-	@Test
-	public void testDelete() throws RemoteException{
-		dataServiceImpl.insert(order1);
-		dataServiceImpl.insert(order2);
-		ResultMsg b = dataServiceImpl.delete(order1.getOrderID());
-		assertEquals(b, ResultMsg.SUCCESS);
-	}
-	*/
+//	@Test
+//	public void testGetMsg() throws RemoteException{
+//		OrderPO orderPO = dataServiceImpl.findByOrderID("20161002");
+//		assertEquals(orderPO.getHotelID(), "5000");
+//	}
+//	
+//	@Test
+//	public void testInsert() throws RemoteException{
+//		String ans = dataServiceImpl.insert(order1);
+//		assertEquals(ans, "60000004");
+//	}
+//	
+//	@Test
+//	public void testInsert2() throws RemoteException{
+//		ResultMsg b = dataServiceImpl.insert(order2);
+//		assertEquals(b, ResultMsg.SUCCESS);
+//	}
+//	
+//	@Test
+//	public void testDelete() throws RemoteException{
+//		ResultMsg b = dataServiceImpl.delete("60000003");
+//		assertEquals(b, ResultMsg.SUCCESS);
+//	}
+//	
 //	@Test
 //	public void testUpdate() throws RemoteException{
 //		dataServiceImpl.insert(order1);
@@ -117,61 +117,69 @@ public class OrderDataServiceImplTest {
 //		assertEquals(b, ResultMsg.SUCCESS);
 //	}
 //	
-	/*
-	public void testFindByOrderID() throws RemoteException{
-		dataServiceImpl.insert(order1);
-		dataServiceImpl.insert(order2);
-		OrderPO order = dataServiceImpl.findByOrderID("100010");
-	}
-	*/
-	/*
+//	
+//	public void testFindByOrderID() throws RemoteException{
+//		dataServiceImpl.insert(order1);
+//		dataServiceImpl.insert(order2);
+//		OrderPO order = dataServiceImpl.findByOrderID("100010");
+//	}
+//	
+//	
+//	@Test
+//	public void testFindByOrderID() throws RemoteException{
+//		dataServiceImpl.insert(order1);
+//		dataServiceImpl.insert(order2);
+//		System.out.println("成功");
+//		OrderPO arrayList = dataServiceImpl.findByOrderID(order1.getOrderID());
+//		System.out.println(arrayList.getHotelID());
+//		dataServiceImpl.delete(order1.getOrderID());
+//		dataServiceImpl.delete(order2.getOrderID());
+//		assertEquals(arrayList.getHotelID(), order1.getHotelID());
+//	}
+//	
+//	
+//	@Test
+//	public void testFindByUserID() throws RemoteException{
+//		dataServiceImpl.insert(order1);
+//		dataServiceImpl.insert(order2);
+//		ArrayList<OrderPO> arrayList = dataServiceImpl.findByUserID("45234");
+//		list.add(order1);
+//		list.add(order2);
+//		assertEquals(list.get(0), arrayList.get(0));
+//		assertEquals(list.get(1), arrayList.get(1));
+//	}
+//	
+//	@Test
+//	public void testFindByHotelID() throws RemoteException{
+//		dataServiceImpl.insert(order1);
+//		dataServiceImpl.insert(order2);
+//		ArrayList<OrderPO> arrayList = dataServiceImpl.findByUserID("45234");
+//		list.add(order1);
+//		list.add(order2);
+//		assertEquals(list.get(0), arrayList.get(0));
+//		assertEquals(list.get(1), arrayList.get(1));
+//	}
+//	
+//	@Test
+//	public void testShowList() throws RemoteException{
+//		dataServiceImpl.insert(order1);
+//		dataServiceImpl.insert(order2);
+//		dataServiceImpl.insert(order3);
+//		dataServiceImpl.insert(order4);
+//		list.add(order1);
+//		list.add(order2);
+//		list.add(order3);
+//		list.add(order4);
+//		ArrayList<OrderPO> arrayList = dataServiceImpl.showList();
+//		assertEquals(list, arrayList);
+//	}
+	
 	@Test
-	public void testFindByOrderID() throws RemoteException{
-		dataServiceImpl.insert(order1);
-		dataServiceImpl.insert(order2);
-		System.out.println("成功");
-		OrderPO arrayList = dataServiceImpl.findByOrderID(order1.getOrderID());
-		System.out.println(arrayList.getHotelID());
-		dataServiceImpl.delete(order1.getOrderID());
-		dataServiceImpl.delete(order2.getOrderID());
-		assertEquals(arrayList.getHotelID(), order1.getHotelID());
+	public void testFindByID() throws RemoteException{
+		OrderPO po = dataServiceImpl.findByOrderID("60000004");
+		assertEquals(po.getHotelID(), "5000");
 	}
 	
-	/*
-	@Test
-	public void testFindByUserID() throws RemoteException{
-		dataServiceImpl.insert(order1);
-		dataServiceImpl.insert(order2);
-		ArrayList<OrderPO> arrayList = dataServiceImpl.findByUserID("45234");
-		list.add(order1);
-		list.add(order2);
-		assertEquals(list.get(0), arrayList.get(0));
-		assertEquals(list.get(1), arrayList.get(1));
-	}
 	
-	@Test
-	public void testFindByHotelID() throws RemoteException{
-		dataServiceImpl.insert(order1);
-		dataServiceImpl.insert(order2);
-		ArrayList<OrderPO> arrayList = dataServiceImpl.findByUserID("45234");
-		list.add(order1);
-		list.add(order2);
-		assertEquals(list.get(0), arrayList.get(0));
-		assertEquals(list.get(1), arrayList.get(1));
-	}
 	
-	@Test
-	public void testShowList() throws RemoteException{
-		dataServiceImpl.insert(order1);
-		dataServiceImpl.insert(order2);
-		dataServiceImpl.insert(order3);
-		dataServiceImpl.insert(order4);
-		list.add(order1);
-		list.add(order2);
-		list.add(order3);
-		list.add(order4);
-		ArrayList<OrderPO> arrayList = dataServiceImpl.showList();
-		assertEquals(list, arrayList);
-	}
-	*/
 }

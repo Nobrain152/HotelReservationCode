@@ -7,11 +7,13 @@ import bl.VOPOchange;
 import dataservice.creditdataservice.CreditDataService;
 import dataservice.userdataservice.CustomerManagementDataService;
 import dataservice.vipdataservice.VipDataService;
+import po.BusinessVipPO;
 import po.CommonVipPO;
 import po.CreditPO;
 import po.CustomerInfoPO;
 import util.ResultMsg;
 import util.Today;
+import util.VipType;
 import vo.CreditVO;
 import vo.CustomerInfoVO;
 
@@ -49,11 +51,17 @@ public class Credit {
 			customerInfoPO.setCredit(creditPO.getCreditResult());
 			customerManagementDataService.SetCustomerInfo(client.getUserID(), customerInfoPO);
 			
-			CommonVipPO commonVipPO = vipDataService.findByUserIDC(client.getUserID());
-			commonVipPO.setCredit(creditPO.getCreditResult());
-			vipDataService.updateC(commonVipPO);
-			
-			resultMsg = creditDataService.insert(creditPO);
+			if(client.getVipType() == VipType.COMMON_VIP){
+				CommonVipPO commonVipPO = vipDataService.findByUserIDC(client.getUserID());
+				commonVipPO.setCredit(creditPO.getCreditResult());
+				vipDataService.updateC(commonVipPO);
+				resultMsg = ResultMsg.SUCCESS;
+			}else if(client.getVipType() == VipType.COMPANY_VIP){
+				BusinessVipPO businessVipPO = vipDataService.findByUserIDB(client.getUserID());
+				businessVipPO.setCredit(creditPO.getCreditResult());
+				vipDataService.updateB(businessVipPO);
+				resultMsg = ResultMsg.SUCCESS;
+			}
 		}
 		return resultMsg;
 	}
@@ -68,17 +76,18 @@ public class Credit {
 			creditPO.setCreditChange("-" + value);
 			creditPO.setTime(new Today().getToday());
 			
-			CustomerInfoPO customerInfoPO = customerManagementDataService.GetCustomerInfo(client.getUserID());
-			customerInfoPO.setCredit(creditPO.getCreditResult());
-			customerManagementDataService.SetCustomerInfo(client.getUserID(), customerInfoPO);
-			
-			CommonVipPO commonVipPO = vipDataService.findByUserIDC(client.getUserID());
-			commonVipPO.setCredit(creditPO.getCreditResult());
-			vipDataService.updateC(commonVipPO);
-			
-			resultMsg = creditDataService.insert(creditPO);
+			if(client.getVipType() == VipType.COMMON_VIP){
+				CommonVipPO commonVipPO = vipDataService.findByUserIDC(client.getUserID());
+				commonVipPO.setCredit(creditPO.getCreditResult());
+				vipDataService.updateC(commonVipPO);
+				resultMsg = ResultMsg.SUCCESS;
+			}else if(client.getVipType() == VipType.COMPANY_VIP){
+				BusinessVipPO businessVipPO = vipDataService.findByUserIDB(client.getUserID());
+				businessVipPO.setCredit(creditPO.getCreditResult());
+				vipDataService.updateB(businessVipPO);
+				resultMsg = ResultMsg.SUCCESS;
+			}
 		}
-		System.out.println(creditPO.getCreditChange());
 		return resultMsg;
 	}
 
@@ -92,15 +101,17 @@ public class Credit {
 			creditPO.setCreditChange("t" + value);
 			creditPO.setTime(new Today().getToday());
 			
-			CustomerInfoPO customerInfoPO = customerManagementDataService.GetCustomerInfo(client.getUserID());
-			customerInfoPO.setCredit(creditPO.getCreditResult());
-			customerManagementDataService.SetCustomerInfo(client.getUserID(), customerInfoPO);
-			
-			CommonVipPO commonVipPO = vipDataService.findByUserIDC(client.getUserID());
-			commonVipPO.setCredit(creditPO.getCreditResult());
-			vipDataService.updateC(commonVipPO);
-			
-			resultMsg = creditDataService.insert(creditPO);
+			if(client.getVipType() == VipType.COMMON_VIP){
+				CommonVipPO commonVipPO = vipDataService.findByUserIDC(client.getUserID());
+				commonVipPO.setCredit(creditPO.getCreditResult());
+				vipDataService.updateC(commonVipPO);
+				resultMsg = ResultMsg.SUCCESS;
+			}else if(client.getVipType() == VipType.COMPANY_VIP){
+				BusinessVipPO businessVipPO = vipDataService.findByUserIDB(client.getUserID());
+				businessVipPO.setCredit(creditPO.getCreditResult());
+				vipDataService.updateB(businessVipPO);
+				resultMsg = ResultMsg.SUCCESS;
+			}
 		}
 		return resultMsg;
 	}

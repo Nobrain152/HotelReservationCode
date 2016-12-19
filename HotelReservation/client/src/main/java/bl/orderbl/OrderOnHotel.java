@@ -16,6 +16,7 @@ import util.Action;
 import util.OrderState;
 import util.ResultMsg;
 import util.RoomState;
+import util.Today;
 import vo.CustomerInfoVO;
 import vo.OrderVO;
 
@@ -76,23 +77,34 @@ public class OrderOnHotel {
 	 * @throws RemoteException 
 	 */
 	public ResultMsg hotelOrderModify(OrderVO orderVO) throws RemoteException {
-		OrderPO orderPO = hotelDataService.findByOrderID(orderVO.getOrderID());
 		ResultMsg resultMsg = ResultMsg.FAIL;
+		
+		OrderPO orderPO = hotelDataService.findByOrderID(orderVO.getOrderID());
 		RoomInfoPO roomInfoPO = roomInfoDataService.findByRoomID(orderVO.getRoomInfoVO().getRoomID());
+		ArrayList<CreditPO> creditPOs = creditDataService.getListByUserID(orderVO.getInitiator().getUserID());
+		CreditPO creditPO = creditPOs.get(creditPOs.size()-1);
+		
 		if(orderPO.getOrderState() == OrderState.UNEXECUTED
 				&& roomInfoPO.getState() == RoomState.USABLE) {
 			orderPO.setOrderState(OrderState.EXECUTED);
 			CustomerInfoPO customerInfoPO = orderPO.getInitiator();
 			CreditController controller = new CreditController();
-			controller.addCredit((CustomerInfoVO)VOPOchange.POtoVO(customerInfoPO), (int)orderVO.getPrice());
-			ArrayList<CreditPO> creditPOs = creditDataService.getListByUserID(orderVO.getInitiator().getUserID());
-			CreditPO creditPO = creditPOs.get(0);
-			creditPO.setAction(Action.Executed);
+			
+			CustomerInfoVO customerInfoVO = (CustomerInfoVO)VOPOchange.POtoVO(customerInfoPO);
+			controller.addCredit(customerInfoVO, (int)orderVO.getPrice());
+			
 			roomInfoPO.setRoomState(RoomState.UNUSABLE);
 			orderPO.setRoomInfoPO(roomInfoPO);
-			resultMsg = creditDataService.insert(creditPO);
-			if(resultMsg == ResultMsg.SUCCESS)
-				resultMsg = hotelDataService.update(orderPO);
+			roomInfoDataService.update(roomInfoPO);
+			hotelDataService.update(orderPO);
+			
+			creditPO.setAction(Action.Executed);
+			creditPO.setCreditResult(creditPO.getCreditResult() + (int)orderVO.getPrice());
+			creditPO.setCreditChange("+" + (int)orderVO.getPrice());
+			creditPO.setTime(new Today().getToday());
+			creditDataService.insert(creditPO);
+			
+			resultMsg = ResultMsg.SUCCESS;
 		} else if(orderPO.getOrderState() == OrderState.EXECUTED
 				&& roomInfoPO.getState() == RoomState.UNUSABLE) {
 			roomInfoPO.setRoomState(RoomState.USABLE);
@@ -103,8 +115,6 @@ public class OrderOnHotel {
 			CustomerInfoPO customerInfoPO = orderPO.getInitiator();
 			CreditController controller = new CreditController();
 			controller.addCredit((CustomerInfoVO)VOPOchange.POtoVO(customerInfoPO), (int)orderVO.getPrice());
-			ArrayList<CreditPO> creditPOs = creditDataService.getListByUserID(orderVO.getInitiator().getUserID());
-			CreditPO creditPO = creditPOs.get(0);
 			creditPO.setAction(Action.Executed);
 			roomInfoPO.setRoomState(RoomState.UNUSABLE);
 			orderPO.setRoomInfoPO(roomInfoPO);

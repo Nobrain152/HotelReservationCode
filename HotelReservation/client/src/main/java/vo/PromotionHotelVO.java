@@ -146,4 +146,8 @@ public class PromotionHotelVO {
     	this.level = level;
     }
     
+    public void setHotelID(String hotelID) {
+    	this.hotelID = hotelID;
+    }
+    
 }

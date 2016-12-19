@@ -2,7 +2,6 @@ package vo;
 
 import util.Area;
 import util.PromotionWebType;
-import util.VipType;
 
 
 /**
@@ -18,11 +17,6 @@ public class PromotionWebVO {
 	 * 促销策略类型
 	 */
 	PromotionWebType webType;
-	
-	/**
-	 * 客户类型
-	 */
-	VipType customType;
 	
 	/**
 	 * 促销策略起止时间
@@ -46,9 +40,8 @@ public class PromotionWebVO {
 	
 	public PromotionWebVO() {}
 	
-	public PromotionWebVO(PromotionWebType webType,VipType customType,
+	public PromotionWebVO(PromotionWebType webType,
 			String beginTime,String endTime,double ratio,int level,Area location) {
-		this.webType = webType;
 		this.webType = webType;
 		this.beginTime = beginTime;
 		this.endTime = endTime;
@@ -79,10 +72,6 @@ public class PromotionWebVO {
 		return webType;
 	}
 	
-	public VipType getMemberType() {
-		return customType;
-	}
-	
 	public Area getLocation() {
 		return location;
 	}
@@ -109,10 +98,6 @@ public class PromotionWebVO {
     
     public void setType(PromotionWebType type) {
     	this.webType = type;
-    }
-    
-    public void setMember(VipType type) {
-    	this.customType = type;
     }
     
     public void setLocation(Area location) {

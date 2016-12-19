@@ -59,7 +59,9 @@ public class OrderOnHotelControllerTest {
 		onHotelBLService = new OrderOnHotelController();
 		onUserBLService = new OrderOnUserController();
 		onUserBLService.createOrder(order1);
+		
 		resultMsg = ResultMsg.SUCCESS;
+		
 		hotelList = new ArrayList<OrderVO>();
 		hotelList.add(order1);
 		hotelList.add(order2);

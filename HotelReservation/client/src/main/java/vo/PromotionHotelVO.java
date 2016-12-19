@@ -1,7 +1,6 @@
 package vo;
 
 import util.PromotionHotelType;
-import util.VipType;
 
 /**
  * 酒店促销策略VO
@@ -22,11 +21,6 @@ public class PromotionHotelVO {
 	 * 促销策略类型
 	 */
 	PromotionHotelType hotelType;
-	
-	/**
-	 * 客户类型
-	 */
-	VipType customType;
 	
 	/**
 	 * 促销策略起止时间
@@ -55,10 +49,9 @@ public class PromotionHotelVO {
 	
 	public PromotionHotelVO() {}
 	
-	public PromotionHotelVO(String hotelID, PromotionHotelType hotelType,VipType customType,
+	public PromotionHotelVO(String hotelID, PromotionHotelType hotelType,
 			String beginTime,String endTime,double ratio,int level,int number,String businessName) {
 		this.hotelID = hotelID;
-		this.hotelType = hotelType;
 		this.hotelType = hotelType;
 		this.beginTime = beginTime;
 		this.endTime = endTime;
@@ -101,10 +94,6 @@ public class PromotionHotelVO {
 		return hotelType;
 	}
 	
-	public VipType getMemberType() {
-		return customType;
-	}
-	
 	public int getNumber() {
 		return number;
 	}
@@ -135,10 +124,6 @@ public class PromotionHotelVO {
     
     public void setType(PromotionHotelType type) {
     	this.hotelType = type;
-    }
-    
-    public void setMemberType(VipType type) {
-    	this.customType = type;
     }
     
     public void setNumber(int num) {

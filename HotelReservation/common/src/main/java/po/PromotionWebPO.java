@@ -4,7 +4,6 @@ import java.io.Serializable;
 
 import util.Area;
 import util.PromotionWebType;
-import util.VipType;
 
 
 /**
@@ -25,11 +24,6 @@ public class PromotionWebPO implements Serializable{
 	 * 促销策略类型
 	 */
 	PromotionWebType hotelType;
-	
-	/**
-	 * 客户类型
-	 */
-	VipType customType;
 	
 	/**
 	 * 促销策略起止时间
@@ -53,9 +47,8 @@ public class PromotionWebPO implements Serializable{
 	
 	public PromotionWebPO() {}
 	
-	public PromotionWebPO(PromotionWebType hotelType,VipType customType,
+	public PromotionWebPO(PromotionWebType hotelType,
 			String beginTime,String endTime,double ratio,int level,Area location) {
-		this.hotelType = hotelType;
 		this.hotelType = hotelType;
 		this.beginTime = beginTime;
 		this.endTime = endTime;
@@ -84,10 +77,6 @@ public class PromotionWebPO implements Serializable{
 	
 	public PromotionWebType getType(){
 		return hotelType;
-	}
-	
-	public VipType getMemberType() {
-		return customType;
 	}
 	
 	public Area getLocation() {

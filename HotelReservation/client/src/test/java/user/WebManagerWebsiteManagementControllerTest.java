@@ -33,8 +33,8 @@ public class WebManagerWebsiteManagementControllerTest {
 	
 	@Test
 	public void testmodify(){
-		info.setType(UserType.WebManager);
-		assertEquals(impl.UserInformationModification("42345678", info),ResultMsg.SUCCESS);
+		info.setType(UserType.Customer);
+		assertEquals(impl.UserInformationModification("12345679", info),ResultMsg.SUCCESS);
 	}
 	
 	

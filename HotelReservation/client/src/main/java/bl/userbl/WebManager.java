@@ -121,7 +121,7 @@ public class WebManager extends User {
 	public ResultMsg UserInformationModification(String userid,UserInfoVO vo2)throws RemoteException{
 		UserInfoPO po1=(UserInfoPO)VOPOchange.VOtoPO(vo2);
 		char c=userid.charAt(0);
-		
+		CustomerInfoPO cu;
 		switch(c){
 		case'1': return data.SetCustomerInfo(userid,(CustomerInfoPO)po1);
 		case'2': return data.SetHotelStuffInfo(userid, (StuffInfoPO)po1);

@@ -21,14 +21,14 @@ public class CustomerTest {
 		
 	}
 	
-//	@Test
-//	public void testinquiry(){
-//		
-//		po = customer.IndividualBaseInfolnquiry("12345678");
-//		assertEquals("12345678",po.getUserID());
-//		assertEquals("Jerry",po.getUsername());
-//		assertEquals("13067893451",po.getContact());
-//	}
+	@Test
+	public void testinquiry(){
+		
+		po = customer.IndividualBaseInfolnquiry("12345678");
+		assertEquals("12345678",po.getUserID());
+		assertEquals("Jerry",po.getUsername());
+		assertEquals("13067893451",po.getContact());
+	}
 	
 	@Test
 	public void testmodify(){

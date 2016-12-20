@@ -28,7 +28,7 @@ public class UserManagementDataServiceImplTest {
 	
 	@Test
 	public void testGetLoginInfo() throws RemoteException{
-		//assertEquals(impl.GetLoginInfo(log),"123456789");
+		assertEquals(impl.GetLoginInfo("123"),"456");
 	}
 	
 	@Test

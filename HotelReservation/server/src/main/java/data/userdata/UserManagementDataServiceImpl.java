@@ -24,11 +24,16 @@ public class UserManagementDataServiceImpl extends DataSuperClass implements Use
 	 */
 	private static final long serialVersionUID = 1L;
 	
+	
+	
 	private final static String tableName = "userInfo";
 	
 	private final static String tableName2 = "customerInfo";
 	
 	private final static String tableName3 = "stuffInfo";
+	
+	private LoginInPO loginIn;
+	private LoginInpoData loginInpoData;
 	
 	/**
 	 * 普通用户是customerinfo
@@ -55,6 +60,8 @@ public class UserManagementDataServiceImpl extends DataSuperClass implements Use
 		ResultMsg bMsg = addToSQL(tableName2,newID,po.getUsername(),po.getPassword(),po.getContact(),
 										po.getType().toString(),""+po.getIsMember(),
 										po.getVipType().toString(),""+po.getCredit());
+		loginIn = new LoginInPO(po.getUserID(), po.getUsername());
+		loginInpoData.addToSQL(loginIn);
 		if(bMsg == ResultMsg.SUCCESS){
 			return newID;
 		}else{
@@ -68,6 +75,8 @@ public class UserManagementDataServiceImpl extends DataSuperClass implements Use
 		ResultMsg bMsg = addToSQL(tableName3,newID,po.getUsername(),po.getPassword(),
 											po.getContact(),po.getType().toString(),
 											po.getHotel());
+		loginIn = new LoginInPO(po.getUserID(), po.getUsername());
+		loginInpoData.addToSQL(loginIn);
 		if(bMsg == ResultMsg.SUCCESS){
 			return newID;
 		}else{
@@ -80,6 +89,8 @@ public class UserManagementDataServiceImpl extends DataSuperClass implements Use
 		String newID = CreateID.getCreateID().getNewWebStuffID();
 		ResultMsg bMsg = addToSQL(tableName, newID,po.getUsername(),po.getPassword(),
 									po.getContact(),po.getType().toString());
+		loginIn = new LoginInPO(po.getUserID(), po.getUsername());
+		loginInpoData.addToSQL(loginIn);
 		if(bMsg == ResultMsg.SUCCESS){
 			return newID;
 		}else{
@@ -92,6 +103,8 @@ public class UserManagementDataServiceImpl extends DataSuperClass implements Use
 		String newID = CreateID.getCreateID().getNewWebManagerID();
 		ResultMsg bMsg = addToSQL(tableName, newID,po.getUsername(),po.getPassword(),
 									po.getContact(),po.getType().toString());
+		loginIn = new LoginInPO(po.getUserID(), po.getUsername());
+		loginInpoData.addToSQL(loginIn);
 		if(bMsg == ResultMsg.SUCCESS){
 			return newID;
 		}else{

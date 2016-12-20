@@ -39,6 +39,13 @@ public interface CustomerHotelOperationBlService{
 	 */
 	public void HotelEvaluate(HotelEvaluateVO vo);
 	
+	/**
+	 * 根据输入的酒店ID和用户ID返回符合条件的酒店信息VO列表
+	 * @param 筛选条件VO
+	 * @return 酒店信息VO列表
+	 */
+	public HotelInfoVO HotelDetail(String hotelid,String userid);
+	
 	
 	/**
 	 * 根据排序种类返回排好序的酒店列表

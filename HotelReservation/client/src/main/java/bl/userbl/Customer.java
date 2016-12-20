@@ -92,6 +92,35 @@ public class Customer extends User {
 	}		
 	
 	
+	
+	/**
+	 * 根据输入的酒店ID和用户ID返回符合条件的酒店信息VO列表
+	 * @param 筛选条件VO
+	 * @return 酒店信息VO列表
+	 */
+	public HotelInfoVO HotelDetail(String hotelid,String userid)throws RemoteException{
+		ArrayList<String> hotel=userdataservice.GetCustomerHotel(userid);
+		boolean wrong=true;
+		for(String s:hotel){
+			if(s.equals(hotelid)){
+				wrong=false;
+				break;
+			}
+		}
+		if(wrong){
+			return null;
+		}
+		HotelInfoVO vo=hotelinfo.checkHotelInfo(hotelid);
+		ArrayList<OrderVO> ord=IndividualOrderInquiry(userid);
+		ArrayList<OrderVO> n=new ArrayList<OrderVO>();
+		for(OrderVO v:ord){
+			if(v.getHotelID().equals(hotelid)){
+				n.add(v);
+			}
+		}
+		vo.setOrder(n);
+		return vo;
+	}
 	/**
 	 * 根据排序种类返回排好序的酒店列表
 	 * @param before

@@ -9,7 +9,7 @@ public class Testmd {
 	
 	
 	public static void main(String[] args) {
-		String s1="12345678";
+		String s1="12345679";
 		String s2="66666666";
 		String s3="88888888";
 		String s4="cc151250005";
@@ -20,11 +20,7 @@ public class Testmd {
 		String s8=md.md5Encode(s3);
 		String s9=md.md5Encode(s4);
 		String s10=md.md5Encode(s5);
-		assertEquals(s6,md.md5Encode(s1));
-		assertEquals(s7,md.md5Encode(s2));
-		assertEquals(s8,md.md5Encode(s3));
-		assertEquals(s9,md.md5Encode(s4));
-		assertEquals(s10,md.md5Encode(s5));
+		System.out.println(s6);
 
 	}
 

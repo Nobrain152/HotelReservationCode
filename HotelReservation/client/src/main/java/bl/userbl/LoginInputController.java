@@ -7,7 +7,8 @@ import dataservice.userdataservice.UserManagementDataService;
 import net.RMIManage;
 import util.DataServiceType;
 import util.UserType;
-import vo.UserInfoVO;
+import vo.CustomerInfoVO;
+
 
 /**
  * 用户登录
@@ -65,7 +66,7 @@ public class LoginInputController implements LoginInputBLService {
 	 * @param 登录输入信息VO
 	 * @return 注册结果
 	 */
-	public String Register(UserInfoVO vo){
+	public String Register(CustomerInfoVO vo){
 		try {
 			return user.Register(vo);
 		} catch (RemoteException e) {

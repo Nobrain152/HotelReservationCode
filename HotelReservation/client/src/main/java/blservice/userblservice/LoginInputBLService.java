@@ -1,7 +1,8 @@
 package blservice.userblservice;
 
 import util.UserType;
-import vo.UserInfoVO;
+import vo.CustomerInfoVO;
+
 
 
 /**
@@ -31,7 +32,7 @@ public interface LoginInputBLService{
 	 * @param 登录输入信息VO
 	 * @return 注册结果
 	 */
-	public String Register(UserInfoVO vo);
+	public String Register(CustomerInfoVO vo);
 	
 	/**
 	 * 得到用户类型

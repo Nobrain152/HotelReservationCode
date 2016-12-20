@@ -5,9 +5,9 @@ import java.rmi.RemoteException;
 import bl.VOPOchange;
 import dataservice.userdataservice.UserManagementDataService;
 import po.CustomerInfoPO;
-import po.UserInfoPO;
 import util.UserType;
-import vo.UserInfoVO;
+import vo.CustomerInfoVO;
+
 
 /**
  * 用户类的父类
@@ -31,6 +31,7 @@ public class User {
 	 */
     public boolean  LogIn(String id,String password)throws RemoteException{
     	String real=data.GetLoginInfo(id);
+    	System.out.println("password"+real);
     	password=md.md5Encode(password);
     	return real.equals(password);
     	
@@ -57,10 +58,10 @@ public class User {
 	 * @param 登录输入信息VO
 	 * @return 注册结果
 	 */
-	public String Register(UserInfoVO vo)throws RemoteException{
-		UserInfoPO po=(UserInfoPO)VOPOchange.VOtoPO(vo);
+	public String Register(CustomerInfoVO vo)throws RemoteException{
+		CustomerInfoPO po=(CustomerInfoPO)VOPOchange.VOtoPO(vo);
 		po.setPassword(md.md5Encode(po.getPassword()));
-		return data.AddCustomer((CustomerInfoPO)po);
+		return data.AddCustomer(po);
 	}
 	
 	/**

@@ -7,8 +7,10 @@ import org.junit.Before;
 import org.junit.Test;
 
 import bl.userbl.LoginInputController;
+import util.UserType;
+import util.VipType;
+import vo.CustomerInfoVO;
 import vo.LoginInVO;
-import vo.UserInfoVO;
 
 public class LoginInputControllerTest {
         LoginInVO vo;
@@ -22,7 +24,7 @@ public class LoginInputControllerTest {
 
 		@Test
 		public void testLogin() {
-			boolean result=im.LogIn("12345679","25f9e794323b453885f5181f1b624d0b");
+			boolean result=im.LogIn("12345679","12345679");
 			assertEquals(result,true);
 		}
 		
@@ -32,12 +34,16 @@ public class LoginInputControllerTest {
 			assertEquals(result,true);
 		}
 		
-		
+		@Test
 		public void testregister(){
-			UserInfoVO vo=new UserInfoVO();
+			CustomerInfoVO vo=new CustomerInfoVO("","Tom","1234567","12345679",0,false,VipType.COMMON_VIP);
+			//vo.setPassword("12345679");
+			vo.setType(UserType.Customer);
 		    String result=im.Register(vo);
-		    assertEquals(result,"000000001");
+		    assertEquals("10000030",result);
 		}
 	
 
 }
+
+

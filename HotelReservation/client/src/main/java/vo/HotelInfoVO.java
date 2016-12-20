@@ -91,6 +91,15 @@ public class HotelInfoVO {
 		SP=sp;
 	}
 
+	public HotelInfoVO(String name, Adress address, Area area, int level,double up,double down){
+		this.name = name;
+		this.address = address;
+		this.area = area;
+		this.level = level;
+		this.up = up;
+		this.down = down;
+	}
+	
 	public String getName() {
 		return name;
 	}

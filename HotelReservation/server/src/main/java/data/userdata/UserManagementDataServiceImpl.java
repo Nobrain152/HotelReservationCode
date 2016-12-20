@@ -56,10 +56,18 @@ public class UserManagementDataServiceImpl extends DataSuperClass implements Use
 	
 	@Override
 	public String AddCustomer(CustomerInfoPO po) throws RemoteException {
+		ResultMsg bMsg;
 		String newID = CreateID.getCreateID().getNewCustomerID();
-		ResultMsg bMsg = addToSQL(tableName2,newID,po.getUsername(),po.getPassword(),po.getContact(),
+		if(po.getVipType() != null){
+			bMsg = addToSQL(tableName2,newID,po.getUsername(),po.getPassword(),po.getContact(),
 										po.getType().toString(),""+po.getIsMember(),
 										po.getVipType().toString(),""+po.getCredit());
+		}else{
+			bMsg = addToSQL(tableName2,newID,po.getUsername(),po.getPassword(),po.getContact(),
+					po.getType().toString(),""+po.getIsMember(),
+					null,""+po.getCredit());
+		}
+		
 		loginIn = new LoginInPO(po.getUserID(), po.getUsername());
 		loginInpoData.addToSQL(loginIn);
 		if(bMsg == ResultMsg.SUCCESS){

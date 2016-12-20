@@ -21,6 +21,11 @@ public class PromotionWebPO implements Serializable{
 	private static final long serialVersionUID = 1L;
 	
 	/**
+	 * 网站促销策略ID
+	 */
+	String promotionWebID;
+	
+	/**
 	 * 促销策略类型
 	 */
 	PromotionWebType hotelType;
@@ -47,8 +52,9 @@ public class PromotionWebPO implements Serializable{
 	
 	public PromotionWebPO() {}
 	
-	public PromotionWebPO(PromotionWebType hotelType,
+	public PromotionWebPO(String promotionWebID,PromotionWebType hotelType,
 			String beginTime,String endTime,double ratio,int level,Area location) {
+		this.promotionWebID = promotionWebID;
 		this.hotelType = hotelType;
 		this.beginTime = beginTime;
 		this.endTime = endTime;
@@ -57,22 +63,29 @@ public class PromotionWebPO implements Serializable{
 		this.location = location;
 	}
 	
-	public PromotionWebPO(PromotionWebType promotionWebType,Integer level,double ratio) {
+	public PromotionWebPO(String promotionWebID,PromotionWebType promotionWebType,Integer level,double ratio) {
+		this.promotionWebID = promotionWebID;
 		this.hotelType = promotionWebType;
 		this.level = level;
 		this.ratio = ratio;
 	}
 	
-	public PromotionWebPO(PromotionWebType promotionWebType,Area location,double ratio) {
+	public PromotionWebPO(String promotionWebID,PromotionWebType promotionWebType,Area location,double ratio) {
+		this.promotionWebID = promotionWebID;
 		this.hotelType = promotionWebType;
 		this.location  = location;
 		this.ratio = ratio;
 	}
 	
-	public PromotionWebPO(PromotionWebType type,String beginTime,String endTime,double radio) {
+	public PromotionWebPO(String promotionWebID,PromotionWebType type,String beginTime,String endTime,double radio) {
+		this.promotionWebID = promotionWebID;
 		this.hotelType = type;
 		this.beginTime = beginTime;
 		this.endTime = endTime;
+	}
+	
+	public String getPromotionWebID(){
+		return promotionWebID;
 	}
 	
 	public PromotionWebType getType(){

@@ -39,12 +39,14 @@ public class CreateID extends DataSuperClass{
 	
 	/**
 	 * 初始化数据库中存放的ID
-	 * user        八位，开头为1
-	 * hotelStuff  八位，开头为2
-	 * webStuff    八位，开头为3
-	 * webManager  八位，开头为4
-	 * hotelID     四位，开头为5
-	 * orderID     八位，开头为6
+	 * user           八位，开头为1
+	 * hotelStuff     八位，开头为2
+	 * webStuff       八位，开头为3
+	 * webManager     八位，开头为4
+	 * hotelID        四位，开头为5
+	 * orderID        八位，开头为6
+	 * promotionHotel 八位，开头为7
+	 * promotionWeb   八位，开头为8
 	 * @return
 	 */
 	public ResultMsg initialize() throws RemoteException{
@@ -52,8 +54,7 @@ public class CreateID extends DataSuperClass{
 		if(a != ResultMsg.SUCCESS){
 			return ResultMsg.FAIL;
 		}
-		ResultMsg b = addToSQL(tableName, "1","10000020","20000000","30000000","40000000","5001","60000000");
-		
+		ResultMsg b = addToSQL(tableName, "1","10000020","20000000","30000000","40000000","5001","60000000","70000000","80000000");
 		return b;
 	}
 	
@@ -61,7 +62,7 @@ public class CreateID extends DataSuperClass{
 		sql = "SELECT * FROM " + tableName;
 		findMes = findMes(sql);
 		ResultMsg aMsg  = modifyFromSQL(tableName, flag,""+(Integer.valueOf(findMes.get(0))+1),findMes.get(1),
-									findMes.get(2),findMes.get(3),findMes.get(4),findMes.get(5));
+									findMes.get(2),findMes.get(3),findMes.get(4),findMes.get(5),findMes.get(6),findMes.get(7));
 		
 		
 		if(aMsg == ResultMsg.SUCCESS){
@@ -75,7 +76,7 @@ public class CreateID extends DataSuperClass{
 		sql = "SELECT * FROM " + tableName;
 		findMes = findMes(sql);
 		ResultMsg aMsg = modifyFromSQL(tableName, flag,findMes.get(0),""+(Integer.valueOf(findMes.get(1))+1),
-									findMes.get(2),findMes.get(3),findMes.get(4),findMes.get(5));
+									findMes.get(2),findMes.get(3),findMes.get(4),findMes.get(5),findMes.get(6),findMes.get(7));
 		
 		if(aMsg == ResultMsg.SUCCESS){
 			return ""+(Integer.valueOf(findMes.get(1))+1);
@@ -89,7 +90,7 @@ public class CreateID extends DataSuperClass{
 		findMes = findMes(sql);
 		ResultMsg aMsg = modifyFromSQL(tableName, flag,findMes.get(0),findMes.get(1),
 									""+(Integer.valueOf(findMes.get(2))+1),findMes.get(3),
-									findMes.get(4),findMes.get(5));
+									findMes.get(4),findMes.get(5),findMes.get(6),findMes.get(7));
 		
 		if(aMsg == ResultMsg.SUCCESS){
 			return ""+(Integer.valueOf(findMes.get(2))+1);
@@ -103,7 +104,7 @@ public class CreateID extends DataSuperClass{
 		findMes = findMes(sql);
 		ResultMsg aMsg = modifyFromSQL(tableName, flag,findMes.get(0),findMes.get(1),
 									findMes.get(2),""+(Integer.valueOf(findMes.get(3))+1),
-									findMes.get(4),findMes.get(5));
+									findMes.get(4),findMes.get(5),findMes.get(6),findMes.get(7));
 		
 		if(aMsg == ResultMsg.SUCCESS){
 			return ""+(Integer.valueOf(findMes.get(3))+1);
@@ -117,7 +118,8 @@ public class CreateID extends DataSuperClass{
 		findMes = findMes(sql);
 		ResultMsg aMsg = modifyFromSQL(tableName, flag,findMes.get(0),findMes.get(1),
 									findMes.get(2),findMes.get(3),
-									""+(Integer.valueOf(findMes.get(4))+1),findMes.get(5));
+									""+(Integer.valueOf(findMes.get(4))+1),findMes.get(5),
+									findMes.get(6),findMes.get(7));
 		
 		if(aMsg == ResultMsg.SUCCESS){
 			return ""+(Integer.valueOf(findMes.get(4))+1);
@@ -131,10 +133,41 @@ public class CreateID extends DataSuperClass{
 		findMes = findMes(sql);
 		ResultMsg aMsg = modifyFromSQL(tableName, flag,findMes.get(0),findMes.get(1),
 									findMes.get(2),findMes.get(3),
-									findMes.get(4),""+(Integer.valueOf(findMes.get(5))+1));
+									findMes.get(4),""+(Integer.valueOf(findMes.get(5))+1),
+									findMes.get(6),findMes.get(7));
 		
 		if(aMsg == ResultMsg.SUCCESS){
 			return ""+(Integer.valueOf(findMes.get(5))+1);
+		}else{
+			return null;
+		}
+	}
+	
+	public String getNewPromotionHotelID() throws RemoteException{
+		sql = "SELECT * FROM " + tableName;
+		findMes = findMes(sql);
+		ResultMsg aMsg = modifyFromSQL(tableName, flag,findMes.get(0),findMes.get(1),
+									findMes.get(2),findMes.get(3),
+									findMes.get(4),findMes.get(5),
+									""+(Integer.valueOf(findMes.get(6))+1),findMes.get(7));
+		
+		if(aMsg == ResultMsg.SUCCESS){
+			return ""+(Integer.valueOf(findMes.get(6))+1);
+		}else{
+			return null;
+		}
+	}
+	
+	public String getNewPromotionWebID() throws RemoteException{
+		sql = "SELECT * FROM " + tableName;
+		findMes = findMes(sql);
+		ResultMsg aMsg = modifyFromSQL(tableName, flag,findMes.get(0),findMes.get(1),
+									findMes.get(2),findMes.get(3),
+									findMes.get(4),findMes.get(5),
+									findMes.get(6),""+(Integer.valueOf(findMes.get(7))+1));
+		
+		if(aMsg == ResultMsg.SUCCESS){
+			return ""+(Integer.valueOf(findMes.get(7))+1);
 		}else{
 			return null;
 		}

@@ -16,7 +16,11 @@ public class PromotionHotelPO implements Serializable{
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-
+	/**
+	 * ¾Æµê´ÙÏú²ßÂÔID
+	 */
+	String promotionHotelID;
+	
 	/**
 	 * ¾ÆµêID
 	 */
@@ -66,8 +70,9 @@ public class PromotionHotelPO implements Serializable{
 	 * @param number
 	 * @param businessName
 	 */
-	public PromotionHotelPO(String hotelID, PromotionHotelType hotelType,
+	public PromotionHotelPO(String promotionHotelID,String hotelID, PromotionHotelType hotelType,
 			String beginTime,String endTime,double ratio,int level,int number,String businessName) {
+		this.promotionHotelID = promotionHotelID;
 		this.hotelID = hotelID;
 		this.hotelType = hotelType;
 		this.beginTime = beginTime;
@@ -85,7 +90,8 @@ public class PromotionHotelPO implements Serializable{
 	 * @param num
 	 * @param ratio
 	 */
-	public PromotionHotelPO(PromotionHotelType promotionHotelType,String hotelId,int num,double ratio) {
+	public PromotionHotelPO(String promotionHotelID,PromotionHotelType promotionHotelType,String hotelId,int num,double ratio) {
+		this.promotionHotelID = promotionHotelID;
 		this.hotelType = promotionHotelType;
 		this.hotelID = hotelId;
 		if(promotionHotelType == PromotionHotelType.BIRTH_PROMOTION)
@@ -102,7 +108,8 @@ public class PromotionHotelPO implements Serializable{
 	 * @param businessName
 	 * @param ratio
 	 */
-	public PromotionHotelPO(PromotionHotelType promotionHotelType,String hotelID,String businessName,double ratio) {
+	public PromotionHotelPO(String promotionHotelID,PromotionHotelType promotionHotelType,String hotelID,String businessName,double ratio) {
+		this.promotionHotelID = promotionHotelID;
 		this.hotelType = promotionHotelType;
 		this.hotelID = hotelID;
 		this.businessName  = businessName;
@@ -117,12 +124,17 @@ public class PromotionHotelPO implements Serializable{
 	 * @param endTime
 	 * @param radio
 	 */
-	public PromotionHotelPO(PromotionHotelType type,String hotelID,String beginTime,String endTime,double radio) {
+	public PromotionHotelPO(String promotionHotelID,PromotionHotelType type,String hotelID,String beginTime,String endTime,double radio) {
+		this.promotionHotelID = promotionHotelID;
 		this.hotelType = type;
 		this.hotelID = hotelID;
 		this.beginTime = beginTime;
 		this.endTime = endTime;
 		this.hotelID = hotelID;
+	}
+	
+	public String getPromotionHotelID(){
+		return promotionHotelID;
 	}
 	
 	public String getHotelID() {

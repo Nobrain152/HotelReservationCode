@@ -33,7 +33,7 @@ public class CustomerManagementDataServiceImpl extends UserManagementDataService
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
-			System.out.println("从数据库中获取所有的webStuff信息错误");
+			System.out.println("从数据库中查询customerOrder信息错误");
 			return null;
 		}
 		
@@ -54,7 +54,7 @@ public class CustomerManagementDataServiceImpl extends UserManagementDataService
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
-			System.out.println("从数据库中获取所有的webStuff信息错误");
+			System.out.println("从数据库中获取用户住过的的酒店信息错误");
 			return null;
 		}
 		

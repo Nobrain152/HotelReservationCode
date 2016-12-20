@@ -22,7 +22,7 @@ public class PromotionHotelDataServiceImplTest {
 	public void setUp() throws Exception {
 		impl = new PromotionHotelDataServiceImpl();
 //		po = new PromotionHotelPO(PromotionHotelType.OVERTHREE_PROMOTION, "5004", 3, 2.33);
-		po = new PromotionHotelPO(PromotionHotelType.BIRTH_PROMOTION, "5000", 2, 0.95);
+		po = new PromotionHotelPO(PromotionHotelType.BIRTH_PROMOTION, "5000", 1, 0.9);
 	}
 
 //	@Test
@@ -31,10 +31,16 @@ public class PromotionHotelDataServiceImplTest {
 //		assertEquals(aMsg, ResultMsg.SUCCESS);
 //	}
 //	
+//	@Test
+//	public void testFindByType() throws RemoteException{
+//		ArrayList<PromotionHotelPO> arr = impl.findByType(PromotionHotelType.BIRTH_PROMOTION, "5000");
+//		assertEquals(2, arr.get(0).getLevel());
+//	}
+	
 	@Test
-	public void testFindByType() throws RemoteException{
-		ArrayList<PromotionHotelPO> arr = impl.findByType(PromotionHotelType.BIRTH_PROMOTION, "5000");
-		assertEquals(2, arr.get(0).getLevel());
+	public void testUpdate() throws RemoteException{
+		ResultMsg resultMsg = impl.update(po);
+		assertEquals(ResultMsg.SUCCESS, resultMsg);
 	}
 
 }

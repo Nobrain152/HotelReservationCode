@@ -4,6 +4,7 @@ import java.rmi.RemoteException;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
+import data.creatID.CreateID;
 import dataSuper.DataSuperClass;
 import dataservice.promotiondataservice.PromotionHotelDataService;
 import po.PromotionHotelPO;
@@ -25,7 +26,8 @@ public class PromotionHotelDataServiceImpl extends DataSuperClass implements Pro
 	
 	@Override
 	public ResultMsg insert(PromotionHotelPO po) throws RemoteException {
-		return addToSQL(tableName, po.getHotelID(),po.getType().toString(),
+		String newID = CreateID.getCreateID().getNewPromotionHotelID();
+		return addToSQL(tableName, newID,po.getHotelID(),po.getType().toString(),
 							po.getTimeBegin(),
 							po.getTimeOver(),""+po.getRatio(),
 							""+po.getLevel(),""+po.getNumber(),
@@ -42,7 +44,7 @@ public class PromotionHotelDataServiceImpl extends DataSuperClass implements Pro
 
 	@Override
 	public ResultMsg update(PromotionHotelPO po) throws RemoteException {
-		return modifyFromSQL(tableName, po.getHotelID(),po.getType().toString(),
+		return modifyFromSQL(tableName, po.getPromotionHotelID(),po.getHotelID(),po.getType().toString(),
 							po.getTimeBegin(),
 							po.getTimeOver(),""+po.getRatio(),
 							""+po.getLevel(),""+po.getNumber(),
@@ -75,28 +77,28 @@ public class PromotionHotelDataServiceImpl extends DataSuperClass implements Pro
 			result = preState.executeQuery();
 			while (result.next()) {
 				System.out.println(result.getString(2));
-				if(result.getString(2).equals(PromotionHotelType.BIRTH_PROMOTION.toString())){
+				if(result.getString(3).equals(PromotionHotelType.BIRTH_PROMOTION.toString())){
 					pos.add(new PromotionHotelPO(
-							PromotionHotelType.valueOf(result.getString(2)),
-							result.getString(1), Integer.valueOf(result.getString(6)),
-							Double.valueOf(result.getString(5))));
-				}else if(result.getString(2).equals(PromotionHotelType.OVERTHREE_PROMOTION.toString())){
+							result.getString(1),PromotionHotelType.valueOf(result.getString(3)),
+							result.getString(2), Integer.valueOf(result.getString(7)),
+							Double.valueOf(result.getString(6))));
+				}else if(result.getString(3).equals(PromotionHotelType.OVERTHREE_PROMOTION.toString())){
 					pos.add(new PromotionHotelPO(
-							PromotionHotelType.valueOf(result.getString(2)),
-							result.getString(1), Integer.valueOf(result.getString(7)),
-							Double.valueOf(result.getString(5))));
+							result.getString(1),PromotionHotelType.valueOf(result.getString(3)),
+							result.getString(2), Integer.valueOf(result.getString(8)),
+							Double.valueOf(result.getString(6))));
 				}
-				else if(result.getString(2).equals(PromotionHotelType.JOIN_PROMOTION.toString())){
+				else if(result.getString(3).equals(PromotionHotelType.JOIN_PROMOTION.toString())){
 					pos.add(new PromotionHotelPO(
-							PromotionHotelType.valueOf(result.getString(2)),
-							result.getString(1), result.getString(8),
-							Double.valueOf(result.getString(5))));
+							result.getString(1),PromotionHotelType.valueOf(result.getString(3)),
+							result.getString(2), result.getString(9),
+							Double.valueOf(result.getString(6))));
 				}
-				else if(result.getString(2).equals(PromotionHotelType.HOTEL_CUSTOM_PROMOTION.toString())){
+				else if(result.getString(3).equals(PromotionHotelType.HOTEL_CUSTOM_PROMOTION.toString())){
 					pos.add(new PromotionHotelPO(
-							PromotionHotelType.valueOf(result.getString(2)),
-							result.getString(1), result.getString(3), result.getString(4),
-							Double.valueOf(result.getString(5))));
+							result.getString(1),PromotionHotelType.valueOf(result.getString(3)),
+							result.getString(2), result.getString(4), result.getString(5),
+							Double.valueOf(result.getString(6))));
 				}
 			}
 			

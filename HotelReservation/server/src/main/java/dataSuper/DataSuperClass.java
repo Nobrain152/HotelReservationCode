@@ -64,7 +64,7 @@ public class DataSuperClass extends UnicastRemoteObject{
 	private static final Map<String, ArrayList<String>> SQLmap = new HashMap<String, ArrayList<String>>(50);
 	
 	static{
-		SQLmap.put("createID", helper.bulidSQL("createID", 7,"flag","customerID","hotelStuffID","webStuffID","webManagerID","hotelID","orderID"));
+		SQLmap.put("createID", helper.bulidSQL("createID", 9,"flag","customerID","hotelStuffID","webStuffID","webManagerID","hotelID","orderID","promotionHotelID","promotionWebID"));
 		SQLmap.put("credit", helper.bulidSQL("credit",6, "userID","orderID","time","action","creditChange","creditResult"));
 		SQLmap.put("hotelEvaluate", helper.bulidSQL("hotelEvaluate", 6, "userID","hotelID","score","comment","reserve","orderID"));
 		SQLmap.put("hotelInfo", helper.bulidSQL("hotelInfo", 10, "hotelID","name","address","area","level","introduction","facility","reserve","score","SP"));
@@ -72,7 +72,7 @@ public class DataSuperClass extends UnicastRemoteObject{
 		SQLmap.put("orderList", helper.bulidSQL("orderList", 13, "orderID","customerInfoPO","orderState","price","hotelID","hasChild","latestExecutionTime","checkInTime","checkOutTime","cancelledTime","roomNumber","peopleNumber","roomInfoPO"));
 
 		SQLmap.put("order", helper.bulidSQL("order", 13, "orderID","customerInfoPO","orderState","price","hotelID","hasChild","latestExecutionTime","checkInTime","checkOutTime","cancelledTime","roomNumber","peopleNumber","roomInfoPO"));
-		SQLmap.put("promotionHotel", helper.bulidSQL("promotionHotel", 8, "hotelID","promotionHotelType","beginTime","endTime","ratio","level","number","businessName"));
+		SQLmap.put("promotionHotel", helper.bulidSQL("promotionHotel", 9,"promotionHotelID", "hotelID","promotionHotelType","beginTime","endTime","ratio","level","number","businessName"));
 		SQLmap.put("promotionWeb", helper.bulidSQL("promotionWeb", 6, "promotionWebType","beginTime","endTime","ratio","level","location"));
 		SQLmap.put("contact", helper.bulidSQL("contact", 2, "phoneNumber","emailAddress"));
 		SQLmap.put("customer", helper.bulidSQL("customer", 11, "userID","username", "password","contact","type","isMember","vipType","credit","orderIDList","hotelIDList","creditList"));

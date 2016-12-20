@@ -57,19 +57,19 @@ public class PromotionHotelControllerTest {
 		assertEquals(hotelProList4.get(0).getBusinessName(), hotel2.getBusinessName());
 	}
 	
-//	@Test
-//	public void testChangeBirthCut() throws RemoteException{
-//		resultMsg = hotel.changeBirthCut(1, 0.95, "12345678");
-//		double ratio = 1.00;
-//		ArrayList<PromotionHotelPO> pos = promotionHotelDataService.findByType(PromotionHotelType.BIRTH_PROMOTION, "12345678");
-//		for(PromotionHotelPO po : pos){
-//			if(po.getLevel() == 1){
-//				ratio = po.getRatio();
-//				break;
-//			}
-//		}
-//		assertEquals(ratio, 0.95, 0.01);
-//	}
+	@Test
+	public void testChangeBirthCut() throws RemoteException{
+		resultMsg = hotel.changeBirthCut(1, 0.99, "5000");
+		double ratio = 1.00;
+		ArrayList<PromotionHotelVO> vos = hotel.getHotelPromotion(PromotionHotelType.BIRTH_PROMOTION, "5000");
+		for(PromotionHotelVO vo : vos){
+			if(vo.getLevel() == 1){
+				ratio = vo.getRatio();
+				break;
+			}
+		}
+		assertEquals(ratio, 0.99, 0.01);
+	}
 	
 //	@Test 
 //	public void testAddBirthCut() throws RemoteException{

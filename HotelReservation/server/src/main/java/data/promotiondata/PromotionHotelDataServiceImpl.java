@@ -74,8 +74,12 @@ public class PromotionHotelDataServiceImpl extends DataSuperClass implements Pro
 			preState = conn.prepareStatement(sql);
 			result = preState.executeQuery();
 			while (result.next()) {
-				if(result.getString(2).equals(PromotionHotelType.BIRTH_PROMOTION)||
-				result.getString(2).equals(PromotionHotelType.OVERTHREE_PROMOTION)){
+				if(result.getString(2).equals(PromotionHotelType.BIRTH_PROMOTION)){
+					pos.add(new PromotionHotelPO(
+							PromotionHotelType.valueOf(result.getString(2)),
+							result.getString(1), Integer.valueOf(result.getString(6)),
+							Double.valueOf(result.getString(5))));
+				}else if(result.getString(2).equals(PromotionHotelType.OVERTHREE_PROMOTION)){
 					pos.add(new PromotionHotelPO(
 							PromotionHotelType.valueOf(result.getString(2)),
 							result.getString(1), Integer.valueOf(result.getString(7)),

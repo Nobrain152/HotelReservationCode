@@ -113,7 +113,16 @@ public interface HotelStuffHotelOperationBlService{
 	 * 录入可用房间
 	 * @param rooms
 	 */
-	public ResultMsg TypeInRoom(ArrayList<RoomInfoVO> rooms);
+	public ResultMsg TypeInRoom(RoomInfoVO room);
+	
+	
+	/**
+	 * 查看酒店所有客房信息
+	 * @param hotelid
+	 * @return
+	 * @throws RemoteException
+	 */
+	public ArrayList<RoomInfoVO> HotelRoomList(String hotelid);
 	
 	/**
 	 * 酒店工作人员更改订单状态

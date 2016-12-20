@@ -231,14 +231,19 @@ public class HotelStuff extends User {
 	 * 录入可用房间
 	 * @param rooms
 	 */
-	public ResultMsg TypeInRoom(ArrayList<RoomInfoVO> rooms)throws RemoteException{
-		for(RoomInfoVO v:rooms){
-			ResultMsg resultMsg=room.addRoom(v);
-			if(resultMsg==ResultMsg.FAIL){
-				return ResultMsg.FAIL;
-			}
-		}
-		return ResultMsg.SUCCESS;
+	public ResultMsg TypeInRoom(RoomInfoVO roo)throws RemoteException{
+		return room.addRoom(roo);
+	}
+	
+	
+	/**
+	 * 查看酒店所有客房信息
+	 * @param hotelid
+	 * @return
+	 * @throws RemoteException
+	 */
+	public ArrayList<RoomInfoVO> HotelRoomList(String hotelid)throws RemoteException{
+		return room.HotelRoomSearch(hotelid);
 	}
 	
 	/**

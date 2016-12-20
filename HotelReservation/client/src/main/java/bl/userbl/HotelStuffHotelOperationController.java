@@ -192,14 +192,28 @@ public class HotelStuffHotelOperationController implements HotelStuffHotelOperat
 	 * 录入可用房间
 	 * @param rooms
 	 */
-	public ResultMsg TypeInRoom(ArrayList<RoomInfoVO> rooms){
+	public ResultMsg TypeInRoom(RoomInfoVO room){
 		  try {
-			return stuff.TypeInRoom(rooms);
+			return stuff.TypeInRoom(room);
 		} catch (RemoteException e) {
 			return ResultMsg.FAIL;
 		}
 	}
 
+	
+	/**
+	 * 查看酒店所有客房信息
+	 * @param hotelid
+	 * @return
+	 * @throws RemoteException
+	 */
+	public ArrayList<RoomInfoVO> HotelRoomList(String hotelid){
+		try {
+			return stuff.HotelRoomList(hotelid);
+		} catch (RemoteException e) {
+			return null;
+		}
+	}
 	/**
 	 * 增加酒店促销策略	
 	 * @param 酒店IDVO

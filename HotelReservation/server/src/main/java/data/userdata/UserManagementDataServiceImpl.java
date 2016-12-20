@@ -32,8 +32,7 @@ public class UserManagementDataServiceImpl extends DataSuperClass implements Use
 	
 	private final static String tableName3 = "stuffInfo";
 	
-	private LoginInPO loginIn;
-	private LoginInpoData loginInpoData;
+	
 	
 	/**
 	 * 普通用户是customerinfo
@@ -56,6 +55,8 @@ public class UserManagementDataServiceImpl extends DataSuperClass implements Use
 	
 	@Override
 	public String AddCustomer(CustomerInfoPO po) throws RemoteException {
+		LoginInPO loginIn;
+		LoginInpoData loginInpoData = new LoginInpoData();
 		ResultMsg bMsg;
 		String newID = CreateID.getCreateID().getNewCustomerID();
 		if(po.getVipType() != null){
@@ -67,8 +68,7 @@ public class UserManagementDataServiceImpl extends DataSuperClass implements Use
 					po.getType().toString(),""+po.getIsMember(),
 					null,""+po.getCredit());
 		}
-		
-		loginIn = new LoginInPO(po.getUserID(), po.getUsername());
+		loginIn = new LoginInPO(newID, po.getPassword());
 		loginInpoData.addToSQL(loginIn);
 		if(bMsg == ResultMsg.SUCCESS){
 			return newID;
@@ -79,11 +79,13 @@ public class UserManagementDataServiceImpl extends DataSuperClass implements Use
 	
 	@Override
 	public String AddHotelStuff(StuffInfoPO po) throws RemoteException{
+		LoginInPO loginIn;
+		LoginInpoData loginInpoData = new LoginInpoData();
 		String newID = CreateID.getCreateID().getNewHotelStuffID();
 		ResultMsg bMsg = addToSQL(tableName3,newID,po.getUsername(),po.getPassword(),
 											po.getContact(),po.getType().toString(),
 											po.getHotel());
-		loginIn = new LoginInPO(po.getUserID(), po.getUsername());
+		loginIn = new LoginInPO(newID, po.getPassword());
 		loginInpoData.addToSQL(loginIn);
 		if(bMsg == ResultMsg.SUCCESS){
 			return newID;
@@ -94,10 +96,12 @@ public class UserManagementDataServiceImpl extends DataSuperClass implements Use
 
 	@Override
 	public String AddWebStuff(UserInfoPO po) throws RemoteException {
+		LoginInPO loginIn;
+		LoginInpoData loginInpoData = new LoginInpoData();
 		String newID = CreateID.getCreateID().getNewWebStuffID();
 		ResultMsg bMsg = addToSQL(tableName, newID,po.getUsername(),po.getPassword(),
 									po.getContact(),po.getType().toString());
-		loginIn = new LoginInPO(po.getUserID(), po.getUsername());
+		loginIn = new LoginInPO(newID, po.getPassword());
 		loginInpoData.addToSQL(loginIn);
 		if(bMsg == ResultMsg.SUCCESS){
 			return newID;
@@ -108,10 +112,12 @@ public class UserManagementDataServiceImpl extends DataSuperClass implements Use
 
 	@Override
 	public String AddWebManager(UserInfoPO po) throws RemoteException {
+		LoginInPO loginIn;
+		LoginInpoData loginInpoData = new LoginInpoData();
 		String newID = CreateID.getCreateID().getNewWebManagerID();
 		ResultMsg bMsg = addToSQL(tableName, newID,po.getUsername(),po.getPassword(),
 									po.getContact(),po.getType().toString());
-		loginIn = new LoginInPO(po.getUserID(), po.getUsername());
+		loginIn = new LoginInPO(newID, po.getPassword());
 		loginInpoData.addToSQL(loginIn);
 		if(bMsg == ResultMsg.SUCCESS){
 			return newID;

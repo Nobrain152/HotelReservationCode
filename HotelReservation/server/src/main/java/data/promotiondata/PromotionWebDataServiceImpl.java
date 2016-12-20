@@ -108,17 +108,17 @@ public class PromotionWebDataServiceImpl extends DataSuperClass implements Promo
 			preState = conn.prepareStatement(sql);
 			result = preState.executeQuery();
 			while (result.next()) {
-				if(result.getString(1).equals(PromotionWebType.VIP_LEVEL_PROMOTION)){
+				if(result.getString(1).equals(PromotionWebType.VIP_LEVEL_PROMOTION.toString())){
 					pos.add(new PromotionWebPO(PromotionWebType.valueOf(result.getString(1)),
 												Integer.valueOf(result.getString(5)), 
 												Double.valueOf(result.getString(4))));
 				}
-				else if(result.getString(1).equals(PromotionWebType.VIP_CIRCLE_PROMOTION)){
+				else if(result.getString(1).equals(PromotionWebType.VIP_CIRCLE_PROMOTION.toString())){
 					pos.add(new PromotionWebPO(PromotionWebType.valueOf(result.getString(1)), 
 												Area.valueOf(result.getString(6)), 
 												Double.valueOf(result.getString(4))));
 				}
-				else if(result.getString(1).equals(PromotionWebType.WEB_CUSTOM_PROMOTION)){
+				else if(result.getString(1).equals(PromotionWebType.WEB_CUSTOM_PROMOTION.toString())){
 					pos.add(new PromotionWebPO(PromotionWebType.valueOf(result.getString(1)), 
 												result.getString(2), result.getString(3), 
 												Double.valueOf(result.getString(4))));

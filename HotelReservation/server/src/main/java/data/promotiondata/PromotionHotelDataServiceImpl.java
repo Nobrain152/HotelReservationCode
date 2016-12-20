@@ -74,24 +74,25 @@ public class PromotionHotelDataServiceImpl extends DataSuperClass implements Pro
 			preState = conn.prepareStatement(sql);
 			result = preState.executeQuery();
 			while (result.next()) {
-				if(result.getString(2).equals(PromotionHotelType.BIRTH_PROMOTION)){
+				System.out.println(result.getString(2));
+				if(result.getString(2).equals(PromotionHotelType.BIRTH_PROMOTION.toString())){
 					pos.add(new PromotionHotelPO(
 							PromotionHotelType.valueOf(result.getString(2)),
 							result.getString(1), Integer.valueOf(result.getString(6)),
 							Double.valueOf(result.getString(5))));
-				}else if(result.getString(2).equals(PromotionHotelType.OVERTHREE_PROMOTION)){
+				}else if(result.getString(2).equals(PromotionHotelType.OVERTHREE_PROMOTION.toString())){
 					pos.add(new PromotionHotelPO(
 							PromotionHotelType.valueOf(result.getString(2)),
 							result.getString(1), Integer.valueOf(result.getString(7)),
 							Double.valueOf(result.getString(5))));
 				}
-				else if(result.getString(2).equals(PromotionHotelType.JOIN_PROMOTION)){
+				else if(result.getString(2).equals(PromotionHotelType.JOIN_PROMOTION.toString())){
 					pos.add(new PromotionHotelPO(
 							PromotionHotelType.valueOf(result.getString(2)),
 							result.getString(1), result.getString(8),
 							Double.valueOf(result.getString(5))));
 				}
-				else if(result.getString(2).equals(PromotionHotelType.HOTEL_CUSTOM_PROMOTION)){
+				else if(result.getString(2).equals(PromotionHotelType.HOTEL_CUSTOM_PROMOTION.toString())){
 					pos.add(new PromotionHotelPO(
 							PromotionHotelType.valueOf(result.getString(2)),
 							result.getString(1), result.getString(3), result.getString(4),

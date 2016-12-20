@@ -28,11 +28,11 @@ public class UserManagementDataServiceImplTest {
 		po = new CustomerInfoPO("19954722", "ÌÆöÎ", "18805156300", "sfd", 300, true, VipType.COMMON_VIP);
 	}
 	
-	@Test
-	public void test() throws RemoteException{
-		impl.AddCustomer(po);
-	}
-	
+//	@Test
+//	public void test() throws RemoteException{
+//		impl.AddCustomer(po);
+//	}
+//	
 //	@Test
 //	public void testGetLoginInfo() throws RemoteException{
 //		assertEquals(impl.GetLoginInfo("123"),"456");
@@ -62,12 +62,12 @@ public class UserManagementDataServiceImplTest {
 //		//assertEquals(impl.SetUserBaseInfo(po, v),true);
 //	}
 //	
-//	@Test
-//	public void testSeTCustomerInfo() throws RemoteException{
-//		CustomerInfoPO po = new CustomerInfoPO("19954722", "ÌÆöÎ", "18805156300", "sfd", 400, true, VipType.COMMON_VIP);
-//		ResultMsg aMsg = impl.SetCustomerInfo("19954722", po);
-//		assertEquals(aMsg, ResultMsg.SUCCESS);
-//	}
+	@Test
+	public void testSeTCustomerInfo() throws RemoteException{
+		CustomerInfoPO po = new CustomerInfoPO("10000065", "kevin", "18805156300", "sfd", 400, true, null);
+		ResultMsg aMsg = impl.SetCustomerInfo("10000065", po);
+		assertEquals(aMsg, ResultMsg.SUCCESS);
+	}
 //	
 //	@Test
 //	public void testaddHotelStuff() throws RemoteException{

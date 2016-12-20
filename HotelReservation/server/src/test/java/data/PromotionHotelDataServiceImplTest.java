@@ -22,7 +22,7 @@ public class PromotionHotelDataServiceImplTest {
 	public void setUp() throws Exception {
 		impl = new PromotionHotelDataServiceImpl();
 //		po = new PromotionHotelPO(PromotionHotelType.OVERTHREE_PROMOTION, "5004", 3, 2.33);
-		po = new PromotionHotelPO(PromotionHotelType.BIRTH_PROMOTION, "5000", 1, 0.9);
+		po = new PromotionHotelPO("111111111",PromotionHotelType.BIRTH_PROMOTION, "5000", 1, 0.9);
 	}
 
 //	@Test

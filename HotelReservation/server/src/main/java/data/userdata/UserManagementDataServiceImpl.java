@@ -191,13 +191,14 @@ public class UserManagementDataServiceImpl extends DataSuperClass implements Use
 
 	@Override
 	public ResultMsg SetCustomerInfo(String userid, CustomerInfoPO po) throws RemoteException{
-		if(po.getType() != null){
+		if(po.getVipType() != null){
 			return modifyFromSQL(tableName2, po.getUserID(),po.getUsername(),po.getPassword(),po.getContact(),
 											po.getType().toString(),""+po.getIsMember(),
 											po.getVipType().toString(),""+po.getCredit());
 		}else{
-			System.out.println("输入的信息中缺失usertype属性");
-			return ResultMsg.FAIL;
+			return modifyFromSQL(tableName2, po.getUserID(),po.getUsername(),po.getPassword(),po.getContact(),
+											po.getType().toString(),""+po.getIsMember(),
+											null,""+po.getCredit());
 		}
 		
 	}

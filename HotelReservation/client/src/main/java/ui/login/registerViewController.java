@@ -48,7 +48,7 @@ public class registerViewController implements Initializable{
 	
 	@FXML
 	public void btn_registerAction(ActionEvent event){
-		CustomerInfoVO user=new CustomerInfoVO(null,password.getText(),name.getText(),contact.getText(),300,false,null);
+		CustomerInfoVO user=new CustomerInfoVO(null,name.getText(),contact.getText(),password.getText(),300,false,null);
 		user.setType(UserType.Customer);
 		register.Register(user);//TODO 判断结果，返回值是注册的ID，需改变界面，不输入ID，由系统自动返回
 		application.gotologin();

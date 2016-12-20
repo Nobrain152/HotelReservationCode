@@ -157,7 +157,10 @@ public class OrderOnUser {
 					CreditController controller = new CreditController();
 					controller.subCredit(orderVO.getInitiator(), (int)orderOnUserPO.getPrice()/2);
 					ArrayList<CreditPO> creditPOs = creditDataService.getListByUserID(orderOnUserPO.getInitiator().getUserID());
-					CreditPO creditPO = creditPOs.get(0);
+					CreditPO creditPO = creditPOs.get(creditPOs.size()-1);
+					creditPO.setCreditChange("-"+(int)orderVO.getPrice()/2);
+					creditPO.setCreditResult(creditPO.getCreditResult()-(int)orderVO.getPrice()/2);
+					creditPO.setTime(new Today().getToday());
 					creditPO.setAction(Action.Cancelled);
 					resultMsg = creditDataService.insert(creditPO);
 				}

@@ -75,7 +75,7 @@ public class OrderDataServiceImpl extends DataSuperClass implements OrderDataSer
 	public ArrayList<OrderPO> findByUserID(String ID) throws RemoteException {
 		ArrayList<OrderPO> pos = new ArrayList<OrderPO>();
 		sql = "SELECT * FROM " + tableName  + " WHERE customerInfoPO = \'" + ID + "\'";
-		System.out.println(sql);
+//		System.out.println(sql);
 		pos = getMsgs(sql);
 		return pos.size()==0?null:pos;
 	}

@@ -39,7 +39,7 @@ public class Credit {
 
 	public ResultMsg addCredit(CustomerInfoVO client, int value) throws RemoteException {
 		ArrayList<CreditPO> creditPOs = creditDataService.getListByUserID(client.getUserID());
-		CreditPO creditPO = creditPOs.get(0);
+		CreditPO creditPO = creditPOs.get(creditPOs.size()-1);
 		if(creditPO == null){
 			resultMsg = ResultMsg.NOT_EXIST;
 		}else{

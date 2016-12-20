@@ -62,7 +62,7 @@ public class OrderOnWeb {
 		webVOs = new ArrayList<OrderVO>();
 		for(OrderPO webPO : webPOs){
 			if(webPO.getOrderState() == OrderState.UNEXECUTED 
-					&& webPO.getLatestExecutionTime().substring(10).equals(today.substring(10)))
+					&& webPO.getLatestExecutionTime().substring(0,10).equals(today.substring(0,10)))
 				webVOs.add((OrderVO)VOPOchange.POtoVO(webPO));
 		}
 		

@@ -3,6 +3,7 @@ package data;
 import static org.junit.Assert.*;
 
 import java.rmi.RemoteException;
+import java.util.ArrayList;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -20,13 +21,20 @@ public class PromotionHotelDataServiceImplTest {
 	@Before
 	public void setUp() throws Exception {
 		impl = new PromotionHotelDataServiceImpl();
-		po = new PromotionHotelPO(PromotionHotelType.OVERTHREE_PROMOTION, "5004", 3, 2.33);
+//		po = new PromotionHotelPO(PromotionHotelType.OVERTHREE_PROMOTION, "5004", 3, 2.33);
+		po = new PromotionHotelPO(PromotionHotelType.BIRTH_PROMOTION, "5000", 2, 0.95);
 	}
 
+//	@Test
+//	public void testInsert() throws RemoteException {
+//		ResultMsg aMsg = impl.insert(po);
+//		assertEquals(aMsg, ResultMsg.SUCCESS);
+//	}
+//	
 	@Test
-	public void testInsert() throws RemoteException {
-		ResultMsg aMsg = impl.insert(po);
-		assertEquals(aMsg, ResultMsg.SUCCESS);
+	public void testFindByType() throws RemoteException{
+		ArrayList<PromotionHotelPO> arr = impl.findByType(PromotionHotelType.BIRTH_PROMOTION, "5000");
+		assertEquals(2, arr.get(0).getNumber());
 	}
 
 }

@@ -13,7 +13,7 @@ public class MD5Util {
      * @param ´ı¼ÓÃÜ×Ö·û´®
      * @return ·µ»Ø32Î»md5Âë
      */
-    public  String md5Encode(String inStr)  {
+    public  static String md5Encode(String inStr)  {
         MessageDigest md5 = null;
         try {
             md5 = MessageDigest.getInstance("MD5");

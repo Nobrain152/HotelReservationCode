@@ -78,6 +78,7 @@ public class WebManager extends User {
 				return null;
 		}
 		StuffInfoPO po=(StuffInfoPO)VOPOchange.VOtoPO(vo);
+		po.setPassword(MD5Util.md5Encode(po.getPassword()));
 		String id= data.AddHotelStuff(po);
 		return id;
 	}
@@ -118,7 +119,7 @@ public class WebManager extends User {
 	 * @return ÐÞ¸Ä½á¹û
 	 */
 	public ResultMsg UserInformationModification(String userid,UserInfoVO vo2)throws RemoteException{
-		UserInfoPO po1=(UserInfoPO)VOPOchange.POtoVO(vo2);
+		UserInfoPO po1=(UserInfoPO)VOPOchange.VOtoPO(vo2);
 		char c=userid.charAt(0);
 		
 		switch(c){

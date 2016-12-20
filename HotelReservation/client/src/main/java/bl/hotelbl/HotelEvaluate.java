@@ -67,7 +67,8 @@ public class HotelEvaluate {
 	 */
 	public ResultMsg checkOrder(HotelEvaluateVO evaluateInfoVO) throws RemoteException{
 		HotelEvaluatePO evaluatePO = evaluateData.findByID(evaluateInfoVO.getOrderID());
-		if(evaluatePO.getIsReserved())
+		boolean con=evaluatePO.getIsReserved();
+		if(con)
 			result = ResultMsg.SUCCESS;
 		else
 			result= ResultMsg.FAIL;

@@ -25,16 +25,11 @@ public class HotelEvaluateControllerTest {
 	
 	@Before
 	public void setUp() {
-		evaluation1=new HotelEvaluateVO("gyf","StarHotel",10,"execellent",true,"41531623636");
-		evaluation2=new HotelEvaluateVO("gyf","SunHotel",8,"very good",false,"4325236526");
-				
-				
+		evaluation1=new HotelEvaluateVO("12345679","5000",10,"execellent",true,"41531623636");
+		evaluation2=new HotelEvaluateVO("12345679","5000",8,"very good",false,"4325236526");	
 		impl = new HotelEvaluateController();
 		reMsg1 = ResultMsg.SUCCESS;
 		reMsg2 = ResultMsg.FAIL;
-		evList = impl.evaluationList;
-		evList.add(evaluation1);
-		evList.add(evaluation2);
 		evMsg = ResultMsg.SUCCESS;
 	}
 	

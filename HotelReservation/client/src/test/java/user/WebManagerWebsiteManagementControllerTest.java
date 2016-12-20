@@ -9,6 +9,8 @@ import org.junit.Before;
 import org.junit.Test;
 
 import bl.userbl.WebManagerWebsiteManagementController;
+import util.ResultMsg;
+import util.UserType;
 import vo.UserInfoVO;
 
 
@@ -31,7 +33,8 @@ public class WebManagerWebsiteManagementControllerTest {
 	
 	@Test
 	public void testmodify(){
-		assertEquals(impl.UserInformationModification("42345678", info),true);
+		info.setType(UserType.WebManager);
+		assertEquals(impl.UserInformationModification("42345678", info),ResultMsg.SUCCESS);
 	}
 	
 	

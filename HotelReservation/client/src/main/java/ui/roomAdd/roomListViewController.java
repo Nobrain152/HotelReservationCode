@@ -66,6 +66,9 @@ public class roomListViewController implements Initializable{
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		// TODO Auto-generated method stub
+		
+		
+		
 		data = FXCollections.observableArrayList(new roomItem("201", "标准房", "可用", 500,"2016-10-1 8:00","2016-10-2 8:00"),
 				new roomItem("201", "标准房", "可用", 500,"2016-10-1 8:00","2016-10-2 8:00"),
 				new roomItem("201", "标准房", "可用", 500,"2016-10-1 8:00","2016-10-2 8:00")

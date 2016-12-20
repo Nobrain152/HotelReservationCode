@@ -9,10 +9,16 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
+import javafx.scene.control.TextField;
 import ui.UILaunch;
+import ui.UIhelper;
+import util.Adress;
+import util.Area;
+import vo.HotelInfoVO;
 
 public class hotelSearchViewController implements Initializable{
 	private UILaunch application;
+	private UIhelper helper;
 	
 	@FXML
 	private ChoiceBox<String> cb_Address;
@@ -21,7 +27,7 @@ public class hotelSearchViewController implements Initializable{
 	private ChoiceBox<String> cb_Area;
 	
 	@FXML
-	private ChoiceBox<String> cb_Price;
+	private TextField tf_name;
 	
 	@FXML
 	private ChoiceBox<Integer> cb_Star;
@@ -46,17 +52,73 @@ public class hotelSearchViewController implements Initializable{
 	
 	@FXML
 	public void btn_SearchAction(ActionEvent ev) throws Exception{
+		Adress address = null;
+		Area area = null;
+		if(cb_Address.getValue().equals("南京")){
+			address=Adress.NANJING;
+		}
+		else if(cb_Address.getValue().equals("北京")){
+			address=Adress.BEIJING;
+		}
+		else if(cb_Address.getValue().equals("上海")){
+			address=Adress.SHANGHAI;
+		}
+		else if(cb_Address.getValue().equals("无锡")){
+			address=Adress.WUXI;
+		}
+		else if(cb_Address.getValue().equals("厦门")){
+			address=Adress.XIAMEN;
+		}
+		if(cb_Area.getValue().equals("东区")){
+			area=Area.EAST;
+		}
+		else if(cb_Area.getValue().equals("西区")){
+			area=Area.WEST;
+		}
+		else if(cb_Area.getValue().equals("南区")){
+			area=Area.SOUTH;
+		}
+		else if(cb_Area.getValue().equals("北区")){
+			area=Area.NORTH;
+		}
+		
+		String scoreStr=cb_Score.getValue();
+		char charDown=scoreStr.charAt(0);
+		double down = 0;
+		double up = 0;
+		switch(charDown){
+		case '0':{
+			down=0;
+			up=3;
+		}
+		case '3':{
+			down=3;
+			up=6;
+		}
+		case '6':{
+			down=6;
+			up=8;
+		}
+		case '8':{
+			down=8;
+			up=10;
+		}
+		}
+		HotelInfoVO hotelSearch=new HotelInfoVO(tf_name.getText(),address,area,cb_Star.getValue(),up,down);
+		helper.setSearchHotel(hotelSearch);
 		application.gotohotelSearchList();
 	}
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		// TODO Auto-generated method stub
-		cb_Address.setItems(FXCollections.observableArrayList("北京","上海","南京","广州"));
+		helper=UIhelper.getInstance();
+		
+		
+		cb_Address.setItems(FXCollections.observableArrayList("北京","上海","南京","无锡","厦门"));
 		cb_Area.setItems(FXCollections.observableArrayList("东区","西区","南区","北区"));
-		cb_Price.setItems(FXCollections.observableArrayList("从高到低", "从低到高"));
 		cb_Star.setItems(FXCollections.observableArrayList(1, 2,3,4,5));
-		cb_Score.setItems(FXCollections.observableArrayList("0~2", "3~5","6~8","9~10"));
+		cb_Score.setItems(FXCollections.observableArrayList("0~3", "3~6","6~8","8~10"));
 	}
 
 }

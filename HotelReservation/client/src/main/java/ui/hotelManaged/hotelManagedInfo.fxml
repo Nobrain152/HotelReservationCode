@@ -22,11 +22,6 @@
                   <Font size="24.0" />
                </font>
             </Text>
-            <Text layoutX="651.0" layoutY="40.0" strokeType="OUTSIDE" strokeWidth="0.0" text="XXX，欢迎你！">
-               <font>
-                  <Font size="14.0" />
-               </font>
-            </Text>
          </children>
       </Pane>
       <Pane layoutY="530.0" prefHeight="70.0" prefWidth="800.0">
@@ -90,6 +85,46 @@
             <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#dfe7ee" height="29.0" layoutX="173.0" layoutY="307.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="193.0" />
             <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#dfe7ee" height="84.0" layoutX="423.0" layoutY="78.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="266.0" />
             <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#dfe7ee" height="123.0" layoutX="423.0" layoutY="209.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="266.0" />
+            <Label fx:id="lb_name" layoutX="180.0" layoutY="49.0" prefHeight="29.0" prefWidth="180.0">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <Label fx:id="lb_star" layoutX="180.0" layoutY="107.0" prefHeight="29.0" prefWidth="180.0">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <Label fx:id="lb_score" layoutX="180.0" layoutY="162.0" prefHeight="29.0" prefWidth="180.0">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <Label fx:id="lb_price" layoutX="180.0" layoutY="209.0" prefHeight="29.0" prefWidth="180.0">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <Label fx:id="lb_address" layoutX="180.0" layoutY="259.0" prefHeight="29.0" prefWidth="180.0">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <Label fx:id="lb_area" layoutX="180.0" layoutY="307.0" prefHeight="29.0" prefWidth="180.0">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <Label fx:id="lb_facility" layoutX="433.0" layoutY="78.0" prefHeight="84.0" prefWidth="246.0" wrapText="true">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <Label fx:id="lb_introduction" layoutX="433.0" layoutY="209.0" prefHeight="123.0" prefWidth="246.0" wrapText="true">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
          </children>
       </Pane>
    </children>

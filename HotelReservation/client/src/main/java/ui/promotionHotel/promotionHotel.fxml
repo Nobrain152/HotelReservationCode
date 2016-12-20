@@ -41,14 +41,14 @@
                            <font>
                               <Font size="14.0" />
                            </font></Button>
-                        <Button layoutX="297.0" layoutY="352.0" mnemonicParsing="false" text="删除">
+                        <Button fx:id="btn_birthday_delete" layoutX="297.0" layoutY="352.0" mnemonicParsing="false" onAction="#btn_birthday_deleteAction" text="删除">
                            <font>
                               <Font size="14.0" />
                            </font></Button>
-                        <TextField layoutX="564.0" layoutY="150.0" promptText="会员等级" />
-                        <TextField layoutX="564.0" layoutY="199.0" promptText="相应折扣" />
+                        <TextField fx:id="tf_birthday_level" layoutX="564.0" layoutY="150.0" promptText="会员等级" />
+                        <TextField fx:id="tf_birthday_discount" layoutX="564.0" layoutY="199.0" promptText="相应折扣" />
                         <Label layoutX="564.0" layoutY="104.0" text="优惠策略添加" />
-                        <Button layoutX="670.0" layoutY="277.0" mnemonicParsing="false" text="添加" />
+                        <Button fx:id="btn_birthday_add" layoutX="676.0" layoutY="266.0" mnemonicParsing="false" onAction="#btn_birthday_addAction" prefHeight="29.0" prefWidth="49.0" text="添加" />
                      </children>
                   </AnchorPane>
             </content>
@@ -63,11 +63,11 @@
                               <TableColumn fx:id="promotion_threeroom_discount" prefWidth="161.0" text="相应折扣" />
                            </columns>
                         </TableView>
-                        <Button layoutX="680.0" layoutY="287.0" mnemonicParsing="false" text="添加" />
+                        <Button fx:id="btn_threeroom_add" layoutX="684.0" layoutY="274.0" mnemonicParsing="false" onAction="#btn_threeroom_addAction" prefHeight="29.0" prefWidth="51.0" text="添加" />
                         <Label layoutX="574.0" layoutY="114.0" text="优惠策略添加" />
-                        <TextField layoutX="574.0" layoutY="209.0" promptText="相应折扣" />
-                        <TextField layoutX="574.0" layoutY="160.0" promptText="房间数量" />
-                        <Button layoutX="304.0" layoutY="346.0" mnemonicParsing="false" text="删除">
+                        <TextField fx:id="tf_threeroom_discount" layoutX="574.0" layoutY="209.0" promptText="相应折扣" />
+                        <TextField fx:id="tf_threeroom_number" layoutX="574.0" layoutY="160.0" promptText="房间数量" />
+                        <Button fx:id="btn_threeroom_delete" layoutX="304.0" layoutY="346.0" mnemonicParsing="false" onAction="#btn_threeroom_deleteAction" text="删除">
                            <font>
                               <Font size="14.0" />
                            </font>
@@ -90,11 +90,11 @@
                               <TableColumn fx:id="promotion_enterprise_discount" prefWidth="161.0" text="相应折扣" />
                            </columns>
                         </TableView>
-                        <Button layoutX="680.0" layoutY="287.0" mnemonicParsing="false" text="添加" />
+                        <Button fx:id="btn_enterprise_add" layoutX="687.0" layoutY="281.0" mnemonicParsing="false" onAction="#btn_enterprise_addAction" prefHeight="29.0" prefWidth="48.0" text="添加" />
                         <Label layoutX="574.0" layoutY="114.0" text="优惠策略添加" />
-                        <TextField layoutX="574.0" layoutY="209.0" promptText="相应折扣" />
-                        <TextField layoutX="574.0" layoutY="160.0" promptText="合作企业" />
-                        <Button layoutX="307.0" layoutY="346.0" mnemonicParsing="false" text="删除">
+                        <TextField fx:id="tf_enterprise_discount" layoutX="574.0" layoutY="209.0" promptText="相应折扣" />
+                        <TextField fx:id="tf_enterprise_name" layoutX="574.0" layoutY="160.0" promptText="合作企业" />
+                        <Button fx:id="btn_enterprise_delete" layoutX="307.0" layoutY="346.0" mnemonicParsing="false" onAction="#btn_enterprise_deleteAction" text="删除">
                            <font>
                               <Font size="14.0" />
                            </font>
@@ -118,12 +118,12 @@
                               <TableColumn fx:id="promotion_diy_discount" prefWidth="88.0" text="折扣" />
                            </columns>
                         </TableView>
-                        <Button layoutX="680.0" layoutY="287.0" mnemonicParsing="false" text="添加" />
+                        <Button fx:id="btn_diy_add" layoutX="680.0" layoutY="281.0" mnemonicParsing="false" onAction="#btn_diy_addAction" prefHeight="29.0" prefWidth="53.0" text="添加" />
                         <Label layoutX="574.0" layoutY="94.0" text="优惠策略添加" />
-                        <TextField layoutX="575.0" layoutY="232.0" promptText="相应折扣" />
-                        <DatePicker layoutX="574.0" layoutY="134.0" prefHeight="23.0" prefWidth="162.0" promptText="起始时间" />
-                        <DatePicker layoutX="574.0" layoutY="183.0" prefHeight="23.0" prefWidth="162.0" promptText="结束时间" />
-                        <Button layoutX="343.0" layoutY="336.0" mnemonicParsing="false" text="删除">
+                        <TextField fx:id="tf_diy_discount" layoutX="575.0" layoutY="232.0" promptText="相应折扣" />
+                        <DatePicker fx:id="dp_diy_start" layoutX="574.0" layoutY="134.0" prefHeight="23.0" prefWidth="162.0" promptText="起始时间" />
+                        <DatePicker fx:id="dp_diy_end" layoutX="574.0" layoutY="183.0" prefHeight="23.0" prefWidth="162.0" promptText="结束时间" />
+                        <Button fx:id="btn_diy_delete" layoutX="343.0" layoutY="336.0" mnemonicParsing="false" onAction="#btn_diy_deleteAction" text="删除">
                            <font>
                               <Font size="14.0" />
                            </font>

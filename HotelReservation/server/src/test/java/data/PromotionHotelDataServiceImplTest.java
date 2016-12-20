@@ -33,8 +33,8 @@ public class PromotionHotelDataServiceImplTest {
 //	
 	@Test
 	public void testFindByType() throws RemoteException{
-		ArrayList<PromotionHotelPO> arr = impl.findByType(PromotionHotelType.OVERTHREE_PROMOTION, "5004");
-		assertEquals(3, arr.get(0).getNumber());
+		ArrayList<PromotionHotelPO> arr = impl.findByType(PromotionHotelType.BIRTH_PROMOTION, "5000");
+		assertEquals(2, arr.get(0).getLevel());
 	}
 
 }

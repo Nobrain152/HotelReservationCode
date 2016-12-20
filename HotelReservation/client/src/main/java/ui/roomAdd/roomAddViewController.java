@@ -8,9 +8,11 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import ui.UILaunch;
+import ui.UIhelper;
 
 public class roomAddViewController implements Initializable{
 	private UILaunch application;
+	private UIhelper helper;
 	
 	@FXML
 	private Button btn_Cancel;
@@ -27,7 +29,7 @@ public class roomAddViewController implements Initializable{
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		// TODO Auto-generated method stub
-		
+		helper=UIhelper.getInstance();
 	}
 
 }

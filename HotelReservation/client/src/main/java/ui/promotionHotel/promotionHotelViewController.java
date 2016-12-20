@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 import bl.userbl.HotelStuffHotelOperationController;
+import bl.userbl.StuffInfoManagementController;
 import javafx.beans.property.SimpleDoubleProperty;
 import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleStringProperty;
@@ -20,12 +21,16 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import ui.UILaunch;
+import ui.UIhelper;
 import util.PromotionHotelType;
 import vo.PromotionHotelVO;
+import vo.StuffInfoVO;
 
 public class promotionHotelViewController implements Initializable {
 	private UILaunch application;
+	private UIhelper helper;
 	private HotelStuffHotelOperationController promotionManage;
+	private StuffInfoManagementController stuffInfo;
 
 	// 会员生日优惠策略
 	@FXML
@@ -183,10 +188,19 @@ public class promotionHotelViewController implements Initializable {
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		// TODO Auto-generated method stub
+		helper=UIhelper.getInstance();
 		promotionManage=new HotelStuffHotelOperationController();
+		stuffInfo=new StuffInfoManagementController();
+		
+		//获取酒店ID
+		String hotelStuffID=helper.getUserID();
+		StuffInfoVO vo=stuffInfo.IndividualBaseInfolnquiry(hotelStuffID);
+		String hotelID=vo.getHotel();
+		
 		
 		PromotionHotelVO vo_birthday=new PromotionHotelVO();
 		vo_birthday.setType(PromotionHotelType.BIRTH_PROMOTION);
+		vo_birthday.setHotelID(hotelID);
 		ArrayList<PromotionHotelVO> promotion_birthdayList=promotionManage.HotelPromotionInquire(vo_birthday);
 		ArrayList<PromotionBirthday> data_birthdayList=new ArrayList<PromotionBirthday>();
 		int size_birthday=promotion_birthdayList.size();
@@ -201,6 +215,7 @@ public class promotionHotelViewController implements Initializable {
 		
 		PromotionHotelVO vo_threeroom=new PromotionHotelVO();
 		vo_threeroom.setType(PromotionHotelType.OVERTHREE_PROMOTION);
+		vo_threeroom.setHotelID(hotelID);
 		ArrayList<PromotionHotelVO> promotion_threeroomList=promotionManage.HotelPromotionInquire(vo_threeroom);
 		ArrayList<PromotionThreeRoom> data_threeroomList=new ArrayList<PromotionThreeRoom>();
 		int size_threeroom=promotion_threeroomList.size();
@@ -215,6 +230,7 @@ public class promotionHotelViewController implements Initializable {
 		
 		PromotionHotelVO vo_enterprise=new PromotionHotelVO();
 		vo_enterprise.setType(PromotionHotelType.JOIN_PROMOTION);
+		vo_enterprise.setHotelID(hotelID);
 		ArrayList<PromotionHotelVO> promotion_enterpriseList=promotionManage.HotelPromotionInquire(vo_enterprise);
 		ArrayList<PromotionEnterprise> data_enterpriseList=new ArrayList<PromotionEnterprise>();
 		int size_enterprise=promotion_enterpriseList.size();
@@ -229,6 +245,7 @@ public class promotionHotelViewController implements Initializable {
 
 		PromotionHotelVO vo_diy=new PromotionHotelVO();
 		vo_diy.setType(PromotionHotelType.HOTEL_CUSTOM_PROMOTION);
+		vo_diy.setHotelID(hotelID);
 		ArrayList<PromotionHotelVO> promotion_diyList=promotionManage.HotelPromotionInquire(vo_diy);
 		ArrayList<PromotionDiy> data_diyList=new ArrayList<PromotionDiy>();
 		int size_diy=promotion_diyList.size();

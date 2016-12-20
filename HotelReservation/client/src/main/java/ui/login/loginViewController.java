@@ -72,8 +72,7 @@ public class loginViewController implements Initializable{
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		// TODO Auto-generated method stub
-		helper=UIhelper.getInstance();
-		
+		helper=UIhelper.getInstance();		
 		login=new LoginInputController();
 		
 

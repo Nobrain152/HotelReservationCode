@@ -1,10 +1,13 @@
 package ui;
 
+import vo.HotelInfoVO;
+
 public class UIhelper {
 	private static UIhelper instance;
 	private UIhelper(){}
 	
 	private String userID;
+	//用于查看酒店信息
 	private String hotelID;
 	private String orderID;
 	//网站管理人员管理客户信息时使用
@@ -13,6 +16,8 @@ public class UIhelper {
 	private String hotelStuffIDbyManager;
 	//网站管理人员管理网站营销人员信息时使用
 	private String salesmanIDbyManager;
+	//用户搜索酒店时使用
+	private HotelInfoVO searchHotel;
 	
 	
 	public static UIhelper getInstance(){
@@ -69,5 +74,13 @@ public class UIhelper {
 	
 	public void setSalesmanIDbyManager(String str){
 		this.salesmanIDbyManager=str;
+	}
+	
+	public HotelInfoVO getSearchHotel(){
+		return searchHotel;
+	}
+	
+	public void setSearchHotel(HotelInfoVO hotel){
+		this.searchHotel=hotel;
 	}
 }

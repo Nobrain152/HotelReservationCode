@@ -12,6 +12,7 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import ui.UILaunch;
 import util.UserType;
+import vo.CustomerInfoVO;
 import vo.UserInfoVO;
 
 public class registerViewController implements Initializable{
@@ -19,8 +20,7 @@ public class registerViewController implements Initializable{
 	
 	private LoginInputController register;
 	
-	@FXML
-	private TextField userID;
+	
 	
 	@FXML
 	private PasswordField password;
@@ -48,7 +48,7 @@ public class registerViewController implements Initializable{
 	
 	@FXML
 	public void btn_registerAction(ActionEvent event){
-		UserInfoVO user=new UserInfoVO(userID.getText(),password.getText(),name.getText(),contact.getText());
+		CustomerInfoVO user=new CustomerInfoVO(null,password.getText(),name.getText(),contact.getText(),300,false,null);
 		user.setType(UserType.Customer);
 		register.Register(user);//TODO 判断结果，返回值是注册的ID，需改变界面，不输入ID，由系统自动返回
 		application.gotologin();

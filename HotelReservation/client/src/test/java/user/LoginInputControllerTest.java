@@ -13,26 +13,26 @@ import vo.CustomerInfoVO;
 import vo.LoginInVO;
 
 public class LoginInputControllerTest {
-        LoginInVO vo;
+        //LoginInVO vo;
 		LoginInputController im;
 		
 		@Before
 		public void setUp() {
-			vo=new LoginInVO("Tom","12345679");
+			//vo=new LoginInVO("Tom","12345679");
 			im=new LoginInputController();
 		}
 
-		@Test
-		public void testLogin() {
-			boolean result=im.LogIn("12345679","12345679");
-			assertEquals(result,true);
-		}
-		
-		@Test
-		public void testLogout(){
-			boolean result=im.LogOut(true);
-			assertEquals(result,true);
-		}
+//		@Test
+//		public void testLogin() {
+//			boolean result=im.LogIn("12345679","12345679");
+//			assertEquals(result,true);
+//		}
+//		
+//		@Test
+//		public void testLogout(){
+//			boolean result=im.LogOut(true);
+//			assertEquals(result,true);
+//		}
 		
 		@Test
 		public void testregister(){

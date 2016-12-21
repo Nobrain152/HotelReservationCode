@@ -39,51 +39,54 @@ public class HotelSearch {
 		ArrayList<HotelInfoPO> pos;
 		if(hotelInfoVO.getName()!=null){
 			pos=hotelData.findByName(hotelInfoVO.getName());
+			System.out.println(hotelInfoVO.getName());
 		}
 		else{
 			pos=hotelData.findByAreaAndCircle(hotelInfoVO.getAddress(),hotelInfoVO.getArea());
-		}
-		
-		if(hotelInfoVO.getLevel()!=0){
-			for(int i=0;i<pos.size();i++){
-				HotelInfoPO po=pos.get(i);
-				if(po.getLevel()!=hotelInfoVO.getLevel()){
-					pos.remove(i);
-				}
-			}
-		}
-		double up=hotelInfoVO.getUp();
-		double down=hotelInfoVO.getDown();
-		if((up!=0.0)||(down!=0.0)){
-			for(int i=0;i<pos.size();i++){
-				HotelInfoPO po=pos.get(i);
-				if((po.getScore()<down)||(po.getScore()>up)){
-					pos.remove(i);
-				}
-			}
-		}
-		
-		if(roomin!=null){
-			for(int i=0;i<pos.size();i++){
-				String hotelid=pos.get(i).getHotelID();
-				ArrayList<RoomInfoVO> r=room.HotelRoomSearch(hotelid);
-				for(int j=0;j<r.size();j++){
-					if(roomin.getPrice()!=0){
-						if(r.get(j).getPrice()!=roomin.getPrice()){
-							pos.remove(i);
-							break;
-						}
-					}
-					if(roomin.getType()!=null){
-						if(r.get(j).getType()!=roomin.getType()){
-							pos.remove(i);
-							break;
-						}
+			
+			if(hotelInfoVO.getLevel()!=0){
+				for(int i=0;i<pos.size();i++){
+					HotelInfoPO po=pos.get(i);
+					if(po.getLevel()!=hotelInfoVO.getLevel()){
+						pos.remove(i);
 					}
 				}
-				
+			}
+			double up=hotelInfoVO.getUp();
+			double down=hotelInfoVO.getDown();
+			if((up!=0.0)||(down!=0.0)){
+				for(int i=0;i<pos.size();i++){
+					HotelInfoPO po=pos.get(i);
+					if((po.getScore()<down)||(po.getScore()>up)){
+						pos.remove(i);
+					}
+				}
+			}
+			
+			if(roomin!=null){
+				for(int i=0;i<pos.size();i++){
+					String hotelid=pos.get(i).getHotelID();
+					ArrayList<RoomInfoVO> r=room.HotelRoomSearch(hotelid);
+					for(int j=0;j<r.size();j++){
+						if(roomin.getPrice()!=0){
+							if(r.get(j).getPrice()!=roomin.getPrice()){
+								pos.remove(i);
+								break;
+							}
+						}
+						if(roomin.getType()!=null){
+							if(r.get(j).getType()!=roomin.getType()){
+								pos.remove(i);
+								break;
+							}
+						}
+					}
+					
+				}
 			}
 		}
+		
+		
 		for(HotelInfoPO p:pos){
 			hotelList.add((HotelInfoVO)VOPOchange.POtoVO(p));
 		}

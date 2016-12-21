@@ -55,6 +55,7 @@ public class RoomAdd {
 	public ArrayList<RoomInfoVO> HotelRoomSearch(String hotelID)throws RemoteException{
 		ArrayList<RoomInfoVO> vos=new ArrayList<RoomInfoVO>();
 		ArrayList<RoomInfoPO> pos=roomData.HotelRoomSearch(hotelID);
+		//System.out.println(pos.size());
 		for(RoomInfoPO p:pos){
 			vos.add((RoomInfoVO)VOPOchange.POtoVO(p));
 		}
@@ -69,6 +70,9 @@ public class RoomAdd {
 	 */
 	public ResultMsg HotelRoomMod(String hotelid,ArrayList<RoomInfoVO> vo)throws RemoteException{
 		for(RoomInfoVO v:vo){
+			if((v.getOrderedTime().size()==0)||(v.getOrderedTime()==null)){
+				v.addOrderedTime(new Date("2020-11-18","2020-11-22"));
+			}
 			ResultMsg resultMsg1=roomData.delete(v.getHotelid(),v.getRoomID());
 			resultMsg1=roomData.insert((RoomInfoPO)VOPOchange.VOtoPO(v));
 			if(resultMsg1!=ResultMsg.SUCCESS){

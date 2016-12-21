@@ -12,7 +12,7 @@ import util.Adress;
 import util.Area;
 import util.ResultMsg;
 import vo.HotelInfoVO;
-
+//pass
 public class HotelInfoMaintainControllerTest {
 
 	HotelInfoMaintainController impl;

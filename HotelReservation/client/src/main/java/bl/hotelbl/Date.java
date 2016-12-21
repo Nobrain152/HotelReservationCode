@@ -38,7 +38,7 @@ public class Date {
 		inDay=Integer.parseInt(in[2]);
 		outYear=Integer.parseInt(out[0]);
 		outMonth=Integer.parseInt(out[1]);
-		outDay=Integer.parseInt(out[3]);
+		outDay=Integer.parseInt(out[2]);
 	}
 	
 	

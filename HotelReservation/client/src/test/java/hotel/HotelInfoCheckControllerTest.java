@@ -12,7 +12,7 @@ import util.Adress;
 import util.Area;
 import util.ResultMsg;
 import vo.HotelInfoVO;
-
+//pass
 public class HotelInfoCheckControllerTest {
 
 	HotelInfoCheckController impl;
@@ -27,23 +27,23 @@ public class HotelInfoCheckControllerTest {
 	
 	@Before
 	public void setUp() {
-//		hotel1=new HotelInfoVO("如家",Adress.NANJING,Area.EAST,2,"It's a wonderful hotel","cafe, garden and so on",
-//				true,"5000",20.1,120);
-//		hotel2=new HotelInfoVO("SunHotel",Adress.NANJING,Area.NORTH,4,"It's a nice hotel","cafe",
-//				false,"5002",77.77,100);
-//		hotel3=new HotelInfoVO("MoonHotel",Adress.SHANGHAI,Area.SOUTH,3,"It's a terrible hotel","nothing",
-//				true,"5004",88.88,300);
-//				
-//				
+		hotel1=new HotelInfoVO("如家",Adress.NANJING,Area.EAST,2,"It's a wonderful hotel","cafe, garden and so on",
+				true,"5000",20.1,120);
+		hotel2=new HotelInfoVO("SunHotel",Adress.NANJING,Area.NORTH,4,"It's a nice hotel","cafe",
+				false,"5002",77.77,100);
+		hotel3=new HotelInfoVO("MoonHotel",Adress.SHANGHAI,Area.SOUTH,3,"It's a terrible hotel","nothing",
+				true,"5004",88.88,300);
+				
+				
 		impl = new HotelInfoCheckController();
-//		
-//		hotelList = impl.hotelList;
-//		hotelList.add(hotel1);
-//		hotelList.add(hotel2);
-//		hotelList.add(hotel3);
-//		
-//		
-//		hotelMsg = ResultMsg.SUCCESS;
+		
+		hotelList = impl.hotelList;
+		hotelList.add(hotel1);
+		hotelList.add(hotel2);
+		hotelList.add(hotel3);
+		
+		
+		hotelMsg = ResultMsg.SUCCESS;
 	}
 	
 	@Test
@@ -53,15 +53,15 @@ public class HotelInfoCheckControllerTest {
 		
     }
 	
-//	@Test
-//	public void testScan(){
-//		ArrayList<HotelInfoVO> vos=impl.hotelScan();
-//		boolean con=false;
-//		if(vos.get(0)!=null){
-//			con=true;
-//		}
-//		assertEquals(true,con);
-//	}
+	@Test
+	public void testScan(){
+		ArrayList<HotelInfoVO> vos=impl.hotelScan();
+		boolean con=false;
+		if(vos.get(0)!=null){
+			con=true;
+		}
+		assertEquals(true,con);
+	}
 	
 	
 

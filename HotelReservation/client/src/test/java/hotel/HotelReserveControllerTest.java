@@ -2,15 +2,24 @@ package hotel;
 
 import static org.junit.Assert.assertEquals;
 
+import java.util.ArrayList;
+
 import org.junit.Before;
 import org.junit.Test;
 
+import bl.hotelbl.Date;
 import bl.hotelbl.HotelReserveController;
 import util.Adress;
 import util.Area;
+import util.OrderState;
 import util.ResultMsg;
+import util.RoomState;
+import util.RoomType;
+import util.VipType;
+import vo.CustomerInfoVO;
 import vo.HotelInfoVO;
 import vo.OrderVO;
+import vo.RoomInfoVO;
 
 public class HotelReserveControllerTest {
 	HotelReserveController impl;
@@ -45,18 +54,12 @@ public class HotelReserveControllerTest {
 				new ContactVO("18805156300", null), 100), 
 				OrderState.UNEXECUTED, 100, "01", "513", false, 
 				"2016-10-16 24:00", "2016-10-16 12:00", "2016-10-17 12:00", 
-				1, 1, RoomType.ROOM_STANDARD);
-		orderMsg1=new OrderVO(new CustomerInfoVO("123", "txin", 
-				new ContactVO("18805156300", null), 100), 
-				OrderState.UNEXECUTED, 100, "01", "513", false, 
-				"2016-10-16 24:00", "2016-10-16 12:00", "2016-10-17 12:00", 
-				1, 1, RoomType.ROOM_STANDARD);
-		orderMsg2 = new OrderVO(new CustomerInfoVO("123", "txin", 
-				new ContactVO("18805156300", null), 100), 
-				OrderState.UNEXECUTED, 100, "01", "513", false, 
-				"2016-10-16 24:00", "2016-10-16 12:00", "2016-10-17 12:00", 
-				1, 1, RoomType.ROOM_STANDARD);
-		*/
+				1, 1, RoomType.ROOM_STANDARD);*/
+		RoomInfoVO room=new RoomInfoVO(RoomState.UNUSABLE,RoomType.ROOM_STANDARD,"453",1435.0,"5000");
+		Date date=new Date("2016-09-02 24:00", "2016-09-02 24:00");
+		room.addOrderedTime(date);
+		orderMsg1=new OrderVO("60000004",new CustomerInfoVO("12345678","Jerry","13067893451","12345678",100,false,VipType.COMMON_VIP),OrderState.UNEXECUTED,99.9,"5000",false,"2016-10-02 24:00","2016-10-03 12:00","2016-10-02 12:00",null,1,room,1);
+		
 		
 		//reMsg = new ResultMsg(true, "Ô¤¶¨³É¹¦");
 		reMsg = ResultMsg.SUCCESS;

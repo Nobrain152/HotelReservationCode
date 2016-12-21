@@ -39,9 +39,13 @@ public class HotelReserve {
 		int number=vo.getRoomNumber();
 		Date date=new Date(vo.getCheckInTime(),vo.getCheckOutTime() );
 		ArrayList<RoomInfoVO> room=roomcon.HotelRoomSearch(hotelid);
+		//System.out.println(room.size());
 		for(RoomInfoVO v:room ){
+			//System.out.println("here");
 			if(v.getType()==vo.getRoomInfoVO().getType()){
+				//System.out.println("here");
 				if(v.addOrderedTime(date)){
+					room.set(room.indexOf(v),v);
 					number--;
 					if(number==0){
 						roomcon.HotelRoomMod(hotelid, room);
@@ -50,6 +54,7 @@ public class HotelReserve {
 				}
 			}
 		}
+		//System.out.println(number);
 		return ResultMsg.FAIL;
 	}
 	

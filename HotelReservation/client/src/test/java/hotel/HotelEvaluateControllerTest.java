@@ -10,7 +10,7 @@ import org.junit.Test;
 import bl.hotelbl.HotelEvaluateController;
 import util.ResultMsg;
 import vo.HotelEvaluateVO;
-
+//pass
 public class HotelEvaluateControllerTest {
 
 	HotelEvaluateController impl;

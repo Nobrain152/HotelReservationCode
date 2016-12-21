@@ -1,12 +1,14 @@
 package bl.hotelbl;
 
 import java.rmi.RemoteException;
+import java.util.ArrayList;
 
 import bl.VOPOchange;
 import dataservice.hoteldataservice.HotelInfoDataService;
 import po.HotelInfoPO;
 import util.ResultMsg;
 import vo.HotelInfoVO;
+import vo.OrderVO;
 
 /**
  * 维护酒店基本信息
@@ -28,6 +30,9 @@ public class HotelInfoMaintain {
 	 * @throws RemoteException
 	 */
 	public ResultMsg inputHotelInfo(HotelInfoVO hotelInfoVO)  throws RemoteException{
+		ArrayList<OrderVO> o=new ArrayList<OrderVO>();
+		o.add(new OrderVO());
+		hotelInfoVO.setOrder(o);
 		HotelInfoPO hotelInfoPO = (HotelInfoPO)VOPOchange.VOtoPO(hotelInfoVO);
 		if(hotelInfoPO.getHotelID()==null){
 			return ResultMsg.NONEID;

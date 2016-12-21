@@ -82,6 +82,7 @@ public class PromotionWebPO implements Serializable{
 		this.hotelType = type;
 		this.beginTime = beginTime;
 		this.endTime = endTime;
+		this.ratio = radio;
 	}
 	
 	public String getPromotionWebID(){

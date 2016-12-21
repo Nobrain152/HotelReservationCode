@@ -54,6 +54,7 @@ public class PromotionHotelVO {
 	
 	public PromotionHotelVO(String promotionHotelID,String hotelID, PromotionHotelType hotelType,
 			String beginTime,String endTime,double ratio,int level,int number,String businessName) {
+		this.promotionHotelID = promotionHotelID;
 		this.hotelID = hotelID;
 		this.hotelType = hotelType;
 		this.beginTime = beginTime;
@@ -65,6 +66,7 @@ public class PromotionHotelVO {
 	}
 	
 	public PromotionHotelVO(String promotionHotelID,PromotionHotelType promotionHotelType,String hotelId,int num,double ratio) {
+		this.promotionHotelID = promotionHotelID;
 		this.hotelType = promotionHotelType;
 		this.hotelID = hotelId;
 		if(promotionHotelType == PromotionHotelType.BIRTH_PROMOTION)
@@ -75,6 +77,7 @@ public class PromotionHotelVO {
 	}
 	
 	public PromotionHotelVO(String promotionHotelID,PromotionHotelType promotionHotelType,String hotelID,String businessName,double ratio) {
+		this.promotionHotelID = promotionHotelID;
 		this.hotelType = promotionHotelType;
 		this.hotelID = hotelID;
 		this.businessName  = businessName;
@@ -82,6 +85,7 @@ public class PromotionHotelVO {
 	}
 	
 	public PromotionHotelVO(String promotionHotelID,PromotionHotelType type,String hotelID,String beginTime,String endTime,double radio) {
+		this.promotionHotelID = promotionHotelID;
 		this.hotelType = type;
 		this.hotelID = hotelID;
 		this.beginTime = beginTime;

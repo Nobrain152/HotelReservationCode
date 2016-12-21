@@ -46,6 +46,7 @@ public class PromotionWebVO {
 	
 	public PromotionWebVO(String promotionWebID,PromotionWebType webType,
 			String beginTime,String endTime,double ratio,int level,Area location) {
+		this.promotionWebID = promotionWebID;
 		this.webType = webType;
 		this.beginTime = beginTime;
 		this.endTime = endTime;
@@ -55,21 +56,25 @@ public class PromotionWebVO {
 	}
 	
 	public PromotionWebVO(String promotionWebID,PromotionWebType promotionWebType,int level,double ratio) {
+		this.promotionWebID = promotionWebID;
 		this.webType = promotionWebType;
 		this.level = level;
 		this.ratio = ratio;
 	}
 	
 	public PromotionWebVO(String promotionWebID,PromotionWebType promotionWebType,Area location,double ratio) {
+		this.promotionWebID = promotionWebID;
 		this.webType = promotionWebType;
 		this.location  = location;
 		this.ratio = ratio;
 	}
 	
 	public PromotionWebVO(String promotionWebID,PromotionWebType type,String beginTime,String endTime,double radio) {
+		this.promotionWebID = promotionWebID;
 		this.webType = type;
 		this.beginTime = beginTime;
 		this.endTime = endTime;
+		this.ratio = radio;
 	}
 	
 	public String getPromotionWebID(){

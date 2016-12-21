@@ -71,11 +71,39 @@ public class PromotionWebControllerTest {
 		}
 		assertEquals(ratio, 0.85, 0.01);
 	}
-//	
+	
+	@Test
+	public void testAddCircleCut() throws RemoteException{
+		resultMsg = web.addCircleCut(Area.WEST, 0.9);
+		double ratio = 1.00;
+		ArrayList<PromotionWebVO> vos = web.getWebPromotion(PromotionWebType.VIP_CIRCLE_PROMOTION);
+		for(PromotionWebVO vo : vos){
+			if(vo.getLocation() == Area.WEST){
+				ratio = vo.getRatio();
+				break;
+			}
+		}
+		assertEquals(ratio, 0.9, 0.01);
+	}
+	
+	@Test
+	public void testAddWebCustomCut() throws RemoteException{
+		resultMsg = web.addWebCustomCut("2016-12-25 00:00", "2016-12-25 24:00", 0.66);
+		double ratio = 1.00;
+		ArrayList<PromotionWebVO> vos = web.getWebPromotion(PromotionWebType.WEB_CUSTOM_PROMOTION);
+		for(PromotionWebVO vo : vos){
+			if(vo.getTimeBegin().equals("2016-12-25 00:00")
+					&& vo.getTimeOver().equals("2016-12-25 24:00")){
+				ratio = vo.getRatio();
+				break;
+			}
+		}
+		assertEquals(ratio, 0.66, 0.01);
+	}
+	
 //	@Test
 //	public void testDeleteLevelCut() throws RemoteException{
 //		resultMsg = web.deleteLevelCut(1);
-//		ArrayList<PromotionWebVO> vos = web.getWebPromotion(PromotionWebType.VIP_LEVEL_PROMOTION);
-//		assertEquals(vos.get(0), null);
+//		assertEquals(ResultMsg.SUCCESS, resultMsg);
 //	}
 }

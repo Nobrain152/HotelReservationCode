@@ -29,15 +29,13 @@ public class PromotionWebDataServiceImpl extends DataSuperClass implements Promo
 	@Override
 	public ResultMsg insert(PromotionWebPO Promotion) throws RemoteException {
 		String newID = CreateID.getCreateID().getNewPromotionWebID();
-		if(Promotion.getType().equals(PromotionWebType.VIP_CIRCLE_PROMOTION.toString())){
+		if(Promotion.getType().toString().equals(PromotionWebType.VIP_CIRCLE_PROMOTION.toString())){
 			return addToSQL(tableName, newID,Promotion.getType().toString(),
 									Promotion.getTimeBegin(),Promotion.getTimeOver(),
 									""+Promotion.getRatio(),""+Promotion.getLevel(),
 									Promotion.getLocation().toString());
 		}else{
-			return addToSQL(tableName,
-					newID,
-					Promotion.getType().toString(),
+			return addToSQL(tableName,newID,Promotion.getType().toString(),
 					Promotion.getTimeBegin(),Promotion.getTimeOver(),
 					""+Promotion.getRatio(),""+Promotion.getLevel(),
 					null);

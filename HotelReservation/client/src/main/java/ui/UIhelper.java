@@ -18,6 +18,7 @@ public class UIhelper {
 	private String salesmanIDbyManager;
 	//用户搜索酒店时使用
 	private HotelInfoVO searchHotel;
+	private String roomID;
 	
 	
 	public static UIhelper getInstance(){
@@ -82,5 +83,13 @@ public class UIhelper {
 	
 	public void setSearchHotel(HotelInfoVO hotel){
 		this.searchHotel=hotel;
+	}
+	
+	public String getRoomID(){
+		return roomID;
+	}
+	
+	public void setRoomID(String str){
+		this.roomID=str;
 	}
 }

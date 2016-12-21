@@ -1,9 +1,12 @@
 package ui.roomAdd;
 
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 
-import javafx.beans.property.SimpleIntegerProperty;
+import bl.userbl.HotelStuffHotelOperationController;
+import bl.userbl.StuffInfoManagementController;
+import javafx.beans.property.SimpleDoubleProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -15,9 +18,15 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import ui.UILaunch;
+import ui.UIhelper;
+import vo.RoomInfoVO;
+import vo.StuffInfoVO;
 
 public class roomListViewController implements Initializable{
 	private UILaunch application;
+	private UIhelper helper;
+	private HotelStuffHotelOperationController addRoom;
+	private StuffInfoManagementController stuffInfoController;
 	
 	@FXML
 	private TableView<roomItem> tv_room;
@@ -55,24 +64,36 @@ public class roomListViewController implements Initializable{
 	
 	@FXML
 	private void btn_AddAction(ActionEvent event){
+		roomItem choose=tv_room.getSelectionModel().getSelectedItem();
+		helper.setRoomID(choose.getID());
 		application.gotoroomAdd();
 	}
 	
 	@FXML
 	private void btn_ModifyAction(ActionEvent event){
+		roomItem choose=tv_room.getSelectionModel().getSelectedItem();
+		helper.setRoomID(choose.getID());
 		application.gotoroomModify();
 	}
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		// TODO Auto-generated method stub
+		helper=UIhelper.getInstance();
+		addRoom=new HotelStuffHotelOperationController();
+		stuffInfoController=new StuffInfoManagementController();
 		
+		StuffInfoVO stuffVO=stuffInfoController.IndividualBaseInfolnquiry(helper.getUserID());
+		ArrayList<RoomInfoVO> room_list=addRoom.HotelRoomList(stuffVO.getHotel());
+		ArrayList<roomItem> data_list=new ArrayList<roomItem>();
+		int size=room_list.size();
+		for(int i=0;i<size;i++){
+			RoomInfoVO tempRoomVO=room_list.get(i);
+			data_list.add(new roomItem(tempRoomVO.getRoomID(),tempRoomVO.getType().toString(),tempRoomVO.getState().toString(),
+					tempRoomVO.getPrice(),null,null));
+		}
 		
-		
-		data = FXCollections.observableArrayList(new roomItem("201", "标准房", "可用", 500,"2016-10-1 8:00","2016-10-2 8:00"),
-				new roomItem("201", "标准房", "可用", 500,"2016-10-1 8:00","2016-10-2 8:00"),
-				new roomItem("201", "标准房", "可用", 500,"2016-10-1 8:00","2016-10-2 8:00")
-				);
+		data = FXCollections.observableArrayList(data_list);
 		tc_ID.setCellValueFactory(new PropertyValueFactory<>("ID"));
 		tc_type.setCellValueFactory(new PropertyValueFactory<>("type"));
 		tc_state.setCellValueFactory(new PropertyValueFactory<>("state"));
@@ -86,15 +107,15 @@ public class roomListViewController implements Initializable{
 		private SimpleStringProperty ID;
 		private SimpleStringProperty type;
 		private SimpleStringProperty state;
-		private SimpleIntegerProperty price;
+		private SimpleDoubleProperty price;
 		private SimpleStringProperty startTime;
 		private SimpleStringProperty endTime;
 		
-		private roomItem(String ID,String type,String state,int price,String startTime,String endTime){
+		private roomItem(String ID,String type,String state,double price,String startTime,String endTime){
 			this.ID=new SimpleStringProperty(ID);
 			this.type=new SimpleStringProperty(type);
 			this.state=new SimpleStringProperty(state);
-			this.price=new SimpleIntegerProperty(price);
+			this.price=new SimpleDoubleProperty(price);
 			this.startTime=new SimpleStringProperty(startTime);
 			this.endTime=new SimpleStringProperty(endTime);
 			
@@ -124,11 +145,11 @@ public class roomListViewController implements Initializable{
 			state.set(str);
 		}
 		
-		public int getPrice(){
+		public double getPrice(){
 			return price.get();
 		}
 		
-		public void setPrice(int n){
+		public void setPrice(double n){
 			price.set(n);
 		}
 		

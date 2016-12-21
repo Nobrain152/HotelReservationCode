@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import org.junit.Before;
 import org.junit.Test;
 
+import bl.promotionbl.PromotionWebController;
 import blservice.promotionblservice.PromotionWebBLService;
 import vo.PromotionWebVO;
 import util.Area;
@@ -22,12 +23,13 @@ public class PromotionWebControllerTest {
 	
 	@Before
 	public void setUp() throws Exception {
+		web = new PromotionWebController();
 		web1 = new PromotionWebVO(null, PromotionWebType.VIP_CIRCLE_PROMOTION, Area.EAST, 0.8);
 		web2 = new PromotionWebVO(null, PromotionWebType.VIP_LEVEL_PROMOTION,1,0.95);
 		web3 = new PromotionWebVO(null, PromotionWebType.WEB_CUSTOM_PROMOTION,"2016-12-12 00:00","2016-12-12 24:00", 0.77);
-		web.addCircleCut(Area.EAST, 0.8);
-		web.addLevelCut(1, 0.95);
-		web.addWebCustomCut("2016-12-12 00:00", "2016-12-12 24:00", 0.95);
+//		web.addCircleCut(Area.EAST, 0.8);
+//		web.addLevelCut(1, 0.95);
+//		web.addWebCustomCut("2016-12-12 00:00", "2016-12-12 24:00", 0.95);
 	}
 //
 //	@Test
@@ -56,19 +58,19 @@ public class PromotionWebControllerTest {
 //		assertEquals(ratio, 0.9, 0.01);
 //	}
 //	
-//	@Test
-//	public void testAddLevelCut() throws RemoteException{
-//		resultMsg = web.addLevelCut(2, 0.85);
-//		double ratio = 1.00;
-//		ArrayList<PromotionWebVO> vos = web.getWebPromotion(PromotionWebType.VIP_LEVEL_PROMOTION);
-//		for(PromotionWebVO vo : vos){
-//			if(vo.getLevel() == 2){
-//				ratio = vo.getRatio();
-//				break;
-//			}
-//		}
-//		assertEquals(ratio, 0.85, 0.01);
-//	}
+	@Test
+	public void testAddLevelCut() throws RemoteException{
+		resultMsg = web.addLevelCut(2, 0.85);
+		double ratio = 1.00;
+		ArrayList<PromotionWebVO> vos = web.getWebPromotion(PromotionWebType.VIP_LEVEL_PROMOTION);
+		for(PromotionWebVO vo : vos){
+			if(vo.getLevel() == 2){
+				ratio = vo.getRatio();
+				break;
+			}
+		}
+		assertEquals(ratio, 0.85, 0.01);
+	}
 //	
 //	@Test
 //	public void testDeleteLevelCut() throws RemoteException{

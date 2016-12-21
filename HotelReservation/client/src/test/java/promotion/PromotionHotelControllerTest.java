@@ -10,7 +10,6 @@ import org.junit.Test;
 
 import bl.promotionbl.PromotionHotelController;
 import blservice.promotionblservice.PromotionHotelBLService;
-import po.PromotionHotelPO;
 import vo.PromotionHotelVO;
 import util.PromotionHotelType;
 import util.ResultMsg;

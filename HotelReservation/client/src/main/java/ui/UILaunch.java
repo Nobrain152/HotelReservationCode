@@ -90,7 +90,7 @@ public class UILaunch extends Application{
 		stage.setTitle("DIMENSION");
 		stage.setMinWidth(MINIMUM_WINDOW_WIDTH);
 		stage.setMinHeight(MINIMUM_WINDOW_HEIGHT);
-		gotocustomerGuide();	
+		gotologin();	
 		stage.show();
 	}
 	

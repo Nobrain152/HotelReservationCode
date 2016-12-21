@@ -43,33 +43,72 @@ public class PromotionHotelControllerTest {
 	public void testgetHotelPromotion() throws RemoteException {
 		ArrayList<PromotionHotelVO> hotelProList1 = hotel.getHotelPromotion(PromotionHotelType.BIRTH_PROMOTION,"5000");
 		assertEquals(hotelProList1.get(0).getRatio(),hotel1.getRatio(),0.01);
-		assertEquals(hotelProList1.size(), 3);
 		
 		ArrayList<PromotionHotelVO> hotelProList2 = hotel.getHotelPromotion(PromotionHotelType.OVERTHREE_PROMOTION,"5000");
 		assertEquals(hotelProList2.get(0).getRatio(),hotel4.getRatio(),0.01);
-		assertEquals(hotelProList2.size(), 2);
 		
 		ArrayList<PromotionHotelVO> hotelProList3 = hotel.getHotelPromotion(PromotionHotelType.HOTEL_CUSTOM_PROMOTION,"5000");
 		assertEquals(hotelProList3.get(0).getTimeBegin(),hotel3.getTimeBegin());
-		assertEquals(hotelProList3.size(), 1);
 		
 		ArrayList<PromotionHotelVO> hotelProList4 = hotel.getHotelPromotion(PromotionHotelType.JOIN_PROMOTION,"5000");
 		assertEquals(hotelProList4.get(0).getBusinessName(), hotel2.getBusinessName());
-		assertEquals(hotelProList4.size(), 2);
 	}
 	
 	@Test
 	public void testChangeBirthCut() throws RemoteException{
-		resultMsg = hotel.changeBirthCut(1, 0.99, "5000");
+		resultMsg = hotel.changeBirthCut(2, 0.99, "5000");
 		double ratio = 1.00;
 		ArrayList<PromotionHotelVO> vos = hotel.getHotelPromotion(PromotionHotelType.BIRTH_PROMOTION, "5000");
 		for(PromotionHotelVO vo : vos){
-			if(vo.getLevel() == 1){
+			if(vo.getLevel() == 2){
 				ratio = vo.getRatio();
 				break;
 			}
 		}
 		assertEquals(ratio, 0.99, 0.01);
+	}
+	
+	@Test
+	public void testChangeJoin() throws RemoteException{
+		resultMsg = hotel.changeJoin("nanjing", 0.5, "5000");
+		double ratio = 1.00;
+		ArrayList<PromotionHotelVO> vos = hotel.getHotelPromotion(PromotionHotelType.JOIN_PROMOTION, "5000");
+		for(PromotionHotelVO vo : vos){
+			if(vo.getBusinessName().equals("nanjing")){
+				ratio = vo.getRatio();
+				break;
+			}
+		}
+		assertEquals(ratio, 0.5, 0.01);
+	}
+	
+	@Test
+	public void testChangeOverCut() throws RemoteException{
+		resultMsg = hotel.changeOverCut(5, 0.88, "5000");
+		double ratio = 1.00;
+		ArrayList<PromotionHotelVO> vos = hotel.getHotelPromotion(PromotionHotelType.OVERTHREE_PROMOTION, "5000");
+		for(PromotionHotelVO vo : vos){
+			if(vo.getNumber() == 5){
+				ratio = vo.getRatio();
+				break;
+			}
+		}
+		assertEquals(ratio, 0.88, 0.01);
+	}
+	
+	@Test
+	public void testChangeHotelCustomCut() throws RemoteException{
+		resultMsg = hotel.changeHotelCustomCut("2016-12-12 00:00", "2016-12-12 24:00", 0.12, "5000");
+		double ratio = 1.00;
+		ArrayList<PromotionHotelVO> vos = hotel.getHotelPromotion(PromotionHotelType.HOTEL_CUSTOM_PROMOTION, "5000");
+		for(PromotionHotelVO vo : vos){
+			if(vo.getTimeBegin().equals("2016-12-12 00:00")
+					&& vo.getTimeOver().equals("2016-12-12 24:00")){
+				ratio = vo.getRatio();
+				break;
+			}
+		}
+		assertEquals(ratio, 0.12, 0.01);
 	}
 	
 	@Test 
@@ -120,12 +159,12 @@ public class PromotionHotelControllerTest {
 		double ratio = 1.00;
 		ArrayList<PromotionHotelVO> vos = hotel.getHotelPromotion(PromotionHotelType.HOTEL_CUSTOM_PROMOTION, "5000");
 		for(PromotionHotelVO vo : vos){
-			if(vo.getTimeBegin().equals("2016-12-12 00:00") && vo.getTimeOver().equals("2016-12-12 24:00")){
+			if(vo.getTimeBegin().equals("2016-12-25 00:00") && vo.getTimeOver().equals("2016-12-25 24:00")){
 				ratio = vo.getRatio();
 				break;
 			}
 		}
-		assertEquals(ratio, 0.66, 0.01);
+		assertEquals(ratio, 0.77, 0.01);
 	}
 	
 	@Test

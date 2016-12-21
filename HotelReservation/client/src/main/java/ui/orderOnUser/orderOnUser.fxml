@@ -22,11 +22,6 @@
                   <Font size="24.0" />
                </font>
             </Text>
-            <Text layoutX="498.0" layoutY="36.0" strokeType="OUTSIDE" strokeWidth="0.0" text="XXX，欢迎你！">
-               <font>
-                  <Font size="14.0" />
-               </font>
-            </Text>
          </children>
       </Pane>
       <Pane layoutY="534.0" prefHeight="66.0" prefWidth="800.0">

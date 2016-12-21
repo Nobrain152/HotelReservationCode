@@ -53,11 +53,11 @@ public class HotelInfoDataServiceImplTest {
 //		assertEquals(b, ResultMsg.SUCCESS);
 //	}
 	
-	@Test
-	public void testFind() throws RemoteException{
-		HotelInfoPO arrayList = impl.find("5004");
-		assertEquals(arrayList.getName(), "MoonHotel");
-	}
+//	@Test
+//	public void testFind() throws RemoteException{
+//		HotelInfoPO arrayList = impl.find("5004");
+//		assertEquals(arrayList.getName(), "MoonHotel");
+//	}
 	
 //	@Test
 //	public void testShow() throws RemoteException{
@@ -68,13 +68,13 @@ public class HotelInfoDataServiceImplTest {
 //		ArrayList<HotelInfoPO> po = impl.findByAreaAndCircle(Adress.NANJING, Area.NORTH);
 //		assertEquals(po.get(1).getName(), "SunHotel");
 //	}
-//
-//	
-//	@Test
-//	public void testFindByName() throws RemoteException{
-//		ArrayList<HotelInfoPO> pos = impl.findByName("SunHotel");
-//		assertEquals(pos.get(1).getHotelID(), "5002");
-//	}
+
+	
+	@Test
+	public void testFindByName() throws RemoteException{
+		ArrayList<HotelInfoPO> pos = impl.findByName("LALALA");
+		assertEquals(pos.get(1).getHotelID(), "5002");
+	}
 	
 	
 }

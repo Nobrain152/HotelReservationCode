@@ -361,12 +361,14 @@ public class VOPOchange {
 //		System.out.println(po.getUserID());
 		
 		HotelInfoPO hotelInfoPO = new HotelInfoPO("12345", "7day", Adress.BEIJING, Area.EAST, 1, "none", "none", true, 5, 4);
+		hotelInfoPO.setOrder(new ArrayList<>());
 		HotelInfoVO hotelInfoVO = (HotelInfoVO)VOPOchange.POtoVO(hotelInfoPO);
 		System.out.println(hotelInfoVO.getName());
 		
-//		HotelInfoVO hotelInfoVO1 = new HotelInfoVO("7day", Adress.BEIJING, Area.EAST, 1, "none", "none", true, "12345",5, 4);
-//		HotelInfoPO hotelInfoPO1 = (HotelInfoPO)VOPOchange.VOtoPO(hotelInfoVO1);
-//		System.out.println(hotelInfoPO1.getName());
+		HotelInfoVO hotelInfoVO1 = new HotelInfoVO("7day", Adress.BEIJING, Area.EAST, 1, "none", "none", true, "12345",5, 4);
+		hotelInfoVO1.setOrder(new ArrayList<>());
+		HotelInfoPO hotelInfoPO1 = (HotelInfoPO)VOPOchange.VOtoPO(hotelInfoVO1);
+		System.out.println(hotelInfoPO1.getName());
 		
 		//OK
 //		OrderVO vo = new OrderVO(new CustomerInfoVO("19954722", "ÌÆöÎ", 

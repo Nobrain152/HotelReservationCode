@@ -159,7 +159,7 @@ public class PromotionWeb{
 	}
 	
 	public ResultMsg deleteLevelCut(int level) throws RemoteException {
-		PromotionWebType type = PromotionWebType.WEB_CUSTOM_PROMOTION;
+		PromotionWebType type = PromotionWebType.VIP_LEVEL_PROMOTION;
 		ArrayList<PromotionWebPO> promotion = promotionWebDataService.findByType(type);
 		for(PromotionWebPO po : promotion) {
 			if(po.getLevel() == level) {

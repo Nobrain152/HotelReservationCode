@@ -3,7 +3,7 @@ package data;
 import static org.junit.Assert.*;
 
 import java.rmi.RemoteException;
-import java.util.ArrayList;
+import java.util.ArrayList;import javax.naming.spi.DirStateFactory.Result;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -25,16 +25,21 @@ public class PromotionWebDataServiceImplTest {
 		po = new PromotionWebPO(null, PromotionWebType.VIP_CIRCLE_PROMOTION, Area.WEST,0.9);
 	}
 
-	@Test
-	public void testInsert() throws RemoteException{
-		ResultMsg resultMsg = impl.insert(po);
-		assertEquals(ResultMsg.SUCCESS, resultMsg);
-	}
-	
+//	@Test
+//	public void testInsert() throws RemoteException{
+//		ResultMsg resultMsg = impl.insert(po);
+//		assertEquals(ResultMsg.SUCCESS, resultMsg);
+//	}
+//	
 //	@Test
 //	public void testGet() throws RemoteException{
 //		ArrayList<PromotionWebPO> pos = impl.findByType(PromotionWebType.VIP_CIRCLE_PROMOTION);
 //		assertEquals(pos.get(0).getRatio(), 0.95,0.01);
 //	}
+	@Test
+	public void testDelete() throws RemoteException{
+		ResultMsg resultMsg = impl.deleteLevelCut(1);
+		assertEquals(ResultMsg.SUCCESS, resultMsg);
+	}
 
 }

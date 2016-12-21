@@ -23,6 +23,7 @@ public class PromotionWebController implements PromotionWebBLService{
 				.getDataService(DataServiceType.PromotionWebDataService);
 		promotionWeb = new PromotionWeb(webDataService);
 	}
+	
 	@Override
 	public ResultMsg changeLevelCut(int level, double ratio) {
 		try {
@@ -100,6 +101,7 @@ public class PromotionWebController implements PromotionWebBLService{
 		}
 		return list;
 	}
+	
 	@Override
 	public ResultMsg deleteLevelCut(int level) {
 		try {
@@ -110,6 +112,7 @@ public class PromotionWebController implements PromotionWebBLService{
 		}
 		return resultMsg;
 	}
+	
 	@Override
 	public ResultMsg deleteCircleCut(Area location) {
 		try {
@@ -120,6 +123,7 @@ public class PromotionWebController implements PromotionWebBLService{
 		}
 		return resultMsg;
 	}
+	
 	@Override
 	public ResultMsg deleteWebCustomCut(String timeBegin, String timeOver) {
 		try {

@@ -70,10 +70,23 @@ public class PromotionWebDataServiceImpl extends DataSuperClass implements Promo
 
 	@Override
 	public ResultMsg update(PromotionWebPO Promotion) throws RemoteException {
-		return modifyFromSQL(tableName, Promotion.getPromotionWebID(),Promotion.getType().toString(),
-							Promotion.getTimeBegin(),
-							Promotion.getTimeOver(),""+Promotion.getRatio(),
-							""+Promotion.getLevel(),Promotion.getLocation().toString());
+		if(Promotion.getType() == PromotionWebType.VIP_CIRCLE_PROMOTION){
+			return modifyFromSQL(tableName, Promotion.getPromotionWebID(),Promotion.getType().toString(),
+					Promotion.getTimeBegin(),
+					Promotion.getTimeOver(),
+					""+Promotion.getRatio(),
+					""+Promotion.getLevel(),Promotion.getLocation().toString());
+		} else if(Promotion.getType() == PromotionWebType.VIP_LEVEL_PROMOTION){
+			return modifyFromSQL(tableName, Promotion.getPromotionWebID(),Promotion.getType().toString(),
+					Promotion.getTimeBegin(),
+					Promotion.getTimeOver(),""+Promotion.getRatio(),
+					""+Promotion.getLevel(),null);
+		} else{
+			return modifyFromSQL(tableName, Promotion.getPromotionWebID(),Promotion.getType().toString(),
+					Promotion.getTimeBegin(),
+					Promotion.getTimeOver(),""+Promotion.getRatio(),
+					""+Promotion.getLevel(),null);
+		}
 	}
 
 	@Override

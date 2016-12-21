@@ -13,7 +13,7 @@ import util.ResultMsg;
 import util.UserType;
 import vo.StuffInfoVO;
 import vo.UserInfoVO;
-
+//pass
 public class HotelStuffTest {
 	private StuffInfoManagementController service;
 	

@@ -9,7 +9,7 @@ import org.junit.Test;
 import bl.userbl.WebInfoManagementController;
 import util.UserType;
 import vo.UserInfoVO;
-
+//pass
 public class WebInfoManagementControllerTest {
 
 	WebInfoManagementController impl;
@@ -26,6 +26,7 @@ public class WebInfoManagementControllerTest {
 		v.setType(UserType.WebManager);
 		impl.IndividualBaseInfoModification("42345678", v);
 		assertEquals(v.getUsername(),"LILY");
+		
 	}
 	
 	

@@ -3,15 +3,19 @@ package bl.hotelbl;
 import java.rmi.RemoteException;
 import java.util.ArrayList;
 
+
 import bl.BusinessLogicDataFactory;
 import bl.VOPOchange;
 import blservice.hotelblservice.HotelInfoCheckBLService;
 import blservice.hotelblservice.HotelInfoMaintainBLService;
+import blservice.orderblservice.OrderOnUserBLService;
 import dataservice.hoteldataservice.HotelEvaluateDataService;
 import po.HotelEvaluatePO;
+import util.OrderState;
 import util.ResultMsg;
 import vo.HotelEvaluateVO;
 import vo.HotelInfoVO;
+import vo.OrderVO;
 
 /**
  * ÆÀ¼Û¾Æµê
@@ -24,6 +28,7 @@ public class HotelEvaluate {
 	private HotelInfoCheckBLService check;
 	private BusinessLogicDataFactory factory;
 	private HotelInfoMaintainBLService maint;
+	private OrderOnUserBLService order;
 	ResultMsg result;
 	
 	public HotelEvaluate(HotelEvaluateDataService evaluateDataService){
@@ -31,6 +36,7 @@ public class HotelEvaluate {
 		this.factory=BusinessLogicDataFactory.getFactory();
 		this.check=factory.getHotelInfoCheckBLService();
 		this.maint=factory.getHotelInfoMaintainBLService();
+		this.order=factory.getOrderOnUserBLService();
 	}
 	
 	/**
@@ -66,9 +72,9 @@ public class HotelEvaluate {
 	 * @throws RemoteException
 	 */
 	public ResultMsg checkOrder(HotelEvaluateVO evaluateInfoVO) throws RemoteException{
-		HotelEvaluatePO evaluatePO = evaluateData.findByID(evaluateInfoVO.getOrderID());
-		boolean con=evaluatePO.getIsReserved();
-		if(con)
+		OrderVO PO =order.personalOrderDetail(evaluateInfoVO.getOrderID());
+		OrderState state=PO.getOrderState();
+		if(state==OrderState.EXECUTED)
 			result = ResultMsg.SUCCESS;
 		else
 			result= ResultMsg.FAIL;

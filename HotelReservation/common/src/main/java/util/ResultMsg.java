@@ -34,6 +34,8 @@ public enum ResultMsg {
 	/*
 	 * Î´ÊÚÈ¨²Ù×÷
 	 */
-	UNAUYHORIZED;
+	UNAUYHORIZED,
+	
+	WRONG_PHONENUMBER;
 
 }

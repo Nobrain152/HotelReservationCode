@@ -13,6 +13,7 @@ import dataservice.userdataservice.UserManagementDataService;
 import po.UserInfoPO;
 import util.PromotionWebType;
 import util.ResultMsg;
+import util.UserType;
 import vo.CustomerInfoVO;
 import vo.OrderVO;
 import vo.PromotionWebVO;
@@ -60,8 +61,18 @@ public class WebStuff extends User{
 	 * @return ÐÞ¸Ä½á¹û
 	 */
 	public ResultMsg IndividualBaseInfoModification(String userid,UserInfoVO vo2)throws RemoteException{
-		UserInfoPO po= (UserInfoPO)VOPOchange.VOtoPO(vo2);
-		return user.SetWebStuffInfo(userid, po);
+		UserInfoPO past= user.GetWebStuffInfo(userid);
+		past.setType(UserType.WebStuff);
+		if(vo2.getContact()!=null){
+			if(vo2.getContact().length()!=11){
+				return ResultMsg.WRONG_PHONENUMBER;
+			}
+			past.setContact(vo2.getContact());
+		}
+		if(vo2.getUsername()!=null){
+			past.setUsername(vo2.getUsername());
+		}
+		return user.SetWebStuffInfo(userid,past);
 	}
 	
 	/**

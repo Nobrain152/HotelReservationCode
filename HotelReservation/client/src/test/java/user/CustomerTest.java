@@ -10,7 +10,7 @@ import util.ResultMsg;
 import util.VipType;
 import vo.CustomerInfoVO;
 import vo.UserInfoVO;
-
+//pass
 public class CustomerTest {
 	private CustomerInfoManagementController customer;
 	private UserInfoVO po;

@@ -48,8 +48,8 @@ public class HotelInfoCheckControllerTest {
 	
 	@Test
 	public void testcheckHotelInfo(){
-		HotelInfoVO msg1 = impl.checkHotelInfo("5000");
-		assertEquals(msg1.getName(),"ИзјТ");
+		HotelInfoVO msg1 = impl.checkHotelInfo("5002");
+		assertEquals(msg1.getName(),"SunHotel");
 		
     }
 	

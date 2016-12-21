@@ -13,7 +13,7 @@ import util.ResultMsg;
 import util.UserType;
 import vo.UserInfoVO;
 
-
+//pass
 public class WebManagerWebsiteManagementControllerTest {
 
 	WebManagerWebsiteManagementController impl;

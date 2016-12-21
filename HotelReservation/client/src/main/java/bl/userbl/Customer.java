@@ -261,8 +261,16 @@ public class Customer extends User {
 		if((past.getIsMember()!=vo2.getIsMember())||(past.getCredit()!=vo2.getCredit())||(!past.getUserID().equals(vo2.getUserID())||(past.getVipType()!=vo2.getVipType()))){
 			return ResultMsg.UNAUYHORIZED;
 		}
-		CustomerInfoPO po2 = (CustomerInfoPO)VOPOchange.VOtoPO(vo2);
-		return userdataservice.SetCustomerInfo(userid, po2);
+		if(vo2.getContact()!=null){
+			if(vo2.getContact().length()!=11){
+				return ResultMsg.WRONG_PHONENUMBER;
+			}
+			past.setContact(vo2.getContact());
+		}
+		if(vo2.getUsername()!=null){
+			past.setUsername(vo2.getUsername());
+		}
+		return userdataservice.SetCustomerInfo(userid,past);
 		
 	}
 			

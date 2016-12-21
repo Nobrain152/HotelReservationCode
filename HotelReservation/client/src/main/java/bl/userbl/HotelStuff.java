@@ -15,6 +15,7 @@ import po.StuffInfoPO;
 import util.OrderState;
 import util.PromotionHotelType;
 import util.ResultMsg;
+import util.UserType;
 import vo.HotelInfoVO;
 import vo.OrderVO;
 import vo.PromotionHotelVO;
@@ -275,8 +276,18 @@ public class HotelStuff extends User {
 	 * @return ÐÞ¸Ä½á¹û
 	 */
 	public ResultMsg IndividualBaseInfoModification(String userid,StuffInfoVO vo2)throws RemoteException{
-		StuffInfoPO po2=(StuffInfoPO)VOPOchange.VOtoPO(vo2);
-		return userDataService.SetHotelStuffInfo(userid,po2);
+		StuffInfoPO past= userDataService.GetHotelStuffInfo(userid);
+		past.setType(UserType.HotelStuff);
+		if(vo2.getContact()!=null){
+			if(vo2.getContact().length()!=11){
+				return ResultMsg.WRONG_PHONENUMBER;
+			}
+			past.setContact(vo2.getContact());
+		}
+		if(vo2.getUsername()!=null){
+			past.setUsername(vo2.getUsername());
+		}
+		return userDataService.SetHotelStuffInfo(userid, past);
 		
 	}
 	

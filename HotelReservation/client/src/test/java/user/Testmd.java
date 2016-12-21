@@ -3,7 +3,7 @@ package user;
 import static org.junit.Assert.assertEquals;
 
 import bl.userbl.MD5Util;
-
+//pass
 public class Testmd {
 
 	

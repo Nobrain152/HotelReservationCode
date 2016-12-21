@@ -35,16 +35,17 @@ public class HotelEvaluateControllerTest {
 	
 	@Test
 	public void testinputEvaluate(){
+		//System.out.println(evaluation1.getIsReserved());
 		ResultMsg msg1 = impl.inputEvaluate(evaluation1);
 		assertEquals(msg1, evMsg);
 	}
 	
 	@Test
-	public void testcheckOrder(){
-		ResultMsg msg1 = impl.checkOrder(evaluation1); 
-		assertEquals(msg1, reMsg1);
-		ResultMsg msg2 = impl.checkOrder(evaluation2); 
-		assertEquals(msg2, reMsg2);
+	public void testscan(){
+		ArrayList<HotelEvaluateVO> vos=impl.getEvaluate("5000");
+		assertEquals(vos.get(0).getUserID(),"151250058");
+		
+		
 	}
 
 }

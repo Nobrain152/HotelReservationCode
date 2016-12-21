@@ -54,8 +54,18 @@ public class WebManager extends User {
 	 * @return ÐÞ¸Ä½á¹û
 	 */
 	public ResultMsg IndividualBaseInfoModification(String userid,UserInfoVO vo2)throws RemoteException{
-		UserInfoPO po= (UserInfoPO)VOPOchange.VOtoPO(vo2);
-		return data.SetWebManagerInfo(userid, po);
+		UserInfoPO past= data.GetWebManagerInfo(userid);
+		past.setType(UserType.WebManager);
+		if(vo2.getContact()!=null){
+			if(vo2.getContact().length()!=11){
+				return ResultMsg.WRONG_PHONENUMBER;
+			}
+			past.setContact(vo2.getContact());
+		}
+		if(vo2.getUsername()!=null){
+			past.setUsername(vo2.getUsername());
+		}
+		return data.SetWebManagerInfo(userid, past);
 	}
 		
 	/**
@@ -122,9 +132,36 @@ public class WebManager extends User {
 		UserInfoPO po1=(UserInfoPO)VOPOchange.VOtoPO(vo2);
 		char c=userid.charAt(0);
 		CustomerInfoPO cu;
+		StuffInfoPO stuff;
+		if(c=='1'){
+			cu=data.GetCustomerInfo(userid);
+			cu.setType(UserType.Customer);
+			if(po1.getContact()!=null){
+				if(po1.getContact().length()!=11){
+					return ResultMsg.WRONG_PHONENUMBER;
+				}
+				cu.setContact(po1.getContact());
+			}
+			if(po1.getUsername()!=null){
+				cu.setUsername(po1.getUsername());
+			}
+			return data.SetCustomerInfo(userid,cu);
+		}
+		if(c=='2'){
+			stuff=data.GetHotelStuffInfo(userid);
+			stuff.setType(UserType.HotelStuff);
+			if(po1.getContact()!=null){
+				if(po1.getContact().length()!=11){
+					return ResultMsg.WRONG_PHONENUMBER;
+				}
+				stuff.setContact(po1.getContact());
+			}
+			if(po1.getUsername()!=null){
+				stuff.setUsername(po1.getUsername());
+			}
+			return data.SetHotelStuffInfo(userid, stuff);
+		}
 		switch(c){
-		case'1': return data.SetCustomerInfo(userid,(CustomerInfoPO)po1);
-		case'2': return data.SetHotelStuffInfo(userid, (StuffInfoPO)po1);
 		case'3': return data.SetWebStuffInfo(userid,po1);
 		case'4': return data.SetWebManagerInfo(userid,po1);
 		default: return ResultMsg.FAIL;

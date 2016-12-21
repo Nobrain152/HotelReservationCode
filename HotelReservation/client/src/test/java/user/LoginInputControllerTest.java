@@ -10,7 +10,7 @@ import bl.userbl.LoginInputController;
 import util.UserType;
 import util.VipType;
 import vo.CustomerInfoVO;
-
+//pass
 public class LoginInputControllerTest {
         //LoginInVO vo;
 		LoginInputController im;
@@ -40,7 +40,7 @@ public class LoginInputControllerTest {
 			vo.setType(UserType.Customer);
 			vo.setType(UserType.Customer);
 		    String result=im.Register(vo);
-		    assertEquals("10000030",result);
+		    assertEquals("10000067",result);
 		}
 	
 

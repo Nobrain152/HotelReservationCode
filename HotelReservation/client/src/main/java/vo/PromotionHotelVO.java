@@ -10,7 +10,10 @@ import util.PromotionHotelType;
  */
 
 public class PromotionHotelVO {
-	
+	/**
+	 * ¾Æµê´ÙÏú²ßÂÔID
+	 */
+	String promotionHotelID;
 
 	/**
 	 * ¾ÆµêID
@@ -49,7 +52,7 @@ public class PromotionHotelVO {
 	
 	public PromotionHotelVO() {}
 	
-	public PromotionHotelVO(String hotelID, PromotionHotelType hotelType,
+	public PromotionHotelVO(String promotionHotelID,String hotelID, PromotionHotelType hotelType,
 			String beginTime,String endTime,double ratio,int level,int number,String businessName) {
 		this.hotelID = hotelID;
 		this.hotelType = hotelType;
@@ -61,7 +64,7 @@ public class PromotionHotelVO {
 		this.businessName = businessName;
 	}
 	
-	public PromotionHotelVO(PromotionHotelType promotionHotelType,String hotelId,int num,double ratio) {
+	public PromotionHotelVO(String promotionHotelID,PromotionHotelType promotionHotelType,String hotelId,int num,double ratio) {
 		this.hotelType = promotionHotelType;
 		this.hotelID = hotelId;
 		if(promotionHotelType == PromotionHotelType.BIRTH_PROMOTION)
@@ -71,19 +74,24 @@ public class PromotionHotelVO {
 		this.ratio = ratio;
 	}
 	
-	public PromotionHotelVO(PromotionHotelType promotionHotelType,String hotelID,String businessName,double ratio) {
+	public PromotionHotelVO(String promotionHotelID,PromotionHotelType promotionHotelType,String hotelID,String businessName,double ratio) {
 		this.hotelType = promotionHotelType;
 		this.hotelID = hotelID;
 		this.businessName  = businessName;
 		this.ratio = ratio;
 	}
 	
-	public PromotionHotelVO(PromotionHotelType type,String hotelID,String beginTime,String endTime,double radio) {
+	public PromotionHotelVO(String promotionHotelID,PromotionHotelType type,String hotelID,String beginTime,String endTime,double radio) {
 		this.hotelType = type;
 		this.hotelID = hotelID;
 		this.beginTime = beginTime;
 		this.endTime = endTime;
 		this.hotelID = hotelID;
+		this.ratio = radio;
+	}
+	
+	public String getPromotionHotelID(){
+		return promotionHotelID;
 	}
 	
 	public String getHotelID() {

@@ -25,9 +25,9 @@ public class PromotionWebControllerTest {
 	
 	@Before
 	public void setUp() throws Exception {
-		web1 = new PromotionWebVO(PromotionWebType.VIP_CIRCLE_PROMOTION, Area.EAST, 0.8);
-		web2 = new PromotionWebVO(PromotionWebType.VIP_LEVEL_PROMOTION,1,0.8);
-		web3 = new PromotionWebVO(PromotionWebType.WEB_CUSTOM_PROMOTION,"2016/12/02","2016/12/09", 0.7);
+		web1 = new PromotionWebVO(null, PromotionWebType.VIP_CIRCLE_PROMOTION, Area.EAST, 0.8);
+		web2 = new PromotionWebVO(null, PromotionWebType.VIP_LEVEL_PROMOTION,1,0.8);
+		web3 = new PromotionWebVO(null, PromotionWebType.WEB_CUSTOM_PROMOTION,"2016/12/02","2016/12/09", 0.7);
 //		web.addLevelCut(1, web1.getRatio());
 //		web.addCircleCut("xianlin", web2.getRatio());
 //		web.addWebCustomCut(web3.getTimeBegin(), web3.getTimeOver(), web3.getRatio());

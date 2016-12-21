@@ -95,7 +95,7 @@ public class PromotionWeb{
 				return resultMsg;
 			}
 		}
-		PromotionWebPO po = new PromotionWebPO(type, level, ratio);
+		PromotionWebPO po = new PromotionWebPO(null, type, level, ratio);
 		resultMsg = promotionWebDataService.insert(po);
 		return resultMsg;
 	}
@@ -115,7 +115,7 @@ public class PromotionWeb{
 				return resultMsg;
 			}
 		}
-		PromotionWebPO po = new PromotionWebPO(type, location, radio);
+		PromotionWebPO po = new PromotionWebPO(null, type, location, radio);
 		resultMsg = promotionWebDataService.insert(po);
 		return resultMsg;
 	}
@@ -136,7 +136,7 @@ public class PromotionWeb{
 				return resultMsg;
 			}
 		}
-		PromotionWebPO po = new PromotionWebPO(type, timeBegin,timeOver, ratio);
+		PromotionWebPO po = new PromotionWebPO(null, type, timeBegin,timeOver, ratio);
 		resultMsg = promotionWebDataService.insert(po);
 		return resultMsg;
 	}

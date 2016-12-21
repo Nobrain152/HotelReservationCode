@@ -20,42 +20,42 @@ public class HotelInfoPO implements Serializable{
 	/**
 	 * 酒店名称
 	 */
-	private String name;
+	public String name;
 
 	/**
 	 * 酒店地址
 	 */
-	private Adress address;
+	public Adress address;
 	
 	/**
 	 * 所属商圈
 	 */
-	private Area area;
+	public Area area;
 	
 	/**
 	 * 星级
 	 */
-	private int level;
+	public int level;
 	
 	/**
 	 * 简介
 	 */
-	private String introduction;
+	public String introduction;
 	
 	/**
 	 * 服务设施
 	 */
-	private String facility;
+	public String facility;
 
 	/**
 	 * 是否订过
 	 */
-	private boolean reserve;
+	public boolean reserve;
 	
 	/**
 	 * 酒店ID
 	 */
-	private String hotelID;
+	public String hotelID;
 	
 	/**
 	 * 用于界面调用时返回对应用户在该酒店的订单信息
@@ -65,11 +65,12 @@ public class HotelInfoPO implements Serializable{
 	/**
 	 * 酒店评分
 	 */
-	private double score;
+	public double score;
+	
 	/**
 	 * 酒店起价
 	 */
-	private int SP;
+	public int SP;
 	
 	public HotelInfoPO() {}
 	

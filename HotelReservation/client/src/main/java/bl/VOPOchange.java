@@ -32,7 +32,6 @@ import vo.UserInfoVO;
  */
 public class VOPOchange {
 	
-	@SuppressWarnings("unchecked")
 	public static Object POtoVO(Object o){
 		
 		if(o == null){
@@ -85,40 +84,11 @@ public class VOPOchange {
 		
 		for(int i = 0 ; i < field.length; i++){
 			
+			if(field[i].getName().equals("serialVersionUID"))
+				continue;
+			
 			if(field[i].getType().toString().endsWith("ArrayList")
 					&& !field[i].getGenericType().toString().endsWith("String>")){
-				
-				Type listType = field[i].getGenericType();
-				Object list = null;
-				
-				try {
-					 list = field[i].get(o);
-				} catch (IllegalArgumentException e1) {
-					e1.printStackTrace();
-				} catch (IllegalAccessException e1) {
-					e1.printStackTrace();
-				}
-				
-				ArrayList<Object> polist = (ArrayList<Object>)list;
-				
-				String[] spl = listType.toString().split("<");
-				
-				String votName = "vo" + spl[1].substring(2, spl[1].length()-3)+"VO";
-
-				Class<? extends Object> potmp = null;
-
-				try {
-					
-					potmp = Class.forName(votName);
-
-				} catch (ClassNotFoundException e) {
-					e.printStackTrace();
-				}
-				
-				ArrayList<Object> volist = new ArrayList<Object>(polist.size());
-				for(int j = 0 ; j < polist.size(); j++){
-					volist.add(potmp.cast(POtoVO(polist.get(j))));
-				}
 				
 				Field ft = null;
 				try {
@@ -130,7 +100,7 @@ public class VOPOchange {
 				}
 				ft.setAccessible(true);
 				try {
-					ft.set(vo, polist);
+					ft.set(vo, null);
 				} catch (IllegalArgumentException e) {
 					e.printStackTrace();
 				} catch (IllegalAccessException e) {
@@ -266,8 +236,7 @@ public class VOPOchange {
 			
 			if(field[i].getType().toString().endsWith("ArrayList")
 					&& !field[i].getGenericType().toString().endsWith("String>")){
-				
-				Type listType = field[i].getGenericType();
+				Type listType = field[i].getGenericType();//java.util.ArrayList<vo.OrderVO>
 				Object list = null;
 				
 				try {
@@ -377,6 +346,8 @@ public class VOPOchange {
 	
 	public static void main(String[] args) {
 		
+		
+		
 //		CommonVipVO commonVipVO = new CommonVipVO("19954722", "ÌÆöÎ", "sfd", "18805156300", 300, "1997-05-13", VipType.COMMON_VIP);
 //		CommonVipPO commonVipPO = (CommonVipPO)VOtoPO(commonVipVO);
 //		System.out.println(commonVipPO.getVipType());
@@ -389,9 +360,13 @@ public class VOPOchange {
 //		UserInfoPO po = (UserInfoPO)VOtoPO(vo);
 //		System.out.println(po.getUserID());
 		
-		HotelInfoVO hotelInfoVO = new HotelInfoVO("name", Adress.BEIJING, Area.EAST, 1, "none", "", true, "123", 4.5, 2);
-		HotelInfoPO hotelInfoPO = (HotelInfoPO)VOtoPO(hotelInfoVO);
-		System.out.println(hotelInfoPO.getName());
+		HotelInfoPO hotelInfoPO = new HotelInfoPO("12345", "7day", Adress.BEIJING, Area.EAST, 1, "none", "none", true, 5, 4);
+		HotelInfoVO hotelInfoVO = (HotelInfoVO)VOPOchange.POtoVO(hotelInfoPO);
+		System.out.println(hotelInfoVO.getName());
+		
+//		HotelInfoVO hotelInfoVO1 = new HotelInfoVO("7day", Adress.BEIJING, Area.EAST, 1, "none", "none", true, "12345",5, 4);
+//		HotelInfoPO hotelInfoPO1 = (HotelInfoPO)VOPOchange.VOtoPO(hotelInfoVO1);
+//		System.out.println(hotelInfoPO1.getName());
 		
 		//OK
 //		OrderVO vo = new OrderVO(new CustomerInfoVO("19954722", "ÌÆöÎ", 

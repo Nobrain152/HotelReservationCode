@@ -15,7 +15,7 @@ public class PromotionHotelController implements PromotionHotelBLService{
 
 	private PromotionHotel promotionHotel;
 	private PromotionHotelDataService hotelDataService;
-	ResultMsg resultMsg;
+	ResultMsg resultMsg = ResultMsg.FAIL;
 	
 	public PromotionHotelController() {
 		this.hotelDataService = (PromotionHotelDataService)RMIManage

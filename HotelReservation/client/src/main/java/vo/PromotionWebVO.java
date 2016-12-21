@@ -12,6 +12,10 @@ import util.PromotionWebType;
  */
 
 public class PromotionWebVO {
+	/**
+	 * 网站促销策略ID
+	 */
+	String promotionWebID;
 	
 	/**
 	 * 促销策略类型
@@ -40,7 +44,7 @@ public class PromotionWebVO {
 	
 	public PromotionWebVO() {}
 	
-	public PromotionWebVO(PromotionWebType webType,
+	public PromotionWebVO(String promotionWebID,PromotionWebType webType,
 			String beginTime,String endTime,double ratio,int level,Area location) {
 		this.webType = webType;
 		this.beginTime = beginTime;
@@ -50,22 +54,26 @@ public class PromotionWebVO {
 		this.location = location;
 	}
 	
-	public PromotionWebVO(PromotionWebType promotionWebType,int level,double ratio) {
+	public PromotionWebVO(String promotionWebID,PromotionWebType promotionWebType,int level,double ratio) {
 		this.webType = promotionWebType;
 		this.level = level;
 		this.ratio = ratio;
 	}
 	
-	public PromotionWebVO(PromotionWebType promotionWebType,Area location,double ratio) {
+	public PromotionWebVO(String promotionWebID,PromotionWebType promotionWebType,Area location,double ratio) {
 		this.webType = promotionWebType;
 		this.location  = location;
 		this.ratio = ratio;
 	}
 	
-	public PromotionWebVO(PromotionWebType type,String beginTime,String endTime,double radio) {
+	public PromotionWebVO(String promotionWebID,PromotionWebType type,String beginTime,String endTime,double radio) {
 		this.webType = type;
 		this.beginTime = beginTime;
 		this.endTime = endTime;
+	}
+	
+	public String getPromotionWebID(){
+		return promotionWebID;
 	}
 	
 	public PromotionWebType getType(){

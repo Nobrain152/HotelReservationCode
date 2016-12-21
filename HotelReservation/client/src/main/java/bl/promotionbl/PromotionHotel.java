@@ -133,7 +133,7 @@ public class PromotionHotel {
 				return resultMsg;
 			}
 		}
-		PromotionHotelPO po = new PromotionHotelPO(type, hotelID, level, ratio);
+		PromotionHotelPO po = new PromotionHotelPO(null, type, hotelID, level, ratio);
 		resultMsg = promotionHotelDataService.insert(po);
 		return resultMsg;
 	}
@@ -154,7 +154,7 @@ public class PromotionHotel {
 				return resultMsg;
 			}
 		}
-		PromotionHotelPO po = new PromotionHotelPO(type, hotelID, number, ratio);
+		PromotionHotelPO po = new PromotionHotelPO(null, type, hotelID, number, ratio);
 		resultMsg = promotionHotelDataService.insert(po);
 		return resultMsg;
 	}
@@ -175,7 +175,7 @@ public class PromotionHotel {
 				return resultMsg;
 			}
 		}
-		PromotionHotelPO po = new PromotionHotelPO(type, hotelID, businessName, ratio);
+		PromotionHotelPO po = new PromotionHotelPO(null, type, hotelID, businessName, ratio);
 		resultMsg = promotionHotelDataService.insert(po);
 		return resultMsg;
 	}
@@ -197,7 +197,7 @@ public class PromotionHotel {
 				return resultMsg;
 			}
 		}
-		PromotionHotelPO po = new PromotionHotelPO(type, hotelID, timeBegin, timeOver, ratio);
+		PromotionHotelPO po = new PromotionHotelPO(null, type, hotelID, timeBegin, timeOver, ratio);
 		resultMsg = promotionHotelDataService.insert(po);
 		return resultMsg;
 	}
@@ -225,10 +225,10 @@ public class PromotionHotel {
 	}
 	
 	public ResultMsg deleteJoin(String businessName, String hotelID) throws RemoteException {
-		PromotionHotelType type = PromotionHotelType.OVERTHREE_PROMOTION;
+		PromotionHotelType type = PromotionHotelType.JOIN_PROMOTION;
 		ArrayList<PromotionHotelPO> promotion = promotionHotelDataService.findByType(type,hotelID);
 		for(PromotionHotelPO po : promotion) {
-			if(po.getBusinessName() == businessName) {
+			if(po.getBusinessName().equals(businessName)) {
 				resultMsg = promotionHotelDataService.deleteJoin(po.getBusinessName(),po.getHotelID());
 			}
 		}
@@ -236,7 +236,7 @@ public class PromotionHotel {
 	}
 	
 	public ResultMsg deleteHotelCustomCut(String timeBegin,String timeOver, String hotelID) throws RemoteException {
-		PromotionHotelType type = PromotionHotelType.OVERTHREE_PROMOTION;
+		PromotionHotelType type = PromotionHotelType.HOTEL_CUSTOM_PROMOTION;
 		ArrayList<PromotionHotelPO> promotion = promotionHotelDataService.findByType(type,hotelID);
 		for(PromotionHotelPO po : promotion) {
 			if(po.getTimeBegin().equals(timeBegin) 

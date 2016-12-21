@@ -131,6 +131,7 @@ public class PromotionHotelPO implements Serializable{
 		this.beginTime = beginTime;
 		this.endTime = endTime;
 		this.hotelID = hotelID;
+		this.ratio = radio;
 	}
 	
 	public String getPromotionHotelID(){

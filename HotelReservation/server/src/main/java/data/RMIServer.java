@@ -41,7 +41,7 @@ public class RMIServer {
 
 		try {
 			NAMING_MAP.put("CreditDataService", datafactory.getCreditDataServiceImpl().getClass());
-			NAMING_MAP.put("HotelEvaluateDataService", datafactory.getHotelEvaluateDataServiceImpl().getClass());
+			NAMING_MAP.put("HotelInfoDataService", datafactory.getHotelInfoDataServiceImpl().getClass());
 			NAMING_MAP.put("HotelEvaluateDataService", datafactory.getHotelEvaluateDataServiceImpl().getClass());
 			NAMING_MAP.put("RoomInfoDataService", datafactory.getRoomInfoDataServiceImpl().getClass());
 			NAMING_MAP.put("OrderDataService", datafactory.getOrderDataServiceImpl().getClass());

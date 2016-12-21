@@ -39,7 +39,7 @@ public class customerInfoModifyByMViewController implements Initializable{
 	private void btn_SaveAction(ActionEvent event){
 		customer.setUsername(tf_name.getText());
 		customer.setContact(tf_contact.getText());
-		customerInfo.IndividualBaseInfoModification(helper.getUserID(), customer);//TODO 判断结果
+		customerInfo.IndividualBaseInfoModification(helper.getCustomerIDbyManager(), customer);//TODO 判断结果
 		application.gotocustomerInfoByM();
 	}
 	

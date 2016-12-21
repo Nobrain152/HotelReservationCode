@@ -4,6 +4,7 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 import bl.userbl.WebManagerHotelOperationController;
+import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -30,10 +31,10 @@ public class hotelAddViewController implements Initializable{
 	private TextField tf_price;
 	
 	@FXML
-	private ChoiceBox<Adress> cb_address;
+	private ChoiceBox<String> cb_address;
 	
 	@FXML
-	private ChoiceBox<Area> cb_area;
+	private ChoiceBox<String> cb_area;
 	
 	@FXML
 	private TextArea ta_facility;
@@ -53,7 +54,37 @@ public class hotelAddViewController implements Initializable{
 	
 	@FXML
 	private void btn_AddAction(ActionEvent event) throws Exception{
-		HotelInfoVO newHotel=new HotelInfoVO(tf_name.getText(),cb_address.getValue(),cb_area.getValue(),cb_star.getValue(),
+		Adress address = null;
+		Area area = null;
+		if(cb_address.getValue().equals("南京")){
+			address=Adress.NANJING;
+		}
+		else if(cb_address.getValue().equals("北京")){
+			address=Adress.BEIJING;
+		}
+		else if(cb_address.getValue().equals("上海")){
+			address=Adress.SHANGHAI;
+		}
+		else if(cb_address.getValue().equals("无锡")){
+			address=Adress.WUXI;
+		}
+		else if(cb_address.getValue().equals("厦门")){
+			address=Adress.XIAMEN;
+		}
+		if(cb_area.getValue().equals("东区")){
+			area=Area.EAST;
+		}
+		else if(cb_area.getValue().equals("西区")){
+			area=Area.WEST;
+		}
+		else if(cb_area.getValue().equals("南区")){
+			area=Area.SOUTH;
+		}
+		else if(cb_area.getValue().equals("北区")){
+			area=Area.NORTH;
+		}
+		
+		HotelInfoVO newHotel=new HotelInfoVO(tf_name.getText(),address,area,cb_star.getValue(),
 				ta_introduction.getText(),ta_facility.getText(),false,null,10,Integer.parseInt(tf_price.getText()));
 		String ID= addHotel.HotelAdd(newHotel);//TODO 显示注册成功的ID；
 		System.out.println(ID);
@@ -70,6 +101,10 @@ public class hotelAddViewController implements Initializable{
 	public void initialize(URL location, ResourceBundle resources) {
 		// TODO Auto-generated method stub
 		addHotel=new WebManagerHotelOperationController();
+		
+		cb_address.setItems(FXCollections.observableArrayList("北京","上海","南京","无锡","厦门"));
+		cb_area.setItems(FXCollections.observableArrayList("东区","西区","南区","北区"));
+		cb_star.setItems(FXCollections.observableArrayList(1, 2,3,4,5));
 	}
 
 }

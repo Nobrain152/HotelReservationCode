@@ -35,7 +35,18 @@ public enum ResultMsg {
 	 * 未授权操作
 	 */
 	UNAUYHORIZED,
+	/**
+	 * ID缺失
+	 */
+	NONEID,
+	/**
+	 * 电话号码不正确
+	 */
+	WRONG_PHONENUMBER,
 	
-	WRONG_PHONENUMBER;
+	/**
+	 * 信息不完整
+	 */
+	INCOMPLETE_INFO
 
 }

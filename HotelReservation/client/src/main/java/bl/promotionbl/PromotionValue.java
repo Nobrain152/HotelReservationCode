@@ -13,12 +13,10 @@ import dataservice.promotiondataservice.PromotionHotelDataService;
 import dataservice.promotiondataservice.PromotionWebDataService;
 import dataservice.userdataservice.CustomerManagementDataService;
 import dataservice.vipdataservice.VipDataService;
-import po.CommonVipPO;
-import po.CustomerInfoPO;
 import po.OrderPO;
 import po.PromotionHotelPO;
 import po.PromotionWebPO;
-import util.Adress;
+import util.Area;
 import util.PromotionHotelType;
 import util.PromotionWebType;
 import util.VipType;
@@ -51,14 +49,14 @@ public class PromotionValue {
 			case BIRTH_PROMOTION:
 				
 				if(user.getIsMember() && user.getVipType() == VipType.COMMON_VIP) {
-					CommonVipPO commonVipPO = (CommonVipPO)((CustomerInfoPO)VOPOchange.VOtoPO(user));
 					for(PromotionHotelPO hotelPO : po) {
-						if(hotelPO.getTimeBegin().equals(commonVipPO.getBirthday())) {
+						int level = vip.searchLevel(user);
+						if(hotelPO.getLevel() == level) {
 							ratio = hotelPO.getRatio();
 							break;
 						}
 					}
-					order.setPrice(order.getPrice()*(1-ratio));
+					order.setPrice(order.getPrice()*ratio);
 				}
 				break;
 				
@@ -66,12 +64,14 @@ public class PromotionValue {
 				
 				if(user.getIsMember()){
 					for(PromotionHotelPO hotelPO : po) {
-						if(hotelPO.getLevel() == vip.searchLevel(user)) {
+						if(hotelPO.getNumber() < order.getPeopleNumber()) {
+							continue;
+						}else{
 							ratio = hotelPO.getRatio();
 							break;
 						}
 					}
-					order.setPrice(order.getPrice()*(1-ratio));
+					order.setPrice(order.getPrice()*ratio);
 				}
 				break;
 				
@@ -79,13 +79,13 @@ public class PromotionValue {
 				
 				if(user.getIsMember()) {
 					for(PromotionHotelPO hotelPO : po) {
-						if(!hotelPO.getTimeBegin().contains(order.getCheckInTime())
-								&& hotelPO.getTimeOver().contains(order.getCheckOutTime())) {
+						if(hotelPO.getTimeBegin().compareTo(order.getCheckInTime()) <= 0
+								&& hotelPO.getTimeOver().compareTo(order.getCheckOutTime()) >= 0) {
 							ratio = hotelPO.getRatio();
 							break;
 						}
 					}
-					order.setPrice(order.getPrice()*(1-ratio));
+					order.setPrice(order.getPrice()*ratio);
 				}
 				break;
 				
@@ -99,7 +99,7 @@ public class PromotionValue {
 							break;
 						}
 					}
-					order.setPrice(order.getPrice()*(1-ratio));
+					order.setPrice(order.getPrice()*ratio);
 				}
 				break;
 				
@@ -107,6 +107,7 @@ public class PromotionValue {
 				break;
 		}
 		
+		// TODO 
 		OrderPO poTmp = (OrderPO)VOPOchange.VOtoPO(order);
 		orderDataService.update(poTmp);
 		
@@ -136,13 +137,13 @@ public class PromotionValue {
 				
 				if(user.getIsMember()) {
 					for(PromotionWebPO hotelPO : po) {
-						Adress location = dataService.find(order.getHotelID()).getAddress();
-						if(hotelPO.getLocation().equals(location)) {
+						Area location = dataService.find(order.getHotelID()).getArea();
+						if(hotelPO.getLocation() == location) {
 							ratio = hotelPO.getRatio();
 							break;
 						}
 					}
-					order.setPrice(order.getPrice()*(1-ratio));
+					order.setPrice(order.getPrice()*ratio);
 				}
 				break;
 				
@@ -155,7 +156,7 @@ public class PromotionValue {
 							break;
 						}
 					}
-					order.setPrice(order.getPrice()*(1-ratio));
+					order.setPrice(order.getPrice()*ratio);
 				}
 				break;
 				
@@ -163,13 +164,13 @@ public class PromotionValue {
 				
 				if(user.getIsMember()) {
 					for(PromotionWebPO hotelPO : po) {
-						if(!hotelPO.getTimeBegin().contains(order.getCheckInTime())
-								&& hotelPO.getTimeOver().contains(order.getCheckOutTime())) {
+						if(hotelPO.getTimeBegin().compareTo(order.getCheckInTime()) <= 0
+								&& hotelPO.getTimeOver().compareTo(order.getCheckOutTime()) >= 0) {
 							ratio = hotelPO.getRatio();
 							break;
 						}
 					}
-					order.setPrice(order.getPrice()*(1-ratio));
+					order.setPrice(order.getPrice()*ratio);
 				}
 				break;
 				

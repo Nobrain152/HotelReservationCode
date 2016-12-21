@@ -15,11 +15,6 @@
    <children>
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#b4b4b4" height="69.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="800.0" />
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#b4b4b4" height="61.0" layoutY="539.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="800.0" />
-      <Text layoutX="648.0" layoutY="39.0" strokeType="OUTSIDE" strokeWidth="0.0" text="XXX，欢迎你！">
-         <font>
-            <Font size="14.0" />
-         </font>
-      </Text>
       <Button fx:id="button_Cancel" layoutX="691.0" layoutY="556.0" mnemonicParsing="false" onAction="#button_CancelAction" prefHeight="28.0" prefWidth="66.0" text="返回" />
       <Button fx:id="button_Credit" layoutX="280.0" layoutY="426.0" mnemonicParsing="false" onAction="#button_CreditAction" prefHeight="37.0" prefWidth="90.0" text="信用记录">
          <font>
@@ -60,25 +55,25 @@
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#dde4eb" height="28.0" layoutX="381.0" layoutY="208.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="144.0" />
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#dde4eb" height="28.0" layoutX="381.0" layoutY="269.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="144.0" />
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#dde4eb" height="28.0" layoutX="381.0" layoutY="333.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="144.0" />
-      <Text fx:id="name" layoutX="395.0" layoutY="169.0" strokeType="OUTSIDE" strokeWidth="0.0" text="顾逸飞" textAlignment="CENTER" wrappingWidth="114.0">
+      <Label fx:id="lb_name" layoutX="393.0" layoutY="156.0" prefHeight="15.0" prefWidth="121.0">
          <font>
             <Font size="14.0" />
          </font>
-      </Text>
-      <Text fx:id="userID" layoutX="395.0" layoutY="226.0" strokeType="OUTSIDE" strokeWidth="0.0" text="1234567" textAlignment="CENTER" wrappingWidth="114.0">
+      </Label>
+      <Label fx:id="lb_userID" layoutX="393.0" layoutY="213.0" prefHeight="15.0" prefWidth="121.0">
          <font>
             <Font size="14.0" />
          </font>
-      </Text>
-      <Text fx:id="contact" layoutX="391.0" layoutY="288.0" strokeType="OUTSIDE" strokeWidth="0.0" text="15150158583" textAlignment="CENTER" wrappingWidth="121.3095703125">
+      </Label>
+      <Label fx:id="lb_contact" layoutX="393.0" layoutY="273.0" prefHeight="15.0" prefWidth="121.0">
          <font>
             <Font size="14.0" />
          </font>
-      </Text>
-      <Text fx:id="credit" layoutX="392.0" layoutY="352.0" strokeType="OUTSIDE" strokeWidth="0.0" text="100" textAlignment="CENTER" wrappingWidth="121.3095703125">
+      </Label>
+      <Label fx:id="lb_credit" layoutX="393.0" layoutY="337.0" prefHeight="15.0" prefWidth="121.0">
          <font>
             <Font size="14.0" />
          </font>
-      </Text>
+      </Label>
    </children>
 </AnchorPane>

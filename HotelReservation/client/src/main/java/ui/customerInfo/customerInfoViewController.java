@@ -19,16 +19,16 @@ public class customerInfoViewController implements Initializable{
 	private CustomerInfoManagementController customerInfo;
 	
 	@FXML
-	private Label name;
+	private Label lb_name;
 	
 	@FXML
-	private Label userID;
+	private Label lb_userID;
 	
 	@FXML
-	private Label contact;
+	private Label lb_contact;
 	
 	@FXML
-	private Label credit;
+	private Label lb_credit;
 	
 	@FXML
 	private Button button_Credit;
@@ -65,10 +65,10 @@ public class customerInfoViewController implements Initializable{
 		customerInfo=new CustomerInfoManagementController();
 		String ID=helper.getUserID();
 		CustomerInfoVO customer =customerInfo.IndividualBaseInfolnquiry(ID);
-		name.setText(customer.getUsername());
-		userID.setText(customer.getUserID());
-		contact.setText(customer.getContact());
-		credit.setText(String.valueOf(customer.getCredit()));
+		lb_name.setText(customer.getUsername());
+		lb_userID.setText(customer.getUserID());
+		lb_contact.setText(customer.getContact());
+		lb_credit.setText(String.valueOf(customer.getCredit()));
 	}
 
 }

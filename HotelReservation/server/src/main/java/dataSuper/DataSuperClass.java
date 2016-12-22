@@ -69,9 +69,8 @@ public class DataSuperClass extends UnicastRemoteObject{
 		SQLmap.put("hotelEvaluate", helper.bulidSQL("hotelEvaluate", 6, "userID","hotelID","score","comment","reserve","orderID"));
 		SQLmap.put("hotelInfo", helper.bulidSQL("hotelInfo", 10, "hotelID","name","address","area","level","introduction","facility","reserve","score","SP"));
 		SQLmap.put("roomInfo", helper.bulidSQL("roomInfo", 5, "roomID","stateName","type","price","hotelID"));
-		SQLmap.put("orderList", helper.bulidSQL("orderList", 13, "orderID","customerInfoPO","orderState","price","hotelID","hasChild","latestExecutionTime","checkInTime","checkOutTime","cancelledTime","roomNumber","peopleNumber","roomIDs"));
-
-		SQLmap.put("order", helper.bulidSQL("order", 13, "orderID","customerInfoPO","orderState","price","hotelID","hasChild","latestExecutionTime","checkInTime","checkOutTime","cancelledTime","roomNumber","peopleNumber","roomInfoPO"));
+		SQLmap.put("orderList", helper.bulidSQL("orderList", 14, "orderID","customerInfoPO","orderState","price","hotelID","hasChild","latestExecutionTime","checkInTime","checkOutTime","cancelledTime","roomNumber","peopleNumber","roomIDs","roomType"));
+		SQLmap.put("orderRoom", helper.bulidSQL("orderRoom", 3, "hotelID","orderID","roomID","roomType"));
 		SQLmap.put("promotionHotel", helper.bulidSQL("promotionHotel", 9,"promotionHotelID", "hotelID","promotionHotelType","beginTime","endTime","ratio","level","number","businessName"));
 		SQLmap.put("promotionWeb", helper.bulidSQL("promotionWeb", 7, "promotionWebID","promotionWebType","beginTime","endTime","ratio","level","location"));
 		SQLmap.put("contact", helper.bulidSQL("contact", 2, "phoneNumber","emailAddress"));

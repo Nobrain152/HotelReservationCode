@@ -13,6 +13,7 @@ import dataservice.userdataservice.CustomerManagementDataService;
 import po.OrderPO;
 import util.OrderState;
 import util.ResultMsg;
+import util.RoomType;
 
 public class OrderDataServiceImpl extends DataSuperClass implements OrderDataService{
 	
@@ -26,6 +27,7 @@ public class OrderDataServiceImpl extends DataSuperClass implements OrderDataSer
 	
 	CustomerManagementDataService customer = DataFactory.getDataFactory().getCustomerManagementDataServiceImpl();
 	RoomInfoDataService room =  DataFactory.getDataFactory().getRoomInfoDataServiceImpl();
+	OrderRoom orderRoom = new OrderRoom();
 	
 	public OrderDataServiceImpl() throws RemoteException {
 		super();
@@ -37,7 +39,8 @@ public class OrderDataServiceImpl extends DataSuperClass implements OrderDataSer
 		ResultMsg bMsg = addToSQL(tableName,newID,po.getInitiator().getUserID(),po.getOrderState().toString(),""+po.getPrice(),
 										po.hotelID,"" + po.getHasChild(),po.getLatestExecutionTime(),po.getCheckInTime(),
 										po.getCheckOutTime(),po.getCancelledTime(),""+ po.getRoomNumber(),
-										""+po.getPeopleNumber(),""+po.getRoomInfoPO().getRoomID());
+										""+po.getPeopleNumber(),orderRoom.addLink(po.getHotelID(),newID, po.getRoomType(),po.getRoomNumber()),
+										po.getRoomType().toString());
 		if(bMsg == ResultMsg.SUCCESS){
 			return newID;
 		}else{
@@ -52,11 +55,11 @@ public class OrderDataServiceImpl extends DataSuperClass implements OrderDataSer
 
 	@Override
 	public ResultMsg update(OrderPO po) throws RemoteException {
-		return modifyFromSQL(tableName, po.getOrderID(),po.getInitiator().getUserID(),
-				po.getOrderState().toString(),""+po.getPrice(),po.getHotelID(),
-				""+po.getHasChild(),po.getLatestExecutionTime(),po.getCheckInTime(),
-				po.getCheckOutTime(),po.getCancelledTime(),""+po.getRoomNumber(),
-				""+po.getPeopleNumber(),po.getRoomInfoPO().getRoomID());
+		return modifyFromSQL(tableName, po.getOrderID(),po.getInitiator().getUserID(),po.getOrderState().toString(),""+po.getPrice(),
+									po.hotelID,"" + po.getHasChild(),po.getLatestExecutionTime(),po.getCheckInTime(),
+									po.getCheckOutTime(),po.getCancelledTime(),""+ po.getRoomNumber(),
+									""+po.getPeopleNumber(),orderRoom.addLink(po.getHotelID(),po.getOrderID(), po.getRoomType(),po.getRoomNumber()),
+									po.getRoomType().toString());
 	}
 
 	@Override
@@ -112,7 +115,8 @@ public class OrderDataServiceImpl extends DataSuperClass implements OrderDataSer
 							result.getString(10),
 							Integer.valueOf(result.getString(11)),
 							Integer.valueOf(result.getString(12)),
-							room.findByRoomID(result.getString(13)));
+							orderRoom.getLink(result.getString(13)),
+							RoomType.valueOf(result.getString(14)));
 				
 			}
 		} catch (SQLException e) {
@@ -139,7 +143,8 @@ public class OrderDataServiceImpl extends DataSuperClass implements OrderDataSer
 							result.getString(10),
 							Integer.valueOf(result.getString(11)),
 							Integer.valueOf(result.getString(12)),
-							room.findByRoomID(result.getString(13)));
+							orderRoom.getLink(result.getString(13)),
+							RoomType.valueOf(result.getString(14)));
 					pos.add(orderPO);
 			}
 		} catch (SQLException e) {

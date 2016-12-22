@@ -28,7 +28,7 @@ public interface WebStuffWebsiteManagementBLService{
 	 * 创建网站促销策略
 	 * @param 网站促销策略VO
 	 */
-	public void WebsiteStrategeCreate(PromotionWebVO vo);
+	public ResultMsg WebsiteStrategeCreate(PromotionWebVO vo);
 	
 	/**
 	 * 修改网站促销策略

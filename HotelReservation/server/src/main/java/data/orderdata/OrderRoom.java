@@ -6,7 +6,11 @@ import java.util.ArrayList;
 
 import dataSuper.DataSuperClass;
 import util.RoomType;
-
+/**
+ * 建立orderID和房间之间的联系
+ * @author T5-SK
+ *
+ */
 public class OrderRoom extends DataSuperClass{
 
 	/**

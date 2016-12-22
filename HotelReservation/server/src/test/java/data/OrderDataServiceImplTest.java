@@ -34,11 +34,12 @@ public class OrderDataServiceImplTest {
 	@Before
 	public void setUp() throws RemoteException{
 		dataServiceImpl = new OrderDataServiceImpl();
+		ArrayList<String> roomIDs = new ArrayList<String>();
 //		order1 = new OrderPO("20161002", new CustomerInfoPO("19954722", "ÌÆöÎ", "sdf",
 //				"18805156300", 300, true, VipType.COMMON_VIP), 
 //				OrderState.UNEXECUTED, 99.9, "5000", false, 
 //				"2016-10-02 24:00", "2016-10-03 12:00", "2016-10-02 12:00", null,
-//				1,1, new RoomInfoPO(RoomState.USABLE, RoomType.ROOM_STANDARD, "513", 99.9, "5000"));
+//				1,1, roomIDs, RoomType.ROOM_BIGBED);
 		/*order1 = new OrderPO("100001", new CustomerInfoPO("151250058","hkw", 
 				new ContactPO("13270898633", "814335296@qq.com"), 200, true,
 				VipType.COMPANY_VIP), OrderState.UNEXECUTED,
@@ -109,13 +110,13 @@ public class OrderDataServiceImplTest {
 //		assertEquals(b, ResultMsg.SUCCESS);
 //	}
 //	
-//	@Test
-//	public void testUpdate() throws RemoteException{
-//		dataServiceImpl.insert(order1);
-//		order1.setCheckOutTime("456123456");
-//		ResultMsg b = dataServiceImpl.update(order1);
-//		assertEquals(b, ResultMsg.SUCCESS);
-//	}
+	@Test
+	public void testUpdate() throws RemoteException{
+		OrderPO po = dataServiceImpl.findByOrderID("60000005");
+		po.setOrderState(OrderState.ABNORMAL);
+		ResultMsg b = dataServiceImpl.update(po);
+		assertEquals(b, ResultMsg.SUCCESS);
+	}
 //	
 //	
 //	public void testFindByOrderID() throws RemoteException{
@@ -180,12 +181,12 @@ public class OrderDataServiceImplTest {
 //		assertEquals(po.getHotelID(), "5000");
 //	}
 	
-	@Test 
-	public void testShowList() throws RemoteException{
-		ArrayList<OrderPO> arrayList = dataServiceImpl.showList();
-		assertEquals(arrayList.get(0).getHotelID(), "5000");
-	}
-	
+//	@Test 
+//	public void testShowList() throws RemoteException{
+//		ArrayList<OrderPO> arrayList = dataServiceImpl.showList();
+//		assertEquals(arrayList.get(0).getHotelID(), "5000");
+//	}
+//	
 	
 	
 }

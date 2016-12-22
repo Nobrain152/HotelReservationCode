@@ -55,7 +55,11 @@ public class OrderDataServiceImpl extends DataSuperClass implements OrderDataSer
 
 	@Override
 	public ResultMsg update(OrderPO po) throws RemoteException {
-		return modifyFromSQL(tableName, po.getOrderID(),po.getInitiator().getUserID(),po.getOrderState().toString(),""+po.getPrice(),
+		return modifyFromSQL(tableName,
+				po.getOrderID(),
+				po.getInitiator().getUserID(),
+				po.getOrderState().toString(),
+				""+po.getPrice(),
 									po.hotelID,"" + po.getHasChild(),po.getLatestExecutionTime(),po.getCheckInTime(),
 									po.getCheckOutTime(),po.getCancelledTime(),""+ po.getRoomNumber(),
 									""+po.getPeopleNumber(),orderRoom.addLink(po.getHotelID(),po.getOrderID(), po.getRoomType(),po.getRoomNumber()),

@@ -27,7 +27,7 @@ public class CreditControllerTest {
 	public void setUp() throws Exception {
 		creditController = new CreditController();
 		vipController = new VipController();
-		user = new CustomerInfoVO("19954722", "ÌÆöÎ", "18805156300","sfd",300,true,VipType.COMMON_VIP);
+		user = new CustomerInfoVO("19954722", "txin", "18805156300","ve",300,true,VipType.COMMON_VIP);
 	}
 	
 	@Test
@@ -57,7 +57,7 @@ public class CreditControllerTest {
 	@Test
 	public void testGetCreditList() {
 		ArrayList<CreditVO> vos = creditController.getCreditList(user.getUserID());
-		assertEquals(vos.get(vos.size()-1).getCreditResult(), 100);
+		assertEquals(vos.size(),1);
 	}
 }
 

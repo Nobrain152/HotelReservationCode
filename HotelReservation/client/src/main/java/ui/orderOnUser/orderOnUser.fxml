@@ -175,7 +175,6 @@
                                     <Font size="18.0" />
                                  </font>
                               </Text>
-                              <Button layoutX="560.0" layoutY="357.0" mnemonicParsing="false" text="申诉" />
                               <Button layoutX="652.0" layoutY="357.0" mnemonicParsing="false" text="详细信息" />
                            </children></AnchorPane>
                      </content>

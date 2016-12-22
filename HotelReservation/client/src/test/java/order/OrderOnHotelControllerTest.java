@@ -37,7 +37,7 @@ public class OrderOnHotelControllerTest {
 	
 	@Before
 	public void setUp() throws RemoteException {
-		order1 = new OrderVO("60161002", new CustomerInfoVO("19954722", "txin", "ve",
+		order1 = new OrderVO("20161002", new CustomerInfoVO("19954722", "ÌÆöÎ", "sdf",
 				"18805156300", 300, true, VipType.COMMON_VIP), 
 				OrderState.UNEXECUTED, 99.9, "5000", false, 
 				"2016-10-02 24:00", "2016-10-03 12:00", "2016-10-02 12:00", null,
@@ -47,15 +47,15 @@ public class OrderOnHotelControllerTest {
 //				OrderState.CANCELLED, 99.9, "014", false, 
 //				"2016-12-16 24:00", "2016-12-16 12:00", "2016-12-17 12:00", null,
 //				1, new RoomInfoVO(RoomState.USABLE, RoomType.ROOM_STANDARD, "513", 99.9, "014"),1);
-		order3 = new OrderVO("60161004", new CustomerInfoVO("19954722", "txin", "ve",
+		order3 = new OrderVO("20161004", new CustomerInfoVO("19954722", "ÌÆöÎ", "sdf",
 				"18805156300", 300, true, VipType.COMMON_VIP), 
-				OrderState.ABNORMAL, 99.9, "5000", false, 
+				OrderState.ABNORMAL, 99.9, "014", false, 
 				"2016-10-04 24:00", "2016-10-03 12:00", "2016-10-04 12:00", null,
 				1, null,1,RoomType.ROOM_STANDARD);
-		order4 = new OrderVO("60161003", new CustomerInfoVO("19954722", "txin", "ve",
+		order4 = new OrderVO("20161003", new CustomerInfoVO("19954722", "ÌÆöÎ", "sdf",
 				"18805156300", 300, true, VipType.COMMON_VIP), 
 				OrderState.EXECUTED, 99.9, "5000", false, 
-				"2016-10-21 24:00", "2016-10-21 12:00", "2016-10-24 12:00", null,
+				"2016-10-03 24:00", "2016-10-04 12:00", "2016-10-03 12:00", null,
 				1, null,1,RoomType.ROOM_STANDARD);
 		onHotelBLService = new OrderOnHotelController();
 //		onUserBLService = new OrderOnUserController();

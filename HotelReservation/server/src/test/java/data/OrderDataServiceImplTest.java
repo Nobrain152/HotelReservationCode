@@ -188,7 +188,7 @@ public class OrderDataServiceImplTest {
 	
 	@Test
 	public void testUpdate() throws RemoteException{
-		OrderPO po = dataServiceImpl.findByOrderID("60161002");
+		OrderPO po = dataServiceImpl.findByOrderID("60000004");
 		po.setOrderState(OrderState.ABNORMAL);
 		ResultMsg resultMsg = dataServiceImpl.update(po);
 		assertEquals(ResultMsg.SUCCESS, resultMsg);

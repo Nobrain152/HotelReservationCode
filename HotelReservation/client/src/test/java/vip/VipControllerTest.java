@@ -20,15 +20,14 @@ public class VipControllerTest {
 	@Before
 	public void setUp() throws Exception {
 		vipController = new VipController();
-		vipController.registerVip("19954723", VipType.COMPANY_VIP, "nanjing");
-		customerInfoVO = new CustomerInfoVO("19954722", "txin", "ve", "18805156300", 300, true, VipType.COMMON_VIP);
+		customerInfoVO = new CustomerInfoVO("19954722", "ÌÆöÎ", "sfd", "18805156300", 300, true, VipType.COMMON_VIP);
 	}
 	
 	@Test
 	public void testRegisterVip() throws RemoteException {
-		vipController.registerVip(customerInfoVO.getUserID(), customerInfoVO.getVipType(), "1997-12-23");
-		CommonVipVO commonVipVO = new CommonVipVO("19954722", "txin", "ve", "18805156300", 300, "1997-12-23", VipType.COMMON_VIP);
-		assertEquals(commonVipVO.getBirthday(), "1997-12-23");
+		vipController.registerVip(customerInfoVO.getUserID(), customerInfoVO.getVipType(), "1997-05-13");
+		CommonVipVO commonVipVO = new CommonVipVO("19954722", "ÌÆöÎ", "sfd", "18805156300", 300, "1997-05-13", VipType.COMMON_VIP);
+		assertEquals(commonVipVO.getBirthday(), "1997-05-13");
 	}
 	
 	@Test

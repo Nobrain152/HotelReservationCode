@@ -7,7 +7,6 @@ import bl.BusinessLogicDataFactory;
 import blservice.hotelblservice.RoomAddBLService;
 import dataservice.hoteldataservice.HotelInfoDataService;
 import util.ResultMsg;
-import util.RoomType;
 import vo.OrderVO;
 import vo.RoomInfoVO;
 
@@ -43,7 +42,7 @@ public class HotelReserve {
 		//System.out.println(room.size());
 		for(RoomInfoVO v:room ){
 			
-			if(v.getType()==vo.getRoomInfoVO().getType()){
+			if(v.getType()==vo.getRoomType()){
 				//System.out.println("here");
 				if(v.addOrderedTime(date)){
 					room.set(room.indexOf(v),v);

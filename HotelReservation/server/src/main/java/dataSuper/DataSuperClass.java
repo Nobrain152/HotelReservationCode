@@ -70,7 +70,7 @@ public class DataSuperClass extends UnicastRemoteObject{
 		SQLmap.put("hotelInfo", helper.bulidSQL("hotelInfo", 10, "hotelID","name","address","area","level","introduction","facility","reserve","score","SP"));
 		SQLmap.put("roomInfo", helper.bulidSQL("roomInfo", 5, "roomID","stateName","type","price","hotelID"));
 		SQLmap.put("orderList", helper.bulidSQL("orderList", 14, "orderID","customerInfoPO","orderState","price","hotelID","hasChild","latestExecutionTime","checkInTime","checkOutTime","cancelledTime","roomNumber","peopleNumber","roomIDs","roomType"));
-		SQLmap.put("orderRoom", helper.bulidSQL("orderRoom", 3, "hotelID","orderID","roomID","roomType"));
+		SQLmap.put("orderRoom", helper.bulidSQL("orderRoom", 3, "hotelID","orderID","roomType","roomNumber"));
 		SQLmap.put("promotionHotel", helper.bulidSQL("promotionHotel", 9,"promotionHotelID", "hotelID","promotionHotelType","beginTime","endTime","ratio","level","number","businessName"));
 		SQLmap.put("promotionWeb", helper.bulidSQL("promotionWeb", 7, "promotionWebID","promotionWebType","beginTime","endTime","ratio","level","location"));
 		SQLmap.put("contact", helper.bulidSQL("contact", 2, "phoneNumber","emailAddress"));

@@ -31,6 +31,9 @@ public class RoomAdd {
 	 * @throws RemoteException
 	 */
 	public ResultMsg addRoom(RoomInfoVO roomInfoVO) throws RemoteException{
+		if(roomInfoVO.getOrderedTime().size()==0){
+			roomInfoVO.addOrderedTime(new Date("2100-11-18","2100-11-22"));
+		}
 		RoomInfoPO roomInfoPO = (RoomInfoPO)VOPOchange.VOtoPO(roomInfoVO);
 		result = roomData.insert(roomInfoPO);
 		return result;

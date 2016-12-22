@@ -30,7 +30,7 @@ public class RoomAddControllerTest {
 	
 	@Before
 	public void setUp() {
-		room1=new RoomInfoVO(RoomState.USABLE,RoomType.ROOM_STANDARD,"5",1599,"1234567");
+		room1=new RoomInfoVO(RoomState.USABLE,RoomType.ROOM_STANDARD,"461",199,"5000");
 		room2=new RoomInfoVO(RoomState.UNUSABLE,RoomType.ROOM_STANDARD,"10",1435,"1234567");
 		room3=new RoomInfoVO(RoomState.USABLE,RoomType.ROOM_BIGBED,"02",233,"1234567");
 		room4=new RoomInfoVO(RoomState.USABLE,RoomType.ROOM_PRESIDENTIAL,"22",159999,"1234567");

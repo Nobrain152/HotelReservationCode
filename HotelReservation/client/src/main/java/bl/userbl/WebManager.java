@@ -84,9 +84,11 @@ public class WebManager extends User {
 	 */
 	public String StuffAdd(StuffInfoVO vo)throws RemoteException{
 		ArrayList<StuffInfoPO> already=data.HotelStuffScan();
-		for(StuffInfoPO p:already){
-			if(p.getHotel().equals(vo.getHotel()))
-				return null;
+		if(already!=null){
+			for(StuffInfoPO p:already){
+				if(p.getHotel().equals(vo.getHotel()))
+					return null;
+			}
 		}
 		StuffInfoPO po=(StuffInfoPO)VOPOchange.VOtoPO(vo);
 		po.setPassword(MD5Util.md5Encode(po.getPassword()));

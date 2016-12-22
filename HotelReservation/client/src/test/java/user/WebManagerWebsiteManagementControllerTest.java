@@ -22,7 +22,7 @@ public class WebManagerWebsiteManagementControllerTest {
 	@Before
 	public void setUp() {
 		impl=new WebManagerWebsiteManagementController();
-		info=new UserInfoVO("42345678","Lily","13124567893","666666");
+		info=new UserInfoVO("32345678","LIly","13124567893","666666");
 	}
 
 	@Test
@@ -33,8 +33,8 @@ public class WebManagerWebsiteManagementControllerTest {
 	
 	@Test
 	public void testmodify(){
-		info.setType(UserType.Customer);
-		assertEquals(impl.UserInformationModification("12345679", info),ResultMsg.SUCCESS);
+		info.setType(UserType.WebStuff);
+		assertEquals(impl.UserInformationModification("32345678", info),ResultMsg.SUCCESS);
 	}
 	
 	
@@ -42,6 +42,6 @@ public class WebManagerWebsiteManagementControllerTest {
 	@Test
 	public void testScan(){
 		ArrayList<UserInfoVO> stuff=impl.WebStuffScan();
-	    assertEquals(stuff.get(0).getUsername(),"Marry");
+	    assertEquals(stuff.get(0).getUsername(),"LILY");
 	}
 }

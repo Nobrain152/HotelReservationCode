@@ -133,6 +133,7 @@ public class WebManager extends User {
 		char c=userid.charAt(0);
 		CustomerInfoPO cu;
 		StuffInfoPO stuff;
+		UserInfoPO user;
 		if(c=='1'){
 			cu=data.GetCustomerInfo(userid);
 			cu.setType(UserType.Customer);
@@ -161,11 +162,38 @@ public class WebManager extends User {
 			}
 			return data.SetHotelStuffInfo(userid, stuff);
 		}
-		switch(c){
-		case'3': return data.SetWebStuffInfo(userid,po1);
-		case'4': return data.SetWebManagerInfo(userid,po1);
-		default: return ResultMsg.FAIL;
+		if(c=='3'){
+			user=data.GetWebStuffInfo(userid);
+			user.setType(UserType.WebStuff);
+			if(po1.getContact()!=null){
+				if(po1.getContact().length()!=11){
+					return ResultMsg.WRONG_PHONENUMBER;
+				}
+				user.setContact(po1.getContact());
+			}
+			if(po1.getUsername()!=null){
+				user.setUsername(po1.getUsername());
+			}
+			//return ResultMsg.SUCCESS;
+			return data.SetWebStuffInfo(userid, user);
 		}
+		if(c=='4'){
+			user=data.GetWebManagerInfo(userid);
+			user.setType(UserType.WebManager);
+			if(po1.getContact()!=null){
+				if(po1.getContact().length()!=11){
+					return ResultMsg.WRONG_PHONENUMBER;
+				}
+				user.setContact(po1.getContact());
+			}
+			if(po1.getUsername()!=null){
+				user.setUsername(po1.getUsername());
+			}
+			return data.SetWebManagerInfo(userid, user);
+		}
+		
+		return ResultMsg.FAIL;
+		
 		
 	}
 			

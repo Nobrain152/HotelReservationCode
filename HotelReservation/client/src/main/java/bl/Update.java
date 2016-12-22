@@ -24,14 +24,14 @@ public class Update implements Runnable{
 	@Override
 	public void run() {
 		
-		final long timeInterval = 60000;// 1分钟运行一次
+		final long timeInterval = 120000;// 2分钟运行一次
 		
 		while (true) {
 			
 			ArrayList<OrderPO> orderPOs = null;
 			try {
 				orderPOs = orderDataService.showList();
-				System.out.println("Success txin");
+				System.out.println("Success Thread");
 			} catch (NullPointerException e) {
 				e.printStackTrace();
 				// TODO: handle exception
@@ -46,7 +46,8 @@ public class Update implements Runnable{
 							&& po.getOrderState() == OrderState.UNEXECUTED) {
 						po.setOrderState(OrderState.ABNORMAL);
 						try {
-							System.out.println(orderDataService.update(po));
+							orderDataService.update(po);
+							System.out.println("Success change");
 						} catch (RemoteException e) {
 							// TODO Auto-generated catch block
 							e.printStackTrace();

@@ -37,22 +37,24 @@ public class OrderOnHotelControllerTest {
 	
 	@Before
 	public void setUp() throws RemoteException {
-		order1 = new OrderVO("20161002", new CustomerInfoVO("19954722", "ÌÆöÎ", "sdf",
+		ArrayList<String> arrayList = new ArrayList<>();
+		arrayList.add("513");
+		order1 = new OrderVO("60161002", new CustomerInfoVO("19954722", "txin", "ve",
 				"18805156300", 300, true, VipType.COMMON_VIP), 
 				OrderState.UNEXECUTED, 99.9, "5000", false, 
-				"2016-10-02 24:00", "2016-10-03 12:00", "2016-10-02 12:00", null,
-				1, null,1,RoomType.ROOM_STANDARD);
-//		order2 = new OrderVO("201612112014", new CustomerInfoVO("19954722", "ÌÆöÎ", "sdf",
+				"2016-12-23 24:00", "2016-12-23 12:00", "2016-12-24 12:00", null,
+				1, arrayList,1,RoomType.ROOM_STANDARD);
+//		order2 = new OrderVO("201612112014", new CustomerInfoVO("19954722", "txin", "ve",
 //				"18805156300", 300, true, VipType.COMMON_VIP), 
 //				OrderState.CANCELLED, 99.9, "014", false, 
 //				"2016-12-16 24:00", "2016-12-16 12:00", "2016-12-17 12:00", null,
 //				1, new RoomInfoVO(RoomState.USABLE, RoomType.ROOM_STANDARD, "513", 99.9, "014"),1);
-		order3 = new OrderVO("20161004", new CustomerInfoVO("19954722", "ÌÆöÎ", "sdf",
+		order3 = new OrderVO("60161004", new CustomerInfoVO("19954722", "txin", "ve",
 				"18805156300", 300, true, VipType.COMMON_VIP), 
-				OrderState.ABNORMAL, 99.9, "014", false, 
+				OrderState.ABNORMAL, 99.9, "5000", false, 
 				"2016-10-04 24:00", "2016-10-03 12:00", "2016-10-04 12:00", null,
 				1, null,1,RoomType.ROOM_STANDARD);
-		order4 = new OrderVO("20161003", new CustomerInfoVO("19954722", "ÌÆöÎ", "sdf",
+		order4 = new OrderVO("60161003", new CustomerInfoVO("19954722", "txin", "ve",
 				"18805156300", 300, true, VipType.COMMON_VIP), 
 				OrderState.EXECUTED, 99.9, "5000", false, 
 				"2016-10-03 24:00", "2016-10-04 12:00", "2016-10-03 12:00", null,
@@ -69,7 +71,7 @@ public class OrderOnHotelControllerTest {
 		hotelList.add(order3);
 		hotelList.add(order4);
 		
-//		testOrder = new OrderVO("201612062014",new CustomerInfoVO("19954722", "ÌÆöÎ","sdf", 
+//		testOrder = new OrderVO("201612062014",new CustomerInfoVO("19954722", "txin","ve", 
 //				"18805156300", 300, true, VipType.COMMON_VIP), 
 //				OrderState.UNEXECUTED, 99.9, "014", false, 
 //				"2016-12-16 24:00", "2016-12-16 12:00", "2016-12-17 12:00", null,
@@ -84,7 +86,7 @@ public class OrderOnHotelControllerTest {
 	
 	@Test
 	public void testHotelOrderDetail() throws RemoteException{
-		OrderVO order = onHotelBLService.hotelOrderDetail("20161002");
+		OrderVO order = onHotelBLService.hotelOrderDetail("60161002");
 		assertEquals(order.getOrderState(), OrderState.UNEXECUTED);
 	}
 	

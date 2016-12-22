@@ -27,10 +27,10 @@ public class PromotionWebControllerTest {
 		web = new PromotionWebController();
 		web1 = new PromotionWebVO(null, PromotionWebType.VIP_CIRCLE_PROMOTION, Area.EAST, 0.8);
 		web2 = new PromotionWebVO(null, PromotionWebType.VIP_LEVEL_PROMOTION,1,0.95);
-		web3 = new PromotionWebVO(null, PromotionWebType.WEB_CUSTOM_PROMOTION,"2016-12-12 00:00","2016-12-12 24:00", 0.77);
+		web3 = new PromotionWebVO(null, PromotionWebType.WEB_CUSTOM_PROMOTION,"2016-12-22 00:00","2016-12-26 24:00", 0.77);
 		web.addCircleCut(Area.EAST, 0.8);
 		web.addLevelCut(1, 0.95);
-		web.addWebCustomCut("2016-12-12 00:00", "2016-12-12 24:00", 0.95);
+		web.addWebCustomCut("2016-12-22 00:00", "2016-12-26 24:00", 0.95);
 		web.addCircleCut(Area.NORTH, 0.5);
 		web.addLevelCut(3, 0.5);
 		web.addWebCustomCut("2016-11-11 00:00", "2016-11-11 24:00", 0.5);
@@ -110,12 +110,12 @@ public class PromotionWebControllerTest {
 	
 	@Test
 	public void testAddWebCustomCut() throws RemoteException{
-		resultMsg = web.addWebCustomCut("2016-12-25 00:00", "2016-12-25 24:00", 0.66);
+		resultMsg = web.addWebCustomCut("2016-12-27 00:00", "2016-12-27 24:00", 0.66);
 		double ratio = 1.00;
 		ArrayList<PromotionWebVO> vos = web.getWebPromotion(PromotionWebType.WEB_CUSTOM_PROMOTION);
 		for(PromotionWebVO vo : vos){
-			if(vo.getTimeBegin().equals("2016-12-25 00:00")
-					&& vo.getTimeOver().equals("2016-12-25 24:00")){
+			if(vo.getTimeBegin().equals("2016-12-27 00:00")
+					&& vo.getTimeOver().equals("2016-12-27 24:00")){
 				ratio = vo.getRatio();
 				break;
 			}
@@ -137,7 +137,7 @@ public class PromotionWebControllerTest {
 	
 	@Test
 	public void testDeleteWebCustomCut() throws RemoteException{
-		resultMsg = web.deleteWebCustomCut("2016-12-12 00:00", "2016-12-12 24:00");
+		resultMsg = web.deleteWebCustomCut("2016-12-22 00:00", "2016-12-26 24:00");
 		assertEquals(ResultMsg.SUCCESS, resultMsg);
 	}
 	

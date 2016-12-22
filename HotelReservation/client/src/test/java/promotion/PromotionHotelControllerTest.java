@@ -35,7 +35,7 @@ public class PromotionHotelControllerTest {
 		hotel.addJoin("univer", 0.7, "5000");
 		hotel.addJoin("nanjing", 0.95, "5000");
 		hotel.addHotelCustomCut("2016-11-11 00:00", "2016-11-11 24:00", 0.88, "5000");
-		hotel.addHotelCustomCut("2016-12-12 00:00", "2016-12-12 24:00", 0.66, "5000");
+		hotel.addHotelCustomCut("2016-12-22 00:00", "2016-12-26 24:00", 0.66, "5000");
 	}
 
 	@Test
@@ -97,12 +97,12 @@ public class PromotionHotelControllerTest {
 	
 	@Test
 	public void testChangeHotelCustomCut() throws RemoteException{
-		resultMsg = hotel.changeHotelCustomCut("2016-12-12 00:00", "2016-12-12 24:00", 0.12, "5000");
+		resultMsg = hotel.changeHotelCustomCut("2016-12-22 00:00", "2016-12-26 24:00", 0.12, "5000");
 		double ratio = 1.00;
 		ArrayList<PromotionHotelVO> vos = hotel.getHotelPromotion(PromotionHotelType.HOTEL_CUSTOM_PROMOTION, "5000");
 		for(PromotionHotelVO vo : vos){
-			if(vo.getTimeBegin().equals("2016-12-12 00:00")
-					&& vo.getTimeOver().equals("2016-12-12 24:00")){
+			if(vo.getTimeBegin().equals("2016-12-22 00:00")
+					&& vo.getTimeOver().equals("2016-12-26 24:00")){
 				ratio = vo.getRatio();
 				break;
 			}
@@ -154,11 +154,11 @@ public class PromotionHotelControllerTest {
 
 	@Test
 	public void testAddHotelCustomCut() throws RemoteException{
-		resultMsg = hotel.addHotelCustomCut("2016-12-25 00:00", "2016-12-25 24:00", 0.77, "5000");
+		resultMsg = hotel.addHotelCustomCut("2016-12-27 00:00", "2016-12-27 24:00", 0.77, "5000");
 		double ratio = 1.00;
 		ArrayList<PromotionHotelVO> vos = hotel.getHotelPromotion(PromotionHotelType.HOTEL_CUSTOM_PROMOTION, "5000");
 		for(PromotionHotelVO vo : vos){
-			if(vo.getTimeBegin().equals("2016-12-25 00:00") && vo.getTimeOver().equals("2016-12-25 24:00")){
+			if(vo.getTimeBegin().equals("2016-12-27 00:00") && vo.getTimeOver().equals("2016-12-27 24:00")){
 				ratio = vo.getRatio();
 				break;
 			}
@@ -187,7 +187,7 @@ public class PromotionHotelControllerTest {
 	
 	@Test
 	public void testDeleteHotelCustomCut() throws RemoteException{
-		resultMsg = hotel.deleteHotelCustomCut("2016-12-12 00:00", "2016-12-12 24:00", "5000");
+		resultMsg = hotel.deleteHotelCustomCut("2016-12-22 00:00", "2016-12-26 24:00", "5000");
 		assertEquals(ResultMsg.SUCCESS, resultMsg);
 	}
 }

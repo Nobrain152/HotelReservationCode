@@ -25,7 +25,7 @@ public class OrderRoom extends DataSuperClass{
 		ArrayList<String> roomIDs = new ArrayList<String>();
 		sql = "SELECT * FROM roominfo WHERE hotelID = \'" + hotelID + "\' AND type = \'" + roomType.toString() + "\' AND stateName = \'USABLE\'";
 		roomIDs = findMsgs2(sql,num);
-		for(int i =0;affectRows < roomIDs.size();i++){
+		for(int i =0;i < roomIDs.size();i++){
 			addToSQL(tableName, hotelID,orderID,roomIDs.get(i),roomType.toString());
 		}
 		

@@ -25,7 +25,7 @@ import util.VipType;
 public class OrderDataServiceImplTest {
 
 	OrderDataServiceImpl dataServiceImpl;
-	ArrayList<OrderPO> list;
+//	ArrayList<OrderPO> list;
 	OrderPO order1;
 	OrderPO order2;
 	OrderPO order3;
@@ -82,7 +82,7 @@ public class OrderDataServiceImplTest {
 				OrderState.CANCELLED, 100, "01", "513", false, 
 				"2016-10-16 24:00", "2016-10-16 12:00", "2016-10-17 12:00", 
 				1, 1, RoomType.ROOM_STANDARD);*/
-		list = new ArrayList<OrderPO>();
+//		list = new ArrayList<OrderPO>();
 	}
 	
 //	@Test
@@ -179,13 +179,19 @@ public class OrderDataServiceImplTest {
 //		OrderPO po = dataServiceImpl.findByOrderID("60000004");
 //		assertEquals(po.getHotelID(), "5000");
 //	}
+//	
+//	@Test 
+//	public void testShowList() throws RemoteException{
+//		ArrayList<OrderPO> arrayList = dataServiceImpl.showList();
+//		assertEquals(arrayList.get(0).getHotelID(), "5000");
+//	}
 	
-	@Test 
-	public void testShowList() throws RemoteException{
-		ArrayList<OrderPO> arrayList = dataServiceImpl.showList();
-		assertEquals(arrayList.get(0).getHotelID(), "5000");
+	@Test
+	public void testUpdate() throws RemoteException{
+		OrderPO po = dataServiceImpl.findByOrderID("60000004");
+		po.setOrderState(OrderState.ABNORMAL);
+		ResultMsg resultMsg = dataServiceImpl.update(po);
+		assertEquals(ResultMsg.SUCCESS, resultMsg);
 	}
-	
-	
 	
 }

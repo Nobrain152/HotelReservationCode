@@ -28,6 +28,8 @@ import vo.RoomInfoVO;
 import vo.UserInfoVO;
 
 /** 
+ * 
+ * VOPOµÄ»¥»»
  * @author txin15 
  *
  */

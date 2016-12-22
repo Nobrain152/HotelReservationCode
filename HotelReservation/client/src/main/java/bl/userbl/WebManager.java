@@ -23,6 +23,7 @@ import vo.UserInfoVO;
  * 
  *
  */
+
 public class WebManager extends User {
 	private UserManagementDataService data;
 	private HotelInfoCheckBLService check;

@@ -3,6 +3,7 @@ package po;
 import java.io.Serializable;
 import java.util.ArrayList;
 
+
 import util.RoomState;
 import util.RoomType;
 
@@ -39,7 +40,7 @@ public class RoomInfoPO implements Serializable{
 	/**
 	 * 房间已经被预定的时间段
 	 */
-	private ArrayList<String> OrderedTime;
+	private ArrayList<Date> OrderedTime;
 	
 	/**
 	 * 房间隶属的酒店ID
@@ -54,7 +55,7 @@ public class RoomInfoPO implements Serializable{
 		this.roomID= roomID;
 		this.price= price;
 		this.hotelid=hotelid;
-		OrderedTime=new ArrayList<String>();
+		OrderedTime=new ArrayList<Date>();
 	}
 
 	public RoomState getState() {
@@ -81,7 +82,7 @@ public class RoomInfoPO implements Serializable{
 		return roomID;
 	}
 	
-	public  ArrayList<String> getOrderedTime(){
+	public  ArrayList<Date> getOrderedTime(){
 		return OrderedTime;
 	}
 	

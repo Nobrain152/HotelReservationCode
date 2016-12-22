@@ -68,4 +68,10 @@ public class RoomAddControllerTest {
 		//assertEquals(msg2.getMessage(), reMsg2.getMessage());
 		assertEquals(msg2, reMsg2);
     }
+	
+	/*@Test
+	public void testsearch(){
+		ArrayList<RoomInfoVO> all=impl.HotelRoomSearch("5000");
+		assertEquals(all.get(0).getRoomID(),"456");
+	}*/
 }

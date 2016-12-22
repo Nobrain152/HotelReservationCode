@@ -131,7 +131,10 @@ public class promotionHotelViewController implements Initializable {
 	}
 	
 	@FXML
-	public void btn_birthday_modifyAction(ActionEvent ev) {		
+	public void btn_birthday_modifyAction(ActionEvent ev) {
+		PromotionBirthday choose=promotion_birthday.getSelectionModel().getSelectedItem();
+		PromotionHotelVO toModify=new PromotionHotelVO(null,PromotionHotelType.BIRTH_PROMOTION,hotelID,choose.getLevel(),choose.getDiscount());
+		helper.setPromotionHotel(toModify);
 		application.gotopromotionHotelBirthday();
 	}
 	
@@ -163,6 +166,9 @@ public class promotionHotelViewController implements Initializable {
 	
 	@FXML
 	public void btn_diy_modifyAction(ActionEvent ev) {
+		PromotionDiy choose=promotion_diy.getSelectionModel().getSelectedItem();
+		PromotionHotelVO toModify=new PromotionHotelVO(null,PromotionHotelType.HOTEL_CUSTOM_PROMOTION,hotelID,choose.getStartTime(),choose.getEndTime(),choose.getDiscount());
+		helper.setPromotionHotel(toModify);
 		application.gotopromotionHotelDIY();
 	}
 	
@@ -194,6 +200,9 @@ public class promotionHotelViewController implements Initializable {
 	
 	@FXML
 	public void btn_enterprise_modifyAction(ActionEvent ev) {
+		PromotionEnterprise choose=promotion_enterprise.getSelectionModel().getSelectedItem();
+		PromotionHotelVO toModify=new PromotionHotelVO(null,PromotionHotelType.JOIN_PROMOTION,hotelID,choose.getName(),choose.getDiscount());
+		helper.setPromotionHotel(toModify);
 		application.gotopromotionHotelEnterprise();
 	}
 	
@@ -225,6 +234,9 @@ public class promotionHotelViewController implements Initializable {
 	
 	@FXML
 	public void btn_threeroom_modifyAction(ActionEvent ev) {
+		PromotionThreeRoom choose=promotion_threeroom.getSelectionModel().getSelectedItem();
+		PromotionHotelVO toModify=new PromotionHotelVO(null,PromotionHotelType.OVERTHREE_PROMOTION,hotelID,choose.getNumber(),choose.getDiscount());
+		helper.setPromotionHotel(toModify);
 		application.gotopromotionHotelRoom();
 	}
 	

@@ -1,6 +1,8 @@
 package ui;
 
 import vo.HotelInfoVO;
+import vo.PromotionHotelVO;
+import vo.PromotionWebVO;
 
 public class UIhelper {
 	private static UIhelper instance;
@@ -19,6 +21,8 @@ public class UIhelper {
 	//用户搜索酒店时使用
 	private HotelInfoVO searchHotel;
 	private String roomID;
+	private PromotionHotelVO promotionHotel;
+	private PromotionWebVO promotionWeb;
 	
 	
 	public static UIhelper getInstance(){
@@ -91,5 +95,21 @@ public class UIhelper {
 	
 	public void setRoomID(String str){
 		this.roomID=str;
+	}
+	
+	public PromotionHotelVO getPromotionHotel(){
+		return promotionHotel;
+	}
+	
+	public void setPromotionHotel(PromotionHotelVO vo){
+		this.promotionHotel=vo;
+	}
+	
+	public PromotionWebVO getPromotionWeb(){
+		return promotionWeb;
+	}
+	
+	public void setPromotionWeb(PromotionWebVO vo){
+		this.promotionWeb=vo;
 	}
 }

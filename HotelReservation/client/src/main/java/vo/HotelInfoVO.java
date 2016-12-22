@@ -100,6 +100,11 @@ public class HotelInfoVO {
 		this.down = down;
 	}
 	
+	public HotelInfoVO(Adress address, Area area){
+		this.address=address;
+		this.area=area;
+	}
+	
 	public String getName() {
 		return name;
 	}
@@ -170,6 +175,14 @@ public class HotelInfoVO {
 	
 	public void setSP(int sp){
 		SP=sp;
+	}
+	
+	public void setName(String str){
+		name=str;
+	}
+	
+	public void setLevel(int n){
+		level=n;
 	}
 
 }	

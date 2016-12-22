@@ -31,6 +31,7 @@ public class promotionHotelViewController implements Initializable {
 	private UIhelper helper;
 	private HotelStuffHotelOperationController promotionManage;
 	private StuffInfoManagementController stuffInfo;
+	private String hotelID;
 
 	// ª·‘±…˙»’”≈ª›≤ﬂ¬‘
 	@FXML
@@ -40,6 +41,7 @@ public class promotionHotelViewController implements Initializable {
 	@FXML
 	private TableColumn<?, ?> promotion_birthday_discount;
 	private ObservableList<PromotionBirthday> data_birthday;
+	private ArrayList<PromotionBirthday> data_birthdayList;
 	@FXML
 	private Button btn_birthday_modify;
 	@FXML
@@ -59,6 +61,7 @@ public class promotionHotelViewController implements Initializable {
 	@FXML
 	private TableColumn<?, ?> promotion_threeroom_discount;
 	private ObservableList<PromotionThreeRoom> data_threeroom;
+	private ArrayList<PromotionThreeRoom> data_threeroomList;
 	@FXML
 	private Button btn_threeroom_modify;
 	@FXML
@@ -78,6 +81,7 @@ public class promotionHotelViewController implements Initializable {
 	@FXML
 	private TableColumn<?, ?> promotion_enterprise_discount;
 	private ObservableList<PromotionEnterprise> data_enterprise;
+	private ArrayList<PromotionEnterprise> data_enterpriseList;
 	@FXML
 	private Button btn_enterprise_modify;
 	@FXML
@@ -99,6 +103,7 @@ public class promotionHotelViewController implements Initializable {
 	@FXML
 	private TableColumn<?, ?> promotion_diy_discount;
 	private ObservableList<PromotionDiy> data_diy;
+	private ArrayList<PromotionDiy> data_diyList;
 	@FXML
 	private Button btn_diy_modify;
 	@FXML
@@ -126,18 +131,34 @@ public class promotionHotelViewController implements Initializable {
 	}
 	
 	@FXML
-	public void btn_birthday_modifyAction(ActionEvent ev) {
+	public void btn_birthday_modifyAction(ActionEvent ev) {		
 		application.gotopromotionHotelBirthday();
 	}
 	
 	@FXML
 	public void btn_birthday_addAction(ActionEvent ev) {
-		
+		PromotionHotelVO newPromotion=new PromotionHotelVO(null,PromotionHotelType.BIRTH_PROMOTION,hotelID,
+				Integer.parseInt(tf_birthday_level.getText()),Double.parseDouble(tf_birthday_discount.getText()));
+		boolean result=promotionManage.HotelStrategeAdd(newPromotion);
+		if(result){
+			data_birthdayList.add(new PromotionBirthday(Integer.parseInt(tf_birthday_level.getText()),Double.parseDouble(tf_birthday_discount.getText())));
+		}
+		else{
+			System.out.println("ÃÌº” ß∞‹");//TODO
+		}
 	}
 	
 	@FXML
 	public void btn_birthday_deleteAction(ActionEvent ev) {
-		
+		PromotionBirthday choose=promotion_birthday.getSelectionModel().getSelectedItem();
+		PromotionHotelVO toDelete=new PromotionHotelVO(null,PromotionHotelType.BIRTH_PROMOTION,hotelID,choose.getLevel(),choose.getDiscount());
+		boolean result=promotionManage.HotelStrategeDelete(toDelete);
+		if(result){
+			data_birthdayList.remove(choose);
+		}
+		else{
+			System.out.println("…æ≥˝ ß∞‹");
+		}
 	}
 	
 	@FXML
@@ -147,12 +168,28 @@ public class promotionHotelViewController implements Initializable {
 	
 	@FXML
 	public void btn_diy_addAction(ActionEvent ev) {
-		
+		PromotionHotelVO newPromotion=new PromotionHotelVO(null,PromotionHotelType.HOTEL_CUSTOM_PROMOTION,hotelID,
+				dp_diy_start.getValue().toString(),dp_diy_end.getValue().toString(),Double.parseDouble(tf_diy_discount.getText()));
+		boolean result=promotionManage.HotelStrategeAdd(newPromotion);
+		if(result){
+			data_diyList.add(new PromotionDiy(dp_diy_start.getValue().toString(),dp_diy_end.getValue().toString(),Double.parseDouble(tf_diy_discount.getText())));
+		}
+		else{
+			System.out.println("ÃÌº” ß∞‹");//TODO
+		}
 	}
 	
 	@FXML
 	public void btn_diy_deleteAction(ActionEvent ev) {
-		
+		PromotionDiy choose=promotion_diy.getSelectionModel().getSelectedItem();
+		PromotionHotelVO toDelete=new PromotionHotelVO(null,PromotionHotelType.HOTEL_CUSTOM_PROMOTION,hotelID,choose.getStartTime(),choose.getEndTime(),choose.getDiscount());
+		boolean result=promotionManage.HotelStrategeDelete(toDelete);
+		if(result){
+			data_diyList.remove(choose);
+		}
+		else{
+			System.out.println("…æ≥˝ ß∞‹");
+		}
 	}
 	
 	@FXML
@@ -162,12 +199,28 @@ public class promotionHotelViewController implements Initializable {
 	
 	@FXML
 	public void btn_enterprise_addAction(ActionEvent ev) {
-		
+		PromotionHotelVO newPromotion=new PromotionHotelVO(null,PromotionHotelType.JOIN_PROMOTION,hotelID,
+				tf_enterprise_name.getText(),Double.parseDouble(tf_enterprise_discount.getText()));
+		boolean result=promotionManage.HotelStrategeAdd(newPromotion);
+		if(result){
+			data_enterpriseList.add(new PromotionEnterprise(tf_enterprise_name.getText(),Double.parseDouble(tf_enterprise_discount.getText())));
+		}
+		else{
+			System.out.println("ÃÌº” ß∞‹");//TODO
+		}
 	}
 	
 	@FXML
 	public void btn_enterprise_deleteAction(ActionEvent ev) {
-		
+		PromotionEnterprise choose=promotion_enterprise.getSelectionModel().getSelectedItem();
+		PromotionHotelVO toDelete=new PromotionHotelVO(null,PromotionHotelType.JOIN_PROMOTION,hotelID,choose.getName(),choose.getDiscount());
+		boolean result=promotionManage.HotelStrategeDelete(toDelete);
+		if(result){
+			data_enterpriseList.remove(choose);
+		}
+		else{
+			System.out.println("…æ≥˝ ß∞‹");
+		}
 	}
 	
 	@FXML
@@ -177,12 +230,28 @@ public class promotionHotelViewController implements Initializable {
 	
 	@FXML
 	public void btn_threeroom_addAction(ActionEvent ev) {
-		
+		PromotionHotelVO newPromotion=new PromotionHotelVO(null,PromotionHotelType.OVERTHREE_PROMOTION,hotelID,
+				Integer.parseInt(tf_threeroom_number.getText()),Double.parseDouble(tf_threeroom_discount.getText()));
+		boolean result=promotionManage.HotelStrategeAdd(newPromotion);
+		if(result){
+			data_threeroomList.add(new PromotionThreeRoom(Integer.parseInt(tf_threeroom_number.getText()),Double.parseDouble(tf_threeroom_discount.getText())));
+		}
+		else{
+			System.out.println("ÃÌº” ß∞‹");//TODO
+		}
 	}
 	
 	@FXML
 	public void btn_threeroom_deleteAction(ActionEvent ev) {
-		
+		PromotionThreeRoom choose=promotion_threeroom.getSelectionModel().getSelectedItem();
+		PromotionHotelVO toDelete=new PromotionHotelVO(null,PromotionHotelType.OVERTHREE_PROMOTION,hotelID,choose.getNumber(),choose.getDiscount());
+		boolean result=promotionManage.HotelStrategeDelete(toDelete);
+		if(result){
+			data_threeroomList.remove(choose);
+		}
+		else{
+			System.out.println("…æ≥˝ ß∞‹");
+		}
 	}
 
 	@Override
@@ -195,14 +264,14 @@ public class promotionHotelViewController implements Initializable {
 		//ªÒ»°æ∆µÍID
 		String hotelStuffID=helper.getUserID();
 		StuffInfoVO vo=stuffInfo.IndividualBaseInfolnquiry(hotelStuffID);
-		String hotelID=vo.getHotel();
+		hotelID=vo.getHotel();
 		
 		
 		PromotionHotelVO vo_birthday=new PromotionHotelVO();
 		vo_birthday.setType(PromotionHotelType.BIRTH_PROMOTION);
 		vo_birthday.setHotelID(hotelID);
 		ArrayList<PromotionHotelVO> promotion_birthdayList=promotionManage.HotelPromotionInquire(vo_birthday);
-		ArrayList<PromotionBirthday> data_birthdayList=new ArrayList<PromotionBirthday>();
+		data_birthdayList=new ArrayList<PromotionBirthday>();
 		int size_birthday=promotion_birthdayList.size();
 		for(int i=0;i<size_birthday;i++){
 			PromotionHotelVO tempPromotionVO=promotion_birthdayList.get(i);
@@ -217,7 +286,7 @@ public class promotionHotelViewController implements Initializable {
 		vo_threeroom.setType(PromotionHotelType.OVERTHREE_PROMOTION);
 		vo_threeroom.setHotelID(hotelID);
 		ArrayList<PromotionHotelVO> promotion_threeroomList=promotionManage.HotelPromotionInquire(vo_threeroom);
-		ArrayList<PromotionThreeRoom> data_threeroomList=new ArrayList<PromotionThreeRoom>();
+		data_threeroomList=new ArrayList<PromotionThreeRoom>();
 		int size_threeroom=promotion_threeroomList.size();
 		for(int i=0;i<size_threeroom;i++){
 			PromotionHotelVO tempPromotionVO=promotion_threeroomList.get(i);
@@ -232,7 +301,7 @@ public class promotionHotelViewController implements Initializable {
 		vo_enterprise.setType(PromotionHotelType.JOIN_PROMOTION);
 		vo_enterprise.setHotelID(hotelID);
 		ArrayList<PromotionHotelVO> promotion_enterpriseList=promotionManage.HotelPromotionInquire(vo_enterprise);
-		ArrayList<PromotionEnterprise> data_enterpriseList=new ArrayList<PromotionEnterprise>();
+		data_enterpriseList=new ArrayList<PromotionEnterprise>();
 		int size_enterprise=promotion_enterpriseList.size();
 		for(int i=0;i<size_enterprise;i++){
 			PromotionHotelVO tempPromotionVO=promotion_enterpriseList.get(i);
@@ -247,7 +316,7 @@ public class promotionHotelViewController implements Initializable {
 		vo_diy.setType(PromotionHotelType.HOTEL_CUSTOM_PROMOTION);
 		vo_diy.setHotelID(hotelID);
 		ArrayList<PromotionHotelVO> promotion_diyList=promotionManage.HotelPromotionInquire(vo_diy);
-		ArrayList<PromotionDiy> data_diyList=new ArrayList<PromotionDiy>();
+		data_diyList=new ArrayList<PromotionDiy>();
 		int size_diy=promotion_diyList.size();
 		for(int i=0;i<size_diy;i++){
 			PromotionHotelVO tempPromotionVO=promotion_diyList.get(i);

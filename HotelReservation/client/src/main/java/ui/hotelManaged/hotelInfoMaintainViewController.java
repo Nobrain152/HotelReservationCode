@@ -121,9 +121,9 @@ public class hotelInfoMaintainViewController implements Initializable{
 		tf_price.setText(String.valueOf(hotelvo.getSP()));
 		ta_facility.setText(hotelvo.getFacility());
 		ta_introduction.setText(hotelvo.getIntroduction());
-		cb_star=new ChoiceBox<Integer>(FXCollections.observableArrayList(1,2,3,4,5));
-		cb_address=new ChoiceBox<String>(FXCollections.observableArrayList("南京","北京","上海","无锡","厦门"));
-		cb_area=new ChoiceBox<String>(FXCollections.observableArrayList("东区","西区","南区","北区"));
+		cb_star.setItems(FXCollections.observableArrayList(1,2,3,4,5));
+		cb_address.setItems(FXCollections.observableArrayList("南京","北京","上海","无锡","厦门"));
+		cb_area.setItems(FXCollections.observableArrayList("东区","西区","南区","北区"));
 		
 		
 	}

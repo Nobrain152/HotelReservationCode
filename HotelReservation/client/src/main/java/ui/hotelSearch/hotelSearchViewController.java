@@ -82,29 +82,40 @@ public class hotelSearchViewController implements Initializable{
 			area=Area.NORTH;
 		}
 		
+		HotelInfoVO hotelSearch=new HotelInfoVO(address,area);
 		String scoreStr=cb_Score.getValue();
-		char charDown=scoreStr.charAt(0);
-		double down = 0;
-		double up = 0;
-		switch(charDown){
-		case '0':{
-			down=0;
-			up=3;
+		
+		if(scoreStr!=null){
+			char charDown=scoreStr.charAt(0);
+			double down = 0;
+			double up = 0;
+			switch(charDown){
+			case '0':{
+				down=0;
+				up=3;
+			}
+			case '3':{
+				down=3;
+				up=6;
+			}
+			case '6':{
+				down=6;
+				up=8;
+			}
+			case '8':{
+				down=8;
+				up=10;
+			}
+			}
+			hotelSearch.setUp(up);
+			hotelSearch.setDown(down);
 		}
-		case '3':{
-			down=3;
-			up=6;
+		if(tf_name.getText()!=null){
+			hotelSearch.setName(tf_name.getText());
 		}
-		case '6':{
-			down=6;
-			up=8;
+		if(cb_Star.getValue()!=null){
+			hotelSearch.setLevel(cb_Star.getValue());
 		}
-		case '8':{
-			down=8;
-			up=10;
-		}
-		}
-		HotelInfoVO hotelSearch=new HotelInfoVO(tf_name.getText(),address,area,cb_Star.getValue(),up,down);
 		helper.setSearchHotel(hotelSearch);
 		application.gotohotelSearchList();
 	}

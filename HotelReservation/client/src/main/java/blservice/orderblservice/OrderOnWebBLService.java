@@ -3,6 +3,7 @@ package blservice.orderblservice;
 import java.rmi.RemoteException;
 import java.util.ArrayList;
 
+import util.ResultMsg;
 import vo.OrderVO;
 
 /**
@@ -36,5 +37,14 @@ public interface OrderOnWebBLService {
 	 * @return 个人订单详情
 	 */
 	public OrderVO abnormalOrderDetail(String ID);
+	
+	/**
+	 * 网站营销人员撤销异常订单
+	 * 
+	 * @param ID
+	 * @param b
+	 * @return
+	 */
+	public ResultMsg abnormalOrderCancel(String ID,boolean b);
 	
 }

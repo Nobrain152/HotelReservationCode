@@ -29,13 +29,13 @@ public class PromotionValueControllerTest {
 		orderVO1 = new OrderVO("20161222",customerInfoVO1, 
 				OrderState.UNEXECUTED, 99.9, "5000", false, 
 				"2016-12-23 24:00", "2016-12-23 12:00", "2016-12-24 12:00", null,
-				1, null,1);
+				1, null,1,RoomType.ROOM_STANDARD);
 		
 		customerInfoVO2 = new CustomerInfoVO("19954723", "nanjing", "12345678910", "lo", 300, false, VipType.COMPANY_VIP);
 		orderVO2 = new OrderVO("20161223", customerInfoVO2, 
 				OrderState.UNEXECUTED, 200, "5000", false,
 				"2016-12-23 24:00", "2016-12-23 12:00", "2016-12-24 12:00", null,
-				1, null, 5);
+				1, null, 5,RoomType.ROOM_STANDARD);
 	}
 
 	@Test

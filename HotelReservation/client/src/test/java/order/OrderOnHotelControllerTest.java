@@ -14,6 +14,7 @@ import blservice.orderblservice.OrderOnHotelBLService;
 //import blservice.orderblservice.OrderOnUserBLService;
 import util.OrderState;
 import util.ResultMsg;
+import util.RoomType;
 //import util.RoomState;
 //import util.RoomType;
 import util.VipType;
@@ -40,7 +41,7 @@ public class OrderOnHotelControllerTest {
 				"18805156300", 300, true, VipType.COMMON_VIP), 
 				OrderState.UNEXECUTED, 99.9, "5000", false, 
 				"2016-10-02 24:00", "2016-10-03 12:00", "2016-10-02 12:00", null,
-				1, null,1);
+				1, null,1,RoomType.ROOM_STANDARD);
 //		order2 = new OrderVO("201612112014", new CustomerInfoVO("19954722", "ÌÆöÎ", "sdf",
 //				"18805156300", 300, true, VipType.COMMON_VIP), 
 //				OrderState.CANCELLED, 99.9, "014", false, 
@@ -50,12 +51,12 @@ public class OrderOnHotelControllerTest {
 				"18805156300", 300, true, VipType.COMMON_VIP), 
 				OrderState.ABNORMAL, 99.9, "014", false, 
 				"2016-10-04 24:00", "2016-10-03 12:00", "2016-10-04 12:00", null,
-				1, null,1);
+				1, null,1,RoomType.ROOM_STANDARD);
 		order4 = new OrderVO("20161003", new CustomerInfoVO("19954722", "ÌÆöÎ", "sdf",
 				"18805156300", 300, true, VipType.COMMON_VIP), 
 				OrderState.EXECUTED, 99.9, "5000", false, 
 				"2016-10-03 24:00", "2016-10-04 12:00", "2016-10-03 12:00", null,
-				1, null,1);
+				1, null,1,RoomType.ROOM_STANDARD);
 		onHotelBLService = new OrderOnHotelController();
 //		onUserBLService = new OrderOnUserController();
 //		onUserBLService.createOrder(order1);

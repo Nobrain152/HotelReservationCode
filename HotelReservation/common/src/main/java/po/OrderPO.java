@@ -1,10 +1,12 @@
 
+
 package po;
 
 import java.io.Serializable;
 import java.util.ArrayList;
 
 import util.OrderState;
+import util.RoomType;
 
 /**
  * 订单
@@ -83,12 +85,17 @@ public class OrderPO implements Serializable {
 	 */
 	public ArrayList<String> roomIDs;
 	
+	/**
+	 * 房间类型
+	 */
+	public RoomType roomType;
+	
 	public OrderPO() {}
 	
 	public OrderPO(String orderID,CustomerInfoPO customerInfoPO, 
 			OrderState orderState,double price,String hotelID, boolean hasChild,
 			String latestExecutionTime, String checkInTime, String checkOutTime,
-			String cancelledTime,int roomNumber, int peopleNumber,ArrayList<String> roomIDs){
+			String cancelledTime,int roomNumber, int peopleNumber,ArrayList<String> roomIDs,RoomType roomType){
 		this.initiator = customerInfoPO;
 		this.orderState = orderState;
 		this.price = price;
@@ -102,6 +109,15 @@ public class OrderPO implements Serializable {
 		this.cancelledTime = cancelledTime;
 		this.roomNumber = roomNumber;
 		this.peopleNumber = peopleNumber;
+		this.roomType = roomType;
+	}
+	
+	public RoomType getRoomType() {
+		return roomType;
+	}
+	
+	public void setRoomType(RoomType roomType) {
+		this.roomType = roomType;
 	}
 
 	public CustomerInfoPO getInitiator() {

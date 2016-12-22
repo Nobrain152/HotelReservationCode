@@ -67,7 +67,7 @@ public class OrderOnUser {
 		
 		CustomerInfoPO customerInfoPO = (CustomerInfoPO)VOPOchange.VOtoPO(orderVO.getInitiator());
 		
-		if(customerInfoPO.getCredit() > 0){
+		if(customerInfoPO.getCredit() > 0){	//信用值过低拒绝生成订单
 			
 			CustomerInfoVO customerInfoVO = orderVO.getInitiator();
 			if(customerInfoVO.getIsMember()) {
@@ -164,6 +164,8 @@ public class OrderOnUser {
 					creditPO.setAction(Action.Cancelled);
 					resultMsg = creditDataService.insert(creditPO);
 				}
+			}else{
+				
 			}
 			
 		}else{

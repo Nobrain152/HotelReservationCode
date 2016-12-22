@@ -4,6 +4,7 @@ package vo;
 import java.util.ArrayList;
 
 import util.OrderState;
+import util.RoomType;
 
 /**
  * 所有订单VO的父类
@@ -78,12 +79,17 @@ public class OrderVO {
 	 */
 	public boolean hasChild;
 	
+	/**
+	 * 房间类型
+	 */
+	public RoomType roomType;
+	
 	public OrderVO() {}
 	
 	public OrderVO(String orderID,CustomerInfoVO customerInfoVO, OrderState orderState,
 			double price , String hotelID, boolean hasChild,
 			String latestExecutionTime, String checkInTime, String checkOutTime,
-			String cancelledTime,int roomNumber,ArrayList<String> roomIDs, int peopleNumber){
+			String cancelledTime,int roomNumber,ArrayList<String> roomIDs, int peopleNumber,RoomType roomType){
 		this.initiator = customerInfoVO;
 		this.orderState = orderState;
 		this.price = price;
@@ -97,6 +103,15 @@ public class OrderVO {
 		this.roomIDs = roomIDs;
 		this.roomNumber = roomNumber;
 		this.peopleNumber = peopleNumber;
+		this.roomType = roomType;
+	}
+	
+	public RoomType getRoomType() {
+		return roomType;
+	}
+	
+	public void setRoomType(RoomType roomType) {
+		this.roomType = roomType;
 	}
 
 	public CustomerInfoVO getInitiator() {

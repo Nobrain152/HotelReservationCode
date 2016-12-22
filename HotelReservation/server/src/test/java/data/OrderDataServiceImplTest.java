@@ -34,11 +34,11 @@ public class OrderDataServiceImplTest {
 	@Before
 	public void setUp() throws RemoteException{
 		dataServiceImpl = new OrderDataServiceImpl();
-		order1 = new OrderPO("20161002", new CustomerInfoPO("19954722", "ÌÆöÎ", "sdf",
-				"18805156300", 300, true, VipType.COMMON_VIP), 
-				OrderState.UNEXECUTED, 99.9, "5000", false, 
-				"2016-10-02 24:00", "2016-10-03 12:00", "2016-10-02 12:00", null,
-				1,1, new RoomInfoPO(RoomState.USABLE, RoomType.ROOM_STANDARD, "513", 99.9, "5000"));
+//		order1 = new OrderPO("20161002", new CustomerInfoPO("19954722", "ÌÆöÎ", "sdf",
+//				"18805156300", 300, true, VipType.COMMON_VIP), 
+//				OrderState.UNEXECUTED, 99.9, "5000", false, 
+//				"2016-10-02 24:00", "2016-10-03 12:00", "2016-10-02 12:00", null,
+//				1,1, new RoomInfoPO(RoomState.USABLE, RoomType.ROOM_STANDARD, "513", 99.9, "5000"));
 		/*order1 = new OrderPO("100001", new CustomerInfoPO("151250058","hkw", 
 				new ContactPO("13270898633", "814335296@qq.com"), 200, true,
 				VipType.COMPANY_VIP), OrderState.UNEXECUTED,

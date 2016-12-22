@@ -33,12 +33,15 @@ public class WebStuffWebsiteManagementController implements WebStuffWebsiteManag
 	 * 创建网站促销策略
 	 * @param 网站促销策略VO
 	 */
-	public ResultMsg WebsiteStrategeCreate(PromotionWebVO vo){
+	public boolean WebsiteStrategeCreate(PromotionWebVO vo){
 		try {
-			return stuff.WebsiteStrategeCreate(vo);
+			ResultMsg resultMsg=stuff.WebsiteStrategeCreate(vo);
+			if(resultMsg==ResultMsg.SUCCESS)
+				return true;
+			return false;
 		} catch (RemoteException e) {
 			e.printStackTrace();
-			return ResultMsg.FAIL;
+			return false;
 		}
 	}
 	

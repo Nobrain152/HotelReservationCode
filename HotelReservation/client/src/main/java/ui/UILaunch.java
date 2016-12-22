@@ -2,6 +2,7 @@ package ui;
 
 import java.io.InputStream;
 
+import bl.Update;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -66,25 +67,11 @@ public class UILaunch extends Application{
 	private final int  MINIMUM_WINDOW_WIDTH =800;
 	private final int  MINIMUM_WINDOW_HEIGHT =600;
 	
-	/**
-	public String getHelperUserID(){
-		return helper.getUserID();
-	}
 	
-	public void setHelperUserID(String str){
-		helper.setUserID(str);
-	}
-	*/
 	@Override
 	public void start(Stage primaryStage) throws Exception {
-		//Parent root = FXMLLoader.load(getClass().getResource("login/login.fxml"));
-		
-		//Scene scene= new Scene(root,MINIMUM_WINDOW_WIDTH,MINIMUM_WINDOW_HEIGHT);
-		//stage=primaryStage;
-		//stage.setTitle("Welcome");
-		//stage.setScene(scene);
-		//stage.show();
-		
+		Update update=new Update();
+		update.run();
 		
 		stage = primaryStage;
 		stage.setTitle("DIMENSION");

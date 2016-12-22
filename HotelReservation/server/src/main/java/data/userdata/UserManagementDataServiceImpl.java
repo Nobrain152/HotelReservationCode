@@ -233,11 +233,11 @@ public class UserManagementDataServiceImpl extends DataSuperClass implements Use
 		ArrayList<StuffInfoPO> pos = new ArrayList<StuffInfoPO>();
 		
 		try {
-			sql = "SELECT * FROM " + tableName ;
+			sql = "SELECT * FROM " + tableName3 ;
 			preState = conn.prepareStatement(sql);
 			result = preState.executeQuery();
 			while (result.next()) {
-				if(result.getString(5).equals(UserType.WebStuff.toString())){
+				if(result.getString(5).equals(UserType.HotelStuff.toString())){
 					pos.add(new StuffInfoPO(result.getString(1), result.getString(2), result.getString(4),
 											result.getString(6), result.getString(3)));
 				}

@@ -4,6 +4,8 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
+import util.RoomState;
+
 /**
  * 数据库连接起
  * @author T5-SK
@@ -47,7 +49,7 @@ public class DataBaseInit {
 		  try {
 			  //连接URL为'jdbc:mysql//服务器地址/数据库名 ' ，后面的2个参数分别是登陆用户名和密码
 			  conn = DriverManager.getConnection(
-					  "jdbc:mysql://localhost/withoutbrain?serverTimezone=UTC","root","");
+					  "jdbc:mysql://localhost/withoutbrain?serverTimezone=UTC","root","hkw19970717");
 		  } catch (SQLException e) {
 			e.printStackTrace();
 			System.out.println("连接数据库出错");

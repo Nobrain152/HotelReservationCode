@@ -132,7 +132,7 @@ public class WebStuff extends User{
 	 * @return 修改后的用户信用值VO
 	 */
 	public ResultMsg UserCreditModification(String userid,int n)throws RemoteException{
-		CustomerInfoVO vo=(CustomerInfoVO)VOPOchange.POtoVO(user.GetWebStuffInfo(userid));
+		CustomerInfoVO vo=(CustomerInfoVO)VOPOchange.POtoVO(user.GetCustomerInfo(userid));
 		return inte.changeCredit(vo, n);
 	}
 

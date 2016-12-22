@@ -70,8 +70,7 @@ public class UILaunch extends Application{
 	
 	@Override
 	public void start(Stage primaryStage) throws Exception {
-		//Update update=new Update();
-		//update.run();
+		new Thread(new Update()).start();
 		
 		stage = primaryStage;
 		stage.setTitle("DIMENSION");

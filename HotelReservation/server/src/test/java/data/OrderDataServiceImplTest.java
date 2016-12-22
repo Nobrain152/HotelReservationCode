@@ -173,11 +173,17 @@ public class OrderDataServiceImplTest {
 //		ArrayList<OrderPO> arrayList = dataServiceImpl.showList();
 //		assertEquals(list, arrayList);
 //	}
+//	
+//	@Test
+//	public void testFindByID() throws RemoteException{
+//		OrderPO po = dataServiceImpl.findByOrderID("60000004");
+//		assertEquals(po.getHotelID(), "5000");
+//	}
 	
-	@Test
-	public void testFindByID() throws RemoteException{
-		OrderPO po = dataServiceImpl.findByOrderID("60000004");
-		assertEquals(po.getHotelID(), "5000");
+	@Test 
+	public void testShowList() throws RemoteException{
+		ArrayList<OrderPO> arrayList = dataServiceImpl.showList();
+		assertEquals(arrayList.get(0).getHotelID(), "5000");
 	}
 	
 	

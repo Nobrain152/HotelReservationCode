@@ -130,7 +130,6 @@ public class OrderDataServiceImpl extends DataSuperClass implements OrderDataSer
 		ArrayList<OrderPO> pos = new ArrayList<OrderPO>();
 		OrderPO orderPO = null;
 		try {
-			
 			preState = conn.prepareStatement(sql);
 			result = preState.executeQuery();
 			while (result.next()) {

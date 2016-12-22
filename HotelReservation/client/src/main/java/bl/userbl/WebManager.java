@@ -177,7 +177,9 @@ public class WebManager extends User {
 	public String AddWebStuff(UserInfoVO vo)throws RemoteException{
 		vo.setType(UserType.WebStuff);
 		UserInfoPO po=(UserInfoPO)VOPOchange.VOtoPO(vo);
-		return data.AddWebStuff(po);
+		po.setPassword(MD5Util.md5Encode(po.getPassword()));
+		String id= data.AddWebStuff(po);
+		return id;
 	}
 	
 

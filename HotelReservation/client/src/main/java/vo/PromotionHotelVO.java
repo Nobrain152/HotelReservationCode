@@ -87,7 +87,6 @@ public class PromotionHotelVO {
 	public PromotionHotelVO(String promotionHotelID,PromotionHotelType type,String hotelID,String beginTime,String endTime,double radio) {
 		this.promotionHotelID = promotionHotelID;
 		this.hotelType = type;
-		this.hotelID = hotelID;
 		this.beginTime = beginTime;
 		this.endTime = endTime;
 		this.hotelID = hotelID;

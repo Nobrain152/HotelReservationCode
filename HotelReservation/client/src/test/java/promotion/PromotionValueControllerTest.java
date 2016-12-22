@@ -18,25 +18,39 @@ import vo.RoomInfoVO;
 
 public class PromotionValueControllerTest {
 	PromotionValueController promotionImpl;
-	CustomerInfoVO customerInfoVO;
-	OrderVO orderVO;
+	CustomerInfoVO customerInfoVO1,customerInfoVO2;
+	OrderVO orderVO1,orderVO2;
 	
 	
 	@Before
 	public void setUp() throws Exception {
 		promotionImpl = new PromotionValueController();
-		customerInfoVO = new CustomerInfoVO("19954722", "txin", "sdf","18805156300", 300, true, VipType.COMMON_VIP);
-		orderVO = new OrderVO("20161222",new CustomerInfoVO("19954722", "ÌÆöÎ", "sdf",
-				"18805156300", 300, true, VipType.COMMON_VIP), 
+		customerInfoVO1 = new CustomerInfoVO("19954722", "txin", "sdf","18805156300", 300, true, VipType.COMMON_VIP);
+		orderVO1 = new OrderVO("20161222",customerInfoVO1, 
 				OrderState.UNEXECUTED, 99.9, "5000", false, 
-				"2016-12-16 24:00", "2016-12-16 12:00", "2016-12-17 12:00", null,
-				1, new RoomInfoVO(RoomState.USABLE, RoomType.ROOM_STANDARD, "513", 99.9, "5000"),1);
+				"2016-12-23 24:00", "2016-12-23 12:00", "2016-12-24 12:00", null,
+				1, null,1);
+		
+		customerInfoVO2 = new CustomerInfoVO("19954723", "nanjing", "12345678910", "lo", 300, false, VipType.COMPANY_VIP);
+		orderVO2 = new OrderVO("20161223", customerInfoVO2, 
+				OrderState.UNEXECUTED, 200, "5000", false,
+				"2016-12-23 24:00", "2016-12-23 12:00", "2016-12-24 12:00", null,
+				1, null, 5);
 	}
 
 	@Test
 	public void testGetValue() {
-		orderVO = promotionImpl.getValue(customerInfoVO, orderVO,PromotionHotelType.BIRTH_PROMOTION);
-		assertEquals(orderVO.getPrice(),99.9*0.85,0.01);
+		orderVO1 = promotionImpl.getValue(customerInfoVO1, orderVO1,PromotionHotelType.BIRTH_PROMOTION);
+		assertEquals(orderVO1.getPrice(),99.9*0.85,0.01);
+		
+		orderVO1 = promotionImpl.getValue(customerInfoVO1, orderVO1,PromotionHotelType.HOTEL_CUSTOM_PROMOTION);
+		assertEquals(orderVO1.getPrice(),99.9*0.88,0.01);
+		
+		orderVO2 = promotionImpl.getValue(customerInfoVO2, orderVO2,PromotionHotelType.JOIN_PROMOTION);
+		assertEquals(orderVO2.getPrice(),200*0.66,0.01);
+		
+		orderVO1 = promotionImpl.getValue(customerInfoVO1, orderVO1,PromotionHotelType.OVERTHREE_PROMOTION);
+		assertEquals(orderVO1.getPrice(),99.9*0.88,0.01);
 		
 //		orderVO = promotionImpl.getValue(customerInfoVO, orderVO, PromotionWebType.VIP_CIRCLE_PROMOTION);
 //		assertEquals(orderVO.getPrice(), 100*0.9,0.01);

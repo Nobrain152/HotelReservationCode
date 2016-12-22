@@ -1,6 +1,8 @@
 package vo;
 
 
+import java.util.ArrayList;
+
 import util.OrderState;
 
 /**
@@ -54,7 +56,7 @@ public class OrderVO {
 	/**
 	 * 房间信息
 	 */
-	public RoomInfoVO roomInfoVO;
+	public ArrayList<String> roomIDs;
 	
 	/**
 	 * 订单撤销时间
@@ -81,7 +83,7 @@ public class OrderVO {
 	public OrderVO(String orderID,CustomerInfoVO customerInfoVO, OrderState orderState,
 			double price , String hotelID, boolean hasChild,
 			String latestExecutionTime, String checkInTime, String checkOutTime,
-			String cancelledTime,int roomNumber,RoomInfoVO roomInfoVO, int peopleNumber){
+			String cancelledTime,int roomNumber,ArrayList<String> roomIDs, int peopleNumber){
 		this.initiator = customerInfoVO;
 		this.orderState = orderState;
 		this.price = price;
@@ -92,7 +94,7 @@ public class OrderVO {
 		this.checkInTime = checkInTime;
 		this.checkOutTime = checkOutTime;
 		this.cancelledTime = cancelledTime;
-		this.roomInfoVO = roomInfoVO;
+		this.roomIDs = roomIDs;
 		this.roomNumber = roomNumber;
 		this.peopleNumber = peopleNumber;
 	}
@@ -125,12 +127,12 @@ public class OrderVO {
 		return latestExecutionTime;
 	}
 
-	public RoomInfoVO getRoomInfoVO() {
-		return roomInfoVO;
+	public ArrayList<String> getRoomIDs() {
+		return roomIDs;
 	}
 	
-	public void setRoomInfoVO(RoomInfoVO roomInfoVO) {
-		this.roomInfoVO = roomInfoVO;
+	public void setRoomIDs(ArrayList<String> roomIDs) {
+		this.roomIDs = roomIDs;
 	}
 
 	public int getRoomNumber() {

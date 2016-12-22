@@ -11,12 +11,12 @@ import org.junit.Test;
 import bl.orderbl.OrderOnWebController;
 import util.OrderState;
 import util.ResultMsg;
-import util.RoomState;
-import util.RoomType;
+//import util.RoomState;
+//import util.RoomType;
 import util.VipType;
 import vo.CustomerInfoVO;
 import vo.OrderVO;
-import vo.RoomInfoVO;
+//import vo.RoomInfoVO;
 
 public class OrderOnWebControllerTest {
 
@@ -34,7 +34,7 @@ public class OrderOnWebControllerTest {
 				"18805156300", 300, true, VipType.COMMON_VIP), 
 				OrderState.UNEXECUTED, 99.9, "5000", false, 
 				"2016-12-20 15:00", "2016-12-20 12:00", "2016-12-21 12:00", null,
-				1, new RoomInfoVO(RoomState.USABLE, RoomType.ROOM_STANDARD, "513", 99.9, "5000"),1);
+				1, null,1);
 //		order2 = new OrderVO("20161005", new CustomerInfoVO("19954722", "ÌÆöÎ", "sdf",
 //				"18805156300", 300, true, VipType.COMMON_VIP), 
 //				OrderState.UNEXECUTED, 99.9, "5000", false, 
@@ -44,12 +44,12 @@ public class OrderOnWebControllerTest {
 				"18805156300", 300, true, VipType.COMMON_VIP), 
 				OrderState.ABNORMAL, 99.9, "014", false, 
 				"2016-10-04 24:00", "2016-10-04 12:00", "2016-10-05 12:00", null,
-				1, new RoomInfoVO(RoomState.USABLE, RoomType.ROOM_STANDARD, "515", 99.9, "5000"),1);
+				1,null,1);
 		order4 = new OrderVO("20161003", new CustomerInfoVO("19954722", "ÌÆöÎ", "sdf",
 				"18805156300", 300, true, VipType.COMMON_VIP), 
 				OrderState.EXECUTED, 99.9, "5000", false, 
 				"2016-10-03 24:00", "2016-10-03 12:00", "2016-10-04 12:00", null,
-				1, new RoomInfoVO(RoomState.UNUSABLE, RoomType.ROOM_STANDARD, "514", 99.9, "5000"),1);
+				1, null,1);
 
 		webList.add(order1);
 //		webList.add(order2);

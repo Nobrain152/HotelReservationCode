@@ -1,6 +1,8 @@
+
 package po;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 
 import util.OrderState;
 
@@ -79,21 +81,21 @@ public class OrderPO implements Serializable {
 	/**
 	 * 房间信息
 	 */
-	public RoomInfoPO roomInfoPO;
+	public ArrayList<String> roomIDs;
 	
 	public OrderPO() {}
 	
 	public OrderPO(String orderID,CustomerInfoPO customerInfoPO, 
 			OrderState orderState,double price,String hotelID, boolean hasChild,
 			String latestExecutionTime, String checkInTime, String checkOutTime,
-			String cancelledTime,int roomNumber, int peopleNumber,RoomInfoPO roomInfoPO){
+			String cancelledTime,int roomNumber, int peopleNumber,ArrayList<String> roomIDs){
 		this.initiator = customerInfoPO;
 		this.orderState = orderState;
 		this.price = price;
 		this.orderID = orderID;
 		this.hotelID = hotelID;
 		this.hasChild = hasChild;
-		this.roomInfoPO = roomInfoPO;
+		this.roomIDs = roomIDs;
 		this.latestExecutionTime = latestExecutionTime;
 		this.checkInTime = checkInTime;
 		this.checkOutTime = checkOutTime;
@@ -122,12 +124,12 @@ public class OrderPO implements Serializable {
 		return hotelID;
 	}
 	
-	public RoomInfoPO getRoomInfoPO() {
-		return roomInfoPO;
+	public ArrayList<String> getRoomIDs() {
+		return roomIDs;
 	}
 	
-	public void setRoomInfoPO(RoomInfoPO roomInfoPO) {
-		this.roomInfoPO = roomInfoPO;
+	public void setRoomIDs(ArrayList<String> roomIDs) {
+		this.roomIDs = roomIDs;
 	}
 
 	public boolean getHasChild() {

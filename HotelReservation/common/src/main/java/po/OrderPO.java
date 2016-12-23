@@ -18,7 +18,7 @@ public class OrderPO implements Serializable {
 	/**
 	 * 
 	 */
-	private static final long serialVersionUID = -4372713957287414663L;
+	private static final long serialVersionUID = 1L;
 
 	/**
 	 * 订单发起人

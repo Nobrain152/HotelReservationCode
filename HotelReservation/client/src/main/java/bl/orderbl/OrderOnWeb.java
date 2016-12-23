@@ -110,12 +110,11 @@ public class OrderOnWeb {
 					webPO.setCancelledTime(today);
 					resultMsg = webDataService.update(webPO);
 					
-					CreditController controller = new CreditController();
-					controller.subCredit(orderVO.getInitiator(), (int)webPO.getPrice());
+					credit.addCredit(orderVO.getInitiator(), (int)webPO.getPrice());
 					ArrayList<CreditPO> creditPOs = credit.getListByUserID(webPO.getInitiator().getUserID());
 					CreditPO creditPO = creditPOs.get(creditPOs.size()-1);
-					creditPO.setCreditChange("-"+(int)orderVO.getPrice());
-					creditPO.setCreditResult(creditPO.getCreditResult()-(int)orderVO.getPrice()/2);
+					creditPO.setCreditChange("+"+(int)orderVO.getPrice());
+					creditPO.setCreditResult(creditPO.getCreditResult()+(int)orderVO.getPrice());
 					creditPO.setTime(new Today().getToday());
 					creditPO.setAction(Action.Cancelled);
 					resultMsg = credit.insert(creditPO);
@@ -128,11 +127,11 @@ public class OrderOnWeb {
 					resultMsg = webDataService.update(webPO);
 					
 					CreditController controller = new CreditController();
-					controller.subCredit(orderVO.getInitiator(), (int)webPO.getPrice()/2);
+					controller.addCredit(orderVO.getInitiator(), (int)webPO.getPrice()/2);
 					ArrayList<CreditPO> creditPOs = credit.getListByUserID(webPO.getInitiator().getUserID());
 					CreditPO creditPO = creditPOs.get(creditPOs.size()-1);
-					creditPO.setCreditChange("-"+(int)orderVO.getPrice()/2);
-					creditPO.setCreditResult(creditPO.getCreditResult()-(int)orderVO.getPrice()/2);
+					creditPO.setCreditChange("+"+(int)orderVO.getPrice()/2);
+					creditPO.setCreditResult(creditPO.getCreditResult()+(int)orderVO.getPrice()/2);
 					creditPO.setTime(new Today().getToday());
 					creditPO.setAction(Action.Cancelled);
 					resultMsg = credit.insert(creditPO);

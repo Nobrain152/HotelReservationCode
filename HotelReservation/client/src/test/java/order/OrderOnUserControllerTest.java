@@ -34,26 +34,32 @@ public class OrderOnUserControllerTest {
 	
 	@Before
 	public void setUp() throws RemoteException {
-		order1 = new OrderVO("20161002", new CustomerInfoVO("19954722", "ÌÆöÎ", "sdf",
+		ArrayList<String> arrayList1 = new ArrayList<>();
+		arrayList1.add("60161002");
+		ArrayList<String> arrayList2 = new ArrayList<>();
+		arrayList2.add("60161004");
+		ArrayList<String> arrayList3 = new ArrayList<>();
+		arrayList3.add("60161003");
+		order1 = new OrderVO("60161002", new CustomerInfoVO("19954722", "txin", "ve",
 				"18805156300", 300, true, VipType.COMMON_VIP), 
 				OrderState.UNEXECUTED, 99.9, "5000", false, 
-				"2016-12-20 15:00", "2016-12-20 12:00", "2016-12-21 12:00", null,
-				1, null,1,RoomType.ROOM_STANDARD);
-		order2 = new OrderVO("20161005", new CustomerInfoVO("19954722", "ÌÆöÎ", "sdf",
-				"18805156300", 300, true, VipType.COMMON_VIP), 
-				OrderState.UNEXECUTED, 99.9, "5000", false, 
-				"2016-12-16 24:00", "2016-12-16 12:00", "2016-12-17 12:00", null,
-				1, null,1,RoomType.ROOM_STANDARD);
-		order3 = new OrderVO("20161004", new CustomerInfoVO("19954722", "ÌÆöÎ", "sdf",
+				"2016-12-23 24:00", "2016-12-23 12:00", "2016-12-24 12:00", null,
+				1, arrayList1,1,RoomType.ROOM_STANDARD);
+//		order2 = new OrderVO("60161005", new CustomerInfoVO("19954722", "txin", "ve",
+//				"18805156300", 300, true, VipType.COMMON_VIP), 
+//				OrderState.UNEXECUTED, 99.9, "5000", false, 
+//				"2016-12-16 24:00", "2016-12-16 12:00", "2016-12-17 12:00", null,
+//				1, arrayList2,1,RoomType.ROOM_STANDARD);
+		order3 = new OrderVO("60161004", new CustomerInfoVO("19954722", "txin", "ve",
 				"18805156300", 300, true, VipType.COMMON_VIP), 
 				OrderState.ABNORMAL, 99.9, "014", false, 
 				"2016-10-04 24:00", "2016-10-03 12:00", "2016-10-04 12:00", null,
-				1, null,1,RoomType.ROOM_STANDARD);
-		order4 = new OrderVO("20161003", new CustomerInfoVO("19954722", "ÌÆöÎ", "sdf",
+				1, arrayList2,1,RoomType.ROOM_STANDARD);
+		order4 = new OrderVO("60161003", new CustomerInfoVO("19954722", "txin", "ve",
 				"18805156300", 300, true, VipType.COMMON_VIP), 
 				OrderState.EXECUTED, 99.9, "5000", false, 
 				"2016-10-03 24:00", "2016-10-03 12:00", "2016-10-04 12:00", null,
-				1, null,1,RoomType.ROOM_STANDARD);
+				1, arrayList3,1,RoomType.ROOM_STANDARD);
 	
 		onUserBLService = new OrderOnUserController();
 //		onUserBLService.createOrder(order1);
@@ -96,7 +102,7 @@ public class OrderOnUserControllerTest {
 	
 	@Test
 	public void testPersonalOrderDetail() throws RemoteException{
-		OrderVO msg1 = onUserBLService.personalOrderDetail("20161002");
+		OrderVO msg1 = onUserBLService.personalOrderDetail("60161002");
 		assertEquals(msg1.getCheckInTime(), order1.getCheckInTime());
 	}
 	

@@ -152,7 +152,9 @@ public class OrderOnUser {
 				Calendar lastCalendar = Calendar.getInstance();
 				Calendar todayCalendar = Calendar.getInstance();
 				lastCalendar.set(lastTimeYear, lastTimeMonth-1, lastTimeDay, lastTimeHour, lastTimeMin);
-				todayCalendar.set(todayYear, todayMonth, todayDay, todayHour, todayMin);
+				todayCalendar.set(todayYear, todayMonth-1, todayDay, todayHour, todayMin);
+				System.out.println(lastCalendar.getTimeInMillis());
+				System.out.println(todayCalendar.getTimeInMillis());
 				if(lastCalendar.getTimeInMillis()-todayCalendar.getTimeInMillis() <= 6*60*60*1000) {
 					CreditController controller = new CreditController();
 					controller.subCredit(orderVO.getInitiator(), (int)orderOnUserPO.getPrice()/2);

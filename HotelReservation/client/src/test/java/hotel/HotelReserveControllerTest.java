@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import org.junit.Before;
 import org.junit.Test;
 
-import bl.hotelbl.Date;
+
 import bl.hotelbl.HotelReserveController;
 import util.Adress;
 import util.Area;
@@ -56,8 +56,8 @@ public class HotelReserveControllerTest {
 				"2016-10-16 24:00", "2016-10-16 12:00", "2016-10-17 12:00", 
 				1, 1, RoomType.ROOM_STANDARD);*/
 		RoomInfoVO room=new RoomInfoVO(RoomState.UNUSABLE,RoomType.ROOM_STANDARD,"453",1435.0,"5000");
-		Date date=new Date("2016-09-02 24:00", "2016-09-02 24:00");
-		room.addOrderedTime(date);
+		
+		
 		ArrayList<String> ro=new ArrayList<String>();
 		ro.add("456");
 		orderMsg1=new OrderVO("60000004",new CustomerInfoVO("12345678","Jerry","13067893451","12345678",100,false,VipType.COMMON_VIP),OrderState.UNEXECUTED,99.9, "5000",false,"2016-10-02 24:00","2016-10-03 12:00","2016-10-02 12:00",null,1,ro,1,RoomType.ROOM_STANDARD);

@@ -7,6 +7,7 @@ import bl.BusinessLogicDataFactory;
 import blservice.hotelblservice.RoomAddBLService;
 import dataservice.hoteldataservice.HotelInfoDataService;
 import util.ResultMsg;
+import util.RoomState;
 import vo.OrderVO;
 import vo.RoomInfoVO;
 
@@ -41,14 +42,13 @@ public class HotelReserve {
 		}
 		String hotelid=vo.getHotelID();
 		int number=vo.getRoomNumber();
-		Date date=new Date(vo.getCheckInTime(),vo.getCheckOutTime() );
 		ArrayList<RoomInfoVO> room=roomcon.HotelRoomSearch(hotelid);
 		//System.out.println(room.size());
 		for(RoomInfoVO v:room ){
 			
 			if(v.getType()==vo.getRoomType()){
 				//System.out.println("here");
-				if(v.addOrderedTime(date)){
+				if(v.getState()==RoomState.UNUSABLE){
 					room.set(room.indexOf(v),v);
 					number--;
 					if(number==0){

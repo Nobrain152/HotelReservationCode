@@ -8,6 +8,7 @@ import bl.VOPOchange;
 import dataservice.hoteldataservice.RoomInfoDataService;
 import po.RoomInfoPO;
 import util.ResultMsg;
+import util.RoomState;
 import vo.RoomInfoVO;
 
 /**
@@ -31,9 +32,6 @@ public class RoomAdd {
 	 * @throws RemoteException
 	 */
 	public ResultMsg addRoom(RoomInfoVO roomInfoVO) throws RemoteException{
-		if(roomInfoVO.getOrderedTime().size()==0){
-			roomInfoVO.addOrderedTime(new Date("2100-11-18","2100-11-22"));
-		}
 		RoomInfoPO roomInfoPO = (RoomInfoPO)VOPOchange.VOtoPO(roomInfoVO);
 		result = roomData.insert(roomInfoPO);
 		return result;
@@ -46,9 +44,6 @@ public class RoomAdd {
 	 * @throws RemoteException
 	 */
     public ResultMsg updateRoom(RoomInfoVO roomInfoVO) throws RemoteException{
-    	if(roomInfoVO.getOrderedTime().size()==0){
-			roomInfoVO.addOrderedTime(new Date("2100-11-18","2100-11-22"));
-		}
     	RoomInfoPO roomInfoPO = (RoomInfoPO)VOPOchange.VOtoPO(roomInfoVO);
     	return roomData.update(roomInfoPO);
     }
@@ -76,9 +71,6 @@ public class RoomAdd {
 	 */
 	public ResultMsg HotelRoomMod(String hotelid,ArrayList<RoomInfoVO> vo)throws RemoteException{
 		for(RoomInfoVO v:vo){
-			if((v.getOrderedTime().size()==0)||(v.getOrderedTime()==null)){
-				v.addOrderedTime(new Date("2020-11-18","2020-11-22"));
-			}
 			ResultMsg resultMsg1=roomData.delete(v.getHotelid(),v.getRoomID());
 			resultMsg1=roomData.insert((RoomInfoPO)VOPOchange.VOtoPO(v));
 			if(resultMsg1!=ResultMsg.SUCCESS){
@@ -100,21 +92,10 @@ public class RoomAdd {
 	public ArrayList<RoomInfoVO> getEmptyRoom(String hotelid,String intime,String outtime) throws RemoteException{
 		ArrayList<RoomInfoVO> empty=new ArrayList<RoomInfoVO>();
 		ArrayList<RoomInfoVO> all=HotelRoomSearch(hotelid);
-		Date date=new Date(intime, outtime);
 		for(RoomInfoVO vo:all){
-			ArrayList<Date> d=vo.getOrderedTime();
-			boolean goon=false;
-			for(Date d1:d){
-				if(d1.isConflict(date)){
-					goon=true;
-					break;
-				}
+			if(vo.getState()==RoomState.UNUSABLE){
+				empty.add(vo);
 			}
-			if(goon){
-				goon=false;
-				continue;
-			}
-			empty.add(vo);
 		}
 		return empty;
 		

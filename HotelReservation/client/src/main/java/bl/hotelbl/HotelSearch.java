@@ -54,7 +54,7 @@ public class HotelSearch {
 			}
 			double up=hotelInfoVO.getUp();
 			double down=hotelInfoVO.getDown();
-			if((up!=0.0)||(down!=0.0)){
+			if((Math.abs(up-0.0)<0.1)||(Math.abs(down-0.0)<0.1)){
 				for(int i=0;i<pos.size();i++){
 					HotelInfoPO po=pos.get(i);
 					if((po.getScore()<down)||(po.getScore()>up)){

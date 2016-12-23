@@ -103,6 +103,17 @@ public class HotelInfoVO {
 	public HotelInfoVO(Adress address, Area area){
 		this.address=address;
 		this.area=area;
+		this.name =null;
+		this.level= 0;
+		this.introduction=null;
+		this.facility=null;
+		this.reserve=false;
+		this.hotelID = null;
+		this.order=new ArrayList<>();
+		this.score=0;
+		this.up = 0;
+		this.down = 0;
+		SP=0;
 	}
 	
 	public String getName() {

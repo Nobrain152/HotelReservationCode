@@ -5,7 +5,9 @@ import java.util.ArrayList;
 
 import blservice.userblservice.CustomerIndividualInformationManagementBLService;
 import dataservice.userdataservice.CustomerManagementDataService;
+import dataservice.userdataservice.UserManagementDataService;
 import net.RMIManage;
+import po.CustomerInfoPO;
 import util.DataServiceType;
 import util.OrderState;
 import util.ResultMsg;
@@ -25,6 +27,7 @@ public class CustomerInfoManagementController
 	
 	private Customer customer;
 	private CustomerManagementDataService customerManagementDataService;
+	private UserManagementDataService userManagementDataService;
 	
 	/**
 	 * 构造方法
@@ -33,6 +36,8 @@ public class CustomerInfoManagementController
 	public CustomerInfoManagementController(){
 		customerManagementDataService = (CustomerManagementDataService)RMIManage.
 				getDataService(DataServiceType.CustomerManagementDataService);
+		userManagementDataService = (UserManagementDataService)RMIManage.
+				getDataService(DataServiceType.UserManagementDataService);
 		customer=new Customer(customerManagementDataService);
 	}
 	
@@ -237,6 +242,29 @@ public class CustomerInfoManagementController
 			return customer.personalOrderCancel(orderVO);
 		} catch (RemoteException e) {
 			return ResultMsg.FAIL;
+		}
+	}
+
+
+	@Override
+	public CustomerInfoPO getCustomerInfo(String userID) {
+		try {
+			return userManagementDataService.GetCustomerInfo(userID);
+		} catch (RemoteException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return null;
+	}
+
+
+	@Override
+	public void setCustomerInfo(String userID, CustomerInfoPO customerInfoPO) {
+		try {
+			userManagementDataService.SetCustomerInfo(userID, customerInfoPO);
+		} catch (RemoteException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
 	}
 

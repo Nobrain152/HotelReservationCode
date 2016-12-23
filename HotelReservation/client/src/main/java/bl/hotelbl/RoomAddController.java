@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import blservice.hotelblservice.RoomAddBLService;
 import dataservice.hoteldataservice.RoomInfoDataService;
 import net.RMIManage;
+import po.RoomInfoPO;
 import util.DataServiceType;
 import util.ResultMsg;
 import util.RoomType;
@@ -122,5 +123,25 @@ public class RoomAddController implements RoomAddBLService{
 		}
 	}
 
+	@Override
+	public RoomInfoPO findByRoomID(String string) {
+		try {
+			return roomInfoData.findByRoomID(string);
+		} catch (RemoteException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return null;
+	}
+
+	@Override
+	public void update(RoomInfoPO roomInfoPO) {
+		try {
+			roomInfoData.update(roomInfoPO);
+		} catch (RemoteException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
 	
 }

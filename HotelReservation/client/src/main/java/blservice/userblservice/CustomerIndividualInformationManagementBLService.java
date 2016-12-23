@@ -2,7 +2,7 @@ package blservice.userblservice;
 
 import java.util.ArrayList;
 
-
+import po.CustomerInfoPO;
 import util.ResultMsg;
 import vo.CreditVO;
 import vo.CustomerInfoVO;
@@ -127,6 +127,10 @@ public interface CustomerIndividualInformationManagementBLService{
 	 * @return
 	 */
 	public ResultMsg personalOrderCancel(OrderVO orderVO);
+
+	CustomerInfoPO getCustomerInfo(String userID);
+
+	void setCustomerInfo(String userID, CustomerInfoPO customerInfoPO);
 
 	
 			

@@ -62,11 +62,9 @@ public class PromotionValue {
 				
 				if(user.getIsMember()){
 					for(PromotionHotelPO hotelPO : po) {
-						if(hotelPO.getNumber() < order.getRoomNumber()) {
-							continue;
-						}else{
+						if(hotelPO.getNumber() <= order.getRoomNumber()) {
 							ratio = hotelPO.getRatio();
-							break;
+							continue;
 						}
 					}
 					order.setPrice(order.getPrice()*ratio);
@@ -88,7 +86,6 @@ public class PromotionValue {
 				break;
 				
 			case JOIN_PROMOTION:
-				
 				if(user.getIsMember()) {
 					String businessName = user.getUsername();
 					for(PromotionHotelPO hotelPO : po) {
@@ -97,7 +94,6 @@ public class PromotionValue {
 							break;
 						}
 					}
-					System.out.println(ratio);
 					order.setPrice(order.getPrice()*ratio);
 				}
 				break;

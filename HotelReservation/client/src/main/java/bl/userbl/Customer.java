@@ -111,6 +111,17 @@ public class Customer extends User {
 			return null;
 		}
 		HotelInfoVO vo=hotelinfo.checkHotelInfo(hotelid);
+		return vo;
+	}
+	
+	/**
+	 * 根据酒店ID和用户ID返回订单列表
+	 * @param hotelid
+	 * @param userid
+	 * @return
+	 * @throws RemoteException
+	 */
+	public ArrayList<OrderVO> getHotelOrder(String hotelid,String userid)throws RemoteException{
 		ArrayList<OrderVO> ord=IndividualOrderInquiry(userid);
 		ArrayList<OrderVO> n=new ArrayList<OrderVO>();
 		for(OrderVO v:ord){
@@ -118,8 +129,7 @@ public class Customer extends User {
 				n.add(v);
 			}
 		}
-		vo.setOrder(n);
-		return vo;
+		return n;
 	}
 	/**
 	 * 根据排序种类返回排好序的酒店列表

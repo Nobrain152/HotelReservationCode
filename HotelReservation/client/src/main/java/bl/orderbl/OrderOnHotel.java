@@ -3,10 +3,11 @@ package bl.orderbl;
 import java.rmi.RemoteException;
 import java.util.ArrayList;
 
+import bl.BusinessLogicDataFactory;
 import bl.VOPOchange;
 import bl.creditbl.CreditController;
-import dataservice.creditdataservice.CreditDataService;
-import dataservice.hoteldataservice.RoomInfoDataService;
+import blservice.creditblservice.CreditBLService;
+import blservice.hotelblservice.RoomAddBLService;
 import dataservice.orderdataservice.OrderDataService;
 import po.CreditPO;
 import po.CustomerInfoPO;
@@ -23,13 +24,11 @@ import vo.OrderVO;
 public class OrderOnHotel {
 	
 	private OrderDataService hotelDataService;
-	private RoomInfoDataService roomInfoDataService;
-	private CreditDataService creditDataService;
+	private RoomAddBLService room = BusinessLogicDataFactory.getFactory().getRoomAddBLService();
+	private CreditBLService credit = BusinessLogicDataFactory.getFactory().getCreditBLService();
 	
-	public OrderOnHotel(OrderDataService hotelDataService,RoomInfoDataService roomInfoDataService,CreditDataService creditDataService) {
+	public OrderOnHotel(OrderDataService hotelDataService) {
 		this.hotelDataService = hotelDataService;
-		this.roomInfoDataService = roomInfoDataService;
-		this.creditDataService = creditDataService;
 	}
 	
 	/**
@@ -78,13 +77,13 @@ public class OrderOnHotel {
 	 */
 	public ResultMsg hotelOrderModify(OrderVO orderVO) throws RemoteException {
 		ResultMsg resultMsg = ResultMsg.FAIL;
-		ArrayList<CreditPO> creditPOs = creditDataService.getListByUserID(orderVO.getInitiator().getUserID());
+		ArrayList<CreditPO> creditPOs = credit.getListByUserID(orderVO.getInitiator().getUserID());
 		CreditPO creditPO = creditPOs.get(creditPOs.size()-1);
 		OrderPO orderPO = hotelDataService.findByOrderID(orderVO.getOrderID());
 		ArrayList<String> roomIDs = orderVO.getRoomIDs();
 
 		for(int i = 0; i < roomIDs.size(); i++){
-			RoomInfoPO roomInfoPO = roomInfoDataService.findByRoomID(roomIDs.get(0));
+			RoomInfoPO roomInfoPO = room.findByRoomID(roomIDs.get(0));
 			if(orderPO.getOrderState() == OrderState.UNEXECUTED
 					&& roomInfoPO.getState() == RoomState.USABLE) {
 				CustomerInfoPO customerInfoPO = orderPO.getInitiator();
@@ -95,21 +94,22 @@ public class OrderOnHotel {
 				
 				roomInfoPO.setRoomState(RoomState.UNUSABLE);
 				orderPO.setOrderState(OrderState.EXECUTED);
-				roomInfoDataService.update(roomInfoPO);
+				room.update(roomInfoPO);
 				hotelDataService.update(orderPO);
 				
 				creditPO.setAction(Action.Executed);
 				creditPO.setCreditResult(creditPO.getCreditResult() + (int)orderVO.getPrice());
 				creditPO.setCreditChange("+" + (int)orderVO.getPrice());
 				creditPO.setTime(new Today().getToday());
-				creditDataService.insert(creditPO);
+				credit.insert(creditPO);
 				System.out.println(resultMsg);
 				resultMsg = ResultMsg.SUCCESS;
 			} else if(orderPO.getOrderState() == OrderState.EXECUTED
 					&& roomInfoPO.getState() == RoomState.UNUSABLE) {
 				
 				roomInfoPO.setRoomState(RoomState.USABLE);
-				resultMsg = roomInfoDataService.update(roomInfoPO);
+				room.update(roomInfoPO);
+				resultMsg = ResultMsg.SUCCESS;
 				
 			} else if(orderPO.getOrderState() == OrderState.ABNORMAL) {
 				
@@ -121,14 +121,14 @@ public class OrderOnHotel {
 				
 				roomInfoPO.setRoomState(RoomState.UNUSABLE);
 				orderPO.setOrderState(OrderState.EXECUTED);
-				roomInfoDataService.update(roomInfoPO);
+				room.update(roomInfoPO);
 				hotelDataService.update(orderPO);
 				
 				creditPO.setAction(Action.Executed);
 				creditPO.setCreditResult(creditPO.getCreditResult() + (int)orderVO.getPrice());
 				creditPO.setCreditChange("+" + (int)orderVO.getPrice());
 				creditPO.setTime(new Today().getToday());
-				creditDataService.insert(creditPO);
+				credit.insert(creditPO);
 				
 				resultMsg = ResultMsg.SUCCESS;
 			}

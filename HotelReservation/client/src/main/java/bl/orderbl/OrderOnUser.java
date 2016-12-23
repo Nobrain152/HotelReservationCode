@@ -5,10 +5,11 @@ import java.rmi.RemoteException;
 import java.util.ArrayList;
 import java.util.Calendar;
 
+import bl.BusinessLogicDataFactory;
 import bl.VOPOchange;
 import bl.creditbl.CreditController;
 import bl.promotionbl.PromotionValueController;
-import dataservice.creditdataservice.CreditDataService;
+import blservice.creditblservice.CreditBLService;
 import dataservice.orderdataservice.OrderDataService;
 import po.CreditPO;
 import po.CustomerInfoPO;
@@ -26,11 +27,10 @@ import vo.OrderVO;
 public class OrderOnUser {
 	
 	private OrderDataService userDataService;
-	private CreditDataService creditDataService;
+	private CreditBLService credit = BusinessLogicDataFactory.getFactory().getCreditBLService();
 	
-	public OrderOnUser(OrderDataService userDataService,CreditDataService creditDataService) {
+	public OrderOnUser(OrderDataService userDataService) {
 		this.userDataService = userDataService;
-		this.creditDataService = creditDataService;
 	}
 	
 	/**
@@ -158,13 +158,13 @@ public class OrderOnUser {
 				if(lastCalendar.getTimeInMillis()-todayCalendar.getTimeInMillis() <= 6*60*60*1000) {
 					CreditController controller = new CreditController();
 					controller.subCredit(orderVO.getInitiator(), (int)orderOnUserPO.getPrice()/2);
-					ArrayList<CreditPO> creditPOs = creditDataService.getListByUserID(orderOnUserPO.getInitiator().getUserID());
+					ArrayList<CreditPO> creditPOs = credit.getListByUserID(orderOnUserPO.getInitiator().getUserID());
 					CreditPO creditPO = creditPOs.get(creditPOs.size()-1);
 					creditPO.setCreditChange("-"+(int)orderVO.getPrice()/2);
 					creditPO.setCreditResult(creditPO.getCreditResult()-(int)orderVO.getPrice()/2);
 					creditPO.setTime(new Today().getToday());
 					creditPO.setAction(Action.Cancelled);
-					resultMsg = creditDataService.insert(creditPO);
+					resultMsg = credit.insert(creditPO);
 				}
 			}else{
 				

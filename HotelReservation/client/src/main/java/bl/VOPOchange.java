@@ -5,7 +5,6 @@ import java.lang.reflect.Field;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
 
-import bl.hotelbl.Date;
 import po.CommonVipPO;
 import po.ContactPO;
 import po.CustomerInfoPO;
@@ -373,10 +372,7 @@ public class VOPOchange {
 //		HotelInfoPO hotelInfoPO1 = (HotelInfoPO)VOPOchange.VOtoPO(hotelInfoVO1);
 //		System.out.println(hotelInfoPO1.getName());
 		
-		RoomInfoVO roomInfoVO = new RoomInfoVO(RoomState.USABLE, RoomType.ROOM_BIGBED, "513", 99.9, "5000");
-		roomInfoVO.addOrderedTime(new Date("", ""));
-		RoomInfoPO roomInfoPO = (RoomInfoPO)VOPOchange.VOtoPO(roomInfoVO);
-		System.out.println(roomInfoPO.getHotelid());
+		
 		
 		//OK
 //		OrderVO vo = new OrderVO(new CustomerInfoVO("19954722", "ÌÆöÎ", 

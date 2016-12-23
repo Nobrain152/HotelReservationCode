@@ -6,7 +6,6 @@ import blservice.vipblservice.VipLevelBLService;
 import net.RMIManage;
 import po.BusinessVipPO;
 import po.CommonVipPO;
-import dataservice.userdataservice.UserManagementDataService;
 import dataservice.vipdataservice.VipDataService;
 import util.DataServiceType;
 import util.ResultMsg;
@@ -18,14 +17,11 @@ public class VipController implements VipLevelBLService{
 	
 	private Vip vip;
 	private VipDataService vipDataService;
-	private UserManagementDataService dataService;
 	
 	public VipController() {
 		vipDataService = (VipDataService)RMIManage.
 				getDataService(DataServiceType.VipDataService);
-		dataService = (UserManagementDataService)RMIManage.
-				getDataService(DataServiceType.CustomerManagementDataService);
-		vip = new Vip(vipDataService,dataService);
+		vip = new Vip(vipDataService);
 	}
 
 	@Override

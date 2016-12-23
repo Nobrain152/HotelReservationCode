@@ -7,9 +7,12 @@ import bl.userbl.LoginInputController;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.scene.image.ImageView;
 import ui.UILaunch;
 import ui.UIhelper;
 import util.UserType;
@@ -34,7 +37,7 @@ public class loginViewController implements Initializable{
 	@FXML
 	private Button btn_register;
 	
-	
+
 	
 	
 	
@@ -66,6 +69,11 @@ public class loginViewController implements Initializable{
 	
 	@FXML
 	public void btn_registerAction(ActionEvent event){
+		Alert alert=new Alert(AlertType.INFORMATION);
+		alert.setTitle("!!!!!!");
+		alert.setHeaderText(null);
+		alert.setContentText("????????");
+		alert.showAndWait();
 		application.gotoregister();
 	}
 
@@ -74,7 +82,7 @@ public class loginViewController implements Initializable{
 		// TODO Auto-generated method stub
 		helper=UIhelper.getInstance();		
 		login=new LoginInputController();
-		
+	
 
 	}
 

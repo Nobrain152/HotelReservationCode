@@ -114,10 +114,11 @@ public class promotionWebViewController implements Initializable {
 	public void btn_vip_addAction(ActionEvent ev) {
 		PromotionWebVO newPromotion=new PromotionWebVO(null,PromotionWebType.VIP_LEVEL_PROMOTION,
 				Integer.parseInt(tf_vip_level.getText()),Double.parseDouble(tf_vip_discount.getText()));
-		promotionManage.WebsiteStrategeCreate(newPromotion);
+		boolean result=promotionManage.WebsiteStrategeCreate(newPromotion);
 		
-		boolean result=data_vip.add(new PromotionVIP(Integer.parseInt(tf_vip_level.getText()),Double.parseDouble(tf_vip_discount.getText())));
+		
 		if(result){
+			data_vip.add(new PromotionVIP(Integer.parseInt(tf_vip_level.getText()),Double.parseDouble(tf_vip_discount.getText())));
 			tf_vip_level.clear();
 			tf_vip_discount.clear();
 		}

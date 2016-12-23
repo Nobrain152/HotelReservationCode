@@ -8,6 +8,7 @@ import dataservice.hoteldataservice.RoomInfoDataService;
 import net.RMIManage;
 import util.DataServiceType;
 import util.ResultMsg;
+import util.RoomType;
 import vo.RoomInfoVO;
 
 /**
@@ -94,11 +95,32 @@ public class RoomAddController implements RoomAddBLService{
 	 * @return
 	 * @throws RemoteException
 	 */
-	public ArrayList<RoomInfoVO> getEmptyRoom(String hotelid,String intime,String outtime){
+	public ArrayList<RoomInfoVO> getEmptyRoom(String hotelid){
 		try {
-			return roomAdd.getEmptyRoom(hotelid, intime, outtime);
+			return roomAdd.getEmptyRoom(hotelid);
 		} catch (RemoteException e) {
 			return null;
 		}
 	}
+	
+	/**
+	 * 返回特定房间类型的空房间列表
+	 * @param hotelid
+	 * @param intime
+	 * @param outtime
+	 * @param type
+	 * @return
+	 * @throws RemoteException
+	 */
+	public ArrayList<RoomInfoVO> getTypeRoom(String hotelid,RoomType type){
+		try {
+			return roomAdd.getTypeRoom(hotelid, type);
+		} catch (RemoteException e) {
+			
+			e.printStackTrace();
+			return null;
+		}
+	}
+
+	
 }

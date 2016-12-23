@@ -38,12 +38,13 @@ public class HotelReserve {
 	public ResultMsg reserveHotel(OrderVO vo) throws RemoteException{
 		int cre=vo.getInitiator().getCredit();
 		if(cre<0){
+			//System.out.println("here");
 			return ResultMsg.FAIL;
 		}
 		String hotelid=vo.getHotelID();
 		int number=vo.getRoomNumber();
 		ArrayList<RoomInfoVO> room=roomcon.HotelRoomSearch(hotelid);
-		//System.out.println(room.size());
+		System.out.println(room.size());
 		for(RoomInfoVO v:room ){
 			
 			if(v.getType()==vo.getRoomType()){

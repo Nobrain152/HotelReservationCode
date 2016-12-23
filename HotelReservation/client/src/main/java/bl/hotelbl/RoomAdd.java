@@ -9,6 +9,7 @@ import dataservice.hoteldataservice.RoomInfoDataService;
 import po.RoomInfoPO;
 import util.ResultMsg;
 import util.RoomState;
+import util.RoomType;
 import vo.RoomInfoVO;
 
 /**
@@ -89,7 +90,7 @@ public class RoomAdd {
 	 * @return
 	 * @throws RemoteException
 	 */
-	public ArrayList<RoomInfoVO> getEmptyRoom(String hotelid,String intime,String outtime) throws RemoteException{
+	public ArrayList<RoomInfoVO> getEmptyRoom(String hotelid) throws RemoteException{
 		ArrayList<RoomInfoVO> empty=new ArrayList<RoomInfoVO>();
 		ArrayList<RoomInfoVO> all=HotelRoomSearch(hotelid);
 		for(RoomInfoVO vo:all){
@@ -101,6 +102,27 @@ public class RoomAdd {
 		
 	}
 	
-	
+	/**
+	 * 返回特定房间类型的空房间列表
+	 * @param hotelid
+	 * @param intime
+	 * @param outtime
+	 * @param type
+	 * @return
+	 * @throws RemoteException
+	 */
+	public ArrayList<RoomInfoVO> getTypeRoom(String hotelid,RoomType type) throws RemoteException{
+		ArrayList<RoomInfoVO> empty=new ArrayList<RoomInfoVO>();
+		ArrayList<RoomInfoVO> all=HotelRoomSearch(hotelid);
+		for(RoomInfoVO vo:all){
+			if(vo.getState()==RoomState.UNUSABLE){
+				if(vo.getType()==type){
+					empty.add(vo);
+				}
+			}
+		}
+		return empty;
+		
+	}
 
 }

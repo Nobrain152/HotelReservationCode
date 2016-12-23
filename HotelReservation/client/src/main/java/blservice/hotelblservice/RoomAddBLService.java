@@ -4,6 +4,7 @@ import java.rmi.RemoteException;
 import java.util.ArrayList;
 
 import util.ResultMsg;
+import util.RoomType;
 import vo.RoomInfoVO;
 
 /**
@@ -51,5 +52,16 @@ public interface RoomAddBLService {
 	 * @return
 	 * @throws RemoteException
 	 */
-	public ArrayList<RoomInfoVO> getEmptyRoom(String hotelid,String intime,String outtime);
+	public ArrayList<RoomInfoVO> getEmptyRoom(String hotelid);
+	
+	/**
+	 * 返回特定房间类型的空房间列表
+	 * @param hotelid
+	 * @param intime
+	 * @param outtime
+	 * @param type
+	 * @return
+	 * @throws RemoteException
+	 */
+	public ArrayList<RoomInfoVO> getTypeRoom(String hotelid,RoomType type);
 }

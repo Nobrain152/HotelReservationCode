@@ -5,17 +5,13 @@ import java.rmi.RemoteException;
 import java.util.ArrayList;
 
 import bl.VOPOchange;
-import dataservice.creditdataservice.CreditDataService;
 import dataservice.userdataservice.UserManagementDataService;
 import dataservice.vipdataservice.VipDataService;
 import po.BusinessVipPO;
 import po.CommonVipPO;
-import po.CreditPO;
 import po.CustomerInfoPO;
 import po.LevelSystemPO;
-import util.Action;
 import util.ResultMsg;
-import util.Today;
 import util.VipType;
 import vo.BusinessVipVO;
 import vo.CommonVipVO;
@@ -26,13 +22,10 @@ public class Vip {
 	
 	private VipDataService vipDataService;
 	private UserManagementDataService dataService;
-	private CreditDataService creditDataService;
 	
-	public Vip(VipDataService vipDataService, UserManagementDataService dataService
-			,CreditDataService creditDataService) {
+	public Vip(VipDataService vipDataService, UserManagementDataService dataService) {
 		this.vipDataService = vipDataService;
 		this.dataService = dataService;
-		this.creditDataService = creditDataService;
 	}
 
 	/**
@@ -89,9 +82,6 @@ public class Vip {
 			BusinessVipPO businessVipPO = (BusinessVipPO)VOPOchange.VOtoPO(businessVipVO);
 			if(vipDataService.findByUserIDB(userID) == null)
 				resultMsg = vipDataService.insertB(businessVipPO);
-		}
-		if(resultMsg != ResultMsg.FAIL) {
-			resultMsg = creditDataService.insert(new CreditPO(customerInfoVO.getUserID(), null, new Today().getToday(), Action.Initial, "t300", 300));
 		}
 		return resultMsg;
 	}

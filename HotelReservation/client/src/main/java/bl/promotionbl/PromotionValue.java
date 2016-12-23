@@ -6,7 +6,6 @@ import java.util.ArrayList;
 
 import bl.VOPOchange;
 import bl.vipbl.Vip;
-import dataservice.creditdataservice.CreditDataService;
 import dataservice.hoteldataservice.HotelInfoDataService;
 import dataservice.orderdataservice.OrderDataService;
 import dataservice.promotiondataservice.PromotionHotelDataService;
@@ -29,7 +28,6 @@ public class PromotionValue {
 	private VipDataService vipDataService;
 	private OrderDataService orderDataService;
 	private CustomerManagementDataService customerManagementDataService;
-	private CreditDataService creditDataService;
 	
 	public PromotionValue(PromotionHotelDataService promotionHotelDataService,
 			VipDataService vipDataService,OrderDataService orderDataService) {
@@ -41,7 +39,7 @@ public class PromotionValue {
 	public OrderVO getValue(CustomerInfoVO user, OrderVO order, PromotionHotelType hotelType) throws RemoteException {
 		ArrayList<PromotionHotelPO> po = promotionHotelDataService.
 				findByType(hotelType, order.getHotelID());;
-		Vip vip = new Vip(vipDataService,customerManagementDataService,creditDataService);
+		Vip vip = new Vip(vipDataService,customerManagementDataService);
 		double ratio = 1;
 		
 		switch(hotelType) {
@@ -64,7 +62,7 @@ public class PromotionValue {
 				
 				if(user.getIsMember()){
 					for(PromotionHotelPO hotelPO : po) {
-						if(hotelPO.getNumber() < order.getPeopleNumber()) {
+						if(hotelPO.getNumber() < order.getRoomNumber()) {
 							continue;
 						}else{
 							ratio = hotelPO.getRatio();
@@ -99,6 +97,7 @@ public class PromotionValue {
 							break;
 						}
 					}
+					System.out.println(ratio);
 					order.setPrice(order.getPrice()*ratio);
 				}
 				break;
@@ -106,7 +105,6 @@ public class PromotionValue {
 			default:
 				break;
 		}
-		
 		// TODO 
 		OrderPO poTmp = (OrderPO)VOPOchange.VOtoPO(order);
 		orderDataService.update(poTmp);
@@ -128,7 +126,7 @@ public class PromotionValue {
 	public OrderVO getValue(CustomerInfoVO user, OrderVO order, PromotionWebType webType) throws RemoteException {
 		ArrayList<PromotionWebPO> po = promotionWebDataService.
 				findByType(webType);;
-		Vip vip = new Vip(vipDataService,customerManagementDataService,creditDataService);
+		Vip vip = new Vip(vipDataService,customerManagementDataService);
 		double ratio = 1;
 		
 		switch(webType) {

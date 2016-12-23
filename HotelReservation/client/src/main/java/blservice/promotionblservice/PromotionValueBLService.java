@@ -15,7 +15,7 @@ import vo.OrderVO;
 
 public interface PromotionValueBLService {
 	
-	public OrderVO getValue(CustomerInfoVO user,OrderVO order,PromotionHotelType hotelType);
+	public double getValue(CustomerInfoVO user,OrderVO order,PromotionHotelType hotelType);
 	
-	public OrderVO getValue(CustomerInfoVO user,OrderVO order,PromotionWebType webType);
+	public double getValue(CustomerInfoVO user,OrderVO order,PromotionWebType webType);
 }

@@ -5,13 +5,10 @@ import java.rmi.RemoteException;
 import java.util.ArrayList;
 
 import bl.BusinessLogicDataFactory;
-import bl.VOPOchange;
 import bl.hotelbl.HotelInfoMaintainController;
-import bl.orderbl.OrderOnHotelController;
 import bl.vipbl.VipController;
 import dataservice.promotiondataservice.PromotionHotelDataService;
 import dataservice.promotiondataservice.PromotionWebDataService;
-import po.OrderPO;
 import po.PromotionHotelPO;
 import po.PromotionWebPO;
 import util.Area;
@@ -26,13 +23,12 @@ public class PromotionValue {
 	private PromotionHotelDataService promotionHotelDataService;
 	private VipController vip;
 	private HotelInfoMaintainController hotelInfo;
-	private OrderOnHotelController orderBL;
 	
 	public PromotionValue(PromotionHotelDataService promotionHotelDataService) {
 		this.promotionHotelDataService = promotionHotelDataService;
 	}
 	
-	public OrderVO getValue(CustomerInfoVO user, OrderVO order, PromotionHotelType hotelType) throws RemoteException {
+	public double getValue(CustomerInfoVO user, OrderVO order, PromotionHotelType hotelType) throws RemoteException {
 		ArrayList<PromotionHotelPO> po = promotionHotelDataService.
 				findByType(hotelType, order.getHotelID());;
 		double ratio = 1;
@@ -51,7 +47,7 @@ public class PromotionValue {
 							break;
 						}
 					}
-					order.setPrice(order.getPrice()*ratio);
+					return order.getPrice()*ratio;
 				}
 				break;
 				
@@ -64,7 +60,7 @@ public class PromotionValue {
 							continue;
 						}
 					}
-					order.setPrice(order.getPrice()*ratio);
+					return order.getPrice()*ratio;
 				}
 				break;
 				
@@ -78,7 +74,7 @@ public class PromotionValue {
 							break;
 						}
 					}
-					order.setPrice(order.getPrice()*ratio);
+					return order.getPrice()*ratio;
 				}
 				break;
 				
@@ -91,7 +87,7 @@ public class PromotionValue {
 							break;
 						}
 					}
-					order.setPrice(order.getPrice()*ratio);
+					return order.getPrice()*ratio;
 				}
 				break;
 				
@@ -99,12 +95,7 @@ public class PromotionValue {
 				break;
 		}
 
-		OrderPO poTmp = (OrderPO)VOPOchange.VOtoPO(order);
-		orderBL = (OrderOnHotelController)BusinessLogicDataFactory.getFactory().getOrderOnHotelBLService();
-		System.out.println(orderBL);
-		orderBL.update(poTmp);
-		
-		return order;
+		return order.getPrice()*ratio;
 	}
 
 	private PromotionWebDataService promotionWebDataService;
@@ -113,7 +104,7 @@ public class PromotionValue {
 		this.promotionWebDataService = promotionWebDataService;
 	}
 	
-	public OrderVO getValue(CustomerInfoVO user, OrderVO order, PromotionWebType webType) throws RemoteException {
+	public double getValue(CustomerInfoVO user, OrderVO order, PromotionWebType webType) throws RemoteException {
 		ArrayList<PromotionWebPO> po = promotionWebDataService.
 				findByType(webType);;
 		double ratio = 1;
@@ -132,7 +123,7 @@ public class PromotionValue {
 							break;
 						}
 					}
-					order.setPrice(order.getPrice()*ratio);
+					return order.getPrice()*ratio;
 				}
 				break;
 				
@@ -147,7 +138,7 @@ public class PromotionValue {
 							break;
 						}
 					}
-					order.setPrice(order.getPrice()*ratio);
+					return order.getPrice()*ratio;
 				}
 				break;
 				
@@ -161,7 +152,7 @@ public class PromotionValue {
 							break;
 						}
 					}
-					order.setPrice(order.getPrice()*ratio);
+					return order.getPrice()*ratio;
 				}
 				break;
 				
@@ -169,12 +160,7 @@ public class PromotionValue {
 				break;
 		}
 		
-		OrderPO poTmp = (OrderPO)VOPOchange.VOtoPO(order);
-		orderBL = (OrderOnHotelController)BusinessLogicDataFactory.
-				getFactory().getOrderOnHotelBLService();
-		orderBL.update(poTmp);
-		
-		return order;
+		return order.getPrice()*ratio;
 	}
 
 }

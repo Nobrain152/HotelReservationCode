@@ -2,6 +2,7 @@
 package bl.orderbl;
 
 import java.rmi.RemoteException;
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 
@@ -57,20 +58,21 @@ public class OrderOnUser {
 	
 	/**
 	 * 客户创建订单
-	 * 
-	 * 
 	 *
 	 * @param 个人订单
-	 * @return void
+	 * @return 订单ID;促销类型
 	 * @throws RemoteException 
 	 */
 	public String createOrder(OrderVO orderVO) throws RemoteException {
 		
 		CustomerInfoPO customerInfoPO = (CustomerInfoPO)VOPOchange.VOtoPO(orderVO.getInitiator());
 		
-		if(customerInfoPO.getCredit() > 0){	//信用值过低拒绝生成订单
-			
+		if(customerInfoPO.getCredit() >= 0){	//信用值过低拒绝生成订单
 			CustomerInfoVO customerInfoVO = orderVO.getInitiator();
+			double min = Integer.MAX_VALUE;
+			PromotionWebType promotionWebType = null;
+			PromotionHotelType promotionHotelType = null;
+			
 			if(customerInfoVO.getIsMember()) {
 				
 				VipType vipType = customerInfoVO.getVipType();
@@ -79,24 +81,23 @@ public class OrderOnUser {
 				
 				if(vipType == VipType.COMMON_VIP) {
 					
-					price[0] = pro.getValue(customerInfoVO, orderVO, PromotionHotelType.BIRTH_PROMOTION).getPrice();
-					price[1] = pro.getValue(customerInfoVO, orderVO, PromotionHotelType.HOTEL_CUSTOM_PROMOTION).getPrice();
-					price[3] = pro.getValue(customerInfoVO, orderVO, PromotionHotelType.OVERTHREE_PROMOTION).getPrice();
-					price[4] = pro.getValue(customerInfoVO, orderVO, PromotionWebType.VIP_CIRCLE_PROMOTION).getPrice();
-					price[5] = pro.getValue(customerInfoVO, orderVO, PromotionWebType.VIP_LEVEL_PROMOTION).getPrice();
-					price[2] = pro.getValue(customerInfoVO, orderVO, PromotionWebType.WEB_CUSTOM_PROMOTION).getPrice();
+					price[0] = pro.getValue(customerInfoVO, orderVO, PromotionHotelType.BIRTH_PROMOTION);
+					price[1] = pro.getValue(customerInfoVO, orderVO, PromotionHotelType.HOTEL_CUSTOM_PROMOTION);
+					price[3] = pro.getValue(customerInfoVO, orderVO, PromotionHotelType.OVERTHREE_PROMOTION);
+					price[4] = pro.getValue(customerInfoVO, orderVO, PromotionWebType.VIP_CIRCLE_PROMOTION);
+					price[5] = pro.getValue(customerInfoVO, orderVO, PromotionWebType.VIP_LEVEL_PROMOTION);
+					price[2] = pro.getValue(customerInfoVO, orderVO, PromotionWebType.WEB_CUSTOM_PROMOTION);
 					
 				} else if(vipType == VipType.COMPANY_VIP) {
 					
-					price[1] = pro.getValue(customerInfoVO, orderVO, PromotionHotelType.HOTEL_CUSTOM_PROMOTION).getPrice();
-					price[2] = pro.getValue(customerInfoVO, orderVO, PromotionHotelType.JOIN_PROMOTION).getPrice();
-					price[4] = pro.getValue(customerInfoVO, orderVO, PromotionWebType.VIP_CIRCLE_PROMOTION).getPrice();
-					price[3] = pro.getValue(customerInfoVO, orderVO, PromotionHotelType.OVERTHREE_PROMOTION).getPrice();
-					price[5] = pro.getValue(customerInfoVO, orderVO, PromotionWebType.VIP_LEVEL_PROMOTION).getPrice();
-					price[2] = pro.getValue(customerInfoVO, orderVO, PromotionWebType.WEB_CUSTOM_PROMOTION).getPrice();
+					price[1] = pro.getValue(customerInfoVO, orderVO, PromotionHotelType.HOTEL_CUSTOM_PROMOTION);
+					price[0] = pro.getValue(customerInfoVO, orderVO, PromotionHotelType.JOIN_PROMOTION);
+					price[3] = pro.getValue(customerInfoVO, orderVO, PromotionWebType.VIP_CIRCLE_PROMOTION);
+					price[2] = pro.getValue(customerInfoVO, orderVO, PromotionHotelType.OVERTHREE_PROMOTION);
+					price[4] = pro.getValue(customerInfoVO, orderVO, PromotionWebType.VIP_LEVEL_PROMOTION);
+					price[5] = pro.getValue(customerInfoVO, orderVO, PromotionWebType.WEB_CUSTOM_PROMOTION);
 				}
 				
-				double min = 0;
 				int number = 0;
 				for(int i = 0; i < price.length; i++) {
 					if(price[i] < min) {
@@ -104,27 +105,53 @@ public class OrderOnUser {
 						number = i;
 					}
 				}
-				orderVO.setPrice(min);
-				PromotionWebType promotionWebType;
-				PromotionHotelType promotionHotelType;
 				
 				if(vipType == VipType.COMMON_VIP) {
 					switch (number) {
-					case 0:
-						promotionHotelType = PromotionHotelType.BIRTH_PROMOTION;	break;
-					case 1:
-
+					case 0:	promotionHotelType = PromotionHotelType.BIRTH_PROMOTION;	break;
+					case 1:	promotionHotelType = PromotionHotelType.HOTEL_CUSTOM_PROMOTION;	break;
+					case 3:	promotionHotelType = PromotionHotelType.OVERTHREE_PROMOTION;	break;
+					case 4:	promotionWebType = PromotionWebType.VIP_CIRCLE_PROMOTION;	break;
+					case 5:	promotionWebType = PromotionWebType.VIP_LEVEL_PROMOTION;	break;
+					case 2: promotionWebType = PromotionWebType.WEB_CUSTOM_PROMOTION;	break;
+					default:
+						break;
+					}
+				}else if(vipType == VipType.COMPANY_VIP) {
+					switch (number) {
+					case 0:	promotionHotelType = PromotionHotelType.JOIN_PROMOTION;	break;
+					case 1:	promotionHotelType = PromotionHotelType.HOTEL_CUSTOM_PROMOTION;	break;
+					case 2:	promotionHotelType = PromotionHotelType.OVERTHREE_PROMOTION;	break;
+					case 3:	promotionWebType = PromotionWebType.VIP_CIRCLE_PROMOTION;	break;
+					case 4:	promotionWebType = PromotionWebType.VIP_LEVEL_PROMOTION;	break;
+					case 5: promotionWebType = PromotionWebType.WEB_CUSTOM_PROMOTION;	break;
 					default:
 						break;
 					}
 				}
 			}
-			userDataService.insert((OrderPO)VOPOchange.VOtoPO(orderVO));
 			
-			OrderVO orderVO2;
-			return orderVO.getOrderID();
+			OrderPO orderPO = (OrderPO)VOPOchange.VOtoPO(orderVO);
+			
+			DecimalFormat dFormat = new DecimalFormat("#.00");
+			String price = dFormat.format(min);
+			min = Double.valueOf(price);
+			
+			orderPO.setPrice(min);
+			orderPO.setLatestExecutionTime(orderPO.getCheckInTime().substring(0,10)+" 24:00");
+			orderPO.setOrderState(OrderState.UNEXECUTED);
+			
+			String orderID = userDataService.insert(orderPO);
+			if(promotionHotelType == null){
+				return orderID + ";" + promotionWebType.toString();
+			}else if(promotionWebType == null){
+				return orderID + ";" + promotionHotelType.toString();
+			}else{
+				return null;
+			}
+			 
 		}else{
-			return orderVO.getOrderID();
+			return null;
 		}
 		
 	}

@@ -29,25 +29,27 @@ public class PromotionValueController implements PromotionValueBLService{
 	}
 	
 	@Override
-	public OrderVO getValue(CustomerInfoVO user, OrderVO order, PromotionHotelType hotelType) {
+	public double getValue(CustomerInfoVO user, OrderVO order, PromotionHotelType hotelType) {
+		double d = 1;
 		try {
-			order = promotionValueHotel.getValue(user, order, hotelType);
+			d = promotionValueHotel.getValue(user, order, hotelType);
 		} catch (RemoteException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		return order;
+		return d;
 	}
 
 	@Override
-	public OrderVO getValue(CustomerInfoVO user, OrderVO order, PromotionWebType webType) {
+	public double getValue(CustomerInfoVO user, OrderVO order, PromotionWebType webType) {
+		double d = 1;
 		try {
-			order = promotionValueWeb.getValue(user, order, webType);
+			d = promotionValueWeb.getValue(user, order, webType);
 		} catch (RemoteException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		return order;
+		return d;
 	}
 
 }

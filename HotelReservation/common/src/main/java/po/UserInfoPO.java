@@ -11,7 +11,7 @@ import util.UserType;
  */
 public class UserInfoPO implements Serializable{
 	
-	private static final long serialVersionUID = 1L;
+	private static final long serialVersionUID = -7187002330817151504L;
 	/**
 	 * ÓÃ»§ID
 	 */

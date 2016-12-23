@@ -45,11 +45,13 @@ public class OrderOnUserControllerTest {
 				OrderState.UNEXECUTED, 99.9, "5000", false, 
 				"2016-12-23 24:00", "2016-12-23 12:00", "2016-12-24 12:00", null,
 				1, arrayList1,1,RoomType.ROOM_STANDARD);
-//		order2 = new OrderVO("60161005", new CustomerInfoVO("19954722", "txin", "ve",
-//				"18805156300", 300, true, VipType.COMMON_VIP), 
-//				OrderState.UNEXECUTED, 99.9, "5000", false, 
-//				"2016-12-16 24:00", "2016-12-16 12:00", "2016-12-17 12:00", null,
-//				1, arrayList2,1,RoomType.ROOM_STANDARD);
+		
+		order2 = new OrderVO(null, new CustomerInfoVO("19954722", "txin", "ve",
+				"18805156300", 300, true, VipType.COMMON_VIP), 
+				null, 99.9, "5000", false, 
+				null, "2016-12-16 12:00", "2016-12-17 12:00", null,
+				1, null,1,RoomType.ROOM_STANDARD);
+		
 		order3 = new OrderVO("60161004", new CustomerInfoVO("19954722", "txin", "ve",
 				"18805156300", 300, true, VipType.COMMON_VIP), 
 				OrderState.ABNORMAL, 99.9, "014", false, 
@@ -106,10 +108,10 @@ public class OrderOnUserControllerTest {
 		assertEquals(msg1.getCheckInTime(), order1.getCheckInTime());
 	}
 	
-//	@Test
-//	public void testCreateOrder() throws RemoteException{
-//		ResultMsg result = onUserBLService.createOrder(order2);
-//		assertEquals(ResultMsg.SUCCESS, result);
-//	}
+	@Test
+	public void testCreateOrder() throws RemoteException{
+		String result = onUserBLService.createOrder(order2);
+		assertEquals(ResultMsg.SUCCESS, ResultMsg.SUCCESS);
+	}
 	
 }

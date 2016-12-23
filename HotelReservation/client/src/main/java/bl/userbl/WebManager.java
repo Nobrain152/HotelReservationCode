@@ -177,6 +177,7 @@ public class WebManager extends User {
 			if(po1.getUsername()!=null){
 				user.setUsername(po1.getUsername());
 			}
+			//System.out.println(userid);
 			//return ResultMsg.SUCCESS;
 			return data.SetWebStuffInfo(userid, user);
 		}

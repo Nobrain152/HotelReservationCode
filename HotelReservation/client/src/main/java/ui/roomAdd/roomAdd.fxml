@@ -46,43 +46,31 @@
                </font>
             </Text>
             <Line endX="390.0" layoutX="309.0" layoutY="73.0" startX="-210.0" strokeWidth="0.5" />
-            <Text layoutX="99.0" layoutY="120.0" strokeType="OUTSIDE" strokeWidth="0.0" text="房间号">
+            <Text layoutX="132.0" layoutY="172.0" strokeType="OUTSIDE" strokeWidth="0.0" text="房间号">
                <font>
                   <Font size="14.0" />
                </font>
             </Text>
-            <TextField fx:id="tf_roomID" layoutX="169.0" layoutY="103.0" prefHeight="23.0" prefWidth="126.0" />
-            <ChoiceBox fx:id="cb_type" layoutX="169.0" layoutY="165.0" prefHeight="23.0" prefWidth="126.0" />
-            <ChoiceBox fx:id="cb_state" layoutX="510.0" layoutY="169.0" prefHeight="23.0" prefWidth="126.0" />
-            <Text layoutX="99.0" layoutY="182.0" strokeType="OUTSIDE" strokeWidth="0.0" text="房间类型">
+            <TextField fx:id="tf_roomID" layoutX="202.0" layoutY="155.0" prefHeight="23.0" prefWidth="126.0" />
+            <ChoiceBox fx:id="cb_type" layoutX="202.0" layoutY="217.0" prefHeight="23.0" prefWidth="126.0" />
+            <ChoiceBox fx:id="cb_state" layoutX="543.0" layoutY="221.0" prefHeight="23.0" prefWidth="126.0" />
+            <Text layoutX="132.0" layoutY="234.0" strokeType="OUTSIDE" strokeWidth="0.0" text="房间类型">
                <font>
                   <Font size="14.0" />
                </font>
             </Text>
-            <Text layoutX="446.0" layoutY="185.0" strokeType="OUTSIDE" strokeWidth="0.0" text="房间状态">
+            <Text layoutX="479.0" layoutY="237.0" strokeType="OUTSIDE" strokeWidth="0.0" text="房间状态">
                <font>
                   <Font size="14.0" />
                </font>
             </Text>
-            <Text layoutX="446.0" layoutY="123.0" strokeType="OUTSIDE" strokeWidth="0.0" text="原始价格">
+            <Text layoutX="479.0" layoutY="175.0" strokeType="OUTSIDE" strokeWidth="0.0" text="原始价格">
                <font>
                   <Font size="14.0" />
                </font>
             </Text>
-            <TextField fx:id="tf_price" layoutX="510.0" layoutY="106.0" prefHeight="23.0" prefWidth="126.0" />
-            <Text layoutX="99.0" layoutY="247.0" strokeType="OUTSIDE" strokeWidth="0.0" text="入住时间">
-               <font>
-                  <Font size="14.0" />
-               </font>
-            </Text>
-            <Text layoutX="99.0" layoutY="324.0" strokeType="OUTSIDE" strokeWidth="0.0" text="退房时间">
-               <font>
-                  <Font size="14.0" />
-               </font>
-            </Text>
-            <DatePicker fx:id="dp_start" layoutX="169.0" layoutY="230.0" prefHeight="23.0" prefWidth="217.0" />
-            <DatePicker fx:id="dp_end" layoutX="169.0" layoutY="307.0" prefHeight="23.0" prefWidth="217.0" />
-            <Button fx:id="btn_Save" layoutX="621.0" layoutY="370.0" mnemonicParsing="false" onAction="#btn_SaveAction" prefHeight="30.0" prefWidth="61.0" text="确认" />
+            <TextField fx:id="tf_price" layoutX="543.0" layoutY="158.0" prefHeight="23.0" prefWidth="126.0" />
+            <Button fx:id="btn_Save" layoutX="606.0" layoutY="316.0" mnemonicParsing="false" onAction="#btn_SaveAction" prefHeight="30.0" prefWidth="61.0" text="确认" />
          </children></Pane>
    </children>
 </AnchorPane>

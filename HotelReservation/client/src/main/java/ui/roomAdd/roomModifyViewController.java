@@ -40,11 +40,7 @@ public class roomModifyViewController implements Initializable{
 	@FXML
 	private ChoiceBox<RoomState> cb_state;
 	
-	@FXML
-	private DatePicker dp_start;
 	
-	@FXML
-	private DatePicker dp_end;
 	
 	@FXML
 	private Button btn_Save;

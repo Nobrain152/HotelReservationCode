@@ -5,8 +5,8 @@ import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 import bl.hotelbl.HotelInfoCheckController;
+import bl.userbl.CustomerHotelOperationController;
 import javafx.beans.property.SimpleDoubleProperty;
-import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -27,6 +27,7 @@ public class hotelInfoSearchedViewController implements Initializable{
 	private UILaunch application;
 	private UIhelper helper;
 	private HotelInfoCheckController hotelInfo;
+	private CustomerHotelOperationController controller;
 	
 	@FXML
 	private Label label_hotelName;
@@ -90,6 +91,7 @@ public class hotelInfoSearchedViewController implements Initializable{
 		// TODO Auto-generated method stub
 		helper=UIhelper.getInstance();
 		hotelInfo=new HotelInfoCheckController();
+		controller=new CustomerHotelOperationController();
 		
 		HotelInfoVO hotel=hotelInfo.checkHotelInfo(helper.getHotelID());
 		label_hotelName.setText(hotel.getName());
@@ -103,7 +105,7 @@ public class hotelInfoSearchedViewController implements Initializable{
 		
 		ArrayList<orderItem> data_List=new ArrayList<orderItem>();
 		
-		ArrayList<OrderVO> order_List=hotel.getOrder();
+		ArrayList<OrderVO> order_List=controller.getHotelOrder(hotel.getHotelID(), helper.getUserID());
 		
 		int size=order_List.size();
 		for(int i=0;i<size;i++){

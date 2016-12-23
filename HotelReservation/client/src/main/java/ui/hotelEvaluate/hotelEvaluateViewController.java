@@ -43,7 +43,7 @@ public class hotelEvaluateViewController implements Initializable{
 	@FXML
 	public void btn_SubmitAction(ActionEvent ev) {
 		int score=Integer.parseInt(tf_score.getText());
-		HotelEvaluateVO evaluation=new HotelEvaluateVO(helper.getUserID(),helper.getHotelID(),score,ta_comment.getText(),true,null);
+		HotelEvaluateVO evaluation=new HotelEvaluateVO(helper.getUserID(),helper.getHotelID(),score,ta_comment.getText(),true,helper.getOrderID());
 		eval.HotelEvaluate(evaluation);
 		application.gotoreservedHotelInfo();
 	}

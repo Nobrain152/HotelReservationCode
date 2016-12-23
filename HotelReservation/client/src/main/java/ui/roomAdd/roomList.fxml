@@ -25,16 +25,12 @@
       </Pane>
       <Pane layoutY="77.0" prefHeight="455.0" prefWidth="800.0">
          <children>
-            <TextField layoutX="55.0" layoutY="41.0" promptText="按房间号搜索" />
-            <Button layoutX="247.0" layoutY="41.0" mnemonicParsing="false" text="搜索" />
             <TableView fx:id="tv_room" layoutX="55.0" layoutY="87.0" prefHeight="268.0" prefWidth="670.0">
               <columns>
-                <TableColumn fx:id="tc_ID" prefWidth="75.0" text="房间号" />
-                <TableColumn fx:id="tc_type" prefWidth="88.0" text="房间类型" />
-                  <TableColumn fx:id="tc_state" prefWidth="85.0" text="状态" />
-                  <TableColumn fx:id="tc_price" prefWidth="90.0" text="原始价格" />
-                  <TableColumn fx:id="tc_startTime" prefWidth="169.0" text="入住时间" />
-                  <TableColumn fx:id="tc_endTime" prefWidth="162.0" text="预计退房时间" />
+                <TableColumn fx:id="tc_ID" prefWidth="126.0" text="房间号" />
+                <TableColumn fx:id="tc_type" prefWidth="146.0" text="房间类型" />
+                  <TableColumn fx:id="tc_state" prefWidth="181.0" text="状态" />
+                  <TableColumn fx:id="tc_price" prefWidth="183.0" text="原始价格" />
               </columns>
             </TableView>
             <Button fx:id="btn_Add" layoutX="653.0" layoutY="385.0" mnemonicParsing="false" onAction="#btn_AddAction" prefHeight="30.0" prefWidth="72.0" text="添加客房" />

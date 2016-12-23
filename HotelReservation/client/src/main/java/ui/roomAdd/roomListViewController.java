@@ -38,10 +38,6 @@ public class roomListViewController implements Initializable{
 	private TableColumn<?, ?> tc_state;
 	@FXML
 	private TableColumn<?, ?> tc_price;
-	@FXML
-	private TableColumn<?, ?> tc_startTime;
-	@FXML
-	private TableColumn<?, ?> tc_endTime;
 	private ObservableList<roomItem> data;
 	
 	@FXML
@@ -88,7 +84,7 @@ public class roomListViewController implements Initializable{
 		for(int i=0;i<size;i++){
 			RoomInfoVO tempRoomVO=room_list.get(i);
 			data_list.add(new roomItem(tempRoomVO.getRoomID(),tempRoomVO.getType().toString(),tempRoomVO.getState().toString(),
-					tempRoomVO.getPrice(),null,null));
+					tempRoomVO.getPrice()));
 		}
 		
 		data = FXCollections.observableArrayList(data_list);
@@ -96,8 +92,6 @@ public class roomListViewController implements Initializable{
 		tc_type.setCellValueFactory(new PropertyValueFactory<>("type"));
 		tc_state.setCellValueFactory(new PropertyValueFactory<>("state"));
 		tc_price.setCellValueFactory(new PropertyValueFactory<>("price"));
-		tc_startTime.setCellValueFactory(new PropertyValueFactory<>("startTime"));
-		tc_endTime.setCellValueFactory(new PropertyValueFactory<>("endTime"));
 		tv_room.setItems(data);
 	}
 	
@@ -106,16 +100,14 @@ public class roomListViewController implements Initializable{
 		private SimpleStringProperty type;
 		private SimpleStringProperty state;
 		private SimpleDoubleProperty price;
-		private SimpleStringProperty startTime;
-		private SimpleStringProperty endTime;
 		
-		private roomItem(String ID,String type,String state,double price,String startTime,String endTime){
+		
+		private roomItem(String ID,String type,String state,double price){
 			this.ID=new SimpleStringProperty(ID);
 			this.type=new SimpleStringProperty(type);
 			this.state=new SimpleStringProperty(state);
 			this.price=new SimpleDoubleProperty(price);
-			this.startTime=new SimpleStringProperty(startTime);
-			this.endTime=new SimpleStringProperty(endTime);
+			
 			
 		}
 		
@@ -151,21 +143,7 @@ public class roomListViewController implements Initializable{
 			price.set(n);
 		}
 		
-		public String getStartTime(){
-			return startTime.get();
-		}
 		
-		public void setStartTime(String str){
-			startTime.set(str);
-		}
-		
-		public String getEndTime(){
-			return endTime.get();
-		}
-		
-		public void setEndTime(String str){
-			endTime.set(str);
-		}
 	}
 
 }

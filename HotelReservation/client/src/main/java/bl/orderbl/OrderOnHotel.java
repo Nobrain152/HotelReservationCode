@@ -82,9 +82,9 @@ public class OrderOnHotel {
 		CreditPO creditPO = creditPOs.get(creditPOs.size()-1);
 		OrderPO orderPO = hotelDataService.findByOrderID(orderVO.getOrderID());
 		ArrayList<String> roomIDs = orderVO.getRoomIDs();
-		
+
 		for(int i = 0; i < roomIDs.size(); i++){
-			RoomInfoPO roomInfoPO = roomInfoDataService.findByRoomID(roomIDs.get(i));
+			RoomInfoPO roomInfoPO = roomInfoDataService.findByRoomID(roomIDs.get(0));
 			if(orderPO.getOrderState() == OrderState.UNEXECUTED
 					&& roomInfoPO.getState() == RoomState.USABLE) {
 				CustomerInfoPO customerInfoPO = orderPO.getInitiator();
@@ -103,7 +103,7 @@ public class OrderOnHotel {
 				creditPO.setCreditChange("+" + (int)orderVO.getPrice());
 				creditPO.setTime(new Today().getToday());
 				creditDataService.insert(creditPO);
-				
+				System.out.println(resultMsg);
 				resultMsg = ResultMsg.SUCCESS;
 			} else if(orderPO.getOrderState() == OrderState.EXECUTED
 					&& roomInfoPO.getState() == RoomState.UNUSABLE) {
@@ -133,7 +133,7 @@ public class OrderOnHotel {
 				resultMsg = ResultMsg.SUCCESS;
 			}
 		}
-		
+		System.out.println(resultMsg);
 		return resultMsg;
 	}
 

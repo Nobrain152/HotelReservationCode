@@ -19,6 +19,7 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import ui.UILaunch;
 import ui.UIhelper;
+import ui.orderOnUser.orderOnUserViewController.OrderInTable;
 import util.OrderState;
 import vo.OrderVO;
 
@@ -114,6 +115,36 @@ public class orderOnHotelViewController implements Initializable {
 	
 	@FXML
 	public void btn_all_infoAction(ActionEvent ev) throws Exception {
+		OrderInTable choose=order_all.getSelectionModel().getSelectedItem();
+		helper.setOrderID(choose.getID());
+		application.gotoorderOnHotelInfo();
+	}
+	
+	@FXML
+	public void btn_executed_infoAction(ActionEvent ev) throws Exception {
+		OrderInTable choose=order_executed.getSelectionModel().getSelectedItem();
+		helper.setOrderID(choose.getID());
+		application.gotoorderOnHotelInfo();
+	}
+	
+	@FXML
+	public void btn_waiting_infoAction(ActionEvent ev) throws Exception {
+		OrderInTable choose=order_waiting.getSelectionModel().getSelectedItem();
+		helper.setOrderID(choose.getID());
+		application.gotoorderOnHotelInfo();
+	}
+	
+	@FXML
+	public void btn_canceled_infoAction(ActionEvent ev) throws Exception {
+		OrderInTable choose=order_canceled.getSelectionModel().getSelectedItem();
+		helper.setOrderID(choose.getID());
+		application.gotoorderOnHotelInfo();
+	}
+	
+	@FXML
+	public void btn_abnormal_infoAction(ActionEvent ev) throws Exception {
+		OrderInTable choose=order_abnormal.getSelectionModel().getSelectedItem();
+		helper.setOrderID(choose.getID());
 		application.gotoorderOnHotelInfo();
 	}
 

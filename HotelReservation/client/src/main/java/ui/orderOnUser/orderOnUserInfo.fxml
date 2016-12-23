@@ -47,24 +47,39 @@
                   <content>
                     <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                            <children>
-                              <Label layoutX="228.0" layoutY="126.0" text="订单发起人：">
+                              <Label layoutX="228.0" layoutY="192.0" text="订单发起人：">
                                  <font>
                                     <Font size="14.0" />
                                  </font>
                               </Label>
-                              <Label layoutX="228.0" layoutY="186.0" text="订单状态：">
+                              <Label layoutX="228.0" layoutY="252.0" text="订单状态：">
                                  <font>
                                     <Font size="14.0" />
                                  </font>
                               </Label>
-                              <Label layoutX="228.0" layoutY="243.0" text="手机号码：">
+                              <Label layoutX="228.0" layoutY="135.0" text="订单ID：">
                                  <font>
                                     <Font size="14.0" />
                                  </font>
                               </Label>
-                              <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#e9f1f8" height="37.0" layoutX="372.0" layoutY="117.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="200.0" />
-                              <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#e9f1f8" height="37.0" layoutX="372.0" layoutY="177.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="200.0" />
-                              <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#e9f1f8" height="37.0" layoutX="372.0" layoutY="234.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="200.0" />
+                              <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#e9f1f8" height="37.0" layoutX="372.0" layoutY="183.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="200.0" />
+                              <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#e9f1f8" height="37.0" layoutX="372.0" layoutY="243.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="200.0" />
+                              <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#e9f1f8" height="37.0" layoutX="372.0" layoutY="126.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="200.0" />
+                              <Label fx:id="lb_ID" alignment="CENTER" layoutX="383.0" layoutY="130.0" prefHeight="30.0" prefWidth="178.0">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="lb_initiator" alignment="CENTER" layoutX="383.0" layoutY="187.0" prefHeight="30.0" prefWidth="178.0">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="lb_state" alignment="CENTER" layoutX="383.0" layoutY="247.0" prefHeight="30.0" prefWidth="178.0">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </Label>
                            </children></AnchorPane>
                   </content>
                 </Tab>
@@ -104,6 +119,36 @@
                                  </font>
                               </Label>
                               <Label layoutX="243.0" layoutY="336.0" text="是否携带儿童：">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="lb_startTime" alignment="CENTER" layoutX="368.0" layoutY="51.0" prefHeight="30.0" prefWidth="178.0">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="lb_endTime" alignment="CENTER" layoutX="368.0" layoutY="105.0" prefHeight="30.0" prefWidth="178.0">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="lb_ddl" alignment="CENTER" layoutX="368.0" layoutY="164.0" prefHeight="30.0" prefWidth="178.0">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="lb_number" alignment="CENTER" layoutX="368.0" layoutY="222.0" prefHeight="30.0" prefWidth="178.0">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="lb_type" alignment="CENTER" layoutX="368.0" layoutY="274.0" prefHeight="30.0" prefWidth="178.0">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="lb_children" alignment="CENTER" layoutX="368.0" layoutY="331.0" prefHeight="30.0" prefWidth="178.0">
                                  <font>
                                     <Font size="14.0" />
                                  </font>

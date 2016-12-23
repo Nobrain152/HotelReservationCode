@@ -62,7 +62,7 @@
                               </TableView>
                               <Button layoutX="427.0" layoutY="35.0" mnemonicParsing="false" text="搜索" />
                               <Button layoutX="427.0" layoutY="70.0" mnemonicParsing="false" text="搜索" />
-                              <Button layoutX="634.0" layoutY="375.0" mnemonicParsing="false" text="详细信息" />
+                              <Button fx:id="btn_all_info" layoutX="634.0" layoutY="375.0" mnemonicParsing="false" onAction="#btn_all_infoAction" text="详细信息" />
                            </children></AnchorPane>
                   </content>
                 </Tab>
@@ -90,7 +90,7 @@
                                     <Font size="18.0" />
                                  </font>
                               </Text>
-                              <Button layoutX="633.0" layoutY="379.0" mnemonicParsing="false" text="详细信息" />
+                              <Button fx:id="btn_executed_info" layoutX="633.0" layoutY="379.0" mnemonicParsing="false" onAction="#btn_executed_infoAction" text="详细信息" />
                            </children></AnchorPane>
                   </content>
                 </Tab>
@@ -119,7 +119,7 @@
                                  </font>
                               </Text>
                               <Button layoutX="537.0" layoutY="372.0" mnemonicParsing="false" text="撤销" />
-                              <Button layoutX="651.0" layoutY="372.0" mnemonicParsing="false" text="详细信息" />
+                              <Button fx:id="btn_waiting_info" layoutX="651.0" layoutY="372.0" mnemonicParsing="false" onAction="#btn_waiting_infoAction" text="详细信息" />
                            </children></AnchorPane>
                      </content>
                   </Tab>
@@ -147,7 +147,7 @@
                                     <Font size="18.0" />
                                  </font>
                               </Text>
-                              <Button layoutX="640.0" layoutY="342.0" mnemonicParsing="false" text="详细信息" />
+                              <Button fx:id="btn_canceled_info" layoutX="640.0" layoutY="342.0" mnemonicParsing="false" onAction="#btn_canceled_infoAction" text="详细信息" />
                            </children></AnchorPane>
                      </content>
                   </Tab>
@@ -175,7 +175,7 @@
                                     <Font size="18.0" />
                                  </font>
                               </Text>
-                              <Button layoutX="652.0" layoutY="357.0" mnemonicParsing="false" text="详细信息" />
+                              <Button fx:id="btn_abnormal_info" layoutX="652.0" layoutY="357.0" mnemonicParsing="false" onAction="#btn_abnormal_infoAction" text="详细信息" />
                            </children></AnchorPane>
                      </content>
                   </Tab>

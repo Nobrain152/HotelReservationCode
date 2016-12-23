@@ -20,12 +20,18 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import ui.UILaunch;
+import ui.UIhelper;
+import ui.promotionHotel.promotionHotelViewController.PromotionDiy;
 import util.Area;
+import util.PromotionHotelType;
 import util.PromotionWebType;
+import util.ResultMsg;
+import vo.PromotionHotelVO;
 import vo.PromotionWebVO;
 
 public class promotionWebViewController implements Initializable {
 	private UILaunch application;
+	private UIhelper helper;
 	WebStuffWebsiteManagementController promotionManage;
 
 	// »áÔ±µÈ¼¶ÓÅ»Ý²ßÂÔ
@@ -98,18 +104,42 @@ public class promotionWebViewController implements Initializable {
 	
 	@FXML
 	public void btn_vip_modifyAction(ActionEvent ev) {
-		
+		PromotionVIP choose=promotion_vip.getSelectionModel().getSelectedItem();
+		PromotionWebVO toModify=new PromotionWebVO(null,PromotionWebType.VIP_LEVEL_PROMOTION,choose.getLevel(),choose.getDiscount());
+		helper.setPromotionWeb(toModify);
 		application.gotopromotionWebVIP();
 	}
 	
 	@FXML
 	public void btn_vip_addAction(ActionEvent ev) {
+		PromotionWebVO newPromotion=new PromotionWebVO(null,PromotionWebType.VIP_LEVEL_PROMOTION,
+				Integer.parseInt(tf_vip_level.getText()),Double.parseDouble(tf_vip_discount.getText()));
+		promotionManage.WebsiteStrategeCreate(newPromotion);
+		
+		boolean result=data_vip.add(new PromotionVIP(Integer.parseInt(tf_vip_level.getText()),Double.parseDouble(tf_vip_discount.getText())));
+		if(result){
+			tf_vip_level.clear();
+			tf_vip_discount.clear();
+		}
+		else{
+			System.out.println("´íÎó");
+		}
+		
+
 		
 	}
 	
 	@FXML
 	public void btn_vip_deleteAction(ActionEvent ev) {
-		
+		PromotionVIP choose=promotion_vip.getSelectionModel().getSelectedItem();
+		PromotionWebVO toDelete=new PromotionWebVO(null,PromotionWebType.VIP_LEVEL_PROMOTION,choose.getLevel(),choose.getDiscount());
+		ResultMsg msg=promotionManage.WebsiteStrategeDelete(toDelete);
+		if(msg==ResultMsg.SUCCESS){
+			data_vip.remove(choose);		
+		}
+		else{
+			System.out.println("É¾³ýÊ§°Ü");
+		}
 	}
 	
 	@FXML
@@ -120,6 +150,7 @@ public class promotionWebViewController implements Initializable {
 	@FXML
 	public void btn_area_addAction(ActionEvent ev) {
 		
+		
 	}
 	
 	@FXML
@@ -129,17 +160,37 @@ public class promotionWebViewController implements Initializable {
 	
 	@FXML
 	public void btn_diy_modifyAction(ActionEvent ev) {
+		PromotionDiy choose=promotion_diy.getSelectionModel().getSelectedItem();
+		PromotionWebVO toModify=new PromotionWebVO(null,PromotionWebType.WEB_CUSTOM_PROMOTION,choose.getStartTime(),choose.getEndTime(),choose.getDiscount());
+		helper.setPromotionWeb(toModify);		
 		application.gotopromotionWebDIY();
 	}
 	
 	@FXML
 	public void btn_diy_addAction(ActionEvent ev) {
-		
+		PromotionWebVO newPromotion=new PromotionWebVO(null,PromotionWebType.WEB_CUSTOM_PROMOTION,
+				dp_diy_start.getValue().toString(),dp_diy_end.getValue().toString(),Double.parseDouble(tf_diy_discount.getText()));
+		boolean result=promotionManage.WebsiteStrategeCreate(newPromotion);
+		if(result){
+			data_diy.add(new PromotionDiy(dp_diy_start.getValue().toString(),dp_diy_end.getValue().toString(),Double.parseDouble(tf_diy_discount.getText())));
+			tf_diy_discount.clear();
+		}else{
+			System.out.println("Ìí¼ÓÊ§°Ü");
+		}
+			
 	}
 	
 	@FXML
 	public void btn_diy_deleteAction(ActionEvent ev) {
-		
+		PromotionDiy choose=promotion_diy.getSelectionModel().getSelectedItem();
+		PromotionWebVO toDelete=new PromotionWebVO(null,PromotionWebType.WEB_CUSTOM_PROMOTION,choose.getStartTime(),choose.getEndTime(),choose.getDiscount());
+		ResultMsg msg=promotionManage.WebsiteStrategeDelete(toDelete);
+		if(msg==ResultMsg.SUCCESS){
+			data_diy.remove(choose);
+		}
+		else{
+			System.out.println("É¾³ýÊ§°Ü");
+		}
 	}
 
 	@FXML
@@ -150,6 +201,7 @@ public class promotionWebViewController implements Initializable {
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		// TODO Auto-generated method stub
+		helper=UIhelper.getInstance();
 		promotionManage=new WebStuffWebsiteManagementController();
 		
 		PromotionWebVO vo_vip=new PromotionWebVO();

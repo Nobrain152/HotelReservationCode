@@ -98,4 +98,5 @@ public class Vip {
 			resultMsg = vipDataService.insertL(levelSystemPO);
 		return resultMsg;
 	}
+
 }

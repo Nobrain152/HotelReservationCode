@@ -59,7 +59,7 @@ public class OrderOnUserController implements OrderOnUserBLService{
 	}
 
 	@Override
-	public ResultMsg createOrder(OrderVO orderVO) {
+	public String createOrder(OrderVO orderVO) {
 		try {
 			return orderOnUser.createOrder(orderVO);
 		} catch (RemoteException e) {

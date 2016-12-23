@@ -6,8 +6,8 @@ import java.util.ArrayList;
 import blservice.creditblservice.CreditBLService;
 import dataservice.creditdataservice.CreditDataService;
 import dataservice.userdataservice.CustomerManagementDataService;
-import dataservice.vipdataservice.VipDataService;
 import net.RMIManage;
+import po.CreditPO;
 import util.DataServiceType;
 import util.ResultMsg;
 import vo.CreditVO;
@@ -17,7 +17,6 @@ public class CreditController implements CreditBLService{
 
 	private Credit credit;
 	private CreditDataService creditDataService;
-	private VipDataService vipDataService;
 	private CustomerManagementDataService customerManagementDataService;
 	
 	public CreditController() {
@@ -25,9 +24,7 @@ public class CreditController implements CreditBLService{
 				getDataService(DataServiceType.CreditDataService);
 		customerManagementDataService = (CustomerManagementDataService)RMIManage.
 				getDataService(DataServiceType.CustomerManagementDataService);
-		vipDataService = (VipDataService)RMIManage.
-				getDataService(DataServiceType.VipDataService);
-		credit = new Credit(creditDataService,customerManagementDataService,vipDataService);
+		credit = new Credit(creditDataService,customerManagementDataService);
 	}
 	
 	@Override
@@ -84,6 +81,29 @@ public class CreditController implements CreditBLService{
 			e.printStackTrace();
 		}
 		return creditVOs;
+	}
+
+	@Override
+	public ResultMsg insert(CreditPO creditPO) {
+		try {
+			return creditDataService.insert(creditPO);
+		} catch (RemoteException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return null;
+	}
+
+	@Override
+	public CreditPO get(String userID) {
+		try {
+			ArrayList<CreditPO> arrayList = creditDataService.getListByUserID(userID);
+			return arrayList.get(arrayList.size()-1);
+		} catch (RemoteException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return null;
 	}
 
 }

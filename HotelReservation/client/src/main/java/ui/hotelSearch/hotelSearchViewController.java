@@ -110,7 +110,7 @@ public class hotelSearchViewController implements Initializable{
 			hotelSearch.setUp(up);
 			hotelSearch.setDown(down);
 		}
-		if(tf_name.getText()!=null){
+		if(!(tf_name.getText().equals(""))){
 			hotelSearch.setName(tf_name.getText());
 		}
 		if(cb_Star.getValue()!=null){

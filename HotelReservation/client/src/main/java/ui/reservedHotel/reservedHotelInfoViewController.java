@@ -111,7 +111,6 @@ public class reservedHotelInfoViewController implements Initializable{
 			OrderVO tempOrderVO=order_List.get(i);			
 			data_List.add(new orderItem(tempOrderVO.getOrderID(),tempOrderVO.getCheckInTime(),tempOrderVO.getOrderState().toString(),tempOrderVO.getPrice()));
 		}
-		
 		data = FXCollections.observableArrayList(data_List);
 		order_ID.setCellValueFactory(new PropertyValueFactory<>("ID"));		
 		order_time.setCellValueFactory(new PropertyValueFactory<>("time"));

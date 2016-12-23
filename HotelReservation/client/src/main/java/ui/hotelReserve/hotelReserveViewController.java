@@ -21,7 +21,7 @@ public class hotelReserveViewController implements Initializable{
 	
 	@FXML
 	public void btn_CancelAction(ActionEvent event){
-		application.gotohotelInfoSearched();
+		application.gotohotelSearchList();
 	}
 	
 

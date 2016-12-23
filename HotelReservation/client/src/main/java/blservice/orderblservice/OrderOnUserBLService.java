@@ -29,7 +29,7 @@ public interface OrderOnUserBLService {
 	 * @return void
 	 * @throws RemoteException 
 	 */
-	public ResultMsg createOrder(OrderVO orderVO);
+	public String createOrder(OrderVO orderVO);
 	
 	/**
 	 * 客户撤销个人订单

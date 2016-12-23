@@ -1,5 +1,8 @@
 package blservice.vipblservice;
 
+import po.BusinessVipPO;
+import po.CommonVipPO;
+
 /**
  * 会员业务逻辑层接口
  * @author kevin
@@ -32,4 +35,12 @@ public interface VipLevelBLService {
 	 * @param levelSystemVO
 	 */
 	public ResultMsg createLevelSystem(LevelSystemVO levelSystemVO);
+
+	public CommonVipPO findByUserIDC(String userID);
+	
+	public BusinessVipPO findByUserIDB(String userID);
+	
+	public ResultMsg updateC(CommonVipPO commonVipPO);
+	
+	public ResultMsg updateB(BusinessVipPO businessVipPO);
 }

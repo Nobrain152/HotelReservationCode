@@ -2,6 +2,7 @@ package blservice.creditblservice;
 
 import java.util.ArrayList;
 
+import po.CreditPO;
 import util.ResultMsg;
 import vo.CreditVO;
 import vo.CustomerInfoVO;
@@ -39,4 +40,8 @@ public interface CreditBLService{
 	 * @return
 	 */
 	public ArrayList<CreditVO> getCreditList(String userID);
+	
+	public ResultMsg insert(CreditPO creditPO);
+	
+	public CreditPO get(String userID);
 }

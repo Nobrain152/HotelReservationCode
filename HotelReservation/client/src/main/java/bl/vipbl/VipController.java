@@ -4,6 +4,8 @@ import java.rmi.RemoteException;
 
 import blservice.vipblservice.VipLevelBLService;
 import net.RMIManage;
+import po.BusinessVipPO;
+import po.CommonVipPO;
 import dataservice.userdataservice.UserManagementDataService;
 import dataservice.vipdataservice.VipDataService;
 import util.DataServiceType;
@@ -60,6 +62,50 @@ public class VipController implements VipLevelBLService{
 			e.printStackTrace();
 		}
 		return resultMsg;
+	}
+
+	@Override
+	public CommonVipPO findByUserIDC(String userID) {
+		try {
+			return vipDataService.findByUserIDC(userID);
+		} catch (RemoteException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return null;
+	}
+
+	@Override
+	public ResultMsg updateC(CommonVipPO commonVipPO) {
+		try {
+			return vipDataService.updateC(commonVipPO);
+		} catch (RemoteException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return null;
+	}
+
+	@Override
+	public BusinessVipPO findByUserIDB(String userID) {
+		try {
+			return vipDataService.findByUserIDB(userID);
+		} catch (RemoteException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return null;
+	}
+
+	@Override
+	public ResultMsg updateB(BusinessVipPO businessVipPO) {
+		try {
+			return vipDataService.updateB(businessVipPO);
+		} catch (RemoteException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return null;
 	}
 
 }

@@ -5,7 +5,6 @@ import java.util.ArrayList;
 
 import blservice.creditblservice.CreditBLService;
 import dataservice.creditdataservice.CreditDataService;
-import dataservice.userdataservice.CustomerManagementDataService;
 import net.RMIManage;
 import po.CreditPO;
 import util.DataServiceType;
@@ -17,14 +16,11 @@ public class CreditController implements CreditBLService{
 
 	private Credit credit;
 	private CreditDataService creditDataService;
-	private CustomerManagementDataService customerManagementDataService;
 	
 	public CreditController() {
 		creditDataService = (CreditDataService)RMIManage.
 				getDataService(DataServiceType.CreditDataService);
-		customerManagementDataService = (CustomerManagementDataService)RMIManage.
-				getDataService(DataServiceType.CustomerManagementDataService);
-		credit = new Credit(creditDataService,customerManagementDataService);
+		credit = new Credit(creditDataService);
 	}
 	
 	@Override
@@ -99,6 +95,17 @@ public class CreditController implements CreditBLService{
 		try {
 			ArrayList<CreditPO> arrayList = creditDataService.getListByUserID(userID);
 			return arrayList.get(arrayList.size()-1);
+		} catch (RemoteException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return null;
+	}
+
+	@Override
+	public ArrayList<CreditPO> getListByUserID(String userID) {
+		try {
+			return creditDataService.getListByUserID(userID);
 		} catch (RemoteException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

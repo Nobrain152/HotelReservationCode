@@ -13,6 +13,7 @@ import bl.orderbl.OrderOnWebController;
 import bl.promotionbl.PromotionHotelController;
 import bl.promotionbl.PromotionValueController;
 import bl.promotionbl.PromotionWebController;
+import bl.userbl.CustomerInfoManagementController;
 import bl.vipbl.VipController;
 import blservice.creditblservice.CreditBLService;
 import blservice.hotelblservice.HotelEvaluateBLService;
@@ -27,6 +28,7 @@ import blservice.orderblservice.OrderOnWebBLService;
 import blservice.promotionblservice.PromotionHotelBLService;
 import blservice.promotionblservice.PromotionValueBLService;
 import blservice.promotionblservice.PromotionWebBLService;
+import blservice.userblservice.CustomerIndividualInformationManagementBLService;
 import blservice.vipblservice.VipLevelBLService;
 
 /**
@@ -102,5 +104,9 @@ public class BusinessLogicDataFactory {
 	
 	public VipLevelBLService getVipLevelBLService(){
 		return new VipController();
+	}
+	
+	public CustomerIndividualInformationManagementBLService getCustomerIndividualInformationManagementBLService(){
+		return new CustomerInfoManagementController();
 	}
 }

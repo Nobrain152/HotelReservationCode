@@ -3,11 +3,11 @@ package bl.creditbl;
 import java.rmi.RemoteException;
 import java.util.ArrayList;
 
+import bl.BusinessLogicDataFactory;
 import bl.VOPOchange;
-import bl.vipbl.VipController;
+import blservice.userblservice.CustomerIndividualInformationManagementBLService;
 import blservice.vipblservice.VipLevelBLService;
 import dataservice.creditdataservice.CreditDataService;
-import dataservice.userdataservice.CustomerManagementDataService;
 import po.BusinessVipPO;
 import po.CommonVipPO;
 import po.CreditPO;
@@ -21,14 +21,12 @@ import vo.CustomerInfoVO;
 public class Credit {
 
 	private CreditDataService creditDataService;
-	private VipLevelBLService vip = new VipController();
-	private CustomerManagementDataService customerManagementDataService;
+	private VipLevelBLService vip = BusinessLogicDataFactory.getFactory().getVipLevelBLService();
+	private CustomerIndividualInformationManagementBLService customer = BusinessLogicDataFactory.getFactory().getCustomerIndividualInformationManagementBLService();
 	ResultMsg resultMsg;
 	
-	public Credit(CreditDataService creditDataService,
-			CustomerManagementDataService customerManagementDataService) {
+	public Credit(CreditDataService creditDataService) {
 		this.creditDataService = creditDataService;
-		this.customerManagementDataService = customerManagementDataService;
 	}
 	
 	public int getCredit(CustomerInfoVO client) throws RemoteException {
@@ -46,9 +44,9 @@ public class Credit {
 			creditPO.setCreditChange("+" + value);
 			creditPO.setTime(new Today().getToday());
 			
-			CustomerInfoPO customerInfoPO = customerManagementDataService.GetCustomerInfo(client.getUserID());
+			CustomerInfoPO customerInfoPO = customer.getCustomerInfo(client.getUserID());
 			customerInfoPO.setCredit(creditPO.getCreditResult());
-			customerManagementDataService.SetCustomerInfo(client.getUserID(), customerInfoPO);
+			customer.setCustomerInfo(client.getUserID(), customerInfoPO);
 			
 			if(client.getVipType() == VipType.COMMON_VIP){
 				CommonVipPO commonVipPO = vip.findByUserIDC(client.getUserID());

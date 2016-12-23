@@ -4,8 +4,9 @@ package bl.vipbl;
 import java.rmi.RemoteException;
 import java.util.ArrayList;
 
+import bl.BusinessLogicDataFactory;
 import bl.VOPOchange;
-import dataservice.userdataservice.UserManagementDataService;
+import blservice.userblservice.CustomerIndividualInformationManagementBLService;
 import dataservice.vipdataservice.VipDataService;
 import po.BusinessVipPO;
 import po.CommonVipPO;
@@ -21,11 +22,10 @@ import vo.LevelSystemVO;
 public class Vip {
 	
 	private VipDataService vipDataService;
-	private UserManagementDataService dataService;
+	private CustomerIndividualInformationManagementBLService customer = BusinessLogicDataFactory.getFactory().getCustomerIndividualInformationManagementBLService();
 	
-	public Vip(VipDataService vipDataService, UserManagementDataService dataService) {
+	public Vip(VipDataService vipDataService) {
 		this.vipDataService = vipDataService;
-		this.dataService = dataService;
 	}
 
 	/**
@@ -67,7 +67,7 @@ public class Vip {
 	 */
 	public ResultMsg registerVip(String userID, VipType type, String str) throws RemoteException {
 		ResultMsg resultMsg = ResultMsg.FAIL;
-		CustomerInfoPO customerInfoPO = dataService.GetCustomerInfo(userID);
+		CustomerInfoPO customerInfoPO = customer.getCustomerInfo(userID);
 		CustomerInfoVO customerInfoVO = (CustomerInfoVO)VOPOchange.POtoVO(customerInfoPO);
 	
 		if(type == VipType.COMMON_VIP) {

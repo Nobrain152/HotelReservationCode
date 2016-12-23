@@ -3,6 +3,7 @@ package blservice.hotelblservice;
 import java.rmi.RemoteException;
 import java.util.ArrayList;
 
+import po.RoomInfoPO;
 import util.ResultMsg;
 import vo.RoomInfoVO;
 
@@ -52,4 +53,8 @@ public interface RoomAddBLService {
 	 * @throws RemoteException
 	 */
 	public ArrayList<RoomInfoVO> getEmptyRoom(String hotelid,String intime,String outtime);
+
+	public RoomInfoPO findByRoomID(String string);
+
+	public void update(RoomInfoPO roomInfoPO);
 }

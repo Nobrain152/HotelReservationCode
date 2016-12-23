@@ -44,4 +44,7 @@ public interface CreditBLService{
 	public ResultMsg insert(CreditPO creditPO);
 	
 	public CreditPO get(String userID);
+
+	public ArrayList<CreditPO> getListByUserID(String userID);
+	
 }

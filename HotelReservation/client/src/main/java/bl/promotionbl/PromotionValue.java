@@ -4,14 +4,13 @@ package bl.promotionbl;
 import java.rmi.RemoteException;
 import java.util.ArrayList;
 
+import bl.BusinessLogicDataFactory;
 import bl.VOPOchange;
-import bl.vipbl.Vip;
+import blservice.orderblservice.OrderOnHotelBLService;
+import blservice.vipblservice.VipLevelBLService;
 import dataservice.hoteldataservice.HotelInfoDataService;
-import dataservice.orderdataservice.OrderDataService;
 import dataservice.promotiondataservice.PromotionHotelDataService;
 import dataservice.promotiondataservice.PromotionWebDataService;
-import dataservice.userdataservice.CustomerManagementDataService;
-import dataservice.vipdataservice.VipDataService;
 import po.OrderPO;
 import po.PromotionHotelPO;
 import po.PromotionWebPO;
@@ -25,21 +24,16 @@ import vo.OrderVO;
 public class PromotionValue {
 
 	private PromotionHotelDataService promotionHotelDataService;
-	private VipDataService vipDataService;
-	private OrderDataService orderDataService;
-	private CustomerManagementDataService customerManagementDataService;
+	private VipLevelBLService vip = BusinessLogicDataFactory.getFactory().getVipLevelBLService();
+	private OrderOnHotelBLService orderBL = BusinessLogicDataFactory.getFactory().getOrderOnHotelBLService();
 	
-	public PromotionValue(PromotionHotelDataService promotionHotelDataService,
-			VipDataService vipDataService,OrderDataService orderDataService) {
+	public PromotionValue(PromotionHotelDataService promotionHotelDataService) {
 		this.promotionHotelDataService = promotionHotelDataService;
-		this.vipDataService = vipDataService;
-		this.orderDataService = orderDataService;
 	}
 	
 	public OrderVO getValue(CustomerInfoVO user, OrderVO order, PromotionHotelType hotelType) throws RemoteException {
 		ArrayList<PromotionHotelPO> po = promotionHotelDataService.
 				findByType(hotelType, order.getHotelID());;
-		Vip vip = new Vip(vipDataService,customerManagementDataService);
 		double ratio = 1;
 		
 		switch(hotelType) {
@@ -103,7 +97,7 @@ public class PromotionValue {
 		}
 		// TODO 
 		OrderPO poTmp = (OrderPO)VOPOchange.VOtoPO(order);
-		orderDataService.update(poTmp);
+		orderBL.update(poTmp);
 		
 		return order;
 	}
@@ -111,18 +105,13 @@ public class PromotionValue {
 	private PromotionWebDataService promotionWebDataService;
 	private HotelInfoDataService dataService;
 	
-	public PromotionValue(PromotionWebDataService promotionWebDataService,
-			VipDataService vipDataService,HotelInfoDataService dataService,OrderDataService orderDataService) {
+	public PromotionValue(PromotionWebDataService promotionWebDataService) {
 		this.promotionWebDataService = promotionWebDataService;
-		this.vipDataService = vipDataService;
-		this.dataService = dataService;
-		this.orderDataService = orderDataService;
 	}
 	
 	public OrderVO getValue(CustomerInfoVO user, OrderVO order, PromotionWebType webType) throws RemoteException {
 		ArrayList<PromotionWebPO> po = promotionWebDataService.
 				findByType(webType);;
-		Vip vip = new Vip(vipDataService,customerManagementDataService);
 		double ratio = 1;
 		
 		switch(webType) {
@@ -173,7 +162,7 @@ public class PromotionValue {
 		}
 		
 		OrderPO poTmp = (OrderPO)VOPOchange.VOtoPO(order);
-		orderDataService.update(poTmp);
+		orderBL.update(poTmp);
 		
 		return order;
 	}

@@ -3,9 +3,10 @@ package bl.orderbl;
 import java.rmi.RemoteException;
 import java.util.ArrayList;
 
+import bl.BusinessLogicDataFactory;
 import bl.VOPOchange;
 import bl.creditbl.CreditController;
-import dataservice.creditdataservice.CreditDataService;
+import blservice.creditblservice.CreditBLService;
 import dataservice.orderdataservice.OrderDataService;
 import po.CreditPO;
 import po.OrderPO;
@@ -18,11 +19,10 @@ import vo.OrderVO;
 public class OrderOnWeb {
 	
 	private OrderDataService webDataService;
-	private CreditDataService creditDataService;
+	private CreditBLService credit = BusinessLogicDataFactory.getFactory().getCreditBLService();
 	
-	public OrderOnWeb(OrderDataService webDataService,CreditDataService creditDataService) {
+	public OrderOnWeb(OrderDataService webDataService) {
 		this.webDataService = webDataService;
-		this.creditDataService = creditDataService;
 	}
 	
 	/**
@@ -112,13 +112,13 @@ public class OrderOnWeb {
 					
 					CreditController controller = new CreditController();
 					controller.subCredit(orderVO.getInitiator(), (int)webPO.getPrice());
-					ArrayList<CreditPO> creditPOs = creditDataService.getListByUserID(webPO.getInitiator().getUserID());
+					ArrayList<CreditPO> creditPOs = credit.getListByUserID(webPO.getInitiator().getUserID());
 					CreditPO creditPO = creditPOs.get(creditPOs.size()-1);
 					creditPO.setCreditChange("-"+(int)orderVO.getPrice());
 					creditPO.setCreditResult(creditPO.getCreditResult()-(int)orderVO.getPrice()/2);
 					creditPO.setTime(new Today().getToday());
 					creditPO.setAction(Action.Cancelled);
-					resultMsg = creditDataService.insert(creditPO);
+					resultMsg = credit.insert(creditPO);
 				}else{
 					//ÐÞ¸Ä¶©µ¥×´Ì¬
 					webPO.setOrderState(OrderState.CANCELLED);
@@ -129,13 +129,13 @@ public class OrderOnWeb {
 					
 					CreditController controller = new CreditController();
 					controller.subCredit(orderVO.getInitiator(), (int)webPO.getPrice()/2);
-					ArrayList<CreditPO> creditPOs = creditDataService.getListByUserID(webPO.getInitiator().getUserID());
+					ArrayList<CreditPO> creditPOs = credit.getListByUserID(webPO.getInitiator().getUserID());
 					CreditPO creditPO = creditPOs.get(creditPOs.size()-1);
 					creditPO.setCreditChange("-"+(int)orderVO.getPrice()/2);
 					creditPO.setCreditResult(creditPO.getCreditResult()-(int)orderVO.getPrice()/2);
 					creditPO.setTime(new Today().getToday());
 					creditPO.setAction(Action.Cancelled);
-					resultMsg = creditDataService.insert(creditPO);
+					resultMsg = credit.insert(creditPO);
 				}
 				break;
 			}

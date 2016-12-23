@@ -64,8 +64,6 @@ public class roomListViewController implements Initializable{
 	
 	@FXML
 	private void btn_AddAction(ActionEvent event){
-		roomItem choose=tv_room.getSelectionModel().getSelectedItem();
-		helper.setRoomID(choose.getID());
 		application.gotoroomAdd();
 	}
 	

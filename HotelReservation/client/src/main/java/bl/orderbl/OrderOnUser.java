@@ -9,7 +9,6 @@ import bl.BusinessLogicDataFactory;
 import bl.VOPOchange;
 import bl.creditbl.CreditController;
 import bl.promotionbl.PromotionValueController;
-import blservice.creditblservice.CreditBLService;
 import dataservice.orderdataservice.OrderDataService;
 import po.CreditPO;
 import po.CustomerInfoPO;
@@ -27,7 +26,7 @@ import vo.OrderVO;
 public class OrderOnUser {
 	
 	private OrderDataService userDataService;
-	private CreditBLService credit = BusinessLogicDataFactory.getFactory().getCreditBLService();
+	private CreditController credit;
 	
 	public OrderOnUser(OrderDataService userDataService) {
 		this.userDataService = userDataService;
@@ -58,6 +57,8 @@ public class OrderOnUser {
 	
 	/**
 	 * 客户创建订单
+	 * 
+	 * 
 	 *
 	 * @param 个人订单
 	 * @return void
@@ -96,15 +97,31 @@ public class OrderOnUser {
 				}
 				
 				double min = 0;
+				int number = 0;
 				for(int i = 0; i < price.length; i++) {
 					if(price[i] < min) {
 						min = price[i];
+						number = i;
 					}
 				}
 				orderVO.setPrice(min);
+				PromotionWebType promotionWebType;
+				PromotionHotelType promotionHotelType;
 				
+				if(vipType == VipType.COMMON_VIP) {
+					switch (number) {
+					case 0:
+						promotionHotelType = PromotionHotelType.BIRTH_PROMOTION;	break;
+					case 1:
+
+					default:
+						break;
+					}
+				}
 			}
 			userDataService.insert((OrderPO)VOPOchange.VOtoPO(orderVO));
+			
+			OrderVO orderVO2;
 			return orderVO.getOrderID();
 		}else{
 			return orderVO.getOrderID();
@@ -156,6 +173,7 @@ public class OrderOnUser {
 				System.out.println(lastCalendar.getTimeInMillis());
 				System.out.println(todayCalendar.getTimeInMillis());
 				if(lastCalendar.getTimeInMillis()-todayCalendar.getTimeInMillis() <= 6*60*60*1000) {
+					credit = (CreditController)BusinessLogicDataFactory.getFactory().getCreditBLService();
 					CreditController controller = new CreditController();
 					controller.subCredit(orderVO.getInitiator(), (int)orderOnUserPO.getPrice()/2);
 					ArrayList<CreditPO> creditPOs = credit.getListByUserID(orderOnUserPO.getInitiator().getUserID());

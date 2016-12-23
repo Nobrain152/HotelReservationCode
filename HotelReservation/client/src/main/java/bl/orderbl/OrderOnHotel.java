@@ -6,8 +6,7 @@ import java.util.ArrayList;
 import bl.BusinessLogicDataFactory;
 import bl.VOPOchange;
 import bl.creditbl.CreditController;
-import blservice.creditblservice.CreditBLService;
-import blservice.hotelblservice.RoomAddBLService;
+import bl.hotelbl.RoomAddController;
 import dataservice.orderdataservice.OrderDataService;
 import po.CreditPO;
 import po.CustomerInfoPO;
@@ -24,8 +23,8 @@ import vo.OrderVO;
 public class OrderOnHotel {
 	
 	private OrderDataService hotelDataService;
-	private RoomAddBLService room = BusinessLogicDataFactory.getFactory().getRoomAddBLService();
-	private CreditBLService credit = BusinessLogicDataFactory.getFactory().getCreditBLService();
+	private RoomAddController room;
+	private CreditController credit;
 	
 	public OrderOnHotel(OrderDataService hotelDataService) {
 		this.hotelDataService = hotelDataService;
@@ -77,11 +76,13 @@ public class OrderOnHotel {
 	 */
 	public ResultMsg hotelOrderModify(OrderVO orderVO) throws RemoteException {
 		ResultMsg resultMsg = ResultMsg.FAIL;
+		credit = (CreditController)BusinessLogicDataFactory.getFactory().getCreditBLService();
 		ArrayList<CreditPO> creditPOs = credit.getListByUserID(orderVO.getInitiator().getUserID());
 		CreditPO creditPO = creditPOs.get(creditPOs.size()-1);
 		OrderPO orderPO = hotelDataService.findByOrderID(orderVO.getOrderID());
 		ArrayList<String> roomIDs = orderVO.getRoomIDs();
 
+		room = (RoomAddController)BusinessLogicDataFactory.getFactory().getRoomAddBLService();
 		for(int i = 0; i < roomIDs.size(); i++){
 			RoomInfoPO roomInfoPO = room.findByRoomID(roomIDs.get(0));
 			if(orderPO.getOrderState() == OrderState.UNEXECUTED
@@ -133,7 +134,6 @@ public class OrderOnHotel {
 				resultMsg = ResultMsg.SUCCESS;
 			}
 		}
-		System.out.println(resultMsg);
 		return resultMsg;
 	}
 

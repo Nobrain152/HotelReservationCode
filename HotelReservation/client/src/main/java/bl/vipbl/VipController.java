@@ -1,7 +1,9 @@
 package bl.vipbl;
 
+import java.rmi.Remote;
 import java.rmi.RemoteException;
 
+import bl.BusinessController;
 import blservice.vipblservice.VipLevelBLService;
 import net.RMIManage;
 import po.BusinessVipPO;
@@ -13,7 +15,7 @@ import util.VipType;
 import vo.CustomerInfoVO;
 import vo.LevelSystemVO;
 
-public class VipController implements VipLevelBLService{
+public class VipController extends BusinessController implements VipLevelBLService{
 	
 	private Vip vip;
 	private VipDataService vipDataService;
@@ -102,6 +104,12 @@ public class VipController implements VipLevelBLService{
 			e.printStackTrace();
 		}
 		return null;
+	}
+
+	@Override
+	public void reinitDataService(Remote dataService) {
+		vipDataService = (VipDataService)dataService;
+		vip = new Vip(vipDataService);
 	}
 
 }

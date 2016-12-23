@@ -1,8 +1,10 @@
 package bl.userbl;
 
+import java.rmi.Remote;
 import java.rmi.RemoteException;
 import java.util.ArrayList;
 
+import bl.BusinessController;
 import blservice.userblservice.HotelStuffHotelOperationBlService;
 import dataservice.userdataservice.UserManagementDataService;
 import net.RMIManage;
@@ -242,4 +244,5 @@ public class HotelStuffHotelOperationController implements HotelStuffHotelOperat
 			return ResultMsg.FAIL;
 		}
 	}
+
 }

@@ -6,12 +6,12 @@ import java.util.ArrayList;
 
 import bl.BusinessLogicDataFactory;
 import bl.VOPOchange;
-import blservice.creditblservice.CreditBLService;
-import blservice.hotelblservice.HotelEvaluateBLService;
-import blservice.hotelblservice.HotelInfoCheckBLService;
-import blservice.hotelblservice.HotelReserveBLService;
-import blservice.hotelblservice.HotelSearchBLService;
-import blservice.orderblservice.OrderOnUserBLService;
+import bl.creditbl.CreditController;
+import bl.hotelbl.HotelEvaluateController;
+import bl.hotelbl.HotelInfoCheckController;
+import bl.hotelbl.HotelReserveController;
+import bl.hotelbl.HotelSearchController;
+import bl.orderbl.OrderOnUserController;
 import dataservice.userdataservice.CustomerManagementDataService;
 import po.CustomerInfoPO;
 import util.OrderState;
@@ -29,15 +29,15 @@ import vo.RoomInfoVO;
  *
  */
 public class Customer extends User {
-	private HotelSearchBLService hotel;
-	private HotelEvaluateBLService eval;
+	private HotelSearchController hotel;
+	private HotelEvaluateController eval;
 	private ArrayList<HotelInfoVO> hotelInfoVOs;
-	private CreditBLService integral;
+	private CreditController integral;
 	private CustomerManagementDataService userdataservice;
-	private OrderOnUserBLService order;
-	private HotelInfoCheckBLService hotelinfo;
-	private HotelReserveBLService reserve;
-	private BusinessLogicDataFactory factory;
+	private OrderOnUserController order;
+	private HotelInfoCheckController hotelinfo;
+	private HotelReserveController reserve;
+	private BusinessLogicDataFactory factory=BusinessLogicDataFactory.getFactory();
 	
 	/**
 	 * 构造方法
@@ -45,14 +45,7 @@ public class Customer extends User {
 	 */
 	public Customer(CustomerManagementDataService userdataservice){
 		super(userdataservice);
-		factory=BusinessLogicDataFactory.getFactory();
-		hotel=factory.getHotelSearchBLService();
-		eval=factory.getHotelEvaluateBLService();
-		order=factory.getOrderOnUserBLService();
-		hotelinfo=factory.getHotelInfoCheckBLService();
 		this.userdataservice=userdataservice;
-		integral=factory.getCreditBLService();
-		reserve=factory.getHotelReserveBLService();
 	}
 	
 	/**
@@ -61,6 +54,7 @@ public class Customer extends User {
 	 * @return 酒店信息VO列表
 	 */
 	public ArrayList<HotelInfoVO> HotelSearch(RoomInfoVO vo1,HotelInfoVO vo,String userid)throws RemoteException{
+		hotel=(HotelSearchController)factory.getHotelSearchBLService();
 		ArrayList<HotelInfoVO> hotelInfoVOs= hotel.selectCondition(vo,vo1);
 		ArrayList<OrderVO> ord=this.IndividualOrderInquiry(userid);
 		for(HotelInfoVO v:hotelInfoVOs){
@@ -110,6 +104,7 @@ public class Customer extends User {
 		if(wrong){
 			return null;
 		}
+		hotelinfo=(HotelInfoCheckController)factory.getHotelInfoCheckBLService();
 		HotelInfoVO vo=hotelinfo.checkHotelInfo(hotelid);
 		return vo;
 	}
@@ -226,8 +221,10 @@ public class Customer extends User {
 	 *
 	 */
 	public ResultMsg OederCreat(String userid,OrderVO vo2)throws RemoteException{
-	    ResultMsg r1=reserve.reserveHotel(vo2);
+		reserve=(HotelReserveController)factory.getHotelReserveBLService();
+		ResultMsg r1=reserve.reserveHotel(vo2);
 	    if(r1==ResultMsg.SUCCESS){
+	    	order=(OrderOnUserController)factory.getOrderOnUserBLService();
 	    	order.createOrder(vo2);
 	    	ResultMsg r2=userdataservice.addCustomerHotel(userid,vo2.getHotelID());
 	        return r2;
@@ -242,6 +239,7 @@ public class Customer extends User {
 	 * @param 酒店评价VO
 	 */
 	public void HotelEvaluate(HotelEvaluateVO vo)throws RemoteException{
+		eval=(HotelEvaluateController)factory.getHotelEvaluateBLService();
 		eval.inputEvaluate(vo);
 	}
 			
@@ -290,6 +288,7 @@ public class Customer extends User {
 	 * @return 个人订单列表
 	 */
 	public ArrayList<OrderVO> IndividualOrderInquiry(String userid)throws RemoteException{
+		order=(OrderOnUserController)factory.getOrderOnUserBLService();
 		return order.personalOrderScan(userid);
 	}
 	
@@ -299,6 +298,7 @@ public class Customer extends User {
 	 * @return 个人订单列表
 	 */
 	public ArrayList<OrderVO> SpecialOrderInquiry(String userid,OrderState state)throws RemoteException{
+		order=(OrderOnUserController)factory.getOrderOnUserBLService();
 		ArrayList<OrderVO> all= order.personalOrderScan(userid);
 		ArrayList<OrderVO> special=new ArrayList<OrderVO>();
 		for(OrderVO vo:all){
@@ -319,6 +319,7 @@ public class Customer extends User {
 	 */
 	public ArrayList<HotelInfoVO> IndividualHotelInquiry(String userid)throws RemoteException{
 		ArrayList<String> hotel=userdataservice.GetCustomerHotel(userid);
+		hotelinfo=(HotelInfoCheckController)factory.getHotelInfoCheckBLService();
 		for(int i=0;i<hotel.size();i++){
 			hotelInfoVOs.add(hotelinfo.checkHotelInfo(hotel.get(i)));
 		}
@@ -333,6 +334,7 @@ public class Customer extends User {
 	public ArrayList<HotelInfoVO> SpecialHotelInquiry(String userid,OrderState state)throws RemoteException{
 		ArrayList<OrderVO> special=SpecialOrderInquiry(userid, state);
 		ArrayList<HotelInfoVO> hvo=new ArrayList<HotelInfoVO>();
+		hotelinfo=(HotelInfoCheckController)factory.getHotelInfoCheckBLService();
 		for(OrderVO vo:special){
 			hvo.add(hotelinfo.checkHotelInfo(vo.getHotelID()));
 		}
@@ -346,7 +348,8 @@ public class Customer extends User {
 	 * @return 个人信用信息
 	 */
 	public int IndividualCredictInquiry(String userid)throws RemoteException{
-		return 	integral.getCredit((CustomerInfoVO)VOPOchange.POtoVO(userdataservice.GetCustomerInfo(userid)));
+		integral=(CreditController)factory.getCreditBLService();
+		return	integral.getCredit((CustomerInfoVO)VOPOchange.POtoVO(userdataservice.GetCustomerInfo(userid)));
 	}
 	
 	
@@ -356,7 +359,8 @@ public class Customer extends User {
 	 * @return 个人信用信息
 	 */
 	public ArrayList<CreditVO> IndividualCredictRecord(String userid)throws RemoteException{
-		return 	integral.getCreditList(userid);
+		integral=(CreditController)factory.getCreditBLService();
+		return integral.getCreditList(userid);
 	}
 	
 	/**
@@ -365,6 +369,7 @@ public class Customer extends User {
 	 * @return
 	 */
 	public ResultMsg personalOrderCancel(OrderVO orderVO)throws RemoteException{
+		order=(OrderOnUserController)factory.getOrderOnUserBLService();
 		return order.personalOrderCancel(orderVO);
 	}
 	

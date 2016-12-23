@@ -18,7 +18,6 @@ public class User {
 	
 	private UserManagementDataService data;
 	
-	
 	public User(UserManagementDataService data){
 		this.data=data;
 	}

@@ -6,7 +6,6 @@ import java.util.ArrayList;
 import bl.BusinessLogicDataFactory;
 import bl.VOPOchange;
 import bl.creditbl.CreditController;
-import blservice.creditblservice.CreditBLService;
 import dataservice.orderdataservice.OrderDataService;
 import po.CreditPO;
 import po.OrderPO;
@@ -19,7 +18,7 @@ import vo.OrderVO;
 public class OrderOnWeb {
 	
 	private OrderDataService webDataService;
-	private CreditBLService credit = BusinessLogicDataFactory.getFactory().getCreditBLService();
+	private CreditController credit;
 	
 	public OrderOnWeb(OrderDataService webDataService) {
 		this.webDataService = webDataService;
@@ -102,6 +101,7 @@ public class OrderOnWeb {
 		for(OrderPO webPO : webPOs) {
 			if(webPO.getOrderID().equals(ID)){
 				OrderVO orderVO = (OrderVO)VOPOchange.POtoVO(webPO);
+				credit = (CreditController)BusinessLogicDataFactory.getFactory().getCreditBLService();
 				if(b){
 					//ÐÞ¸Ä¶©µ¥×´Ì¬
 					webPO.setOrderState(OrderState.CANCELLED);

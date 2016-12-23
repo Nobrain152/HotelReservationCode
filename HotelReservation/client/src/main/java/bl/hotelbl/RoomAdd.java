@@ -125,4 +125,12 @@ public class RoomAdd {
 		
 	}
 
+	public void update(RoomInfoPO roomInfoPO) throws RemoteException {
+		roomData.update(roomInfoPO);
+	}
+
+	public RoomInfoPO findByRoomID(String string) throws RemoteException {
+		return roomData.findByRoomID(string);
+	}
+
 }

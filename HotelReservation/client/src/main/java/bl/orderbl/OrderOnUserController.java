@@ -1,16 +1,19 @@
 package bl.orderbl;
 
+import java.rmi.Remote;
 import java.rmi.RemoteException;
 import java.util.ArrayList;
 
+import bl.BusinessController;
 import blservice.orderblservice.OrderOnUserBLService;
 import dataservice.orderdataservice.OrderDataService;
+import dataservice.userdataservice.UserManagementDataService;
 import net.RMIManage;
 import util.DataServiceType;
 import util.ResultMsg;
 import vo.OrderVO;
 
-public class OrderOnUserController implements OrderOnUserBLService{
+public class OrderOnUserController extends BusinessController implements OrderOnUserBLService{
 
 	private OrderOnUser orderOnUser;
 	private OrderDataService userDataService;
@@ -63,6 +66,13 @@ public class OrderOnUserController implements OrderOnUserBLService{
 			e.printStackTrace();
 		}
 		return null;
+	}
+
+	@Override
+	public void reinitDataService(Remote dataService) {
+		userDataService = (OrderDataService)dataService;
+		orderOnUser = new OrderOnUser(userDataService);
+		
 	}
 
 }

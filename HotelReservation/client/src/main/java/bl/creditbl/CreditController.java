@@ -1,8 +1,10 @@
 package bl.creditbl;
 
+import java.rmi.Remote;
 import java.rmi.RemoteException;
 import java.util.ArrayList;
 
+import bl.BusinessController;
 import blservice.creditblservice.CreditBLService;
 import dataservice.creditdataservice.CreditDataService;
 import net.RMIManage;
@@ -12,7 +14,7 @@ import util.ResultMsg;
 import vo.CreditVO;
 import vo.CustomerInfoVO;
 
-public class CreditController implements CreditBLService{
+public class CreditController extends BusinessController implements CreditBLService{
 
 	private Credit credit;
 	private CreditDataService creditDataService;
@@ -111,6 +113,13 @@ public class CreditController implements CreditBLService{
 			e.printStackTrace();
 		}
 		return null;
+	}
+
+	@Override
+	public void reinitDataService(Remote dataService) {
+		creditDataService = (CreditDataService)dataService;
+		credit = new Credit(creditDataService);
+		
 	}
 
 }

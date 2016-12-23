@@ -1,3 +1,4 @@
+
 package vip;
 
 import static org.junit.Assert.assertEquals;

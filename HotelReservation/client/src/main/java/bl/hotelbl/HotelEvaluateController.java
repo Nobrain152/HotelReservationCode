@@ -2,9 +2,11 @@ package bl.hotelbl;
 
 
 
+import java.rmi.Remote;
 import java.rmi.RemoteException;
 import java.util.ArrayList;
 
+import bl.BusinessController;
 import blservice.hotelblservice.HotelEvaluateBLService;
 import dataservice.hoteldataservice.HotelEvaluateDataService;
 import net.RMIManage;
@@ -17,7 +19,7 @@ import vo.HotelEvaluateVO;
  * @author ²Ü³©
  *
  */
-public class HotelEvaluateController implements HotelEvaluateBLService{
+public class HotelEvaluateController extends BusinessController implements HotelEvaluateBLService{
 
 	private HotelEvaluate hotelEvaluate;
 	private HotelEvaluateDataService hotelEvaluateData;
@@ -77,6 +79,12 @@ public class HotelEvaluateController implements HotelEvaluateBLService{
 		} catch (RemoteException e) {
 			return null;
 		}
+	}
+
+	@Override
+	public void reinitDataService(Remote dataService) {
+		hotelEvaluateData = (HotelEvaluateDataService)dataService;
+		hotelEvaluate = new HotelEvaluate(hotelEvaluateData);
 	}
 	
 }

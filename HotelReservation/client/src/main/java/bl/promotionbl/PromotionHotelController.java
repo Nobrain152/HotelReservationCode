@@ -1,8 +1,10 @@
 package bl.promotionbl;
 
+import java.rmi.Remote;
 import java.rmi.RemoteException;
 import java.util.ArrayList;
 
+import bl.BusinessController;
 import blservice.promotionblservice.PromotionHotelBLService;
 import dataservice.promotiondataservice.PromotionHotelDataService;
 import net.RMIManage;
@@ -11,7 +13,7 @@ import util.PromotionHotelType;
 import util.ResultMsg;
 import vo.PromotionHotelVO;
 
-public class PromotionHotelController implements PromotionHotelBLService{
+public class PromotionHotelController extends BusinessController implements PromotionHotelBLService{
 
 	private PromotionHotel promotionHotel;
 	private PromotionHotelDataService hotelDataService;
@@ -165,6 +167,12 @@ public class PromotionHotelController implements PromotionHotelBLService{
 			e.printStackTrace();
 		}
 		return resultMsg;
+	}
+
+	@Override
+	public void reinitDataService(Remote dataService) {
+		hotelDataService = (PromotionHotelDataService) dataService;
+		promotionHotel = new PromotionHotel(hotelDataService);
 	}
 
 }

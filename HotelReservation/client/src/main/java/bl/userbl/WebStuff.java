@@ -6,9 +6,9 @@ import java.util.ArrayList;
 
 import bl.BusinessLogicDataFactory;
 import bl.VOPOchange;
-import blservice.creditblservice.CreditBLService;
-import blservice.orderblservice.OrderOnWebBLService;
-import blservice.promotionblservice.PromotionWebBLService;
+import bl.creditbl.CreditController;
+import bl.orderbl.OrderOnWebController;
+import bl.promotionbl.PromotionWebController;
 import dataservice.userdataservice.UserManagementDataService;
 import po.UserInfoPO;
 import util.PromotionWebType;
@@ -27,18 +27,14 @@ import vo.UserInfoVO;
 public class WebStuff extends User{
 
 	private UserManagementDataService user;
-	private PromotionWebBLService pro;
-	private OrderOnWebBLService order;
-	private CreditBLService inte;
-	private BusinessLogicDataFactory factory;
+	private PromotionWebController pro;
+	private OrderOnWebController order;
+	private CreditController inte;
+	private BusinessLogicDataFactory factory=BusinessLogicDataFactory.getFactory();
 	
 	
 	public  WebStuff(UserManagementDataService user){
 		super(user);
-		factory=BusinessLogicDataFactory.getFactory();
-		pro = factory.getPromotionWebBLService();
-		order = factory.getOrderOnWebBLService();
-		inte=factory.getCreditBLService();
 		this.user=user;
 	}
 	
@@ -82,6 +78,7 @@ public class WebStuff extends User{
 	public ResultMsg WebsiteStrategeCreate(PromotionWebVO vo)throws RemoteException{
 		PromotionWebType type=vo.getType();
 		ResultMsg msg=null;
+		pro = (PromotionWebController)factory.getPromotionWebBLService();
 		if(type==PromotionWebType.VIP_LEVEL_PROMOTION){
 			msg=pro.addLevelCut(vo.getLevel(),vo.getRatio());
 		}
@@ -102,6 +99,7 @@ public class WebStuff extends User{
 	public ResultMsg WebsiteStrategeMod(PromotionWebVO vo)throws RemoteException{
 		PromotionWebType type=vo.getType();
 		ResultMsg msg=null;
+		pro = (PromotionWebController)factory.getPromotionWebBLService();
 		if(type==PromotionWebType.VIP_LEVEL_PROMOTION){
 			msg=pro.changeLevelCut(vo.getLevel(),vo.getRatio());
 		}
@@ -121,8 +119,8 @@ public class WebStuff extends User{
 	 * @return 订单VO列表
 	 */
 	public ArrayList<OrderVO> AbnormalOrderScan()throws RemoteException{
+		order = (OrderOnWebController)factory.getOrderOnWebBLService();
 		return order.abnormalOrderScan();
-		
 	}
 			
 	/**
@@ -133,6 +131,7 @@ public class WebStuff extends User{
 	 */
 	public ResultMsg UserCreditModification(String userid,int n)throws RemoteException{
 		CustomerInfoVO vo=(CustomerInfoVO)VOPOchange.POtoVO(user.GetCustomerInfo(userid));
+		inte=(CreditController)factory.getCreditBLService();
 		return inte.addCredit(vo, n);
 	}
 
@@ -142,6 +141,7 @@ public class WebStuff extends User{
 	 * @return 网站营销策略列表
 	 */
 	public ArrayList<PromotionWebVO> WebsiteStrategeInquire(PromotionWebVO vo)throws RemoteException {
+		pro = (PromotionWebController)factory.getPromotionWebBLService();
 		return pro.getWebPromotion(vo.getType());
 	}
 
@@ -152,6 +152,7 @@ public class WebStuff extends User{
 	 */
 	public int userCreditInquire(String userid)throws RemoteException {
 		CustomerInfoVO vo=(CustomerInfoVO)VOPOchange.POtoVO(user.GetWebStuffInfo(userid));
+		inte=(CreditController)factory.getCreditBLService();
 		return inte.getCredit(vo);
 	}
 		
@@ -162,6 +163,7 @@ public class WebStuff extends User{
 	 * @throws RemoteException
 	 */
 	public ArrayList<OrderVO> dayUnexOrder(String today) throws RemoteException {
+		order = (OrderOnWebController)factory.getOrderOnWebBLService();
 		return order.dayUnexOrder(today);
 	}
 	
@@ -172,6 +174,7 @@ public class WebStuff extends User{
 	public ResultMsg WebsiteStrategeDelete(PromotionWebVO vo)throws RemoteException{
 		PromotionWebType type=vo.getType();
 		ResultMsg msg=null;
+		pro = (PromotionWebController)factory.getPromotionWebBLService();
 		if(type==PromotionWebType.VIP_LEVEL_PROMOTION){
 			msg=pro.deleteLevelCut(vo.getLevel());
 		}
@@ -184,6 +187,4 @@ public class WebStuff extends User{
 		
 		return msg;
 	}
-	
-	
-	}
+}

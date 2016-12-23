@@ -6,8 +6,8 @@ import java.util.ArrayList;
 
 import bl.BusinessLogicDataFactory;
 import bl.VOPOchange;
-import blservice.orderblservice.OrderOnHotelBLService;
-import blservice.vipblservice.VipLevelBLService;
+import bl.orderbl.OrderOnHotelController;
+import bl.vipbl.VipController;
 import dataservice.hoteldataservice.HotelInfoDataService;
 import dataservice.promotiondataservice.PromotionHotelDataService;
 import dataservice.promotiondataservice.PromotionWebDataService;
@@ -24,8 +24,8 @@ import vo.OrderVO;
 public class PromotionValue {
 
 	private PromotionHotelDataService promotionHotelDataService;
-	private VipLevelBLService vip = BusinessLogicDataFactory.getFactory().getVipLevelBLService();
-	private OrderOnHotelBLService orderBL = BusinessLogicDataFactory.getFactory().getOrderOnHotelBLService();
+	private VipController vip;
+	private OrderOnHotelController orderBL;
 	
 	public PromotionValue(PromotionHotelDataService promotionHotelDataService) {
 		this.promotionHotelDataService = promotionHotelDataService;
@@ -39,6 +39,8 @@ public class PromotionValue {
 		switch(hotelType) {
 		
 			case BIRTH_PROMOTION:
+				
+				vip = (VipController)BusinessLogicDataFactory.getFactory().getVipLevelBLService();
 				
 				if(user.getIsMember() && user.getVipType() == VipType.COMMON_VIP) {
 					for(PromotionHotelPO hotelPO : po) {
@@ -95,8 +97,9 @@ public class PromotionValue {
 			default:
 				break;
 		}
-		// TODO 
+
 		OrderPO poTmp = (OrderPO)VOPOchange.VOtoPO(order);
+		orderBL = (OrderOnHotelController)BusinessLogicDataFactory.getFactory().getOrderOnHotelBLService();
 		orderBL.update(poTmp);
 		
 		return order;
@@ -131,6 +134,8 @@ public class PromotionValue {
 				break;
 				
 			case VIP_LEVEL_PROMOTION:
+				
+				vip = (VipController)BusinessLogicDataFactory.getFactory().getVipLevelBLService();
 				
 				if(user.getIsMember()){
 					for(PromotionWebPO hotelPO : po) {

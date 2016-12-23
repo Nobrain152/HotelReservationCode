@@ -6,9 +6,7 @@ import java.util.ArrayList;
 
 import bl.BusinessLogicDataFactory;
 import bl.VOPOchange;
-import blservice.hotelblservice.HotelInfoCheckBLService;
-import blservice.hotelblservice.HotelInfoMaintainBLService;
-import blservice.orderblservice.OrderOnUserBLService;
+import bl.orderbl.OrderOnUserController;
 import dataservice.hoteldataservice.HotelEvaluateDataService;
 import po.HotelEvaluatePO;
 import util.OrderState;
@@ -25,18 +23,14 @@ import vo.OrderVO;
 public class HotelEvaluate {
 	
 	private HotelEvaluateDataService evaluateData;
-	private HotelInfoCheckBLService check;
-	private BusinessLogicDataFactory factory;
-	private HotelInfoMaintainBLService maint;
-	private OrderOnUserBLService order;
+	private HotelInfoCheckController check;
+	private BusinessLogicDataFactory factory = BusinessLogicDataFactory.getFactory();
+	private HotelInfoMaintainController maint;
+	private OrderOnUserController order;
 	ResultMsg result;
 	
 	public HotelEvaluate(HotelEvaluateDataService evaluateDataService){
 		this.evaluateData = evaluateDataService;
-		this.factory=BusinessLogicDataFactory.getFactory();
-		this.check=factory.getHotelInfoCheckBLService();
-		this.maint=factory.getHotelInfoMaintainBLService();
-		this.order=factory.getOrderOnUserBLService();
 	}
 	
 	/**
@@ -49,6 +43,7 @@ public class HotelEvaluate {
 		if(checkOrder(evaluateInfoVO)==ResultMsg.SUCCESS){
 			HotelEvaluatePO evaluatePO = (HotelEvaluatePO)VOPOchange.VOtoPO(evaluateInfoVO);
 			result = evaluateData.insert(evaluatePO);
+			check=(HotelInfoCheckController)factory.getHotelInfoCheckBLService();
 			HotelInfoVO vo=check.checkHotelInfo(evaluateInfoVO.getHotelID());
 			ArrayList<HotelEvaluateVO> past=getEvaluate(evaluateInfoVO.getHotelID());
 			double sum=0;
@@ -57,6 +52,7 @@ public class HotelEvaluate {
 			}
 			sum=sum/(past.size()+1);
 			vo.setScore(sum);
+			this.maint=(HotelInfoMaintainController)factory.getHotelInfoMaintainBLService();
 			ResultMsg r2=maint.inputHotelInfo(vo);
 			if(r2==ResultMsg.SUCCESS){
 				return result;
@@ -74,6 +70,7 @@ public class HotelEvaluate {
 	 * @throws RemoteException
 	 */
 	public ResultMsg checkOrder(HotelEvaluateVO evaluateInfoVO) throws RemoteException{
+		order=(OrderOnUserController)factory.getOrderOnUserBLService();
 		OrderVO PO =order.personalOrderDetail(evaluateInfoVO.getOrderID());
 		OrderState state=PO.getOrderState();
 		if(state==OrderState.EXECUTED)

@@ -6,7 +6,7 @@ import java.util.ArrayList;
 
 import bl.BusinessLogicDataFactory;
 import bl.VOPOchange;
-import blservice.userblservice.CustomerIndividualInformationManagementBLService;
+import bl.userbl.CustomerInfoManagementController;
 import dataservice.vipdataservice.VipDataService;
 import po.BusinessVipPO;
 import po.CommonVipPO;
@@ -22,7 +22,7 @@ import vo.LevelSystemVO;
 public class Vip {
 	
 	private VipDataService vipDataService;
-	private CustomerIndividualInformationManagementBLService customer = BusinessLogicDataFactory.getFactory().getCustomerIndividualInformationManagementBLService();
+	private CustomerInfoManagementController customer;
 	
 	public Vip(VipDataService vipDataService) {
 		this.vipDataService = vipDataService;
@@ -67,6 +67,7 @@ public class Vip {
 	 */
 	public ResultMsg registerVip(String userID, VipType type, String str) throws RemoteException {
 		ResultMsg resultMsg = ResultMsg.FAIL;
+		customer = (CustomerInfoManagementController)BusinessLogicDataFactory.getFactory().getCustomerIndividualInformationManagementBLService();
 		CustomerInfoPO customerInfoPO = customer.getCustomerInfo(userID);
 		CustomerInfoVO customerInfoVO = (CustomerInfoVO)VOPOchange.POtoVO(customerInfoPO);
 	

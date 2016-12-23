@@ -1,8 +1,10 @@
 package bl.userbl;
 
+import java.rmi.Remote;
 import java.rmi.RemoteException;
 import java.util.ArrayList;
 
+import bl.BusinessController;
 import blservice.userblservice.CustomerIndividualInformationManagementBLService;
 import dataservice.userdataservice.CustomerManagementDataService;
 import dataservice.userdataservice.UserManagementDataService;
@@ -22,7 +24,7 @@ import vo.OrderVO;
  * @author ²Ü³©
  *
  */
-public class CustomerInfoManagementController
+public class CustomerInfoManagementController extends BusinessController
 		implements CustomerIndividualInformationManagementBLService {
 	
 	private Customer customer;
@@ -266,6 +268,13 @@ public class CustomerInfoManagementController
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+	}
+
+
+	@Override
+	public void reinitDataService(Remote dataService) {
+		customerManagementDataService = (CustomerManagementDataService)dataService;
+		customer = new Customer(customerManagementDataService);
 	}
 
 

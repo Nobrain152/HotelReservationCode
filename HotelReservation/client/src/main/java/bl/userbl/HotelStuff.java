@@ -5,11 +5,11 @@ import java.util.ArrayList;
 
 import bl.BusinessLogicDataFactory;
 import bl.VOPOchange;
-import blservice.hotelblservice.HotelInfoCheckBLService;
-import blservice.hotelblservice.HotelInfoMaintainBLService;
-import blservice.hotelblservice.RoomAddBLService;
-import blservice.orderblservice.OrderOnHotelBLService;
-import blservice.promotionblservice.PromotionHotelBLService;
+import bl.hotelbl.HotelInfoCheckController;
+import bl.hotelbl.HotelInfoMaintainController;
+import bl.hotelbl.RoomAddController;
+import bl.orderbl.OrderOnHotelController;
+import bl.promotionbl.PromotionHotelController;
 import dataservice.userdataservice.UserManagementDataService;
 import po.StuffInfoPO;
 import util.OrderState;
@@ -30,25 +30,19 @@ import vo.StuffInfoVO;
  *
  */
 public class HotelStuff extends User {
-	private HotelInfoMaintainBLService mod;
-	private HotelInfoCheckBLService hotel;
-	private OrderOnHotelBLService order;
-	private RoomAddBLService room;
+	private HotelInfoMaintainController mod;
+	private HotelInfoCheckController hotel;
+	private OrderOnHotelController order;
+	private RoomAddController room;
 	private StuffInfoVO userInfoVO;
 	private UserManagementDataService userDataService;
-	private PromotionHotelBLService promotion;
-	private BusinessLogicDataFactory factory;
+	private PromotionHotelController promotion;
+	private BusinessLogicDataFactory factory=BusinessLogicDataFactory.getFactory();;
 	
 	
 	public HotelStuff(UserManagementDataService user){
 		super(user);
-		factory=BusinessLogicDataFactory.getFactory();
 		this.userDataService=user;
-		mod=factory.getHotelInfoMaintainBLService();
-		order=factory.getOrderOnHotelBLService();
-		room=factory.getRoomAddBLService();
-		hotel=factory.getHotelInfoCheckBLService();
-		promotion=factory.getPromotionHotelBLService();
 	}
 	
 	
@@ -58,6 +52,7 @@ public class HotelStuff extends User {
 	 * @return 酒店信息VO
 	 */
 	public HotelInfoVO HotelInformationInquiry(String hotelid)throws RemoteException{
+		hotel=(HotelInfoCheckController)factory.getHotelInfoCheckBLService();
 		return hotel.checkHotelInfo(hotelid);
 	}
 			
@@ -69,6 +64,7 @@ public class HotelStuff extends User {
 	 */
 	public ResultMsg HotelInformationModification(HotelInfoVO vo1,String userid)throws RemoteException{
 		if(userid.charAt(0)=='2'){
+			mod=(HotelInfoMaintainController)factory.getHotelInfoMaintainBLService();
 			return mod.inputHotelInfo(vo1);
 		}
 		return ResultMsg.UNAUYHORIZED;
@@ -84,6 +80,7 @@ public class HotelStuff extends User {
 	public boolean HotelStrategeManage(PromotionHotelVO vo)throws RemoteException{
 		PromotionHotelType type=vo.getType();
 		ResultMsg msg=null;
+		promotion=(PromotionHotelController)factory.getPromotionHotelBLService();
 		if(type==PromotionHotelType.BIRTH_PROMOTION){
 			msg=promotion.changeBirthCut(vo.getLevel(),vo.getRatio(),vo.getHotelID());
 		}
@@ -114,6 +111,7 @@ public class HotelStuff extends User {
 	public boolean HotelStrategeAdd(PromotionHotelVO vo)throws RemoteException{
 		PromotionHotelType type=vo.getType();
 		ResultMsg msg=null;
+		promotion=(PromotionHotelController)factory.getPromotionHotelBLService();
 		if(type==PromotionHotelType.BIRTH_PROMOTION){
 			msg=promotion.addBirthCut(vo.getLevel(),vo.getRatio(),vo.getHotelID());
 		}
@@ -144,6 +142,7 @@ public class HotelStuff extends User {
 	 */
 	public ResultMsg OrderStateUpdate(String userid,OrderVO vo2) throws RemoteException{
 		if(userid.charAt(0)=='2'){
+			order=(OrderOnHotelController)factory.getOrderOnHotelBLService();
 			return order.hotelOrderModify(vo2);
 		}
 		return ResultMsg.FAIL;
@@ -155,6 +154,7 @@ public class HotelStuff extends User {
 	 * @return 订单VO列表
 	 */
 	public ArrayList<OrderVO> OrderScan(String hotelid)throws RemoteException{
+		order=(OrderOnHotelController)factory.getOrderOnHotelBLService();
 		return order.hotelOrderScan(hotelid);
 	}
 	
@@ -183,6 +183,7 @@ public class HotelStuff extends User {
 	 * @return 订单VO列表
 	 */
 	public ArrayList<OrderVO> AbnormalOrderScan(String hotelid)throws RemoteException{
+		order=(OrderOnHotelController)factory.getOrderOnHotelBLService();
 		ArrayList<OrderVO> all = order.hotelOrderScan(hotelid);
 		ArrayList<OrderVO> res=new ArrayList<OrderVO>();
 		for(OrderVO vo:all){
@@ -204,6 +205,7 @@ public class HotelStuff extends User {
 		ArrayList<OrderVO> all=AbnormalOrderScan(hotelid);
 		for(OrderVO vo:all){
 			if(vo.getOrderID().equals(orderid)){
+				order=(OrderOnHotelController)factory.getOrderOnHotelBLService();
 				return order.hotelOrderModify(vo);
 			}
 		}
@@ -216,6 +218,7 @@ public class HotelStuff extends User {
 	 * @return 酒店促销策略列表
 	 */
 	public ArrayList<PromotionHotelVO> HotelPromotionInquire(PromotionHotelVO vo)throws RemoteException {
+		promotion=(PromotionHotelController)factory.getPromotionHotelBLService();
 		return promotion.getHotelPromotion(vo.getType(),vo.getHotelID());
 	}
 
@@ -224,6 +227,7 @@ public class HotelStuff extends User {
 	 * @param 房间信息VO
 	 */
 	public ResultMsg UpdateRoomState(RoomInfoVO vo)throws RemoteException {
+		room=(RoomAddController)factory.getRoomAddBLService();
 		return room.updateRoom(vo);
 		
 	}
@@ -233,6 +237,7 @@ public class HotelStuff extends User {
 	 * @param rooms
 	 */
 	public ResultMsg TypeInRoom(RoomInfoVO roo)throws RemoteException{
+		room=(RoomAddController)factory.getRoomAddBLService();
 		return room.addRoom(roo);
 	}
 	
@@ -244,6 +249,7 @@ public class HotelStuff extends User {
 	 * @throws RemoteException
 	 */
 	public ArrayList<RoomInfoVO> HotelRoomList(String hotelid)throws RemoteException{
+		room=(RoomAddController)factory.getRoomAddBLService();
 		return room.HotelRoomSearch(hotelid);
 	}
 	
@@ -254,6 +260,7 @@ public class HotelStuff extends User {
 	 * @throws RemoteException
 	 */
 	public ResultMsg SetRoomInfo(ArrayList<RoomInfoVO> rooms)throws RemoteException{
+		room=(RoomAddController)factory.getRoomAddBLService();
 		return room.HotelRoomMod(rooms.get(0).getHotelid(), rooms);
 	}
 	
@@ -300,6 +307,7 @@ public class HotelStuff extends User {
 	public boolean HotelStrategeDelete(PromotionHotelVO vo)throws RemoteException{
 		PromotionHotelType type=vo.getType();
 		ResultMsg msg=null;
+		promotion=(PromotionHotelController)factory.getPromotionHotelBLService();
 		if(type==PromotionHotelType.BIRTH_PROMOTION){
 			msg=promotion.deleteBirthCut(vo.getLevel(),vo.getHotelID());
 		}

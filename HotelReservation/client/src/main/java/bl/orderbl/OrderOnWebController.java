@@ -1,8 +1,10 @@
 package bl.orderbl;
 
+import java.rmi.Remote;
 import java.rmi.RemoteException;
 import java.util.ArrayList;
 
+import bl.BusinessController;
 import blservice.orderblservice.OrderOnWebBLService;
 import dataservice.orderdataservice.OrderDataService;
 import net.RMIManage;
@@ -10,7 +12,7 @@ import util.DataServiceType;
 import util.ResultMsg;
 import vo.OrderVO;
 
-public class OrderOnWebController implements OrderOnWebBLService{
+public class OrderOnWebController extends BusinessController implements OrderOnWebBLService{
 
 	private OrderOnWeb orderOnWeb;
 	private OrderDataService orderOnWebDataService;
@@ -62,6 +64,13 @@ public class OrderOnWebController implements OrderOnWebBLService{
 			e.printStackTrace();
 		}
 		return null;
+	}
+
+	@Override
+	public void reinitDataService(Remote dataService) {
+		orderOnWebDataService = (OrderDataService)dataService;
+		orderOnWeb = new OrderOnWeb(orderOnWebDataService);
+		
 	}
 
 }

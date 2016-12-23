@@ -5,8 +5,8 @@ import java.util.ArrayList;
 
 import bl.BusinessLogicDataFactory;
 import bl.VOPOchange;
-import blservice.userblservice.CustomerIndividualInformationManagementBLService;
-import blservice.vipblservice.VipLevelBLService;
+import bl.userbl.CustomerInfoManagementController;
+import bl.vipbl.VipController;
 import dataservice.creditdataservice.CreditDataService;
 import po.BusinessVipPO;
 import po.CommonVipPO;
@@ -21,8 +21,8 @@ import vo.CustomerInfoVO;
 public class Credit {
 
 	private CreditDataService creditDataService;
-	private VipLevelBLService vip = BusinessLogicDataFactory.getFactory().getVipLevelBLService();
-	private CustomerIndividualInformationManagementBLService customer = BusinessLogicDataFactory.getFactory().getCustomerIndividualInformationManagementBLService();
+	private VipController vip;
+	private CustomerInfoManagementController customer;
 	ResultMsg resultMsg;
 	
 	public Credit(CreditDataService creditDataService) {
@@ -44,10 +44,12 @@ public class Credit {
 			creditPO.setCreditChange("+" + value);
 			creditPO.setTime(new Today().getToday());
 			
+			customer = (CustomerInfoManagementController)BusinessLogicDataFactory.getFactory().
+					getCustomerIndividualInformationManagementBLService();
 			CustomerInfoPO customerInfoPO = customer.getCustomerInfo(client.getUserID());
 			customerInfoPO.setCredit(creditPO.getCreditResult());
 			customer.setCustomerInfo(client.getUserID(), customerInfoPO);
-			
+			vip = (VipController)BusinessLogicDataFactory.getFactory().getVipLevelBLService();
 			if(client.getVipType() == VipType.COMMON_VIP){
 				CommonVipPO commonVipPO = vip.findByUserIDC(client.getUserID());
 				commonVipPO.setCredit(creditPO.getCreditResult());
@@ -72,7 +74,7 @@ public class Credit {
 			creditPO.setCreditResult(creditPO.getCreditResult() - value);
 			creditPO.setCreditChange("-" + value);
 			creditPO.setTime(new Today().getToday());
-			
+			vip = (VipController)BusinessLogicDataFactory.getFactory().getVipLevelBLService();
 			if(client.getVipType() == VipType.COMMON_VIP){
 				CommonVipPO commonVipPO = vip.findByUserIDC(client.getUserID());
 				commonVipPO.setCredit(creditPO.getCreditResult());
@@ -97,7 +99,7 @@ public class Credit {
 			creditPO.setCreditResult(value);
 			creditPO.setCreditChange("t" + value);
 			creditPO.setTime(new Today().getToday());
-			
+			vip = (VipController)BusinessLogicDataFactory.getFactory().getVipLevelBLService();
 			if(client.getVipType() == VipType.COMMON_VIP){
 				CommonVipPO commonVipPO = vip.findByUserIDC(client.getUserID());
 				commonVipPO.setCredit(creditPO.getCreditResult());

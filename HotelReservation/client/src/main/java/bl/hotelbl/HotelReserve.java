@@ -4,7 +4,6 @@ import java.rmi.RemoteException;
 import java.util.ArrayList;
 
 import bl.BusinessLogicDataFactory;
-import blservice.hotelblservice.RoomAddBLService;
 import dataservice.hoteldataservice.HotelInfoDataService;
 import util.ResultMsg;
 import util.RoomState;
@@ -19,14 +18,11 @@ import vo.RoomInfoVO;
  */
 public class HotelReserve {
 	private HotelInfoDataService hotelInfoData;
-	private RoomAddBLService roomcon;
-	private BusinessLogicDataFactory factory;
+	private RoomAddController roomcon;
+	private BusinessLogicDataFactory factory=BusinessLogicDataFactory.getFactory();
 	
 	public HotelReserve(HotelInfoDataService hotelInfoDataService){
 		this.hotelInfoData=hotelInfoDataService;
-		factory=BusinessLogicDataFactory.getFactory();
-		roomcon=factory.getRoomAddBLService();
-		
 	}
 	
 	/**
@@ -43,6 +39,7 @@ public class HotelReserve {
 		}
 		String hotelid=vo.getHotelID();
 		int number=vo.getRoomNumber();
+		roomcon=(RoomAddController)factory.getRoomAddBLService();
 		ArrayList<RoomInfoVO> room=roomcon.HotelRoomSearch(hotelid);
 		System.out.println(room.size());
 		for(RoomInfoVO v:room ){

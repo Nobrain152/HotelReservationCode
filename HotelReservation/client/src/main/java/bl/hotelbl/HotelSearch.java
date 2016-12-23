@@ -5,7 +5,6 @@ import java.util.ArrayList;
 
 import bl.BusinessLogicDataFactory;
 import bl.VOPOchange;
-import blservice.hotelblservice.RoomAddBLService;
 import dataservice.hoteldataservice.HotelInfoDataService;
 import po.HotelInfoPO;
 import vo.HotelInfoVO;
@@ -19,14 +18,12 @@ import vo.RoomInfoVO;
 public class HotelSearch {
 	private HotelInfoDataService hotelData;
 	public ArrayList<HotelInfoVO> hotelList;
-	private RoomAddBLService room;
-	private BusinessLogicDataFactory factory;
+	private RoomAddController room;
+	private BusinessLogicDataFactory factory=BusinessLogicDataFactory.getFactory();
 	
 	public HotelSearch(HotelInfoDataService hotelDataService){
 		this.hotelData=hotelDataService;
 		hotelList = new ArrayList<HotelInfoVO>();
-		factory=BusinessLogicDataFactory.getFactory();
-		room=factory.getRoomAddBLService();
 	}
 
 	/**
@@ -68,6 +65,7 @@ public class HotelSearch {
 			if(roomin!=null){
 				for(int i=0;i<pos.size();i++){
 					String hotelid=pos.get(i).getHotelID();
+					room=(RoomAddController)factory.getRoomAddBLService();
 					ArrayList<RoomInfoVO> r=room.HotelRoomSearch(hotelid);
 					for(int j=0;j<r.size();j++){
 						if(roomin.getPrice()!=0){

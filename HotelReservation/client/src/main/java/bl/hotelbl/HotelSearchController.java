@@ -1,8 +1,10 @@
 package bl.hotelbl;
 
+import java.rmi.Remote;
 import java.rmi.RemoteException;
 import java.util.ArrayList;
 
+import bl.BusinessController;
 import blservice.hotelblservice.HotelSearchBLService;
 import dataservice.hoteldataservice.HotelInfoDataService;
 import net.RMIManage;
@@ -15,7 +17,7 @@ import vo.RoomInfoVO;
  * @author ²Ü³©
  * 
  */
-public class HotelSearchController implements HotelSearchBLService{
+public class HotelSearchController extends BusinessController implements HotelSearchBLService{
 	public ArrayList<HotelInfoVO> hotelList;
 	private HotelSearch hotelSearch;
 	private HotelInfoDataService hotelInfoData;
@@ -38,6 +40,12 @@ public class HotelSearchController implements HotelSearchBLService{
 			e.printStackTrace();
 		}
 		return null;
+	}
+
+	@Override
+	public void reinitDataService(Remote dataService) {
+		hotelInfoData = (HotelInfoDataService)dataService;
+		hotelSearch = new HotelSearch(hotelInfoData);
 	}
 	
 	

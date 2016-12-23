@@ -5,8 +5,8 @@ import java.util.ArrayList;
 
 import bl.BusinessLogicDataFactory;
 import bl.VOPOchange;
-import blservice.hotelblservice.HotelInfoCheckBLService;
-import blservice.hotelblservice.HotelInfoMaintainBLService;
+import bl.hotelbl.HotelInfoCheckController;
+import bl.hotelbl.HotelInfoMaintainController;
 import dataservice.userdataservice.UserManagementDataService;
 import po.CustomerInfoPO;
 import po.StuffInfoPO;
@@ -26,16 +26,13 @@ import vo.UserInfoVO;
 
 public class WebManager extends User {
 	private UserManagementDataService data;
-	private HotelInfoCheckBLService check;
-	private HotelInfoMaintainBLService main;
-	private BusinessLogicDataFactory factory;
+	private HotelInfoCheckController check;
+	private HotelInfoMaintainController main;
+	private BusinessLogicDataFactory factory=BusinessLogicDataFactory.getFactory();
 	
 	public WebManager(UserManagementDataService data){
 		super(data);
-		factory=BusinessLogicDataFactory.getFactory();
 		this.data=data;
-		check=factory.getHotelInfoCheckBLService();
-		main=factory.getHotelInfoMaintainBLService();
 	}
 	/**
 	 * 查看个人信息	
@@ -74,6 +71,7 @@ public class WebManager extends User {
 	 * @param 酒店信息VO
 	 */
 	public String HotelAdd(HotelInfoVO vo)throws RemoteException{
+		main=(HotelInfoMaintainController)factory.getHotelInfoMaintainBLService();
 		return main.addHotel(vo);
 	}
 			
@@ -102,6 +100,7 @@ public class WebManager extends User {
 	 * @return 酒店信息列表
 	 */
 	public ArrayList<HotelInfoVO> HotelScan()throws RemoteException {
+		check=(HotelInfoCheckController)factory.getHotelInfoCheckBLService();
 		return check.hotelScan();
 	}
 	

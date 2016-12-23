@@ -1,8 +1,10 @@
 package bl.hotelbl;
 
+import java.rmi.Remote;
 import java.rmi.RemoteException;
 import java.util.ArrayList;
 
+import bl.BusinessController;
 import blservice.hotelblservice.RoomAddBLService;
 import dataservice.hoteldataservice.RoomInfoDataService;
 import net.RMIManage;
@@ -17,7 +19,7 @@ import vo.RoomInfoVO;
  * @author ²Ü³©
  *
  */
-public class RoomAddController implements RoomAddBLService{
+public class RoomAddController extends BusinessController implements RoomAddBLService{
 	public ArrayList<RoomInfoVO> roomList;
 	private RoomAdd roomAdd;
 	private RoomInfoDataService roomInfoData;
@@ -126,7 +128,7 @@ public class RoomAddController implements RoomAddBLService{
 	@Override
 	public RoomInfoPO findByRoomID(String string) {
 		try {
-			return roomInfoData.findByRoomID(string);
+			return roomAdd.findByRoomID(string);
 		} catch (RemoteException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -137,11 +139,18 @@ public class RoomAddController implements RoomAddBLService{
 	@Override
 	public void update(RoomInfoPO roomInfoPO) {
 		try {
-			roomInfoData.update(roomInfoPO);
+			roomAdd.update(roomInfoPO);
 		} catch (RemoteException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+	}
+
+	@Override
+	public void reinitDataService(Remote dataService) {
+		roomInfoData = (RoomInfoDataService)dataService;
+		roomAdd = new RoomAdd(roomInfoData);
+		
 	}
 	
 }

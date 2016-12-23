@@ -1,8 +1,10 @@
 package bl.promotionbl;
 
+import java.rmi.Remote;
 import java.rmi.RemoteException;
 import java.util.ArrayList;
 
+import bl.BusinessController;
 import blservice.promotionblservice.PromotionWebBLService;
 import dataservice.promotiondataservice.PromotionWebDataService;
 import net.RMIManage;
@@ -12,7 +14,7 @@ import util.PromotionWebType;
 import util.ResultMsg;
 import vo.PromotionWebVO;
 
-public class PromotionWebController implements PromotionWebBLService{
+public class PromotionWebController extends BusinessController implements PromotionWebBLService{
 	
 	private PromotionWeb promotionWeb;
 	private PromotionWebDataService webDataService;
@@ -133,6 +135,13 @@ public class PromotionWebController implements PromotionWebBLService{
 			e.printStackTrace();
 		}
 		return resultMsg;
+	}
+
+	@Override
+	public void reinitDataService(Remote dataService) {
+		webDataService = (PromotionWebDataService)dataService;
+		promotionWeb= new PromotionWeb(webDataService);
+		
 	}
 
 }

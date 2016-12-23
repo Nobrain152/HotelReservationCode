@@ -1,7 +1,9 @@
 package bl.hotelbl;
 
+import java.rmi.Remote;
 import java.rmi.RemoteException;
 
+import bl.BusinessController;
 import blservice.hotelblservice.HotelReserveBLService;
 import dataservice.hoteldataservice.HotelInfoDataService;
 import net.RMIManage;
@@ -15,7 +17,7 @@ import vo.OrderVO;
  * @author ²Ü³©
  *
  */
-public class HotelReserveController implements HotelReserveBLService{
+public class HotelReserveController extends BusinessController implements HotelReserveBLService{
 	private HotelReserve hotelReserve;
 	private HotelInfoDataService hotelInfoData;
 	
@@ -38,6 +40,12 @@ public class HotelReserveController implements HotelReserveBLService{
 			return ResultMsg.FAIL;
 		}
 		
+	}
+
+	@Override
+	public void reinitDataService(Remote dataService) {
+		hotelInfoData = (HotelInfoDataService)dataService;
+		hotelReserve = new HotelReserve(hotelInfoData);
 	}
 	
       

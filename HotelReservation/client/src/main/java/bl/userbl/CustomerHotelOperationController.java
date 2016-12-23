@@ -1,8 +1,10 @@
 package bl.userbl;
 
+import java.rmi.Remote;
 import java.rmi.RemoteException;
 import java.util.ArrayList;
 
+import bl.BusinessController;
 import blservice.userblservice.CustomerHotelOperationBlService;
 import dataservice.userdataservice.CustomerManagementDataService;
 import net.RMIManage;
@@ -21,7 +23,7 @@ import vo.RoomInfoVO;
  * @author ²Ü³©
  *
  */
-public class CustomerHotelOperationController implements CustomerHotelOperationBlService {
+public class CustomerHotelOperationController extends BusinessController implements CustomerHotelOperationBlService {
 	
 	private Customer customer;
 	private CustomerManagementDataService customerManagementDataService;
@@ -114,6 +116,13 @@ public class CustomerHotelOperationController implements CustomerHotelOperationB
 		} catch (RemoteException e) {
 			e.printStackTrace();
 		}
+	}
+
+
+	@Override
+	public void reinitDataService(Remote dataService) {
+		customerManagementDataService = (CustomerManagementDataService)dataService;
+		customer = new Customer(customerManagementDataService);
 	}
 			
 	

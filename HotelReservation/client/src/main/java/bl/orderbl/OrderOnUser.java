@@ -63,7 +63,7 @@ public class OrderOnUser {
 	 * @return void
 	 * @throws RemoteException 
 	 */
-	public ResultMsg createOrder(OrderVO orderVO) throws RemoteException {
+	public String createOrder(OrderVO orderVO) throws RemoteException {
 		
 		CustomerInfoPO customerInfoPO = (CustomerInfoPO)VOPOchange.VOtoPO(orderVO.getInitiator());
 		
@@ -105,9 +105,9 @@ public class OrderOnUser {
 				
 			}
 			userDataService.insert((OrderPO)VOPOchange.VOtoPO(orderVO));
-			return ResultMsg.SUCCESS;
+			return orderVO.getOrderID();
 		}else{
-			return ResultMsg.FAIL;
+			return orderVO.getOrderID();
 		}
 		
 	}

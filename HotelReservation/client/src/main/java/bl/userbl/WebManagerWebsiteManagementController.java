@@ -52,6 +52,8 @@ public class WebManagerWebsiteManagementController implements WebManagerWebsiteM
 	 */
 	public ResultMsg UserInformationModification(String userid,UserInfoVO vo2){
 		try {
+			//System.out.println(userid);
+			//return ResultMsg.SUCCESS;
 			return manager.UserInformationModification(userid, vo2);
 		} catch (RemoteException e) {
 			e.printStackTrace();

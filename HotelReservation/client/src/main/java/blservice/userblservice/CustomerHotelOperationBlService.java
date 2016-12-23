@@ -1,5 +1,6 @@
 package blservice.userblservice;
 
+import java.rmi.RemoteException;
 import java.util.ArrayList;
 
 import util.ResultMsg;
@@ -55,6 +56,13 @@ public interface CustomerHotelOperationBlService{
 	 */
 	public ArrayList<HotelInfoVO> sortHotel(ArrayList<HotelInfoVO> before,Sort type);
 	
-		
+	/**
+	 * 根据酒店ID和用户ID返回订单列表
+	 * @param hotelid
+	 * @param userid
+	 * @return
+	 * @throws RemoteException
+	 */
+	public ArrayList<OrderVO> getHotelOrder(String hotelid,String userid);	
 			
 }

@@ -59,6 +59,7 @@ public class User {
 	 */
 	public String Register(CustomerInfoVO vo)throws RemoteException{
 		CustomerInfoPO po=(CustomerInfoPO)VOPOchange.VOtoPO(vo);
+		po.setCredit(0);
 		po.setPassword(MD5Util.md5Encode(po.getPassword()));
 		return data.AddCustomer(po);
 	}

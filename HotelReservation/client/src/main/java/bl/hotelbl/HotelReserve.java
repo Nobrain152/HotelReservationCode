@@ -35,6 +35,10 @@ public class HotelReserve {
 	 * @throws RemoteException
 	 */
 	public ResultMsg reserveHotel(OrderVO vo) throws RemoteException{
+		int cre=vo.getInitiator().getCredit();
+		if(cre<0){
+			return ResultMsg.FAIL;
+		}
 		String hotelid=vo.getHotelID();
 		int number=vo.getRoomNumber();
 		Date date=new Date(vo.getCheckInTime(),vo.getCheckOutTime() );

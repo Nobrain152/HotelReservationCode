@@ -62,6 +62,21 @@ public class CustomerHotelOperationController implements CustomerHotelOperationB
 	}
 	
 	/**
+	 * 根据酒店ID和用户ID返回订单列表
+	 * @param hotelid
+	 * @param userid
+	 * @return
+	 * @throws RemoteException
+	 */
+	public ArrayList<OrderVO> getHotelOrder(String hotelid,String userid){
+		try {
+			return customer.getHotelOrder(hotelid, userid);
+		} catch (RemoteException e) {
+			e.printStackTrace();
+			return null;
+		}
+	}
+	/**
 	 * 根据排序种类返回排好序的酒店列表
 	 * @param before
 	 * @param type

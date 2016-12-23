@@ -6,9 +6,9 @@ import java.util.ArrayList;
 
 import bl.BusinessLogicDataFactory;
 import bl.VOPOchange;
+import bl.hotelbl.HotelInfoMaintainController;
 import bl.orderbl.OrderOnHotelController;
 import bl.vipbl.VipController;
-import dataservice.hoteldataservice.HotelInfoDataService;
 import dataservice.promotiondataservice.PromotionHotelDataService;
 import dataservice.promotiondataservice.PromotionWebDataService;
 import po.OrderPO;
@@ -25,6 +25,7 @@ public class PromotionValue {
 
 	private PromotionHotelDataService promotionHotelDataService;
 	private VipController vip;
+	private HotelInfoMaintainController hotelInfo;
 	private OrderOnHotelController orderBL;
 	
 	public PromotionValue(PromotionHotelDataService promotionHotelDataService) {
@@ -100,13 +101,13 @@ public class PromotionValue {
 
 		OrderPO poTmp = (OrderPO)VOPOchange.VOtoPO(order);
 		orderBL = (OrderOnHotelController)BusinessLogicDataFactory.getFactory().getOrderOnHotelBLService();
+		System.out.println(orderBL);
 		orderBL.update(poTmp);
 		
 		return order;
 	}
 
 	private PromotionWebDataService promotionWebDataService;
-	private HotelInfoDataService dataService;
 	
 	public PromotionValue(PromotionWebDataService promotionWebDataService) {
 		this.promotionWebDataService = promotionWebDataService;
@@ -123,7 +124,9 @@ public class PromotionValue {
 				
 				if(user.getIsMember()) {
 					for(PromotionWebPO hotelPO : po) {
-						Area location = dataService.find(order.getHotelID()).getArea();
+						hotelInfo = (HotelInfoMaintainController)BusinessLogicDataFactory.getFactory().
+								getHotelInfoMaintainBLService();
+						Area location = hotelInfo.find(order.getHotelID()).getArea();
 						if(hotelPO.getLocation() == location) {
 							ratio = hotelPO.getRatio();
 							break;
@@ -167,6 +170,8 @@ public class PromotionValue {
 		}
 		
 		OrderPO poTmp = (OrderPO)VOPOchange.VOtoPO(order);
+		orderBL = (OrderOnHotelController)BusinessLogicDataFactory.
+				getFactory().getOrderOnHotelBLService();
 		orderBL.update(poTmp);
 		
 		return order;

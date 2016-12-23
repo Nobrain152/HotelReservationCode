@@ -1,10 +1,8 @@
 package bl.orderbl;
 
-import java.rmi.Remote;
 import java.rmi.RemoteException;
 import java.util.ArrayList;
 
-import bl.BusinessController;
 import blservice.orderblservice.OrderOnHotelBLService;
 import dataservice.orderdataservice.OrderDataService;
 import net.RMIManage;
@@ -13,7 +11,7 @@ import util.DataServiceType;
 import util.ResultMsg;
 import vo.OrderVO;
 
-public class OrderOnHotelController  extends BusinessController implements OrderOnHotelBLService{
+public class OrderOnHotelController implements OrderOnHotelBLService{
 
 	private OrderOnHotel hotelOrder;
 	private OrderDataService hotelDataService;
@@ -60,17 +58,11 @@ public class OrderOnHotelController  extends BusinessController implements Order
 	@Override
 	public void update(OrderPO poTmp) {
 		try {
-			hotelDataService.update(poTmp);
+			hotelOrder.update(poTmp);
 		} catch (RemoteException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-	}
-
-	@Override
-	public void reinitDataService(Remote dataService) {
-		hotelDataService = (OrderDataService) dataService;
-		hotelOrder = new OrderOnHotel(hotelDataService);
 	}
 
 }

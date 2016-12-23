@@ -103,7 +103,6 @@ public class OrderOnHotel {
 				creditPO.setCreditChange("+" + (int)orderVO.getPrice());
 				creditPO.setTime(new Today().getToday());
 				credit.insert(creditPO);
-				System.out.println(resultMsg);
 				resultMsg = ResultMsg.SUCCESS;
 			} else if(orderPO.getOrderState() == OrderState.EXECUTED
 					&& roomInfoPO.getState() == RoomState.UNUSABLE) {
@@ -135,6 +134,10 @@ public class OrderOnHotel {
 			}
 		}
 		return resultMsg;
+	}
+
+	public void update(OrderPO poTmp) throws RemoteException {
+		hotelDataService.update(poTmp);
 	}
 
 }

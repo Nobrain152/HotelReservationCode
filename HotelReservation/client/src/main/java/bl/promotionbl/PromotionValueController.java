@@ -1,9 +1,7 @@
 package bl.promotionbl;
 
-import java.rmi.Remote;
 import java.rmi.RemoteException;
 
-import bl.BusinessController;
 import blservice.promotionblservice.PromotionValueBLService;
 import dataservice.promotiondataservice.PromotionHotelDataService;
 import dataservice.promotiondataservice.PromotionWebDataService;
@@ -14,7 +12,7 @@ import util.PromotionWebType;
 import vo.CustomerInfoVO;
 import vo.OrderVO;
 
-public class PromotionValueController extends BusinessController implements PromotionValueBLService{
+public class PromotionValueController implements PromotionValueBLService{
 
 	private PromotionHotelDataService promotionHotelDataService;
 	private PromotionWebDataService promotionWebDataService;
@@ -50,15 +48,6 @@ public class PromotionValueController extends BusinessController implements Prom
 			e.printStackTrace();
 		}
 		return order;
-	}
-
-	@Override
-	public void reinitDataService(Remote dataService) {
-		promotionHotelDataService = (PromotionHotelDataService)dataService;
-		promotionValueHotel = new PromotionValue(promotionHotelDataService);
-		promotionWebDataService = (PromotionWebDataService)dataService;
-		promotionValueWeb = new PromotionValue(promotionWebDataService);
-		
 	}
 
 }

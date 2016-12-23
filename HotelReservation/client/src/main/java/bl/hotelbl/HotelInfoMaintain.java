@@ -89,4 +89,8 @@ public class HotelInfoMaintain {
         }
 		return null;
     }
+
+	public HotelInfoPO find(String hotelID) throws RemoteException {
+		return hotelInfoData.find(hotelID);
+	}
 }

@@ -9,6 +9,7 @@ import bl.BusinessController;
 import blservice.hotelblservice.HotelInfoMaintainBLService;
 import dataservice.hoteldataservice.HotelInfoDataService;
 import net.RMIManage;
+import po.HotelInfoPO;
 import util.DataServiceType;
 import util.ResultMsg;
 import vo.HotelInfoVO;
@@ -26,7 +27,7 @@ public class HotelInfoMaintainController extends BusinessController implements H
 	
 	public HotelInfoMaintainController() {
 		hotelList = new ArrayList<HotelInfoVO>();
-		hotelInfoData = (HotelInfoDataService) RMIManage
+		hotelInfoData = (HotelInfoDataService)RMIManage
 				.getDataService(DataServiceType.HotelInfoDataService);
 		hotelInfoMaintain = new HotelInfoMaintain(hotelInfoData);
 	}
@@ -77,6 +78,16 @@ public class HotelInfoMaintainController extends BusinessController implements H
 		} catch (RemoteException e) {
 			return null;
 		}
+	}
+
+	public HotelInfoPO find(String hotelID) {
+		try {
+			return hotelInfoMaintain.find(hotelID);
+		} catch (RemoteException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return null;
 	}
 
 

@@ -1,5 +1,6 @@
 package blservice.hotelblservice;
 
+import po.HotelInfoPO;
 import util.ResultMsg;
 import vo.HotelInfoVO;
 
@@ -30,5 +31,7 @@ public interface HotelInfoMaintainBLService {
      * @return
      */
     public String addHotel(HotelInfoVO hotelInfoVO);
+    
+    public HotelInfoPO find(String hotelID);
   
 }

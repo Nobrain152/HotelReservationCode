@@ -51,8 +51,10 @@ public class HotelEvaluate {
 			result = evaluateData.insert(evaluatePO);
 			HotelInfoVO vo=check.checkHotelInfo(evaluateInfoVO.getHotelID());
 			ArrayList<HotelEvaluateVO> past=getEvaluate(evaluateInfoVO.getHotelID());
-			double sum=vo.getScore()*(past.size());
-			sum+=evaluateInfoVO.getScore();
+			double sum=0;
+			for(int i=0;i<past.size();i++){
+				sum+=past.get(i).getScore();
+			}
 			sum=sum/(past.size()+1);
 			vo.setScore(sum);
 			ResultMsg r2=maint.inputHotelInfo(vo);

@@ -78,7 +78,7 @@ public class OrderOnUser {
 		
 		if(customerInfoPO.getCredit() >= 0){	//信用值过低拒绝生成订单
 			CustomerInfoVO customerInfoVO = (CustomerInfoVO)VOPOchange.POtoVO(customerInfoPO);
-			double min = Integer.MAX_VALUE;
+			double min = orderVO.getPrice();
 			PromotionWebType promotionWebType = null;
 			PromotionHotelType promotionHotelType = null;
 			
@@ -157,7 +157,9 @@ public class OrderOnUser {
 			
 			userDataService.insert(orderPO);
 			
-			if(promotionHotelType == null){
+			if(promotionHotelType == null && promotionWebType == null){
+				return min + ";" + "未使用促销策略";
+			}else if(promotionHotelType == null){
 				return min + ";" + promotionWebType.toString();
 			}else if(promotionWebType == null){
 				return min + ";" + promotionHotelType.toString();

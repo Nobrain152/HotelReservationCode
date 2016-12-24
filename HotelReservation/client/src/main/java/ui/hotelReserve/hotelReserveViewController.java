@@ -93,7 +93,7 @@ public class hotelReserveViewController implements Initializable{
 		Alert alert = new Alert(AlertType.INFORMATION);
 		alert.setTitle("提示");
 		alert.setHeaderText("预定成功");
-		alert.setContentText("订单价格： "+tempStr[0]+"/n"+"所用促销策略： "+tempStr[1]);
+		alert.setContentText("订单价格： "+tempStr[0]+"\n"+"所用促销策略： "+tempStr[1]);
 
 		alert.showAndWait();
 
@@ -111,6 +111,7 @@ public class hotelReserveViewController implements Initializable{
 		// TODO Auto-generated method stub
 		helper=UIhelper.getInstance();
 		roomController=new RoomAddController();
+		orderController=new OrderOnUserController();
 		ArrayList<RoomInfoVO> room_list=roomController.getEmptyRoom(helper.getHotelID());
 		ArrayList<roomItem> data_list=new ArrayList<roomItem>();
 		int size=room_list.size();

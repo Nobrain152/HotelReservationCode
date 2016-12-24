@@ -72,6 +72,8 @@ public class OrderOnUser {
 	 */
 	public String createOrder(OrderVO orderVO) throws RemoteException {
 		
+		customer = (CustomerInfoManagementController)BusinessLogicDataFactory.getFactory().
+				getCustomerIndividualInformationManagementBLService();
 		CustomerInfoPO customerInfoPO = customer.getCustomerInfo(orderVO.getInitiator().getUserID());
 		
 		if(customerInfoPO.getCredit() >= 0){	//信用值过低拒绝生成订单

@@ -2,6 +2,11 @@ package vo;
 
 import util.VipType;
 
+/**
+ * ∆’Õ®ª·‘±
+ * @author txin15
+ *
+ */
 public class CommonVipVO extends CustomerInfoVO {
 	
 	/**

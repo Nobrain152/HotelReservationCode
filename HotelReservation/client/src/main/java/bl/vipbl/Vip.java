@@ -19,6 +19,11 @@ import vo.CommonVipVO;
 import vo.CustomerInfoVO;
 import vo.LevelSystemVO;
 
+/**
+ * ª·‘±
+ * @author txin15
+ *
+ */
 public class Vip {
 	
 	private VipDataService vipDataService;

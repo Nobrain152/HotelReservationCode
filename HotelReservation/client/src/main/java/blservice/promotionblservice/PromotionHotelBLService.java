@@ -8,15 +8,15 @@ import vo.PromotionHotelVO;
 
 /**
  * 酒店促销策略逻辑层接口
- * @author kevin
+ * @author txin15
  *
  */
 
 public interface PromotionHotelBLService {
 	/**
-	 * 修改促销策略，返回是否修改成功的信息
-	 * @param level
+	 * 修改促销策略
 	 * @param ratio
+	 * @param hotelID
 	 * @return
 	 */
 	public ResultMsg changeBirthCut(int level,double ratio,String hotelID);
@@ -29,7 +29,7 @@ public interface PromotionHotelBLService {
 
 	/**
 	 * 增加促销策略
-	 * @param level
+	 * @param hotelID
 	 * @param ratio
 	 * @return
 	 */
@@ -41,7 +41,12 @@ public interface PromotionHotelBLService {
 	
 	public ResultMsg addHotelCustomCut(String timeBegin,String timeOver, double ratio,String hotelID);
 	
-	//删除促销策略
+	
+	/**
+	 * 删除促销策略
+	 * @param hotelID
+	 * @return
+	 */
 	public ResultMsg deleteBirthCut(int level, String hotelID);
 	
 	public ResultMsg deleteOverCut(int number, String hotelID);
@@ -51,12 +56,13 @@ public interface PromotionHotelBLService {
 	public ResultMsg deleteHotelCustomCut(String timeBegin,String timeOver, String hotelID);
 	
 	/**
+	 * 获取相应促销策略列表
 	 * @param type
 	 * 0:表示会员生日促销策略
 	 * 1:表示三间以上优惠策略
 	 * 2:表示合作企业促销策略
 	 * 3:表示自定义促销策略
-	 * @return 相应促销策略列表
+	 * @return 
 	 */
 	public ArrayList<PromotionHotelVO> getHotelPromotion(PromotionHotelType type,String hotelID);
 }

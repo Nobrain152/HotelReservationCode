@@ -3,9 +3,9 @@ package vo;
 import util.PromotionHotelType;
 
 /**
- * 酒店促销策略VO
+ * 酒店促销策略
  * 
- * @author kevin
+ * @author txin15
  *
  */
 

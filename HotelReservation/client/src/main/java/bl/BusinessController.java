@@ -3,9 +3,10 @@ package bl;
 import java.rmi.Remote;
 
 import util.DataServiceType;
- /** 
- * 
- * @author txin 15 
+
+/**
+ * @author txin15
+ *
  */
 public abstract class BusinessController {
 	

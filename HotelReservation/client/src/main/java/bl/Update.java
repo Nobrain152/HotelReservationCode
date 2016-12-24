@@ -16,7 +16,7 @@ import vo.OrderVO;
 
 /**
  * 如果时间在超过最晚订单执行时间后还没有办理入住，系统自动将其置为异常订单
- * @author txin
+ * @author txin15
  *
  */
 public class Update implements Runnable{
@@ -61,8 +61,9 @@ public class Update implements Runnable{
 						ArrayList<CreditPO> creditPOs = controller.getListByUserID(po.getInitiator().getUserID());
 						CreditPO creditPO = creditPOs.get(creditPOs.size()-1);
 						
+						//扣除一半的信用值
 						creditPO.setCreditChange("-"+(int)orderVO.getPrice()/2);
-						creditPO.setCreditResult(creditPO.getCreditResult()+(int)orderVO.getPrice()/2);
+						creditPO.setCreditResult(creditPO.getCreditResult()-(int)orderVO.getPrice()/2);
 						creditPO.setTime(new Today().getToday());
 						creditPO.setAction(Action.Abnormal);
 						controller.insert(creditPO);

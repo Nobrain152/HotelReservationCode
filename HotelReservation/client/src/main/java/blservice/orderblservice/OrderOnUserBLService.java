@@ -9,7 +9,7 @@ import vo.OrderVO;
 /**
  * 客户查询个人订单信息及详情，执行订单的撤销
  * 
- * @author txin
+ * @author txin15
  *
  */
 public interface OrderOnUserBLService {

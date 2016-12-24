@@ -18,6 +18,11 @@ import util.VipType;
 import vo.CustomerInfoVO;
 import vo.OrderVO;
 
+/**
+ * 计算促销值
+ * @author txin15
+ *
+ */
 public class PromotionValue {
 
 	private PromotionHotelDataService promotionHotelDataService;
@@ -28,6 +33,14 @@ public class PromotionValue {
 		this.promotionHotelDataService = promotionHotelDataService;
 	}
 	
+	/**
+	 * 获得网站促销策略的价格
+	 * @param user
+	 * @param order
+	 * @param hotelType
+	 * @return
+	 * @throws RemoteException
+	 */
 	public double getValue(CustomerInfoVO user, OrderVO order, PromotionHotelType hotelType) throws RemoteException {
 		ArrayList<PromotionHotelPO> po = promotionHotelDataService.
 				findByType(hotelType, order.getHotelID());;
@@ -104,6 +117,14 @@ public class PromotionValue {
 		this.promotionWebDataService = promotionWebDataService;
 	}
 	
+	/**
+	 * 获得酒店促销策略的价格
+	 * @param user
+	 * @param order
+	 * @param webType
+	 * @return
+	 * @throws RemoteException
+	 */
 	public double getValue(CustomerInfoVO user, OrderVO order, PromotionWebType webType) throws RemoteException {
 		ArrayList<PromotionWebPO> po = promotionWebDataService.
 				findByType(webType);;

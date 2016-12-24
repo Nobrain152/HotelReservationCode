@@ -7,9 +7,9 @@ import util.OrderState;
 import util.RoomType;
 
 /**
- * 所有订单VO的父类
+ * 订单
  * 
- * @author txin
+ * @author txin15
  *
  */
 public class OrderVO {

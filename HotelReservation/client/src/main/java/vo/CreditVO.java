@@ -2,6 +2,11 @@ package vo;
 
 import util.Action;
 
+/**
+ * ÐÅÓÃÖµ
+ * @author txin15
+ *
+ */
 public class CreditVO {
 
 	/**

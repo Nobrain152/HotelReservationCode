@@ -18,6 +18,11 @@ import util.VipType;
 import vo.CreditVO;
 import vo.CustomerInfoVO;
 
+/**
+ * 信用值
+ * @author txin15
+ *
+ */
 public class Credit {
 
 	private CreditDataService creditDataService;
@@ -29,11 +34,24 @@ public class Credit {
 		this.creditDataService = creditDataService;
 	}
 	
+	/**
+	 * 获取用户的信用值
+	 * @param client
+	 * @return
+	 * @throws RemoteException
+	 */
 	public int getCredit(CustomerInfoVO client) throws RemoteException {
 		ArrayList<CreditPO> creditPOs = creditDataService.getListByUserID(client.getUserID());
 		return creditPOs.get(0).getCreditResult();
 	}
 
+	/**
+	 * 添加信用值
+	 * @param client
+	 * @param value
+	 * @return
+	 * @throws RemoteException
+	 */
 	public ResultMsg addCredit(CustomerInfoVO client, int value) throws RemoteException {
 		ArrayList<CreditPO> creditPOs = creditDataService.getListByUserID(client.getUserID());
 		CreditPO creditPO = creditPOs.get(creditPOs.size()-1);
@@ -50,6 +68,8 @@ public class Credit {
 			customerInfoPO.setCredit(creditPO.getCreditResult());
 			customer.setCustomerInfo(client.getUserID(), customerInfoPO);
 			vip = (VipController)BusinessLogicDataFactory.getFactory().getVipLevelBLService();
+			
+			//更新vip信息
 			if(client.getVipType() == VipType.COMMON_VIP){
 				CommonVipPO commonVipPO = vip.findByUserIDC(client.getUserID());
 				commonVipPO.setCredit(creditPO.getCreditResult());
@@ -65,6 +85,13 @@ public class Credit {
 		return resultMsg;
 	}
 	
+	/**
+	 * 减少信用值
+	 * @param client
+	 * @param value
+	 * @return
+	 * @throws RemoteException
+	 */
 	public ResultMsg subCredit(CustomerInfoVO client, int value) throws RemoteException {
 		ArrayList<CreditPO> creditPOs = creditDataService.getListByUserID(client.getUserID());
 		CreditPO creditPO = creditPOs.get(0);
@@ -75,6 +102,8 @@ public class Credit {
 			creditPO.setCreditChange("-" + value);
 			creditPO.setTime(new Today().getToday());
 			vip = (VipController)BusinessLogicDataFactory.getFactory().getVipLevelBLService();
+			
+			//更新vip信息
 			if(client.getVipType() == VipType.COMMON_VIP){
 				CommonVipPO commonVipPO = vip.findByUserIDC(client.getUserID());
 				commonVipPO.setCredit(creditPO.getCreditResult());
@@ -90,6 +119,13 @@ public class Credit {
 		return resultMsg;
 	}
 
+	/**
+	 * 改变信用值
+	 * @param client
+	 * @param value
+	 * @return
+	 * @throws RemoteException
+	 */
 	public ResultMsg changeCredit(CustomerInfoVO client, int value) throws RemoteException {
 		ArrayList<CreditPO> creditPOs = creditDataService.getListByUserID(client.getUserID());
 		CreditPO creditPO = creditPOs.get(0);
@@ -100,6 +136,8 @@ public class Credit {
 			creditPO.setCreditChange("t" + value);
 			creditPO.setTime(new Today().getToday());
 			vip = (VipController)BusinessLogicDataFactory.getFactory().getVipLevelBLService();
+			
+			//更新vip信息
 			if(client.getVipType() == VipType.COMMON_VIP){
 				CommonVipPO commonVipPO = vip.findByUserIDC(client.getUserID());
 				commonVipPO.setCredit(creditPO.getCreditResult());
@@ -115,6 +153,12 @@ public class Credit {
 		return resultMsg;
 	}
 	
+	/**
+	 * 获取信用值列表
+	 * @param userID
+	 * @return
+	 * @throws RemoteException
+	 */
 	public ArrayList<CreditVO> getCreditList(String userID) throws RemoteException {
 		ArrayList<CreditPO> creditPOs = creditDataService.getListByUserID(userID);
 		ArrayList<CreditVO> creditVOs = new ArrayList<>();

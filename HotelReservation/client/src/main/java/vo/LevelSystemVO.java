@@ -1,5 +1,10 @@
 package vo;
 
+/**
+ * 等级及相应的信用值
+ * @author txin15
+ *
+ */
 public class LevelSystemVO {
 	
 	/**

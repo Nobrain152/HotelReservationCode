@@ -20,6 +20,11 @@ import util.Today;
 import vo.CustomerInfoVO;
 import vo.OrderVO;
 
+/**
+ * 酒店工作人员对订单的相关操作
+ * @author txin15
+ *
+ */
 public class OrderOnHotel {
 	
 	private OrderDataService hotelDataService;
@@ -85,6 +90,8 @@ public class OrderOnHotel {
 		room = (RoomAddController)BusinessLogicDataFactory.getFactory().getRoomAddBLService();
 		for(int i = 0; i < roomIDs.size(); i++){
 			RoomInfoPO roomInfoPO = room.findByRoomID(roomIDs.get(0));
+			
+			//未执行的订单改为已执行
 			if(orderPO.getOrderState() == OrderState.UNEXECUTED
 					&& roomInfoPO.getState() == RoomState.USABLE) {
 				CustomerInfoPO customerInfoPO = orderPO.getInitiator();
@@ -104,14 +111,20 @@ public class OrderOnHotel {
 				creditPO.setTime(new Today().getToday());
 				credit.insert(creditPO);
 				resultMsg = ResultMsg.SUCCESS;
-			} else if(orderPO.getOrderState() == OrderState.EXECUTED
+			} 
+			
+			//已执行的订单，用户退房，修改房间信息为可用
+			else if(orderPO.getOrderState() == OrderState.EXECUTED
 					&& roomInfoPO.getState() == RoomState.UNUSABLE) {
 				
 				roomInfoPO.setRoomState(RoomState.USABLE);
 				room.update(roomInfoPO);
 				resultMsg = ResultMsg.SUCCESS;
 				
-			} else if(orderPO.getOrderState() == OrderState.ABNORMAL) {
+			} 
+			
+			//异常订单，延迟入住
+			else if(orderPO.getOrderState() == OrderState.ABNORMAL) {
 				
 				CustomerInfoPO customerInfoPO = orderPO.getInitiator();
 				CreditController controller = new CreditController();

@@ -10,6 +10,7 @@ import bl.BusinessLogicDataFactory;
 import bl.VOPOchange;
 import bl.creditbl.CreditController;
 import bl.promotionbl.PromotionValueController;
+import bl.userbl.CustomerInfoManagementController;
 import dataservice.orderdataservice.OrderDataService;
 import po.CreditPO;
 import po.CustomerInfoPO;
@@ -24,10 +25,16 @@ import util.VipType;
 import vo.CustomerInfoVO;
 import vo.OrderVO;
 
+/**
+ * 客户对订单的相关操作
+ * @author txin15
+ *
+ */
 public class OrderOnUser {
 	
 	private OrderDataService userDataService;
 	private CreditController credit;
+	private CustomerInfoManagementController customer;
 	
 	public OrderOnUser(OrderDataService userDataService) {
 		this.userDataService = userDataService;
@@ -60,12 +67,12 @@ public class OrderOnUser {
 	 * 客户创建订单
 	 *
 	 * @param 个人订单
-	 * @return 订单ID;促销类型
+	 * @return 订单价格;促销类型
 	 * @throws RemoteException 
 	 */
 	public String createOrder(OrderVO orderVO) throws RemoteException {
 		
-		CustomerInfoPO customerInfoPO = (CustomerInfoPO)VOPOchange.VOtoPO(orderVO.getInitiator());
+		CustomerInfoPO customerInfoPO = customer.getCustomerInfo(orderVO.getInitiator().getUserID());
 		
 		if(customerInfoPO.getCredit() >= 0){	//信用值过低拒绝生成订单
 			CustomerInfoVO customerInfoVO = orderVO.getInitiator();
@@ -79,6 +86,7 @@ public class OrderOnUser {
 				double[] price = new double[6];
 				PromotionValueController pro = new PromotionValueController();
 				
+				//计算各个策略得到的价格
 				if(vipType == VipType.COMMON_VIP) {
 					
 					price[0] = pro.getValue(customerInfoVO, orderVO, PromotionHotelType.BIRTH_PROMOTION);
@@ -98,6 +106,7 @@ public class OrderOnUser {
 					price[5] = pro.getValue(customerInfoVO, orderVO, PromotionWebType.WEB_CUSTOM_PROMOTION);
 				}
 				
+				//得到最低价格
 				int number = 0;
 				for(int i = 0; i < price.length; i++) {
 					if(price[i] < min) {
@@ -106,6 +115,7 @@ public class OrderOnUser {
 					}
 				}
 				
+				//判断最低价格对应的促销类型
 				if(vipType == VipType.COMMON_VIP) {
 					switch (number) {
 					case 0:	promotionHotelType = PromotionHotelType.BIRTH_PROMOTION;	break;
@@ -133,19 +143,22 @@ public class OrderOnUser {
 			
 			OrderPO orderPO = (OrderPO)VOPOchange.VOtoPO(orderVO);
 			
+			//保证价格为两位小数
 			DecimalFormat dFormat = new DecimalFormat("#.00");
 			String price = dFormat.format(min);
 			min = Double.valueOf(price);
 			
+			//修改价格，在数据库中插入
 			orderPO.setPrice(min);
 			orderPO.setLatestExecutionTime(orderPO.getCheckInTime().substring(0,10)+" 24:00");
 			orderPO.setOrderState(OrderState.UNEXECUTED);
 			
-			String orderID = userDataService.insert(orderPO);
+			userDataService.insert(orderPO);
+			
 			if(promotionHotelType == null){
-				return orderID + ";" + promotionWebType.toString();
+				return min + ";" + promotionWebType.toString();
 			}else if(promotionWebType == null){
-				return orderID + ";" + promotionHotelType.toString();
+				return min + ";" + promotionHotelType.toString();
 			}else{
 				return null;
 			}

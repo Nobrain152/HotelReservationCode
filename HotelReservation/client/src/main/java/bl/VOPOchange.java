@@ -348,8 +348,6 @@ public class VOPOchange {
 	
 	public static void main(String[] args) {
 		
-		
-		
 //		CommonVipVO commonVipVO = new CommonVipVO("19954722", "ÌÆöÎ", "sfd", "18805156300", 300, "1997-05-13", VipType.COMMON_VIP);
 //		CommonVipPO commonVipPO = (CommonVipPO)VOtoPO(commonVipVO);
 //		System.out.println(commonVipPO.getVipType());
@@ -371,8 +369,6 @@ public class VOPOchange {
 //		hotelInfoVO1.setOrder(new ArrayList<>());
 //		HotelInfoPO hotelInfoPO1 = (HotelInfoPO)VOPOchange.VOtoPO(hotelInfoVO1);
 //		System.out.println(hotelInfoPO1.getName());
-		
-		
 		
 		//OK
 //		OrderVO vo = new OrderVO(new CustomerInfoVO("19954722", "ÌÆöÎ", 

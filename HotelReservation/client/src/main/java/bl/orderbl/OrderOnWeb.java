@@ -15,6 +15,11 @@ import util.ResultMsg;
 import util.Today;
 import vo.OrderVO;
 
+/**
+ * 网站人员对订单的相关操作
+ * @author txin15
+ *
+ */
 public class OrderOnWeb {
 	
 	private OrderDataService webDataService;
@@ -25,7 +30,7 @@ public class OrderOnWeb {
 	}
 	
 	/**
-	 * 网站营销人员查看异常订单列表
+	 * 网站人员查看异常订单列表
 	 *
 	 * @param void
 	 * @return 异常订单列表
@@ -51,7 +56,7 @@ public class OrderOnWeb {
 	}
 	
 	/**
-	 * 浏览每日未执行订单
+	 * 网站人员浏览每日未执行订单
 	 * @param today
 	 * @return
 	 * @throws RemoteException
@@ -77,7 +82,7 @@ public class OrderOnWeb {
 	}
 	
 	/**
-	 * 网站营销人员查看异常订单详情
+	 * 网站人员查看异常订单详情
 	 *
 	 * @param String 订单ID
 	 * @return 个人订单详情
@@ -94,6 +99,13 @@ public class OrderOnWeb {
 		return null;
 	}
 	
+	/**
+	 * 网站营销人员撤销异常订单；true为恢复全部信用值，false为恢复一半
+	 * @param ID
+	 * @param b
+	 * @return
+	 * @throws RemoteException
+	 */
 	public ResultMsg abnormalOrderCancel(String ID,boolean b) throws RemoteException{
 		ArrayList<OrderPO> webPOs;
 		webPOs = webDataService.showList();

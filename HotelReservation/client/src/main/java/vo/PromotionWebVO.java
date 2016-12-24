@@ -5,9 +5,9 @@ import util.PromotionWebType;
 
 
 /**
- * 网站促销策略VO
+ * 网站促销策略
  * 
- * @author kevin
+ * @author txin15
  *
  */
 

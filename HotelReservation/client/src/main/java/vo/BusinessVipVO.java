@@ -2,6 +2,11 @@ package vo;
 
 import util.VipType;
 
+/**
+ * 企业会员
+ * @author txin15
+ *
+ */
 public class BusinessVipVO extends CustomerInfoVO {
 	
 	/**

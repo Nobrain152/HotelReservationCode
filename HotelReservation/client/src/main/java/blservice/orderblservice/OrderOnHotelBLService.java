@@ -9,7 +9,7 @@ import vo.OrderVO;
 /**
  * 酒店工作人员查看酒店订单列表及详情，修改订单状态
  * 
- * @author txin
+ * @author txin15
  *
  */
 public interface OrderOnHotelBLService {
@@ -38,6 +38,10 @@ public interface OrderOnHotelBLService {
 	 */
 	public ResultMsg hotelOrderModify(OrderVO orderVO);
 
+	/**
+	 * 更新订单信息
+	 * @param poTmp
+	 */
 	public void update(OrderPO poTmp);
 	
 }

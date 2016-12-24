@@ -13,6 +13,11 @@ import util.ResultMsg;
 import vo.PromotionWebVO;
 
 
+/**
+ * 酒店促销策略
+ * @author txin15
+ *
+ */
 public class PromotionWeb{
 
 	private PromotionWebDataService promotionWebDataService;
@@ -158,6 +163,12 @@ public class PromotionWeb{
 		return voList;	
 	}
 	
+	/**
+	 * 删除会员等级（制定信用值满多少升下一等级）及其折扣
+	 * @param level
+	 * @return
+	 * @throws RemoteException
+	 */
 	public ResultMsg deleteLevelCut(int level) throws RemoteException {
 		PromotionWebType type = PromotionWebType.VIP_LEVEL_PROMOTION;
 		ArrayList<PromotionWebPO> promotion = promotionWebDataService.findByType(type);
@@ -169,6 +180,12 @@ public class PromotionWeb{
 		return resultMsg;
 	}
 	
+	/**
+	 * 删除VIP会员特定商圈专属折扣（不同等级不同商圈折扣不一样）
+	 * @param location
+	 * @return
+	 * @throws RemoteException
+	 */
 	public ResultMsg deleteCircleCut(Area location) throws RemoteException {
 		PromotionWebType type = PromotionWebType.VIP_CIRCLE_PROMOTION;
 		ArrayList<PromotionWebPO> promotion = promotionWebDataService.findByType(type);
@@ -180,6 +197,13 @@ public class PromotionWeb{
 		return resultMsg;
 	}
 	
+	/**
+	 * 删除双11活动折扣（在特定的期间预订有折扣）
+	 * @param timeBegin
+	 * @param timeOver
+	 * @return
+	 * @throws RemoteException
+	 */
 	public ResultMsg deleteWebCustomCut(String timeBegin,String timeOver) throws RemoteException {
 		PromotionWebType type = PromotionWebType.WEB_CUSTOM_PROMOTION;
 		ArrayList<PromotionWebPO> promotion = promotionWebDataService.findByType(type);

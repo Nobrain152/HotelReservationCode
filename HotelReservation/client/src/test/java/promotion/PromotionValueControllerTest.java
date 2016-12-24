@@ -65,27 +65,27 @@ public class PromotionValueControllerTest {
 
 	@Test
 	public void testGetValue() {
-		orderVO1 = promotionImpl.getValue(customerInfoVO1, orderVO1,PromotionHotelType.BIRTH_PROMOTION);
-		assertEquals(orderVO1.getPrice(),99.9*0.85,0.01);
+		double d1 = promotionImpl.getValue(customerInfoVO1, orderVO1,PromotionHotelType.BIRTH_PROMOTION);
+		assertEquals(d1,99.9*0.85,0.01);
 		
 		
-		orderVO4 = promotionImpl.getValue(customerInfoVO1, orderVO4,PromotionHotelType.HOTEL_CUSTOM_PROMOTION);
-		assertEquals(orderVO4.getPrice(),99.9*0.12,0.01);
+		double d4 = promotionImpl.getValue(customerInfoVO1, orderVO4,PromotionHotelType.HOTEL_CUSTOM_PROMOTION);
+		assertEquals(d4,99.9*0.12,0.01);
 		
-		orderVO2 = promotionImpl.getValue(customerInfoVO2, orderVO2,PromotionHotelType.JOIN_PROMOTION);
-		assertEquals(orderVO2.getPrice(),200*0.5,0.01);
+		double d2 = promotionImpl.getValue(customerInfoVO2, orderVO2,PromotionHotelType.JOIN_PROMOTION);
+		assertEquals(d2,200*0.5,0.01);
 		
-		orderVO3 = promotionImpl.getValue(customerInfoVO1, orderVO3,PromotionHotelType.OVERTHREE_PROMOTION);
-		assertEquals(orderVO3.getPrice(),200*0.95,0.01);
+		double d3 = promotionImpl.getValue(customerInfoVO1, orderVO3,PromotionHotelType.OVERTHREE_PROMOTION);
+		assertEquals(d3,200*0.95,0.01);
 		
-		orderVO5 = promotionImpl.getValue(customerInfoVO1, orderVO5, PromotionWebType.VIP_LEVEL_PROMOTION);
-		assertEquals(orderVO5.getPrice(), 99.9*0.9,0.01);
+		double d5 = promotionImpl.getValue(customerInfoVO1, orderVO5, PromotionWebType.VIP_LEVEL_PROMOTION);
+		assertEquals(d5, 99.9*0.9,0.01);
 		
-		orderVO6 = promotionImpl.getValue(customerInfoVO1, orderVO6, PromotionWebType.VIP_CIRCLE_PROMOTION);
-		assertEquals(orderVO6.getPrice(), 99.9*0.8,0.01);
+		double d6 = promotionImpl.getValue(customerInfoVO1, orderVO6, PromotionWebType.VIP_CIRCLE_PROMOTION);
+		assertEquals(d6, 99.9*0.8,0.01);
 		
-		orderVO7 = promotionImpl.getValue(customerInfoVO1, orderVO7, PromotionWebType.WEB_CUSTOM_PROMOTION);
-		assertEquals(orderVO7.getPrice(), 99.9*0.95,0.01);
+		double d7 = promotionImpl.getValue(customerInfoVO1, orderVO7, PromotionWebType.WEB_CUSTOM_PROMOTION);
+		assertEquals(d7, 99.9*0.95,0.01);
 		
 	}
 

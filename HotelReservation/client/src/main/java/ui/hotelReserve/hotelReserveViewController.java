@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 import bl.hotelbl.RoomAddController;
+import bl.orderbl.OrderOnUserController;
 import javafx.beans.property.SimpleDoubleProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
@@ -12,19 +13,47 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
+import javafx.scene.control.CheckBox;
+import javafx.scene.control.ChoiceBox;
+import javafx.scene.control.DatePicker;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import ui.UILaunch;
 import ui.UIhelper;
+import util.OrderState;
+import util.RoomType;
+import vo.CustomerInfoVO;
+import vo.OrderVO;
 import vo.RoomInfoVO;
 
 public class hotelReserveViewController implements Initializable{
 	private UILaunch application;
 	private UIhelper helper;
 	private RoomAddController roomController;
+	private OrderOnUserController orderController;
 	
+	@FXML
+	private ChoiceBox<RoomType> cb_room;
+	
+	@FXML
+	private TextField tf_roomNumber;
+	
+	@FXML
+	private TextField tf_peopleNumber;
+	
+	@FXML
+	private DatePicker dp_start;
+	
+	@FXML
+	private DatePicker dp_end;
+	
+	@FXML
+	private CheckBox cb_children;
 	
 	
 	@FXML
@@ -38,10 +67,37 @@ public class hotelReserveViewController implements Initializable{
 	private ObservableList<roomItem> data;
 	
 	@FXML
+	private Button btn_Reserve;
+	
+	@FXML
 	private Button btn_Cancel;
 	
 	public void setApp(UILaunch application){
 		this.application= application;
+	}
+	
+	@FXML
+	public void btn_ReserveAction(ActionEvent event){
+		CustomerInfoVO tempCustomer=new CustomerInfoVO();
+		tempCustomer.setUserid(helper.getUserID());
+//		ArrayList<RoomInfoVO> typeRoom=roomController.getTypeRoom(helper.getHotelID(), cb_room.getValue());
+//		RoomInfoVO tempRoom=typeRoom.get(0);
+		int roomNumber=Integer.parseInt(tf_roomNumber.getText());
+		double price=1234*roomNumber;
+		OrderVO newOrder=new OrderVO(null,tempCustomer,OrderState.UNEXECUTED,price,helper.getHotelID(),
+				cb_children.isPressed(),null,dp_start.getValue().toString(),dp_end.getValue().toString(),
+				null,Integer.parseInt(tf_roomNumber.getText()),
+				null,Integer.parseInt(tf_peopleNumber.getText()),cb_room.getValue());
+		String result=orderController.createOrder(newOrder);
+		String tempStr[]=result.split(";");
+		Alert alert = new Alert(AlertType.INFORMATION);
+		alert.setTitle("提示");
+		alert.setHeaderText("预定成功");
+		alert.setContentText("订单价格： "+tempStr[0]+"/n"+"所用促销策略： "+tempStr[1]);
+
+		alert.showAndWait();
+
+		application.gotocustomerGuide();
 	}
 	
 	@FXML
@@ -68,6 +124,8 @@ public class hotelReserveViewController implements Initializable{
 		tc_type.setCellValueFactory(new PropertyValueFactory<>("type"));
 		tc_price.setCellValueFactory(new PropertyValueFactory<>("price"));
 		tv_room.setItems(data);
+		
+		cb_room.setItems(FXCollections.observableArrayList(RoomType.ROOM_STANDARD,RoomType.ROOM_BIGBED,RoomType.ROOM_BUSINESS,RoomType.ROOM_PRESIDENTIAL));
 	}
 	
 	

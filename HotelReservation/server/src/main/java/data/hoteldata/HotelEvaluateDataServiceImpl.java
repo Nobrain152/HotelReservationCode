@@ -8,7 +8,11 @@ import dataSuper.DataSuperClass;
 import dataservice.hoteldataservice.HotelEvaluateDataService;
 import po.HotelEvaluatePO;
 import util.ResultMsg;
-
+/**
+ * 酒店评价数据层实现
+ * @author T5-SK
+ *
+ */
 public class HotelEvaluateDataServiceImpl extends DataSuperClass implements HotelEvaluateDataService{
 	/**
 	 * 
@@ -21,6 +25,9 @@ public class HotelEvaluateDataServiceImpl extends DataSuperClass implements Hote
 		super();
 	}
 	
+	/**
+	 * 添加酒店评价
+	 */
 	@Override
 	public ResultMsg insert(HotelEvaluatePO po) throws RemoteException {
 		return addToSQL(tableName, po.getUserID(),po.getHotelID(),""+po.getScore(),
@@ -28,7 +35,9 @@ public class HotelEvaluateDataServiceImpl extends DataSuperClass implements Hote
 	}
 
 	
-
+	/**
+	 * 根据orderID查找酒店评价
+	 */
 	@Override
 	public HotelEvaluatePO findByID(String ID) throws RemoteException {
 		//根据orderID寻找
@@ -38,7 +47,9 @@ public class HotelEvaluateDataServiceImpl extends DataSuperClass implements Hote
 	}
 	
 	
-
+	/**
+	 * 显示酒店的所有评价
+	 */
 	@Override
 	public ArrayList<HotelEvaluatePO> show(String hotelid) throws RemoteException {
 		sql = "SELECT * FROM " + tableName  + " WHERE hotelID = \'" + hotelid + "\'";

@@ -6,7 +6,11 @@ import java.util.ArrayList;
 
 import dataSuper.DataSuperClass;
 import util.ResultMsg;
-
+/**
+ * 为了获得必须唯一的ID而创建的一个类
+ * @author T5-SK
+ *
+ */
 public class CreateID extends DataSuperClass{
 
 	/**
@@ -47,7 +51,7 @@ public class CreateID extends DataSuperClass{
 	 * orderID        八位，开头为6
 	 * promotionHotel 八位，开头为7
 	 * promotionWeb   八位，开头为8
-	 * @return
+	 * @return 创建好的新的对应ID
 	 */
 	public ResultMsg initialize() throws RemoteException{
 		ResultMsg a = initialFromSQL(tableName);

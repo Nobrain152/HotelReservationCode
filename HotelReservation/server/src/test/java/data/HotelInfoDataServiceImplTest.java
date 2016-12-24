@@ -62,19 +62,19 @@ public class HotelInfoDataServiceImplTest {
 //	@Test
 //	public void testShow() throws RemoteException{
 //	}
-//	
+	
 //	@Test
 //	public void testFindByAreaAndCircle() throws RemoteException{
-//		ArrayList<HotelInfoPO> po = impl.findByAreaAndCircle(Adress.NANJING, Area.NORTH);
+//		ArrayList<HotelInfoPO> po = impl.findByAreaAndCircle(Adress.BEIJING, Area.EAST);
 //		assertEquals(po.get(1).getName(), "SunHotel");
 //	}
 
 	
-	@Test
-	public void testFindByName() throws RemoteException{
-		ArrayList<HotelInfoPO> pos = impl.findByName("LALALA");
-		assertEquals(pos.get(1).getHotelID(), "5002");
-	}
+//	@Test
+//	public void testFindByName() throws RemoteException{
+//		ArrayList<HotelInfoPO> pos = impl.findByName("LALALA");
+//		assertEquals(pos.get(1).getHotelID(), "5002");
+//	}
 	
 	
 }

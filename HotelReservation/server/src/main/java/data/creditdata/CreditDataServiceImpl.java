@@ -9,7 +9,11 @@ import dataservice.creditdataservice.CreditDataService;
 import po.CreditPO;
 import util.Action;
 import util.ResultMsg;
-
+/**
+ * creditDataService实现
+ * @author T5-SK
+ *
+ */
 public class CreditDataServiceImpl extends DataSuperClass implements CreditDataService{
 	
 	
@@ -25,7 +29,9 @@ public class CreditDataServiceImpl extends DataSuperClass implements CreditDataS
 	}
 	
 	
-	
+	/**
+	 * 添加一条信用记录
+	 */
 	@Override
 	public ResultMsg insert(CreditPO creditPO) throws RemoteException {
 		return addToSQL(tableName, creditPO.getUserID(),creditPO.getOrderID(),
@@ -33,6 +39,9 @@ public class CreditDataServiceImpl extends DataSuperClass implements CreditDataS
 				creditPO.getCreditChange(),""+creditPO.getCreditResult());
 	}
 
+	/**
+	 * 用userID获取其全部信用记录变化
+	 */
 	@Override
 	public ArrayList<CreditPO> getListByUserID(String userID) throws RemoteException {
 		ArrayList<CreditPO> pos = new ArrayList<CreditPO>(50);
@@ -56,7 +65,9 @@ public class CreditDataServiceImpl extends DataSuperClass implements CreditDataS
 	}
 
 
-
+	/**
+	 * 显示当前数据库中所有的信用记录
+	 */
 	@Override
 	public ArrayList<CreditPO> show() throws RemoteException {
 		ArrayList<CreditPO> pos = new ArrayList<CreditPO>(50);
@@ -78,7 +89,10 @@ public class CreditDataServiceImpl extends DataSuperClass implements CreditDataS
 		}
 		return pos.size()==0?null:pos;
 	}
-
+	
+	/**
+	 * 用orderID获取其全部信用记录变化
+	 */
 	@Override
 	public ArrayList<CreditPO> getListByOrderID(String orderID) throws RemoteException {
 		ArrayList<CreditPO> pos = new ArrayList<CreditPO>(50);

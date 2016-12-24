@@ -11,7 +11,11 @@ import po.HotelInfoPO;
 import util.Adress;
 import util.Area;
 import util.ResultMsg;
-
+/**
+ * 获取酒店基本信息
+ * @author T5-SK
+ *
+ */
 public class HotelInfoDataServiceImpl extends DataSuperClass implements HotelInfoDataService{
 	
 	/**
@@ -28,7 +32,8 @@ public class HotelInfoDataServiceImpl extends DataSuperClass implements HotelInf
 	}
 	
 	/**
-	 * 增加
+	 * 增加酒店信息
+	 * @return 新的酒店ID 
 	 */
 	public String insert(HotelInfoPO po) throws RemoteException{
 		String newID = CreateID.getCreateID().getNewHotelID();
@@ -48,7 +53,7 @@ public class HotelInfoDataServiceImpl extends DataSuperClass implements HotelInf
 	
 	
 	/**
-	 * 更新
+	 * 更新酒店信息
 	 */
 	public ResultMsg update(HotelInfoPO po) throws RemoteException{
 		return modifyFromSQL(tableName, po.getHotelID(),po.getName(),
@@ -58,7 +63,8 @@ public class HotelInfoDataServiceImpl extends DataSuperClass implements HotelInf
 	}
 	
 	/**
-	 * 查找
+	 * 根据hotelID查找酒店信息
+	 * @return 对应酒店基本信息
 	 */
 	@Override
 	public HotelInfoPO find(String ID) throws RemoteException {
@@ -84,7 +90,7 @@ public class HotelInfoDataServiceImpl extends DataSuperClass implements HotelInf
 	}
 
 	/**
-	 * 显示
+	 * 显示所有酒店的信息
 	 */
 	public ArrayList<HotelInfoPO> show() throws RemoteException{
 		ArrayList<HotelInfoPO> pos = new ArrayList<HotelInfoPO>();
@@ -111,7 +117,10 @@ public class HotelInfoDataServiceImpl extends DataSuperClass implements HotelInf
 	}
 
 
-
+	/**
+	 * 通过酒店位置和商圈进行酒店基本信息的查找
+	 * @return 所有满足信息的酒店信息列表
+	 */
 	@Override
 	public ArrayList<HotelInfoPO> findByAreaAndCircle(Adress area,Area circle) throws RemoteException{
 		ArrayList<HotelInfoPO> pos = new ArrayList<HotelInfoPO>();

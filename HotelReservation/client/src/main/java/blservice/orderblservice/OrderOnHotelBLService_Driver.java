@@ -1,8 +1,13 @@
 package blservice.orderblservice;
 
 
+import java.util.ArrayList;
+
 import blservice.orderblservice.OrderOnHotelBLService;
+import util.OrderState;
 import util.ResultMsg;
+import util.RoomType;
+import vo.CustomerInfoVO;
 import vo.OrderVO;
 
 public class OrderOnHotelBLService_Driver {
@@ -14,7 +19,8 @@ public class OrderOnHotelBLService_Driver {
 	}
 	
 	public void drive(OrderOnHotelBLService OrderOnHotelBLService){
-		OrderVO orderVO = new OrderVO(); 
+		CustomerInfoVO client = new CustomerInfoVO("1000066", "123", "12345678910", "sfd", 0, false, null);
+		OrderVO orderVO = new OrderVO("60000010", client, OrderState.UNEXECUTED, 100, "5000", false, "", "", "", "", 1, null, 1, RoomType.ROOM_BIGBED);
 				
 		ResultMsg result = OrderOnHotelBLService.hotelOrderModify(orderVO);
 		if(result == ResultMsg.SUCCESS)
@@ -27,6 +33,13 @@ public class OrderOnHotelBLService_Driver {
 			System.out.println("ÏÔÊ¾¾Æµê¶©µ¥ÏêÇé");
 		else
 			System.out.println("ÏÔÊ¾Ê§°Ü");
+		
+		String ID = "5000";
+		ArrayList<OrderVO> orderVOs = OrderOnHotelBLService.hotelOrderScan(ID);
+		if(orderVOs.get(0).getOrderID().equals(orderVO.getOrderID()))
+			System.out.println("ä¯ÀÀ¶©µ¥³É¹¦");
+		else
+			System.out.println("ä¯ÀÀ¶©µ¥Ê§°Ü");
 		
 	}
 }

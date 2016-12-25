@@ -16,79 +16,66 @@ public class VipDataService_Stub implements VipDataService{
 
 	@Override
 	public ResultMsg insertC(CommonVipPO vip) throws RemoteException {
-		// TODO Auto-generated method stub
-		return null;
+		return ResultMsg.SUCCESS;
 	}
 
 	@Override
 	public ResultMsg insertL(LevelSystemPO levelSystemPO) throws RemoteException {
-		// TODO Auto-generated method stub
-		return null;
+		return ResultMsg.SUCCESS;
 	}
 
 	@Override
 	public LevelSystemPO findL(int level) throws RemoteException {
-		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
 	public ResultMsg delete(String userid) throws RemoteException {
-		// TODO Auto-generated method stub
-		return null;
+		return ResultMsg.SUCCESS;
 	}
 
 	@Override
 	public ResultMsg updateC(CommonVipPO vip) throws RemoteException {
-		// TODO Auto-generated method stub
-		return null;
+		return ResultMsg.SUCCESS;
 	}
 
 	@Override
 	public CommonVipPO findByUserIDC(String id) throws RemoteException {
-		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
 	public ArrayList<CommonVipPO> showC(Type type) throws RemoteException {
-		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
 	public ResultMsg insertB(BusinessVipPO vip) throws RemoteException {
-		// TODO Auto-generated method stub
-		return null;
+		return ResultMsg.SUCCESS;
 	}
 
 	@Override
 	public ResultMsg updateB(BusinessVipPO vip) throws RemoteException {
-		// TODO Auto-generated method stub
-		return null;
+		return ResultMsg.SUCCESS;
 	}
 
 	@Override
 	public BusinessVipPO findByUserIDB(String id) throws RemoteException {
-		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
 	public ArrayList<BusinessVipPO> showB(Type type) throws RemoteException {
-		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
 	public ResultMsg update(LevelSystemPO levelSystemPO) throws RemoteException {
-		// TODO Auto-generated method stub
-		return null;
+		return ResultMsg.SUCCESS;
 	}
 
 	@Override
 	public ArrayList<LevelSystemPO> getLevelSystemPO() throws RemoteException {
-		// TODO Auto-generated method stub
 		return null;
 	}
 

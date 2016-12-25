@@ -24,52 +24,43 @@ public class PromotionWebDataService_Stub implements PromotionWebDataService{
 
 	@Override
 	public ResultMsg insert(PromotionWebPO Promotion) throws RemoteException {
-		// TODO Auto-generated method stub
-		return null;
+		return ResultMsg.SUCCESS;
 	}
 
 
 	@Override
 	public ResultMsg deleteCircleCut(Area area) throws RemoteException {
-		// TODO Auto-generated method stub
-		return null;
+		return ResultMsg.SUCCESS;
 	}
 
 
 	@Override
 	public ResultMsg deleteLevelCut(int level) throws RemoteException {
-		// TODO Auto-generated method stub
-		return null;
+		return ResultMsg.SUCCESS;
 	}
 
 
 	@Override
 	public ResultMsg deleteWebCustomCut(String beginTime, String endTme) throws RemoteException {
-		// TODO Auto-generated method stub
-		return null;
+		return ResultMsg.SUCCESS;
 	}
 
 
 	@Override
 	public ResultMsg update(PromotionWebPO Promotion) throws RemoteException {
-		// TODO Auto-generated method stub
-		return null;
+		return ResultMsg.SUCCESS;
 	}
 
 
 	@Override
 	public ArrayList<PromotionWebPO> findByType(PromotionWebType type) throws RemoteException {
-		// TODO Auto-generated method stub
 		return null;
 	}
 
 
 	@Override
 	public ArrayList<PromotionWebPO> show() throws RemoteException {
-		// TODO Auto-generated method stub
 		return null;
 	}
 
-
-	
 }

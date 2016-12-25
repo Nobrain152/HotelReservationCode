@@ -4,6 +4,8 @@ import java.rmi.RemoteException;
 import java.util.ArrayList;
 
 import po.PromotionWebPO;
+import util.Area;
+import util.ResultMsg;
 
 public class PromotionWebDataService_Driver {
 	private PromotionWebPO PromotionWebPO1;
@@ -18,8 +20,12 @@ public class PromotionWebDataService_Driver {
 	}
 
 
-	public void drive(PromotionWebDataService PromotionWebDataService) throws RemoteException {
-
+	public void drive(PromotionWebDataService promotionWebDataService) throws RemoteException {
+		ResultMsg resultMsg = promotionWebDataService.deleteCircleCut(Area.EAST);
+		if(resultMsg == ResultMsg.SUCCESS)
+        	System.out.println("³É¹¦");
+        else
+        	System.out.println("Ê§°Ü");
 	}
 
 	public static void main(String[] args) throws RemoteException {

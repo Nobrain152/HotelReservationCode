@@ -23,55 +23,47 @@ public class PromotionHotelDataService_Stub implements PromotionHotelDataService
 
 	@Override
 	public ResultMsg insert(PromotionHotelPO promotion) throws RemoteException {
-		// TODO Auto-generated method stub
-		return null;
+		return ResultMsg.SUCCESS;
 	}
 
 
 	@Override
 	public ResultMsg deleteBirthCut(int level, String hotelID) throws RemoteException {
-		// TODO Auto-generated method stub
-		return null;
+		return ResultMsg.SUCCESS;
 	}
 
 
 	@Override
 	public ResultMsg deleteHotelCustomCut(String beginTime, String endTime, String hotelID) throws RemoteException {
-		// TODO Auto-generated method stub
-		return null;
+		return ResultMsg.SUCCESS;
 	}
 
 
 	@Override
 	public ResultMsg deleteJoin(String businessName, String hotelID) throws RemoteException {
-		// TODO Auto-generated method stub
-		return null;
+		return ResultMsg.SUCCESS;
 	}
 
 
 	@Override
 	public ResultMsg deleteOverCut(int num, String hotelID) throws RemoteException {
-		// TODO Auto-generated method stub
-		return null;
+		return ResultMsg.SUCCESS;
 	}
 
 
 	@Override
 	public ResultMsg update(PromotionHotelPO promotion) throws RemoteException {
-		// TODO Auto-generated method stub
-		return null;
+		return ResultMsg.SUCCESS;
 	}
 
 
 	@Override
 	public ArrayList<PromotionHotelPO> findByType(PromotionHotelType type, String hotelID) throws RemoteException {
-		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
 	public ArrayList<PromotionHotelPO> show() throws RemoteException {
-		// TODO Auto-generated method stub
 		return null;
 	}
 	

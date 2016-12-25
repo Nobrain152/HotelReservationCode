@@ -16,40 +16,32 @@ public class VipBLService_Stub implements VipLevelBLService {
 
 	@Override
 	public ResultMsg registerVip(String userID, VipType type, String str) {
-		// TODO Auto-generated method stub
-		return null;
+		return ResultMsg.SUCCESS;
 	}
 
 	@Override
 	public ResultMsg createLevelSystem(LevelSystemVO levelSystemVO) {
-		// TODO Auto-generated method stub
-		return null;
+		return ResultMsg.SUCCESS;
 	}
 
 	@Override
 	public CommonVipPO findByUserIDC(String userID) {
-		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
 	public BusinessVipPO findByUserIDB(String userID) {
-		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
 	public ResultMsg updateC(CommonVipPO commonVipPO) {
-		// TODO Auto-generated method stub
-		return null;
+		return ResultMsg.SUCCESS;
 	}
 
 	@Override
 	public ResultMsg updateB(BusinessVipPO businessVipPO) {
-		// TODO Auto-generated method stub
-		return null;
+		return ResultMsg.SUCCESS;
 	}
-
-	
 	
 }

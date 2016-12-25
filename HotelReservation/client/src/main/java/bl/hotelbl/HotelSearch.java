@@ -1,5 +1,6 @@
 package bl.hotelbl;
 
+import java.nio.file.DirectoryNotEmptyException;
 import java.rmi.RemoteException;
 import java.util.ArrayList;
 
@@ -42,22 +43,41 @@ public class HotelSearch {
 				}
 			}
 		}
+		boolean flag = false;
 		if(hotelInfoVO.getLevel()!=0){
 			for(int i=0;i<pos.size();i++){
-				HotelInfoPO po=pos.get(i);
-				if(po.getLevel()!=hotelInfoVO.getLevel()){
+				if(flag == false && pos.get(i).getLevel() != hotelInfoVO.getLevel()){
 					pos.remove(i);
+					flag = true;
+					i--;
+				}else if(flag == true){
+					flag = false;
+					i = -1;
 				}
 			}
 		}
+		boolean flag2 = false;
 		double up=hotelInfoVO.getUp();
 		double down=hotelInfoVO.getDown();
 		if((up-down>=0.01)){
+//			for(int i=0;i<pos.size();i++){
+//				HotelInfoPO po=pos.get(i);
+//				if((po.getScore()<down)||(po.getScore()>up)){
+//					pos.remove(i);
+//				}
+//			}
 			for(int i=0;i<pos.size();i++){
-				HotelInfoPO po=pos.get(i);
-				if((po.getScore()<down)||(po.getScore()>up)){
+				if(flag2 == false && pos.get(i).getScore()>=down && pos.get(i).getScore()<=up){
+					
+				}else if(flag2 == true){
+					flag2 = false;
+					i = -1;
+				}else{
 					pos.remove(i);
+					flag2 = true;
+					i--;
 				}
+				
 			}
 		}
 		

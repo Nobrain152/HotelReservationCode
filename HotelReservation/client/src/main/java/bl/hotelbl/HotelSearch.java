@@ -42,47 +42,45 @@ public class HotelSearch {
 				}
 			}
 		}
-		else{
-			if(hotelInfoVO.getLevel()!=0){
-				for(int i=0;i<pos.size();i++){
-					HotelInfoPO po=pos.get(i);
-					if(po.getLevel()!=hotelInfoVO.getLevel()){
-						pos.remove(i);
-					}
+		if(hotelInfoVO.getLevel()!=0){
+			for(int i=0;i<pos.size();i++){
+				HotelInfoPO po=pos.get(i);
+				if(po.getLevel()!=hotelInfoVO.getLevel()){
+					pos.remove(i);
 				}
 			}
-			double up=hotelInfoVO.getUp();
-			double down=hotelInfoVO.getDown();
-			if((Math.abs(up-0.0)<0.1)||(Math.abs(down-0.0)<0.1)){
-				for(int i=0;i<pos.size();i++){
-					HotelInfoPO po=pos.get(i);
-					if((po.getScore()<down)||(po.getScore()>up)){
-						pos.remove(i);
-					}
+		}
+		double up=hotelInfoVO.getUp();
+		double down=hotelInfoVO.getDown();
+		if((up-down>=0.01)){
+			for(int i=0;i<pos.size();i++){
+				HotelInfoPO po=pos.get(i);
+				if((po.getScore()<down)||(po.getScore()>up)){
+					pos.remove(i);
 				}
 			}
-			
-			if(roomin!=null){
-				for(int i=0;i<pos.size();i++){
-					String hotelid=pos.get(i).getHotelID();
-					room=(RoomAddController)factory.getRoomAddBLService();
-					ArrayList<RoomInfoVO> r=room.HotelRoomSearch(hotelid);
-					for(int j=0;j<r.size();j++){
-						if(roomin.getPrice()!=0){
-							if(r.get(j).getPrice()!=roomin.getPrice()){
-								pos.remove(i);
-								break;
-							}
-						}
-						if(roomin.getType()!=null){
-							if(r.get(j).getType()!=roomin.getType()){
-								pos.remove(i);
-								break;
-							}
+		}
+		
+		if(roomin!=null){
+			for(int i=0;i<pos.size();i++){
+				String hotelid=pos.get(i).getHotelID();
+				room=(RoomAddController)factory.getRoomAddBLService();
+				ArrayList<RoomInfoVO> r=room.HotelRoomSearch(hotelid);
+				for(int j=0;j<r.size();j++){
+					if(roomin.getPrice()!=0){
+						if(r.get(j).getPrice()!=roomin.getPrice()){
+							pos.remove(i);
+							break;
 						}
 					}
-					
+					if(roomin.getType()!=null){
+						if(r.get(j).getType()!=roomin.getType()){
+							pos.remove(i);
+							break;
+						}
+					}
 				}
+				
 			}
 		}
 		

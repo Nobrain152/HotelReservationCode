@@ -4,6 +4,7 @@ import java.rmi.RemoteException;
 import java.util.ArrayList;
 
 import po.PromotionHotelPO;
+import util.ResultMsg;
 
 public class PromotionHotelDataService_Driver {
 	private PromotionHotelPO PromotionHotelPO1;
@@ -19,8 +20,12 @@ public class PromotionHotelDataService_Driver {
 	}
 
 
-	public void drive(PromotionHotelDataService PromotionHotelDataService) throws RemoteException {
-        
+	public void drive(PromotionHotelDataService promotionHotelDataService) throws RemoteException {
+        ResultMsg resultMsg = promotionHotelDataService.deleteBirthCut(1, "5000");
+        if(resultMsg == ResultMsg.SUCCESS)
+        	System.out.println("³É¹¦");
+        else
+        	System.out.println("Ê§°Ü");
     }
 
 	public static void main(String[] args) throws RemoteException {

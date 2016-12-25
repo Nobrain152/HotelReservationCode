@@ -25,52 +25,42 @@ public class PromotionWebBLService_Stub implements PromotionWebBLService{
 	}
 	@Override
 	public ResultMsg changeLevelCut(int level, double ratio) {
-		// TODO Auto-generated method stub
-		return null;
+		return ResultMsg.SUCCESS;
 	}
 	@Override
 	public ResultMsg changeCircleCut(Area location, double ratio) {
-		// TODO Auto-generated method stub
-		return null;
+		return ResultMsg.SUCCESS;
 	}
 	@Override
 	public ResultMsg changeWebCustomCut(String timeBegin, String timeOver, double ratio) {
-		// TODO Auto-generated method stub
-		return null;
+		return ResultMsg.SUCCESS;
 	}
 	@Override
 	public ResultMsg addLevelCut(int level, double ratio) {
-		// TODO Auto-generated method stub
-		return null;
+		return ResultMsg.SUCCESS;
 	}
 	@Override
 	public ResultMsg addCircleCut(Area location, double ratio) {
-		// TODO Auto-generated method stub
-		return null;
+		return ResultMsg.SUCCESS;
 	}
 	@Override
 	public ResultMsg addWebCustomCut(String timeBegin, String timeOver, double ratio) {
-		// TODO Auto-generated method stub
-		return null;
+		return ResultMsg.SUCCESS;
 	}
 	@Override
 	public ResultMsg deleteLevelCut(int level) {
-		// TODO Auto-generated method stub
-		return null;
+		return ResultMsg.SUCCESS;
 	}
 	@Override
 	public ResultMsg deleteCircleCut(Area location) {
-		// TODO Auto-generated method stub
-		return null;
+		return ResultMsg.SUCCESS;
 	}
 	@Override
 	public ResultMsg deleteWebCustomCut(String timeBegin, String timeOver) {
-		// TODO Auto-generated method stub
-		return null;
+		return ResultMsg.SUCCESS;
 	}
 	@Override
 	public ArrayList<PromotionWebVO> getWebPromotion(PromotionWebType type) {
-		// TODO Auto-generated method stub
 		return null;
 	}
 

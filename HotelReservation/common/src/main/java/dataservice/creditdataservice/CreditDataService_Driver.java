@@ -1,18 +1,21 @@
 package dataservice.creditdataservice;
 
 import java.rmi.RemoteException;
-import java.util.ArrayList;
+
+import util.ResultMsg;
 
 public class CreditDataService_Driver {
-	private ArrayList<String> integralRecord;
 	
 	public CreditDataService_Driver(){
-		integralRecord = new ArrayList<String>();
-		integralRecord.add("50/å¢žåŠ ");
+
 	}
 	
-	 public void drive(CreditDataService IntegralDataService) throws RemoteException {
-        	System.out.println("update succeed");
+	 public void drive(CreditDataService creditDataService) throws RemoteException {
+        ResultMsg resultMsg = creditDataService.insert(null);
+        if(resultMsg == ResultMsg.SUCCESS)
+        	System.out.println("³É¹¦");
+        else
+        	System.out.println("Ê§°Ü");
     }
 
 	public static void main(String[] args) throws RemoteException {

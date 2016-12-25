@@ -2,7 +2,10 @@ package blservice.orderblservice;
 
 import java.util.ArrayList;
 
+import util.OrderState;
 import util.ResultMsg;
+import util.RoomType;
+import vo.CustomerInfoVO;
 import vo.OrderVO;
 
 
@@ -15,8 +18,9 @@ public class OrderOnUserBLService_Driver {
 	}
 	
 	public void drive(OrderOnUserBLService OrderOnUserBLService){
-		OrderVO orderVO = new OrderVO(); 
-				
+		CustomerInfoVO client = new CustomerInfoVO("1000066", "123", "12345678910", "sfd", 0, false, null);
+		OrderVO orderVO = new OrderVO("60000010", client, OrderState.UNEXECUTED, 100, "5000", false, "", "", "", "", 1, null, 1, RoomType.ROOM_BIGBED);
+		
 		ResultMsg result = OrderOnUserBLService.personalOrderCancel(orderVO);
 		if(result == ResultMsg.SUCCESS)
 			System.out.println("撤销订单成功");

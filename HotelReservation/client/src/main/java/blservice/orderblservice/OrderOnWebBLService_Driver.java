@@ -2,6 +2,9 @@ package blservice.orderblservice;
 
 import java.util.ArrayList;
 
+import util.OrderState;
+import util.RoomType;
+import vo.CustomerInfoVO;
 import vo.OrderVO;
 
 public class OrderOnWebBLService_Driver {
@@ -13,7 +16,8 @@ public class OrderOnWebBLService_Driver {
 	}
 	
 	public void drive(OrderOnWebBLService OrderOnWebBLService){
-		OrderVO orderVO = new OrderVO(); 
+		CustomerInfoVO client = new CustomerInfoVO("1000066", "123", "12345678910", "sfd", 0, false, null);
+		OrderVO orderVO = new OrderVO("60000010", client, OrderState.UNEXECUTED, 100, "5000", false, "", "", "", "", 1, null, 1, RoomType.ROOM_BIGBED);
 		
 		OrderVO msg1 = OrderOnWebBLService.abnormalOrderDetail(orderVO.getOrderID());
 		if(msg1.getOrderID().equals(orderVO.getOrderID()))

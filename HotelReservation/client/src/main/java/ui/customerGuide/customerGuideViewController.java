@@ -3,14 +3,21 @@ package ui.customerGuide;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import bl.userbl.CustomerInfoManagementController;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import ui.UILaunch;
+import ui.UIhelper;
+import vo.CustomerInfoVO;
 
 public class customerGuideViewController implements Initializable{
 	private UILaunch application;
+	private UIhelper helper;
+	private CustomerInfoManagementController customerController;
 	
 	
 	
@@ -67,7 +74,19 @@ public class customerGuideViewController implements Initializable{
 	
 	@FXML
 	private void button_VipAction(ActionEvent event) throws Exception{
-		application.gotovipRegister();	
+		CustomerInfoVO customer=customerController.IndividualBaseInfolnquiry(helper.getUserID());
+		boolean check=customer.getIsMember();
+		if(check){
+			Alert alert=new Alert(AlertType.INFORMATION);
+			alert.setTitle("提示");
+			alert.setHeaderText(null);
+			alert.setContentText("您已是会员");
+			alert.showAndWait();
+		}else{
+			application.gotovipRegister();	
+		}
+		
+		
 	}
 	
 	@FXML
@@ -80,8 +99,8 @@ public class customerGuideViewController implements Initializable{
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		// TODO Auto-generated method stub
-		
-		
+		helper=UIhelper.getInstance();
+		customerController=new CustomerInfoManagementController();
 	}
 
 }

@@ -115,7 +115,7 @@ public class RoomAdd {
 		ArrayList<RoomInfoVO> empty=new ArrayList<RoomInfoVO>();
 		ArrayList<RoomInfoVO> all=HotelRoomSearch(hotelid);
 		for(RoomInfoVO vo:all){
-			if(vo.getState()==RoomState.UNUSABLE){
+			if(vo.getState()==RoomState.USABLE){
 				if(vo.getType()==type){
 					empty.add(vo);
 				}

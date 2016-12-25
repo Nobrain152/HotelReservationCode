@@ -7,9 +7,11 @@ import bl.userbl.LoginInputController;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.scene.control.Alert.AlertType;
 import ui.UILaunch;
 import util.UserType;
 import vo.CustomerInfoVO;
@@ -51,7 +53,11 @@ public class registerViewController implements Initializable{
 		CustomerInfoVO user=new CustomerInfoVO(null,name.getText(),contact.getText(),password.getText(),300,false,null);
 		user.setType(UserType.Customer);
 		String id=register.Register(user);//TODO 判断结果，返回值是注册的ID，需改变界面，不输入ID，由系统自动返回
-		System.out.println(id);
+		Alert alert=new Alert(AlertType.INFORMATION);
+		alert.setTitle("提示");
+		alert.setHeaderText("注册成功！");
+		alert.setContentText("您的账户ID为： "+id);
+		alert.showAndWait();
 		application.gotologin();
 	}
 	

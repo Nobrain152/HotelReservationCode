@@ -37,8 +37,7 @@ public class Update implements Runnable{
 				orderPOs = orderDataService.showList();
 				System.out.println("Success Thread");
 			} catch (NullPointerException e) {
-				e.printStackTrace();
-				// TODO: handle exception
+				System.out.println("No such order");
 			}catch (RemoteException e1) {
 				// TODO Auto-generated catch block
 				e1.printStackTrace();

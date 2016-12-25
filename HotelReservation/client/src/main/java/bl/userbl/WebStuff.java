@@ -1,7 +1,7 @@
 
 package bl.userbl;
 
-import java.awt.Desktop.Action;
+
 import java.rmi.RemoteException;
 import java.util.ArrayList;
 
@@ -17,7 +17,6 @@ import util.PromotionWebType;
 import util.ResultMsg;
 import util.Today;
 import util.UserType;
-import vo.CreditVO;
 import vo.CustomerInfoVO;
 import vo.OrderVO;
 import vo.PromotionWebVO;
@@ -170,7 +169,7 @@ public class WebStuff extends User{
 	 */
 	public ArrayList<OrderVO> dayUnexOrder(String today) throws RemoteException {
 		order = (OrderOnWebController)factory.getOrderOnWebBLService();
-		return order.dayUnexOrder(today);
+		return order.dayUnexOrder(new Today().getToday());
 	}
 	
 	/**

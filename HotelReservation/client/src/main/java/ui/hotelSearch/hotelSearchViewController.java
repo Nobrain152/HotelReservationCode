@@ -93,15 +93,15 @@ public class hotelSearchViewController implements Initializable{
 			case '0':{
 				down=0;
 				up=3;
-			}
+			}break;
 			case '3':{
 				down=3;
 				up=6;
-			}
+			}break;
 			case '6':{
 				down=6;
 				up=8;
-			}
+			}break;
 			case '8':{
 				down=8;
 				up=10;

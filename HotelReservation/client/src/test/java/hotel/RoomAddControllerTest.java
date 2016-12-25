@@ -12,7 +12,7 @@ import util.ResultMsg;
 import util.RoomState;
 import util.RoomType;
 import vo.RoomInfoVO;
-
+//pass
 public class RoomAddControllerTest {
 
 	RoomAddController impl;
@@ -31,7 +31,7 @@ public class RoomAddControllerTest {
 	@Before
 	public void setUp() {
 		room1=new RoomInfoVO(RoomState.USABLE,RoomType.ROOM_STANDARD,"461",199,"5000");
-		room2=new RoomInfoVO(RoomState.UNUSABLE,RoomType.ROOM_STANDARD,"10",1435,"1234567");
+		room2=new RoomInfoVO(RoomState.USABLE,RoomType.ROOM_STANDARD,"461",1435,"5000");
 		room3=new RoomInfoVO(RoomState.USABLE,RoomType.ROOM_BIGBED,"02",233,"1234567");
 		room4=new RoomInfoVO(RoomState.USABLE,RoomType.ROOM_PRESIDENTIAL,"22",159999,"1234567");
 				
@@ -46,8 +46,6 @@ public class RoomAddControllerTest {
 		
 		
 		roomMsg = ResultMsg.SUCCESS;
-		//reMsg1=new ResultMsg(true,"添加成功");
-		//reMsg2=new ResultMsg(false,"添加失败");
 		reMsg1 = ResultMsg.SUCCESS;
 		reMsg2 = ResultMsg.FAIL;
 	}
@@ -61,17 +59,13 @@ public class RoomAddControllerTest {
 	
 	@Test
 	public void testupdateRoom(){
-		ResultMsg msg1 = impl.updateRoom(room1); 
-		//assertEquals(msg1.getMessage(), reMsg1.getMessage());
+		ResultMsg msg1 = impl.updateRoom(room2); 
 		assertEquals(msg1, reMsg1);
-		ResultMsg msg2 = impl.updateRoom(room2); 
-		//assertEquals(msg2.getMessage(), reMsg2.getMessage());
-		assertEquals(msg2, reMsg2);
     }
 	
-	/*@Test
+	@Test
 	public void testsearch(){
-		ArrayList<RoomInfoVO> all=impl.HotelRoomSearch("5000");
-		assertEquals(all.get(0).getRoomID(),"456");
-	}*/
+		ArrayList<RoomInfoVO> all=impl.HotelRoomSearch("5002");
+		assertEquals(all.get(0).getRoomID(),"454");
+	}
 }

@@ -72,5 +72,7 @@ public class RoomInfoVO {
 		return hotelid;
 	}
 	
-	
+	public void setState(RoomState s){
+		state=s;
+	}
 }	

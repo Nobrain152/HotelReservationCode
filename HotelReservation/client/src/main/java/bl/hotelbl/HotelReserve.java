@@ -41,13 +41,14 @@ public class HotelReserve {
 		int number=vo.getRoomNumber();
 		roomcon=(RoomAddController)factory.getRoomAddBLService();
 		ArrayList<RoomInfoVO> room=roomcon.HotelRoomSearch(hotelid);
-		System.out.println(room.size());
-		for(RoomInfoVO v:room ){
-			
+		//System.out.println(room.size());
+		for(int i=0;i<room.size();i++ ){
+			RoomInfoVO v=room.get(i);
 			if(v.getType()==vo.getRoomType()){
 				//System.out.println("here");
-				if(v.getState()==RoomState.UNUSABLE){
-					room.set(room.indexOf(v),v);
+				if(v.getState()==RoomState.USABLE){
+					v.setState(RoomState.UNUSABLE);
+					room.set(i,v);
 					number--;
 					if(number==0){
 						roomcon.HotelRoomMod(hotelid, room);

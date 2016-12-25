@@ -69,11 +69,7 @@ public class loginViewController implements Initializable{
 	
 	@FXML
 	public void btn_registerAction(ActionEvent event){
-		Alert alert=new Alert(AlertType.INFORMATION);
-		alert.setTitle("!!!!!!");
-		alert.setHeaderText(null);
-		alert.setContentText("????????");
-		alert.showAndWait();
+		
 		application.gotoregister();
 	}
 

@@ -80,10 +80,10 @@ public class hotelReserveViewController implements Initializable{
 	public void btn_ReserveAction(ActionEvent event){
 		CustomerInfoVO tempCustomer=new CustomerInfoVO();
 		tempCustomer.setUserid(helper.getUserID());
-//		ArrayList<RoomInfoVO> typeRoom=roomController.getTypeRoom(helper.getHotelID(), cb_room.getValue());
-//		RoomInfoVO tempRoom=typeRoom.get(0);
+		ArrayList<RoomInfoVO> typeRoom=roomController.getTypeRoom(helper.getHotelID(), cb_room.getValue());
+		RoomInfoVO tempRoom=typeRoom.get(0);
 		int roomNumber=Integer.parseInt(tf_roomNumber.getText());
-		double price=1234*roomNumber;
+		double price=tempRoom.getPrice()*roomNumber;
 		OrderVO newOrder=new OrderVO(null,tempCustomer,OrderState.UNEXECUTED,price,helper.getHotelID(),
 				cb_children.isPressed(),null,dp_start.getValue().toString(),dp_end.getValue().toString(),
 				null,Integer.parseInt(tf_roomNumber.getText()),
@@ -117,7 +117,7 @@ public class hotelReserveViewController implements Initializable{
 		int size=room_list.size();
 		for(int i=0;i<size;i++){
 			RoomInfoVO tempRoomVO=room_list.get(i);
-			data_list.add(new roomItem(tempRoomVO.getRoomID(),tempRoomVO.getState().toString(),tempRoomVO.getPrice()));
+			data_list.add(new roomItem(tempRoomVO.getRoomID(),tempRoomVO.getType().toString(),tempRoomVO.getPrice()));
 		}
 		
 		data = FXCollections.observableArrayList(data_list);

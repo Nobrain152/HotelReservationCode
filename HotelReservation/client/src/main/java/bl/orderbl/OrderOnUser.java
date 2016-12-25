@@ -52,9 +52,9 @@ public class OrderOnUser {
 		ArrayList<OrderPO> userPOs;
 		
 		userPOs = userDataService.findByUserID(ID);
-		if(userPOs == null || userPOs.isEmpty()) {
-			return null;
-		}
+//		if(userPOs == null || userPOs.isEmpty()) {
+//			return null;
+//		}
 		
 		userVOs = new ArrayList<OrderVO>(userPOs.size());
 		for(OrderPO userPO : userPOs) {

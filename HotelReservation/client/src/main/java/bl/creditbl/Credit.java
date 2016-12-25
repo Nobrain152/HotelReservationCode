@@ -41,8 +41,14 @@ public class Credit {
 	 * @throws RemoteException
 	 */
 	public int getCredit(CustomerInfoVO client) throws RemoteException {
-		ArrayList<CreditPO> creditPOs = creditDataService.getListByUserID(client.getUserID());
-		return creditPOs.get(0).getCreditResult();
+		ArrayList<CreditPO> creditPOs = new ArrayList<CreditPO>();
+		creditPOs = creditDataService.getListByUserID(client.getUserID());
+		if(creditPOs.isEmpty()){
+			return 0;
+		}else{
+			return creditPOs.get(0).getCreditResult();
+		}
+		
 	}
 
 	/**

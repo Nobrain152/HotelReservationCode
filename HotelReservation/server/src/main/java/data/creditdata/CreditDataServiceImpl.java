@@ -61,7 +61,7 @@ public class CreditDataServiceImpl extends DataSuperClass implements CreditDataS
 			System.out.println("信用信息从数据库中查找出错");
 		}
 		
-		return pos.size()==0?null:pos;
+		return pos;
 	}
 
 

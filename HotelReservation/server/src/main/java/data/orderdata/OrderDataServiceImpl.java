@@ -80,7 +80,7 @@ public class OrderDataServiceImpl extends DataSuperClass implements OrderDataSer
 		sql = "SELECT * FROM " + tableName  + " WHERE customerInfoPO = \'" + ID + "\'";
 //		System.out.println(sql);
 		pos = getMsgs(sql);
-		return pos.size()==0?null:pos;
+		return pos;
 	}
 
 	@Override

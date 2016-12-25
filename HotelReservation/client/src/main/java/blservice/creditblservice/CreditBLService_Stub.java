@@ -3,69 +3,69 @@ package blservice.creditblservice;
 import java.util.ArrayList;
 
 import po.CreditPO;
+import util.Action;
 import util.ResultMsg;
 import vo.CreditVO;
 import vo.CustomerInfoVO;
 
 
 public class CreditBLService_Stub implements CreditBLService{
-	String integral;
-	ArrayList<String> integralNote;
+	String credit;
+	ArrayList<String> creditNote;
 	public CreditBLService_Stub(){
-		integral = "0";
-		integralNote = new ArrayList<String>(); 
+		credit = "0";
+		creditNote = new ArrayList<String>(); 
 	}
 	
 	public CreditBLService_Stub(String integral,ArrayList<String> integralNote){
-		this.integral = integral;
-		this.integralNote = integralNote;
+		this.credit = integral;
+		this.creditNote = integralNote;
 	}
 
 	@Override
 	public int getCredit(CustomerInfoVO client) {
-		// TODO Auto-generated method stub
-		return 0;
+		return 500;
 	}
 
 	@Override
 	public ResultMsg addCredit(CustomerInfoVO client, int value) {
-		// TODO Auto-generated method stub
-		return null;
+		return ResultMsg.SUCCESS;
 	}
 
 	@Override
 	public ResultMsg subCredit(CustomerInfoVO client, int value) {
-		// TODO Auto-generated method stub
-		return null;
+		return ResultMsg.SUCCESS;
 	}
 
 	@Override
 	public ResultMsg changeCredit(CustomerInfoVO client, int value) {
-		// TODO Auto-generated method stub
-		return null;
+		return ResultMsg.SUCCESS;
 	}
 
 	@Override
 	public ArrayList<CreditVO> getCreditList(String userID) {
-		// TODO Auto-generated method stub
-		return null;
+		ArrayList<CreditVO> vos = new ArrayList<CreditVO>();
+		CreditVO vo = new CreditVO("10000066", "60000005", "2016-10-02 24:00", Action.Abnormal, "+100", 5000);
+		vos.add(vo);
+		return vos;
 	}
 
 	@Override
 	public ResultMsg insert(CreditPO creditPO) {
-		// TODO Auto-generated method stub
-		return null;
+		return ResultMsg.SUCCESS;
 	}
 
 	@Override
 	public CreditPO get(String userID) {
-		// TODO Auto-generated method stub
-		return null;
+		CreditPO po =new CreditPO("10000066", "60000005", "2016-10-02 24:00", Action.Abnormal, "+100", 5000);
+		return po;
 	}
 
 	@Override
 	public ArrayList<CreditPO> getListByUserID(String userID) {
-		// TODO Auto-generated method stub
-		return null;
+		ArrayList<CreditPO> pos = new ArrayList<CreditPO>();
+		CreditPO po = new CreditPO("10000066", "60000005", "2016-10-02 24:00", Action.Abnormal, "+100", 5000);
+		pos.add(po);
+		return pos;
 	}
 }

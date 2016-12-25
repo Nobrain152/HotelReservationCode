@@ -11,8 +11,7 @@ public class VipBLService_Stub implements VipLevelBLService {
 
 	@Override
 	public int searchLevel(CustomerInfoVO user) {
-		// TODO Auto-generated method stub
-		return 0;
+		return 3;
 	}
 
 	@Override

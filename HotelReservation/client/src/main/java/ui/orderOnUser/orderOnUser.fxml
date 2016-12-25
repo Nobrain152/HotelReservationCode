@@ -118,8 +118,8 @@
                                     <Font size="18.0" />
                                  </font>
                               </Text>
-                              <Button layoutX="537.0" layoutY="372.0" mnemonicParsing="false" text="撤销" />
-                              <Button fx:id="btn_waiting_info" layoutX="651.0" layoutY="372.0" mnemonicParsing="false" onAction="#btn_waiting_infoAction" text="详细信息" />
+                              <Button fx:id="btn_SetCanceled" layoutX="537.0" layoutY="366.0" mnemonicParsing="false" onAction="#btn_SetCanceledAction" prefHeight="29.0" prefWidth="54.0" text="撤销" />
+                              <Button fx:id="btn_waiting_info" layoutX="645.0" layoutY="366.0" mnemonicParsing="false" onAction="#btn_waiting_infoAction" prefHeight="29.0" prefWidth="70.0" text="详细信息" />
                            </children></AnchorPane>
                      </content>
                   </Tab>

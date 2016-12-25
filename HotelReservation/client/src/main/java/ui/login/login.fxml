@@ -26,8 +26,18 @@
             <Font size="17.0" />
          </font>
       </Text>
-      <TextField fx:id="userid" layoutX="312.0" layoutY="300.0" promptText="账号" />
-      <PasswordField fx:id="password" layoutX="312.0" layoutY="350.0" prefHeight="23.0" prefWidth="161.0" promptText="密码" />
+      <TextField fx:id="userid" layoutX="340.0" layoutY="297.0" promptText="账号" />
+      <PasswordField fx:id="password" layoutX="340.0" layoutY="350.0" prefHeight="23.0" prefWidth="161.0" promptText="密码" />
       <Button fx:id="btn_register" layoutX="29.0" layoutY="552.0" mnemonicParsing="false" onAction="#btn_registerAction" prefHeight="23.0" prefWidth="74.0" text="注册" />
+      <ImageView fitHeight="31.0" fitWidth="30.0" layoutX="300.0" layoutY="294.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@image/login_user.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="31.0" fitWidth="30.0" layoutX="300.0" layoutY="347.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@image/login_password.jpg" />
+         </image>
+      </ImageView>
    </children>
 </AnchorPane>

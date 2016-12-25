@@ -22,11 +22,6 @@
                   <Font size="24.0" />
                </font>
             </Text>
-            <Text layoutX="656.0" layoutY="40.0" strokeType="OUTSIDE" strokeWidth="0.0" text="XXX，欢迎你！">
-               <font>
-                  <Font size="14.0" />
-               </font>
-            </Text>
          </children>
       </Pane>
       <Pane layoutY="523.0" prefHeight="77.0" prefWidth="800.0">
@@ -98,7 +93,7 @@
                                     <TableColumn fx:id="order_waiting_price" prefWidth="87.0" text="金额" />
                                  </columns>
                               </TableView>
-                              <Button layoutX="516.0" layoutY="352.0" mnemonicParsing="false" text="设为已执行">
+                              <Button fx:id="btn_SetExecuted" layoutX="516.0" layoutY="352.0" mnemonicParsing="false" onAction="#btn_SetExecutedAction" text="设为已执行">
                                  <font>
                                     <Font size="14.0" />
                                  </font>
@@ -138,11 +133,6 @@
                                     <TableColumn fx:id="order_abnormal_price" prefWidth="87.0" text="金额" />
                                  </columns>
                               </TableView>
-                              <Button layoutX="482.0" layoutY="354.0" mnemonicParsing="false" text="设为已执行">
-                                 <font>
-                                    <Font size="14.0" />
-                                 </font>
-                              </Button>
                            </children></AnchorPane>
                      </content>
                   </Tab>

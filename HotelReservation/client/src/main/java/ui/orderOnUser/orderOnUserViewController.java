@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 import bl.hotelbl.HotelInfoCheckController;
+import bl.orderbl.OrderOnUserController;
 import bl.userbl.CustomerInfoManagementController;
 import javafx.beans.property.SimpleDoubleProperty;
 import javafx.beans.property.SimpleStringProperty;
@@ -13,12 +14,16 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import ui.UILaunch;
 import ui.UIhelper;
+import util.OrderState;
+import util.ResultMsg;
 import vo.OrderVO;
 
 public class orderOnUserViewController implements Initializable{
@@ -26,6 +31,7 @@ public class orderOnUserViewController implements Initializable{
 	private UIhelper helper;
 	private CustomerInfoManagementController orderManage;
 	private HotelInfoCheckController hotelInfo;
+	private OrderOnUserController orderController;
 	
 	//全部订单
 	@FXML
@@ -102,6 +108,9 @@ public class orderOnUserViewController implements Initializable{
 	@FXML
 	private Button btn_abnormal_info;
 	
+	@FXML
+	private Button btn_SetCanceled;
+	
 	
 	@FXML
 	private Button btn_Cancel;
@@ -146,6 +155,24 @@ public class orderOnUserViewController implements Initializable{
 	}
 	
 	@FXML
+	public void btn_SetCanceledAction(ActionEvent ev){
+		OrderInTable choose=order_waiting.getSelectionModel().getSelectedItem();
+		OrderVO tempOrder=orderController.personalOrderDetail(choose.getID());
+		tempOrder.setOrderState(OrderState.CANCELLED);
+		ResultMsg msg=orderController.personalOrderCancel(tempOrder);
+		if(msg==ResultMsg.SUCCESS){
+			data_waiting.remove(choose);
+			data_canceled.add(choose);
+			Alert alert=new Alert(AlertType.INFORMATION);
+			alert.setTitle("提示");
+			alert.setHeaderText(null);
+			alert.setContentText("操作成功！");
+			alert.showAndWait();
+		}
+		
+	}
+	
+	@FXML
 	public void btn_CancelAction(ActionEvent ev){
 		application.gotocustomerGuide();
 		//OrderInTable result= order_all.getSelectionModel().getSelectedItem();
@@ -158,6 +185,7 @@ public class orderOnUserViewController implements Initializable{
 		helper=UIhelper.getInstance();
 		orderManage=new CustomerInfoManagementController();
 		hotelInfo=new HotelInfoCheckController();
+		orderController=new OrderOnUserController();
 		
 		ArrayList<OrderVO> order_allList=orderManage.IndividualOrderInquiry(helper.getUserID());
 		ArrayList<OrderInTable> data_allList=new ArrayList<OrderInTable>();

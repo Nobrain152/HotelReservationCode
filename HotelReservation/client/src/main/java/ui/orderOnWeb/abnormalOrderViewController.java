@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 import bl.hotelbl.HotelInfoCheckController;
+import bl.orderbl.OrderOnWebController;
 import bl.userbl.WebStuffWebsiteManagementController;
 import javafx.beans.property.SimpleDoubleProperty;
 import javafx.beans.property.SimpleStringProperty;
@@ -13,11 +14,16 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
+import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import ui.UILaunch;
+import util.OrderState;
+import util.ResultMsg;
 import util.Today;
 import vo.OrderVO;
 
@@ -25,6 +31,7 @@ public class abnormalOrderViewController implements Initializable{
 	private UILaunch application;
 	private WebStuffWebsiteManagementController salesmanManage;
 	private HotelInfoCheckController hotelInfo;
+	private OrderOnWebController orderController;
 	
 	@FXML
 	private TableView<OrderInTable> order_waiting;	
@@ -59,6 +66,12 @@ public class abnormalOrderViewController implements Initializable{
 	private Button btn_abnormal_info;
 	
 	@FXML
+	private ChoiceBox<String> cb_Recover;
+	
+	@FXML
+	private Button btn_SetCanceled;
+	
+	@FXML
 	private Button btn_Cancel;
 	
 	public void setApp(UILaunch application){
@@ -76,6 +89,28 @@ public class abnormalOrderViewController implements Initializable{
 	}
 	
 	@FXML
+	public void btn_SetCanceledAction(ActionEvent ev){
+		OrderInTable choose=order_abnormal.getSelectionModel().getSelectedItem();
+		String recoverStr=cb_Recover.getValue();
+		boolean recover=false;
+		if(recoverStr.equals("恢复全部信用")){
+			recover=true;
+		}
+		else if(recoverStr.equals("恢复一半信用")){
+			recover=false;
+		}
+		ResultMsg msg=orderController.abnormalOrderCancel(choose.getID(),recover);
+		if(msg==ResultMsg.SUCCESS){
+			data_abnormal.remove(choose);
+			Alert alert=new Alert(AlertType.INFORMATION);
+			alert.setTitle("提示");
+			alert.setHeaderText(null);
+			alert.setContentText("操作成功！");
+			alert.showAndWait();
+		}
+	}
+	
+	@FXML
 	public void btn_CancelAction(ActionEvent ev){
 		application.gotowebSalesmanGuide();
 	}
@@ -87,6 +122,7 @@ public class abnormalOrderViewController implements Initializable{
 		hotelInfo=new HotelInfoCheckController();
 		Today date=new Today();
 		String today=date.getToday().substring(0,10);
+		orderController=new OrderOnWebController();
 		
 		
 		ArrayList<OrderVO> order_waitingList=salesmanManage.dayUnexOrder(today);
@@ -120,6 +156,8 @@ public class abnormalOrderViewController implements Initializable{
 		order_abnormal_time.setCellValueFactory(new PropertyValueFactory<>("time"));
 		order_abnormal_price.setCellValueFactory(new PropertyValueFactory<>("price"));
 		order_abnormal.setItems(data_abnormal);
+		
+		cb_Recover.setItems(FXCollections.observableArrayList("恢复全部信用","恢复一半信用"));
 	}
 	
 public static class OrderInTable {

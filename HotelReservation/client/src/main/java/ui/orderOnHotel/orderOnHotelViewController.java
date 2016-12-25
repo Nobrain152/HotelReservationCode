@@ -4,6 +4,7 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 
+import bl.orderbl.OrderOnHotelController;
 import bl.userbl.HotelStuffHotelOperationController;
 import bl.userbl.StuffInfoManagementController;
 import javafx.beans.property.SimpleDoubleProperty;
@@ -13,14 +14,16 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.cell.PropertyValueFactory;
 import ui.UILaunch;
 import ui.UIhelper;
-import ui.orderOnUser.orderOnUserViewController.OrderInTable;
 import util.OrderState;
+import util.ResultMsg;
 import vo.OrderVO;
 
 public class orderOnHotelViewController implements Initializable {
@@ -29,6 +32,7 @@ public class orderOnHotelViewController implements Initializable {
 	private StuffInfoManagementController stuffInfo;
 	private String hotelID;
 	private HotelStuffHotelOperationController stuffHotelOperation;
+	private OrderOnHotelController orderController;
 	
 
 	// 全部订单
@@ -105,6 +109,9 @@ public class orderOnHotelViewController implements Initializable {
 	private ObservableList<OrderInTable> data_abnormal;
 	@FXML
 	private Button btn_abnormal_info;
+	
+	@FXML
+	private Button btn_SetExecuted;
 
 	@FXML
 	private Button btn_Cancel;
@@ -147,6 +154,23 @@ public class orderOnHotelViewController implements Initializable {
 		helper.setOrderID(choose.getID());
 		application.gotoorderOnHotelInfo();
 	}
+	
+	@FXML
+	public void btn_SetExecutedAction(ActionEvent ev) throws Exception {
+		OrderInTable choose=order_waiting.getSelectionModel().getSelectedItem();
+		OrderVO tempOrder=orderController.hotelOrderDetail(choose.getID());
+		tempOrder.setOrderState(OrderState.EXECUTED);
+		ResultMsg msg=orderController.hotelOrderModify(tempOrder);
+		if(msg==ResultMsg.SUCCESS){
+			data_waiting.remove(choose);
+			data_executed.add(choose);
+			Alert alert=new Alert(AlertType.INFORMATION);
+			alert.setTitle("提示");
+			alert.setHeaderText(null);
+			alert.setContentText("操作成功！");
+			alert.showAndWait();
+		}
+	}
 
 	@FXML
 	public void btn_CancelAction(ActionEvent ev) throws Exception {
@@ -160,6 +184,7 @@ public class orderOnHotelViewController implements Initializable {
 		stuffInfo=new StuffInfoManagementController();
 		stuffHotelOperation=new HotelStuffHotelOperationController();
 		hotelID=stuffInfo.IndividualBaseInfolnquiry(helper.getUserID()).getHotel();
+		orderController=new OrderOnHotelController();
 		
 		
 		ArrayList<OrderVO> order_allList=stuffHotelOperation.OrderScan(hotelID);

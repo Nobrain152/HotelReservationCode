@@ -79,13 +79,24 @@ public class Vip {
 		if(type == VipType.COMMON_VIP) {
 			CommonVipVO commonVipVO = new CommonVipVO(customerInfoVO.getUserID(), customerInfoVO.getUsername()
 					, customerInfoVO.getPassword(),customerInfoVO.getContact(), 300, str, VipType.COMMON_VIP);
+			
+			customerInfoPO.setIsMember(true);
+			customerInfoPO.setVipType(VipType.COMMON_VIP);
+			customer.setCustomerInfo(customerInfoPO.getUserID(), customerInfoPO);
+			
 			CommonVipPO commonVipPO = (CommonVipPO)VOPOchange.VOtoPO(commonVipVO);
+			
 			if(vipDataService.findByUserIDC(userID) == null)
 				resultMsg = vipDataService.insertC(commonVipPO);
 		} else if(type == VipType.COMPANY_VIP) {
 			BusinessVipVO businessVipVO = new BusinessVipVO(customerInfoVO.getUserID(), customerInfoVO.getUsername()
 					, customerInfoVO.getPassword(),customerInfoVO.getContact(), 300, str, VipType.COMPANY_VIP);
 			BusinessVipPO businessVipPO = (BusinessVipPO)VOPOchange.VOtoPO(businessVipVO);
+			
+			customerInfoPO.setIsMember(true);
+			customerInfoPO.setVipType(VipType.COMPANY_VIP);
+			customer.setCustomerInfo(customerInfoPO.getUserID(), customerInfoPO);
+			
 			if(vipDataService.findByUserIDB(userID) == null)
 				resultMsg = vipDataService.insertB(businessVipPO);
 		}

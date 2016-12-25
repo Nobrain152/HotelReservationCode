@@ -1,6 +1,7 @@
 
 package bl.userbl;
 
+import java.awt.Desktop.Action;
 import java.rmi.RemoteException;
 import java.util.ArrayList;
 
@@ -10,10 +11,13 @@ import bl.creditbl.CreditController;
 import bl.orderbl.OrderOnWebController;
 import bl.promotionbl.PromotionWebController;
 import dataservice.userdataservice.UserManagementDataService;
+import po.CreditPO;
 import po.UserInfoPO;
 import util.PromotionWebType;
 import util.ResultMsg;
+import util.Today;
 import util.UserType;
+import vo.CreditVO;
 import vo.CustomerInfoVO;
 import vo.OrderVO;
 import vo.PromotionWebVO;
@@ -130,9 +134,11 @@ public class WebStuff extends User{
 	 * @return 修改后的用户信用值VO
 	 */
 	public ResultMsg UserCreditModification(String userid,int n)throws RemoteException{
-		CustomerInfoVO vo=(CustomerInfoVO)VOPOchange.POtoVO(user.GetCustomerInfo(userid));
 		inte=(CreditController)factory.getCreditBLService();
-		return inte.addCredit(vo, n);
+		CreditPO cre=inte.get(userid);
+		String string="+"+n;
+		CreditPO cre1=new CreditPO(cre.getUserID(),null,new Today().getToday(),util.Action.Charge,string,cre.getCreditResult()+n);
+		return inte.insert(cre1);
 	}
 
 

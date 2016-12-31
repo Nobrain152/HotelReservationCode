@@ -42,7 +42,7 @@ public class promotionWebVIPViewController implements Initializable{
 		
 		toModify.setRatio(Double.parseDouble(tf_discount.getText()));
 		
-		ResultMsg msg=controller.WebsiteStrategeMod(toModify);
+		ResultMsg msg=controller.websiteStrategeMod(toModify);
 		if(msg==ResultMsg.SUCCESS){
 			application.gotopromotionHotel();
 		}

@@ -16,7 +16,7 @@ public interface WebManagerHotelOperationBlService{
 	 * 查看酒店列表
 	 * @return 酒店信息列表
 	 */
-	public ArrayList<HotelInfoVO> HotelScan();
+	public ArrayList<HotelInfoVO> hotelScan();
 	
 	
 	
@@ -24,13 +24,13 @@ public interface WebManagerHotelOperationBlService{
 	 * 添加酒店	
 	 * @param 酒店信息VO
 	 */
-	public String HotelAdd(HotelInfoVO vo);
+	public String hotelAdd(HotelInfoVO vo);
 		
 	/**
 	 * 添加酒店工作人员
 	 * @param 酒店IDVO
 	 * @param 用户IDVO
 	 */
-	public String StuffAdd(StuffInfoVO vo);
+	public String stuffAdd(StuffInfoVO vo);
 		
 }

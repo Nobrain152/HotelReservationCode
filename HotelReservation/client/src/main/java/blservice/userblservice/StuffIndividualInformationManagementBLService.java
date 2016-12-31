@@ -16,7 +16,7 @@ public interface StuffIndividualInformationManagementBLService{
 	 * @param 用户IDVO
 	 * @return 酒店管理人员信息VO
 	 */
-	public StuffInfoVO IndividualBaseInfolnquiry(String userid);
+	public StuffInfoVO individualInfolnq(String userid);
 		
 	/**
 	 * 修改个人信息
@@ -24,6 +24,6 @@ public interface StuffIndividualInformationManagementBLService{
 	 * @param 酒店管理人员信息VO
 	 * @return 修改结果
 	 */
-	public ResultMsg IndividualBaseInfoModification(String userid,StuffInfoVO vo2);
+	public ResultMsg individualInfoMod(String userid,StuffInfoVO vo2);
 		
 }

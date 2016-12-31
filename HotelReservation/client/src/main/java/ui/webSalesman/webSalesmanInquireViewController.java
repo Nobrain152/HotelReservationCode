@@ -48,7 +48,7 @@ public class webSalesmanInquireViewController implements Initializable{
 	
 	@FXML
 	private void btn_SearchAction(ActionEvent event) throws Exception{
-		UserInfoVO salesman=salesmanInfo.IndividualBaseInfolnquiry(tf_ID.getText());
+		UserInfoVO salesman=salesmanInfo.individualInfolnq(tf_ID.getText());
 		lb_ID.setText(salesman.getUserID());
 		lb_name.setText(salesman.getUsername());
 		lb_contact.setText(salesman.getContact());

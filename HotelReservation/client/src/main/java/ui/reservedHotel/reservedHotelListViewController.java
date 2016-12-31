@@ -79,28 +79,28 @@ public class reservedHotelListViewController implements Initializable{
 		
 		ArrayList<hotelItem> data_List=new ArrayList<hotelItem>();
 		
-		ArrayList<HotelInfoVO> hotel_executedList=customerInfo.finishedHotelInquiry(helper.getUserID());		
+		ArrayList<HotelInfoVO> hotel_executedList=customerInfo.finishedHotelInq(helper.getUserID());		
 		int size_executed=hotel_executedList.size();
 		for(int i=0;i<size_executed;i++){
 			HotelInfoVO tempHotelVO=hotel_executedList.get(i);			
 			data_List.add(new hotelItem(tempHotelVO.getHotelID(),tempHotelVO.getName(),tempHotelVO.getLevel(),tempHotelVO.getScore(),"正常订单",tempHotelVO.getSP()));
 		}
 		
-		ArrayList<HotelInfoVO> hotel_waitingList=customerInfo.UnfinishedHotelInquiry(helper.getUserID());		
+		ArrayList<HotelInfoVO> hotel_waitingList=customerInfo.unfinishedHotelInq(helper.getUserID());		
 		int size_waiting=hotel_waitingList.size();
 		for(int i=0;i<size_waiting;i++){
 			HotelInfoVO tempHotelVO=hotel_waitingList.get(i);			
 			data_List.add(new hotelItem(tempHotelVO.getHotelID(),tempHotelVO.getName(),tempHotelVO.getLevel(),tempHotelVO.getScore(),"正常订单",tempHotelVO.getSP()));
 		}
 		
-		ArrayList<HotelInfoVO> hotel_canceledList=customerInfo.CancelHotelInquiry(helper.getUserID());		
+		ArrayList<HotelInfoVO> hotel_canceledList=customerInfo.cancelHotelInq(helper.getUserID());		
 		int size_canceled=hotel_canceledList.size();
 		for(int i=0;i<size_canceled;i++){
 			HotelInfoVO tempHotelVO=hotel_canceledList.get(i);			
 			data_List.add(new hotelItem(tempHotelVO.getHotelID(),tempHotelVO.getName(),tempHotelVO.getLevel(),tempHotelVO.getScore(),"撤销订单",tempHotelVO.getSP()));
 		}
 		
-		ArrayList<HotelInfoVO> hotel_abnormalList=customerInfo.AbnormalHotelInquiry(helper.getUserID());		
+		ArrayList<HotelInfoVO> hotel_abnormalList=customerInfo.abnormalHotelInq(helper.getUserID());		
 		int size_abnormal=hotel_abnormalList.size();
 		for(int i=0;i<size_abnormal;i++){
 			HotelInfoVO tempHotelVO=hotel_abnormalList.get(i);			

@@ -45,7 +45,7 @@ public class webSalesmanModifyViewController implements Initializable{
 	private void btn_ModifyAction(ActionEvent event){
 		salesman.setUsername(tf_name.getText());
 		salesman.setContact(tf_contact.getText());
-		ResultMsg msg=salesmanInfo.UserInformationModification(helper.getSalesmanIDbyManager(), salesman);
+		ResultMsg msg=salesmanInfo.userInfoMod(helper.getSalesmanIDbyManager(), salesman);
 		//TODO еп╤о
 		application.gotowebSalesmanInquire();
 	}
@@ -61,7 +61,7 @@ public class webSalesmanModifyViewController implements Initializable{
 		// TODO Auto-generated method stub
 		helper=UIhelper.getInstance();
 		salesmanInfo=new WebManagerWebsiteManagementController();
-		salesman=salesmanInfo.UserInformationInquiry(helper.getSalesmanIDbyManager());
+		salesman=salesmanInfo.userInfoInq(helper.getSalesmanIDbyManager());
 		lb_salesmanID.setText(salesman.getUserID());
 		tf_name.setText(salesman.getUsername());
 		tf_contact.setText(salesman.getContact());

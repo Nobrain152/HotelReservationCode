@@ -39,7 +39,7 @@ public class WebManager extends User {
 	 * @param 用户IDVO
 	 * @return 用户个人信息VO
 	 */
-	public UserInfoVO IndividualBaseInfolnquiry(String userid)throws RemoteException{
+	public UserInfoVO individualInfolnq(String userid)throws RemoteException{
 		UserInfoPO po= data.GetWebManagerInfo(userid);
 		UserInfoVO vo=(UserInfoVO)VOPOchange.POtoVO(po);
 		return vo;
@@ -51,7 +51,7 @@ public class WebManager extends User {
 	 * @param 用户信息VO
 	 * @return 修改结果
 	 */
-	public ResultMsg IndividualBaseInfoModification(String userid,UserInfoVO vo2)throws RemoteException{
+	public ResultMsg individualInfoMod(String userid,UserInfoVO vo2)throws RemoteException{
 		UserInfoPO past= data.GetWebManagerInfo(userid);
 		past.setType(UserType.WebManager);
 		if(vo2.getContact()!=null){
@@ -70,7 +70,7 @@ public class WebManager extends User {
 	 * 添加酒店	
 	 * @param 酒店信息VO
 	 */
-	public String HotelAdd(HotelInfoVO vo)throws RemoteException{
+	public String hotelAdd(HotelInfoVO vo)throws RemoteException{
 		main=(HotelInfoMaintainController)factory.getHotelInfoMaintainBLService();
 		return main.addHotel(vo);
 	}
@@ -80,7 +80,7 @@ public class WebManager extends User {
 	 * @param 酒店IDVO
 	 * @param 用户IDVO
 	 */
-	public String StuffAdd(StuffInfoVO vo)throws RemoteException{
+	public String stuffAdd(StuffInfoVO vo)throws RemoteException{
 		ArrayList<StuffInfoPO> already=data.HotelStuffScan();
 		if(already!=null){
 			for(StuffInfoPO p:already){
@@ -99,7 +99,7 @@ public class WebManager extends User {
 	 * 查看酒店列表
 	 * @return 酒店信息列表
 	 */
-	public ArrayList<HotelInfoVO> HotelScan()throws RemoteException {
+	public ArrayList<HotelInfoVO> hotelScan()throws RemoteException {
 		check=(HotelInfoCheckController)factory.getHotelInfoCheckBLService();
 		return check.hotelScan();
 	}
@@ -109,7 +109,7 @@ public class WebManager extends User {
 	 * @param 用户IDVO
 	 * @return 用户个人信息VO
 	 */
-	public UserInfoVO UserInformationInquiry(String userid)throws RemoteException{
+	public UserInfoVO userInfoInq(String userid)throws RemoteException{
 		char c=userid.charAt(0);
 		UserInfoPO po;
 		switch(c){
@@ -130,7 +130,7 @@ public class WebManager extends User {
 	 * @param 用户个人信息VO
 	 * @return 修改结果
 	 */
-	public ResultMsg UserInformationModification(String userid,UserInfoVO vo2)throws RemoteException{
+	public ResultMsg userInfoMod(String userid,UserInfoVO vo2)throws RemoteException{
 		UserInfoPO po1=(UserInfoPO)VOPOchange.VOtoPO(vo2);
 		char c=userid.charAt(0);
 		CustomerInfoPO cu;
@@ -205,7 +205,7 @@ public class WebManager extends User {
 	 * @param vo
 	 * @return
 	 */
-	public String AddWebStuff(UserInfoVO vo)throws RemoteException{
+	public String addWebStuff(UserInfoVO vo)throws RemoteException{
 		vo.setType(UserType.WebStuff);
 		UserInfoPO po=(UserInfoPO)VOPOchange.VOtoPO(vo);
 		po.setPassword(MD5Util.md5Encode(po.getPassword()));
@@ -218,7 +218,7 @@ public class WebManager extends User {
 	 * 查看网站营销人员列表
 	 * @return 网站营销人员列表
 	 */
-	public ArrayList<UserInfoVO> WebStuffScan() throws RemoteException{
+	public ArrayList<UserInfoVO> webStuffScan() throws RemoteException{
 		ArrayList<UserInfoPO> pos=data.WebStuffScan();
 		ArrayList<UserInfoVO> vos=new ArrayList<UserInfoVO>();
 		for(int i=0;i<pos.size();i++){

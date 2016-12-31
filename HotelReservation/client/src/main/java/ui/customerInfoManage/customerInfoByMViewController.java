@@ -56,7 +56,7 @@ public class customerInfoByMViewController implements Initializable{
 		helper=UIhelper.getInstance();
 		customerInfo=new CustomerInfoManagementController();
 		String customerID=helper.getCustomerIDbyManager();
-		CustomerInfoVO customer =customerInfo.IndividualBaseInfolnquiry(customerID);
+		CustomerInfoVO customer =customerInfo.individualInfolnq(customerID);
 		lb_ID.setText(customer.getUserID());
 		lb_name.setText(customer.getUsername());		
 		lb_contact.setText(customer.getContact());

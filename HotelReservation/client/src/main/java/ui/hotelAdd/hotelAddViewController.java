@@ -86,7 +86,7 @@ public class hotelAddViewController implements Initializable{
 		
 		HotelInfoVO newHotel=new HotelInfoVO(tf_name.getText(),address,area,cb_star.getValue(),
 				ta_introduction.getText(),ta_facility.getText(),false,null,10,Integer.parseInt(tf_price.getText()));
-		String ID= addHotel.HotelAdd(newHotel);//TODO 显示注册成功的ID；
+		String ID= addHotel.hotelAdd(newHotel);//TODO 显示注册成功的ID；
 		System.out.println(ID);
 		application.gotowebManagerGuide();
 	}

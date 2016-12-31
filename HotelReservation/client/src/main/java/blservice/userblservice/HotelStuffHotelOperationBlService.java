@@ -23,7 +23,7 @@ public interface HotelStuffHotelOperationBlService{
 	 * @param 酒店IDVO
 	 * @return 酒店信息VO
 	 */
-	public HotelInfoVO HotelInformationInquiry(String hotelid);
+	public HotelInfoVO hotelInfoInq(String hotelid);
 		
 	/**
 	 * 修改酒店信息	
@@ -31,7 +31,7 @@ public interface HotelStuffHotelOperationBlService{
 	 * @param 用户IDVO
 	 * @return 修改结果
 	 */
-	public ResultMsg HotelInformationModification(HotelInfoVO vo1,String userid);
+	public ResultMsg hotelInfoMod(HotelInfoVO vo1,String userid);
 	
 	/**
 	 * 删除酒店促销策略	
@@ -39,7 +39,7 @@ public interface HotelStuffHotelOperationBlService{
 	 * @param 酒店促销策略VO
 	 * @return 修改结果
 	 */
-	public boolean HotelStrategeDelete(PromotionHotelVO vo);
+	public boolean hotelStrategeDelete(PromotionHotelVO vo);
 	
 	/**
 	 * 修改酒店房间信息
@@ -47,14 +47,14 @@ public interface HotelStuffHotelOperationBlService{
 	 * @return
 	 * @throws RemoteException
 	 */
-	public ResultMsg SetRoomInfo(ArrayList<RoomInfoVO> rooms);
+	public ResultMsg setRoomInfo(ArrayList<RoomInfoVO> rooms);
 	
 	/**
 	 * 查看酒店促销策略
 	 * @param 酒店IDVO
 	 * @return 酒店促销策略列表
 	 */
-	public ArrayList<PromotionHotelVO> HotelPromotionInquire(PromotionHotelVO vo);
+	public ArrayList<PromotionHotelVO> hotelPromotionInq(PromotionHotelVO vo);
 	
 	/**
 	 * 修改酒店促销策略	
@@ -62,7 +62,7 @@ public interface HotelStuffHotelOperationBlService{
 	 * @param 酒店促销策略VO
 	 * @return 修改结果
 	 */
-	public boolean HotelStrategeManage(PromotionHotelVO vo); 
+	public boolean hotelStrategeManage(PromotionHotelVO vo); 
 	
 	/**
 	 * 增加酒店促销策略	
@@ -70,7 +70,7 @@ public interface HotelStuffHotelOperationBlService{
 	 * @param 酒店促销策略VO
 	 * @return 修改结果
 	 */
-	public boolean HotelStrategeAdd(PromotionHotelVO vo);
+	public boolean hotelStrategeAdd(PromotionHotelVO vo);
 		
 	/**
 	 * 更新订单状态	
@@ -78,21 +78,21 @@ public interface HotelStuffHotelOperationBlService{
 	 * @param 订单VO
 	 * @throws RemoteException 
 	 */
-	public ResultMsg OrderStateUpdate(String userid,OrderVO vo2) throws RemoteException;
+	public ResultMsg orderStateUpdate(String userid,OrderVO vo2) throws RemoteException;
 		
 	/**
 	 * 浏览酒店订单	
 	 * @param 酒店IDVO
 	 * @return 订单VO列表
 	 */
-	public ArrayList<OrderVO> OrderScan(String hotelid);
+	public ArrayList<OrderVO> orderScan(String hotelid);
 	
 	/**
 	 * 浏览酒店异常订单	
 	 * @param 酒店IDVO
 	 * @return 订单VO列表
 	 */
-	public ArrayList<OrderVO> AbnormalOrderScan(String hotelid);
+	public ArrayList<OrderVO> abnormalOrderScan(String hotelid);
 	
 	/**
 	 * 分类浏览订单
@@ -107,13 +107,13 @@ public interface HotelStuffHotelOperationBlService{
 	 * 更新房间信息
 	 * @param 房间信息VO
 	 */
-	public ResultMsg UpdateRoomState(RoomInfoVO vo);
+	public ResultMsg updateRoomState(RoomInfoVO vo);
 	
 	/**
 	 * 录入可用房间
 	 * @param rooms
 	 */
-	public ResultMsg TypeInRoom(RoomInfoVO room);
+	public ResultMsg typeInRoom(RoomInfoVO room);
 	
 	
 	/**
@@ -122,7 +122,7 @@ public interface HotelStuffHotelOperationBlService{
 	 * @return
 	 * @throws RemoteException
 	 */
-	public ArrayList<RoomInfoVO> HotelRoomList(String hotelid);
+	public ArrayList<RoomInfoVO> hotelRoomList(String hotelid);
 	
 	/**
 	 * 酒店工作人员更改订单状态

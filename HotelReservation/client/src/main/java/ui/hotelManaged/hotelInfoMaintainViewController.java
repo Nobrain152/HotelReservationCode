@@ -98,7 +98,7 @@ public class hotelInfoMaintainViewController implements Initializable{
 		HotelInfoVO hotelToSave=new HotelInfoVO(tf_name.getText(),address,area,cb_star.getValue(),
 				ta_introduction.getText(),ta_facility.getText(),hotelvo.getIsReserved(),hotelvo.getHotelID(),
 				hotelvo.getScore(),hotelvo.getSP());
-		ResultMsg msg=hotelManage.HotelInformationModification(hotelToSave, helper.getUserID());
+		ResultMsg msg=hotelManage.hotelInfoMod(hotelToSave, helper.getUserID());
 		//TODO ≈–∂œ
 		application.gotohotelManagedInfo();
 	}
@@ -113,9 +113,9 @@ public class hotelInfoMaintainViewController implements Initializable{
 		
 		//ªÒ»°æ∆µÍID
 		String hotelStuffID=helper.getUserID();
-		StuffInfoVO vo=stuffInfo.IndividualBaseInfolnquiry(hotelStuffID);
+		StuffInfoVO vo=stuffInfo.individualInfolnq(hotelStuffID);
 		String hotelID=vo.getHotel();
-		hotelvo=hotelManage.HotelInformationInquiry(hotelID);
+		hotelvo=hotelManage.hotelInfoInq(hotelID);
 		
 		tf_name.setText(hotelvo.getName());
 		tf_price.setText(String.valueOf(hotelvo.getSP()));

@@ -31,61 +31,61 @@ public class HotelStuffHotelOperationBLService_Stub implements HotelStuffHotelOp
 	}
 	
 	@Override
-	public HotelInfoVO HotelInformationInquiry(String hotelid) {
+	public HotelInfoVO hotelInfoInq(String hotelid) {
 		
 		return hotel;
 	}
 
 	@Override
-	public ResultMsg HotelInformationModification(HotelInfoVO vo1, String userid) {
+	public ResultMsg hotelInfoMod(HotelInfoVO vo1, String userid) {
 		
 		return ResultMsg.SUCCESS;
 	}
 
 	@Override
-	public boolean HotelStrategeDelete(PromotionHotelVO vo) {
+	public boolean hotelStrategeDelete(PromotionHotelVO vo) {
 		
 		return true;
 	}
 
 	@Override
-	public ResultMsg SetRoomInfo(ArrayList<RoomInfoVO> rooms) {
+	public ResultMsg setRoomInfo(ArrayList<RoomInfoVO> rooms) {
 		
 		return ResultMsg.SUCCESS;
 	}
 
 	@Override
-	public ArrayList<PromotionHotelVO> HotelPromotionInquire(PromotionHotelVO vo) {
+	public ArrayList<PromotionHotelVO> hotelPromotionInq(PromotionHotelVO vo) {
 		
 		return pro;
 	}
 
 	@Override
-	public boolean HotelStrategeManage(PromotionHotelVO vo) {
+	public boolean hotelStrategeManage(PromotionHotelVO vo) {
 		
 		return true;
 	}
 
 	@Override
-	public boolean HotelStrategeAdd(PromotionHotelVO vo) {
+	public boolean hotelStrategeAdd(PromotionHotelVO vo) {
 		
 		return true;
 	}
 
 	@Override
-	public ResultMsg OrderStateUpdate(String userid, OrderVO vo2) throws RemoteException {
+	public ResultMsg orderStateUpdate(String userid, OrderVO vo2) throws RemoteException {
 		
 		return ResultMsg.SUCCESS;
 	}
 
 	@Override
-	public ArrayList<OrderVO> OrderScan(String hotelid) {
+	public ArrayList<OrderVO> orderScan(String hotelid) {
 		
 		return order;
 	}
 
 	@Override
-	public ArrayList<OrderVO> AbnormalOrderScan(String hotelid) {
+	public ArrayList<OrderVO> abnormalOrderScan(String hotelid) {
 		
 		return order;
 	}
@@ -97,19 +97,19 @@ public class HotelStuffHotelOperationBLService_Stub implements HotelStuffHotelOp
 	}
 
 	@Override
-	public ResultMsg UpdateRoomState(RoomInfoVO vo) {
+	public ResultMsg updateRoomState(RoomInfoVO vo) {
 		
 		return ResultMsg.SUCCESS;
 	}
 
 	@Override
-	public ResultMsg TypeInRoom(RoomInfoVO room) {
+	public ResultMsg typeInRoom(RoomInfoVO room) {
 		
 		return ResultMsg.SUCCESS;
 	}
 
 	@Override
-	public ArrayList<RoomInfoVO> HotelRoomList(String hotelid) {
+	public ArrayList<RoomInfoVO> hotelRoomList(String hotelid) {
 		
 		return room;
 	}

@@ -12,13 +12,13 @@ public class WebIndividualInformationManagementBLService_Stub implements WebIndi
 	}
 	
 	@Override
-	public UserInfoVO IndividualBaseInfolnquiry(String userid) {
+	public UserInfoVO individualInfolnq(String userid) {
 		
 		return user;
 	}
 
 	@Override
-	public ResultMsg IndividualBaseInfoModification(String userid, UserInfoVO vo2) {
+	public ResultMsg individualInfoMod(String userid, UserInfoVO vo2) {
 		
 		return ResultMsg.SUCCESS;
 	}

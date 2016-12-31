@@ -46,7 +46,7 @@ public class promotionHotelDIYViewController implements Initializable{
 		
 		toModify.setRatio(Double.parseDouble(tf_discount.getText()));
 		
-		boolean result=controller.HotelStrategeManage(toModify);
+		boolean result=controller.hotelStrategeManage(toModify);
 		if(result){
 			application.gotopromotionHotel();
 		}

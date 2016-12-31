@@ -33,9 +33,9 @@ public class WebStuffWebsiteManagementController implements WebStuffWebsiteManag
 	 * 创建网站促销策略
 	 * @param 网站促销策略VO
 	 */
-	public boolean WebsiteStrategeCreate(PromotionWebVO vo){
+	public boolean websiteStrategeCreate(PromotionWebVO vo){
 		try {
-			ResultMsg msg=stuff.WebsiteStrategeCreate(vo);
+			ResultMsg msg=stuff.websiteStrategeCreate(vo);
 			if(msg==ResultMsg.SUCCESS){
 				return  true;
 			}
@@ -51,9 +51,9 @@ public class WebStuffWebsiteManagementController implements WebStuffWebsiteManag
 	 * 修改网站促销策略
 	 * @param 网站促销策略VO
 	 */
-	public ResultMsg WebsiteStrategeMod(PromotionWebVO vo){
+	public ResultMsg websiteStrategeMod(PromotionWebVO vo){
 		try {
-			return stuff.WebsiteStrategeMod(vo);
+			return stuff.websiteStrategeMod(vo);
 		} catch (RemoteException e) {
 			return ResultMsg.FAIL;
 		}
@@ -63,9 +63,9 @@ public class WebStuffWebsiteManagementController implements WebStuffWebsiteManag
 	 * 删除网站促销策略
 	 * @param 网站促销策略VO
 	 */
-	public ResultMsg WebsiteStrategeDelete(PromotionWebVO vo){
+	public ResultMsg websiteStrategeDelete(PromotionWebVO vo){
 		try {
-			return stuff.WebsiteStrategeDelete(vo);
+			return stuff.websiteStrategeDelete(vo);
 		} catch (RemoteException e) {
 			return ResultMsg.FAIL;
 		}
@@ -75,9 +75,9 @@ public class WebStuffWebsiteManagementController implements WebStuffWebsiteManag
 	 * 查看异常订单
 	 * @return 订单VO列表
 	 */
-	public ArrayList<OrderVO> AbnormalOrderScan(){
+	public ArrayList<OrderVO> abnormalOrderScan(){
 		try {
-			return stuff.AbnormalOrderScan();
+			return stuff.abnormalOrderScan();
 		} catch (RemoteException e) {
 			e.printStackTrace();
 			return null;
@@ -90,9 +90,9 @@ public class WebStuffWebsiteManagementController implements WebStuffWebsiteManag
 	 * @param 增加值
 	 * @return 修改后的用户信用值VO
 	 */
-	public ResultMsg UserCreditModification(String userid,int n){
+	public ResultMsg userCreditMod(String userid,int n){
 		try {
-			return stuff.UserCreditModification(userid, n);
+			return stuff.userCreditMod(userid, n);
 		} catch (RemoteException e) {
 			e.printStackTrace();
 			return null;
@@ -104,9 +104,9 @@ public class WebStuffWebsiteManagementController implements WebStuffWebsiteManag
 	 * 查看网站营销策略
 	 * @return 网站营销策略列表
 	 */
-	public ArrayList<PromotionWebVO> WebsiteStrategeInquire(PromotionWebVO vo) {
+	public ArrayList<PromotionWebVO> websiteStrategeInq(PromotionWebVO vo) {
 		try {
-			return stuff.WebsiteStrategeInquire(vo);
+			return stuff.websiteStrategeInq(vo);
 		} catch (RemoteException e) {
 			e.printStackTrace();
 			return null;
@@ -118,9 +118,9 @@ public class WebStuffWebsiteManagementController implements WebStuffWebsiteManag
 	 * @param 用户IDVO
 	 * @return 用户信用信息VO
 	 */
-	public int userCreditInquire(String userid) {
+	public int userCreditInq(String userid) {
 		try {
-			return stuff.userCreditInquire(userid);
+			return stuff.userCreditInq(userid);
 		} catch (RemoteException e) {
 			e.printStackTrace();
 			return -10000000;

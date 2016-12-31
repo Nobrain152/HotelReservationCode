@@ -187,7 +187,7 @@ public class orderOnUserViewController implements Initializable{
 		hotelInfo=new HotelInfoCheckController();
 		orderController=new OrderOnUserController();
 		
-		ArrayList<OrderVO> order_allList=orderManage.IndividualOrderInquiry(helper.getUserID());
+		ArrayList<OrderVO> order_allList=orderManage.individualOrderInq(helper.getUserID());
 		ArrayList<OrderInTable> data_allList=new ArrayList<OrderInTable>();
 		int size_all=order_allList.size();
 		for(int i=0;i<size_all;i++){
@@ -202,7 +202,7 @@ public class orderOnUserViewController implements Initializable{
 		order_all_price.setCellValueFactory(new PropertyValueFactory<>("price"));
 		order_all.setItems(data_all);
 		
-		ArrayList<OrderVO> order_executedList=orderManage.finishedOrderInquiry(helper.getUserID());
+		ArrayList<OrderVO> order_executedList=orderManage.finishedOrderInq(helper.getUserID());
 		ArrayList<OrderInTable> data_executedList=new ArrayList<OrderInTable>();
 		int size_executed=order_executedList.size();
 		for(int i=0;i<size_executed;i++){
@@ -217,7 +217,7 @@ public class orderOnUserViewController implements Initializable{
 		order_executed_price.setCellValueFactory(new PropertyValueFactory<>("price"));
 		order_executed.setItems(data_executed);
 		
-		ArrayList<OrderVO> order_waitingList=orderManage.UnfinishedOrderInquiry(helper.getUserID());
+		ArrayList<OrderVO> order_waitingList=orderManage.unfinishedOrderInq(helper.getUserID());
 		ArrayList<OrderInTable> data_waitingList=new ArrayList<OrderInTable>();
 		int size_waiting=order_waitingList.size();
 		for(int i=0;i<size_waiting;i++){
@@ -232,7 +232,7 @@ public class orderOnUserViewController implements Initializable{
 		order_waiting_price.setCellValueFactory(new PropertyValueFactory<>("price"));
 		order_waiting.setItems(data_waiting);
 		
-		ArrayList<OrderVO> order_canceledList=orderManage.CancelOrderInquiry(helper.getUserID());
+		ArrayList<OrderVO> order_canceledList=orderManage.cancelOrderInq(helper.getUserID());
 		ArrayList<OrderInTable> data_canceledList=new ArrayList<OrderInTable>();
 		int size_canceled=order_canceledList.size();
 		for(int i=0;i<size_canceled;i++){
@@ -247,7 +247,7 @@ public class orderOnUserViewController implements Initializable{
 		order_canceled_price.setCellValueFactory(new PropertyValueFactory<>("price"));
 		order_canceled.setItems(data_canceled);
 		
-		ArrayList<OrderVO> order_abnormalList=orderManage.AbnormalOrderInquiry(helper.getUserID());
+		ArrayList<OrderVO> order_abnormalList=orderManage.abnormalOrderInq(helper.getUserID());
 		ArrayList<OrderInTable> data_abnormalList=new ArrayList<OrderInTable>();
 		int size_abnormal=order_abnormalList.size();
 		for(int i=0;i<size_abnormal;i++){

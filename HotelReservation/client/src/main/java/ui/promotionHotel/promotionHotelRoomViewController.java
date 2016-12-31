@@ -39,7 +39,7 @@ public class promotionHotelRoomViewController implements Initializable{
 	@FXML
 	public void btn_ModifyAction(ActionEvent ev) {
 		toModify.setRatio(Double.parseDouble(tf_discount.getText()));
-		boolean result=controller.HotelStrategeManage(toModify);
+		boolean result=controller.hotelStrategeManage(toModify);
 		if(result){
 			application.gotopromotionHotel();
 		}

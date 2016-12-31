@@ -18,43 +18,43 @@ public class WebStuffWebsiteManagementBLService_Stub  implements WebStuffWebsite
 	}
 	
 	@Override
-	public ArrayList<PromotionWebVO> WebsiteStrategeInquire(PromotionWebVO vo) {
+	public ArrayList<PromotionWebVO> websiteStrategeInq(PromotionWebVO vo) {
 		
 		return web;
 	}
 
 	@Override
-	public boolean WebsiteStrategeCreate(PromotionWebVO vo) {
+	public boolean websiteStrategeCreate(PromotionWebVO vo) {
 		
 		return true;
 	}
 
 	@Override
-	public ResultMsg WebsiteStrategeMod(PromotionWebVO vo) {
+	public ResultMsg websiteStrategeMod(PromotionWebVO vo) {
 		
 		return ResultMsg.SUCCESS;
 	}
 
 	@Override
-	public ResultMsg WebsiteStrategeDelete(PromotionWebVO vo) {
+	public ResultMsg websiteStrategeDelete(PromotionWebVO vo) {
 		
 		return ResultMsg.SUCCESS;
 	}
 
 	@Override
-	public ArrayList<OrderVO> AbnormalOrderScan() {
+	public ArrayList<OrderVO> abnormalOrderScan() {
 		
 		return order;
 	}
 
 	@Override
-	public int userCreditInquire(String userid) {
+	public int userCreditInq(String userid) {
 		
 		return 100;
 	}
 
 	@Override
-	public ResultMsg UserCreditModification(String userid, int n) {
+	public ResultMsg userCreditMod(String userid, int n) {
 		
 		return ResultMsg.SUCCESS;
 	}

@@ -32,9 +32,9 @@ public class StuffInfoManagementController implements StuffIndividualInformation
 	 * @param 用户IDVO
 	 * @return 酒店管理人员信息VO
 	 */
-	public StuffInfoVO IndividualBaseInfolnquiry(String userid){
+	public StuffInfoVO individualInfolnq(String userid){
 		try {
-			return stuff.IndividualBaseInfolnquiry(userid);
+			return stuff.individualInfolnq(userid);
 		} catch (RemoteException e) {
 			e.printStackTrace();
 			return null;
@@ -48,9 +48,9 @@ public class StuffInfoManagementController implements StuffIndividualInformation
 	 * @param 酒店管理人员信息VO
 	 * @return 修改结果
 	 */
-	public ResultMsg IndividualBaseInfoModification(String userid,StuffInfoVO vo2){
+	public ResultMsg individualInfoMod(String userid,StuffInfoVO vo2){
 		try {
-			return stuff.IndividualBaseInfoModification(userid, vo2);
+			return stuff.individualInfoMod(userid, vo2);
 		} catch (RemoteException e) {
 			e.printStackTrace();
 			return ResultMsg.FAIL;

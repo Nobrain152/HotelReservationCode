@@ -39,7 +39,7 @@ public class customerInfoModifyByMViewController implements Initializable{
 	private void btn_SaveAction(ActionEvent event){
 		customer.setUsername(tf_name.getText());
 		customer.setContact(tf_contact.getText());
-		customerInfo.IndividualBaseInfoModification(helper.getCustomerIDbyManager(), customer);//TODO 判断结果
+		customerInfo.individualInfoMod(helper.getCustomerIDbyManager(), customer);//TODO 判断结果
 		application.gotocustomerInfoByM();
 	}
 	
@@ -53,7 +53,7 @@ public class customerInfoModifyByMViewController implements Initializable{
 		// TODO Auto-generated method stub
 		helper=UIhelper.getInstance();
 		customerInfo=new CustomerInfoManagementController();
-		customer=customerInfo.IndividualBaseInfolnquiry(helper.getCustomerIDbyManager());
+		customer=customerInfo.individualInfolnq(helper.getCustomerIDbyManager());
 		tf_name.setText(customer.getUsername());
 		tf_contact.setText(customer.getContact());
 	}

@@ -24,7 +24,7 @@ public class CustomerTest {
 	@Test
 	public void testinquiry(){
 		
-		po = customer.IndividualBaseInfolnquiry("12345678");
+		po = customer.individualInfolnq("12345678");
 		assertEquals("12345678",po.getUserID());
 		assertEquals("Jerry",po.getUsername());
 		assertEquals("13067893451",po.getContact());
@@ -34,9 +34,9 @@ public class CustomerTest {
 	public void testmodify(){
 		CustomerInfoVO vo1=new CustomerInfoVO("12345678","Tom","13067893451","1234567",100,false,VipType.COMMON_VIP);
 		ResultMsg cantest = ResultMsg.FAIL;
-		cantest = customer.IndividualBaseInfoModification("12345678",vo1);
+		cantest = customer.individualInfoMod("12345678",vo1);
 		UserInfoVO po = null;
-		po = customer.IndividualBaseInfolnquiry("12345678");
+		po = customer.individualInfolnq("12345678");
 		if(cantest==ResultMsg.SUCCESS){
 			assertEquals("12345678",po.getUserID());
 			assertEquals("Tom",po.getUsername());

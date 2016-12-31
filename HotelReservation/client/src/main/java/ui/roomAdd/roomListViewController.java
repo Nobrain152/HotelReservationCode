@@ -77,8 +77,8 @@ public class roomListViewController implements Initializable{
 		addRoom=new HotelStuffHotelOperationController();
 		stuffInfoController=new StuffInfoManagementController();
 		
-		StuffInfoVO stuffVO=stuffInfoController.IndividualBaseInfolnquiry(helper.getUserID());
-		ArrayList<RoomInfoVO> room_list=addRoom.HotelRoomList(stuffVO.getHotel());
+		StuffInfoVO stuffVO=stuffInfoController.individualInfolnq(helper.getUserID());
+		ArrayList<RoomInfoVO> room_list=addRoom.hotelRoomList(stuffVO.getHotel());
 		ArrayList<roomItem> data_list=new ArrayList<roomItem>();
 		int size=room_list.size();
 		for(int i=0;i<size;i++){

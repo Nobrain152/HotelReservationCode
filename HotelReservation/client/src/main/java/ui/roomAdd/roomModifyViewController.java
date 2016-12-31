@@ -54,10 +54,10 @@ public class roomModifyViewController implements Initializable{
 	
 	@FXML
 	private void btn_SaveAction(ActionEvent event) throws Exception{
-		StuffInfoVO stuffVO=stuffInfoController.IndividualBaseInfolnquiry(helper.getUserID());
+		StuffInfoVO stuffVO=stuffInfoController.individualInfolnq(helper.getUserID());
 		RoomInfoVO updateRoom=new RoomInfoVO(cb_state.getValue(),cb_type.getValue(),helper.getRoomID(),
 				Double.parseDouble(tf_price.getText()),stuffVO.getHotel());
-		ResultMsg msg=stuffOperation.UpdateRoomState(updateRoom);//TODO еп╤о
+		ResultMsg msg=stuffOperation.updateRoomState(updateRoom);//TODO еп╤о
 		application.gotoroomList();
 	}
 	

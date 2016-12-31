@@ -16,7 +16,7 @@ public class StuffIndividualInformationManagementBLService_Driver {
 		}
 		
 		public void drive(StuffIndividualInformationManagementBLService a){
-			StuffInfoVO s=a.IndividualBaseInfolnquiry("22345678");
-			ResultMsg res=a.IndividualBaseInfoModification("22345678",new StuffInfoVO());
+			StuffInfoVO s=a.individualInfolnq("22345678");
+			ResultMsg res=a.individualInfoMod("22345678",new StuffInfoVO());
 		}
 }

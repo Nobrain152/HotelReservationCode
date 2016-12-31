@@ -51,7 +51,7 @@ public class HotelStuff extends User {
 	 * @param 酒店IDVO
 	 * @return 酒店信息VO
 	 */
-	public HotelInfoVO HotelInformationInquiry(String hotelid)throws RemoteException{
+	public HotelInfoVO hotelInfoInq(String hotelid)throws RemoteException{
 		hotel=(HotelInfoCheckController)factory.getHotelInfoCheckBLService();
 		return hotel.checkHotelInfo(hotelid);
 	}
@@ -62,7 +62,7 @@ public class HotelStuff extends User {
 	 * @param 用户IDVO
 	 * @return 修改结果
 	 */
-	public ResultMsg HotelInformationModification(HotelInfoVO vo1,String userid)throws RemoteException{
+	public ResultMsg hotelInfoMod(HotelInfoVO vo1,String userid)throws RemoteException{
 		if(userid.charAt(0)=='2'){
 			mod=(HotelInfoMaintainController)factory.getHotelInfoMaintainBLService();
 			return mod.inputHotelInfo(vo1);
@@ -77,7 +77,7 @@ public class HotelStuff extends User {
 	 * @param 酒店促销策略VO
 	 * @return 修改结果
 	 */
-	public boolean HotelStrategeManage(PromotionHotelVO vo)throws RemoteException{
+	public boolean hotelStrategeManage(PromotionHotelVO vo)throws RemoteException{
 		PromotionHotelType type=vo.getType();
 		ResultMsg msg=null;
 		promotion=(PromotionHotelController)factory.getPromotionHotelBLService();
@@ -108,7 +108,7 @@ public class HotelStuff extends User {
 	 * @param 酒店促销策略VO
 	 * @return 修改结果
 	 */
-	public boolean HotelStrategeAdd(PromotionHotelVO vo)throws RemoteException{
+	public boolean hotelStrategeAdd(PromotionHotelVO vo)throws RemoteException{
 		PromotionHotelType type=vo.getType();
 		ResultMsg msg=null;
 		promotion=(PromotionHotelController)factory.getPromotionHotelBLService();
@@ -140,7 +140,7 @@ public class HotelStuff extends User {
 	 * @param 订单VO
 	 * @throws RemoteException 
 	 */
-	public ResultMsg OrderStateUpdate(String userid,OrderVO vo2) throws RemoteException{
+	public ResultMsg orderStateUpdate(String userid,OrderVO vo2) throws RemoteException{
 		if(userid.charAt(0)=='2'){
 			order=(OrderOnHotelController)factory.getOrderOnHotelBLService();
 			return order.hotelOrderModify(vo2);
@@ -153,7 +153,7 @@ public class HotelStuff extends User {
 	 * @param 酒店IDVO
 	 * @return 订单VO列表
 	 */
-	public ArrayList<OrderVO> OrderScan(String hotelid)throws RemoteException{
+	public ArrayList<OrderVO> orderScan(String hotelid)throws RemoteException{
 		order=(OrderOnHotelController)factory.getOrderOnHotelBLService();
 		return order.hotelOrderScan(hotelid);
 	}
@@ -167,7 +167,7 @@ public class HotelStuff extends User {
 	 * @throws RemoteException
 	 */
 	public ArrayList<OrderVO> specialOrderScan(String hotelid,OrderState state)throws RemoteException{
-		ArrayList<OrderVO> all=OrderScan(hotelid);
+		ArrayList<OrderVO> all=orderScan(hotelid);
 		ArrayList<OrderVO> res=new ArrayList<OrderVO>();
 		for(int i=0;i<all.size();i++){
 			if(all.get(i).orderState==state){
@@ -182,7 +182,7 @@ public class HotelStuff extends User {
 	 * @param 酒店IDVO
 	 * @return 订单VO列表
 	 */
-	public ArrayList<OrderVO> AbnormalOrderScan(String hotelid)throws RemoteException{
+	public ArrayList<OrderVO> abnormalOrderScan(String hotelid)throws RemoteException{
 		order=(OrderOnHotelController)factory.getOrderOnHotelBLService();
 		ArrayList<OrderVO> all = order.hotelOrderScan(hotelid);
 		ArrayList<OrderVO> res=new ArrayList<OrderVO>();
@@ -202,7 +202,7 @@ public class HotelStuff extends User {
 	 * @throws RemoteException
 	 */
 	public ResultMsg setAbnormalOrder(String hotelid,String orderid)throws RemoteException{
-		ArrayList<OrderVO> all=AbnormalOrderScan(hotelid);
+		ArrayList<OrderVO> all=abnormalOrderScan(hotelid);
 		for(OrderVO vo:all){
 			if(vo.getOrderID().equals(orderid)){
 				order=(OrderOnHotelController)factory.getOrderOnHotelBLService();
@@ -217,7 +217,7 @@ public class HotelStuff extends User {
 	 * @param 酒店IDVO
 	 * @return 酒店促销策略列表
 	 */
-	public ArrayList<PromotionHotelVO> HotelPromotionInquire(PromotionHotelVO vo)throws RemoteException {
+	public ArrayList<PromotionHotelVO> hotelPromotionInq(PromotionHotelVO vo)throws RemoteException {
 		promotion=(PromotionHotelController)factory.getPromotionHotelBLService();
 		return promotion.getHotelPromotion(vo.getType(),vo.getHotelID());
 	}
@@ -226,7 +226,7 @@ public class HotelStuff extends User {
 	 * 更新房间信息
 	 * @param 房间信息VO
 	 */
-	public ResultMsg UpdateRoomState(RoomInfoVO vo)throws RemoteException {
+	public ResultMsg updateRoomState(RoomInfoVO vo)throws RemoteException {
 		room=(RoomAddController)factory.getRoomAddBLService();
 		return room.updateRoom(vo);
 		
@@ -236,7 +236,7 @@ public class HotelStuff extends User {
 	 * 录入可用房间
 	 * @param rooms
 	 */
-	public ResultMsg TypeInRoom(RoomInfoVO roo)throws RemoteException{
+	public ResultMsg typeInRoom(RoomInfoVO roo)throws RemoteException{
 		room=(RoomAddController)factory.getRoomAddBLService();
 		return room.addRoom(roo);
 	}
@@ -248,7 +248,7 @@ public class HotelStuff extends User {
 	 * @return
 	 * @throws RemoteException
 	 */
-	public ArrayList<RoomInfoVO> HotelRoomList(String hotelid)throws RemoteException{
+	public ArrayList<RoomInfoVO> hotelRoomList(String hotelid)throws RemoteException{
 		room=(RoomAddController)factory.getRoomAddBLService();
 		return room.HotelRoomSearch(hotelid);
 	}
@@ -259,7 +259,7 @@ public class HotelStuff extends User {
 	 * @return
 	 * @throws RemoteException
 	 */
-	public ResultMsg SetRoomInfo(ArrayList<RoomInfoVO> rooms)throws RemoteException{
+	public ResultMsg setRoomInfo(ArrayList<RoomInfoVO> rooms)throws RemoteException{
 		room=(RoomAddController)factory.getRoomAddBLService();
 		return room.HotelRoomMod(rooms.get(0).getHotelid(), rooms);
 	}
@@ -269,7 +269,7 @@ public class HotelStuff extends User {
 	 * @param 用户IDVO
 	 * @return 酒店管理人员信息VO
 	 */
-	public StuffInfoVO IndividualBaseInfolnquiry(String userid)throws RemoteException{
+	public StuffInfoVO individualInfolnq(String userid)throws RemoteException{
 		StuffInfoPO userInfoPO = userDataService.GetHotelStuffInfo(userid);
 		userInfoVO = (StuffInfoVO)VOPOchange.POtoVO(userInfoPO);
 		return  userInfoVO;
@@ -282,7 +282,7 @@ public class HotelStuff extends User {
 	 * @param 酒店管理人员信息VO
 	 * @return 修改结果
 	 */
-	public ResultMsg IndividualBaseInfoModification(String userid,StuffInfoVO vo2)throws RemoteException{
+	public ResultMsg individualInfoMod(String userid,StuffInfoVO vo2)throws RemoteException{
 		StuffInfoPO past= userDataService.GetHotelStuffInfo(userid);
 		past.setType(UserType.HotelStuff);
 		if(vo2.getContact()!=null){
@@ -304,7 +304,7 @@ public class HotelStuff extends User {
 	 * @param 酒店促销策略VO
 	 * @return 修改结果
 	 */
-	public boolean HotelStrategeDelete(PromotionHotelVO vo)throws RemoteException{
+	public boolean hotelStrategeDelete(PromotionHotelVO vo)throws RemoteException{
 		PromotionHotelType type=vo.getType();
 		ResultMsg msg=null;
 		promotion=(PromotionHotelController)factory.getPromotionHotelBLService();

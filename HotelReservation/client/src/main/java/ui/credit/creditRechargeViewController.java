@@ -34,7 +34,7 @@ public class creditRechargeViewController implements Initializable{
 	
 	@FXML
 	public void btn_ConfirmAction(ActionEvent ev){
-		ResultMsg msg=recharge.UserCreditModification(tf_userID.getText(), Integer.parseInt(tf_recharge.getText()));
+		ResultMsg msg=recharge.userCreditMod(tf_userID.getText(), Integer.parseInt(tf_recharge.getText()));
 		//TODO ÌבÊ¾
 		application.gotowebSalesmanGuide();
 	}

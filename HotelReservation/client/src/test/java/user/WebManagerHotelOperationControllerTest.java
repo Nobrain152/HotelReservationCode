@@ -26,7 +26,7 @@ public class WebManagerHotelOperationControllerTest {
 	@Test
 	public void testHotelAdd() {
 		HotelInfoVO vo=new HotelInfoVO("如家",Adress.NANJING,Area.EAST,2,"环境优美","空调",false,null,20.1,120);
-		String id=impl.HotelAdd(vo);
+		String id=impl.hotelAdd(vo);
 		if(id!=null){
 			testscan();
 		}

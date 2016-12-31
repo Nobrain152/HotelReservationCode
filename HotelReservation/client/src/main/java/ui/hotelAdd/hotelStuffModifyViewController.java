@@ -48,7 +48,7 @@ public class hotelStuffModifyViewController implements Initializable{
 	private void btn_ModifyAction(ActionEvent event){
 		stuff.setUsername(tf_name.getText());
 		stuff.setContact(tf_contact.getText());
-		ResultMsg msg=stuffInfo.IndividualBaseInfoModification(helper.getHotelStuffIDbyManager(), stuff);
+		ResultMsg msg=stuffInfo.individualInfoMod(helper.getHotelStuffIDbyManager(), stuff);
 		//TODO еп╤о
 		application.gotohotelStuffInquire();
 	}
@@ -63,7 +63,7 @@ public class hotelStuffModifyViewController implements Initializable{
 		// TODO Auto-generated method stub
 		helper=UIhelper.getInstance();
 		stuffInfo=new StuffInfoManagementController();
-		stuff=stuffInfo.IndividualBaseInfolnquiry(helper.getHotelStuffIDbyManager());
+		stuff=stuffInfo.individualInfolnq(helper.getHotelStuffIDbyManager());
 		lb_stuffID.setText(stuff.getUserID());
 		lb_hotelID.setText(stuff.getHotel());
 		tf_name.setText(stuff.getUsername());

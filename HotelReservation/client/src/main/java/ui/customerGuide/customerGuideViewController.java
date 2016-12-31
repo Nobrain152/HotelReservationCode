@@ -74,7 +74,7 @@ public class customerGuideViewController implements Initializable{
 	
 	@FXML
 	private void button_VipAction(ActionEvent event) throws Exception{
-		CustomerInfoVO customer=customerController.IndividualBaseInfolnquiry(helper.getUserID());
+		CustomerInfoVO customer=customerController.individualInfolnq(helper.getUserID());
 		boolean check=customer.getIsMember();
 		if(check){
 			Alert alert=new Alert(AlertType.INFORMATION);

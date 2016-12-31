@@ -51,7 +51,7 @@ public class hotelStuffInquireViewController implements Initializable{
 	
 	@FXML
 	private void btn_SearchAction(ActionEvent event) throws Exception{
-		StuffInfoVO stuff=stuffInfo.IndividualBaseInfolnquiry(tf_ID.getText());
+		StuffInfoVO stuff=stuffInfo.individualInfolnq(tf_ID.getText());
 		lb_ID.setText(stuff.getUserID());
 		lb_name.setText(stuff.getUsername());
 		lb_contact.setText(stuff.getContact());

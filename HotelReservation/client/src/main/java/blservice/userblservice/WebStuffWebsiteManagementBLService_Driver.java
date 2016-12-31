@@ -22,13 +22,13 @@ public class WebStuffWebsiteManagementBLService_Driver {
 			HotelInfoVO hotel;
 			ArrayList<OrderVO> order;
 			ArrayList<PromotionWebVO> pp;
-			pp=a.WebsiteStrategeInquire(new PromotionWebVO());
-			boolean bb=a.WebsiteStrategeCreate(new PromotionWebVO());
-			ResultMsg res=a.WebsiteStrategeDelete(new PromotionWebVO());
-			res=a.WebsiteStrategeMod(new PromotionWebVO());
-			order=a.AbnormalOrderScan();
-			int ii=a.userCreditInquire("12345678");
-			res=a.UserCreditModification("12345678",100);
+			pp=a.websiteStrategeInq(new PromotionWebVO());
+			boolean bb=a.websiteStrategeCreate(new PromotionWebVO());
+			ResultMsg res=a.websiteStrategeDelete(new PromotionWebVO());
+			res=a.websiteStrategeMod(new PromotionWebVO());
+			order=a.abnormalOrderScan();
+			int ii=a.userCreditInq("12345678");
+			res=a.userCreditMod("12345678",100);
 			order=a.dayUnexOrder("");
 		}
 }

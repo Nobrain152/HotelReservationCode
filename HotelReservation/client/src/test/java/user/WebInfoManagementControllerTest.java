@@ -24,7 +24,7 @@ public class WebInfoManagementControllerTest {
 	public void testmodify(){
 		UserInfoVO v=new UserInfoVO("42345678","LILY","15160897654","6666");
 		v.setType(UserType.WebManager);
-		impl.IndividualBaseInfoModification("42345678", v);
+		impl.individualInfoMod("42345678", v);
 		assertEquals(v.getUsername(),"LILY");
 		
 	}

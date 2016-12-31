@@ -141,7 +141,7 @@ public class abnormalOrderViewController implements Initializable{
 		order_waiting_price.setCellValueFactory(new PropertyValueFactory<>("price"));
 		order_waiting.setItems(data_waiting);
 		
-		ArrayList<OrderVO> order_abnormalList=salesmanManage.AbnormalOrderScan();
+		ArrayList<OrderVO> order_abnormalList=salesmanManage.abnormalOrderScan();
 		ArrayList<OrderInTable> data_abnormalList=new ArrayList<OrderInTable>();
 		int size_abnormal=order_waitingList.size();
 		for(int i=0;i<size_abnormal;i++){

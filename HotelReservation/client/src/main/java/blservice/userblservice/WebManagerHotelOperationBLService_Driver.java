@@ -18,8 +18,8 @@ public class WebManagerHotelOperationBLService_Driver {
 		
 		public void drive(WebManagerHotelOperationBlService a){
 			ArrayList<HotelInfoVO> hotelInfoVOs;
-			hotelInfoVOs=a.HotelScan();
-			String s=a.HotelAdd(new HotelInfoVO());
-			s=a.StuffAdd(new StuffInfoVO());
+			hotelInfoVOs=a.hotelScan();
+			String s=a.hotelAdd(new HotelInfoVO());
+			s=a.stuffAdd(new StuffInfoVO());
 		}
 }

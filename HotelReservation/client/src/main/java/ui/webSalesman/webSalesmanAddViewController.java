@@ -39,7 +39,7 @@ public class webSalesmanAddViewController implements Initializable{
 	@FXML
 	private void btn_AddAction(ActionEvent event) throws Exception{
 		UserInfoVO newStuff=new UserInfoVO(null,tf_name.getText(),tf_contact.getText(),pf_password.getText());
-		String salesmanID=addSalesman.AddWebStuff(newStuff);
+		String salesmanID=addSalesman.addWebStuff(newStuff);
 		System.out.println(salesmanID);//TODO Êä³ö
 		application.gotowebManagerGuide();
 	}

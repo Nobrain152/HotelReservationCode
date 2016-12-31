@@ -1,10 +1,10 @@
 package bl.userbl;
 
-import java.rmi.Remote;
+
 import java.rmi.RemoteException;
 import java.util.ArrayList;
 
-import bl.BusinessController;
+
 import blservice.userblservice.HotelStuffHotelOperationBlService;
 import dataservice.userdataservice.UserManagementDataService;
 import net.RMIManage;
@@ -41,9 +41,9 @@ public class HotelStuffHotelOperationController implements HotelStuffHotelOperat
 	 * @param 酒店IDVO
 	 * @return 酒店信息VO
 	 */
-	public HotelInfoVO HotelInformationInquiry(String hotelid){
+	public HotelInfoVO hotelInfoInq(String hotelid){
 		try {
-			return stuff.HotelInformationInquiry(hotelid);
+			return stuff.hotelInfoInq(hotelid);
 		} catch (RemoteException e) {
 			e.printStackTrace();
 			return null;
@@ -56,9 +56,9 @@ public class HotelStuffHotelOperationController implements HotelStuffHotelOperat
 	 * @param 用户IDVO
 	 * @return 修改结果
 	 */
-	public ResultMsg HotelInformationModification(HotelInfoVO vo1,String userid){
+	public ResultMsg hotelInfoMod(HotelInfoVO vo1,String userid){
 		try {
-			return stuff.HotelInformationModification(vo1, userid);
+			return stuff.hotelInfoMod(vo1, userid);
 		} catch (RemoteException e) {
 			e.printStackTrace();
 			return null;
@@ -71,9 +71,9 @@ public class HotelStuffHotelOperationController implements HotelStuffHotelOperat
 	 * @return
 	 * @throws RemoteException
 	 */
-	public ResultMsg SetRoomInfo(ArrayList<RoomInfoVO> rooms){
+	public ResultMsg setRoomInfo(ArrayList<RoomInfoVO> rooms){
 		try {
-			return stuff.SetRoomInfo(rooms);
+			return stuff.setRoomInfo(rooms);
 		} catch (RemoteException e) {
 			return ResultMsg.FAIL;
 		}
@@ -86,9 +86,9 @@ public class HotelStuffHotelOperationController implements HotelStuffHotelOperat
 	 * @param 酒店促销策略VO
 	 * @return 修改结果
 	 */
-	public boolean HotelStrategeManage(PromotionHotelVO vo){
+	public boolean hotelStrategeManage(PromotionHotelVO vo){
 		try {
-			return stuff.HotelStrategeManage(vo);
+			return stuff.hotelStrategeManage(vo);
 		} catch (RemoteException e) {
 			e.printStackTrace();
 			return false;
@@ -101,9 +101,9 @@ public class HotelStuffHotelOperationController implements HotelStuffHotelOperat
 	 * @param 酒店促销策略VO
 	 * @return 修改结果
 	 */
-	public boolean HotelStrategeDelete(PromotionHotelVO vo){
+	public boolean hotelStrategeDelete(PromotionHotelVO vo){
 		try {
-			return stuff.HotelStrategeDelete(vo);
+			return stuff.hotelStrategeDelete(vo);
 		} catch (RemoteException e) {
 			return false;
 		}
@@ -115,8 +115,8 @@ public class HotelStuffHotelOperationController implements HotelStuffHotelOperat
 	 * @param 订单VO
 	 * @throws RemoteException 
 	 */
-	public ResultMsg OrderStateUpdate(String userid,OrderVO vo2) throws RemoteException{
-		return stuff.OrderStateUpdate(userid, vo2);
+	public ResultMsg orderStateUpdate(String userid,OrderVO vo2) throws RemoteException{
+		return stuff.orderStateUpdate(userid, vo2);
 	}
 			
 	/**
@@ -124,9 +124,9 @@ public class HotelStuffHotelOperationController implements HotelStuffHotelOperat
 	 * @param 酒店IDVO
 	 * @return 订单VO列表
 	 */
-	public ArrayList<OrderVO> OrderScan(String hotelid){
+	public ArrayList<OrderVO> orderScan(String hotelid){
 		try {
-			return stuff.OrderScan(hotelid);
+			return stuff.orderScan(hotelid);
 		} catch (RemoteException e) {
 			e.printStackTrace();
 			return null;
@@ -138,9 +138,9 @@ public class HotelStuffHotelOperationController implements HotelStuffHotelOperat
 	 * @param 酒店IDVO
 	 * @return 订单VO列表
 	 */
-	public ArrayList<OrderVO> AbnormalOrderScan(String hotelid){
+	public ArrayList<OrderVO> abnormalOrderScan(String hotelid){
 		try {
-			return stuff.AbnormalOrderScan(hotelid);
+			return stuff.abnormalOrderScan(hotelid);
 		} catch (RemoteException e) {
 			return null;
 		}
@@ -166,9 +166,9 @@ public class HotelStuffHotelOperationController implements HotelStuffHotelOperat
 	 * @param 酒店IDVO
 	 * @return 酒店促销策略列表
 	 */
-	public ArrayList<PromotionHotelVO> HotelPromotionInquire(PromotionHotelVO promotion) {
+	public ArrayList<PromotionHotelVO> hotelPromotionInq(PromotionHotelVO promotion) {
 		try {
-			return stuff.HotelPromotionInquire(promotion);
+			return stuff.hotelPromotionInq(promotion);
 		} catch (RemoteException e) {
 			e.printStackTrace();
 			return null;
@@ -179,9 +179,9 @@ public class HotelStuffHotelOperationController implements HotelStuffHotelOperat
 	 * 更新房间信息
 	 * @param 房间信息VO
 	 */
-	public ResultMsg UpdateRoomState(RoomInfoVO vo) {
+	public ResultMsg updateRoomState(RoomInfoVO vo) {
 		try {
-			return stuff.UpdateRoomState(vo);
+			return stuff.updateRoomState(vo);
 		} catch (RemoteException e) {
 			e.printStackTrace();
 			return null;
@@ -194,9 +194,9 @@ public class HotelStuffHotelOperationController implements HotelStuffHotelOperat
 	 * 录入可用房间
 	 * @param rooms
 	 */
-	public ResultMsg TypeInRoom(RoomInfoVO room){
+	public ResultMsg typeInRoom(RoomInfoVO room){
 		  try {
-			return stuff.TypeInRoom(room);
+			return stuff.typeInRoom(room);
 		} catch (RemoteException e) {
 			return ResultMsg.FAIL;
 		}
@@ -209,9 +209,9 @@ public class HotelStuffHotelOperationController implements HotelStuffHotelOperat
 	 * @return
 	 * @throws RemoteException
 	 */
-	public ArrayList<RoomInfoVO> HotelRoomList(String hotelid){
+	public ArrayList<RoomInfoVO> hotelRoomList(String hotelid){
 		try {
-			return stuff.HotelRoomList(hotelid);
+			return stuff.hotelRoomList(hotelid);
 		} catch (RemoteException e) {
 			return null;
 		}
@@ -222,9 +222,9 @@ public class HotelStuffHotelOperationController implements HotelStuffHotelOperat
 	 * @param 酒店促销策略VO
 	 * @return 修改结果
 	 */
-	public boolean HotelStrategeAdd(PromotionHotelVO vo) {
+	public boolean hotelStrategeAdd(PromotionHotelVO vo) {
 		try {
-			return stuff.HotelStrategeAdd(vo);
+			return stuff.hotelStrategeAdd(vo);
 		} catch (RemoteException e) {
 			e.printStackTrace();
 			return false;

@@ -75,10 +75,10 @@ public class hotelManagedInfoViewController implements Initializable{
 		
 		//ªÒ»°æ∆µÍID
 		String hotelStuffID=helper.getUserID();
-		StuffInfoVO vo=stuffInfo.IndividualBaseInfolnquiry(hotelStuffID);
+		StuffInfoVO vo=stuffInfo.individualInfolnq(hotelStuffID);
 		String hotelID=vo.getHotel();
 		
-		HotelInfoVO hotelvo=hotelManage.HotelInformationInquiry(hotelID);
+		HotelInfoVO hotelvo=hotelManage.hotelInfoInq(hotelID);
 		lb_name.setText(hotelvo.getName());
 		lb_star.setText(String.valueOf(hotelvo.getLevel()));
 		lb_price.setText(String.valueOf(hotelvo.getSP()));

@@ -23,11 +23,11 @@ public class CustomerHotelOperationBLService_Driver {
 		HotelInfoVO hotel;
 		ArrayList<OrderVO> order;
 		
-		hotel=a.HotelDetail("5000","12345678");
-		hotelInfoVOs=a.HotelSearch(null,hotel,"12345678");
+		hotel=a.hotelDetail("5000","12345678");
+		hotelInfoVOs=a.hotelSearch(null,hotel,"12345678");
 		hotelInfoVOs=a.sortHotel(hotelInfoVOs,Sort.Price_DownToUp);
 		order=a.getHotelOrder("5000","12345678");
-		ResultMsg res=a.OederCreat("5000",new OrderVO());
-		a.HotelEvaluate(new HotelEvaluateVO());
+		ResultMsg res=a.orderCreat("5000",new OrderVO());
+		a.hotelEvaluate(new HotelEvaluateVO());
 	}
 }

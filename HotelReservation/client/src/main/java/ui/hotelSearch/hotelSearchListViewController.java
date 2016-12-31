@@ -85,7 +85,7 @@ public class hotelSearchListViewController implements Initializable{
 		
 		HotelInfoVO hotelCondition=helper.getSearchHotel();
 		ArrayList<HotelInfoVO> hotelList=new ArrayList<HotelInfoVO>();
-		hotelList=customerOperation.HotelSearch(null, hotelCondition,helper.getUserID());
+		hotelList=customerOperation.hotelSearch(null, hotelCondition,helper.getUserID());
 		ArrayList<hotelItem> data_list=new ArrayList<hotelItem>();
 		int size=hotelList.size();
 		for(int i=0;i<size;i++){

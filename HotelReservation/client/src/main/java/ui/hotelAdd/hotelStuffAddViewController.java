@@ -42,7 +42,7 @@ public class hotelStuffAddViewController implements Initializable{
 	@FXML
 	private void btn_AddAction(ActionEvent event) throws Exception{
 		StuffInfoVO newStuff=new StuffInfoVO(null,tf_name.getText(),tf_contact.getText(),tf_hotelID.getText(),pf_password.getText());
-		String stuffID=addHotelStuff.StuffAdd(newStuff);//TODO 用对话框显示
+		String stuffID=addHotelStuff.stuffAdd(newStuff);//TODO 用对话框显示
 		System.out.println(stuffID);
 		application.gotowebManagerGuide();
 	}

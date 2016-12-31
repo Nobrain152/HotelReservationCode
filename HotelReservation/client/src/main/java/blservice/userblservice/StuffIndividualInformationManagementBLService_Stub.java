@@ -12,13 +12,13 @@ public class StuffIndividualInformationManagementBLService_Stub implements Stuff
 	}
 	
 	@Override
-	public StuffInfoVO IndividualBaseInfolnquiry(String userid) {
+	public StuffInfoVO individualInfolnq(String userid) {
 		
 		return stuff;
 	}
 
 	@Override
-	public ResultMsg IndividualBaseInfoModification(String userid, StuffInfoVO vo2) {
+	public ResultMsg individualInfoMod(String userid, StuffInfoVO vo2) {
 		
 		return ResultMsg.SUCCESS;
 	}

@@ -16,7 +16,7 @@ public class WebIndividualInformationManagementBLService_Driver {
 		}
 		
 		public void drive(WebIndividualInformationManagementBLService a){
-			UserInfoVO u=a.IndividualBaseInfolnquiry("32345678");
-			ResultMsg res=a.IndividualBaseInfoModification("32345678",new UserInfoVO());
+			UserInfoVO u=a.individualInfolnq("32345678");
+			ResultMsg res=a.individualInfoMod("32345678",new UserInfoVO());
 		}
 }

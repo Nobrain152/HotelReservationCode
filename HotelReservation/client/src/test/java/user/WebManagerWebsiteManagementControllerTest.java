@@ -41,7 +41,7 @@ public class WebManagerWebsiteManagementControllerTest {
 	@Test
 	public void testmodify(){
 		info.setType(UserType.WebStuff);
-		assertEquals(impl.UserInformationModification("32345678", info),ResultMsg.SUCCESS);
+		assertEquals(impl.userInfoMod("32345678", info),ResultMsg.SUCCESS);
 	}
 	
 	

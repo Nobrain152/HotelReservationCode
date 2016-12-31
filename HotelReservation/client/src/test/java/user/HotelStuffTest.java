@@ -26,7 +26,7 @@ public class HotelStuffTest {
 	@Test
 	public void testinquiry(){
 		UserInfoVO po = null;
-		po = service.IndividualBaseInfolnquiry("22345678");
+		po = service.individualInfolnq("22345678");
 		assertEquals(po.getUserID(),"22345678");
 		assertEquals(po.getUsername(),"Tim");
 		assertEquals(po.getContact(),"18192345782");
@@ -37,9 +37,9 @@ public class HotelStuffTest {
 		StuffInfoVO vo1=new StuffInfoVO("22345678","Tim","18192345782","66666","1234567");
 		vo1.setType(UserType.HotelStuff);
 		ResultMsg cantest = ResultMsg.FAIL;
-		cantest = service.IndividualBaseInfoModification("22345678",vo1);
+		cantest = service.individualInfoMod("22345678",vo1);
 		UserInfoVO po = null;
-		po = service.IndividualBaseInfolnquiry("22345678");
+		po = service.individualInfolnq("22345678");
 		if(cantest==ResultMsg.SUCCESS){
 			assertEquals(po.getUserID(),"22345678");
 			assertEquals(po.getUsername(),"Tim");

@@ -49,9 +49,9 @@ public class CustomerInfoManagementController extends BusinessController
 	 * @param userid
 	 * @return 个人基本信息
 	 */
-	public CustomerInfoVO IndividualBaseInfolnquiry(String userid){
+	public CustomerInfoVO individualInfolnq(String userid){
 		try {
-			return customer.IndividualBaseInfolnquiry(userid);
+			return customer.individualInfolnq(userid);
 		} catch (RemoteException e) {
 			e.printStackTrace();
 			return null;
@@ -64,9 +64,9 @@ public class CustomerInfoManagementController extends BusinessController
 	 * @param 客户基本信息
 	 * @return 修改结果
 	 */
-	public ResultMsg IndividualBaseInfoModification(String userid,CustomerInfoVO vo2){
+	public ResultMsg individualInfoMod(String userid,CustomerInfoVO vo2){
 		try {
-			return customer.IndividualBaseInfoModification(userid, vo2);
+			return customer.individualInfoMod(userid, vo2);
 		} catch (RemoteException e) {
 			e.printStackTrace();
 			return ResultMsg.FAIL;
@@ -78,9 +78,9 @@ public class CustomerInfoManagementController extends BusinessController
 	 * @param userid
 	 * @return 个人订单列表
 	 */
-	public ArrayList<OrderVO> IndividualOrderInquiry(String userid){
+	public ArrayList<OrderVO> individualOrderInq(String userid){
 		try {
-			return customer.IndividualOrderInquiry(userid);
+			return customer.individualOrderInq(userid);
 		} catch (RemoteException e) {
 			e.printStackTrace();
 			return null;
@@ -92,9 +92,9 @@ public class CustomerInfoManagementController extends BusinessController
 	 * @param userid
 	 * @return 个人订单列表
 	 */
-	public ArrayList<OrderVO> UnfinishedOrderInquiry(String userid){
+	public ArrayList<OrderVO> unfinishedOrderInq(String userid){
 		try {
-			return customer.SpecialOrderInquiry(userid,OrderState.UNEXECUTED);
+			return customer.specialOrderInq(userid,OrderState.UNEXECUTED);
 		} catch (RemoteException e) {
 			return null;
 		}
@@ -105,9 +105,9 @@ public class CustomerInfoManagementController extends BusinessController
 	 * @param userid
 	 * @return 个人订单列表
 	 */
-	public ArrayList<OrderVO> finishedOrderInquiry(String userid){
+	public ArrayList<OrderVO> finishedOrderInq(String userid){
 		try {
-			return customer.SpecialOrderInquiry(userid,OrderState.EXECUTED);
+			return customer.specialOrderInq(userid,OrderState.EXECUTED);
 		} catch (RemoteException e) {
 			return null;
 		}
@@ -118,9 +118,9 @@ public class CustomerInfoManagementController extends BusinessController
 	 * @param userid
 	 * @return 个人订单列表
 	 */
-	public ArrayList<OrderVO> CancelOrderInquiry(String userid){
+	public ArrayList<OrderVO> cancelOrderInq(String userid){
 		try {
-			return customer.SpecialOrderInquiry(userid,OrderState.CANCELLED);
+			return customer.specialOrderInq(userid,OrderState.CANCELLED);
 		} catch (RemoteException e) {
 			return null;
 		}
@@ -131,9 +131,9 @@ public class CustomerInfoManagementController extends BusinessController
 	 * @param userid
 	 * @return 个人订单列表
 	 */
-	public ArrayList<OrderVO> AbnormalOrderInquiry(String userid){
+	public ArrayList<OrderVO> abnormalOrderInq(String userid){
 		try {
-			return customer.SpecialOrderInquiry(userid,OrderState.ABNORMAL);
+			return customer.specialOrderInq(userid,OrderState.ABNORMAL);
 		} catch (RemoteException e) {
 			return null;
 		}
@@ -144,9 +144,9 @@ public class CustomerInfoManagementController extends BusinessController
 	 * @param userid
 	 * @return 个人酒店信息列表
 	 */
-	public ArrayList<HotelInfoVO> IndividualHotelInquiry(String userid){
+	public ArrayList<HotelInfoVO> individualHotelInq(String userid){
 		try {
-			return customer.IndividualHotelInquiry(userid);
+			return customer.individualHotelInq(userid);
 		} catch (RemoteException e) {
 			e.printStackTrace();
 			return null;
@@ -158,9 +158,9 @@ public class CustomerInfoManagementController extends BusinessController
 	 * @param userid
 	 * @return 个人订单列表
 	 */
-	public ArrayList<HotelInfoVO> UnfinishedHotelInquiry(String userid){
+	public ArrayList<HotelInfoVO> unfinishedHotelInq(String userid){
 		try {
-			return customer.SpecialHotelInquiry(userid,OrderState.UNEXECUTED);
+			return customer.specialHotelInq(userid,OrderState.UNEXECUTED);
 		} catch (RemoteException e) {
 			return null;
 		}
@@ -171,9 +171,9 @@ public class CustomerInfoManagementController extends BusinessController
 	 * @param userid
 	 * @return 个人订单列表
 	 */
-	public ArrayList<HotelInfoVO> finishedHotelInquiry(String userid){
+	public ArrayList<HotelInfoVO> finishedHotelInq(String userid){
 		try {
-			return customer.SpecialHotelInquiry(userid,OrderState.EXECUTED);
+			return customer.specialHotelInq(userid,OrderState.EXECUTED);
 		} catch (RemoteException e) {
 			return null;
 		}
@@ -184,9 +184,9 @@ public class CustomerInfoManagementController extends BusinessController
 	 * @param userid
 	 * @return 个人订单列表
 	 */
-	public ArrayList<HotelInfoVO> AbnormalHotelInquiry(String userid){
+	public ArrayList<HotelInfoVO> abnormalHotelInq(String userid){
 		try {
-			return customer.SpecialHotelInquiry(userid,OrderState.ABNORMAL);
+			return customer.specialHotelInq(userid,OrderState.ABNORMAL);
 		} catch (RemoteException e) {
 			return null;
 		}
@@ -197,9 +197,9 @@ public class CustomerInfoManagementController extends BusinessController
 	 * @param userid
 	 * @return 个人订单列表
 	 */
-	public ArrayList<HotelInfoVO> CancelHotelInquiry(String userid){
+	public ArrayList<HotelInfoVO> cancelHotelInq(String userid){
 		try {
-			return customer.SpecialHotelInquiry(userid,OrderState.CANCELLED);
+			return customer.specialHotelInq(userid,OrderState.CANCELLED);
 		} catch (RemoteException e) {
 			return null;
 		}
@@ -210,9 +210,9 @@ public class CustomerInfoManagementController extends BusinessController
 	 * @param userid
 	 * @return 个人信用信息
 	 */
-	public int IndividualCredictInquiry(String userid){
+	public int individualCredictInq(String userid){
 		try {
-			int result= customer.IndividualCredictInquiry(userid);
+			int result= customer.individualCredictInq(userid);
 			return result;
 		} catch (RemoteException e) {
 			return -1;
@@ -225,9 +225,9 @@ public class CustomerInfoManagementController extends BusinessController
 	 * @param userid
 	 * @return 个人信用信息
 	 */
-	public ArrayList<CreditVO> IndividualCredictRecord(String userid) {
+	public ArrayList<CreditVO> individualCredictRecord(String userid) {
 		try {
-			return customer.IndividualCredictRecord(userid);
+			return customer.individualCredictRecord(userid);
 		} catch (RemoteException e) {
 			return null;
 		}
@@ -239,9 +239,9 @@ public class CustomerInfoManagementController extends BusinessController
 	 * @param orderVO
 	 * @return
 	 */
-	public ResultMsg personalOrderCancel(OrderVO orderVO){
+	public ResultMsg orderCancel(OrderVO orderVO){
 		try {
-			return customer.personalOrderCancel(orderVO);
+			return customer.orderCancel(orderVO);
 		} catch (RemoteException e) {
 			return ResultMsg.FAIL;
 		}

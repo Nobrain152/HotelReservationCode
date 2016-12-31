@@ -45,7 +45,7 @@ public class customerInfoModifyViewController implements Initializable{
 	private void btn_SaveAction(ActionEvent event){
 		customer.setUsername(name.getText());
 		customer.setContact(contact.getText());
-		customerInfo.IndividualBaseInfoModification(helper.getUserID(), customer);//TODO 判断结果
+		customerInfo.individualInfoMod(helper.getUserID(), customer);//TODO 判断结果
 		application.gotocustomerInfo();
 	}
 	
@@ -54,7 +54,7 @@ public class customerInfoModifyViewController implements Initializable{
 		// TODO Auto-generated method stub
 		helper=UIhelper.getInstance();
 		customerInfo=new CustomerInfoManagementController();
-		customer=customerInfo.IndividualBaseInfolnquiry(helper.getUserID());
+		customer=customerInfo.individualInfolnq(helper.getUserID());
 		name.setText(customer.getUsername());
 		contact.setText(customer.getContact());
 	}

@@ -22,7 +22,7 @@ public interface WebManagerWebsiteManagementBLService{
 	 * @param 用户IDVO
 	 * @return 用户个人信息VO
 	 */
-	public UserInfoVO UserInformationInquiry(String userid);
+	public UserInfoVO userInfoInq(String userid);
 		
 	/**
 	 * 修改用户信息
@@ -30,20 +30,20 @@ public interface WebManagerWebsiteManagementBLService{
 	 * @param 用户个人信息VO
 	 * @return 修改结果
 	 */
-	public ResultMsg UserInformationModification(String userid,UserInfoVO vo2);
+	public ResultMsg userInfoMod(String userid,UserInfoVO vo2);
 	
 	/**
 	 * 查看网站营销人员列表
 	 * @return 网站营销人员列表
 	 */
-	public ArrayList<UserInfoVO> WebStuffScan();
+	public ArrayList<UserInfoVO> webStuffScan();
 	
 	/**
 	 * 添加网站营销人员
 	 * @param vo
 	 * @return
 	 */
-	public String AddWebStuff(UserInfoVO vo);
+	public String addWebStuff(UserInfoVO vo);
 	
 	
 	

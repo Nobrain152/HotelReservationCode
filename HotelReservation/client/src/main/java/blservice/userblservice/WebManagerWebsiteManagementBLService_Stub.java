@@ -20,25 +20,25 @@ public class WebManagerWebsiteManagementBLService_Stub implements WebManagerWebs
 	
 	
 	@Override
-	public UserInfoVO UserInformationInquiry(String userid) {
+	public UserInfoVO userInfoInq(String userid) {
 		
 		return user;
 	}
 
 	@Override
-	public ResultMsg UserInformationModification(String userid, UserInfoVO vo2) {
+	public ResultMsg userInfoMod(String userid, UserInfoVO vo2) {
 		
 		return ResultMsg.SUCCESS;
 	}
 
 	@Override
-	public ArrayList<UserInfoVO> WebStuffScan() {
+	public ArrayList<UserInfoVO> webStuffScan() {
 		
 		return scan;
 	}
 
 	@Override
-	public String AddWebStuff(UserInfoVO vo) {
+	public String addWebStuff(UserInfoVO vo) {
 		
 		return "33345678";
 	}

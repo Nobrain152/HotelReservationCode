@@ -27,22 +27,22 @@ public class HotelStuffHotelOperationBLService_Driver {
 			HotelInfoVO hotel;
 			ArrayList<OrderVO> order;
 			
-			hotel=a.HotelInformationInquiry("5000");
-			boolean b=a.HotelStrategeDelete(new PromotionHotelVO());
-			b=a.HotelStrategeAdd(new PromotionHotelVO());
-			b=a.HotelStrategeManage(new PromotionHotelVO());
-			ArrayList<PromotionHotelVO> p=a.HotelPromotionInquire(new PromotionHotelVO());
-			ArrayList<RoomInfoVO> r=a.HotelRoomList("5000");
-			order=a.OrderScan("5000");
-			order=a.AbnormalOrderScan("5000");
+			hotel=a.hotelInfoInq("5000");
+			boolean b=a.hotelStrategeDelete(new PromotionHotelVO());
+			b=a.hotelStrategeAdd(new PromotionHotelVO());
+			b=a.hotelStrategeManage(new PromotionHotelVO());
+			ArrayList<PromotionHotelVO> p=a.hotelPromotionInq(new PromotionHotelVO());
+			ArrayList<RoomInfoVO> r=a.hotelRoomList("5000");
+			order=a.orderScan("5000");
+			order=a.abnormalOrderScan("5000");
 			order=a.specialOrderScan("5000",OrderState.ABNORMAL);
-			ResultMsg res=a.HotelInformationModification(new HotelInfoVO(),"22345678");
-			res=a.SetRoomInfo(new ArrayList<RoomInfoVO>());
-			res=a.UpdateRoomState(new RoomInfoVO());
-			res=a.TypeInRoom(new RoomInfoVO());
+			ResultMsg res=a.hotelInfoMod(new HotelInfoVO(),"22345678");
+			res=a.setRoomInfo(new ArrayList<RoomInfoVO>());
+			res=a.updateRoomState(new RoomInfoVO());
+			res=a.typeInRoom(new RoomInfoVO());
 			res=a.setAbnormalOrder("5000","1234567890");
 			try {
-				res=a.OrderStateUpdate("22345678",new OrderVO());
+				res=a.orderStateUpdate("22345678",new OrderVO());
 			} catch (RemoteException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();

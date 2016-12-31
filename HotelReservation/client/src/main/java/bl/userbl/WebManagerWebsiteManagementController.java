@@ -34,9 +34,9 @@ public class WebManagerWebsiteManagementController implements WebManagerWebsiteM
 	 * @param 用户IDVO
 	 * @return 用户个人信息VO
 	 */
-	public UserInfoVO UserInformationInquiry(String userid){
+	public UserInfoVO userInfoInq(String userid){
 		try {
-			return manager.UserInformationInquiry(userid);
+			return manager.userInfoInq(userid);
 		} catch (RemoteException e) {
 			e.printStackTrace();
 			return null;
@@ -50,11 +50,11 @@ public class WebManagerWebsiteManagementController implements WebManagerWebsiteM
 	 * @param 用户个人信息VO
 	 * @return 修改结果
 	 */
-	public ResultMsg UserInformationModification(String userid,UserInfoVO vo2){
+	public ResultMsg userInfoMod(String userid,UserInfoVO vo2){
 		try {
 			//System.out.println(userid);
 			//return ResultMsg.SUCCESS;
-			return manager.UserInformationModification(userid, vo2);
+			return manager.userInfoMod(userid, vo2);
 		} catch (RemoteException e) {
 			e.printStackTrace();
 			return ResultMsg.FAIL;
@@ -66,9 +66,9 @@ public class WebManagerWebsiteManagementController implements WebManagerWebsiteM
 	 * @param vo
 	 * @return
 	 */
-	public String AddWebStuff(UserInfoVO vo){
+	public String addWebStuff(UserInfoVO vo){
 		try {
-			return manager.AddWebStuff(vo);
+			return manager.addWebStuff(vo);
 		} catch (RemoteException e) {
 			return null;
 		}
@@ -79,9 +79,9 @@ public class WebManagerWebsiteManagementController implements WebManagerWebsiteM
 	 * 查看网站营销人员列表
 	 * @return 网站营销人员列表
 	 */
-	public ArrayList<UserInfoVO> WebStuffScan() {
+	public ArrayList<UserInfoVO> webStuffScan() {
 		try {
-			return manager.WebStuffScan();
+			return manager.webStuffScan();
 		} catch (RemoteException e) {
 			e.printStackTrace();
 			return null;

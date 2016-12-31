@@ -18,9 +18,9 @@ public class WebManagerWebsiteManagementBLService_Driver {
 		public void drive(WebManagerWebsiteManagementBLService a){
 			ArrayList<UserInfoVO> u;
 			
-			u=a.WebStuffScan();
-			UserInfoVO uu=a.UserInformationInquiry("32345678");
-			ResultMsg res=a.UserInformationModification("32345678",new UserInfoVO());
-			String ss=a.AddWebStuff(new UserInfoVO());
+			u=a.webStuffScan();
+			UserInfoVO uu=a.userInfoInq("32345678");
+			ResultMsg res=a.userInfoMod("32345678",new UserInfoVO());
+			String ss=a.addWebStuff(new UserInfoVO());
 		}
 }

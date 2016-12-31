@@ -32,9 +32,9 @@ public class WebInfoManagementController implements WebIndividualInformationMana
 	 * @param 用户IDVO
 	 * @return 用户个人信息VO
 	 */
-	public UserInfoVO IndividualBaseInfolnquiry(String userid){
+	public UserInfoVO individualInfolnq(String userid){
 		try {
-			return  manager.IndividualBaseInfolnquiry(userid);
+			return  manager.individualInfolnq(userid);
 		} catch (RemoteException e) {
 			e.printStackTrace();
 			return null;
@@ -47,9 +47,9 @@ public class WebInfoManagementController implements WebIndividualInformationMana
 	 * @param 用户信息VO
 	 * @return 修改结果
 	 */
-	public ResultMsg IndividualBaseInfoModification(String userid,UserInfoVO vo2){
+	public ResultMsg individualInfoMod(String userid,UserInfoVO vo2){
 		try {
-			return manager.IndividualBaseInfoModification(userid, vo2);
+			return manager.individualInfoMod(userid, vo2);
 		} catch (RemoteException e) {
 			e.printStackTrace();
 			return ResultMsg.FAIL;

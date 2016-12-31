@@ -183,11 +183,11 @@ public class orderOnHotelViewController implements Initializable {
 		helper=UIhelper.getInstance();
 		stuffInfo=new StuffInfoManagementController();
 		stuffHotelOperation=new HotelStuffHotelOperationController();
-		hotelID=stuffInfo.IndividualBaseInfolnquiry(helper.getUserID()).getHotel();
+		hotelID=stuffInfo.individualInfolnq(helper.getUserID()).getHotel();
 		orderController=new OrderOnHotelController();
 		
 		
-		ArrayList<OrderVO> order_allList=stuffHotelOperation.OrderScan(hotelID);
+		ArrayList<OrderVO> order_allList=stuffHotelOperation.orderScan(hotelID);
 		ArrayList<OrderInTable> data_allList=new ArrayList<OrderInTable>();
 		int size_all=order_allList.size();
 		for(int i=0;i<size_all;i++){

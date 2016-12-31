@@ -47,7 +47,7 @@ public class WebStuff extends User{
 	 * @param 用户IDVO
 	 * @return 用户个人信息VO
 	 */
-	public UserInfoVO IndividualBaseInfolnquiry(String userid)throws RemoteException{
+	public UserInfoVO individualInfolnq(String userid)throws RemoteException{
 		UserInfoPO po= user.GetWebStuffInfo(userid);
 		UserInfoVO vo=(UserInfoVO)VOPOchange.POtoVO(po);
 		return vo;
@@ -59,7 +59,7 @@ public class WebStuff extends User{
 	 * @param 用户信息VO
 	 * @return 修改结果
 	 */
-	public ResultMsg IndividualBaseInfoModification(String userid,UserInfoVO vo2)throws RemoteException{
+	public ResultMsg individualInfoMod(String userid,UserInfoVO vo2)throws RemoteException{
 		UserInfoPO past= user.GetWebStuffInfo(userid);
 		past.setType(UserType.WebStuff);
 		if(vo2.getContact()!=null){
@@ -78,7 +78,7 @@ public class WebStuff extends User{
 	 * 创建网站促销策略
 	 * @param 网站促销策略VO
 	 */
-	public ResultMsg WebsiteStrategeCreate(PromotionWebVO vo)throws RemoteException{
+	public ResultMsg websiteStrategeCreate(PromotionWebVO vo)throws RemoteException{
 		PromotionWebType type=vo.getType();
 		ResultMsg msg=null;
 		pro = (PromotionWebController)factory.getPromotionWebBLService();
@@ -99,7 +99,7 @@ public class WebStuff extends User{
 	 * 修改网站促销策略
 	 * @param 网站促销策略VO
 	 */
-	public ResultMsg WebsiteStrategeMod(PromotionWebVO vo)throws RemoteException{
+	public ResultMsg websiteStrategeMod(PromotionWebVO vo)throws RemoteException{
 		PromotionWebType type=vo.getType();
 		ResultMsg msg=null;
 		pro = (PromotionWebController)factory.getPromotionWebBLService();
@@ -121,7 +121,7 @@ public class WebStuff extends User{
 	 * 查看异常订单
 	 * @return 订单VO列表
 	 */
-	public ArrayList<OrderVO> AbnormalOrderScan()throws RemoteException{
+	public ArrayList<OrderVO> abnormalOrderScan()throws RemoteException{
 		order = (OrderOnWebController)factory.getOrderOnWebBLService();
 		return order.abnormalOrderScan();
 	}
@@ -132,7 +132,7 @@ public class WebStuff extends User{
 	 * @param 增加值
 	 * @return 修改后的用户信用值VO
 	 */
-	public ResultMsg UserCreditModification(String userid,int n)throws RemoteException{
+	public ResultMsg userCreditMod(String userid,int n)throws RemoteException{
 		inte=(CreditController)factory.getCreditBLService();
 		CreditPO cre=inte.get(userid);
 		String string="+"+n;
@@ -145,7 +145,7 @@ public class WebStuff extends User{
 	 * 查看网站营销策略
 	 * @return 网站营销策略列表
 	 */
-	public ArrayList<PromotionWebVO> WebsiteStrategeInquire(PromotionWebVO vo)throws RemoteException {
+	public ArrayList<PromotionWebVO> websiteStrategeInq(PromotionWebVO vo)throws RemoteException {
 		pro = (PromotionWebController)factory.getPromotionWebBLService();
 		return pro.getWebPromotion(vo.getType());
 	}
@@ -155,7 +155,7 @@ public class WebStuff extends User{
 	 * @param 用户IDVO
 	 * @return 用户信用信息VO
 	 */
-	public int userCreditInquire(String userid)throws RemoteException {
+	public int userCreditInq(String userid)throws RemoteException {
 		CustomerInfoVO vo=(CustomerInfoVO)VOPOchange.POtoVO(user.GetWebStuffInfo(userid));
 		inte=(CreditController)factory.getCreditBLService();
 		return inte.getCredit(vo);
@@ -176,7 +176,7 @@ public class WebStuff extends User{
 	 * 删除网站促销策略
 	 * @param 网站促销策略VO
 	 */
-	public ResultMsg WebsiteStrategeDelete(PromotionWebVO vo)throws RemoteException{
+	public ResultMsg websiteStrategeDelete(PromotionWebVO vo)throws RemoteException{
 		PromotionWebType type=vo.getType();
 		ResultMsg msg=null;
 		pro = (PromotionWebController)factory.getPromotionWebBLService();

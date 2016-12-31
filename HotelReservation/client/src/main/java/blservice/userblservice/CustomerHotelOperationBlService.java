@@ -23,7 +23,7 @@ public interface CustomerHotelOperationBlService{
 	 * @param 筛选条件VO
 	 * @return 酒店信息VO列表
 	 */
-	public ArrayList<HotelInfoVO> HotelSearch(RoomInfoVO vo1,HotelInfoVO vo,String userid);
+	public ArrayList<HotelInfoVO> hotelSearch(RoomInfoVO vo1,HotelInfoVO vo,String userid);
 	
 	
 	/**
@@ -32,20 +32,20 @@ public interface CustomerHotelOperationBlService{
 	 * @param 订单VO
 	 *
 	 */
-	public ResultMsg OederCreat(String hotelID,OrderVO vo2);
+	public ResultMsg orderCreat(String hotelID,OrderVO vo2);
 		
 	/**
 	 * 评价酒店	
 	 * @param 酒店评价VO
 	 */
-	public void HotelEvaluate(HotelEvaluateVO vo);
+	public void hotelEvaluate(HotelEvaluateVO vo);
 	
 	/**
 	 * 根据输入的酒店ID和用户ID返回符合条件的酒店信息VO列表
 	 * @param 筛选条件VO
 	 * @return 酒店信息VO列表
 	 */
-	public HotelInfoVO HotelDetail(String hotelid,String userid);
+	public HotelInfoVO hotelDetail(String hotelid,String userid);
 	
 	
 	/**

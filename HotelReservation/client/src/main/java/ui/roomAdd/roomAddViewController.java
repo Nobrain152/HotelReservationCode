@@ -53,10 +53,10 @@ public class roomAddViewController implements Initializable{
 	
 	@FXML
 	private void btn_SaveAction(ActionEvent event) throws Exception{
-		StuffInfoVO stuffVO=stuffInfoController.IndividualBaseInfolnquiry(helper.getUserID());
+		StuffInfoVO stuffVO=stuffInfoController.individualInfolnq(helper.getUserID());
 		RoomInfoVO updateRoom=new RoomInfoVO(cb_state.getValue(),cb_type.getValue(),tf_roomID.getText(),
 				Double.parseDouble(tf_price.getText()),stuffVO.getHotel());
-		ResultMsg msg=stuffOperation.TypeInRoom(updateRoom);//TODO еп╤о
+		ResultMsg msg=stuffOperation.typeInRoom(updateRoom);//TODO еп╤о
 		application.gotoroomList();
 	}
 	

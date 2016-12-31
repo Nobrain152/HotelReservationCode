@@ -61,10 +61,10 @@ public class creditCheckViewController implements Initializable{
 	public void initialize(URL url,ResourceBundle rb){
 		helper=UIhelper.getInstance();
 		creditManage=new CustomerInfoManagementController();
-		int cr=creditManage.IndividualCredictInquiry(helper.getUserID());
+		int cr=creditManage.individualCredictInq(helper.getUserID());
 		credit.setText(String.valueOf(cr));
 		
-		ArrayList<CreditVO> creditList=creditManage.IndividualCredictRecord(helper.getUserID());
+		ArrayList<CreditVO> creditList=creditManage.individualCredictRecord(helper.getUserID());
 		int size=creditList.size();
 		ArrayList<creditItem> dataList=new ArrayList<creditItem>();
 		for(int i=0;i<size;i++){

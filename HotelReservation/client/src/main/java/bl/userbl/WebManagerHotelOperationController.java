@@ -32,9 +32,9 @@ public class WebManagerHotelOperationController implements WebManagerHotelOperat
 	 * 添加酒店	
 	 * @param 酒店信息VO
 	 */
-	public String HotelAdd(HotelInfoVO vo){
+	public String hotelAdd(HotelInfoVO vo){
 		try {
-			return manager.HotelAdd(vo);
+			return manager.hotelAdd(vo);
 		} catch (RemoteException e) {
 			return null;
 		}
@@ -47,9 +47,9 @@ public class WebManagerHotelOperationController implements WebManagerHotelOperat
 	 * 查看酒店列表
 	 * @return 酒店信息列表
 	 */
-	public ArrayList<HotelInfoVO> HotelScan() {
+	public ArrayList<HotelInfoVO> hotelScan() {
 		try {
-			return manager.HotelScan();
+			return manager.hotelScan();
 		} catch (RemoteException e) {
 			e.printStackTrace();
 			return null;
@@ -61,9 +61,9 @@ public class WebManagerHotelOperationController implements WebManagerHotelOperat
 	 * @param 酒店IDVO
 	 * @param 用户IDVO
 	 */
-	public String StuffAdd(StuffInfoVO vo) {
+	public String stuffAdd(StuffInfoVO vo) {
 		try {
-			return manager.StuffAdd(vo);
+			return manager.stuffAdd(vo);
 		} catch (RemoteException e) {
 			// TODO Auto-generated catch block
 			return null;

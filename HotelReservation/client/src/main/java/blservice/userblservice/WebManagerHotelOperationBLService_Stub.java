@@ -21,19 +21,19 @@ public class WebManagerHotelOperationBLService_Stub implements WebManagerHotelOp
 	
 	
 	@Override
-	public ArrayList<HotelInfoVO> HotelScan() {
+	public ArrayList<HotelInfoVO> hotelScan() {
 		
 		return hotelInfoVOs;
 	}
 
 	@Override
-	public String HotelAdd(HotelInfoVO vo) {
+	public String hotelAdd(HotelInfoVO vo) {
 		
 		return "5001";
 	}
 
 	@Override
-	public String StuffAdd(StuffInfoVO vo) {
+	public String stuffAdd(StuffInfoVO vo) {
 		
 		return "23345678";
 	}

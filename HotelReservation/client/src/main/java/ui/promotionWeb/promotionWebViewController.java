@@ -114,7 +114,7 @@ public class promotionWebViewController implements Initializable {
 	public void btn_vip_addAction(ActionEvent ev) {
 		PromotionWebVO newPromotion=new PromotionWebVO(null,PromotionWebType.VIP_LEVEL_PROMOTION,
 				Integer.parseInt(tf_vip_level.getText()),Double.parseDouble(tf_vip_discount.getText()));
-		boolean result=promotionManage.WebsiteStrategeCreate(newPromotion);
+		boolean result=promotionManage.websiteStrategeCreate(newPromotion);
 		
 		
 		if(result){
@@ -134,7 +134,7 @@ public class promotionWebViewController implements Initializable {
 	public void btn_vip_deleteAction(ActionEvent ev) {
 		PromotionVIP choose=promotion_vip.getSelectionModel().getSelectedItem();
 		PromotionWebVO toDelete=new PromotionWebVO(null,PromotionWebType.VIP_LEVEL_PROMOTION,choose.getLevel(),choose.getDiscount());
-		ResultMsg msg=promotionManage.WebsiteStrategeDelete(toDelete);
+		ResultMsg msg=promotionManage.websiteStrategeDelete(toDelete);
 		if(msg==ResultMsg.SUCCESS){
 			data_vip.remove(choose);		
 		}
@@ -171,7 +171,7 @@ public class promotionWebViewController implements Initializable {
 	public void btn_diy_addAction(ActionEvent ev) {
 		PromotionWebVO newPromotion=new PromotionWebVO(null,PromotionWebType.WEB_CUSTOM_PROMOTION,
 				dp_diy_start.getValue().toString(),dp_diy_end.getValue().toString(),Double.parseDouble(tf_diy_discount.getText()));
-		boolean result=promotionManage.WebsiteStrategeCreate(newPromotion);
+		boolean result=promotionManage.websiteStrategeCreate(newPromotion);
 		if(result){
 			data_diy.add(new PromotionDiy(dp_diy_start.getValue().toString(),dp_diy_end.getValue().toString(),Double.parseDouble(tf_diy_discount.getText())));
 			tf_diy_discount.clear();
@@ -185,7 +185,7 @@ public class promotionWebViewController implements Initializable {
 	public void btn_diy_deleteAction(ActionEvent ev) {
 		PromotionDiy choose=promotion_diy.getSelectionModel().getSelectedItem();
 		PromotionWebVO toDelete=new PromotionWebVO(null,PromotionWebType.WEB_CUSTOM_PROMOTION,choose.getStartTime(),choose.getEndTime(),choose.getDiscount());
-		ResultMsg msg=promotionManage.WebsiteStrategeDelete(toDelete);
+		ResultMsg msg=promotionManage.websiteStrategeDelete(toDelete);
 		if(msg==ResultMsg.SUCCESS){
 			data_diy.remove(choose);
 		}
@@ -207,7 +207,7 @@ public class promotionWebViewController implements Initializable {
 		
 		PromotionWebVO vo_vip=new PromotionWebVO();
 		vo_vip.setType(PromotionWebType.VIP_LEVEL_PROMOTION);
-		ArrayList<PromotionWebVO> promotion_vipList=promotionManage.WebsiteStrategeInquire(vo_vip);
+		ArrayList<PromotionWebVO> promotion_vipList=promotionManage.websiteStrategeInq(vo_vip);
 		ArrayList<PromotionVIP> data_vipList=new ArrayList<PromotionVIP>();
 		int size_vip=promotion_vipList.size();
 		for(int i=0;i<size_vip;i++){
@@ -221,7 +221,7 @@ public class promotionWebViewController implements Initializable {
 		
 		PromotionWebVO vo_area=new PromotionWebVO();
 		vo_area.setType(PromotionWebType.VIP_CIRCLE_PROMOTION);
-		ArrayList<PromotionWebVO> promotion_areaList=promotionManage.WebsiteStrategeInquire(vo_area);
+		ArrayList<PromotionWebVO> promotion_areaList=promotionManage.websiteStrategeInq(vo_area);
 		ArrayList<PromotionArea> data_areaList=new ArrayList<PromotionArea>();
 		int size_area=promotion_areaList.size();
 		for(int i=0;i<size_area;i++){
@@ -243,7 +243,7 @@ public class promotionWebViewController implements Initializable {
 		
 		PromotionWebVO vo_diy=new PromotionWebVO();
 		vo_diy.setType(PromotionWebType.WEB_CUSTOM_PROMOTION);
-		ArrayList<PromotionWebVO> promotion_diyList=promotionManage.WebsiteStrategeInquire(vo_diy);
+		ArrayList<PromotionWebVO> promotion_diyList=promotionManage.websiteStrategeInq(vo_diy);
 		ArrayList<PromotionDiy> data_diyList=new ArrayList<PromotionDiy>();
 		int size_diy=promotion_diyList.size();
 		for(int i=0;i<size_diy;i++){

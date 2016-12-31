@@ -40,9 +40,9 @@ public class CustomerHotelOperationController extends BusinessController impleme
 	 * @param 筛选条件VO
 	 * @return 酒店信息VO列表
 	 */
-	public ArrayList<HotelInfoVO> HotelSearch(RoomInfoVO vo1,HotelInfoVO vo,String userid){
+	public ArrayList<HotelInfoVO> hotelSearch(RoomInfoVO vo1,HotelInfoVO vo,String userid){
 		try {
-			return customer.HotelSearch(vo1,vo,userid);
+			return customer.hotelSearch(vo1,vo,userid);
 		} catch (RemoteException e) {
 			e.printStackTrace();
 			return null;
@@ -55,9 +55,9 @@ public class CustomerHotelOperationController extends BusinessController impleme
 	 * @param 筛选条件VO
 	 * @return 酒店信息VO列表
 	 */
-	public HotelInfoVO HotelDetail(String hotelid,String userid){
+	public HotelInfoVO hotelDetail(String hotelid,String userid){
 		try {
-			return customer.HotelDetail(hotelid, userid);
+			return customer.hotelDetail(hotelid, userid);
 		} catch (RemoteException e) {
 			return null;
 		}
@@ -95,9 +95,9 @@ public class CustomerHotelOperationController extends BusinessController impleme
 	 * @param 订单VO
 	 *
 	 */
-	public ResultMsg OederCreat(String hotelID,OrderVO vo2){
+	public ResultMsg orderCreat(String hotelID,OrderVO vo2){
 	   try {
-		return customer.OederCreat(hotelID, vo2);
+		return customer.orderCreat(hotelID, vo2);
 	} catch (RemoteException e) {
 		e.printStackTrace();
 		return ResultMsg.FAIL;
@@ -110,9 +110,9 @@ public class CustomerHotelOperationController extends BusinessController impleme
 	 * 评价酒店	
 	 * @param 酒店评价VO
 	 */
-	public void HotelEvaluate(HotelEvaluateVO vo){
+	public void hotelEvaluate(HotelEvaluateVO vo){
 		try {
-			customer.HotelEvaluate(vo);
+			customer.hotelEvaluate(vo);
 		} catch (RemoteException e) {
 			e.printStackTrace();
 		}

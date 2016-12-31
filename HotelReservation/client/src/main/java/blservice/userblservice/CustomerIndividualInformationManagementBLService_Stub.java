@@ -32,90 +32,90 @@ public class CustomerIndividualInformationManagementBLService_Stub implements Cu
 	}
 	
 	@Override
-	public CustomerInfoVO IndividualBaseInfolnquiry(String userid) {
+	public CustomerInfoVO individualInfolnq(String userid) {
 		
 		return customer;
 	}
 
 	@Override
-	public ResultMsg IndividualBaseInfoModification(String userid, CustomerInfoVO vo2) {
+	public ResultMsg individualInfoMod(String userid, CustomerInfoVO vo2) {
 		
 		return ResultMsg.SUCCESS;
 	}
 
 	@Override
-	public ArrayList<OrderVO> IndividualOrderInquiry(String userid) {
+	public ArrayList<OrderVO> individualOrderInq(String userid) {
 		
 		return order;
 	}
 
 	@Override
-	public ArrayList<OrderVO> UnfinishedOrderInquiry(String userid) {
+	public ArrayList<OrderVO> unfinishedOrderInq(String userid) {
 		
 		return order;
 	}
 
 	@Override
-	public ArrayList<OrderVO> finishedOrderInquiry(String userid) {
+	public ArrayList<OrderVO> finishedOrderInq(String userid) {
 		
 		return order;
 	}
 
 	@Override
-	public ArrayList<OrderVO> CancelOrderInquiry(String userid) {
+	public ArrayList<OrderVO> cancelOrderInq(String userid) {
 		
 		return order;
 	}
 
 	@Override
-	public ArrayList<OrderVO> AbnormalOrderInquiry(String userid) {
+	public ArrayList<OrderVO> abnormalOrderInq(String userid) {
 		
 		return order;
 	}
 
 	@Override
-	public ArrayList<HotelInfoVO> IndividualHotelInquiry(String userid) {
+	public ArrayList<HotelInfoVO> individualHotelInq(String userid) {
 		
 		return hotelInfoVOs;
 	}
 
 	@Override
-	public ArrayList<HotelInfoVO> UnfinishedHotelInquiry(String userid) {
+	public ArrayList<HotelInfoVO> unfinishedHotelInq(String userid) {
 		
 		return hotelInfoVOs;
 	}
 
 	@Override
-	public ArrayList<HotelInfoVO> finishedHotelInquiry(String userid) {
+	public ArrayList<HotelInfoVO> finishedHotelInq(String userid) {
 		
 		return hotelInfoVOs;
 	}
 
 	@Override
-	public ArrayList<HotelInfoVO> AbnormalHotelInquiry(String userid) {
+	public ArrayList<HotelInfoVO> abnormalHotelInq(String userid) {
 		
 		return hotelInfoVOs;
 	}
 
 	@Override
-	public ArrayList<HotelInfoVO> CancelHotelInquiry(String userid) {
+	public ArrayList<HotelInfoVO> cancelHotelInq(String userid) {
 		
 		return hotelInfoVOs;
 	}
 
 	@Override
-	public int IndividualCredictInquiry(String userid) {
+	public int individualCredictInq(String userid) {
 		
 		return 100;
 	}
 
 	@Override
-	public ArrayList<CreditVO> IndividualCredictRecord(String userid) {
+	public ArrayList<CreditVO> individualCredictRecord(String userid) {
 		return credit;
 	}
 
 	@Override
-	public ResultMsg personalOrderCancel(OrderVO orderVO) {
+	public ResultMsg orderCancel(OrderVO orderVO) {
 		
 		return ResultMsg.SUCCESS;
 	}

@@ -53,10 +53,10 @@ public class Customer extends User {
 	 * @param 筛选条件VO
 	 * @return 酒店信息VO列表
 	 */
-	public ArrayList<HotelInfoVO> HotelSearch(RoomInfoVO vo1,HotelInfoVO vo,String userid)throws RemoteException{
+	public ArrayList<HotelInfoVO> hotelSearch(RoomInfoVO vo1,HotelInfoVO vo,String userid)throws RemoteException{
 		hotel=(HotelSearchController)factory.getHotelSearchBLService();
 		ArrayList<HotelInfoVO> hotelInfoVOs= hotel.selectCondition(vo,vo1);
-		ArrayList<OrderVO> ord=this.IndividualOrderInquiry(userid);
+		ArrayList<OrderVO> ord=this.individualOrderInq(userid);
 		for(HotelInfoVO v:hotelInfoVOs){
 			String hotelid=v.getHotelID();
 			ArrayList<OrderVO> hotelorder=new ArrayList<OrderVO>();
@@ -92,7 +92,7 @@ public class Customer extends User {
 	 * @param 筛选条件VO
 	 * @return 酒店信息VO列表
 	 */
-	public HotelInfoVO HotelDetail(String hotelid,String userid)throws RemoteException{
+	public HotelInfoVO hotelDetail(String hotelid,String userid)throws RemoteException{
 		ArrayList<String> hotel=userdataservice.GetCustomerHotel(userid);
 		boolean wrong=true;
 		for(String s:hotel){
@@ -117,7 +117,7 @@ public class Customer extends User {
 	 * @throws RemoteException
 	 */
 	public ArrayList<OrderVO> getHotelOrder(String hotelid,String userid)throws RemoteException{
-		ArrayList<OrderVO> ord=IndividualOrderInquiry(userid);
+		ArrayList<OrderVO> ord=individualOrderInq(userid);
 		ArrayList<OrderVO> n=new ArrayList<OrderVO>();
 		for(OrderVO v:ord){
 			if(v.getHotelID().equals(hotelid)){
@@ -220,7 +220,7 @@ public class Customer extends User {
 	 * @param 订单VO
 	 *
 	 */
-	public ResultMsg OederCreat(String userid,OrderVO vo2)throws RemoteException{
+	public ResultMsg orderCreat(String userid,OrderVO vo2)throws RemoteException{
 		reserve=(HotelReserveController)factory.getHotelReserveBLService();
 		ResultMsg r1=reserve.reserveHotel(vo2);
 	    if(r1==ResultMsg.SUCCESS){
@@ -238,7 +238,7 @@ public class Customer extends User {
 	 * 评价酒店	
 	 * @param 酒店评价VO
 	 */
-	public void HotelEvaluate(HotelEvaluateVO vo)throws RemoteException{
+	public void hotelEvaluate(HotelEvaluateVO vo)throws RemoteException{
 		eval=(HotelEvaluateController)factory.getHotelEvaluateBLService();
 		eval.inputEvaluate(vo);
 	}
@@ -252,7 +252,7 @@ public class Customer extends User {
 	 * @param userid
 	 * @return 个人基本信息
 	 */
-	public CustomerInfoVO IndividualBaseInfolnquiry(String userid)throws RemoteException{
+	public CustomerInfoVO individualInfolnq(String userid)throws RemoteException{
 		CustomerInfoPO userInfoPO = userdataservice.GetCustomerInfo(userid);
 		CustomerInfoVO vo = (CustomerInfoVO)VOPOchange.POtoVO(userInfoPO);
 		return vo;
@@ -264,7 +264,7 @@ public class Customer extends User {
 	 * @param 客户基本信息
 	 * @return 修改结果
 	 */
-	public ResultMsg IndividualBaseInfoModification(String userid,CustomerInfoVO vo2)throws RemoteException{
+	public ResultMsg individualInfoMod(String userid,CustomerInfoVO vo2)throws RemoteException{
 		CustomerInfoPO past= userdataservice.GetCustomerInfo(userid);
 		if((past.getIsMember()!=vo2.getIsMember())||(past.getCredit()!=vo2.getCredit())||(!past.getUserID().equals(vo2.getUserID())||(past.getVipType()!=vo2.getVipType()))){
 			return ResultMsg.UNAUYHORIZED;
@@ -287,7 +287,7 @@ public class Customer extends User {
 	 * @param userid
 	 * @return 个人订单列表
 	 */
-	public ArrayList<OrderVO> IndividualOrderInquiry(String userid)throws RemoteException{
+	public ArrayList<OrderVO> individualOrderInq(String userid)throws RemoteException{
 		order=(OrderOnUserController)factory.getOrderOnUserBLService();
 		return order.personalOrderScan(userid);
 	}
@@ -297,7 +297,7 @@ public class Customer extends User {
 	 * @param userid
 	 * @return 个人订单列表
 	 */
-	public ArrayList<OrderVO> SpecialOrderInquiry(String userid,OrderState state)throws RemoteException{
+	public ArrayList<OrderVO> specialOrderInq(String userid,OrderState state)throws RemoteException{
 		order=(OrderOnUserController)factory.getOrderOnUserBLService();
 		ArrayList<OrderVO> all= order.personalOrderScan(userid);
 		ArrayList<OrderVO> special=new ArrayList<OrderVO>();
@@ -317,7 +317,7 @@ public class Customer extends User {
 	 * @param userid
 	 * @return 个人酒店信息列表
 	 */
-	public ArrayList<HotelInfoVO> IndividualHotelInquiry(String userid)throws RemoteException{
+	public ArrayList<HotelInfoVO> individualHotelInq(String userid)throws RemoteException{
 		ArrayList<String> hotel=userdataservice.GetCustomerHotel(userid);
 		hotelinfo=(HotelInfoCheckController)factory.getHotelInfoCheckBLService();
 		for(int i=0;i<hotel.size();i++){
@@ -331,8 +331,8 @@ public class Customer extends User {
 	 * @param userid
 	 * @return 个人订单列表
 	 */
-	public ArrayList<HotelInfoVO> SpecialHotelInquiry(String userid,OrderState state)throws RemoteException{
-		ArrayList<OrderVO> special=SpecialOrderInquiry(userid, state);
+	public ArrayList<HotelInfoVO> specialHotelInq(String userid,OrderState state)throws RemoteException{
+		ArrayList<OrderVO> special=specialOrderInq(userid, state);
 		ArrayList<HotelInfoVO> hvo=new ArrayList<HotelInfoVO>();
 		hotelinfo=(HotelInfoCheckController)factory.getHotelInfoCheckBLService();
 		for(OrderVO vo:special){
@@ -347,7 +347,7 @@ public class Customer extends User {
 	 * @param userid
 	 * @return 个人信用信息
 	 */
-	public int IndividualCredictInquiry(String userid)throws RemoteException{
+	public int individualCredictInq(String userid)throws RemoteException{
 		integral=(CreditController)factory.getCreditBLService();
 		return	integral.getCredit((CustomerInfoVO)VOPOchange.POtoVO(userdataservice.GetCustomerInfo(userid)));
 	}
@@ -358,7 +358,7 @@ public class Customer extends User {
 	 * @param userid
 	 * @return 个人信用信息
 	 */
-	public ArrayList<CreditVO> IndividualCredictRecord(String userid)throws RemoteException{
+	public ArrayList<CreditVO> individualCredictRecord(String userid)throws RemoteException{
 		integral=(CreditController)factory.getCreditBLService();
 		return integral.getCreditList(userid);
 	}
@@ -368,7 +368,7 @@ public class Customer extends User {
 	 * @param orderVO
 	 * @return
 	 */
-	public ResultMsg personalOrderCancel(OrderVO orderVO)throws RemoteException{
+	public ResultMsg orderCancel(OrderVO orderVO)throws RemoteException{
 		order=(OrderOnUserController)factory.getOrderOnUserBLService();
 		return order.personalOrderCancel(orderVO);
 	}

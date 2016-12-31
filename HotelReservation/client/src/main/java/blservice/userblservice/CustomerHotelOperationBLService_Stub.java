@@ -26,24 +26,24 @@ public class CustomerHotelOperationBLService_Stub implements CustomerHotelOperat
 	
 
 	@Override
-	public ArrayList<HotelInfoVO> HotelSearch(RoomInfoVO vo1, HotelInfoVO vo, String userid) {
+	public ArrayList<HotelInfoVO> hotelSearch(RoomInfoVO vo1, HotelInfoVO vo, String userid) {
 		return hotelInfoVOs;
 	}
 
 	@Override
-	public ResultMsg OederCreat(String hotelID, OrderVO vo2) {
+	public ResultMsg orderCreat(String hotelID, OrderVO vo2) {
 		
 		return ResultMsg.SUCCESS;
 	}
 
 	@Override
-	public void HotelEvaluate(HotelEvaluateVO vo) {
+	public void hotelEvaluate(HotelEvaluateVO vo) {
 		
 		
 	}
 
 	@Override
-	public HotelInfoVO HotelDetail(String hotelid, String userid) {
+	public HotelInfoVO hotelDetail(String hotelid, String userid) {
 		
 		return hotel;
 	}

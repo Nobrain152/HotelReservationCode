@@ -17,7 +17,7 @@ public interface WebIndividualInformationManagementBLService{
 	 * @param 用户IDVO
 	 * @return 用户个人信息VO
 	 */
-	public UserInfoVO IndividualBaseInfolnquiry(String userid);
+	public UserInfoVO individualInfolnq(String userid);
 		
 	/**
 	 * 修改个人信息	
@@ -25,6 +25,6 @@ public interface WebIndividualInformationManagementBLService{
 	 * @param 用户信息VO
 	 * @return 修改结果
 	 */
-	public ResultMsg IndividualBaseInfoModification(String userid,UserInfoVO vo2);
+	public ResultMsg individualInfoMod(String userid,UserInfoVO vo2);
 		
 }

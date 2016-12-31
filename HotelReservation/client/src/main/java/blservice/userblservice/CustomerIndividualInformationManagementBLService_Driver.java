@@ -20,25 +20,25 @@ public class CustomerIndividualInformationManagementBLService_Driver {
 		}
 		
 		public void drive(CustomerIndividualInformationManagementBLService a){
-			UserInfoVO user=a.IndividualBaseInfolnquiry("12345678");
-			ResultMsg res=a.IndividualBaseInfoModification("12345678",new CustomerInfoVO());
-			res=a.personalOrderCancel(new OrderVO());
+			UserInfoVO user=a.individualInfolnq("12345678");
+			ResultMsg res=a.individualInfoMod("12345678",new CustomerInfoVO());
+			res=a.orderCancel(new OrderVO());
 			CustomerInfoPO cu=a.getCustomerInfo("12345678");
-			CustomerInfoVO cu1=a.IndividualBaseInfolnquiry("12345678");
-			res=a.IndividualBaseInfoModification("12345678",new CustomerInfoVO());
-			ArrayList<OrderVO> o=a.IndividualOrderInquiry("12345678");
-			o=a.AbnormalOrderInquiry("12345678");
-			o=a.CancelOrderInquiry("12345678");
-			o=a.finishedOrderInquiry("12345678");
-			o=a.UnfinishedOrderInquiry("12345678");
-			ArrayList<HotelInfoVO> h=a.IndividualHotelInquiry("12345678");
-			o=a.AbnormalOrderInquiry("12345678");
-			o=a.CancelOrderInquiry("12345678");
-			o=a.finishedOrderInquiry("12345678");
-			o=a.UnfinishedOrderInquiry("12345678");
-			int n=a.IndividualCredictInquiry("12345678");
-			ArrayList<CreditVO> c=a.IndividualCredictRecord("12345678");
-			res=a.personalOrderCancel(new OrderVO());
+			CustomerInfoVO cu1=a.individualInfolnq("12345678");
+			res=a.individualInfoMod("12345678",new CustomerInfoVO());
+			ArrayList<OrderVO> o=a.individualOrderInq("12345678");
+			o=a.abnormalOrderInq("12345678");
+			o=a.cancelOrderInq("12345678");
+			o=a.finishedOrderInq("12345678");
+			o=a.unfinishedOrderInq("12345678");
+			ArrayList<HotelInfoVO> h=a.individualHotelInq("12345678");
+			o=a.abnormalOrderInq("12345678");
+			o=a.cancelOrderInq("12345678");
+			o=a.finishedOrderInq("12345678");
+			o=a.unfinishedOrderInq("12345678");
+			int n=a.individualCredictInq("12345678");
+			ArrayList<CreditVO> c=a.individualCredictRecord("12345678");
+			res=a.orderCancel(new OrderVO());
 			a.setCustomerInfo("12345678",new CustomerInfoPO());
 		}
 }

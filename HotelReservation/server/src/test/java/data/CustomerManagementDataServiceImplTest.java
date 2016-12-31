@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import org.junit.Before;
 import org.junit.Test;
 
+
 import data.userdata.CustomerManagementDataServiceImpl;
 import po.CustomerInfoPO;
 import util.VipType;
@@ -20,21 +21,19 @@ public class CustomerManagementDataServiceImplTest {
 	CustomerInfoPO po ;
 	
 	@Before
-	public void setUp(){
-		//impl=new CustomerManagementDataServiceImpl();
+	public void setUp() throws RemoteException{
+		impl=new CustomerManagementDataServiceImpl();
 		po = new CustomerInfoPO("19954722", "ÌÆöÎ", "18805156300", "sfd", 300, true, VipType.COMMON_VIP);
 	}
 	
 	
 	
-	@Test
-	public void testAddMember() throws RemoteException{
-		//assertEquals(impl.AddMembers(id),true);
-	}
+	
 	
 	@Test
 	public void testGetCustomerOrders() throws RemoteException{
-		
+		ArrayList<String> orders = impl.GetCustomerOrders("19954722");
+		assertEquals(orders.get(0), "600000007");
 	}
 	
 	
@@ -42,5 +41,7 @@ public class CustomerManagementDataServiceImplTest {
 
 	@Test
 	public void testGetCustomerHotel() throws RemoteException{
+		ArrayList<String> hotels = impl.GetCustomerHotel("18805156300");
+		assertEquals(hotels.get(0), "5002");
 	}
 }

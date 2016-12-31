@@ -25,7 +25,10 @@ public class RoomInfoDataServiceImpl extends DataSuperClass implements RoomInfoD
 	}
 	
 	private final String tableName = "roomInfo";
-
+	
+	/**
+	 * 添加一条roominfo信息
+	 */
 	@Override
 	public ResultMsg insert(RoomInfoPO po) throws RemoteException {
 		return addToSQL(tableName, po.getRoomID(),po.getState().toString(),po.getType().toString(),
@@ -33,7 +36,7 @@ public class RoomInfoDataServiceImpl extends DataSuperClass implements RoomInfoD
 	}
 	
 	/**
-	 * 接口写的有问题，暂时不用，先放在这里，先不写
+	 * 通过酒店和房间ID，删除一条roominfo
 	 */
 	@Override
 	public ResultMsg delete(String hotelid, String roomid) throws RemoteException {
@@ -42,25 +45,37 @@ public class RoomInfoDataServiceImpl extends DataSuperClass implements RoomInfoD
 		ResultMsg a = delete(sql);
 		return a;
 	}
-
+	
+	/**
+	 * 更新房间信息
+	 */
 	@Override
 	public ResultMsg update(RoomInfoPO po) throws RemoteException {
 		return modifyFromSQL(tableName, po.getRoomID(),po.getState().toString(),po.getType().toString(),
 						""+po.getPrice(),po.getHotelid());
 	}
-
+	
+	/**
+	 * 查找房间信息
+	 */
 	@Override
 	public RoomInfoPO findByRoomID(String id) throws RemoteException {
 		sql =  "SELECT * FROM " + tableName  + " WHERE roomID = \'" + id + "\'";
 		return findMsg(sql);
 	}
-
+	
+	/**
+	 * 显示所有房间
+	 */
 	@Override
 	public ArrayList<RoomInfoPO> show() throws RemoteException {
 		sql = "SELECT * FROM " + tableName;
 		return findMsgs(sql);
 	}
-
+	
+	/**
+	 * 查找一个酒店的所有房间
+	 */
 	@Override
 	public ArrayList<RoomInfoPO> HotelRoomSearch(String hotelID) throws RemoteException {
 		sql =  "SELECT * FROM " + tableName  + " WHERE hotelID = \'" + hotelID + "\'";

@@ -24,4 +24,16 @@ public class CreatIDTest {
 		String ans = "10000024";
 		assertEquals(impl.getNewCustomerID(),ans);
 	}
+	
+	@Test
+	public void testGetNewHotelID() throws RemoteException{
+		String ans = "5013";
+		assertEquals(impl.getNewHotelID(),ans);
+	}
+	
+	@Test
+	public void testGetNewHotelStuffID() throws RemoteException{
+		String ans = "200000001";
+		assertEquals(impl.getNewHotelStuffID(),ans);
+	}
 }

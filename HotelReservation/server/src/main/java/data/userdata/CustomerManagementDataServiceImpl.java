@@ -19,7 +19,10 @@ public class CustomerManagementDataServiceImpl extends UserManagementDataService
 	public CustomerManagementDataServiceImpl() throws RemoteException {
 		super();
 	}
-
+	
+	/**
+	 * 根据用户ID获得用户的所有order
+	 */
 	@Override
 	public ArrayList<String> GetCustomerOrders(String userid) throws RemoteException{
 		try {
@@ -40,7 +43,9 @@ public class CustomerManagementDataServiceImpl extends UserManagementDataService
 		return findMes.size()==0?null:findMes;
 	}
 
-	
+	/**
+	 * 根据用户ID获取用户住过的酒店
+	 */
 	@Override
 	public ArrayList<String> GetCustomerHotel(String userid) throws RemoteException{
 		try {
@@ -60,7 +65,10 @@ public class CustomerManagementDataServiceImpl extends UserManagementDataService
 		
 		return findMes.size()==0?null:findMes;
 	}
-
+	
+	/**
+	 * 添加用户住过的酒店
+	 */
 	@Override
 	public ResultMsg addCustomerHotel(String userid, String idh) throws RemoteException{
 		return addToSQL(tableName, userid,idh);

@@ -9,10 +9,12 @@ import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import javafx.scene.control.Alert.AlertType;
 import ui.UILaunch;
 import ui.UIhelper;
 import util.Adress;
@@ -106,9 +108,13 @@ public class hotelInfoMaintainViewController implements Initializable{
 		}
 		HotelInfoVO hotelToSave=new HotelInfoVO(tf_name.getText(),address,area,cb_star.getValue(),
 				ta_introduction.getText(),ta_facility.getText(),hotelvo.getIsReserved(),hotelvo.getHotelID(),
-				hotelvo.getScore(),hotelvo.getSP());
+				hotelvo.getScore(),Integer.parseInt(tf_price.getText()));
 		ResultMsg msg=hotelManage.hotelInfoMod(hotelToSave, helper.getUserID());
-		//TODO 判断
+		Alert alert=new Alert(AlertType.INFORMATION);
+		alert.setTitle("提示");
+		alert.setHeaderText(null);
+		alert.setContentText("修改成功");
+		alert.showAndWait();
 		application.gotohotelManagedInfo();
 	}
 	

@@ -172,7 +172,7 @@ public class promotionWebViewController implements Initializable {
 	@FXML
 	public void btn_area_addAction(ActionEvent ev) {
 		PromotionWebVO newPromotion=new PromotionWebVO(null,PromotionWebType.VIP_CIRCLE_PROMOTION,
-				cb_area_name.getValue(),Double.parseDouble(tf_vip_discount.getText()));
+				cb_area_name.getValue(),Double.parseDouble(tf_area_discount.getText()));
 		boolean result=promotionManage.websiteStrategeCreate(newPromotion);
 		
 		

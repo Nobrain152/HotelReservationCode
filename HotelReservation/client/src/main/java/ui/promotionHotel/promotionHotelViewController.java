@@ -183,31 +183,21 @@ public class promotionHotelViewController implements Initializable {
 	public void btn_diy_addAction(ActionEvent ev) {
 		PromotionHotelVO newPromotion=new PromotionHotelVO(null,PromotionHotelType.HOTEL_CUSTOM_PROMOTION,hotelID,
 				dp_diy_start.getValue().toString(),dp_diy_end.getValue().toString(),Double.parseDouble(tf_diy_discount.getText()));
-		boolean result=promotionManage.hotelStrategeAdd(newPromotion);
-		if(result){
-			data_diy.add(new PromotionDiy(dp_diy_start.getValue().toString(),dp_diy_end.getValue().toString(),Double.parseDouble(tf_diy_discount.getText())));
-			tf_diy_discount.clear();
-		}
-		else{
-			Alert alert=new Alert(AlertType.ERROR);
-			alert.setTitle("´íÎó");
-			alert.setHeaderText(null);
-			alert.setContentText("Ìí¼ÓÊ§°Ü");
-			alert.showAndWait();
-		}
+		promotionManage.hotelStrategeAdd(newPromotion);
+		
+		data_diy.add(new PromotionDiy(dp_diy_start.getValue().toString(),dp_diy_end.getValue().toString(),Double.parseDouble(tf_diy_discount.getText())));
+		tf_diy_discount.clear();
+		
+		
 	}
 	
 	@FXML
 	public void btn_diy_deleteAction(ActionEvent ev) {
 		PromotionDiy choose=promotion_diy.getSelectionModel().getSelectedItem();
 		PromotionHotelVO toDelete=new PromotionHotelVO(null,PromotionHotelType.HOTEL_CUSTOM_PROMOTION,hotelID,choose.getStartTime(),choose.getEndTime(),choose.getDiscount());
-		boolean result=promotionManage.hotelStrategeDelete(toDelete);
-		if(result){
-			data_diy.remove(choose);
-		}
-		else{
-			System.out.println("É¾³ýÊ§°Ü");
-		}
+		promotionManage.hotelStrategeDelete(toDelete);
+		data_diy.remove(choose);
+		
 	}
 	
 	@FXML

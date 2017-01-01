@@ -33,9 +33,7 @@ import ui.hotelStuffGuide.hotelStuffGuideViewController;
 import ui.login.loginViewController;
 import ui.login.registerViewController;
 import ui.orderOnHotel.orderOnHotelInfoViewController;
-import ui.orderOnHotel.orderOnHotelStateViewController;
 import ui.orderOnHotel.orderOnHotelViewController;
-import ui.orderOnUser.orderOnUserCancelViewController;
 import ui.orderOnUser.orderOnUserInfoViewController;
 import ui.orderOnUser.orderOnUserViewController;
 import ui.orderOnWeb.abnormalOrderInfoViewController;
@@ -54,7 +52,6 @@ import ui.reservedHotel.reservedHotelListViewController;
 import ui.roomAdd.roomAddViewController;
 import ui.roomAdd.roomListViewController;
 import ui.roomAdd.roomModifyViewController;
-import ui.vip.vipInfoViewController;
 import ui.vip.vipRegisterViewController;
 import ui.webManagerGuide.webManagerGuideViewController;
 import ui.webSalesman.webSalesmanAddViewController;
@@ -404,18 +401,6 @@ public class UILaunch extends Application{
 			ex.printStackTrace();
 		}
 	}
-	
-	/**
-	 * 跳转到酒店订单状态修改界面
-	 */
-	public void gotoorderOnHotelState(){
-		try{
-			orderOnHotelStateViewController orderOnHotelState=(orderOnHotelStateViewController) replaceSceneContent("orderOnHotel/orderOnHotelState.fxml");
-			orderOnHotelState.setApp(this);
-		}catch(Exception ex){
-			ex.printStackTrace();
-		}
-	}
 		
 	/**
 	 * 跳转到用户订单界面
@@ -436,18 +421,6 @@ public class UILaunch extends Application{
 		try{
 			orderOnUserInfoViewController orderOnUserInfo=(orderOnUserInfoViewController) replaceSceneContent("orderOnUser/orderOnUserInfo.fxml");
 			orderOnUserInfo.setApp(this);
-		}catch(Exception ex){
-			ex.printStackTrace();
-		}
-	}
-	
-	/**
-	 * 跳转到用户订单撤销界面
-	 */
-	public void gotoorderOnUserCancel(){
-		try{
-			orderOnUserCancelViewController orderOnUserCancel=(orderOnUserCancelViewController) replaceSceneContent("orderOnUser/orderOnUserCancel.fxml");
-			orderOnUserCancel.setApp(this);
 		}catch(Exception ex){
 			ex.printStackTrace();
 		}
@@ -544,18 +517,6 @@ public class UILaunch extends Application{
 	public void gotovipRegister(){
 		try{
 			vipRegisterViewController vip=(vipRegisterViewController) replaceSceneContent("vip/vipRegister.fxml");
-			vip.setApp(this);
-		}catch(Exception ex){
-			ex.printStackTrace();
-		}
-	}
-	
-	/**
-	 * 跳转到会员信息界面
-	 */
-	public void gotovipInfo(){
-		try{
-			vipInfoViewController vip=(vipInfoViewController) replaceSceneContent("vip/vipInfo.fxml");
 			vip.setApp(this);
 		}catch(Exception ex){
 			ex.printStackTrace();

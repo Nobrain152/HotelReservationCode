@@ -102,9 +102,9 @@
             <TableView fx:id="order" layoutX="393.0" layoutY="87.0" prefHeight="250.0" prefWidth="371.0">
               <columns>
                 <TableColumn fx:id="order_ID" prefWidth="87.0" text="订单ID" />
-                <TableColumn fx:id="order_time" prefWidth="117.0" text="时间" />
-                  <TableColumn fx:id="order_condition" prefWidth="79.0" text="订单情况" />
-                  <TableColumn fx:id="order_price" prefWidth="74.0" text="价格" />
+                <TableColumn fx:id="order_time" prefWidth="123.0" text="时间" />
+                  <TableColumn fx:id="order_condition" prefWidth="78.0" text="订单情况" />
+                  <TableColumn fx:id="order_price" prefWidth="77.0" text="价格" />
               </columns>
             </TableView>
             <Label layoutX="393.0" layoutY="47.0" text="在该酒店的订单">

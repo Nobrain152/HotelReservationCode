@@ -42,27 +42,15 @@
                   <content>
                     <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="326.0" prefWidth="644.0">
                            <children>
-                              <Text layoutX="71.0" layoutY="53.0" strokeType="OUTSIDE" strokeWidth="0.0" text="酒店名称">
-                                 <font>
-                                    <Font size="18.0" />
-                                 </font>
-                              </Text>
-                              <Text layoutX="71.0" layoutY="88.0" strokeType="OUTSIDE" strokeWidth="0.0" text="订单ID">
-                                 <font>
-                                    <Font size="18.0" />
-                                 </font>
-                              </Text>
-                              <TableView fx:id="order_all" layoutX="71.0" layoutY="114.0" prefHeight="231.0" prefWidth="647.0">
+                              <TableView fx:id="order_all" layoutX="110.0" layoutY="70.0" prefHeight="250.0" prefWidth="570.0">
                                 <columns>
                                   <TableColumn fx:id="order_all_ID" prefWidth="87.0" text="ID" />
-                                  <TableColumn fx:id="order_all_hotelName" prefWidth="120.0" text="酒店名称" />
-                                    <TableColumn fx:id="order_all_time" prefWidth="277.0" text="时间" />
-                                    <TableColumn fx:id="order_all_price" prefWidth="86.0" text="金额" />
+                                  <TableColumn fx:id="order_all_hotelName" prefWidth="145.0" text="酒店名称" />
+                                    <TableColumn fx:id="order_all_time" prefWidth="246.0" text="时间" />
+                                    <TableColumn fx:id="order_all_price" prefWidth="89.0" text="金额" />
                                 </columns>
                               </TableView>
-                              <Button layoutX="427.0" layoutY="35.0" mnemonicParsing="false" text="搜索" />
-                              <Button layoutX="427.0" layoutY="70.0" mnemonicParsing="false" text="搜索" />
-                              <Button fx:id="btn_all_info" layoutX="634.0" layoutY="375.0" mnemonicParsing="false" onAction="#btn_all_infoAction" text="详细信息" />
+                              <Button fx:id="btn_all_info" layoutX="605.0" layoutY="357.0" mnemonicParsing="false" onAction="#btn_all_infoAction" prefHeight="30.0" prefWidth="75.0" text="详细信息" />
                            </children></AnchorPane>
                   </content>
                 </Tab>
@@ -70,27 +58,15 @@
                   <content>
                     <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                            <children>
-                              <Button layoutX="435.0" layoutY="74.0" mnemonicParsing="false" text="搜索" />
-                              <Button layoutX="435.0" layoutY="33.0" mnemonicParsing="false" text="搜索" />
-                              <TableView fx:id="order_executed" layoutX="74.0" layoutY="122.0" prefHeight="229.0" prefWidth="654.0">
+                              <TableView fx:id="order_executed" layoutX="110.0" layoutY="70.0" prefHeight="250.0" prefWidth="570.0">
                                  <columns>
-                                    <TableColumn fx:id="order_executed_ID" prefWidth="87.0" text="ID" />
-                                    <TableColumn fx:id="order_executed_hotelName" prefWidth="120.0" text="酒店名称" />
-                                    <TableColumn fx:id="order_executed_time" prefWidth="175.0" text="时间" />
-                                    <TableColumn fx:id="order_executed_price" text="金额" />
+                                    <TableColumn fx:id="order_executed_ID" prefWidth="96.0" text="ID" />
+                                    <TableColumn fx:id="order_executed_hotelName" prefWidth="141.0" text="酒店名称" />
+                                    <TableColumn fx:id="order_executed_time" prefWidth="225.0" text="时间" />
+                                    <TableColumn fx:id="order_executed_price" prefWidth="103.0" text="金额" />
                                  </columns>
                               </TableView>
-                              <Text layoutX="74.0" layoutY="92.0" strokeType="OUTSIDE" strokeWidth="0.0" text="订单ID">
-                                 <font>
-                                    <Font size="18.0" />
-                                 </font>
-                              </Text>
-                              <Text layoutX="74.0" layoutY="51.0" strokeType="OUTSIDE" strokeWidth="0.0" text="酒店名称">
-                                 <font>
-                                    <Font size="18.0" />
-                                 </font>
-                              </Text>
-                              <Button fx:id="btn_executed_info" layoutX="633.0" layoutY="379.0" mnemonicParsing="false" onAction="#btn_executed_infoAction" text="详细信息" />
+                              <Button fx:id="btn_executed_info" layoutX="601.0" layoutY="349.0" mnemonicParsing="false" onAction="#btn_executed_infoAction" prefHeight="30.0" prefWidth="79.0" text="详细信息" />
                            </children></AnchorPane>
                   </content>
                 </Tab>
@@ -98,28 +74,16 @@
                      <content>
                         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                            <children>
-                              <Button layoutX="437.0" layoutY="80.0" mnemonicParsing="false" text="搜索" />
-                              <Button layoutX="437.0" layoutY="45.0" mnemonicParsing="false" text="搜索" />
-                              <TableView fx:id="order_waiting" layoutX="81.0" layoutY="131.0" prefHeight="203.0" prefWidth="648.0">
+                              <TableView fx:id="order_waiting" layoutX="110.0" layoutY="70.0" prefHeight="250.0" prefWidth="570.0">
                                  <columns>
                                     <TableColumn fx:id="order_waiting_ID" prefWidth="87.0" text="ID" />
-                                    <TableColumn fx:id="order_waiting_hotelName" prefWidth="120.0" text="酒店名称" />
-                                    <TableColumn fx:id="order_waiting_time" prefWidth="175.0" text="时间" />
-                                    <TableColumn fx:id="order_waiting_price" text="金额" />
+                                    <TableColumn fx:id="order_waiting_hotelName" prefWidth="142.0" text="酒店名称" />
+                                    <TableColumn fx:id="order_waiting_time" prefWidth="236.0" text="时间" />
+                                    <TableColumn fx:id="order_waiting_price" prefWidth="102.0" text="金额" />
                                  </columns>
                               </TableView>
-                              <Text layoutX="81.0" layoutY="98.0" strokeType="OUTSIDE" strokeWidth="0.0" text="订单ID">
-                                 <font>
-                                    <Font size="18.0" />
-                                 </font>
-                              </Text>
-                              <Text layoutX="81.0" layoutY="63.0" strokeType="OUTSIDE" strokeWidth="0.0" text="酒店名称">
-                                 <font>
-                                    <Font size="18.0" />
-                                 </font>
-                              </Text>
-                              <Button fx:id="btn_SetCanceled" layoutX="537.0" layoutY="366.0" mnemonicParsing="false" onAction="#btn_SetCanceledAction" prefHeight="29.0" prefWidth="54.0" text="撤销" />
-                              <Button fx:id="btn_waiting_info" layoutX="645.0" layoutY="366.0" mnemonicParsing="false" onAction="#btn_waiting_infoAction" prefHeight="29.0" prefWidth="70.0" text="详细信息" />
+                              <Button fx:id="btn_SetCanceled" layoutX="502.0" layoutY="352.0" mnemonicParsing="false" onAction="#btn_SetCanceledAction" prefHeight="29.0" prefWidth="54.0" text="撤销" />
+                              <Button fx:id="btn_waiting_info" layoutX="610.0" layoutY="352.0" mnemonicParsing="false" onAction="#btn_waiting_infoAction" prefHeight="29.0" prefWidth="70.0" text="详细信息" />
                            </children></AnchorPane>
                      </content>
                   </Tab>
@@ -127,27 +91,15 @@
                      <content>
                         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                            <children>
-                              <Button layoutX="437.0" layoutY="80.0" mnemonicParsing="false" text="搜索" />
-                              <Button layoutX="437.0" layoutY="45.0" mnemonicParsing="false" text="搜索" />
-                              <TableView fx:id="order_canceled" layoutX="81.0" layoutY="131.0" prefHeight="183.0" prefWidth="651.0">
+                              <TableView fx:id="order_canceled" layoutX="110.0" layoutY="70.0" prefHeight="250.0" prefWidth="570.0">
                                  <columns>
-                                    <TableColumn fx:id="order_canceled_ID" prefWidth="87.0" text="ID" />
-                                    <TableColumn fx:id="order_canceled_hotelName" prefWidth="120.0" text="酒店名称" />
-                                    <TableColumn fx:id="order_canceled_time" prefWidth="175.0" text="时间" />
-                                    <TableColumn fx:id="order_canceled_price" text="金额" />
+                                    <TableColumn fx:id="order_canceled_ID" prefWidth="102.0" text="ID" />
+                                    <TableColumn fx:id="order_canceled_hotelName" prefWidth="126.0" text="酒店名称" />
+                                    <TableColumn fx:id="order_canceled_time" prefWidth="229.0" text="时间" />
+                                    <TableColumn fx:id="order_canceled_price" prefWidth="108.0" text="金额" />
                                  </columns>
                               </TableView>
-                              <Text layoutX="81.0" layoutY="98.0" strokeType="OUTSIDE" strokeWidth="0.0" text="订单ID">
-                                 <font>
-                                    <Font size="18.0" />
-                                 </font>
-                              </Text>
-                              <Text layoutX="81.0" layoutY="63.0" strokeType="OUTSIDE" strokeWidth="0.0" text="酒店名称">
-                                 <font>
-                                    <Font size="18.0" />
-                                 </font>
-                              </Text>
-                              <Button fx:id="btn_canceled_info" layoutX="640.0" layoutY="342.0" mnemonicParsing="false" onAction="#btn_canceled_infoAction" text="详细信息" />
+                              <Button fx:id="btn_canceled_info" layoutX="608.0" layoutY="348.0" mnemonicParsing="false" onAction="#btn_canceled_infoAction" prefHeight="30.0" prefWidth="72.0" text="详细信息" />
                            </children></AnchorPane>
                      </content>
                   </Tab>
@@ -155,27 +107,15 @@
                      <content>
                         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                            <children>
-                              <Button layoutX="437.0" layoutY="80.0" mnemonicParsing="false" text="搜索" />
-                              <Button layoutX="437.0" layoutY="45.0" mnemonicParsing="false" text="搜索" />
-                              <TableView fx:id="order_abnormal" layoutX="81.0" layoutY="131.0" prefHeight="200.0" prefWidth="646.0">
+                              <TableView fx:id="order_abnormal" layoutX="110.0" layoutY="70.0" prefHeight="250.0" prefWidth="570.0">
                                  <columns>
-                                    <TableColumn fx:id="order_abnormal_ID" prefWidth="87.0" text="ID" />
-                                    <TableColumn fx:id="order_abnormal_hotelName" prefWidth="120.0" text="酒店名称" />
-                                    <TableColumn fx:id="order_abnormal_time" prefWidth="175.0" text="时间" />
-                                    <TableColumn fx:id="order_abnormal_price" text="金额" />
+                                    <TableColumn fx:id="order_abnormal_ID" prefWidth="105.0" text="ID" />
+                                    <TableColumn fx:id="order_abnormal_hotelName" prefWidth="137.0" text="酒店名称" />
+                                    <TableColumn fx:id="order_abnormal_time" prefWidth="227.0" text="时间" />
+                                    <TableColumn fx:id="order_abnormal_price" prefWidth="95.0" text="金额" />
                                  </columns>
                               </TableView>
-                              <Text layoutX="81.0" layoutY="98.0" strokeType="OUTSIDE" strokeWidth="0.0" text="订单ID">
-                                 <font>
-                                    <Font size="18.0" />
-                                 </font>
-                              </Text>
-                              <Text layoutX="81.0" layoutY="63.0" strokeType="OUTSIDE" strokeWidth="0.0" text="酒店名称">
-                                 <font>
-                                    <Font size="18.0" />
-                                 </font>
-                              </Text>
-                              <Button fx:id="btn_abnormal_info" layoutX="652.0" layoutY="357.0" mnemonicParsing="false" onAction="#btn_abnormal_infoAction" text="详细信息" />
+                              <Button fx:id="btn_abnormal_info" layoutX="606.0" layoutY="352.0" mnemonicParsing="false" onAction="#btn_abnormal_infoAction" prefHeight="30.0" prefWidth="74.0" text="详细信息" />
                            </children></AnchorPane>
                      </content>
                   </Tab>

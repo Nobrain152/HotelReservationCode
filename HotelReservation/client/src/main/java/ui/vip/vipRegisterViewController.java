@@ -8,10 +8,12 @@ import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
+import javafx.scene.control.Alert.AlertType;
 import ui.UILaunch;
 import ui.UIhelper;
 import util.VipType;
@@ -52,6 +54,11 @@ public class vipRegisterViewController implements Initializable{
 		else{
 			//TODO 提示必须选择
 		}
+		Alert alert=new Alert(AlertType.INFORMATION);
+		alert.setTitle("提示");
+		alert.setHeaderText(null);
+		alert.setContentText("注册成功 ");
+		alert.showAndWait();
 		application.gotocustomerGuide();
 	}
 	

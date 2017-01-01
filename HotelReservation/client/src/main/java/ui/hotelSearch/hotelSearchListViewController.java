@@ -52,6 +52,9 @@ public class hotelSearchListViewController implements Initializable{
 	
 	@FXML
 	private Button btn_Cancel;
+	
+	@FXML
+	private Button btn_home;
 		
 	
 	public void setApp(UILaunch application){
@@ -75,6 +78,11 @@ public class hotelSearchListViewController implements Initializable{
 	@FXML
 	public void btn_CancelAction(ActionEvent ev) {
 		application.gotohotelSearch();
+	}
+	
+	@FXML
+	public void btn_homeAction(ActionEvent ev) {
+		application.gotocustomerGuide();
 	}
 	
 	@Override

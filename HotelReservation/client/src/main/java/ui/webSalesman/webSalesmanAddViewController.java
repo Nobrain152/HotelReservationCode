@@ -7,9 +7,11 @@ import bl.userbl.WebManagerWebsiteManagementController;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.scene.control.Alert.AlertType;
 import ui.UILaunch;
 import vo.UserInfoVO;
 
@@ -40,7 +42,11 @@ public class webSalesmanAddViewController implements Initializable{
 	private void btn_AddAction(ActionEvent event) throws Exception{
 		UserInfoVO newStuff=new UserInfoVO(null,tf_name.getText(),tf_contact.getText(),pf_password.getText());
 		String salesmanID=addSalesman.addWebStuff(newStuff);
-		System.out.println(salesmanID);//TODO 输出
+		Alert alert=new Alert(AlertType.INFORMATION);
+		alert.setTitle("提示");
+		alert.setHeaderText("添加成功！");
+		alert.setContentText("网站营销人员的账户ID为： "+salesmanID);
+		alert.showAndWait();
 		application.gotowebManagerGuide();
 	}
 	

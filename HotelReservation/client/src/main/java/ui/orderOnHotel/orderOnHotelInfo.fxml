@@ -19,14 +19,10 @@
             <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#d0d0d0" height="68.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="800.0" />
             <Text layoutX="32.0" layoutY="39.0" strokeType="OUTSIDE" strokeWidth="0.0" text="酒店预定系统">
                <font>
-                  <Font size="24.0" />
+                  <Font name="System Bold Italic" size="24.0" />
                </font>
             </Text>
-            <Text layoutX="663.0" layoutY="39.0" strokeType="OUTSIDE" strokeWidth="0.0" text="XXX，欢迎你！">
-               <font>
-                  <Font size="14.0" />
-               </font>
-            </Text>
+            <Button fx:id="btn_home" layoutX="704.0" layoutY="15.0" mnemonicParsing="false" onAction="#btn_homeAction" prefHeight="29.0" prefWidth="61.0" text="首页" />
          </children>
       </Pane>
       <Pane layoutY="532.0" prefHeight="68.0" prefWidth="800.0">

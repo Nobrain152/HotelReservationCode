@@ -36,6 +36,9 @@ public class customerInfoByMViewController implements Initializable{
 	@FXML
 	private Button btn_Modify;
 	
+	@FXML
+	private Button btn_home;
+	
 	public void setApp(UILaunch application){
 		this.application= application;
 	}
@@ -48,6 +51,11 @@ public class customerInfoByMViewController implements Initializable{
 	@FXML
 	private void btn_ModifyAction(ActionEvent event) throws Exception{
 		application.gotocustomerInfoModifyByM();
+	}
+	
+	@FXML
+	private void btn_homeAction(ActionEvent event) throws Exception{
+		application.gotowebManagerGuide();
 	}
 	
 	@Override

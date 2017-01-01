@@ -46,13 +46,10 @@ public class promotionHotelDIYViewController implements Initializable{
 		
 		toModify.setRatio(Double.parseDouble(tf_discount.getText()));
 		
-		boolean result=controller.hotelStrategeManage(toModify);
-		if(result){
-			application.gotopromotionHotel();
-		}
-		else{
-			System.out.println("Ê§°Ü");
-		}
+		controller.hotelStrategeManage(toModify);
+		
+		application.gotopromotionHotel();
+		
 	}
 
 	@FXML

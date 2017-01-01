@@ -16,9 +16,9 @@
       <Pane prefHeight="73.0" prefWidth="800.0">
          <children>
             <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#b4b4b4" height="73.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="800.0" />
-            <Text layoutX="31.0" layoutY="45.0" strokeType="OUTSIDE" strokeWidth="0.0" text="酒店预定系统">
+            <Text layoutX="40.0" layoutY="45.0" strokeType="OUTSIDE" strokeWidth="0.0" text="酒店预定系统">
                <font>
-                  <Font size="24.0" />
+                  <Font name="System Bold Italic" size="24.0" />
                </font>
             </Text>
          </children>

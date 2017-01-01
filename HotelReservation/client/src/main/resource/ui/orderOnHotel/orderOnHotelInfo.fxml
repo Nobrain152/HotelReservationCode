@@ -22,6 +22,7 @@
                   <Font name="System Bold Italic" size="24.0" />
                </font>
             </Text>
+            <Button layoutX="704.0" layoutY="15.0" mnemonicParsing="false" prefHeight="29.0" prefWidth="61.0" text="首页" />
          </children>
       </Pane>
       <Pane layoutY="532.0" prefHeight="68.0" prefWidth="800.0">

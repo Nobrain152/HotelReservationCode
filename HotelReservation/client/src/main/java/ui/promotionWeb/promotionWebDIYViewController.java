@@ -48,7 +48,7 @@ public class promotionWebDIYViewController implements Initializable{
 		
 		ResultMsg msg=controller.websiteStrategeMod(toModify);
 		if(msg==ResultMsg.SUCCESS){
-			application.gotopromotionHotel();
+			application.gotopromotionWeb();
 		}
 		else{
 			System.out.println("Ê§°Ü");

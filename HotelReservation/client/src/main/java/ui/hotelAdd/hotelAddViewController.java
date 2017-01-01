@@ -8,10 +8,12 @@ import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import javafx.scene.control.Alert.AlertType;
 import ui.UILaunch;
 import util.Adress;
 import util.Area;
@@ -87,7 +89,11 @@ public class hotelAddViewController implements Initializable{
 		HotelInfoVO newHotel=new HotelInfoVO(tf_name.getText(),address,area,cb_star.getValue(),
 				ta_introduction.getText(),ta_facility.getText(),false,null,10,Integer.parseInt(tf_price.getText()));
 		String ID= addHotel.hotelAdd(newHotel);//TODO 显示注册成功的ID；
-		System.out.println(ID);
+		Alert alert=new Alert(AlertType.INFORMATION);
+		alert.setTitle("提示");
+		alert.setHeaderText("添加成功！");
+		alert.setContentText("酒店ID为： "+ID);
+		alert.showAndWait();
 		application.gotowebManagerGuide();
 	}
 	

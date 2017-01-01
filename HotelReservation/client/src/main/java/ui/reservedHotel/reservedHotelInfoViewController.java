@@ -60,6 +60,9 @@ public class reservedHotelInfoViewController implements Initializable{
 	private Button btn_Cancel;
 	
 	@FXML
+	private Button btn_home;
+	
+	@FXML
 	private TableView<orderItem> order;
 	@FXML
 	private TableColumn<?, ?> order_ID;
@@ -87,6 +90,11 @@ public class reservedHotelInfoViewController implements Initializable{
 	@FXML
 	public void btn_CancelAction(ActionEvent ev) {
 		application.gotoreservedHotelList();
+	}
+	
+	@FXML
+	public void btn_homeAction(ActionEvent ev) {
+		application.gotocustomerGuide();
 	}
 
 	@Override

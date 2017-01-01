@@ -43,7 +43,7 @@
          </font>
       </Label>
       <TextField fx:id="tf_discount" layoutX="359.0" layoutY="307.0" prefHeight="39.0" prefWidth="197.0" />
-      <Button fx:id="btn_Modify" layoutX="480.0" layoutY="390.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="76.0" text="确认修改">
+      <Button fx:id="btn_Modify" layoutX="480.0" layoutY="390.0" mnemonicParsing="false" onAction="#btn_ModifyAction" prefHeight="39.0" prefWidth="76.0" text="确认修改">
          <font>
             <Font size="14.0" />
          </font>

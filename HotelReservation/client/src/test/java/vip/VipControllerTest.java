@@ -21,7 +21,7 @@ public class VipControllerTest {
 	@Before
 	public void setUp() throws Exception {
 		vipController = new VipController();
-		customerInfoVO = new CustomerInfoVO("19954722", "txin", "ve", "18805156300", 300, true, VipType.COMMON_VIP);
+		customerInfoVO = new CustomerInfoVO("19954722", "txin", "18805156300", "ve", 300, true, VipType.COMMON_VIP);
 	}
 	
 	@Test

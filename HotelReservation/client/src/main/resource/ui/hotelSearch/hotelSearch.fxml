@@ -57,7 +57,7 @@
             </Text>
             <ChoiceBox fx:id="cb_Star" layoutX="376.0" layoutY="222.0" prefHeight="23.0" prefWidth="187.0" />
             <ChoiceBox fx:id="cb_Score" layoutX="376.0" layoutY="275.0" prefHeight="23.0" prefWidth="187.0" />
-            <Button fx:id="btn_Search" layoutX="499.0" layoutY="336.0" mnemonicParsing="false" onAction="#btn_SearchAction" prefHeight="29.0" prefWidth="61.0" text="搜索" />
+            <Button fx:id="btn_Search" layoutX="502.0" layoutY="368.0" mnemonicParsing="false" onAction="#btn_SearchAction" prefHeight="29.0" prefWidth="61.0" text="搜索" />
             <Text layoutX="240.0" layoutY="188.0" strokeType="OUTSIDE" strokeWidth="0.0" text="名称">
                <font>
                   <Font size="14.0" />
@@ -66,6 +66,11 @@
             <TextField fx:id="tf_name" layoutX="376.0" layoutY="172.0" prefHeight="23.0" prefWidth="187.0" />
             <ChoiceBox fx:id="cb_Address" layoutX="376.0" layoutY="69.0" prefHeight="23.0" prefWidth="187.0" />
             <ChoiceBox fx:id="cb_Area" layoutX="376.0" layoutY="121.0" prefHeight="23.0" prefWidth="187.0" />
+            <CheckBox layoutX="376.0" layoutY="330.0" mnemonicParsing="false" text="搜索预定过的酒店">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </CheckBox>
          </children>
       </Pane>
    </children>

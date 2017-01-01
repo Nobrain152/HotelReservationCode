@@ -16,6 +16,11 @@
                   <Font name="System Bold Italic" size="24.0" />
                </font>
             </Text>
+            <Button layoutX="702.0" layoutY="26.0" mnemonicParsing="false" prefHeight="29.0" prefWidth="59.0" text="首页">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Button>
          </children>
       </Pane>
       <Pane layoutY="530.0" prefHeight="70.0" prefWidth="800.0" style="-fx-background-color: lightgrey;">

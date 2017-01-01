@@ -22,6 +22,7 @@
                   <Font name="System Bold Italic" size="24.0" />
                </font>
             </Text>
+            <Button layoutX="693.0" layoutY="22.0" mnemonicParsing="false" prefHeight="29.0" prefWidth="61.0" text="首页" />
          </children>
       </Pane>
       <Pane layoutY="524.0" prefHeight="76.0" prefWidth="800.0">
@@ -52,7 +53,7 @@
                <font>
                   <Font size="14.0" />
                </font></Text>
-            <Button fx:id="btn_Modify" layoutX="353.0" layoutY="321.0" mnemonicParsing="false" onAction="#btn_ModifyAction" prefHeight="29.0" prefWidth="97.0" text="修改用户信息" />
+            <Button fx:id="btn_Modify" layoutX="366.0" layoutY="319.0" mnemonicParsing="false" onAction="#btn_ModifyAction" prefHeight="30.0" prefWidth="108.0" text="修改用户信息" />
             <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#d3dde8" height="30.0" layoutX="346.0" layoutY="99.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="208.0" />
             <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#d3dde8" height="30.0" layoutX="346.0" layoutY="148.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="208.0" />
             <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#d3dde8" height="30.0" layoutX="346.0" layoutY="199.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="208.0" />

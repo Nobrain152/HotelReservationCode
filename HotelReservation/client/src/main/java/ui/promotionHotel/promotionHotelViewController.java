@@ -14,11 +14,13 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.cell.PropertyValueFactory;
 import ui.UILaunch;
 import ui.UIhelper;
@@ -146,7 +148,11 @@ public class promotionHotelViewController implements Initializable {
 			tf_birthday_discount.clear();
 		}
 		else{
-			System.out.println("ÃÌº” ß∞‹");//TODO
+			Alert alert=new Alert(AlertType.ERROR);
+			alert.setTitle("¥ÌŒÛ");
+			alert.setHeaderText(null);
+			alert.setContentText("ÃÌº” ß∞‹");
+			alert.showAndWait();
 		}
 	}
 	
@@ -177,27 +183,21 @@ public class promotionHotelViewController implements Initializable {
 	public void btn_diy_addAction(ActionEvent ev) {
 		PromotionHotelVO newPromotion=new PromotionHotelVO(null,PromotionHotelType.HOTEL_CUSTOM_PROMOTION,hotelID,
 				dp_diy_start.getValue().toString(),dp_diy_end.getValue().toString(),Double.parseDouble(tf_diy_discount.getText()));
-		boolean result=promotionManage.hotelStrategeAdd(newPromotion);
-		if(result){
-			data_diy.add(new PromotionDiy(dp_diy_start.getValue().toString(),dp_diy_end.getValue().toString(),Double.parseDouble(tf_diy_discount.getText())));
-			tf_diy_discount.clear();
-		}
-		else{
-			System.out.println("ÃÌº” ß∞‹");//TODO
-		}
+		promotionManage.hotelStrategeAdd(newPromotion);
+		
+		data_diy.add(new PromotionDiy(dp_diy_start.getValue().toString(),dp_diy_end.getValue().toString(),Double.parseDouble(tf_diy_discount.getText())));
+		tf_diy_discount.clear();
+		
+		
 	}
 	
 	@FXML
 	public void btn_diy_deleteAction(ActionEvent ev) {
 		PromotionDiy choose=promotion_diy.getSelectionModel().getSelectedItem();
 		PromotionHotelVO toDelete=new PromotionHotelVO(null,PromotionHotelType.HOTEL_CUSTOM_PROMOTION,hotelID,choose.getStartTime(),choose.getEndTime(),choose.getDiscount());
-		boolean result=promotionManage.hotelStrategeDelete(toDelete);
-		if(result){
-			data_diy.remove(choose);
-		}
-		else{
-			System.out.println("…æ≥˝ ß∞‹");
-		}
+		promotionManage.hotelStrategeDelete(toDelete);
+		data_diy.remove(choose);
+		
 	}
 	
 	@FXML
@@ -219,7 +219,11 @@ public class promotionHotelViewController implements Initializable {
 			tf_enterprise_discount.clear();
 		}
 		else{
-			System.out.println("ÃÌº” ß∞‹");//TODO
+			Alert alert=new Alert(AlertType.ERROR);
+			alert.setTitle("¥ÌŒÛ");
+			alert.setHeaderText(null);
+			alert.setContentText("ÃÌº” ß∞‹");
+			alert.showAndWait();
 		}
 	}
 	
@@ -255,7 +259,11 @@ public class promotionHotelViewController implements Initializable {
 			tf_threeroom_discount.clear();
 		}
 		else{
-			System.out.println("ÃÌº” ß∞‹");//TODO
+			Alert alert=new Alert(AlertType.ERROR);
+			alert.setTitle("¥ÌŒÛ");
+			alert.setHeaderText(null);
+			alert.setContentText("ÃÌº” ß∞‹");
+			alert.showAndWait();
 		}
 	}
 	

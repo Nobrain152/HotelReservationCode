@@ -125,6 +125,7 @@ public class OrderOnWeb {
 					credit.addCredit(orderVO.getInitiator(), (int)webPO.getPrice());
 					ArrayList<CreditPO> creditPOs = credit.getListByUserID(webPO.getInitiator().getUserID());
 					CreditPO creditPO = creditPOs.get(creditPOs.size()-1);
+					creditPO.setOrderID(orderVO.getOrderID());
 					creditPO.setCreditChange("+"+(int)orderVO.getPrice());
 					creditPO.setCreditResult(creditPO.getCreditResult()+(int)orderVO.getPrice());
 					creditPO.setTime(new Today().getToday());

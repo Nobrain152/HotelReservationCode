@@ -92,4 +92,8 @@ public class CreditPO implements Serializable{
 	public void setTime(String time) {
 		this.time = time;
 	}
+	
+	public void setOrderID(String orderID) {
+		this.orderID = orderID;
+	}
 }

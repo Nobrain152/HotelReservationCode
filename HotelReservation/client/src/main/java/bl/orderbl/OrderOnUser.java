@@ -214,8 +214,6 @@ public class OrderOnUser {
 				Calendar todayCalendar = Calendar.getInstance();
 				lastCalendar.set(lastTimeYear, lastTimeMonth-1, lastTimeDay, lastTimeHour, lastTimeMin);
 				todayCalendar.set(todayYear, todayMonth-1, todayDay, todayHour, todayMin);
-				System.out.println(lastCalendar.getTimeInMillis());
-				System.out.println(todayCalendar.getTimeInMillis());
 				if(lastCalendar.getTimeInMillis()-todayCalendar.getTimeInMillis() <= 6*60*60*1000) {
 					credit = (CreditController)BusinessLogicDataFactory.getFactory().getCreditBLService();
 					CreditController controller = new CreditController();
@@ -226,6 +224,7 @@ public class OrderOnUser {
 					creditPO.setCreditResult(creditPO.getCreditResult()-(int)orderVO.getPrice()/2);
 					creditPO.setTime(new Today().getToday());
 					creditPO.setAction(Action.Cancelled);
+					creditPO.setOrderID(orderVO.getOrderID());
 					resultMsg = credit.insert(creditPO);
 				}
 			}else{

@@ -61,6 +61,7 @@ public class Update implements Runnable{
 						CreditPO creditPO = creditPOs.get(creditPOs.size()-1);
 						
 						//扣除一半的信用值
+						creditPO.setOrderID(po.getOrderID());
 						creditPO.setCreditChange("-"+(int)orderVO.getPrice()/2);
 						creditPO.setCreditResult(creditPO.getCreditResult()-(int)orderVO.getPrice()/2);
 						creditPO.setTime(new Today().getToday());

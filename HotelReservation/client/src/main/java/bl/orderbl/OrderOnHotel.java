@@ -105,6 +105,7 @@ public class OrderOnHotel {
 				room.update(roomInfoPO);
 				hotelDataService.update(orderPO);
 				
+				creditPO.setOrderID(orderVO.getOrderID());
 				creditPO.setAction(Action.Executed);
 				creditPO.setCreditResult(creditPO.getCreditResult() + (int)orderVO.getPrice());
 				creditPO.setCreditChange("+" + (int)orderVO.getPrice());

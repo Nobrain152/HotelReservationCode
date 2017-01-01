@@ -142,7 +142,7 @@ public class HotelInfoDataServiceImpl extends DataSuperClass implements HotelInf
 			System.out.println("酒店信息从数据库中查找出错");
 			return null;
 		}
-		return pos.size()==0?null:pos;
+		return pos;
 	}
 
 	@Override

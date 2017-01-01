@@ -53,9 +53,7 @@ public class CustomerManagementDataServiceImpl extends UserManagementDataService
 			preState = conn.prepareStatement(sql);
 			result = preState.executeQuery();
 			while (result.next()) {
-				if(result.getString(5).equals(UserType.WebStuff.toString())){
 					findMes.add(result.getString(2));
-				}
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -63,7 +61,7 @@ public class CustomerManagementDataServiceImpl extends UserManagementDataService
 			return null;
 		}
 		
-		return findMes.size()==0?null:findMes;
+		return findMes;
 	}
 	
 	/**

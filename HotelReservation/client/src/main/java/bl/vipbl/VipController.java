@@ -4,7 +4,7 @@ import java.rmi.Remote;
 import java.rmi.RemoteException;
 
 import bl.BusinessController;
-import blservice.vipblservice.VipLevelBLService;
+import blservice.vipblservice.VipBLService;
 import net.RMIManage;
 import po.BusinessVipPO;
 import po.CommonVipPO;
@@ -15,7 +15,7 @@ import util.VipType;
 import vo.CustomerInfoVO;
 import vo.LevelSystemVO;
 
-public class VipController extends BusinessController implements VipLevelBLService{
+public class VipController extends BusinessController implements VipBLService{
 	
 	private Vip vip;
 	private VipDataService vipDataService;

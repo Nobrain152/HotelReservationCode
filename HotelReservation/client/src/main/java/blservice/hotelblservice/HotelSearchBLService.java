@@ -17,7 +17,7 @@ public interface HotelSearchBLService {
 	 * @param hotelConditionVO
 	 * @return
 	 */
-	public ArrayList<HotelInfoVO> selectCondition(HotelInfoVO hotelConditionVO,RoomInfoVO vo2);
+	public ArrayList<HotelInfoVO> selectCondition(HotelInfoVO hotelConditionVO,RoomInfoVO vo2,String userID,boolean done);
 	
 	
     

@@ -52,7 +52,7 @@ public class HotelSearchControllerTest {
 	
 	@Test
 	public void testselectCondition(){
-		ArrayList<HotelInfoVO> msg1 = impl.selectCondition(hotel2,roomInfoVO);
+		ArrayList<HotelInfoVO> msg1 = impl.selectCondition(hotel2,roomInfoVO,"10000066");
 		assertEquals(msg1.get(0).getName(),"SunHotel");
 	}
 	

@@ -16,6 +16,6 @@ public class HotelSearchBLService_Driver {
 		}
 		
 		public void drive(HotelSearchBLService a){
-			ArrayList<HotelInfoVO> arrayList=a.selectCondition(new HotelInfoVO(),new RoomInfoVO());
+			ArrayList<HotelInfoVO> arrayList=a.selectCondition(new HotelInfoVO(),new RoomInfoVO(),"10000066",false);
 		}
 }

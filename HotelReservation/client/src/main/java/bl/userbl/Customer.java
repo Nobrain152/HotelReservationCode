@@ -53,9 +53,9 @@ public class Customer extends User {
 	 * @param 筛选条件VO
 	 * @return 酒店信息VO列表
 	 */
-	public ArrayList<HotelInfoVO> hotelSearch(RoomInfoVO vo1,HotelInfoVO vo,String userid)throws RemoteException{
+	public ArrayList<HotelInfoVO> hotelSearch(RoomInfoVO vo1,HotelInfoVO vo,String userid,boolean done)throws RemoteException{
 		hotel=(HotelSearchController)factory.getHotelSearchBLService();
-		ArrayList<HotelInfoVO> hotelInfoVOs= hotel.selectCondition(vo,vo1);
+		ArrayList<HotelInfoVO> hotelInfoVOs= hotel.selectCondition(vo,vo1,userid,done);
 		ArrayList<OrderVO> ord=this.individualOrderInq(userid);
 		for(HotelInfoVO v:hotelInfoVOs){
 			String hotelid=v.getHotelID();

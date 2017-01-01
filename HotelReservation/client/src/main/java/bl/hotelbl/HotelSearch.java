@@ -33,7 +33,7 @@ public class HotelSearch {
 	 * @return
 	 * @throws RemoteException
 	 */
-	public ArrayList<HotelInfoVO> selectCondition(HotelInfoVO hotelInfoVO,RoomInfoVO roomin) throws RemoteException{
+	public ArrayList<HotelInfoVO> selectCondition(HotelInfoVO hotelInfoVO,RoomInfoVO roomin,String userID,boolean done) throws RemoteException{
 		ArrayList<HotelInfoPO> pos;
 		pos=hotelData.findByAreaAndCircle(hotelInfoVO.getAddress(),hotelInfoVO.getArea());
 		boolean flag0 = false;
@@ -95,6 +95,14 @@ public class HotelSearch {
 			}
 		}
 		
+		
+		for(int i = 0; i<pos.size(); i++){
+			if(pos.get(i).getIsReserved()!=done){
+				pos.remove(i);
+				i = -1;
+			}
+		}
+		
 		if(roomin!=null){
 			for(int i=0;i<pos.size();i++){
 				String hotelid=pos.get(i).getHotelID();
@@ -117,6 +125,7 @@ public class HotelSearch {
 				
 			}
 		}
+		
 		
 		
 		for(HotelInfoPO p:pos){

@@ -40,9 +40,9 @@ public class CustomerHotelOperationController extends BusinessController impleme
 	 * @param 筛选条件VO
 	 * @return 酒店信息VO列表
 	 */
-	public ArrayList<HotelInfoVO> hotelSearch(RoomInfoVO vo1,HotelInfoVO vo,String userid){
+	public ArrayList<HotelInfoVO> hotelSearch(RoomInfoVO vo1,HotelInfoVO vo,String userid,boolean done){
 		try {
-			return customer.hotelSearch(vo1,vo,userid);
+			return customer.hotelSearch(vo1,vo,userid,done);
 		} catch (RemoteException e) {
 			e.printStackTrace();
 			return null;

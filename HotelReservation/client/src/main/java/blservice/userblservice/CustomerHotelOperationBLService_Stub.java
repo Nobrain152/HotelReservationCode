@@ -26,7 +26,7 @@ public class CustomerHotelOperationBLService_Stub implements CustomerHotelOperat
 	
 
 	@Override
-	public ArrayList<HotelInfoVO> hotelSearch(RoomInfoVO vo1, HotelInfoVO vo, String userid) {
+	public ArrayList<HotelInfoVO> hotelSearch(RoomInfoVO vo1, HotelInfoVO vo, String userid,boolean done) {
 		return hotelInfoVOs;
 	}
 

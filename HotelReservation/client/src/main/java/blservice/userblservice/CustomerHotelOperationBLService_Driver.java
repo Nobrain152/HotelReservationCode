@@ -24,7 +24,7 @@ public class CustomerHotelOperationBLService_Driver {
 		ArrayList<OrderVO> order;
 		
 		hotel=a.hotelDetail("5000","12345678");
-		hotelInfoVOs=a.hotelSearch(null,hotel,"12345678",true);
+		hotelInfoVOs=a.hotelSearch(null,hotel,"12345678");
 		hotelInfoVOs=a.sortHotel(hotelInfoVOs,Sort.Price_DownToUp);
 		order=a.getHotelOrder("5000","12345678");
 		ResultMsg res=a.orderCreat("5000",new OrderVO());

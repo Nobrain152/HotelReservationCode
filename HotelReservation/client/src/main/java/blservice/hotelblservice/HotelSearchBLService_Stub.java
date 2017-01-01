@@ -20,7 +20,7 @@ public class HotelSearchBLService_Stub implements HotelSearchBLService {
 	}
 	
 	@Override
-	public ArrayList<HotelInfoVO> selectCondition(HotelInfoVO hotelConditionVO, RoomInfoVO vo2, String userID,boolean done) {
+	public ArrayList<HotelInfoVO> selectCondition(HotelInfoVO hotelConditionVO, RoomInfoVO vo2) {
 		
 		return aa;
 	}

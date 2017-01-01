@@ -33,9 +33,9 @@ public class HotelSearchController extends BusinessController implements HotelSe
 	 * 根据条件搜索酒店
 	 */
 	@Override
-	public ArrayList<HotelInfoVO> selectCondition(HotelInfoVO hotelInfoVO,RoomInfoVO vo2,String userID,boolean done){
+	public ArrayList<HotelInfoVO> selectCondition(HotelInfoVO hotelInfoVO,RoomInfoVO vo2){
 		try {
-			return hotelSearch.selectCondition(hotelInfoVO,vo2,userID,done);
+			return hotelSearch.selectCondition(hotelInfoVO,vo2);
 		} catch (RemoteException  e) {
 			e.printStackTrace();
 		}

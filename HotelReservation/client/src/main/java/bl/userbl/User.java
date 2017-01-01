@@ -34,7 +34,6 @@ public class User {
 	 */
     public boolean  LogIn(String id,String password)throws RemoteException{
     	String real=data.GetLoginInfo(id);
-    	System.out.println("password"+real);
     	password=MD5Util.md5Encode(password);
     	return real.equals(password);
     	

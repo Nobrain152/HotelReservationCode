@@ -56,32 +56,6 @@ public class Customer extends User {
 	public ArrayList<HotelInfoVO> hotelSearch(RoomInfoVO vo1,HotelInfoVO vo,String userid)throws RemoteException{
 		hotel=(HotelSearchController)factory.getHotelSearchBLService();
 		ArrayList<HotelInfoVO> hotelInfoVOs= hotel.selectCondition(vo,vo1);
-		ArrayList<OrderVO> ord=this.individualOrderInq(userid);
-		for(HotelInfoVO v:hotelInfoVOs){
-			String hotelid=v.getHotelID();
-			ArrayList<OrderVO> hotelorder=new ArrayList<OrderVO>();
-			for(OrderVO v1:ord){
-				if(hotelid.equals(v1.hotelID)){
-					hotelorder.add(v1);
-				}
-			}
-			v.setOrder(hotelorder);
-		}
-		if(vo.getIsReserved()==true){
-			ArrayList<String> r=userdataservice.GetCustomerHotel(userid);
-			for(int i=0;i<hotelInfoVOs.size();i++){
-				boolean remo=true;
-				for(int j=0;j<r.size();j++){
-					if(hotelInfoVOs.get(i).getHotelID().equals(r.get(j))){
-						remo=false;
-						break;
-					}
-				}
-				if(remo){
-					hotelInfoVOs.remove(i);
-				}
-			}
-		}
 		return hotelInfoVOs;
 	}		
 	

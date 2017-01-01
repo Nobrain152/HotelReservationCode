@@ -58,7 +58,7 @@ public class CustomerManagementDataServiceImpl extends UserManagementDataService
 		} catch (SQLException e) {
 			e.printStackTrace();
 			System.out.println("从数据库中获取用户住过的的酒店信息错误");
-			return null;
+			return findMes;
 		}
 		
 		return findMes;

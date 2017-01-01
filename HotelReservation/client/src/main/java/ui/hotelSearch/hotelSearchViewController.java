@@ -8,6 +8,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import javafx.scene.control.CheckBox;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.TextField;
 import ui.UILaunch;
@@ -34,6 +35,9 @@ public class hotelSearchViewController implements Initializable{
 	
 	@FXML
 	private ChoiceBox<String> cb_Score;
+	
+	@FXML
+	private CheckBox cb_reserved;
 	
 	@FXML
 	private Button btn_Cancel;
@@ -116,6 +120,7 @@ public class hotelSearchViewController implements Initializable{
 		if(cb_Star.getValue()!=null){
 			hotelSearch.setLevel(cb_Star.getValue());
 		}
+		hotelSearch.setReserve(cb_reserved.isSelected());
 		helper.setSearchHotel(hotelSearch);
 		application.gotohotelSearchList();
 	}

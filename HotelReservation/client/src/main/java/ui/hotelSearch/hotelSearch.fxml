@@ -66,7 +66,7 @@
             <TextField fx:id="tf_name" layoutX="376.0" layoutY="172.0" prefHeight="23.0" prefWidth="187.0" />
             <ChoiceBox fx:id="cb_Address" layoutX="376.0" layoutY="69.0" prefHeight="23.0" prefWidth="187.0" />
             <ChoiceBox fx:id="cb_Area" layoutX="376.0" layoutY="121.0" prefHeight="23.0" prefWidth="187.0" />
-            <CheckBox layoutX="376.0" layoutY="330.0" mnemonicParsing="false" text="搜索预定过的酒店">
+            <CheckBox fx:id="cb_reserved" layoutX="376.0" layoutY="330.0" mnemonicParsing="false" text="搜索预定过的酒店">
                <font>
                   <Font size="14.0" />
                </font>

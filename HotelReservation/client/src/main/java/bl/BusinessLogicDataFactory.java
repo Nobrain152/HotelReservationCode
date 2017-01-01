@@ -29,7 +29,7 @@ import blservice.promotionblservice.PromotionHotelBLService;
 import blservice.promotionblservice.PromotionValueBLService;
 import blservice.promotionblservice.PromotionWebBLService;
 import blservice.userblservice.CustomerIndividualInformationManagementBLService;
-import blservice.vipblservice.VipLevelBLService;
+import blservice.vipblservice.VipBLService;
 
 /**
  * Âß¼­²ã¹¤³§Àà
@@ -102,7 +102,7 @@ public class BusinessLogicDataFactory {
 		return new PromotionWebController();
 	}
 	
-	public VipLevelBLService getVipLevelBLService(){
+	public VipBLService getVipLevelBLService(){
 		return new VipController();
 	}
 	

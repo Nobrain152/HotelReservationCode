@@ -20,7 +20,7 @@ import vo.LevelSystemVO;
  * @author txin15
  *
  */
-public interface VipLevelBLService {
+public interface VipBLService {
 	
 	/**
 	 * 获得用户当前信用值对应的等级

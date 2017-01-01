@@ -20,7 +20,7 @@ public class BusinessVipPO extends CustomerInfoPO implements Serializable{
 	
 	public BusinessVipPO(String userid, String username, String password,String contact,
 			int credit, String businessName,VipType vipType) {
-		super(userid, username,password, contact, credit, true, vipType);
+		super(userid, username,contact, password, credit, true, vipType);
 		this.businessName = businessName;
 	}
 	

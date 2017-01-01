@@ -7,7 +7,7 @@ import util.VipType;
 import vo.CustomerInfoVO;
 import vo.LevelSystemVO;
 
-public class VipBLService_Stub implements VipLevelBLService {
+public class VipBLService_Stub implements VipBLService {
 
 	@Override
 	public int searchLevel(CustomerInfoVO user) {

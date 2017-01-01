@@ -12,6 +12,7 @@ import bl.orderbl.OrderOnWebController;
 import bl.promotionbl.PromotionWebController;
 import dataservice.userdataservice.UserManagementDataService;
 import po.CreditPO;
+import po.CustomerInfoPO;
 import po.UserInfoPO;
 import util.PromotionWebType;
 import util.ResultMsg;
@@ -137,6 +138,9 @@ public class WebStuff extends User{
 		CreditPO cre=inte.get(userid);
 		String string="+"+n;
 		CreditPO cre1=new CreditPO(cre.getUserID(),null,new Today().getToday(),util.Action.Charge,string,cre.getCreditResult()+n);
+		CustomerInfoPO customerInfo = user.GetCustomerInfo(userid);
+		customerInfo.setCredit(cre.getCreditResult()+n);
+		user.SetCustomerInfo(userid, customerInfo);
 		return inte.insert(cre1);
 	}
 

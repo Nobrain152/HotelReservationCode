@@ -19,12 +19,7 @@
             <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#b4b4b4" height="76.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="800.0" />
             <Text layoutX="33.0" layoutY="46.0" strokeType="OUTSIDE" strokeWidth="0.0" text="酒店预定系统">
                <font>
-                  <Font size="24.0" />
-               </font>
-            </Text>
-            <Text layoutX="661.0" layoutY="43.0" strokeType="OUTSIDE" strokeWidth="0.0" text="XXX，欢迎你！">
-               <font>
-                  <Font size="14.0" />
+                  <Font name="System Bold Italic" size="24.0" />
                </font>
             </Text>
          </children>

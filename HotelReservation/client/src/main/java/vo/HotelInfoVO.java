@@ -195,5 +195,9 @@ public class HotelInfoVO {
 	public void setLevel(int n){
 		level=n;
 	}
+	
+	public void setReserve(boolean b){
+		reserve=b;
+	}
 
 }	

@@ -26,23 +26,20 @@ public class VipDataServiceImplTest {
 		impl = new VipDataSerivceImpl();
 	}
 
-//	@Test
-//	public void testAdd() throws RemoteException {
-//		LevelSystemPO levelSystemPO = new LevelSystemPO(1, 100);
-//		vip = new VipDataSerivceImpl();	
-//			
-//		vip.insertL(levelSystemPO);
-//		System.out.println(levelSystemPO.getLevels());
-//		System.out.println(levelSystemPO.getCredits());
-//		assertEquals(levelSystemPO.getLevels(), 1);
-//	}
+	@Test
+	public void testAdd() throws RemoteException {
+		LevelSystemPO levelSystemPO = new LevelSystemPO(1, 100);
+		System.out.println(levelSystemPO.getLevels());
+		System.out.println(levelSystemPO.getCredits());
+		assertEquals(levelSystemPO.getLevels(), 1);
+	}
 	
-//	@Test
-//	public void testFindByL() throws RemoteException{
-//		LevelSystemPO po = impl.findL(1);
-//		System.out.println(po.getLevels());
-//		System.out.println(po.getCredits());
-//	}
+	@Test
+	public void testFindByL() throws RemoteException{
+		LevelSystemPO po = impl.findL(1);
+		System.out.println(po.getLevels());
+		System.out.println(po.getCredits());
+	}
 	
 	@Test
 	public void testFindByUserIDC() throws RemoteException{
@@ -50,9 +47,9 @@ public class VipDataServiceImplTest {
 		assertEquals(commonVipPO.getUsername(), "kevin");
 	}
 	
-//	@Test
-//	public void testUpdataC() throws RemoteException{
-//		impl.updateC(new CommonVipPO("19954722", "kevin", "123", "13270898633", 400, "45640", VipType.COMMON_VIP));
-//	}
+	@Test
+	public void testUpdataC() throws RemoteException{
+		impl.updateC(new CommonVipPO("19954722", "kevin", "123", "13270898633", 400, "45640", VipType.COMMON_VIP));
+	}
 
 }

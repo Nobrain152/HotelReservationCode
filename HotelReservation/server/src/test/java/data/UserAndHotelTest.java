@@ -1,11 +1,14 @@
 package data;
 
+import static org.junit.Assert.assertEquals;
+
 import java.rmi.RemoteException;
 
 import org.junit.Before;
 import org.junit.Test;
 
 import data.userdata.UserAndHotel;
+import util.ResultMsg;
 
 public class UserAndHotelTest {
 	
@@ -19,7 +22,9 @@ public class UserAndHotelTest {
 	
 	@Test
 	public void test() throws RemoteException{
-		po1.add("151250058", "3B323");
-		po2.add("151250058", "asfas");
+		ResultMsg aMsg = po1.add("151250058", "3B323");
+		ResultMsg bMsg = po2.add("151250058", "asfas");
+		assertEquals(aMsg, ResultMsg.SUCCESS);
+		assertEquals(bMsg, ResultMsg.SUCCESS);
 	}
 }

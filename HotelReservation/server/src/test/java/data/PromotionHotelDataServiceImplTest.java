@@ -33,16 +33,28 @@ public class PromotionHotelDataServiceImplTest {
 		assertEquals(aMsg, ResultMsg.SUCCESS);
 	}
 	
-//	@Test
-//	public void testFindByType() throws RemoteException{
-//		ArrayList<PromotionHotelPO> arr = impl.findByType(PromotionHotelType.BIRTH_PROMOTION, "5000");
-//		assertEquals(2, arr.get(0).getLevel());
-//	}
+	@Test
+	public void testDeleteOverCut() throws RemoteException {
+		ResultMsg aMsg = impl.deleteOverCut(3, "5002");
+		assertEquals(aMsg, ResultMsg.SUCCESS);
+	}
 	
-//	@Test
-//	public void testUpdate() throws RemoteException{
-//		ResultMsg resultMsg = impl.update(po);
-//		assertEquals(ResultMsg.SUCCESS, resultMsg);
-//	}
+	@Test
+	public void testFindByType() throws RemoteException{
+		ArrayList<PromotionHotelPO> arr = impl.findByType(PromotionHotelType.BIRTH_PROMOTION, "5000");
+		assertEquals(2, arr.get(0).getLevel());
+	}
+	
+	@Test
+	public void testUpdate() throws RemoteException{
+		ResultMsg resultMsg = impl.update(po);
+		assertEquals(ResultMsg.SUCCESS, resultMsg);
+	}
+	
+	@Test
+	public void testDeleteBirthCut() throws RemoteException {
+		ResultMsg aMsg = impl.deleteBirthCut(3, "5002");
+		assertEquals(aMsg, ResultMsg.SUCCESS);
+	}
 
 }

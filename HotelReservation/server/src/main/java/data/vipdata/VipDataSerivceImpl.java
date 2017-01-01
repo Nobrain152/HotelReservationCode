@@ -14,7 +14,9 @@ import po.BusinessVipPO;
 import po.CommonVipPO;
 import po.CustomerInfoPO;
 import po.LevelSystemPO;
+import util.OrderState;
 import util.ResultMsg;
+import util.RoomType;
 import util.VipType;
 
 public class VipDataSerivceImpl extends DataSuperClass implements VipDataService{

@@ -3,8 +3,11 @@ package bl.userbl;
 import java.rmi.RemoteException;
 
 import bl.VOPOchange;
+import bl.creditbl.CreditController;
 import dataservice.userdataservice.UserManagementDataService;
+import po.CreditPO;
 import po.CustomerInfoPO;
+import util.Action;
 import util.UserType;
 import vo.CustomerInfoVO;
 
@@ -17,9 +20,11 @@ import vo.CustomerInfoVO;
 public class User {
 	
 	private UserManagementDataService data;
+	private CreditController creditController;
 	
 	public User(UserManagementDataService data){
 		this.data=data;
+		creditController = new CreditController();
 	}
 	
 	/**
@@ -60,7 +65,10 @@ public class User {
 		CustomerInfoPO po=(CustomerInfoPO)VOPOchange.VOtoPO(vo);
 		po.setCredit(0);
 		po.setPassword(MD5Util.md5Encode(po.getPassword()));
-		return data.AddCustomer(po);
+		String newID = data.AddCustomer(po);
+		CreditPO creditPO = new CreditPO(newID, "初始化", "初始化", Action.Initial, "初始化", 0);
+		creditController.insert(creditPO);
+		return newID;
 	}
 	
 	/**

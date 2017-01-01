@@ -4,6 +4,7 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 import bl.userbl.CustomerInfoManagementController;
+import bl.vipbl.VipController;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -17,6 +18,7 @@ public class customerInfoViewController implements Initializable{
 	private UILaunch application;
 	private UIhelper helper;
 	private CustomerInfoManagementController customerInfo;
+	private VipController vip;
 	
 	@FXML
 	private Label lb_name;
@@ -29,6 +31,9 @@ public class customerInfoViewController implements Initializable{
 	
 	@FXML
 	private Label lb_credit;
+	
+	@FXML
+	private Label lb_level;
 	
 	@FXML
 	private Button button_Credit;
@@ -63,12 +68,14 @@ public class customerInfoViewController implements Initializable{
 		// TODO Auto-generated method stub
 		helper=UIhelper.getInstance();
 		customerInfo=new CustomerInfoManagementController();
+		vip=new VipController();
 		String ID=helper.getUserID();
 		CustomerInfoVO customer =customerInfo.individualInfolnq(ID);
 		lb_name.setText(customer.getUsername());
 		lb_userID.setText(customer.getUserID());
 		lb_contact.setText(customer.getContact());
 		lb_credit.setText(String.valueOf(customer.getCredit()));
+		lb_level.setText(String.valueOf(vip.searchLevel(customer)));
 	}
 
 }

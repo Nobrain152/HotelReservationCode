@@ -39,7 +39,7 @@
             <Font size="14.0" />
          </font>
       </Button>
-      <Button fx:id="button_Vip" layoutX="526.0" layoutY="322.0" mnemonicParsing="false" onAction="#button_VipAction" prefHeight="57.0" prefWidth="141.0" text="会员信息">
+      <Button fx:id="button_Vip" layoutX="526.0" layoutY="322.0" mnemonicParsing="false" onAction="#button_VipAction" prefHeight="57.0" prefWidth="141.0" text="会员注册">
          <font>
             <Font size="14.0" />
          </font>

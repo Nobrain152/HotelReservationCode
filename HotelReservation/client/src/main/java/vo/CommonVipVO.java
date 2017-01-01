@@ -18,7 +18,7 @@ public class CommonVipVO extends CustomerInfoVO {
 
 	public CommonVipVO(String userid, String username, String password,String contact,
 			int credit, String birthday,VipType vipType) {
-		super(userid, username, password, contact, credit, true, vipType);
+		super(userid, username, contact, password, credit, true, vipType);
 		this.birthday = birthday;
 	}
 	

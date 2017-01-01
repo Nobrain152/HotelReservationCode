@@ -95,13 +95,15 @@ public class HotelSearch {
 			}
 		}
 		
-		
-		for(int i = 0; i<pos.size(); i++){
-			if(pos.get(i).getIsReserved()!=done){
-				pos.remove(i);
-				i = -1;
+		if(done == true){
+			for(int i = 0; i<pos.size(); i++){
+				if(pos.get(i).getIsReserved()!=done){
+					pos.remove(i);
+					i = -1;
+				}
 			}
 		}
+		
 		
 		if(roomin!=null){
 			for(int i=0;i<pos.size();i++){

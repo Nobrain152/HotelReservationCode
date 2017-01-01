@@ -73,6 +73,7 @@ public class Credit {
 			CustomerInfoPO customerInfoPO = customer.getCustomerInfo(client.getUserID());
 			customerInfoPO.setCredit(creditPO.getCreditResult());
 			customer.setCustomerInfo(client.getUserID(), customerInfoPO);
+			
 			vip = (VipController)BusinessLogicDataFactory.getFactory().getVipLevelBLService();
 			
 			//更新vip信息
@@ -107,6 +108,13 @@ public class Credit {
 			creditPO.setCreditResult(creditPO.getCreditResult() - value);
 			creditPO.setCreditChange("-" + value);
 			creditPO.setTime(new Today().getToday());
+			
+			customer = (CustomerInfoManagementController)BusinessLogicDataFactory.getFactory().
+					getCustomerIndividualInformationManagementBLService();
+			CustomerInfoPO customerInfoPO = customer.getCustomerInfo(client.getUserID());
+			customerInfoPO.setCredit(creditPO.getCreditResult());
+			customer.setCustomerInfo(client.getUserID(), customerInfoPO);
+			
 			vip = (VipController)BusinessLogicDataFactory.getFactory().getVipLevelBLService();
 			
 			//更新vip信息
@@ -141,6 +149,13 @@ public class Credit {
 			creditPO.setCreditResult(value);
 			creditPO.setCreditChange("t" + value);
 			creditPO.setTime(new Today().getToday());
+			
+			customer = (CustomerInfoManagementController)BusinessLogicDataFactory.getFactory().
+					getCustomerIndividualInformationManagementBLService();
+			CustomerInfoPO customerInfoPO = customer.getCustomerInfo(client.getUserID());
+			customerInfoPO.setCredit(creditPO.getCreditResult());
+			customer.setCustomerInfo(client.getUserID(), customerInfoPO);
+			
 			vip = (VipController)BusinessLogicDataFactory.getFactory().getVipLevelBLService();
 			
 			//更新vip信息

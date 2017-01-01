@@ -16,6 +16,11 @@
                   <Font name="System Bold Italic" size="24.0" />
                </font>
             </Text>
+            <Button fx:id="btn_home" layoutX="698.0" layoutY="26.0" mnemonicParsing="false" onAction="#btn_homeAction" prefHeight="29.0" prefWidth="59.0" text="首页">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Button>
          </children>
       </Pane>
       <Pane layoutY="530.0" prefHeight="70.0" prefWidth="800.0" style="-fx-background-color: lightgrey;">
@@ -32,7 +37,7 @@
             <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#dee6ee" height="30.0" layoutX="100.0" layoutY="149.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="153.0" />
             <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#dee6ee" height="63.0" layoutX="40.0" layoutY="223.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="312.0" />
             <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#dee6ee" height="93.0" layoutX="41.0" layoutY="328.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="312.0" />
-            <Label fx:id="label_hotelName" layoutX="43.0" layoutY="30.0" prefHeight="32.0" prefWidth="120.0" textFill="#2a75ae">
+            <Label fx:id="label_hotelName" layoutX="43.0" layoutY="30.0" prefHeight="32.0" prefWidth="197.0" textFill="#2a75ae">
                <font>
                   <Font size="24.0" />
                </font>
@@ -72,7 +77,7 @@
                   <Font size="14.0" />
                </font>
             </Label>
-            <Label fx:id="label_address" layoutX="109.0" layoutY="112.0" prefHeight="19.0" prefWidth="50.0">
+            <Label fx:id="label_address" layoutX="109.0" layoutY="112.0" prefHeight="19.0" prefWidth="114.0">
                <font>
                   <Font size="14.0" />
                </font>
@@ -82,7 +87,7 @@
                   <Font size="14.0" />
                </font>
             </Label>
-            <Label fx:id="label_area" layoutX="109.0" layoutY="155.0" prefHeight="19.0" prefWidth="105.0">
+            <Label fx:id="label_area" layoutX="109.0" layoutY="155.0" prefHeight="19.0" prefWidth="114.0">
                <font>
                   <Font size="14.0" />
                </font>
@@ -102,9 +107,9 @@
             <TableView fx:id="order" layoutX="393.0" layoutY="87.0" prefHeight="250.0" prefWidth="371.0">
               <columns>
                 <TableColumn fx:id="order_ID" prefWidth="87.0" text="订单ID" />
-                <TableColumn fx:id="order_time" prefWidth="117.0" text="时间" />
-                  <TableColumn fx:id="order_condition" prefWidth="79.0" text="订单情况" />
-                  <TableColumn fx:id="order_price" prefWidth="74.0" text="价格" />
+                <TableColumn fx:id="order_time" prefWidth="123.0" text="时间" />
+                  <TableColumn fx:id="order_condition" prefWidth="78.0" text="订单情况" />
+                  <TableColumn fx:id="order_price" prefWidth="77.0" text="价格" />
               </columns>
             </TableView>
             <Label layoutX="393.0" layoutY="47.0" text="在该酒店的订单">

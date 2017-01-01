@@ -32,6 +32,9 @@ public class creditCheckViewController implements Initializable{
 	@FXML
 	private Button btn_Cancel;
 	
+	@FXML
+	private Button btn_home;
+	
 	
 	@FXML
 	private TableView<creditItem> tv_credit;
@@ -52,8 +55,13 @@ public class creditCheckViewController implements Initializable{
 	}
 	
 	@FXML
-	public void btn_CancelAction(ActionEvent ev) throws Exception {
+	public void btn_homeAction(ActionEvent ev) throws Exception {
 		application.gotocustomerGuide();
+	}
+	
+	@FXML
+	public void btn_CancelAction(ActionEvent ev) throws Exception {
+		application.gotocustomerInfo();
 	}
 	
 	

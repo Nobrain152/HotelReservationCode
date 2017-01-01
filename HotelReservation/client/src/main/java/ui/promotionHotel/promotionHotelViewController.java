@@ -14,11 +14,13 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.cell.PropertyValueFactory;
 import ui.UILaunch;
 import ui.UIhelper;
@@ -146,7 +148,11 @@ public class promotionHotelViewController implements Initializable {
 			tf_birthday_discount.clear();
 		}
 		else{
-			System.out.println("ÃÌº” ß∞‹");//TODO
+			Alert alert=new Alert(AlertType.ERROR);
+			alert.setTitle("¥ÌŒÛ");
+			alert.setHeaderText(null);
+			alert.setContentText("ÃÌº” ß∞‹");
+			alert.showAndWait();
 		}
 	}
 	
@@ -183,7 +189,11 @@ public class promotionHotelViewController implements Initializable {
 			tf_diy_discount.clear();
 		}
 		else{
-			System.out.println("ÃÌº” ß∞‹");//TODO
+			Alert alert=new Alert(AlertType.ERROR);
+			alert.setTitle("¥ÌŒÛ");
+			alert.setHeaderText(null);
+			alert.setContentText("ÃÌº” ß∞‹");
+			alert.showAndWait();
 		}
 	}
 	
@@ -219,7 +229,11 @@ public class promotionHotelViewController implements Initializable {
 			tf_enterprise_discount.clear();
 		}
 		else{
-			System.out.println("ÃÌº” ß∞‹");//TODO
+			Alert alert=new Alert(AlertType.ERROR);
+			alert.setTitle("¥ÌŒÛ");
+			alert.setHeaderText(null);
+			alert.setContentText("ÃÌº” ß∞‹");
+			alert.showAndWait();
 		}
 	}
 	
@@ -255,7 +269,11 @@ public class promotionHotelViewController implements Initializable {
 			tf_threeroom_discount.clear();
 		}
 		else{
-			System.out.println("ÃÌº” ß∞‹");//TODO
+			Alert alert=new Alert(AlertType.ERROR);
+			alert.setTitle("¥ÌŒÛ");
+			alert.setHeaderText(null);
+			alert.setContentText("ÃÌº” ß∞‹");
+			alert.showAndWait();
 		}
 	}
 	

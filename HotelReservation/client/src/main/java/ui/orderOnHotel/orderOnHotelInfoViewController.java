@@ -49,6 +49,9 @@ public class orderOnHotelInfoViewController implements Initializable{
 	@FXML
 	private Button btn_Cancel;
 	
+	@FXML
+	private Button btn_home;
+	
 	public void setApp(UILaunch application){
 		this.application= application;
 	}
@@ -56,6 +59,11 @@ public class orderOnHotelInfoViewController implements Initializable{
 	@FXML
 	public void btn_CancelAction(ActionEvent ev) throws Exception {
 		application.gotoorderOnHotel();
+	}
+	
+	@FXML
+	public void btn_homeAction(ActionEvent ev) throws Exception {
+		application.gotohotelStuffGuide();
 	}
 
 	@Override

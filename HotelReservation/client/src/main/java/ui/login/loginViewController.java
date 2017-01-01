@@ -61,7 +61,11 @@ public class loginViewController implements Initializable{
 			case WebManager:  application.gotowebManagerGuide();
 			}
 		}else{
-			System.out.println("wrong");//TODO 对话框提示账户或密码错误
+			Alert alert=new Alert(AlertType.ERROR);
+			alert.setTitle("错误");
+			alert.setHeaderText(null);
+			alert.setContentText("账户或密码错误");
+			alert.showAndWait();
 		}
 		
 		

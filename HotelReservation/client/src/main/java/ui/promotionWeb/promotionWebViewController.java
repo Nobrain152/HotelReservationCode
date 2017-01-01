@@ -13,20 +13,20 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.cell.PropertyValueFactory;
 import ui.UILaunch;
 import ui.UIhelper;
-import ui.promotionHotel.promotionHotelViewController.PromotionDiy;
 import util.Area;
-import util.PromotionHotelType;
 import util.PromotionWebType;
 import util.ResultMsg;
-import vo.PromotionHotelVO;
 import vo.PromotionWebVO;
 
 public class promotionWebViewController implements Initializable {
@@ -68,7 +68,7 @@ public class promotionWebViewController implements Initializable {
 	@FXML
 	private Button btn_area_delete;
 	@FXML
-	private TextField tf_area_name;
+	private ChoiceBox<Area> cb_area_name;
 	@FXML
 	private TextField tf_area_discount;
 
@@ -123,7 +123,11 @@ public class promotionWebViewController implements Initializable {
 			tf_vip_discount.clear();
 		}
 		else{
-			System.out.println("错误");
+			Alert alert=new Alert(AlertType.ERROR);
+			alert.setTitle("错误");
+			alert.setHeaderText(null);
+			alert.setContentText("添加失败");
+			alert.showAndWait();
 		}
 		
 
@@ -145,18 +149,80 @@ public class promotionWebViewController implements Initializable {
 	
 	@FXML
 	public void btn_area_modifyAction(ActionEvent ev) {
+		PromotionArea choose=promotion_area.getSelectionModel().getSelectedItem();
+		Area area=null;
+		String areaStr=choose.getName();
+		if(areaStr.equals("东区")){
+			area=Area.EAST;
+		}
+		else if(areaStr.equals("西区")){
+			area=Area.WEST;
+		}
+		else if(areaStr.equals("南区")){
+			area=Area.SOUTH;
+		}
+		else if(areaStr.equals("北区")){
+			area=Area.NORTH;
+		}
+		PromotionWebVO toModify=new PromotionWebVO(null,PromotionWebType.VIP_CIRCLE_PROMOTION,area,choose.getDiscount());
+		helper.setPromotionWeb(toModify);
 		application.gotopromotionWebArea();
 	}
 	
 	@FXML
 	public void btn_area_addAction(ActionEvent ev) {
+		PromotionWebVO newPromotion=new PromotionWebVO(null,PromotionWebType.VIP_CIRCLE_PROMOTION,
+				cb_area_name.getValue(),Double.parseDouble(tf_vip_discount.getText()));
+		boolean result=promotionManage.websiteStrategeCreate(newPromotion);
 		
+		
+		if(result){
+			Area area=cb_area_name.getValue();
+			String areaStr=null;
+			switch(area){
+			case EAST: areaStr="东区";break;
+			case WEST: areaStr="西区";break;
+			case SOUTH: areaStr="南区";break;
+			case NORTH: areaStr="北区";
+			}
+			data_area.add(new PromotionArea(areaStr,Double.parseDouble(tf_area_discount.getText())));
+			tf_area_discount.clear();
+		}
+		else{
+			Alert alert=new Alert(AlertType.ERROR);
+			alert.setTitle("错误");
+			alert.setHeaderText(null);
+			alert.setContentText("添加失败");
+			alert.showAndWait();
+		}
 		
 	}
 	
 	@FXML
 	public void btn_area_deleteAction(ActionEvent ev) {
-		
+		PromotionArea choose=promotion_area.getSelectionModel().getSelectedItem();
+		Area area=null;
+		String areaStr=choose.getName();
+		if(areaStr.equals("东区")){
+			area=Area.EAST;
+		}
+		else if(areaStr.equals("西区")){
+			area=Area.WEST;
+		}
+		else if(areaStr.equals("南区")){
+			area=Area.SOUTH;
+		}
+		else if(areaStr.equals("北区")){
+			area=Area.NORTH;
+		}
+		PromotionWebVO toDelete=new PromotionWebVO(null,PromotionWebType.VIP_CIRCLE_PROMOTION,area,choose.getDiscount());
+		ResultMsg msg=promotionManage.websiteStrategeDelete(toDelete);
+		if(msg==ResultMsg.SUCCESS){
+			data_area.remove(choose);		
+		}
+		else{
+			System.out.println("删除失败");
+		}
 	}
 	
 	@FXML
@@ -176,7 +242,11 @@ public class promotionWebViewController implements Initializable {
 			data_diy.add(new PromotionDiy(dp_diy_start.getValue().toString(),dp_diy_end.getValue().toString(),Double.parseDouble(tf_diy_discount.getText())));
 			tf_diy_discount.clear();
 		}else{
-			System.out.println("添加失败");
+			Alert alert=new Alert(AlertType.ERROR);
+			alert.setTitle("错误");
+			alert.setHeaderText(null);
+			alert.setContentText("添加失败");
+			alert.showAndWait();
 		}
 			
 	}
@@ -204,6 +274,8 @@ public class promotionWebViewController implements Initializable {
 		// TODO Auto-generated method stub
 		helper=UIhelper.getInstance();
 		promotionManage=new WebStuffWebsiteManagementController();
+		
+		cb_area_name.setItems(FXCollections.observableArrayList(Area.EAST,Area.WEST,Area.NORTH,Area.SOUTH));
 		
 		PromotionWebVO vo_vip=new PromotionWebVO();
 		vo_vip.setType(PromotionWebType.VIP_LEVEL_PROMOTION);

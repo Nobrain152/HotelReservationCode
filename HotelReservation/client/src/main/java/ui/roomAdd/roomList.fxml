@@ -16,9 +16,9 @@
       <Pane prefHeight="77.0" prefWidth="800.0">
          <children>
             <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#b4b4b4" height="77.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="800.0" />
-            <Text layoutX="27.0" layoutY="46.0" strokeType="OUTSIDE" strokeWidth="0.0" text="酒店预定系统">
+            <Text layoutX="53.0" layoutY="47.0" strokeType="OUTSIDE" strokeWidth="0.0" text="酒店预定系统">
                <font>
-                  <Font size="24.0" />
+                  <Font name="System Bold Italic" size="24.0" />
                </font>
             </Text>
          </children>
@@ -27,10 +27,10 @@
          <children>
             <TableView fx:id="tv_room" layoutX="55.0" layoutY="87.0" prefHeight="268.0" prefWidth="670.0">
               <columns>
-                <TableColumn fx:id="tc_ID" prefWidth="126.0" text="房间号" />
-                <TableColumn fx:id="tc_type" prefWidth="146.0" text="房间类型" />
-                  <TableColumn fx:id="tc_state" prefWidth="181.0" text="状态" />
-                  <TableColumn fx:id="tc_price" prefWidth="183.0" text="原始价格" />
+                <TableColumn fx:id="tc_ID" prefWidth="133.0" text="房间号" />
+                <TableColumn fx:id="tc_type" prefWidth="165.0" text="房间类型" />
+                  <TableColumn fx:id="tc_state" prefWidth="189.0" text="状态" />
+                  <TableColumn fx:id="tc_price" prefWidth="177.0" text="原始价格" />
               </columns>
             </TableView>
             <Button fx:id="btn_Add" layoutX="653.0" layoutY="385.0" mnemonicParsing="false" onAction="#btn_AddAction" prefHeight="30.0" prefWidth="72.0" text="添加客房" />

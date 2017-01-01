@@ -72,6 +72,9 @@ public class hotelReserveViewController implements Initializable{
 	@FXML
 	private Button btn_Cancel;
 	
+	@FXML
+	private Button btn_home;
+	
 	public void setApp(UILaunch application){
 		this.application= application;
 	}
@@ -85,7 +88,7 @@ public class hotelReserveViewController implements Initializable{
 		int roomNumber=Integer.parseInt(tf_roomNumber.getText());
 		double price=tempRoom.getPrice()*roomNumber;
 		OrderVO newOrder=new OrderVO(null,tempCustomer,OrderState.UNEXECUTED,price,helper.getHotelID(),
-				cb_children.isPressed(),null,dp_start.getValue().toString(),dp_end.getValue().toString(),
+				cb_children.isSelected(),null,dp_start.getValue().toString(),dp_end.getValue().toString(),
 				null,Integer.parseInt(tf_roomNumber.getText()),
 				null,Integer.parseInt(tf_peopleNumber.getText()),cb_room.getValue());
 		String result=orderController.createOrder(newOrder);
@@ -105,10 +108,14 @@ public class hotelReserveViewController implements Initializable{
 		application.gotohotelSearchList();
 	}
 	
+	@FXML
+	public void btn_homeAction(ActionEvent event){
+		application.gotocustomerGuide();
+	}
+	
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
-		// TODO Auto-generated method stub
 		helper=UIhelper.getInstance();
 		roomController=new RoomAddController();
 		orderController=new OrderOnUserController();

@@ -48,6 +48,9 @@ public class orderOnUserInfoViewController implements Initializable{
 
 	@FXML
 	private Button btn_Cancel;
+	
+	@FXML
+	private Button btn_home;
 		
 	public void setApp(UILaunch application){
 		this.application= application;
@@ -56,6 +59,11 @@ public class orderOnUserInfoViewController implements Initializable{
 	@FXML
 	public void btn_CancelAction(ActionEvent ev){
 		application.gotoorderOnUser();
+	}
+	
+	@FXML
+	public void btn_homeAction(ActionEvent ev){
+		application.gotocustomerGuide();
 	}
 
 	@Override

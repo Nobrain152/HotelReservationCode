@@ -38,15 +38,15 @@
          <children>
             <TableView fx:id="tv_hotel" layoutX="62.0" layoutY="34.0" prefHeight="335.0" prefWidth="691.0">
               <columns>
-                  <TableColumn fx:id="tc_ID" prefWidth="75.0" text="酒店ID" />
-                <TableColumn fx:id="tc_name" prefWidth="75.0" text="酒店名称" />
-                <TableColumn fx:id="tc_star" prefWidth="75.0" text="星级" />
-                  <TableColumn fx:id="tc_score" prefWidth="75.0" text="评分" />
-                  <TableColumn fx:id="tc_condition" prefWidth="124.0" text="订单状况" />
-                  <TableColumn fx:id="tc_price" prefWidth="77.0" text="价格" />
+                  <TableColumn fx:id="tc_ID" prefWidth="109.0" text="酒店ID" />
+                <TableColumn fx:id="tc_name" prefWidth="135.0" text="酒店名称" />
+                <TableColumn fx:id="tc_star" prefWidth="100.0" text="星级" />
+                  <TableColumn fx:id="tc_score" prefWidth="96.0" text="评分" />
+                  <TableColumn fx:id="tc_condition" prefWidth="149.0" text="订单状况" />
+                  <TableColumn fx:id="tc_price" prefWidth="96.0" text="价格" />
               </columns>
             </TableView>
-            <Button fx:id="btn_Info" layoutX="658.0" layoutY="396.0" mnemonicParsing="false" onAction="#btn_InfoAction" prefHeight="29.0" prefWidth="71.0" text="详细信息" />
+            <Button fx:id="btn_Info" layoutX="677.0" layoutY="395.0" mnemonicParsing="false" onAction="#btn_InfoAction" prefHeight="30.0" prefWidth="76.0" text="详细信息" />
          </children>
       </Pane>
    </children>

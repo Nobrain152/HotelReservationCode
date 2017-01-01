@@ -638,7 +638,7 @@ public class UILaunch extends Application{
     	FXMLLoader loader = new FXMLLoader();
 		InputStream in = UILaunch.class.getResourceAsStream(fxml);
 		loader.setBuilderFactory(new JavaFXBuilderFactory());
-		loader.setLocation(UILaunch.class.getResource("resource/ui/"+fxml));
+		loader.setLocation(UILaunch.class.getResource(fxml));
 		AnchorPane page;
 		try{
 			page = (AnchorPane) loader.load(in);

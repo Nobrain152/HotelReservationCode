@@ -50,6 +50,9 @@ public class abnormalOrderInfoViewController implements Initializable{
 	@FXML
 	private Button btn_Cancel;
 	
+	@FXML
+	private Button btn_home;
+	
 	public void setApp(UILaunch application){
 		this.application= application;
 	}
@@ -57,6 +60,11 @@ public class abnormalOrderInfoViewController implements Initializable{
 	@FXML
 	public void btn_CancelAction(ActionEvent ev){
 		application.gotoabnormalOrder();
+	}
+	
+	@FXML
+	public void btn_homeAction(ActionEvent ev){
+		application.gotowebSalesmanGuide();
 	}
 
 	@Override

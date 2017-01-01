@@ -15,6 +15,11 @@
                   <Font name="System Bold Italic" size="24.0" />
                </font>
             </Text>
+            <Button fx:id="btn_home" layoutX="699.0" layoutY="26.0" mnemonicParsing="false" onAction="#btn_homeAction" prefHeight="29.0" prefWidth="59.0" text="首页">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Button>
          </children>
       </Pane>
       <Pane layoutY="530.0" prefHeight="70.0" prefWidth="800.0" style="-fx-background-color: lightgrey;">
@@ -51,9 +56,9 @@
       <Button fx:id="btn_Reserve" layoutX="303.0" layoutY="422.0" mnemonicParsing="false" onAction="#btn_ReserveAction" prefHeight="30.0" prefWidth="59.0" text="预定" />
       <TableView fx:id="tv_room" layoutX="425.0" layoutY="151.0" prefHeight="305.0" prefWidth="310.0">
         <columns>
-          <TableColumn fx:id="tc_ID" prefWidth="75.0" text="房间号" />
-          <TableColumn fx:id="tc_type" prefWidth="75.0" text="房间类型" />
-            <TableColumn fx:id="tc_price" prefWidth="75.0" text="原始价格" />
+          <TableColumn fx:id="tc_ID" prefWidth="83.0" text="房间号" />
+          <TableColumn fx:id="tc_type" prefWidth="120.0" text="房间类型" />
+            <TableColumn fx:id="tc_price" prefWidth="99.0" text="原始价格" />
         </columns>
       </TableView>
       <Label layoutX="94.0" layoutY="289.0" prefHeight="29.0" prefWidth="59.0" text="入住时间">

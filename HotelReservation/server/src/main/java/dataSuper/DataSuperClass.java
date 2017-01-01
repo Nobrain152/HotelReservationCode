@@ -10,14 +10,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
-import util.MyDate;
-import util.OrderState;
 import util.ResultMsg;
-
-
-
-
-
 
 /**
  * 所有数据层实现的父类
@@ -160,7 +153,7 @@ public class DataSuperClass extends UnicastRemoteObject{
 	}
 	
 	/**
-	 * 从数据库中删除一个数据
+	 * 从数据库中删除一个数据，如果有唯一ID
 	 * @param tableName 表的名字
 	 * @param ID 要删除数据的ID
 	 * @return
@@ -271,28 +264,6 @@ public class DataSuperClass extends UnicastRemoteObject{
 		return ResultMsg.SUCCESS;
 	}
 	
-	public ResultMsg changeOneDocState (String docID,
-			String tableName, OrderState state) {
-		
-		try {
-			sql = "UPDATE `" + tableName + "` SET state =  ? WHERE id = "+"\"" + docID+"\"" ;
-			preState = conn.prepareStatement(sql);
-			preState.setString(1, state.name());
-			affectRows = preState.executeUpdate();
-		} catch (SQLException e) {
-			e.printStackTrace();
-			return ResultMsg.FAIL;
-		}
-		if(affectRows == 0){
-			return ResultMsg.NOT_EXIST;
-		}else{
-			return ResultMsg.SUCCESS;
-		}
-		
-		
-	}
-	
-	
 	
 	/**
 	 * 清除表内所有信息
@@ -328,41 +299,6 @@ public class DataSuperClass extends UnicastRemoteObject{
 			e.printStackTrace();
 		}
 		return ResultMsg.FAIL;
-	}
-
-	protected int  getDayDocCount(String tableName, MyDate date) {
-		try {
-			sql = "SELECT id from " + tableName + " ORDER BY `id` DESC";
-			preState = conn.prepareStatement(sql);
-			result = preState.executeQuery();
-			String nowDate = MyDate.getDatePart(date);
-			while (result.next()) {
-				
-				String id = result.getString(1);
-				if(id.length() == 10){
-				}else if(id.length() == 16){
-					if(id.substring(3, 9).equals(nowDate)){
-						
-						try {
-							return Integer.parseInt(id.substring(id.length() - 7)) + 1;
-						} catch (Exception e) {
-							return -1;
-						}
-					}else{
-						return 1;
-					}
-					
-					
-					
-				}
-				
-			}
-			
-			
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
-		return 1 ;
 	}
 	
 	/**

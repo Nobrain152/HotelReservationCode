@@ -10,6 +10,11 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 
+/**
+ * SQL语句的快速生成
+ * @author T5-SK
+ *
+ */
 public class DataServiceHelper {
 	
 	

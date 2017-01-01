@@ -4,10 +4,8 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
-import util.RoomState;
-
 /**
- * 数据库连接起
+ * 数据库连接
  * @author T5-SK
  *
  */

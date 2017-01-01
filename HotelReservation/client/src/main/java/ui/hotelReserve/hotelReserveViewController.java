@@ -92,15 +92,23 @@ public class hotelReserveViewController implements Initializable{
 				null,Integer.parseInt(tf_roomNumber.getText()),
 				null,Integer.parseInt(tf_peopleNumber.getText()),cb_room.getValue());
 		String result=orderController.createOrder(newOrder);
-		String tempStr[]=result.split(";");
-		Alert alert = new Alert(AlertType.INFORMATION);
-		alert.setTitle("提示");
-		alert.setHeaderText("预定成功");
-		alert.setContentText("订单价格： "+tempStr[0]+"\n"+"所用促销策略： "+tempStr[1]);
-
-		alert.showAndWait();
-
-		application.gotocustomerGuide();
+		if(result==null){
+			Alert alert = new Alert(AlertType.ERROR);
+			alert.setTitle("错误");
+			alert.setHeaderText("预定失败");
+			alert.setContentText("信用值过低，无法进行预定");
+			alert.showAndWait();
+		}
+		else{
+			String tempStr[]=result.split(";");
+			Alert alert = new Alert(AlertType.INFORMATION);
+			alert.setTitle("提示");
+			alert.setHeaderText("预定成功");
+			alert.setContentText("订单价格： "+tempStr[0]+"\n"+"所用促销策略： "+tempStr[1]);
+			alert.showAndWait();
+			application.gotocustomerGuide();
+		}
+		
 	}
 	
 	@FXML

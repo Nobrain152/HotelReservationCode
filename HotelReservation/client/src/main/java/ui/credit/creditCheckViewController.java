@@ -69,8 +69,7 @@ public class creditCheckViewController implements Initializable{
 	public void initialize(URL url,ResourceBundle rb){
 		helper=UIhelper.getInstance();
 		creditManage=new CustomerInfoManagementController();
-		int cr=creditManage.individualCredictInq(helper.getUserID());
-		credit.setText(String.valueOf(cr));
+		
 		
 		ArrayList<CreditVO> creditList=creditManage.individualCredictRecord(helper.getUserID());
 		int size=creditList.size();
@@ -87,6 +86,10 @@ public class creditCheckViewController implements Initializable{
 		tc_change.setCellValueFactory(new PropertyValueFactory<>("change"));
 		tc_result.setCellValueFactory(new PropertyValueFactory<>("result"));
 		tv_credit.setItems(data);
+		
+		CreditVO tempCreditVO=creditList.get(size-1);
+		int cr=tempCreditVO.getCreditResult();
+		credit.setText(String.valueOf(cr));
 	}
 	
 	public static class creditItem{

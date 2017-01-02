@@ -109,7 +109,7 @@ public class HotelSearch {
 			for(int i=0;i<pos.size();i++){
 				String hotelid=pos.get(i).getHotelID();
 				room=(RoomAddController)factory.getRoomAddBLService();
-				ArrayList<RoomInfoVO> r=room.HotelRoomSearch(hotelid);
+				ArrayList<RoomInfoVO> r=room.hotelRoomSearch(hotelid);
 				for(int j=0;j<r.size();j++){
 					if(roomin.getPrice()!=0){
 						if(r.get(j).getPrice()!=roomin.getPrice()){

@@ -40,7 +40,7 @@ public class HotelReserve {
 		String hotelid=vo.getHotelID();
 		int number=vo.getRoomNumber();
 		roomcon=(RoomAddController)factory.getRoomAddBLService();
-		ArrayList<RoomInfoVO> room=roomcon.HotelRoomSearch(hotelid);
+		ArrayList<RoomInfoVO> room=roomcon.hotelRoomSearch(hotelid);
 		//System.out.println(room.size());
 		for(int i=0;i<room.size();i++ ){
 			RoomInfoVO v=room.get(i);
@@ -51,7 +51,7 @@ public class HotelReserve {
 					room.set(i,v);
 					number--;
 					if(number==0){
-						roomcon.HotelRoomMod(hotelid, room);
+						roomcon.hotelRoomMod(hotelid, room);
 						return ResultMsg.SUCCESS;
 					}	
 				}

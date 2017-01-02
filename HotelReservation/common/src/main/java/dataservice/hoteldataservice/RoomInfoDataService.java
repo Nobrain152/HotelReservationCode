@@ -41,7 +41,7 @@ public interface RoomInfoDataService extends Remote{
 	 * @return
 	 * @throws RemoteException 
 	 */
-	public ArrayList<RoomInfoPO> HotelRoomSearch(String hotelID) throws RemoteException;
+	public ArrayList<RoomInfoPO> hotelRoomSearch(String hotelID) throws RemoteException;
 	
 	
 

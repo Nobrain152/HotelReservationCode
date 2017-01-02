@@ -251,7 +251,7 @@ public class CustomerInfoManagementController extends BusinessController
 	@Override
 	public CustomerInfoPO getCustomerInfo(String userID) {
 		try {
-			return userManagementDataService.GetCustomerInfo(userID);
+			return userManagementDataService.getCustomerInfo(userID);
 		} catch (RemoteException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -263,7 +263,7 @@ public class CustomerInfoManagementController extends BusinessController
 	@Override
 	public void setCustomerInfo(String userID, CustomerInfoPO customerInfoPO) {
 		try {
-			userManagementDataService.SetCustomerInfo(userID, customerInfoPO);
+			userManagementDataService.setCustomerInfo(userID, customerInfoPO);
 		} catch (RemoteException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

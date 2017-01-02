@@ -40,7 +40,7 @@ public class WebManager extends User {
 	 * @return 用户个人信息VO
 	 */
 	public UserInfoVO individualInfolnq(String userid)throws RemoteException{
-		UserInfoPO po= data.GetWebManagerInfo(userid);
+		UserInfoPO po= data.getWebManagerInfo(userid);
 		UserInfoVO vo=(UserInfoVO)VOPOchange.POtoVO(po);
 		return vo;
 	}
@@ -52,7 +52,7 @@ public class WebManager extends User {
 	 * @return 修改结果
 	 */
 	public ResultMsg individualInfoMod(String userid,UserInfoVO vo2)throws RemoteException{
-		UserInfoPO past= data.GetWebManagerInfo(userid);
+		UserInfoPO past= data.getWebManagerInfo(userid);
 		past.setType(UserType.WebManager);
 		if(vo2.getContact()!=null){
 			if(vo2.getContact().length()!=11){
@@ -63,7 +63,7 @@ public class WebManager extends User {
 		if(vo2.getUsername()!=null){
 			past.setUsername(vo2.getUsername());
 		}
-		return data.SetWebManagerInfo(userid, past);
+		return data.setWebManagerInfo(userid, past);
 	}
 		
 	/**
@@ -81,7 +81,7 @@ public class WebManager extends User {
 	 * @param 用户IDVO
 	 */
 	public String stuffAdd(StuffInfoVO vo)throws RemoteException{
-		ArrayList<StuffInfoPO> already=data.HotelStuffScan();
+		ArrayList<StuffInfoPO> already=data.hotelStuffScan();
 		if(already!=null){
 			for(StuffInfoPO p:already){
 				if(p.getHotel().equals(vo.getHotel()))
@@ -90,7 +90,7 @@ public class WebManager extends User {
 		}
 		StuffInfoPO po=(StuffInfoPO)VOPOchange.VOtoPO(vo);
 		po.setPassword(MD5Util.md5Encode(po.getPassword()));
-		String id= data.AddHotelStuff(po);
+		String id= data.addHotelStuff(po);
 		return id;
 	}
 
@@ -113,10 +113,10 @@ public class WebManager extends User {
 		char c=userid.charAt(0);
 		UserInfoPO po;
 		switch(c){
-		case'1': po=data.GetCustomerInfo(userid);break;
-		case'2': po=data.GetHotelStuffInfo(userid);break;
-		case'3': po=data.GetWebStuffInfo(userid);break;
-		case'4': po=data.GetWebManagerInfo(userid);break;
+		case'1': po=data.getCustomerInfo(userid);break;
+		case'2': po=data.getHotelStuffInfo(userid);break;
+		case'3': po=data.getWebStuffInfo(userid);break;
+		case'4': po=data.getWebManagerInfo(userid);break;
 		default: po=null;
 		}
 		UserInfoVO vo=(UserInfoVO)VOPOchange.POtoVO(po);
@@ -137,7 +137,7 @@ public class WebManager extends User {
 		StuffInfoPO stuff;
 		UserInfoPO user;
 		if(c=='1'){
-			cu=data.GetCustomerInfo(userid);
+			cu=data.getCustomerInfo(userid);
 			cu.setType(UserType.Customer);
 			if(po1.getContact()!=null){
 				if(po1.getContact().length()!=11){
@@ -148,10 +148,10 @@ public class WebManager extends User {
 			if(po1.getUsername()!=null){
 				cu.setUsername(po1.getUsername());
 			}
-			return data.SetCustomerInfo(userid,cu);
+			return data.setCustomerInfo(userid,cu);
 		}
 		if(c=='2'){
-			stuff=data.GetHotelStuffInfo(userid);
+			stuff=data.getHotelStuffInfo(userid);
 			stuff.setType(UserType.HotelStuff);
 			if(po1.getContact()!=null){
 				if(po1.getContact().length()!=11){
@@ -162,10 +162,10 @@ public class WebManager extends User {
 			if(po1.getUsername()!=null){
 				stuff.setUsername(po1.getUsername());
 			}
-			return data.SetHotelStuffInfo(userid, stuff);
+			return data.setHotelStuffInfo(userid, stuff);
 		}
 		if(c=='3'){
-			user=data.GetWebStuffInfo(userid);
+			user=data.getWebStuffInfo(userid);
 			user.setType(UserType.WebStuff);
 			if(po1.getContact()!=null){
 				if(po1.getContact().length()!=11){
@@ -178,10 +178,10 @@ public class WebManager extends User {
 			}
 			//System.out.println(userid);
 			//return ResultMsg.SUCCESS;
-			return data.SetWebStuffInfo(userid, user);
+			return data.setWebStuffInfo(userid, user);
 		}
 		if(c=='4'){
-			user=data.GetWebManagerInfo(userid);
+			user=data.getWebManagerInfo(userid);
 			user.setType(UserType.WebManager);
 			if(po1.getContact()!=null){
 				if(po1.getContact().length()!=11){
@@ -192,7 +192,7 @@ public class WebManager extends User {
 			if(po1.getUsername()!=null){
 				user.setUsername(po1.getUsername());
 			}
-			return data.SetWebManagerInfo(userid, user);
+			return data.setWebManagerInfo(userid, user);
 		}
 		
 		return ResultMsg.FAIL;
@@ -209,7 +209,7 @@ public class WebManager extends User {
 		vo.setType(UserType.WebStuff);
 		UserInfoPO po=(UserInfoPO)VOPOchange.VOtoPO(vo);
 		po.setPassword(MD5Util.md5Encode(po.getPassword()));
-		String id= data.AddWebStuff(po);
+		String id= data.addWebStuff(po);
 		return id;
 	}
 	
@@ -219,7 +219,7 @@ public class WebManager extends User {
 	 * @return 网站营销人员列表
 	 */
 	public ArrayList<UserInfoVO> webStuffScan() throws RemoteException{
-		ArrayList<UserInfoPO> pos=data.WebStuffScan();
+		ArrayList<UserInfoPO> pos=data.webStuffScan();
 		ArrayList<UserInfoVO> vos=new ArrayList<UserInfoVO>();
 		for(int i=0;i<pos.size();i++){
 			vos.add((UserInfoVO)VOPOchange.POtoVO(pos.get(i)));

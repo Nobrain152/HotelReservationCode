@@ -16,9 +16,9 @@ public class LoginInputBLService_Driver {
 		}
 		
 		public void drive(LoginInputBLService a){
-			boolean b=a.LogIn("12345657","12345678");
-			b=a.LogOut(true);
-			String s=a.Register(new CustomerInfoVO());
+			boolean b=a.logIn("12345657","12345678");
+			b=a.logOut(true);
+			String s=a.register(new CustomerInfoVO());
 			UserType t=a.getType("12345678");
 		}
 }

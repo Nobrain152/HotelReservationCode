@@ -30,18 +30,18 @@ public class UserManagementDataServiceImplTest {
 	
 	@Test
 	public void test() throws RemoteException{
-		String ID = impl.AddCustomer(po);
+		String ID = impl.addCustomer(po);
 		assertEquals(ID, "60000055");
 	}
 	
 	@Test
 	public void testGetLoginInfo() throws RemoteException{
-		assertEquals(impl.GetLoginInfo("123"),"456");
+		assertEquals(impl.getLoginInfo("123"),"456");
 	}
 	
 	@Test
 	public void testGetCustomerInfo() throws RemoteException{
-		CustomerInfoPO ans = impl.GetCustomerInfo("19954722");
+		CustomerInfoPO ans = impl.getCustomerInfo("19954722");
 		assertEquals(ans.getUsername(), po.getUsername());
 	}
 	
@@ -66,7 +66,7 @@ public class UserManagementDataServiceImplTest {
 	@Test
 	public void testSeTCustomerInfo() throws RemoteException{
 		CustomerInfoPO po = new CustomerInfoPO("10000065", "kevin", "18805156300", "sfd", 400, true, null);
-		ResultMsg aMsg = impl.SetCustomerInfo("10000065", po);
+		ResultMsg aMsg = impl.setCustomerInfo("10000065", po);
 		assertEquals(aMsg, ResultMsg.SUCCESS);
 	}
 	

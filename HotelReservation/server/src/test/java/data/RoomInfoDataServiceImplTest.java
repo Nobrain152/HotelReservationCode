@@ -74,7 +74,7 @@ public class RoomInfoDataServiceImplTest {
 	
 	@Test
 	public void testHotelRoomSearch() throws RemoteException{
-		ArrayList<RoomInfoPO> arrayList = impl.HotelRoomSearch("5002");
+		ArrayList<RoomInfoPO> arrayList = impl.hotelRoomSearch("5002");
 		assertEquals("5002", arrayList.get(0).getHotelid());
 	}
 }

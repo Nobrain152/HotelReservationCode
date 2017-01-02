@@ -67,7 +67,7 @@ public class Customer extends User {
 	 * @return 酒店信息VO列表
 	 */
 	public HotelInfoVO hotelDetail(String hotelid,String userid)throws RemoteException{
-		ArrayList<String> hotel=userdataservice.GetCustomerHotel(userid);
+		ArrayList<String> hotel=userdataservice.getCustomerHotel(userid);
 		boolean wrong=true;
 		for(String s:hotel){
 			if(s.equals(hotelid)){
@@ -227,7 +227,7 @@ public class Customer extends User {
 	 * @return 个人基本信息
 	 */
 	public CustomerInfoVO individualInfolnq(String userid)throws RemoteException{
-		CustomerInfoPO userInfoPO = userdataservice.GetCustomerInfo(userid);
+		CustomerInfoPO userInfoPO = userdataservice.getCustomerInfo(userid);
 		CustomerInfoVO vo = (CustomerInfoVO)VOPOchange.POtoVO(userInfoPO);
 		return vo;
 	}
@@ -239,7 +239,7 @@ public class Customer extends User {
 	 * @return 修改结果
 	 */
 	public ResultMsg individualInfoMod(String userid,CustomerInfoVO vo2)throws RemoteException{
-		CustomerInfoPO past= userdataservice.GetCustomerInfo(userid);
+		CustomerInfoPO past= userdataservice.getCustomerInfo(userid);
 		if((past.getIsMember()!=vo2.getIsMember())||(past.getCredit()!=vo2.getCredit())||(!past.getUserID().equals(vo2.getUserID())||(past.getVipType()!=vo2.getVipType()))){
 			return ResultMsg.UNAUYHORIZED;
 		}
@@ -252,7 +252,7 @@ public class Customer extends User {
 		if(vo2.getUsername()!=null){
 			past.setUsername(vo2.getUsername());
 		}
-		return userdataservice.SetCustomerInfo(userid,past);
+		return userdataservice.setCustomerInfo(userid,past);
 		
 	}
 			
@@ -292,7 +292,7 @@ public class Customer extends User {
 	 * @return 个人酒店信息列表
 	 */
 	public ArrayList<HotelInfoVO> individualHotelInq(String userid)throws RemoteException{
-		ArrayList<String> hotel=userdataservice.GetCustomerHotel(userid);
+		ArrayList<String> hotel=userdataservice.getCustomerHotel(userid);
 		hotelinfo=(HotelInfoCheckController)factory.getHotelInfoCheckBLService();
 		for(int i=0;i<hotel.size();i++){
 			hotelInfoVOs.add(hotelinfo.checkHotelInfo(hotel.get(i)));
@@ -323,7 +323,7 @@ public class Customer extends User {
 	 */
 	public int individualCredictInq(String userid)throws RemoteException{
 		integral=(CreditController)factory.getCreditBLService();
-		return	integral.getCredit((CustomerInfoVO)VOPOchange.POtoVO(userdataservice.GetCustomerInfo(userid)));
+		return	integral.getCredit((CustomerInfoVO)VOPOchange.POtoVO(userdataservice.getCustomerInfo(userid)));
 	}
 	
 	

@@ -65,7 +65,7 @@ public class RoomAddControllerTest {
 	
 	@Test
 	public void testsearch(){
-		ArrayList<RoomInfoVO> all=impl.HotelRoomSearch("5002");
+		ArrayList<RoomInfoVO> all=impl.hotelRoomSearch("5002");
 		assertEquals(all.get(0).getRoomID(),"454");
 	}
 }

@@ -52,7 +52,7 @@ public class registerViewController implements Initializable{
 	public void btn_registerAction(ActionEvent event){
 		CustomerInfoVO user=new CustomerInfoVO(null,name.getText(),contact.getText(),password.getText(),300,false,null);
 		user.setType(UserType.Customer);
-		String id=register.Register(user);//TODO 判断结果，返回值是注册的ID，需改变界面，不输入ID，由系统自动返回
+		String id=register.register(user);//TODO 判断结果，返回值是注册的ID，需改变界面，不输入ID，由系统自动返回
 		Alert alert=new Alert(AlertType.INFORMATION);
 		alert.setTitle("提示");
 		alert.setHeaderText("注册成功！");

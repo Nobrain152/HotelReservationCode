@@ -51,7 +51,7 @@ public class loginViewController implements Initializable{
 		
 		String id=userid.getText();
 		String key=password.getText();
-		if(login.LogIn(id, key)){
+		if(login.logIn(id, key)){
 			helper.setUserID(id);
 			UserType type=login.getType(id);
 			switch(type){

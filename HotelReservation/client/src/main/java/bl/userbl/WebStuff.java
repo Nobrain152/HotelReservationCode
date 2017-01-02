@@ -49,7 +49,7 @@ public class WebStuff extends User{
 	 * @return 用户个人信息VO
 	 */
 	public UserInfoVO individualInfolnq(String userid)throws RemoteException{
-		UserInfoPO po= user.GetWebStuffInfo(userid);
+		UserInfoPO po= user.getWebStuffInfo(userid);
 		UserInfoVO vo=(UserInfoVO)VOPOchange.POtoVO(po);
 		return vo;
 	}
@@ -61,7 +61,7 @@ public class WebStuff extends User{
 	 * @return 修改结果
 	 */
 	public ResultMsg individualInfoMod(String userid,UserInfoVO vo2)throws RemoteException{
-		UserInfoPO past= user.GetWebStuffInfo(userid);
+		UserInfoPO past= user.getWebStuffInfo(userid);
 		past.setType(UserType.WebStuff);
 		if(vo2.getContact()!=null){
 			if(vo2.getContact().length()!=11){
@@ -72,7 +72,7 @@ public class WebStuff extends User{
 		if(vo2.getUsername()!=null){
 			past.setUsername(vo2.getUsername());
 		}
-		return user.SetWebStuffInfo(userid,past);
+		return user.setWebStuffInfo(userid,past);
 	}
 	
 	/**
@@ -138,9 +138,9 @@ public class WebStuff extends User{
 		CreditPO cre=inte.get(userid);
 		String string="+"+n;
 		CreditPO cre1=new CreditPO(cre.getUserID(),null,new Today().getToday(),util.Action.Charge,string,cre.getCreditResult()+n);
-		CustomerInfoPO customerInfo = user.GetCustomerInfo(userid);
+		CustomerInfoPO customerInfo = user.getCustomerInfo(userid);
 		customerInfo.setCredit(cre.getCreditResult()+n);
-		user.SetCustomerInfo(userid, customerInfo);
+		user.setCustomerInfo(userid, customerInfo);
 		return inte.insert(cre1);
 	}
 
@@ -160,7 +160,7 @@ public class WebStuff extends User{
 	 * @return 用户信用信息VO
 	 */
 	public int userCreditInq(String userid)throws RemoteException {
-		CustomerInfoVO vo=(CustomerInfoVO)VOPOchange.POtoVO(user.GetWebStuffInfo(userid));
+		CustomerInfoVO vo=(CustomerInfoVO)VOPOchange.POtoVO(user.getWebStuffInfo(userid));
 		inte=(CreditController)factory.getCreditBLService();
 		return inte.getCredit(vo);
 	}

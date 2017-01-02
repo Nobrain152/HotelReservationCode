@@ -24,7 +24,7 @@ public interface CustomerManagementDataService extends UserManagementDataService
 		 * @param 用户ID
 		 * @return 订单ID列表 
 		 */
-		public ArrayList<String> GetCustomerOrders(String userid) throws RemoteException;
+		public ArrayList<String> getCustomerOrders(String userid) throws RemoteException;
 		
 		
 		
@@ -33,7 +33,7 @@ public interface CustomerManagementDataService extends UserManagementDataService
 		 * @param 用户ID
 		 * @return 用户预定过的酒店ID列表
 		 */
-		public ArrayList<String> GetCustomerHotel(String userid) throws RemoteException;
+		public ArrayList<String> getCustomerHotel(String userid) throws RemoteException;
 		
 		/**
 		 * 增加用户居住过的酒店信息

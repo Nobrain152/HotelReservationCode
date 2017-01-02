@@ -20,7 +20,7 @@ public class RoomAddBLService_Driver {
 		public void drive(RoomAddBLService a){
 			ResultMsg resultMsg=a.addRoom(new RoomInfoVO());
 			resultMsg=a.updateRoom(new RoomInfoVO());
-			ArrayList<RoomInfoVO> arrayList=a.HotelRoomSearch("5000");
+			ArrayList<RoomInfoVO> arrayList=a.hotelRoomSearch("5000");
 			arrayList=a.getEmptyRoom("5000");
 			arrayList=a.getTypeRoom("5000",RoomType.ROOM_BIGBED);
 			RoomInfoPO po=a.findByRoomID("456");

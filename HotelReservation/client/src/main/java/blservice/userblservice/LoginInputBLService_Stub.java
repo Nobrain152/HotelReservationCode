@@ -7,19 +7,19 @@ public class LoginInputBLService_Stub implements LoginInputBLService{
 
 	
 	@Override
-	public boolean LogIn(String id, String password) {
+	public boolean logIn(String id, String password) {
 		
 		return true;
 	}
 
 	@Override
-	public boolean LogOut(boolean ok) {
+	public boolean logOut(boolean ok) {
 		
 		return true;
 	}
 
 	@Override
-	public String Register(CustomerInfoVO vo) {
+	public String register(CustomerInfoVO vo) {
 		
 		return "10000000";
 	}

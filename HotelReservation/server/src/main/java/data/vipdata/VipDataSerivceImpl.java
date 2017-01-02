@@ -52,9 +52,9 @@ public class VipDataSerivceImpl extends DataSuperClass implements VipDataService
 
 	@Override
 	public ResultMsg updateC(CommonVipPO vip) throws RemoteException {
-		CustomerInfoPO po = customerManagementDataService.GetCustomerInfo(vip.getUserID());
+		CustomerInfoPO po = customerManagementDataService.getCustomerInfo(vip.getUserID());
 		setVipTOCustomerC(po, vip);
-		ResultMsg a = customerManagementDataService.SetCustomerInfo(vip.getUserID(), po);
+		ResultMsg a = customerManagementDataService.setCustomerInfo(vip.getUserID(), po);
 		if(a == ResultMsg.SUCCESS){
 			return modifyFromSQL(tableName, vip.getUserID(),vip.getUsername(),
 								vip.getPassword(),vip.getContact(),
@@ -104,9 +104,9 @@ public class VipDataSerivceImpl extends DataSuperClass implements VipDataService
 
 	@Override
 	public ResultMsg updateB(BusinessVipPO vip) throws RemoteException {
-		CustomerInfoPO po = customerManagementDataService.GetCustomerInfo(vip.getUserID());
+		CustomerInfoPO po = customerManagementDataService.getCustomerInfo(vip.getUserID());
 		setVipTOCustomerB(po, vip);
-		ResultMsg a = customerManagementDataService.SetCustomerInfo(vip.getUserID(), po);
+		ResultMsg a = customerManagementDataService.setCustomerInfo(vip.getUserID(), po);
 		if(a == ResultMsg.SUCCESS){
 			return modifyFromSQL(tableName, vip.getUserID(),vip.getUsername(),
 								vip.getPassword(),vip.getContact(),

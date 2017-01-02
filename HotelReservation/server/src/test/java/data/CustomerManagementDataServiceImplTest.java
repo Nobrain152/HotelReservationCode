@@ -30,13 +30,13 @@ public class CustomerManagementDataServiceImplTest {
 	
 	@Test
 	public void testGetCustomerOrders() throws RemoteException{
-		ArrayList<String> orders = impl.GetCustomerOrders("19954722");
+		ArrayList<String> orders = impl.getCustomerOrders("19954722");
 		assertEquals(orders.get(0), "600000007");
 	}
 	
 	@Test
 	public void testGetCustomerHotel() throws RemoteException{
-		ArrayList<String> hotels = impl.GetCustomerHotel("18805156300");
+		ArrayList<String> hotels = impl.getCustomerHotel("18805156300");
 		assertEquals(hotels.get(0), "5002");
 	}
 	

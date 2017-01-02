@@ -77,7 +77,7 @@ public class RoomInfoDataServiceImpl extends DataSuperClass implements RoomInfoD
 	 * 查找一个酒店的所有房间
 	 */
 	@Override
-	public ArrayList<RoomInfoPO> HotelRoomSearch(String hotelID) throws RemoteException {
+	public ArrayList<RoomInfoPO> hotelRoomSearch(String hotelID) throws RemoteException {
 		sql =  "SELECT * FROM " + tableName  + " WHERE hotelID = \'" + hotelID + "\'";
 		return findMsgs(sql);
 	}

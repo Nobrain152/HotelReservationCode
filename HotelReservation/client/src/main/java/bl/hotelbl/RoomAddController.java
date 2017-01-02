@@ -68,9 +68,9 @@ public class RoomAddController extends BusinessController implements RoomAddBLSe
 	 * @param hotelID
 	 * @return
 	 */
-	public ArrayList<RoomInfoVO> HotelRoomSearch(String hotelID){
+	public ArrayList<RoomInfoVO> hotelRoomSearch(String hotelID){
 		try {
-			return roomAdd.HotelRoomSearch(hotelID);
+			return roomAdd.hotelRoomSearch(hotelID);
 		} catch (RemoteException e) {
 			return null;
 		}
@@ -82,9 +82,9 @@ public class RoomAddController extends BusinessController implements RoomAddBLSe
 	 * @param po
 	 * @return
 	 */
-	public ResultMsg HotelRoomMod(String hotelid,ArrayList<RoomInfoVO> vo){
+	public ResultMsg hotelRoomMod(String hotelid,ArrayList<RoomInfoVO> vo){
 		try {
-			return roomAdd.HotelRoomMod(hotelid, vo);
+			return roomAdd.hotelRoomMod(hotelid, vo);
 		} catch (RemoteException e) {
 			return ResultMsg.FAIL;
 		}

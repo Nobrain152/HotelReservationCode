@@ -34,7 +34,7 @@ public interface RoomAddBLService {
 	 * @param hotelID
 	 * @return
 	 */
-	public ArrayList<RoomInfoVO> HotelRoomSearch(String hotelID);
+	public ArrayList<RoomInfoVO> hotelRoomSearch(String hotelID);
 	
 	/**
 	 * 修改酒店房间列表
@@ -42,7 +42,7 @@ public interface RoomAddBLService {
 	 * @param po
 	 * @return
 	 */
-	public ResultMsg HotelRoomMod(String hotelid,ArrayList<RoomInfoVO> po);
+	public ResultMsg hotelRoomMod(String hotelid,ArrayList<RoomInfoVO> po);
    
 	
 	/**

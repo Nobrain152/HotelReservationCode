@@ -107,7 +107,7 @@ public class OrderDataServiceImpl extends DataSuperClass implements OrderDataSer
 			
 			while (result.next()) {
 					orderPO = new OrderPO(result.getString(1), 
-							customer.GetCustomerInfo(result.getString(2))/*需要返回customerinfo*/, 
+							customer.getCustomerInfo(result.getString(2))/*需要返回customerinfo*/, 
 							OrderState.valueOf(result.getString(3)),
 							Double.valueOf(result.getString(4)), result.getString(5), 
 							Boolean.valueOf(result.getString(6)), result.getString(7), 
@@ -134,7 +134,7 @@ public class OrderDataServiceImpl extends DataSuperClass implements OrderDataSer
 			result = preState.executeQuery();
 			while (result.next()) {
 					orderPO = new OrderPO(result.getString(1), 
-							customer.GetCustomerInfo(result.getString(2))/*需要返回customerinfo*/, 
+							customer.getCustomerInfo(result.getString(2))/*需要返回customerinfo*/, 
 							OrderState.valueOf(result.getString(3)),
 							Double.valueOf(result.getString(4)), result.getString(5), 
 							Boolean.valueOf(result.getString(6)), result.getString(7), 

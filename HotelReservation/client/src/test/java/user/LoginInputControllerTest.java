@@ -23,13 +23,13 @@ public class LoginInputControllerTest {
 
 		@Test
 		public void testLogin() {
-			boolean result=im.LogIn("12345678","12345678");
+			boolean result=im.logIn("12345678","12345678");
 			assertEquals(result,true);
 		}
 		
 		@Test
 		public void testLogout(){
-			boolean result=im.LogOut(true);
+			boolean result=im.logOut(true);
 			assertEquals(result,true);
 		}
 		
@@ -39,7 +39,7 @@ public class LoginInputControllerTest {
 			//vo.setPassword("12345679");
 			vo.setType(UserType.Customer);
 			vo.setType(UserType.Customer);
-		    String result=im.Register(vo);
+		    String result=im.register(vo);
 		    assertEquals("10000067",result);
 		}
 	

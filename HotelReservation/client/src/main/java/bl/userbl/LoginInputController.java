@@ -36,9 +36,9 @@ public class LoginInputController implements LoginInputBLService {
 	 * @param 登录输入信息VO
 	 * @return 登录结果
 	 */
-    public boolean  LogIn(String id,String password){
+    public boolean  logIn(String id,String password){
     	try {
-			return user.LogIn(id,password);
+			return user.logIn(id,password);
 		} catch (RemoteException e) {
 			e.printStackTrace();
 			return false;
@@ -51,9 +51,9 @@ public class LoginInputController implements LoginInputBLService {
 	 * @param 登录输入信息VO
 	 * @return 登出结果
 	 */
-	public boolean LogOut(boolean ok){
+	public boolean logOut(boolean ok){
 		try {
-			return user.LogOut(ok);
+			return user.logOut(ok);
 		} catch (RemoteException e) {
 			e.printStackTrace();
 			return false;
@@ -66,9 +66,9 @@ public class LoginInputController implements LoginInputBLService {
 	 * @param 登录输入信息VO
 	 * @return 注册结果
 	 */
-	public String Register(CustomerInfoVO vo){
+	public String register(CustomerInfoVO vo){
 		try {
-			return user.Register(vo);
+			return user.register(vo);
 		} catch (RemoteException e) {
 			e.printStackTrace();
 			return null;

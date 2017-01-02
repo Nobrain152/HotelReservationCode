@@ -46,7 +46,7 @@ public class UserManagementDataServiceImpl extends DataSuperClass implements Use
 	}
 
 	@Override
-	public String GetLoginInfo(String userid) throws RemoteException {
+	public String getLoginInfo(String userid) throws RemoteException {
 		LoginInpoData login = new LoginInpoData();
 		LoginInPO po =login.findLoginPO(userid);
 		return po.getPassword();
@@ -54,7 +54,7 @@ public class UserManagementDataServiceImpl extends DataSuperClass implements Use
 	
 	
 	@Override
-	public String AddCustomer(CustomerInfoPO po) throws RemoteException {
+	public String addCustomer(CustomerInfoPO po) throws RemoteException {
 		LoginInPO loginIn;
 		LoginInpoData loginInpoData = new LoginInpoData();
 		ResultMsg bMsg;
@@ -78,7 +78,7 @@ public class UserManagementDataServiceImpl extends DataSuperClass implements Use
 	}
 	
 	@Override
-	public String AddHotelStuff(StuffInfoPO po) throws RemoteException{
+	public String addHotelStuff(StuffInfoPO po) throws RemoteException{
 		LoginInPO loginIn;
 		LoginInpoData loginInpoData = new LoginInpoData();
 		String newID = CreateID.getCreateID().getNewHotelStuffID();
@@ -95,7 +95,7 @@ public class UserManagementDataServiceImpl extends DataSuperClass implements Use
 	}
 
 	@Override
-	public String AddWebStuff(UserInfoPO po) throws RemoteException {
+	public String addWebStuff(UserInfoPO po) throws RemoteException {
 		LoginInPO loginIn;
 		LoginInpoData loginInpoData = new LoginInpoData();
 		String newID = CreateID.getCreateID().getNewWebStuffID();
@@ -111,7 +111,7 @@ public class UserManagementDataServiceImpl extends DataSuperClass implements Use
 	}
 
 	@Override
-	public String AddWebManager(UserInfoPO po) throws RemoteException {
+	public String addWebManager(UserInfoPO po) throws RemoteException {
 		LoginInPO loginIn;
 		LoginInpoData loginInpoData = new LoginInpoData();
 		String newID = CreateID.getCreateID().getNewWebManagerID();
@@ -128,7 +128,7 @@ public class UserManagementDataServiceImpl extends DataSuperClass implements Use
 
 
 	@Override
-	public StuffInfoPO GetHotelStuffInfo(String userid) throws RemoteException{
+	public StuffInfoPO getHotelStuffInfo(String userid) throws RemoteException{
 		findMes = findFromSQL(tableName3, userid);
 		StuffInfoPO po = new StuffInfoPO(findMes.get(0),findMes.get(1),findMes.get(3),
 										findMes.get(5),findMes.get(2));
@@ -138,21 +138,21 @@ public class UserManagementDataServiceImpl extends DataSuperClass implements Use
 	
 	
 	@Override
-	public UserInfoPO GetWebManagerInfo(String userid) throws RemoteException{
+	public UserInfoPO getWebManagerInfo(String userid) throws RemoteException{
 		findMes = findFromSQL(tableName,userid);
 		UserInfoPO po = new UserInfoPO(findMes.get(0), findMes.get(1), findMes.get(3), findMes.get(2));
 		return po;
 	}
 
 	@Override
-	public UserInfoPO GetWebStuffInfo(String userid) throws RemoteException{
+	public UserInfoPO getWebStuffInfo(String userid) throws RemoteException{
 		findMes = findFromSQL(tableName, userid);
 		UserInfoPO po = new UserInfoPO(findMes.get(0), findMes.get(1),findMes.get(3), findMes.get(2));
 		return po;
 	}
 
 	@Override
-	public CustomerInfoPO GetCustomerInfo(String userid) throws RemoteException{
+	public CustomerInfoPO getCustomerInfo(String userid) throws RemoteException{
 		findMes = findFromSQL(tableName2, userid);
 		CustomerInfoPO po = null;
 		if(findMes.get(6) != null){
@@ -171,26 +171,26 @@ public class UserManagementDataServiceImpl extends DataSuperClass implements Use
 	}
 
 	@Override
-	public ResultMsg SetHotelStuffInfo(String userid, StuffInfoPO po) throws RemoteException{
+	public ResultMsg setHotelStuffInfo(String userid, StuffInfoPO po) throws RemoteException{
 		return modifyFromSQL(tableName3, po.getUserID(),po.getUsername(),po.getPassword(),
 							po.getContact(),po.getType().toString(),
 							po.getHotel());
 	}
 
 	@Override
-	public ResultMsg SetWebManagerInfo(String userid, UserInfoPO po) throws RemoteException{
+	public ResultMsg setWebManagerInfo(String userid, UserInfoPO po) throws RemoteException{
 		return modifyFromSQL(tableName, po.getUserID(),po.getUsername(),po.getPassword(),
 										po.getContact(),po.getType().toString());
 	}
 
 	@Override
-	public ResultMsg SetWebStuffInfo(String userid, UserInfoPO po2) throws RemoteException{
+	public ResultMsg setWebStuffInfo(String userid, UserInfoPO po2) throws RemoteException{
 		return modifyFromSQL(tableName, po2.getUserID(),po2.getUsername(),po2.getPassword(),
 										po2.getContact(),po2.getType().toString());
 	}
 
 	@Override
-	public ResultMsg SetCustomerInfo(String userid, CustomerInfoPO po) throws RemoteException{
+	public ResultMsg setCustomerInfo(String userid, CustomerInfoPO po) throws RemoteException{
 		if(po.getVipType() != null){
 			return modifyFromSQL(tableName2, po.getUserID(),po.getUsername(),po.getPassword(),po.getContact(),
 											po.getType().toString(),""+po.getIsMember(),
@@ -206,7 +206,7 @@ public class UserManagementDataServiceImpl extends DataSuperClass implements Use
 
 
 	@Override
-	public ArrayList<UserInfoPO> WebStuffScan() throws RemoteException{
+	public ArrayList<UserInfoPO> webStuffScan() throws RemoteException{
 		ArrayList<UserInfoPO> pos = new ArrayList<UserInfoPO>();
 		
 		try {
@@ -229,7 +229,7 @@ public class UserManagementDataServiceImpl extends DataSuperClass implements Use
 	}
 
 	@Override
-	public ArrayList<StuffInfoPO> HotelStuffScan() throws RemoteException{
+	public ArrayList<StuffInfoPO> hotelStuffScan() throws RemoteException{
 		ArrayList<StuffInfoPO> pos = new ArrayList<StuffInfoPO>();
 		
 		try {

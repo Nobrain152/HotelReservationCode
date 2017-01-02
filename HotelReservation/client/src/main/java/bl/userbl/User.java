@@ -32,8 +32,8 @@ public class User {
 	 * @param 登录输入信息VO
 	 * @return 登录结果
 	 */
-    public boolean  LogIn(String id,String password)throws RemoteException{
-    	String real=data.GetLoginInfo(id);
+    public boolean  logIn(String id,String password)throws RemoteException{
+    	String real=data.getLoginInfo(id);
     	password=MD5Util.md5Encode(password);
     	return real.equals(password);
     	
@@ -45,7 +45,7 @@ public class User {
 	 * @param 登录输入信息VO
 	 * @return 登出结果
 	 */
-	public boolean LogOut(boolean ok)throws RemoteException{
+	public boolean logOut(boolean ok)throws RemoteException{
 		if(ok){
 			return true;
 		}
@@ -60,11 +60,11 @@ public class User {
 	 * @param 登录输入信息VO
 	 * @return 注册结果
 	 */
-	public String Register(CustomerInfoVO vo)throws RemoteException{
+	public String register(CustomerInfoVO vo)throws RemoteException{
 		CustomerInfoPO po=(CustomerInfoPO)VOPOchange.VOtoPO(vo);
 		po.setCredit(0);
 		po.setPassword(MD5Util.md5Encode(po.getPassword()));
-		String newID = data.AddCustomer(po);
+		String newID = data.addCustomer(po);
 		CreditPO creditPO = new CreditPO(newID, "初始化", "初始化", Action.Initial, "初始化", 0);
 		creditController.insert(creditPO);
 		return newID;

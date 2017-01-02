@@ -31,13 +31,13 @@ public class RoomAddBLService_Stub implements RoomAddBLService{
 	}
 
 	@Override
-	public ArrayList<RoomInfoVO> HotelRoomSearch(String hotelID) {
+	public ArrayList<RoomInfoVO> hotelRoomSearch(String hotelID) {
 		
 		return aa;
 	}
 
 	@Override
-	public ResultMsg HotelRoomMod(String hotelid, ArrayList<RoomInfoVO> po) {
+	public ResultMsg hotelRoomMod(String hotelid, ArrayList<RoomInfoVO> po) {
 		
 		return ResultMsg.SUCCESS;
 	}

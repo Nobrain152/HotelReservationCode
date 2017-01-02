@@ -18,21 +18,21 @@ public interface LoginInputBLService{
 	 * @param 登录输入信息VO
 	 * @return 登录结果
 	 */
-    public boolean  LogIn(String id,String password);
+    public boolean  logIn(String id,String password);
 		
 	/**
 	 * 登出	
 	 * @param 登录输入信息VO
 	 * @return 登出结果
 	 */
-	public boolean LogOut(boolean ok);
+	public boolean logOut(boolean ok);
 		
 	/**
 	 * 注册	
 	 * @param 登录输入信息VO
 	 * @return 注册结果
 	 */
-	public String Register(CustomerInfoVO vo);
+	public String register(CustomerInfoVO vo);
 	
 	/**
 	 * 得到用户类型

@@ -54,9 +54,9 @@ public class RoomAdd {
 	 * @param hotelID
 	 * @return
 	 */
-	public ArrayList<RoomInfoVO> HotelRoomSearch(String hotelID)throws RemoteException{
+	public ArrayList<RoomInfoVO> hotelRoomSearch(String hotelID)throws RemoteException{
 		ArrayList<RoomInfoVO> vos=new ArrayList<RoomInfoVO>();
-		ArrayList<RoomInfoPO> pos=roomData.HotelRoomSearch(hotelID);
+		ArrayList<RoomInfoPO> pos=roomData.hotelRoomSearch(hotelID);
 		//System.out.println(pos.size());
 		for(RoomInfoPO p:pos){
 			vos.add((RoomInfoVO)VOPOchange.POtoVO(p));
@@ -70,7 +70,7 @@ public class RoomAdd {
 	 * @param vo
 	 * @return
 	 */
-	public ResultMsg HotelRoomMod(String hotelid,ArrayList<RoomInfoVO> vo)throws RemoteException{
+	public ResultMsg hotelRoomMod(String hotelid,ArrayList<RoomInfoVO> vo)throws RemoteException{
 		for(RoomInfoVO v:vo){
 			ResultMsg resultMsg1=roomData.delete(v.getHotelid(),v.getRoomID());
 			resultMsg1=roomData.insert((RoomInfoPO)VOPOchange.VOtoPO(v));
@@ -92,7 +92,7 @@ public class RoomAdd {
 	 */
 	public ArrayList<RoomInfoVO> getEmptyRoom(String hotelid) throws RemoteException{
 		ArrayList<RoomInfoVO> empty=new ArrayList<RoomInfoVO>();
-		ArrayList<RoomInfoVO> all=HotelRoomSearch(hotelid);
+		ArrayList<RoomInfoVO> all=hotelRoomSearch(hotelid);
 		for(RoomInfoVO vo:all){
 			if(vo.getState()==RoomState.USABLE){
 				empty.add(vo);
@@ -113,7 +113,7 @@ public class RoomAdd {
 	 */
 	public ArrayList<RoomInfoVO> getTypeRoom(String hotelid,RoomType type) throws RemoteException{
 		ArrayList<RoomInfoVO> empty=new ArrayList<RoomInfoVO>();
-		ArrayList<RoomInfoVO> all=HotelRoomSearch(hotelid);
+		ArrayList<RoomInfoVO> all=hotelRoomSearch(hotelid);
 		for(RoomInfoVO vo:all){
 			if(vo.getState()==RoomState.USABLE){
 				if(vo.getType()==type){

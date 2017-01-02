@@ -250,7 +250,7 @@ public class HotelStuff extends User {
 	 */
 	public ArrayList<RoomInfoVO> hotelRoomList(String hotelid)throws RemoteException{
 		room=(RoomAddController)factory.getRoomAddBLService();
-		return room.HotelRoomSearch(hotelid);
+		return room.hotelRoomSearch(hotelid);
 	}
 	
 	/**
@@ -261,7 +261,7 @@ public class HotelStuff extends User {
 	 */
 	public ResultMsg setRoomInfo(ArrayList<RoomInfoVO> rooms)throws RemoteException{
 		room=(RoomAddController)factory.getRoomAddBLService();
-		return room.HotelRoomMod(rooms.get(0).getHotelid(), rooms);
+		return room.hotelRoomMod(rooms.get(0).getHotelid(), rooms);
 	}
 	
 	/**
@@ -270,7 +270,7 @@ public class HotelStuff extends User {
 	 * @return 酒店管理人员信息VO
 	 */
 	public StuffInfoVO individualInfolnq(String userid)throws RemoteException{
-		StuffInfoPO userInfoPO = userDataService.GetHotelStuffInfo(userid);
+		StuffInfoPO userInfoPO = userDataService.getHotelStuffInfo(userid);
 		userInfoVO = (StuffInfoVO)VOPOchange.POtoVO(userInfoPO);
 		return  userInfoVO;
 	}
@@ -283,7 +283,7 @@ public class HotelStuff extends User {
 	 * @return 修改结果
 	 */
 	public ResultMsg individualInfoMod(String userid,StuffInfoVO vo2)throws RemoteException{
-		StuffInfoPO past= userDataService.GetHotelStuffInfo(userid);
+		StuffInfoPO past= userDataService.getHotelStuffInfo(userid);
 		past.setType(UserType.HotelStuff);
 		if(vo2.getContact()!=null){
 			if(vo2.getContact().length()!=11){
@@ -294,7 +294,7 @@ public class HotelStuff extends User {
 		if(vo2.getUsername()!=null){
 			past.setUsername(vo2.getUsername());
 		}
-		return userDataService.SetHotelStuffInfo(userid, past);
+		return userDataService.setHotelStuffInfo(userid, past);
 		
 	}
 	
